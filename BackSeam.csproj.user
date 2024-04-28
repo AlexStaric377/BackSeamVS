@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MessageError.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MessageWarn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MessageWarning.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinAnalogDiagnoz.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinDeleteData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinLikarGrupDiagnoz.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinListInteviewPacient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinMedicalGrDiagnoz.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinMessageErr.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiDetailing.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinCreatIntreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiGrDetailing.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiIntreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiLikar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiListDiagnoz.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiListGrDiagnoz.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiListRecommen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiMedZaklad.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiPacient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiQualification.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiStatusUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiFeature.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiGrQualification.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiIcd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinNsiListGroupDelit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinProfilPacient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinRegisterAccountUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WinResultInterview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessageError.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessageWarn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessageWarning.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinAnalogDiagnoz.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinDeleteData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinLikarGrupDiagnoz.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinListInteviewPacient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinMedicalGrDiagnoz.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinMessageErr.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiDetailing.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinCreatIntreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiGrDetailing.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiIntreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiLikar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiListDiagnoz.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiListGrDiagnoz.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiListRecommen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiMedZaklad.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiPacient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiQualification.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiStatusUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiFeature.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiGrQualification.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiIcd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinNsiListGroupDelit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinProfilPacient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinRegisterAccountUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinResultInterview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

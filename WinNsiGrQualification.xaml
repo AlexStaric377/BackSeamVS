@@ -1,0 +1,83 @@
+﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
+    Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
+    <Window x:Class="BackSeam.WinNsiGrQualification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewNsiGrQualification}"
+        mc:Ignorable="d" 
+        Title="WinNsiGrQualification"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
+         ShowInTaskbar="True"   Height="400" Width="330" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        Background="{x:Null}"  >
+    <Window.DataContext>
+        <local:ViewNsiGrQualification/>
+    </Window.DataContext>
+
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="330" Width="300" >
+        <StackPanel.Effect>
+            <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
+        </StackPanel.Effect>
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="330" Width="280">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="320" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="270*" />
+                    <RowDefinition Height="30*" />
+
+                </Grid.RowDefinitions>
+                <Label Name="Zagolovok"  Content="Групи кваліфікації " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
+
+                <ListBox Grid.Row="1" Name="TablGrQualifications" ItemsSource="{Binding NsiGroupQualifications}" VerticalAlignment="Top"
+                    SelectedItem ="{Binding SelectedGroupQualification}" Height="265" Background="#FFE2E2DD"
+                    Width="260" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <!---->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                                 <TextBlock Text="{Binding Path=nameGroupQualification}"   Width="240" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                         </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
+                    Source="pack://application:,,,/BackSeam;component/Images/xrestik.png"
+                     Cursor="Hand"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding CloseGrQualification}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width ="100*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="2" Grid.Column="0" Height="25" Width="70" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SaveGrQualification}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Label Grid.Column="2" Height="25" FontSize="10"  Width="70" Content="Вибрати" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Arial"  >
+                        </Label>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Height="25" Width="80" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding CloseGrQualification}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Label Grid.Column="2" Height="25" FontSize="10"  FontStyle="Normal" FontFamily="Courier"  Width="65" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >
+                        </Label>
+                    </Border>
+                </Grid>
+
+            </Grid>
+        </Border>
+    </StackPanel>
+</Window>

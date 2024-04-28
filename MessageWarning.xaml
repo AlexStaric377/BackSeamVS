@@ -1,0 +1,46 @@
+﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
+    Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
+    <Window x:Class="BackSeam.MessageWarning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelMessageWarning}"
+        mc:Ignorable="d"
+        Title="MessageWarning" WindowState="Normal" AllowsTransparency="True" WindowStyle="None"   ShowInTaskbar="False"
+        Height="400" Width="650" Background="{x:Null}"  WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:ViewModelMessageWarning/>
+    </Window.DataContext>
+    <Grid   Name="WinWarning">
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/BackSeam;component/Images/podskazka1.png"/>
+        </Grid.Background>
+            <!--<Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/FrontSeam;component/Images/mesage.png" Stretch="Fill" TileMode="None" />
+        </Grid.Background>-->
+        <Grid Height="200"   Name="grid2"  Width="480" VerticalAlignment="Center" Margin="0,0,0,50" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160*" />
+                <RowDefinition Height="40*"/>
+            </Grid.RowDefinitions>
+            <Border  Grid.Row="1" Height="28" Width="100"  BorderBrush="#FFFBE16B" Background="#FFFBE16B"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                              BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding CloseWarning}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Label Grid.Column="2" Height="28" FontSize="14"  Width="80" Content="Далі" Background="#FFFBE16B"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif" >
+                    </Label>
+            </Border>
+
+            <TextBlock Grid.Row="0" TextAlignment="Center" FontFamily="Calibri" Text="" FontSize="20" Name="MessageText" VerticalAlignment="Center" 
+                       TextWrapping="Wrap"    HorizontalAlignment="Center" Width="480" Height="160"/>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+<Grid Grid.Column="0" Grid.Row="0" >
+                                        <StackPanel Name="IntervLoad"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
+                                            <Button Command="{Binding LoadColectionInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                               <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
+                                            </Button>
+                                            <Label Content="Завантажити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                        </StackPanel>
+                                    </Grid>
+                                    <!--<Grid x:Name="InterviewGridAdd" Grid.Column="1" Grid.Row="0"  >
+                                                <StackPanel Name="InterviewAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                    <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="38" Width="77"  ></Image>
+                                                    <Label Content="Додати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                                </StackPanel>
+                                            </Grid>-->
+                                    <!--<Grid x:Name="InterviewGridGhange" Grid.Column="2" Grid.Row="0"  >
+                                                <StackPanel Name="InterviewGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                    <Button Command="{Binding LoadColectionInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">    
+                                                        <Image  Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="38" Width="77" ></Image>
+                                                    </Button>
+                                                    <Label Content="Змінити" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                                </StackPanel>
+                                            </Grid>-->
+                                    <!--<Grid x:Name="ColectionGridGhange" Grid.Column="2" Grid.Row="0"  >
+                                        <StackPanel Name="ColectionGhange"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                                            <Button Command="{Binding EditColectionCompl}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                
+                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
+                                            </Button>
+                                            <Label Content="Редагувати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="InterGridDelete" Grid.Column="3" Grid.Row="0"   >
+                                        <StackPanel Name="InterDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                            <Button Command="{Binding RemoveColectionCompl}" CommandParameter="{Binding SelectedFeatureComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                
+                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
+                                            </Button>
+                                            <Label Content="Стерти" FontSize="14" Height="30" HorizontalAlignment="Center"  VerticalAlignment="Center"></Label>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="InterGridSave" Grid.Column="4" Grid.Row="0"  >
+                                        <StackPanel Name="InterSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                            <Button Command="{Binding SaveColectionCompl}"  Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
+                                            </Button>
+                                            <Label Content="Зберегти" FontSize="14" Height="30"  VerticalAlignment="Center"></Label>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="InterGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
+                                        <StackPanel Name="InterPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                            <Button Command="{Binding PrintColectionCompl}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
+                                            </Button>
+                                            <Label Content="Друкувати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                        </StackPanel>
+                                    </Grid>-->

@@ -1,0 +1,99 @@
+﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
+    Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
+    <Window x:Class="BackSeam.WinCreatIntreview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:BackSeam"  d:DataContext ="{d:DesignInstance Type=local:ViewModelCreatInterview}"
+        mc:Ignorable="d"
+        Title="WinCreatIntreview" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
+         ShowInTaskbar="True"   Height="640" Width="630" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        Background="{x:Null}"  >
+    <Window.DataContext>
+        <local:ViewModelCreatInterview/>
+    </Window.DataContext>
+
+    <StackPanel x:Name ="InterWin" VerticalAlignment="Center" Height="530" Width="600" >
+        <StackPanel.Effect>
+            <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
+        </StackPanel.Effect>
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="530" Width="580">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="520" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*" />
+                    <RowDefinition Height="470*" />
+                    <RowDefinition Height="30*" />
+                </Grid.RowDefinitions>
+                <Label Name="Zagolovok"  Content="Зміст складеного опитувння" Grid.Row="0" FontSize="15" FontWeight="Black" HorizontalAlignment="Center"  />
+
+                <ListView Grid.Row="1" Name="TablInterviews" ItemsSource="{Binding ContentIntervs}" VerticalAlignment="Top"
+                    SelectedItem ="{Binding SelectedContentInterv}"  Height="455" Background="#FFE2E2DD"
+                    Width="560" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablInterviews, Path=DataContext.SelectContentCompl}"
+                                          CommandParameter=""/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                 <TextBlock Text="{Binding Path=detailsInterview}" TextWrapping="Wrap"   Width="540" Height="40" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                         </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
+                    Source="pack://application:,,,/BackSeam;component/Images/xrestik.png"
+                     Cursor="Hand"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding CloseCreatInterview}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>                
+                <Grid  x:Name="Podval"  Grid.Row="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="150*"/>
+                        <ColumnDefinition Width ="150*"/>
+                        <ColumnDefinition Width ="150*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="BorderPlus" Grid.Row="2" Grid.Column="0" Height="25" Width="50" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                        Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Cursor="Hand"  >
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding AddstrokaInterview}" CommandParameter=""/>
+                        </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Name="Add" Height="25" Width="30" Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center"     
+                        Source="pack://application:,,,/BackSeam;component/Images/add2.png" Cursor="Hand"   >
+                        </Image>
+                    </Border>
+                    <Border x:Name="BorderSave" Grid.Row="2" Grid.Column="1" Height="25" Width="80" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                        Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SaveCreatInterview}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                        
+                    <Label Grid.Column="2" Height="20" FontSize="10"  Width="70" Content="Зберегти" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  HorizontalAlignment="Center" FontFamily="Arial"  >
+                    </Label>
+                    </Border>
+                    <Border x:Name="BorderDelete"  Grid.Row="2" Grid.Column="2" Height="25" Width="50" BorderBrush="#FF3E3E3B" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Cursor="Hand"    >
+                        <Image Height="35" Width="35" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center"  Name="Deletestr"   
+                        Source="pack://application:,,,/BackSeam;component/Images/corzina3.png"
+                        Cursor="Hand"   ></Image>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding DeletestrokaInterview}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+    </StackPanel>
+</Window>

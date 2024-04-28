@@ -1,0 +1,221 @@
+﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
+    Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
+    <Window x:Class="BackSeam.WinProfilPacient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:BackSeam" d:DataContext ="{d:DesignInstance Type=local:ViewModelWinProfilPacient}"
+        mc:Ignorable="d"
+        Title="WinProfilPacient" Height="490" Width="690" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  
+         ShowInTaskbar="True"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Microsoft Sans Serif" Background="{x:Null}">
+    <Window.DataContext>
+        <local:ViewModelWinProfilPacient/>
+    </Window.DataContext>
+
+
+
+    <StackPanel x:Name ="ButtonWin"  Height="450" Width="690" >
+        <StackPanel.Effect>
+            <DropShadowEffect Color="#FF1D1504" BlurRadius="45" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
+        </StackPanel.Effect>
+        <Border x:Name="BorderWin" BorderBrush="#FFCED7F7" Background="#FFCED7F7" Height="400" Width="630"  BorderThickness="0,0,0,0"  CornerRadius="15,15,15,15"   >
+            <Grid x:Name="GridProfilPacient">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="450*" />
+
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label Content="Профіль пацієнта" FontSize="16"  Height="28" FontFamily="Microsoft Sans Serif" FontWeight="Light" HorizontalAlignment="Center" />
+                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="30" Width="30" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" >
+                        <Image Height="28" Width="28" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_win"  VerticalAlignment="Center" 
+                            Source="pack://application:,,,/BackSeam;component/Images/delete2.png" Cursor="Hand" Margin="0,0,0,0" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding CloseProfil}" CommandParameter=""/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                    </Border>
+                    <Border x:Name="AddProfil" BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="30" Width="30" Margin="0,0,100,0" VerticalAlignment="Center" HorizontalAlignment="Right" >
+                        <Button Command="{Binding InsertProfilCommand}"  Background="#FFCED7F7" Height="30" Width="30"  VerticalAlignment="Center" BorderBrush="#FFCED7F7">
+                            <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="24" Width="24" ></Image>
+                        </Button>
+                    </Border>
+                    <Border x:Name="SaveProfil" BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="30" Width="30" Margin="0,0,60,0" HorizontalAlignment="Right">
+                        <Button Command="{Binding SaveProfilPacientCommand}"  Background="#FFCED7F7" Height="30" Width="30"  VerticalAlignment="Center" BorderBrush="#FFCED7F7">
+                            <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="24" Width="24" ></Image>
+                        </Button>
+                    </Border>
+
+                </Grid>
+                <Grid Grid.Row="1" Height="340" >
+
+
+                    <StackPanel   Height="340" Width="630" Background="#FFCED7F7" DataContext="{Binding SelectPacientProfil}"  >
+                        <Grid Name="GridResultInterview"  Background="#FFCED7F7"  Height="340" Width="630"   >
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width ="120*" />
+                                <ColumnDefinition Width ="135*" />
+                                <ColumnDefinition Width="89*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24*" />
+                                <RowDefinition Height="54*" />
+                                <RowDefinition Height="54*"/>
+                                <RowDefinition Height="54*"/>
+                                <RowDefinition Height="54*" />
+                                <RowDefinition Height="54*"/>
+                                <RowDefinition Height="60*"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid x:Name="PacientProfilGridLab1"  Grid.Column="0" Grid.Row="1" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="60*"/>
+                                    <ColumnDefinition Width ="92*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab1" Grid.Column="0"  Text="  ID код" TextWrapping="Wrap"  FontSize="14" Width="60" Height="24" HorizontalAlignment="Left" />
+                                <TextBox Text="{Binding kodPacient, UpdateSourceTrigger=PropertyChanged}" Name="PacientProfilt1" Grid.Column="1" IsReadOnly="True" Height="24" Width="120" FontSize="14" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="0,0,0,0"  />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab2" Height="50" Grid.Column="0" Grid.Row="2" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="60*" />
+                                    <ColumnDefinition Width ="95*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab2" Grid.Column="0" Height="22" Text="  Ім'я" TextWrapping="Wrap" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"   />
+                                <TextBox Text="{Binding name, UpdateSourceTrigger=PropertyChanged}" Name="PacientProfilt2" IsReadOnly="True" FontSize="14" Grid.Column="1"  Height="24" Width="130" Background="#FFCED7F7" VerticalContentAlignment="Center" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab3" Height="50" Grid.Column="0" Grid.Row="3" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="60*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab3" Text="  Прізвище" TextWrapping="Wrap" Grid.Column="0"  Height="24"  FontSize="14" Width="80" HorizontalAlignment="Left" />
+                                <TextBox Text="{Binding surname, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt3" IsReadOnly="True" FontSize="14" Grid.Column="1" Height="24" Width="140" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFCED7F7" BorderThickness="0,0,0,0" />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab4" Height="50" Grid.Column="0" Grid.Row="4" >
+                                <Grid.ColumnDefinitions >
+
+                                    <ColumnDefinition Width="60*"/>
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab4" Grid.Column="0"  Text="  Вік" TextWrapping="Wrap"  FontSize="14" Height="24" Width="70" HorizontalAlignment="Left" Margin="0,13,0,0" VerticalAlignment="Top"/>
+                                <TextBox Text="{Binding age, UpdateSourceTrigger=PropertyChanged}" Name="PacientProfilt4" IsReadOnly="True" FontSize="14" Grid.Column="1"  Height="24" Width="100" VerticalAlignment="Bottom" Background="#FFCED7F7" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="0,0,0,13"   />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab5" Height="50" Grid.Column="1" Grid.Row="1" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="70*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab5" Text="  Вага(кг.)" TextWrapping="Wrap" Grid.Column="0" Height="24" Width="84" HorizontalAlignment="Left" FontSize="14" Margin="0,10,0,10" />
+                                <TextBox Text="{Binding weight, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" x:Name="PacientProfilt5" Grid.Column="1"  Width="80"  Background="#FFCED7F7" HorizontalAlignment="Left" Height="24" VerticalAlignment="Center" FontSize="14" BorderThickness="0,0,0,0"  />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab6" Height="50" Grid.Column="1" Grid.Row="2" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="70*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab6" Text="  Зріст(см)" TextWrapping="Wrap"  Grid.Column="0" Height="24"  FontSize="14" HorizontalAlignment="Left" Width="70"/>
+                                <TextBox Text="{Binding growth, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt6" IsReadOnly="True" Grid.Column="1"  Background="#FFCED7F7" Height="24" Width="80" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab7" Height="50" Grid.Column="1" Grid.Row="3" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="70*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab7" Text="  Стать" TextWrapping="Wrap" Grid.Column="0" Height="24"  FontSize="14" Width="60" HorizontalAlignment="Left"/>
+                                <TextBox Text="{Binding gender, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt7" IsReadOnly="True" Grid.Column="1"  Height="24" Width="50" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFCED7F7" BorderThickness="0,0,0,0" />
+                                <ComboBox x:Name="CombgenderProfil" Grid.Column="1"  Width="50" Height="24"  ItemsSource="{Binding Units}" SelectedIndex="{Binding SelectCombProfil}"
+                                              Text="{Binding gender,UpdateSourceTrigger=PropertyChanged }"    HorizontalAlignment="Left" Margin="60,0,0,0" VerticalAlignment="Center" Background="#FFCED7F7" IsReadOnly="True"   >
+                                </ComboBox>
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab8" Height="50" Grid.Column="1" Grid.Row="4" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="110*" />
+                                    <ColumnDefinition Width ="100*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab8" Grid.Column="0"  Text="  Телефон&#xa;+xxx xx xx xxx xx" TextWrapping="Wrap" Height="30" FontSize="14" Width="110" HorizontalAlignment="Left" />
+                                <TextBox Text="{Binding tel, UpdateSourceTrigger=PropertyChanged}" Name="PacientProfilt8" IsReadOnly="True" Grid.Column="1"  Height="24" Width="120" VerticalAlignment="Center" Background="#FFCED7F7" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"  />
+                            </Grid>
+                            <Grid x:Name="PacientProfilGridLab13" Height="50" Grid.Column="2" Grid.Row="1" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="60*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock  x:Name="PacientProfilLab13"  Text=" Поштовий&#xa; індекс"  Grid.Column="0" Height="35"  Width="70"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <TextBox Text="{Binding pind, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt13" IsReadOnly="True" FontSize="14" Grid.Column="1" Width="80"  Height="24"   Background="#FFCED7F7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0,0,0,0" />
+                            </Grid>
+
+                            <Grid x:Name="PacientProfilGridLab9" Height="50" Grid.Column="0" Grid.Row="5"  >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="60*" />
+                                    <ColumnDefinition Width ="90*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock  x:Name="PacientProfilLab9"  Text="  Професія" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="90"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                <TextBox Text="{Binding profession, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt9" IsReadOnly="True" FontSize="14" Grid.Column="1" Width="140"  Height="24" 
+                                                                 VerticalAlignment="Top" Background="#FFCED7F7" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                            </Grid>
+
+                            <Grid x:Name="PacientProfilGridLab11" Height="50" Grid.Column="1" Grid.Row="5" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="70*" />
+                                    <ColumnDefinition Width="150*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientProfilLab11" Text="  Email" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="60"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                <TextBox Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt11" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2"  Height="30" FontSize="14"
+                                                                 VerticalAlignment="Top"  Background="#FFCED7F7" BorderThickness="0,0,0,0"  />
+                            </Grid>
+                            <Grid x:Name="PacientStanHeals" Height="50" Grid.Column="0" Grid.Row="6"  >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="200*" />
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientStanSelect" Text=" Пульс,тиск,температура" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="170"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <Image x:Name="FolderStan" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="5" Width="25" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Visible" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=GridProfilPacient, Path=DataContext.PacientStanSelect}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </Grid>
+                            <Grid x:Name="PacientAnalizUrine" Height="50" Grid.Column="1" Grid.Row="6"  >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="120*" />
+                                    <ColumnDefinition Width="110*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientUrineSelect" Text="  Аналіз крові" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <Image x:Name="FolderUrine" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="5" Width="25" Height="30" HorizontalAlignment="Left" Margin="0,0,0,0"  Visibility="Visible" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=GridProfilPacient, Path=DataContext.PacientBloodSelect}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </Grid>
+                            <Grid x:Name="PacientAnalizBlood" Height="50" Grid.Column="2" Grid.Row="6" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width ="110*" />
+                                    <ColumnDefinition Width="80*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PacientBloodSelect" Text="Аналіз сечі" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="90"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <Image x:Name="FolderBlood" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="5" Width="25" Height="30" HorizontalAlignment="Left" Margin="0,0,0,0"  Visibility="Visible" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=GridProfilPacient, Path=DataContext.PacientUrineSelect}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </Grid>
+
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </StackPanel>
+
+</Window>

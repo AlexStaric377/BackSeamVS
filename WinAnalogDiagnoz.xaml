@@ -1,0 +1,234 @@
+﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
+    Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
+    <Window x:Class="BackSeam.WinAnalogDiagnoz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelAnalogDiagnoz}"
+        mc:Ignorable="d"
+        Title="WinAnalogDiagnoz" Height="550" Width="1050" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  
+         ShowInTaskbar="True"     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" >
+    <Window.DataContext>
+        <local:ViewModelAnalogDiagnoz/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="DGridCentAl" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Control.Background" Value="#FFCED7F7" />
+        </Style>
+    </Window.Resources>
+    
+   
+
+        <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="500" Width="1000" >
+            <StackPanel.Effect>
+            <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
+            </StackPanel.Effect>
+            <Border x:Name="BorderWin" BorderBrush="#FFCED7F7" Background="#FFCED7F7" Height="500" Width="990"  BorderThickness="0,0,0,0"  CornerRadius="15,15,15,15"   >
+                <Grid>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="350*" />
+                        <ColumnDefinition Width ="630*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="350*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                        <Label Name="PopDiagnoz"  Content="Попередній діагноз"  Height="30"  FontSize="14" FontFamily="Microsoft Sans Serif" Foreground="#FF4607A0" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,40,0,0" />                           
+                        </Grid>
+                        <Grid Grid.Row="1">
+                        <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="380" Width="345" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <ListView x:Name="ColectionDiagnozTablGrid" Cursor="Hand" ItemsSource="{Binding  AnalogDiagnozs}"  SelectedItem="{Binding SelectedAnalogDiagnoz}" Background="#FFCED7F7"
+                                  Width="345" Height="380" VerticalAlignment="Top" HorizontalAlignment="Center"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden"   >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseUp">
+                                    <i:InvokeCommandAction Command="{Binding ElementName=ColectionDiagnozTablGrid, Path=DataContext.OnVisibleObjDiagnozs}" CommandParameter=""/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                                 <ListView.ItemTemplate>
+                                   <DataTemplate>
+                                    <TextBlock Text="{Binding Path=nameDiagnoza}" Margin="0,0,0,5" VerticalAlignment="Center" TextWrapping="Wrap"  Width="345" Height="50" FontSize="14" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" />
+                                   </DataTemplate>
+                            </ListView.ItemTemplate>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Background" Value="#FFCED7F7"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=nameDiagnoza}" Value="true">
+                                                <Setter Property="Background" Value="Blue"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                        </ListView>
+                        </Border>
+                        <!--<DataGrid x:Name="ColectionDiagnozTablGrid"    Cursor="Hand" ItemsSource="{Binding  AnalogDiagnozs}" SelectedItem="{Binding SelectedAnalogDiagnoz}"
+                                              IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="370" 
+                                              VerticalAlignment="Top"  Width="350" GridLinesVisibility="None" Background="#FFCED7F7"
+                                                VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseUp">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ColectionDiagnozTablGrid, Path=DataContext.OnVisibleObjDiagnozs}" CommandParameter=""/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+
+                                <DataGrid.Columns  >
+                                    <DataGridTextColumn x:Name="PacientInterColumn2"  Width="340" FontSize="14" Binding="{Binding Path=nameDiagnoza}" >
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style>
+                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock x:Name="PacientIntervHeader2"  Background="#FFCED7F7" Text="Попередній діагноз"   HorizontalAlignment="Center"/>
+                                        </DataGridTextColumn.Header>
+                                    </DataGridTextColumn>
+                                    
+
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Background" Value="#FFCED7F7"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=nameDiagnoza}" Value="true">
+                                                <Setter Property="Background" Value="Blue"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+
+                            </DataGrid>-->
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+
+                        <Grid Name="GridResultInterview"  Background="#FFCED7F7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="470" Width="630"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="310*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="40*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <!--<Label Name="DateInterview"  Content="{Binding Path=dateInterview,UpdateSourceTrigger=PropertyChanged}" Height="30" Width="120" FontSize="14" FontFamily="Microsoft Sans Serif" Margin="10,0,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"  HorizontalAlignment="Left"  />-->
+
+                            <Label Name="Zagolovok"  Content="Встановлені попередні діагнози  за резльтатами вашого опитування" Grid.Row="0" Height="30"  FontSize="16" FontFamily="Microsoft Sans Serif" Foreground="#FF4607A0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="-110,5,0,0" />
+                                <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="30" Width="30" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Button Command="{Binding CloseResult}"  Background="#FFCED7F7" Height="30" Width="30"  VerticalAlignment="Center" BorderBrush="#FFCED7F7">
+                                        <Image  Source="pack://application:,,,/BackSeam;component/Images/delete2.png"  Height="24" Width="24" ></Image>
+                                    </Button>
+                                </Border>
+                                <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="30" Width="30" Margin="0,0,40,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Button Command="{Binding PrintDiagnoz}"  Background="#FFCED7F7" Height="30" Width="30"  VerticalAlignment="Center" BorderBrush="#FFCED7F7">
+                                        <Image  Source="pack://application:,,,/BackSeam;component/Images/printer.png"  Height="24" Width="24" ></Image>
+                                    </Button>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Row="1" Height="310" Width="630" >
+                                <StackPanel VerticalAlignment="Center" Height="310" Width="630" Background="#FFCED7F7" DataContext="{Binding SelectedAnalogDiagnoz}"  >
+                                    <Grid Height="310" Width="630" x:Name="OpisDiagnoz">
+                                        <Grid.ColumnDefinitions >
+                                            <ColumnDefinition Width="86*" />
+                                            <ColumnDefinition Width ="239*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*" />
+                                            <RowDefinition Height="60*" />
+                                            <RowDefinition Height="80*"/>
+                                            <RowDefinition Height="80*"/>
+                                            <RowDefinition Height="70*"/>
+                                            <RowDefinition Height="70*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock x:Name="NameInterview" Grid.Row="1" TextWrapping="Wrap" FontSize="14" Text="  Назва опитування" FontFamily="Microsoft Sans Serif"  Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="40" />
+                                        <TextBox  Name="BoxNameInterview" Text="{Binding Path=nametInterview, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Grid.Column="1" FontFamily="Microsoft Sans Serif" IsReadOnly="true"
+                                                                  Background="#FFCED7F7" VerticalAlignment="Center" Height="40" TextWrapping="Wrap" Width="280" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                        <TextBlock x:Name="ListInterview" Grid.Row="1" Grid.Column="1" Text="Зміст опитування" FontFamily="Microsoft Sans Serif" FontSize="14" Height="20" Width="115" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,60,0" Visibility="Visible"  />
+                                        <Image x:Name="FolderListInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25" VerticalAlignment="Center"  HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Visible" >
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridResultInterview, Path=DataContext.ReadColectionIntreview}" CommandParameter=""/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Image>
+                                        <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Попередній діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
+                                        <TextBox Text="{Binding Path=nameDiagnoza,UpdateSourceTrigger=PropertyChanged}" Name="BoxNameDiagnoz" Grid.Row="2" Grid.Column="1" Height="65" FontSize="14" FontFamily="Microsoft Sans Serif"
+                                                             IsReadOnly="true"    TextWrapping="Wrap" Background="#FFCED7F7" VerticalContentAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                        <TextBlock x:Name="ShortOPis" Grid.Row="3" Text="  Короткий опис&#xa;  попереднього діагнозу " FontFamily="Microsoft Sans Serif"  FontSize="14" Height="32" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                        <TextBox Name="BoxInterviewOpis" Text="{Binding Path=opistInterview, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"  Grid.Column="1" Grid.Row="3" 
+                                             IsReadOnly="true" Background="#FFCED7F7" Width="450" Height="65" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" FontFamily="Microsoft Sans Serif" />
+                                        <TextBlock x:Name="NameRecomen" Grid.Column="0" Grid.Row="4" Text="  Рекомендації щодо&#xa;     подальших дій" FontFamily="Microsoft Sans Serif" TextWrapping="Wrap"  FontSize="14" Height="50" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                        <TextBox  Name="BoxNameRecomen" Text="{Binding Path=nameRecommendation, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="4" Background="#FFCED7F7" FontFamily="Microsoft Sans Serif"
+                                                            IsReadOnly="true"     TextWrapping="Wrap" Width="400" Height="50" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"  />
+
+                                        <TextBlock x:Name="UriInterview" Grid.Row="5" Text="  Опис в інтернеті " FontFamily="Microsoft Sans Serif" FontSize="14" Height="24" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                        <TextBox  Name="TextUriInterview" Text="{Binding Path=uriInterview, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="5" Grid.Column="1" FontFamily="Microsoft Sans Serif"
+                                              IsReadOnly="true" Background="#FFCED7F7" VerticalAlignment="Center" Height="32" TextWrapping="Wrap" Width="400" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                        <Image x:Name="RunUriInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="5" Width="25" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Visible" >
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridResultInterview, Path=DataContext.RunGooglUri}" CommandParameter=""/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Image>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="170*" />
+                                    <ColumnDefinition Width ="120*" />
+                                    <ColumnDefinition Width="120*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Border  Height="35" Width="230" Grid.Column="0" BorderBrush="Black" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  BorderThickness="1,1,1,1" CornerRadius="3,3,3,3" Cursor="Hand" >
+                                    <StackPanel Width="Auto" Background="White" Height="Auto">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ReseptionAnalogLikar}" CommandParameter=""/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <Label Grid.Column="2" Height="35" FontSize="14" Background="#FFCED7F7"  Width="230" Content="Запис на прийом до лікаря" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                        </Label>
+                                    </StackPanel>
+                                </Border>
+                                <Border  Height="35" Width="150" Grid.Column="1" BorderBrush="Black" Background="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  BorderThickness="1,1,1,1"  CornerRadius="3,3,3,3" Cursor="Hand" >
+                                    <StackPanel Width="Auto" Background="White" Height="Auto">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ContinueAnalogInterview}" CommandParameter=""/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <Label Grid.Column="2" Height="35" FontSize="14"  Width="150" Content="Продовжити пошук" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                        </Label>
+                                    </StackPanel>
+                                </Border>
+                                <Border  Height="35" Width="110" Grid.Column="2" BorderBrush="Black" Background="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  BorderThickness="1,1,1,1"  CornerRadius="3,3,3,3" Cursor="Hand" >
+                                    <StackPanel Width="Auto" Background="White" Height="Auto">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding SelectInterview}" CommandParameter=""/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <Label Grid.Column="2" Height="35" FontSize="14"  Width="110" Content="Зберегти" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                        </Label>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                            <Label Name="Podval"  Content="Для перегляду деталізації опису діагнозу необхідно натиснути на обраний рядок в списку попередніх діагнозів, який розташовано зліва у вікні" Grid.Row="3" Height="30" Width="950" FontSize="14" Foreground="Blue" FontFamily="Microsoft Sans Serif" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="-340,5,0,0" />
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackPanel>
+    
+</Window>
