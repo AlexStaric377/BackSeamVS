@@ -1,0 +1,8 @@
+{"id":1,"kodDiagnoza":"DIA.000000008","nameDiagnoza":"Попередній діагноз- спастичний коліт","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"K00-K99.K50-K52.K51.K51.00"}
+{"id":2,"kodDiagnoza":"DIA.000000007","nameDiagnoza":"Попередній діагноз- гострий апендецит або прободна виразка дванадцятипалої кішки","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"K00-K99.K35-K38.K35.K35.00"}
+{"id":3,"kodDiagnoza":"DIA.000000006","nameDiagnoza":"Попередній діагноз- гострий простатит","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"N00-N99.N40-N54.N41.N41.00"}
+{"id":4,"kodDiagnoza":"DIA.000000005","nameDiagnoza":"Попередній діагноз-рініт вазомоторний","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"J00-J99.J30-J39.J30.J30.00"}
+{"id":5,"kodDiagnoza":"DIA.000000004","nameDiagnoza":"Попередній діагноз-рініт неалергічний (ймовірно пов'язаний із загостренням хронічної інфекції в носі )","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"J00-J99.J30-J39.J30.J30.40"}
+{"id":6,"kodDiagnoza":"DIA.000000003","nameDiagnoza":"Попередній діагноз-рініт неалергічний (ймовірно пов'язаний із застудою – ГРВІ, грип)","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"J00-J99.J30-J39.J30.J30.40"}
+{"id":7,"kodDiagnoza":"DIA.000000001","nameDiagnoza":"Попередній діагноз - Алергічний риніт цілорічний","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"J00-J99.J30-J39.J30.J30.30"}
+{"id":8,"kodDiagnoza":"DIA.000000002","nameDiagnoza":"Попередній діагноз - Алергічний сезонний риніт (поліноз)","opisDiagnoza":null,"uriDiagnoza":null,"keyIcd":"J00-J99.J30-J39.J30.J30.20"}

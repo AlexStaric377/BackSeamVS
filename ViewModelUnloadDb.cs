@@ -161,7 +161,7 @@ namespace BackSeam
         public static string[] listtablbd = { "Complaint", "Feature", "Detailing" , "ListGrDetailing", "GrDetailing", "ListGroupQualification",
         "Qualification", "Diagnoz", "Recommendation" , "Interview", "ContentInterv", "ColectionInterview", "CompletedInterview",
         "DependencyDiagnoz","Icd","MedicalInstitution","Doctor","Pacient","AccountUser","NsiStatusUser","Sob","GrupDiagnoz","MedicalGrDiagnoz","DoctorGrDiagnoz",
-            "CabinetPacient","PacientMapAnaliz","PacientAnalizKrovi","PacientAnalizUrine","LifePacient",
+            "PacientMapAnaliz","PacientAnalizKrovi","PacientAnalizUrine","CabinetPacient","LifePacient",
         "RegistrationAppointment","CabinetDoctor","LifeDoctor","AdmissionPatients","VisitingDays","LanguageUI"};
 
         public static string[] controler = {"/api/ApiControllerComplaint/", "/api/FeatureController/", "/api/DetailingController/" , "/api/ControllerListGroupDetail/",
@@ -193,7 +193,7 @@ namespace BackSeam
                           new UnloadQualification(), new UnloadDiagnoz(), new UnloadRecommendation(), new UnloadInterview(), new UnloadContentInterv(),
                           new UnloadColectionInterview(), new UnloadCompletedInterview(), new UnloadDependencyDiagnoz(), new UnloadIcd(),
                           new UnloadMedicalInstitution(), new UnloadDoctor(), new UnloadPacient(), new UnloadAccountUser(), new UnloadNsiStatusUser(),
-                          new UnloadSob(),new UnloadGrupDiagnoz(),new UnloadMedGrupDiagnoz(), new UnloadLikarGrupDiagnoz()};
+                          new UnloadSob(),new UnloadGrupDiagnoz(),new UnloadMedGrupDiagnoz(), new UnloadLikarGrupDiagnoz(), new UnloadPacientMapAnaliz()};
  
         
         
@@ -660,7 +660,7 @@ namespace BackSeam
 
 
 
-        //Pacient 18
+        //UnloadSob 21
         public class UnloadSob : BaseUnload
         {
             //public override int Dange { get { return 8; } }
@@ -677,7 +677,7 @@ namespace BackSeam
 
         }
 
-
+        //UnloadGrupDiagnoz 22
         public class UnloadGrupDiagnoz : BaseUnload
         {
             //public override int Dange { get { return 8; } }
@@ -726,7 +726,22 @@ namespace BackSeam
 
         }
 
+        public class UnloadPacientMapAnaliz : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListPacientMapAnaliz>(CmdStroka);
+                List<PacientMapAnaliz> res = result.PacientMapAnaliz.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
 
+        }
+        
 
 
 
