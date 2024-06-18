@@ -93,9 +93,10 @@
                                 <ColumnDefinition Width="170*" />
                                 <ColumnDefinition Width ="120*" />
                                 <ColumnDefinition Width="120*" />
+                                <ColumnDefinition Width="120*" />
                             </Grid.ColumnDefinitions>
 
-                            <Border  Height="35" Width="230" Grid.Column="0" BorderBrush="Black" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            <Border  Height="35" Width="170" Grid.Column="0" BorderBrush="Black" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center"
                               BorderThickness="1,1,1,1" CornerRadius="3,3,3,3" Cursor="Hand" >
                                 <StackPanel Width="Auto" Background="White" Height="Auto">
                                     <i:Interaction.Triggers>
@@ -103,19 +104,19 @@
                                             <i:InvokeCommandAction Command="{Binding ReseptionLikar}" CommandParameter=""/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <Label Grid.Column="2" Height="35" FontSize="14" Background="#FFCED7F7"  Width="230" Content="Запис на прийом до лікаря" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                    <Label Grid.Column="2" Height="35" FontSize="13" Background="#FFCED7F7"  Width="230" Content="Запис на прийом до лікаря" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
                                     </Label>
                                 </StackPanel>
                             </Border>
-                            <Border  Height="35" Width="150" Grid.Column="1" BorderBrush="Black" Background="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                            <Border  Height="35" Width="130" Grid.Column="1" BorderBrush="Black" Background="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"
                                   BorderThickness="1,1,1,1"  CornerRadius="3,3,3,3" Cursor="Hand" >
                                 <StackPanel Width="Auto" Background="White" Height="Auto">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseLeftButtonDown">
-                                            <i:InvokeCommandAction Command="{Binding ContinueInterview}" CommandParameter=""/>
+                                            <i:InvokeCommandAction Command="{Binding ProfilMedical}" CommandParameter=""/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <Label Grid.Column="2" Height="35" FontSize="14"  Width="150" Content="Продовжити пошук" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                    <Label Grid.Column="2" Height="35" FontSize="13"  Width="130" Content="Профільні лікарні " Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
                                     </Label>
                                 </StackPanel>
                             </Border>
@@ -127,7 +128,19 @@
                                             <i:InvokeCommandAction Command="{Binding SaveIntervDiagnoz}" CommandParameter=""/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <Label Grid.Column="2" Height="35" FontSize="14"  Width="110" Content="Зберегти" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                    <Label Grid.Column="2" Height="35" FontSize="13"  Width="110" Content="Зберегти" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
+                                    </Label>
+                                </StackPanel>
+                            </Border>
+                            <Border  Height="35" Width="130" Grid.Column="3" BorderBrush="Black" Background="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  BorderThickness="1,1,1,1"  CornerRadius="3,3,3,3" Cursor="Hand" >
+                                <StackPanel Width="Auto" Background="White" Height="Auto">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding ContinueInterview}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <Label Grid.Column="2" Height="35" FontSize="13"  Width="130" Content="Продовжити пошук" Background="#FFCED7F7" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif"  >
                                     </Label>
                                 </StackPanel>
                             </Border>

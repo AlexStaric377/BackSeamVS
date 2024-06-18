@@ -80,9 +80,41 @@ namespace BackSeam
                           MapOpisViewModel.modelColectionInterview.nameRecomen = selectItogInterview.nameRecommendation;
                           MapOpisViewModel.modelColectionInterview.detailsInterview = selectItogInterview.detailsInterview;
                           MapOpisViewModel.modelColectionInterview.kodProtokola = selectItogInterview.kodProtokola;
-
+                          IcdGrDiagnoz();
                       }
                   }));
+            }
+        }
+
+        private void IcdGrDiagnoz()
+        {
+            string json = MapOpisViewModel.Protocolcontroller + "0/" + MapOpisViewModel.modelColectionInterview.kodProtokola;
+            CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]")) return;
+            else
+            {
+                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                if (Insert != null)
+                {
+                    json = MapOpisViewModel.Diagnozcontroller + Insert.kodDiagnoz.ToString() + "/0";
+                    CallServer.PostServer(MapOpisViewModel.Diagnozcontroller, json, "GETID");
+                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                    {
+                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                        ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
+                        MapOpisViewModel.selectIcdGrDiagnoz = Insert1.icdGrDiagnoz.ToString();
+                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/" + Insert1.icdGrDiagnoz.ToString();
+                        CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
+                        if (CallServer.ResponseFromServer.Contains("[]") == false)
+                        {
+                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                            ModelGrupDiagnoz insertGrDiagnoz = JsonConvert.DeserializeObject<ModelGrupDiagnoz>(CallServer.ResponseFromServer);
+                            MapOpisViewModel.selectIcdGrDiagnoz = insertGrDiagnoz.icdGrDiagnoz;
+                        }
+                    }
+                }
             }
         }
 
@@ -274,7 +306,22 @@ namespace BackSeam
             }
         }
 
-        
+        // команда продолжения опроса
+        RelayCommand? listprofilMedical;
+        public RelayCommand ListProfilMedical
+        {
+            get
+            {
+                return listprofilMedical ??
+                  (listprofilMedical = new RelayCommand(obj =>
+                  {
+                      
+                      WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
+                      MedZaklad.ShowDialog();
+                  }));
+            }
+        }
+
         // команда закрытия окна
         RelayCommand? selectInterview;
         public RelayCommand SelectInterview

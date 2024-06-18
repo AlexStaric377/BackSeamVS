@@ -401,6 +401,24 @@ namespace BackSeam
             }
         }
 
+        // команда продолжения опроса
+        RelayCommand? profilMedical;
+        public RelayCommand ProfilMedical
+        {
+            get
+            {
+                return profilMedical ??
+                  (profilMedical = new RelayCommand(obj =>
+                  {
+                      //MapOpisViewModel.selectIcdGrDiagnoz = "";
+                      WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
+                      MedZaklad.ShowDialog();
+                  }));
+            }
+        }
+
+
+
         // команда закрытия окна
         private RelayCommand? printDiagnoz;
         public RelayCommand PrintDiagnoz

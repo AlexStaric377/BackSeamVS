@@ -1076,6 +1076,7 @@ namespace BackSeam
                     {
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
+                        selectIcdGrDiagnoz = Insert1.icdGrDiagnoz.ToString();
                         json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+Insert1.icdGrDiagnoz.ToString();
                         CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
                         if (CallServer.ResponseFromServer.Contains("[]") == false)
@@ -1141,7 +1142,7 @@ namespace BackSeam
 
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
                 NewResult.ShowDialog();
-                if (ViewAnalogDiagnoz == true) SelectReception();
+                //if (ViewAnalogDiagnoz == true) SelectReception();
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)
                 {
                     SetContent();
@@ -1160,6 +1161,7 @@ namespace BackSeam
                             WindowMain.StackPanelGuestInterview.Visibility = Visibility.Visible;
                             break;
                     }
+
                 }
             }
             else
@@ -1264,5 +1266,7 @@ namespace BackSeam
 
        
     }
+
+  
 }
 

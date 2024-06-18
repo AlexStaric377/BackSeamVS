@@ -169,8 +169,8 @@ namespace BackSeam
         "/api/RecommendationController/" , "/api/InterviewController/", "/api/ContentInterviewController/", "/api/ColectionInterviewController/", "/api/CompletedInterviewController/",
         "/api/DependencyDiagnozController/","/api/IcdController/","/api/MedicalInstitutionController/","/api/ApiControllerDoctor/","/api/PacientController/",
         "/api/AccountUserController/","/api/NsiStatusUserController/","/api/SobController/","/api/GrupDiagnozController/" , "/api/MedGrupDiagnozController/", "/api/LikarGrupDiagnozController/",
-        "/api/CabinetPacientController/","/api/PacientMapAnalizController/",
-        "/api/PacientAnalizKroviController/","/api/PacientAnalizUrineController/","/api/LifePacientController/",
+        "/api/PacientMapAnalizController/","/api/PacientAnalizKroviController/","/api/PacientAnalizUrineController/",
+        "/api/CabinetPacientController/","/api/LifePacientController/",
         "/api/RegistrationAppointmentController/","/api/CabinetdoctorController/","/api/LifeDoctorController/","/api/ControllerAdmissionPatients/",
         "/api/VisitingDaysController/","/api/LanguageUIController/" };
         public static string OutFile = "", CmdStroka = "", json = "";
@@ -182,18 +182,16 @@ namespace BackSeam
             set { selectViewUnloadTab = value; OnPropertyChanged("SelectedViewUnloadTab"); }
         }
 
-
-
-        public string Model { get; set; }
-        public static ObservableCollection<ModelUnloadTab> ViewUnloadTabs { get; set; }
-
+ 
         public static  UnLoadDb unLoadDb = new UnLoadDb();
         public static BaseUnload[] arrayUnload = { new UnloadComplaint(), new UnloadFeature(), new UnloadDetailing(),
                           new UnloadListGrDetailing(), new UnloadGrDetailing(), new UnloadListGroupQualification(),
                           new UnloadQualification(), new UnloadDiagnoz(), new UnloadRecommendation(), new UnloadInterview(), new UnloadContentInterv(),
                           new UnloadColectionInterview(), new UnloadCompletedInterview(), new UnloadDependencyDiagnoz(), new UnloadIcd(),
                           new UnloadMedicalInstitution(), new UnloadDoctor(), new UnloadPacient(), new UnloadAccountUser(), new UnloadNsiStatusUser(),
-                          new UnloadSob(),new UnloadGrupDiagnoz(),new UnloadMedGrupDiagnoz(), new UnloadLikarGrupDiagnoz(), new UnloadPacientMapAnaliz()};
+                          new UnloadSob(),new UnloadGrupDiagnoz(),new UnloadMedGrupDiagnoz(), new UnloadLikarGrupDiagnoz(), new UnloadPacientMapAnaliz(),
+                          new UnloadPacientAnalizKrovi(),new UnloadPacientAnalizUrine()
+        };
  
         
         
@@ -694,6 +692,7 @@ namespace BackSeam
 
         }
 
+        //UnloadMedGrupDiagnoz 23
         public class UnloadMedGrupDiagnoz : BaseUnload
         {
             //public override int Dange { get { return 8; } }
@@ -710,6 +709,7 @@ namespace BackSeam
 
         }
 
+        //UnloadLikarGrupDiagnoz 24
         public class UnloadLikarGrupDiagnoz : BaseUnload
         {
             //public override int Dange { get { return 8; } }
@@ -726,6 +726,7 @@ namespace BackSeam
 
         }
 
+        //UnloadPacientMapAnaliz 25
         public class UnloadPacientMapAnaliz : BaseUnload
         {
             //public override int Dange { get { return 8; } }
@@ -741,9 +742,39 @@ namespace BackSeam
             }
 
         }
-        
 
+        //UnloadPacientMapAnaliz 26
+        public class UnloadPacientAnalizKrovi : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListPacientAnalizKrovi>(CmdStroka);
+                List<PacientAnalizKrovi> res = result.PacientAnalizKrovi.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
 
+        }
+        //UnloadPacientMapAnaliz 27
+        public class UnloadPacientAnalizUrine : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListPacientAnalizUrine>(CmdStroka);
+                List<PacientAnalizUrine> res = result.PacientAnalizUrine.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
 
         // ---------------------------------------------------------------
         // Абстрактные классы и методы
