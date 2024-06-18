@@ -401,7 +401,7 @@ namespace BackSeam
             }
         }
 
-        // команда продолжения опроса
+        // команда выбора профильного мед. учреждения
         RelayCommand? profilMedical;
         public RelayCommand ProfilMedical
         {
@@ -410,7 +410,7 @@ namespace BackSeam
                 return profilMedical ??
                   (profilMedical = new RelayCommand(obj =>
                   {
-                      //MapOpisViewModel.selectIcdGrDiagnoz = "";
+                      
                       WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
                       MedZaklad.ShowDialog();
                   }));

@@ -306,7 +306,7 @@ namespace BackSeam
             }
         }
 
-        // команда продолжения опроса
+        // команда вывода списка профильных мед. учреждений
         RelayCommand? listprofilMedical;
         public RelayCommand ListProfilMedical
         {
