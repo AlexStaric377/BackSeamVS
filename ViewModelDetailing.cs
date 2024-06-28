@@ -350,7 +350,7 @@ namespace BackSeam
             }
             else
             {
-                selectedViewDetailingFeature = new ViewDetailingFeature();
+                if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
                 selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(0, WindowDetailing.Detailingt3.Text.ToString().IndexOf(":"));
                 string _keyDetailing = selectedDetailing.keyFeature;
                 foreach (ModelDetailing modelDetailing in ViewDetailings)
