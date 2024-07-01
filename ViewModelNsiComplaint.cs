@@ -26,6 +26,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public class ViewModelNsiComplaint : INotifyPropertyChanged
     {
+        
         public static string pathComplaint =  "/api/ApiControllerComplaint/";
         public  static ModelComplaint selectedComplaint;
         public static ObservableCollection<ModelComplaint> NsiComplaints { get; set; }
@@ -36,8 +37,7 @@ namespace BackSeam
         // конструктор класса
         public ViewModelNsiComplaint()
         {
-            MainWindow.UrlServer = pathComplaint;
-            CallServer.PostServer(MainWindow.UrlServer, MainWindow.UrlServer, "GET");
+            CallServer.PostServer(pathComplaint, pathComplaint, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewComplaints(CmdStroka);
@@ -47,6 +47,7 @@ namespace BackSeam
         {
             List<ModelComplaint> res = JsonConvert.DeserializeObject<ListModelComplaint>(CmdStroka).ViewComplaint.ToList();
             NsiComplaints = new ObservableCollection<ModelComplaint>((IEnumerable<ModelComplaint>)res);
+            selectedComplaint = new ModelComplaint();
 
         }
    
@@ -66,18 +67,40 @@ namespace BackSeam
             }
         }
 
+        
+        // команда закрытия окна
+        RelayCommand? searchComplaint;
+        public RelayCommand SearchComplaint
+        {
+            get
+            {
+                return searchComplaint ??
+                  (searchComplaint = new RelayCommand(obj =>
+                  {
+                      NsiComplaint WindowMen = MainWindow.LinkMainWindow("NsiComplaint");
+                      string jason = pathComplaint + "0/" + WindowMen.PoiskComplaints.Text;
+                      CallServer.PostServer(pathComplaint, jason, "GETID");
+                      string CmdStroka = CallServer.ServerReturn();
+                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                      else ObservableViewComplaints(CmdStroka);
+                      WindowMen.TablComplaints.ItemsSource = NsiComplaints;
+
+                  }));
+            }
+        }
+
         // команда выбора строки из списка жалоб
-        RelayCommand? selectCompl;
+        RelayCommand? selectComplaint;
         public RelayCommand SelectComplaint
         {
             get
             {
-                return selectCompl ??
-                  (selectCompl = new RelayCommand(obj =>
+                return selectComplaint ??
+                  (selectComplaint = new RelayCommand(obj =>
                   {
                       NsiComplaint WindowNsi = MainWindow.LinkMainWindow("NsiComplaint");
                       MainWindow BackMain = MainWindow.LinkNameWindow("BackMain");
-                      if (selectedComplaint != null && MapOpisViewModel.ActCompletedInterview != "NameCompl")
+                      if (selectedComplaint.id != 0 && MapOpisViewModel.ActCompletedInterview != "NameCompl")
                       {
                           MapOpisViewModel.nameFeature3 = selectedComplaint.keyComplaint.ToString() + ": " + selectedComplaint.name.ToString();
                           BackMain.Featuret3.Text = selectedComplaint.keyComplaint.ToString() + ": " + selectedComplaint.name.ToString();
@@ -110,7 +133,7 @@ namespace BackSeam
                   (selectedNameCompl = new RelayCommand(obj =>
                   {
                       
-                      if (selectedComplaint != null && MapOpisViewModel.ActCompletedInterview== "NameCompl")
+                      if (selectedComplaint.id != 0 && MapOpisViewModel.ActCompletedInterview== "NameCompl")
                       {
                           
                           MapOpisViewModel.nameFeature3 = selectedComplaint.keyComplaint.ToString();

@@ -340,6 +340,9 @@ namespace BackSeam
             WinNsiGrDetailing zagolovok = MainWindow.LinkMainWindow("WinNsiGrDetailing");
             switch (MapOpisViewModel.ActCompletedInterview)
             {
+                case "Guest":
+                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectGrDetailing.ToUpper();
+                    break;
                 case "Complaint":
                     zagolovok.Zagolovok.Content += ViewModelNsiDetailing.selectedDetailing.nameDetailing.ToUpper();
                     break;
@@ -350,7 +353,7 @@ namespace BackSeam
                     zagolovok.Zagolovok.Content += selectedListGroupDeliting.nameGrup.ToUpper();
                     break;
                 default:
-                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectedComplaintname.ToUpper(); //MapOpisViewModel.selectGrDetailing.ToUpper();
+                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectedComplaintname.ToUpper(); 
                     break;
             }
         }

@@ -6199,7 +6199,7 @@
                                         </Grid>
                                     </Grid>
                                 </TabItem>
-                                <TabItem Header="Профілі пацієнтів" Name="Pacient" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
+                                <TabItem Header="Профілі пацієнтів" Name="Pacient" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top">
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 

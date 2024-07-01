@@ -9,16 +9,16 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext ="{d:DesignInstance Type=local:ViewModelNsiGrDetailing}" 
         mc:Ignorable="d"
         Title="WinNsiGrDetailing"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="680" Width="500" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680" Width="600" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiGrDetailing/>
     </Window.DataContext>
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="630" Width="490" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="630" Width="590" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="630" Width="470">
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="630" Width="570">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="610" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
@@ -32,8 +32,8 @@
                        Foreground="Blue"  FontSize="14" FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Left"  />
 
                 <ListBox Grid.Row="2" Name="TablDeliting" ItemsSource="{Binding NsiModelGrDetailings}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedModelGrDetailing}" Height="500" Background="#FFE2E2DD"
-                    Width="445" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    SelectedItem ="{Binding SelectedModelGrDetailing}" Height="510" Background="#FFE2E2DD"
+                    Width="545" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">

@@ -23,52 +23,56 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public class ViewModelNsiDetailing : INotifyPropertyChanged
+    public class ViewModelNsiDetailing : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
 
-        }
+        //}
 
-        private string pathcontroller =  "/api/DetailingController/";
+        private static string pathcontroller =  "/api/DetailingController/";
         public static ModelDetailing selectedDetailing;
         public static ObservableCollection<ModelDetailing> NsiModelDetailings { get; set; }
+        
         public ModelDetailing SelectedModelDetailing
         { get { return selectedDetailing; } set { selectedDetailing = value; OnPropertyChanged("SelectedModelDetailing"); } }
         // конструктор класса
         public ViewModelNsiDetailing()
         {
-            NsiDetailing WindowNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
+            //NsiDetailing WindowNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
             string jason = "";
-            switch (MapOpisViewModel.ActCompletedInterview)
+            if (ViewModelNsiDetailing.NsiModelDetailings ==null)
             {
-                case "FeatureGET":
-                    jason = pathcontroller + "0/0" ;
-                    break;
-                case "Feature":
-                    jason = pathcontroller + "0/"+ MapOpisViewModel.selectedViewFeature.keyFeature;
-                    break;
-                case "Detailing":
-                    jason = pathcontroller + "0/" + ViewModelNsiFeature.selectedFeature.keyFeature;
-                    break;
-                case "ViewDetailing":
-                    jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature;
-                    break;
-                case null:
-                    jason = pathcontroller + "0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing;
-                    break;
-                default:
-                    jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing;
-                    break;
+                switch (MapOpisViewModel.ActCompletedInterview)
+                {
+                    case "FeatureGET":
+                        jason = pathcontroller + "0/0";
+                        break;
+                    case "Feature":
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature;
+                        break;
+                    case "Detailing":
+                        jason = pathcontroller + "0/" + ViewModelNsiFeature.selectedFeature.keyFeature;
+                        break;
+                    case "ViewDetailing":
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature;
+                        break;
+                    case null:
+                        jason = pathcontroller + "0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing;
+                        break;
+                    default:
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing;
+                        break;
+                }
+                CallServer.PostServer(pathcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                ObservableNsiModelFeatures(CmdStroka);
             }
-            CallServer.PostServer(pathcontroller, jason, "GETID");
-            string CmdStroka = CallServer.ServerReturn();
-            ObservableNsiModelFeatures(CmdStroka);
  
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
@@ -76,8 +80,8 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelDetailing>(CmdStroka); 
             List<ModelDetailing> res = result.ViewDetailing.ToList();
             NsiModelDetailings = new ObservableCollection<ModelDetailing>((IEnumerable<ModelDetailing>)res);
-
         }
+
 
         // команда закрытия окна
         RelayCommand? closeModelDetailing;

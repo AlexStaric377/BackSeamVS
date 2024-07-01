@@ -85,7 +85,7 @@ namespace BackSeam
         private static string NameCompl(string keyComplaint ="")
         {
 
-            string json = pathComplaint + selectedViewFeature.keyComplaint;  //+"0"
+            string json = pathComplaint + selectedViewFeature.keyComplaint+"/0";  
             CallServer.PostServer(pathComplaint, json, "GETID");
             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
             ModelComplaint Idinsert = JsonConvert.DeserializeObject<ModelComplaint>(CallServer.ResponseFromServer);

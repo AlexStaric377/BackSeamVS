@@ -503,7 +503,7 @@ namespace BackSeam
                             WindowDetailing.Detailingt3.Text = Idinsert.keyFeature + ": " + Idinsert.name;
                         
                         }
-                        if (selectedViewDetailingFeature.keyGrDetailing != "" )
+                        if (selectedViewDetailingFeature.keyGrDetailing != null )
                         { 
                             json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
                             CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");

@@ -10,28 +10,28 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelNsiListGroupDelit}"
         mc:Ignorable="d" 
         Title="WinNsiListGroupDelit"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="400" Width="460" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680" Width="560" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiListGroupDelit/>
     </Window.DataContext>
 
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="330" Width="430" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="530" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="330" Width="410">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="320" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="510">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="600" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
-                    <RowDefinition Height="270*" />
+                    <RowDefinition Height="550*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Групи деталізацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
 
                 <ListBox Grid.Row="1" Name="TablGrQualifications" ItemsSource="{Binding ViewListGrDetailings}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedListGrDetailing}" Height="265" Background="#FFE2E2DD"
-                    Width="390" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    SelectedItem ="{Binding SelectedListGrDetailing}" Height="545" Background="#FFE2E2DD"
+                    Width="490" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     
                     <ListBox.ItemTemplate>

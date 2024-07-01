@@ -254,7 +254,7 @@ namespace BackSeam
                 (saveViewDiagnoz = new RelayCommand(obj =>
                 {
  
-                    BoolFalseDiagnoz();
+                    
                     if (WindowMen.Diagnozt2.Text.Trim().Length != 0)
                     {
                           string json = "";
@@ -292,8 +292,9 @@ namespace BackSeam
  
                     WindowMen.DiagnozTablGrid.SelectedItem = null;
                     IndexAddEdit = "";
+                    BoolFalseDiagnoz();
 
-                  }));
+                }));
             }
         }
 

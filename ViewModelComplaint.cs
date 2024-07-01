@@ -70,6 +70,7 @@ namespace BackSeam
             listviews = res;
             ViewComplaints = new ObservableCollection<ModelComplaint>((IEnumerable<ModelComplaint>)res);
             WindowMen.SimptomTablGrid.ItemsSource = ViewComplaints;
+            WindowMen.LoadCompl.Visibility = Visibility.Hidden;
         }
 
         #region Команды вставки, удаления и редектирования справочника "Жалобы"

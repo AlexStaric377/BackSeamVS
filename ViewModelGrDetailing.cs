@@ -360,10 +360,7 @@ namespace BackSeam
                 return selectedListGrDetailing ??
                   (selectedListGrDetailing = new RelayCommand(obj =>
                   {
-                      if (ViewGrDetailings != null)
-                      {
-                          SelectGroupDelit();
-                      }
+                     SelectGroupDelit();
                   }));
             }
         }

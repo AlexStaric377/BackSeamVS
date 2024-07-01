@@ -23,19 +23,19 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public partial class ViewModelNsiGrDetailing : INotifyPropertyChanged
+    public partial class ViewModelNsiGrDetailing : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
 
-        }
+        //}
 
-        private string pathcontroller =  "/api/GrDetalingController/";
+        private static string pathcontroller =  "/api/GrDetalingController/";
         public static ModelGrDetailing selectedGrDetailing;
         public static ObservableCollection<ModelGrDetailing> NsiModelGrDetailings { get; set; }
         public ModelGrDetailing SelectedModelGrDetailing
@@ -72,6 +72,8 @@ namespace BackSeam
             NsiModelGrDetailings = new ObservableCollection<ModelGrDetailing>((IEnumerable<ModelGrDetailing>)res);
         }
 
+
+  
         public void CloseWin()
         {
             WinNsiGrDetailing WindowMen = MainWindow.LinkMainWindow("WinNsiGrDetailing");

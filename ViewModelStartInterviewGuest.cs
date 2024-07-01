@@ -55,6 +55,7 @@ namespace BackSeam
         public static ObservableCollection<ModelCompletedInterview> GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
         public static ObservableCollection<ModelCompletedInterview> TmpGuestIntervs = new ObservableCollection<ModelCompletedInterview>();
         public static ObservableCollection<ModelInterview> AnalogInterviews = new ObservableCollection<ModelInterview>();
+        public static ObservableCollection<ModelDetailing> listgrdetaling = new ObservableCollection<ModelDetailing>();
         public ModelCompletedInterview SelectedGuestInterv
         { get { return selectedGuestInterv; } set { selectedGuestInterv = value; OnPropertyChanged("SelectedGuestInterv"); } }
 
@@ -499,13 +500,49 @@ namespace BackSeam
             CallServer.PostServer(pathcontroller, jason, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]") == false)
-            { 
-                NsiDetailing NewNsi = new NsiDetailing();
-                NewNsi.Left = (MainWindow.ScreenWidth / 2);
-                NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
-                NewNsi.ShowDialog();            
+            {
+
+                ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
+                LoadNsiGrDetailing();
+                if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
+                { 
+                    NsiDetailing NewNsi = new NsiDetailing();
+                    NewNsi.Left = (MainWindow.ScreenWidth / 2);
+                    NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
+                    NewNsi.ShowDialog();            
+               
+                }
+                ViewModelNsiDetailing.NsiModelDetailings = null;
             }
        
+        }
+
+
+        public static void LoadNsiGrDetailing()
+        {
+            listgrdetaling = new ObservableCollection<ModelDetailing>();
+            foreach (ModelDetailing modelDetailing in ViewModelNsiDetailing.NsiModelDetailings)
+            {
+                if (modelDetailing.keyGrDetailing != null)
+                {
+                    listgrdetaling.Add(modelDetailing);
+                }
+            }
+            if (listgrdetaling.Count > 0)
+            {
+                foreach (ModelDetailing modelDetailing in listgrdetaling)
+                {
+                    ViewModelNsiDetailing.NsiModelDetailings.Remove(modelDetailing);
+
+                    ViewModelNsiDetailing.selectedDetailing = modelDetailing;
+                    MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
+                    WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
+                    NewOrder.Left = (MainWindow.ScreenWidth / 2) + 100;
+                    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
+                    NewOrder.ShowDialog();
+                }
+            }
+
         }
 
         public static void OpenNsiGrDetailing()
