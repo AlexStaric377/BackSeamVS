@@ -315,9 +315,12 @@ namespace BackSeam
                 return listprofilMedical ??
                   (listprofilMedical = new RelayCommand(obj =>
                   {
-                      
-                      WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
-                      MedZaklad.ShowDialog();
+                      if (selectItogInterview.kodProtokola != "")
+                      { 
+                          WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
+                          MedZaklad.ShowDialog();                     
+                      }
+ 
                   }));
             }
         }
