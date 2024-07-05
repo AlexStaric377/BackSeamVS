@@ -135,8 +135,9 @@ namespace BackSeam
                       
                       if (selectedComplaint.id != 0 && MapOpisViewModel.ActCompletedInterview== "NameCompl")
                       {
-                          
-                          MapOpisViewModel.nameFeature3 = selectedComplaint.keyComplaint.ToString();
+
+                          MapOpisViewModel.selectedComplaintname = selectedComplaint.name.ToString();
+                          MapOpisViewModel.nameFeature3 = selectedComplaint.keyComplaint.ToString() + ": " + selectedComplaint.name.ToString();
                           NsiComplaint WindowNsi = MainWindow.LinkMainWindow("NsiComplaint");
                           WindowNsi.Close();
 

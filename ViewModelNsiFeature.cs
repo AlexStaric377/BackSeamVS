@@ -26,7 +26,8 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiFeature : INotifyPropertyChanged
     {
-
+        public static string pathFeatureController = "/api/FeatureController/";
+        public static string jasonstoka="", Method = "";
         public static ModelFeature selectedFeature;
         public static ObservableCollection<ModelFeature> NsiModelFeatures { get; set; }
         public ModelFeature SelectedModelFeature
@@ -36,49 +37,21 @@ namespace BackSeam
         {
             if (MapOpisViewModel.ModelFeatures == null)
             {
-                MainWindow.UrlServer =  "/api/FeatureController/";
-                switch (MapOpisViewModel.ActCompletedInterview)
-                {
-                    case "Complaint" :
-                        CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/0/" + MapOpisViewModel.selectedComplaint.keyComplaint, "GETID");
-                        break;
+               
+                //switch (MapOpisViewModel.ActCompletedInterview)
+                //{
+
                     
-                    case null:
-                        if (ViewModelCreatInterview.ContentIntervs == null)
-                        {
-                            CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/", "GET");
-                        }
-                        else
-                        {
-                            if (ViewModelCreatInterview.selectedContentInterv != null)
-                            { 
-                                if (ViewModelCreatInterview.selectedContentInterv.kodDetailing != null)
-                                {
-                                    CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing, "GETID");
-                                }
-                            }
-                        }
-                        break;
-                    case "ModelDetailing":
-                        if (ViewModelCreatInterview.ContentIntervs == null)
-                        {
-                            CallServer.PostServer(MainWindow.UrlServer, "/api/FeatureController/", "GET");
-                        }
-                        else
-                        {
-                            if (ViewModelCreatInterview.selectedContentInterv != null)
-                            {
-                                if (ViewModelCreatInterview.selectedContentInterv.kodDetailing != null)
-                                {
-                                    CallServer.PostServer(MainWindow.UrlServer, "/api/FeatureController/0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing, "GETID");
-                                }
-                            }
-                        }
-                        break;
-                    default:
-                        CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing, "GETID");
-                        break;
-                }
+                //    case null:
+                //        if (ViewModelCreatInterview.ContentIntervs == null)
+                //        {
+                //            CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/", "GET");
+                //        }
+ 
+                //        break;
+
+                //}
+                CallServer.PostServer(pathFeatureController, jasonstoka, Method);
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);
             }
@@ -160,20 +133,31 @@ namespace BackSeam
                           {
                               if (selectedFeature != null)
                               {
-                                  string pathcontroller = "/api/DetailingController/";
-                                  string jason = pathcontroller + "0/" + selectedFeature.keyFeature;
-                                  CallServer.PostServer(pathcontroller, jason, "GETID");
-                                  string CmdStroka = CallServer.ServerReturn();
-                                  if (CmdStroka.Contains("[]") == false)
-                                  {
-                                      MapOpisViewModel.ActCompletedInterview = "Detailing";
-                                      NsiDetailing NewNsi = new NsiDetailing();
-                                      NewNsi.Left = (MainWindow.ScreenWidth / 2);
-                                      NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
-                                      NewNsi.ShowDialog();
-                                      MapOpisViewModel.ActCompletedInterview = null;
 
+                                  if (MapOpisViewModel.ActCompletedInterview == "Feature")
+                                  {
+                                      MapOpisViewModel.selectFeature = selectedFeature.name.ToString();
+                                      MapOpisViewModel.nameFeature3 = selectedFeature.keyFeature.ToString() + ":    " + selectedFeature.name.ToString();
+                                      WindowMen.Close();
                                   }
+                                  else
+                                  { 
+                                      string pathcontroller = "/api/DetailingController/";
+                                      string jason = pathcontroller + "0/" + selectedFeature.keyFeature;
+                                      CallServer.PostServer(pathcontroller, jason, "GETID");
+                                      string CmdStroka = CallServer.ServerReturn();
+                                      if (CmdStroka.Contains("[]") == false)
+                                      {
+                                          MapOpisViewModel.ActCompletedInterview = "Detailing";
+                                          NsiDetailing NewNsi = new NsiDetailing();
+                                          NewNsi.Left = (MainWindow.ScreenWidth / 2);
+                                          NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
+                                          NewNsi.ShowDialog();
+                                          MapOpisViewModel.ActCompletedInterview = null;
+
+                                      }                                  
+                                  }
+                                  
                               }
                           }                     
                       }

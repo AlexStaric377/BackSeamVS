@@ -182,8 +182,9 @@ namespace BackSeam
             WindowDetailing .Detailingt2.IsEnabled = true;
  
             WindowDetailing .Detailingt2.Background = Brushes.AntiqueWhite;
-            if(IndexAddEdit == "addCommand" && GrFeatureDetailing == "") WindowDetailing .FolderFut.Visibility = Visibility.Visible;
-            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand") WindowDetailing .FolderDet.Visibility = Visibility.Visible;
+            if(IndexAddEdit == "addCommand" && GrFeatureDetailing == "") WindowDetailing.FolderFut.Visibility = Visibility.Visible;
+            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand") WindowDetailing.FolderDet.Visibility = Visibility.Visible;
+            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand") WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
         }
 
         private void BoolFalseDetailing()
@@ -195,6 +196,7 @@ namespace BackSeam
             WindowDetailing .FolderFut.Visibility = Visibility.Hidden;
             WindowDetailing .FolderDet.Visibility = Visibility.Hidden;
             WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
+            WindowDetailing.FolderComplaint.Visibility = Visibility.Hidden;
             GrFeatureDetailing = "";
 
         }
@@ -406,7 +408,7 @@ namespace BackSeam
         }
 
  
-        // команда выбора новой жалобы для записи новой строки 
+        // команда выбора новой детализации для записи новой строки 
         private RelayCommand? addFeatureDeliting;
         public RelayCommand AddFeatureDeliting
         {
@@ -415,31 +417,66 @@ namespace BackSeam
                 return addFeatureDeliting ??
                   (addFeatureDeliting = new RelayCommand(obj =>
                   {
-                      CallViewDetailing = "ModelDetailing";
-                      ActCompletedInterview = "ModelDetailing";
-                      AddComandFeatureDeliting();
-                      CallViewDetailing = "";
-                      MapOpisViewModel.ActCompletedInterview = "";
-                      if (MapOpisViewModel.nameFeature3 == "") return;
-                      GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                      string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
-                      CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
-                      else selectedViewDetailingFeature = new ViewDetailingFeature();
-
+                      if (selectedViewDetailingFeature.kodComplaint != "")
+                      { 
+                          CallViewDetailing = "ModelDetailing";
+                          ActCompletedInterview = "ModelDetailing";
+                          AddComandFeatureDeliting();
+                          CallViewDetailing = "";
+                          MapOpisViewModel.ActCompletedInterview = "";
+                          if (MapOpisViewModel.nameFeature3 == "") return;
+                          GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                          string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
+                          CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
+                          else selectedViewDetailingFeature = new ViewDetailingFeature();
+                     
+                      }
+ 
                   }));
             }
         }
 
         private void AddComandFeatureDeliting()
         {
+            MapOpisViewModel.ActCompletedInterview = "Feature";
+            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedViewDetailingFeature.kodComplaint;
+            ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
-
+            MapOpisViewModel.ActCompletedInterview = "";
+            selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+            selectedViewDetailingFeature.nameFeature = MapOpisViewModel.selectFeature;
         }
+
+        
+        // команда выбора новой детализации для записи новой строки 
+        private RelayCommand? selectComplaint;
+        public RelayCommand SelectComplaint
+        {
+            get
+            {
+                return selectComplaint ??
+                  (selectComplaint = new RelayCommand(obj =>
+                  {
+                      MapOpisViewModel.ActCompletedInterview = "NameCompl";
+                      NsiComplaint NewOrder = new NsiComplaint();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+
+                      if (MapOpisViewModel.nameFeature3 == "") return;
+                      selectedViewDetailingFeature.kodComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                      selectedViewDetailingFeature.nameComplaint = MapOpisViewModel.selectedComplaintname;
+                      MapOpisViewModel.ActCompletedInterview = "";
+
+                  }));
+            }
+        }
+
 
         // команда открытия окна справочника групп уточнения детализации и  добавления группы уточнения
         private RelayCommand? addSetGrDeliting;
@@ -575,10 +612,11 @@ namespace BackSeam
                   {
 
                       loadboolDetailing = true;
-                         CallViewDetailing = "ModelDetailing";
-                              ActCompletedInterview = "ModelDetailing";
-                         
-                              WinNsiFeature NewOrder = new WinNsiFeature();
+                      CallViewDetailing = "ModelDetailing";
+                      ActCompletedInterview = "ModelDetailing";
+                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + (ViewModelCreatInterview.ContentIntervs == null ? "0/" : ViewModelCreatInterview.selectedContentInterv.kodDetailing);
+                      ViewModelNsiFeature.Method = ViewModelCreatInterview.ContentIntervs == null ? "GET" : "GETID";
+                      WinNsiFeature NewOrder = new WinNsiFeature();
                               NewOrder.Left = (MainWindow.ScreenWidth / 2);
                               NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                               NewOrder.ShowDialog();

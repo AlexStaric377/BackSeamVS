@@ -485,6 +485,8 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             selectedComplaintname = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
+            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing;
+            ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;

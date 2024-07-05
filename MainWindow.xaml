@@ -4013,9 +4013,18 @@
                                                             <RowDefinition Height="100*"/>
                                                         </Grid.RowDefinitions>
 
-                                                        <Label Content="" Grid.Row="0" Height="30"/>
+
+                                                        <TextBlock Text=" Як або де проявляється&#xa; нездужання"   Width="165" Grid.Row="0" Grid.Column="0" Height="30" FontSize="14"/>
+                                                        <TextBox Text="{Binding nameComplaint}" x:Name="DetailingCopl" Grid.Row="0" Grid.Column="1" IsEnabled="False" Background="White" Width="380" Height="26"  FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                                                        <Image x:Name="FolderComplaint" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="0" Width="25"  HorizontalAlignment="Left" Margin="410,0,0,0"  Visibility="Hidden"   >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridDelitingMap, Path=DataContext.SelectComplaint}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
                                                         <TextBlock x:Name="DetailingLab3" Grid.Column="0" Grid.Row="1" Text="  Характер прояву&#xa;  нездужання"  FontSize="14" Height="32" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
-                                                        <TextBox Text="{Binding nameFeature}" Name="Detailingt3" Grid.Column="1" Grid.Row="1"
+                                                        <TextBox Text="{Binding nameFeature}" Name="Detailingt3" Grid.Column="1" Grid.Row="1" IsEnabled="False"
                                                          Background="White" Width="380" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
                                                         <Image x:Name="FolderFut" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="410,0,0,0"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
@@ -7858,7 +7867,7 @@
                                                             <RowDefinition Height="100*"/>
                                                         </Grid.RowDefinitions>
                                                         <TextBlock Grid.Row="0" x:Name="InfoSeamVer"   Text="  Веріся зборки:"  FontSize="14" Height="30" Width="410"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                                        <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
+                                                        <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
                                                     </Grid>
                                                 </StackPanel>
                                             </Border>

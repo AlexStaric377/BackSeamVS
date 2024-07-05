@@ -465,7 +465,7 @@ namespace BackSeam
                           NewOrder.ShowDialog();
                           MapOpisViewModel.ActCompletedInterview = "";
                           if (MapOpisViewModel.nameFeature3 == "") return;
-                          string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3;
+                          string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
                           CallServer.PostServer(featurecontroller, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();

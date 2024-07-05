@@ -110,10 +110,12 @@ namespace BackSeam
         private string NameDetailing;
         private string NameGrDetailing;
         private string IdUser;
+        private string KodComplaint;
+        private string NameComplaint;
 
 
 
-        public ViewDetailingFeature(int Id = 0, string KodDetailing = "",string KeyFeature = "",  string NameFeature = "", string KeyGrDetailing = "", string NameDetailing = "", string NameGrDetailing = "", string IdUser = "")
+        public ViewDetailingFeature(int Id = 0, string KodDetailing = "",string KeyFeature = "",  string NameFeature = "", string KeyGrDetailing = "", string NameDetailing = "", string NameGrDetailing = "", string IdUser = "", string KodComplaint="", string NameComplaint = "")
         {
             this.Id = Id;
             this.KodDetailing = KodDetailing;
@@ -123,6 +125,8 @@ namespace BackSeam
             this.NameDetailing = NameDetailing;
             this.NameGrDetailing = NameGrDetailing;
             this.IdUser = IdUser;
+            this.KodComplaint = KodComplaint;
+            this.NameComplaint = NameComplaint;
 
 
         }
@@ -173,6 +177,14 @@ namespace BackSeam
             get { return IdUser; }
             set { IdUser = value; OnPropertyChanged("idUser"); }
         }
+
+        public string kodComplaint
+        {
+            get { return KodComplaint; }
+            set { KodComplaint = value; OnPropertyChanged("kodComplaint"); }
+        }
+        public string nameComplaint
+        { get { return NameComplaint; } set { NameComplaint = value; OnPropertyChanged("nameComplaint"); } }
     }
 
 }

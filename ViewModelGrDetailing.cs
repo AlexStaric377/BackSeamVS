@@ -118,7 +118,7 @@ namespace BackSeam
 
         private void MethodaddcomGrDeliting()
         {
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            IndexAddEdit =  "addCommand";
             if (activGrDeliting == false) BoolTrueGrDetailing();
             else BoolFalseGrDetailing();
             WindowMen.GrDetailingsTablGrid.SelectedItem = null;
@@ -147,6 +147,7 @@ namespace BackSeam
         {
             activGrDeliting = false;
             activedit = false;
+            IndexAddEdit = "";
             WindowMen.FolderGR.Visibility = Visibility.Hidden;
             WindowMen.FolderQu.Visibility = Visibility.Hidden;
             WindowMen.GrDetailingst3.IsEnabled = false;

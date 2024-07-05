@@ -318,12 +318,13 @@ namespace BackSeam
 
                       if (selectedComplaint != null) 
                       {
-                          string pathcontroller =  "/api/FeatureController/";
-                          string jason = pathcontroller + "0/" + selectedComplaint.keyComplaint;
-                          CallServer.PostServer(pathcontroller, jason, "GETID");
+                          ViewModelNsiFeature.Method = "GETID";
+                          string jason = ViewModelNsiFeature.pathFeatureController + "0/" + selectedComplaint.keyComplaint;
+                          CallServer.PostServer(ViewModelNsiFeature.pathFeatureController, jason, ViewModelNsiFeature.Method);
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]") == false)
                           {
+                              ViewModelNsiFeature.jasonstoka = jason;
                               MapOpisViewModel.ActCompletedInterview = "Complaint";
                               MapOpisViewModel.selectedComplaintname = selectedComplaint.name;
                               WinNsiFeature NewOrder = new WinNsiFeature();
