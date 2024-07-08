@@ -37,20 +37,6 @@ namespace BackSeam
         {
             if (MapOpisViewModel.ModelFeatures == null)
             {
-               
-                //switch (MapOpisViewModel.ActCompletedInterview)
-                //{
-
-                    
-                //    case null:
-                //        if (ViewModelCreatInterview.ContentIntervs == null)
-                //        {
-                //            CallServer.PostServer(MainWindow.UrlServer,  "/api/FeatureController/", "GET");
-                //        }
- 
-                //        break;
-
-                //}
                 CallServer.PostServer(pathFeatureController, jasonstoka, Method);
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);

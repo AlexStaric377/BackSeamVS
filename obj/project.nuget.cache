@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZlvjN3LyarbWj6gMnR9gfINprpNfSVVhALXf9GkrT3hjG3YlEs5Jkk0ooClzfYUCUrVqJyikEgA5Dq7sEvx+Hw==",
+  "dgSpecHash": "Sqg4U0xs8tl/sFSCJWCjlE9pxQxFQQav1jK7X85j9d4Am+2nUFp/2tvh4Ah/wvGGpx5u7lrroioI7VaOuDXrSQ==",
   "success": true,
   "projectFilePath": "D:\\BackSeam\\BackSeam.csproj",
   "expectedPackageFiles": [
@@ -123,8 +123,7 @@
     "C:\\Users\\Aleksandr\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Aleksandr\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512",
-    "C:\\Users\\Aleksandr\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+    "C:\\Users\\Aleksandr\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
   ],
   "logs": [
     {

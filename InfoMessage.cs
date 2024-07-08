@@ -115,6 +115,13 @@ namespace BackSeam
             "Для завантаження інформації необхідно завантажити профіль паціента ";
             SelectedFalseLogin();
         }
+
+        public void WarningMessageSelectComplaint()
+        {
+            MainWindow.MessageError = "Увага!" + Environment.NewLine +
+            "Для завантаження інформації про характер прояву нездужання необхідно завантажити інформацію про те як або де проявляеться нездужання ";
+            SelectedFalseLogin();
+        }
         public void MessageOnOffKabinetPacient()
         { 
             MainWindow.MessageError = "Увага!" + Environment.NewLine +

@@ -72,6 +72,35 @@ namespace BackSeam
             }
         }
 
-       
+        
+        // команда закрытия окна
+        RelayCommand? selectedNameGrDetaling;
+        public RelayCommand SelectedNameGrDetaling
+        {
+            get
+            {
+                return selectedNameGrDetaling ??
+                  (selectedNameGrDetaling = new RelayCommand(obj =>
+                  {
+                      if (MapOpisViewModel.ActCompletedInterview == "NameDeteling")
+                      { 
+                            if (SelectedListGrDetailing != null)
+                            {
+                           
+                                MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+                                WinNsiListGroupDelit WindowMen = MainWindow.LinkMainWindow("WinNsiListGroupDelit");
+                                WindowMain.GrDetailingst2.Text = SelectedListGrDetailing.keyGrDetailing.ToString() + ": " + SelectedListGrDetailing.nameGrup.ToString();
+                                WindowMain.Detailingt4.Text = SelectedListGrDetailing.keyGrDetailing.ToString();
+                                WindowMain.Detailingt2.Text = SelectedListGrDetailing.nameGrup.ToString();
+                                WindowMain.Featuret2.Text = SelectedListGrDetailing.keyGrDetailing.ToString() + ": " + SelectedListGrDetailing.nameGrup.ToString();
+                                WindowMen.Close();   
+                            }
+                                            
+                      }
+
+                  }));
+            }
+        }
+
     }
 }

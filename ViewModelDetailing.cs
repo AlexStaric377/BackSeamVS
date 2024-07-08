@@ -141,23 +141,23 @@ namespace BackSeam
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
             selectedViewDetailingFeature = new  ViewDetailingFeature();
             SelectedViewDetailingFeature = selectedViewDetailingFeature;
-            if (GrFeatureDetailing != "")
-            {
-                if (ViewDetailingFeatures.Count == 0)
-                {
+            //if (GrFeatureDetailing != "")
+            //{
+            //    if (ViewDetailingFeatures.Count == 0)
+            //    {
 
-                    selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                    selectedViewDetailingFeature.nameFeature = MapOpisViewModel.nameFeature3.Substring(MapOpisViewModel.nameFeature3.IndexOf(":")+1, MapOpisViewModel.nameFeature3.Length - (MapOpisViewModel.nameFeature3.IndexOf(":")+1));
-                }
-                else
-                { 
-                    selectedViewDetailingFeature.nameFeature = ViewDetailingFeatures[0].nameFeature;
-                    selectedViewDetailingFeature.keyFeature = ViewDetailingFeatures[0].keyFeature;               
-                }
+            //        selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+            //        selectedViewDetailingFeature.nameFeature = MapOpisViewModel.nameFeature3.Substring(MapOpisViewModel.nameFeature3.IndexOf(":")+1, MapOpisViewModel.nameFeature3.Length - (MapOpisViewModel.nameFeature3.IndexOf(":")+1));
+            //    }
+            //    else
+            //    { 
+            //        selectedViewDetailingFeature.nameFeature = ViewDetailingFeatures[0].nameFeature;
+            //        selectedViewDetailingFeature.keyFeature = ViewDetailingFeatures[0].keyFeature;               
+            //    }
 
-                WindowDetailing.Detailingt3.Text = MapOpisViewModel.nameFeature3;
+            //    //WindowDetailing.Detailingt3.Text = MapOpisViewModel.nameFeature3;
 
-            }
+            //}
             if (addboolDetailing == false) BoolTrueDetailing();
             else BoolFalseDetailing();
 
@@ -353,7 +353,7 @@ namespace BackSeam
             else
             {
                 if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
-                selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(0, WindowDetailing.Detailingt3.Text.ToString().IndexOf(":"));
+                selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
                 string _keyDetailing = selectedDetailing.keyFeature;
                 foreach (ModelDetailing modelDetailing in ViewDetailings)
                 {
@@ -418,7 +418,7 @@ namespace BackSeam
                   (addFeatureDeliting = new RelayCommand(obj =>
                   {
                       if (selectedViewDetailingFeature.kodComplaint != "")
-                      { 
+                      {
                           CallViewDetailing = "ModelDetailing";
                           ActCompletedInterview = "ModelDetailing";
                           AddComandFeatureDeliting();
@@ -431,8 +431,10 @@ namespace BackSeam
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
                           else selectedViewDetailingFeature = new ViewDetailingFeature();
-                     
+
                       }
+                      else WarningMessageSelectComplaint();
+                    
  
                   }));
             }
@@ -462,20 +464,27 @@ namespace BackSeam
                 return selectComplaint ??
                   (selectComplaint = new RelayCommand(obj =>
                   {
-                      MapOpisViewModel.ActCompletedInterview = "NameCompl";
-                      NsiComplaint NewOrder = new NsiComplaint();
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                      NewOrder.ShowDialog();
-
-                      if (MapOpisViewModel.nameFeature3 == "") return;
-                      selectedViewDetailingFeature.kodComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                      selectedViewDetailingFeature.nameComplaint = MapOpisViewModel.selectedComplaintname;
-                      MapOpisViewModel.ActCompletedInterview = "";
-
+                      SelectedNsiComplaint();
                   }));
             }
         }
+
+        public void SelectedNsiComplaint()
+        {
+            MapOpisViewModel.ActCompletedInterview = "NameCompl";
+            NsiComplaint NewOrder = new NsiComplaint();
+            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+            NewOrder.ShowDialog();
+
+            if (MapOpisViewModel.nameFeature3 == "") return;
+            if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
+            selectedViewDetailingFeature.kodComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+            selectedViewDetailingFeature.nameComplaint = MapOpisViewModel.selectedComplaintname;
+            MapOpisViewModel.ActCompletedInterview = "";
+        }
+
+
 
 
         // команда открытия окна справочника групп уточнения детализации и  добавления группы уточнения
@@ -492,6 +501,7 @@ namespace BackSeam
 
         private void AddComandAddSetGrDeliting()
         {
+            MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
@@ -506,7 +516,7 @@ namespace BackSeam
                 WindowDetailing.Detailingt2.Background = Brushes.White;
                 WindowDetailing.FolderDetailing.Visibility = Visibility.Visible;
             }
-
+            MapOpisViewModel.ActCompletedInterview = "";
         }
 
         // AddnameFeature
@@ -528,38 +538,47 @@ namespace BackSeam
             {
                 selectedViewDetailingFeature= ViewDetailingFeatures[WindowDetailing.DetailingTablGrid.SelectedIndex];
                 
-               
-                    if (selectedViewDetailingFeature.keyFeature != "")
+                if (selectedViewDetailingFeature.keyFeature != "")
+                { 
+                    string json = featurecontroller + selectedViewDetailingFeature.keyFeature+"/0";
+                    CallServer.PostServer(featurecontroller, json, "GETID");
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    if (CallServer.ResponseFromServer.Length != 0)
+                    {
+                        ModelFeature Idinsert = JsonConvert.DeserializeObject<ModelFeature>(CallServer.ResponseFromServer);
+                        WindowDetailing.Detailingt3.Text = Idinsert.keyFeature + ": " + Idinsert.name;
+                        selectedViewDetailingFeature.kodComplaint = Idinsert.keyComplaint;
+
+
+                    }
+                    if (selectedViewDetailingFeature.keyGrDetailing != null )
                     { 
-                        string json = featurecontroller + selectedViewDetailingFeature.keyFeature+"/0";
-                        CallServer.PostServer(featurecontroller, json, "GETID");
+                        json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
+                        CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         if (CallServer.ResponseFromServer.Length != 0)
                         {
-                            ModelFeature Idinsert = JsonConvert.DeserializeObject<ModelFeature>(CallServer.ResponseFromServer);
-                            WindowDetailing.Detailingt3.Text = Idinsert.keyFeature + ": " + Idinsert.name;
+                            ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
+                            WindowDetailing.Detailingt4.Text = Idinsert.keyGrDetailing+ ": " + Idinsert.nameGrup;
                         
-                        }
-                        if (selectedViewDetailingFeature.keyGrDetailing != null )
-                        { 
-                            json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
-                            CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
-                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            if (CallServer.ResponseFromServer.Length != 0)
-                            {
-                                ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
-                                WindowDetailing.Detailingt4.Text = Idinsert.keyGrDetailing+ ": " + Idinsert.nameGrup;
-                        
-                            }                   
-                        }
- 
+                        }                   
                     }
-                    WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
-                    if (selectedViewDetailingFeature.keyGrDetailing !="") WindowDetailing.FolderDetailing.Visibility = Visibility.Visible;
+                }
+                if (selectedViewDetailingFeature.kodComplaint != null)
+                {
 
+                    string jason = pathComplaint + selectedViewDetailingFeature.kodComplaint + "/0";
+                    CallServer.PostServer(pathComplaint, jason, "GETID");
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    if (CallServer.ResponseFromServer.Length != 0)
+                    {
+                        ModelComplaint Idinsert = JsonConvert.DeserializeObject<ModelComplaint>(CallServer.ResponseFromServer);
+                        WindowDetailing.DetailingCopl.Text = Idinsert.name;
 
-                         
-            
+                    }
+                }
+                WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
+                if (selectedViewDetailingFeature.keyGrDetailing !="") WindowDetailing.FolderDetailing.Visibility = Visibility.Visible;
             }
  
 
@@ -610,29 +629,30 @@ namespace BackSeam
                 return selectedNewFeature ??
                   (selectedNewFeature = new RelayCommand(obj =>
                   {
+                      SelectedNsiComplaint();
 
                       loadboolDetailing = true;
-                      CallViewDetailing = "ModelDetailing";
-                      ActCompletedInterview = "ModelDetailing";
-                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + (ViewModelCreatInterview.ContentIntervs == null ? "0/" : ViewModelCreatInterview.selectedContentInterv.kodDetailing);
-                      ViewModelNsiFeature.Method = ViewModelCreatInterview.ContentIntervs == null ? "GET" : "GETID";
-                      WinNsiFeature NewOrder = new WinNsiFeature();
-                              NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                              NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                              NewOrder.ShowDialog();
-                              CallViewDetailing = "";
-                              MapOpisViewModel.ActCompletedInterview = "";
-                              if (MapOpisViewModel.nameFeature3 == "") return;
-                              GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                              string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
-                              CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
-                              string CmdStroka = CallServer.ServerReturn();
+                      MapOpisViewModel.ActCompletedInterview = "Feature";
+                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) ;
+                      ViewModelNsiFeature.Method = selectedViewDetailingFeature.kodComplaint == "" ? "GET" : "GETID";
+
+                        WinNsiFeature NewOrder = new WinNsiFeature();
+                        NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                        NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                        NewOrder.ShowDialog();
+                        CallViewDetailing = "";
+                        MapOpisViewModel.ActCompletedInterview = "";
+                        if (MapOpisViewModel.nameFeature3 == "") return;
+                        GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                        string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
+                        CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
+                        string CmdStroka = CallServer.ServerReturn();
                       if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
                       else
                       { 
                         ViewDetailingFeatures = new  ObservableCollection<ViewDetailingFeature>();
-                          WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
-                          WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
+                        WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
+                        WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
                       } 
                   }));
             }
