@@ -5368,7 +5368,7 @@
                                         </Grid>
                                         <Grid Grid.Row="0" Name="GridInterviewMapOpis" HorizontalAlignment="Right">
                                             <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
-                                                <StackPanel x:Name="InterviewMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedInterview}" >
+                                                <StackPanel x:Name="InterviewMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedResultInterview}" >
                                                     <!--SelectedResultInterview-->
                                                     <!--White-->
                                                     <Grid Width="Auto" Height="Auto">

@@ -271,7 +271,7 @@ namespace BackSeam
                                   NewEnd.ShowDialog();
                                   return;
                               }
-                            modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
+                              modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
                               WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
                           }                      
                           if (selectedInterview == null) SelectNewInterview();
@@ -293,10 +293,9 @@ namespace BackSeam
  
                           json = CallServer.ResponseFromServer.Replace("/","*");
                           UnloadCmdStroka("Interview/", json);
-                          string _kodDiagnoz = "", _kodRecommend ="";
+ 
                           // дозапись в справочник взаимосвязи диагнозов рекомендаций и протоколов интервью
         
-      
                         switch (IndexAddEdit)
                         {
                             case "addCommand":
@@ -313,57 +312,19 @@ namespace BackSeam
                                 UnloadCmdStroka("Interview/", json);
                                 MessageOk();
                             }                                  
- 
                                 break;
-                            default:
-                                ModelDependency modelDependencyty = new ModelDependency();
-                                json = pathcontrolerDependency + "0/"+selectedInterview.kodProtokola;
-                                CallServer.PostServer(pathcontrolerDependency, json, "GETID");
+                            case "editCommand":
+                                  
+                                json = JsonConvert.SerializeObject(modelDependency);
+                                CallServer.PostServer(pathcontrolerDependency, json, "PUT");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                modelDependencyty = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                                if (modelDependencyty != null)
+                                json = CallServer.ResponseFromServer.Replace("/", "*");
+                                CmdStroka = CallServer.ServerReturn();
+                                if (CmdStroka.Contains("[]") == false)
                                 {
-                                    _kodDiagnoz = modelDependencyty.kodDiagnoz; _kodRecommend = modelDependencyty.kodRecommend;
-                                    if (WindowInterv.InterviewDependencyt2.Text.ToString().Length != 0)
-                                    {
-                                        if (WindowInterv.InterviewDependencyt2.Text.ToString().Contains(":") == true)
-                                        {
-                                            _kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowMain.InterviewDependencyt2.Text.IndexOf(":"));
-                                        }
-                                    }
-
-
-                                    if (modelDependencyty.kodDiagnoz != _kodDiagnoz || modelDependencyty.kodRecommend != _kodRecommend)
-                                    {
-                                        modelDependencyty.kodDiagnoz = _kodDiagnoz;
-                                        modelDependencyty.kodRecommend = _kodRecommend;
-
-                                        json = JsonConvert.SerializeObject(modelDependencyty);
-                                        CallServer.PostServer(pathcontrolerDependency, json, "PUT");
-                                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                        json = CallServer.ResponseFromServer.Replace("/", "*");
-                                        CmdStroka = CallServer.ServerReturn();
-                                        if (CmdStroka.Contains("[]") == false)
-                                        {
-                                            UnloadCmdStroka("Interview/", json);
-                                            MessageOk();
-                                        }
-                                    }
+                                    UnloadCmdStroka("Interview/", json);
+                                    MessageOk();
                                 }
-                                else 
-                                {
-                                    json = JsonConvert.SerializeObject(modelDependency);
-                                    CallServer.PostServer(pathcontrolerDependency, json, "POST");
-                                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                    json = CallServer.ResponseFromServer.Replace("/", "*");
-                                    CmdStroka = CallServer.ServerReturn();
-                                    if (CmdStroka.Contains("[]") == false)
-                                    {
-                                        UnloadCmdStroka("Interview/", json);
-                                        MessageOk();
-                                    }
-                                }
-    
                                 break;
                         }
 
@@ -551,8 +512,6 @@ namespace BackSeam
             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
-            //NewOrder.Left = 600;
-            //NewOrder.Top = 200;
             NewOrder.ShowDialog();
             MapOpisViewModel.ModelCall = "";
 
@@ -582,7 +541,8 @@ namespace BackSeam
             if(WindowInterv.InterviewDependencyt3.Text.Length >0)
             { 
                 modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
-                WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1, WindowMain.InterviewDependencyt3.Text.Length - (WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1));            
+                WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1, WindowMain.InterviewDependencyt3.Text.Length - (WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1));
+                
             }
 
         }

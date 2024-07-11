@@ -114,7 +114,7 @@ namespace BackSeam
 
     public class ModelResultInterview : BaseViewModel
     {
-
+       
         private string NametInterview;
         private string KodProtokola;
         private string DetailsInterview;

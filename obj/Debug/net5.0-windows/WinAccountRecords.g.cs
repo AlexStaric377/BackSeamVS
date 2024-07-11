@@ -235,7 +235,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.24;component/winaccountrecords.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.25;component/winaccountrecords.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinAccountRecords.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
