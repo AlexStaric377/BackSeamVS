@@ -182,9 +182,10 @@ namespace BackSeam
             WindowDetailing .Detailingt2.IsEnabled = true;
  
             WindowDetailing .Detailingt2.Background = Brushes.AntiqueWhite;
-            if(IndexAddEdit == "addCommand" && GrFeatureDetailing == "") WindowDetailing.FolderFut.Visibility = Visibility.Visible;
-            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand") WindowDetailing.FolderDet.Visibility = Visibility.Visible;
-            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand") WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
+            
+            WindowDetailing.FolderFut.Visibility = Visibility.Visible;
+            WindowDetailing.FolderDet.Visibility = Visibility.Visible;
+            WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
         }
 
         private void BoolFalseDetailing()
@@ -551,7 +552,7 @@ namespace BackSeam
 
 
                     }
-                    if (selectedViewDetailingFeature.keyGrDetailing != null )
+                    if (selectedViewDetailingFeature.keyGrDetailing != "" )
                     { 
                         json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
                         CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");

@@ -154,7 +154,7 @@ namespace BackSeam
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
                               string json = pathComplaint + selectedComplaint.id.ToString();
-                              CallServer.PostServer(MainWindow.UrlServer, json, "DELETE");
+                              CallServer.PostServer(pathComplaint, json, "DELETE");
                               ViewComplaints.Remove(selectedComplaint);
                               selectedComplaint = new ModelComplaint();
                           }
@@ -209,7 +209,7 @@ namespace BackSeam
                   (saveComplaint = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseCompaint();
+                      
                       if (WindowMen.Simptomt2.Text.Length != 0)
                       {
                           if (IndexAddEdit == "addCommand")
@@ -221,7 +221,7 @@ namespace BackSeam
                               while (maxindex == false)
                               {
                                   selectedComplaint.keyComplaint = dictionty[indexdictionty] + addindex;
-                                  json = pathComplaint + selectedComplaint.keyComplaint;
+                                  json = pathComplaint + selectedComplaint.keyComplaint+"/0";
                                   CallServer.PostServer(pathComplaint, json, "GETID");
                                   if (CallServer.ResponseFromServer.Contains("[]") == true)
                                   {
@@ -257,13 +257,13 @@ namespace BackSeam
                                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                json = CallServer.ResponseFromServer;
                           }
-                          selectedComplaint = new ModelComplaint();
-                          SelectedComplaint = selectedComplaint;
+                          SelectedComplaint = new ModelComplaint();
                           UnloadCmdStroka("Complaint/", json);
 
 
                       }
                       else WindowMen.Simptomt2.Text = editextComplaint;
+                      BoolFalseCompaint();
                       WindowMen.SimptomTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
 

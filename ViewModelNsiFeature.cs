@@ -35,13 +35,10 @@ namespace BackSeam
         // конструктор класса
         public ViewModelNsiFeature()
         {
-            if (MapOpisViewModel.ModelFeatures == null)
-            {
+            
                 CallServer.PostServer(pathFeatureController, jasonstoka, Method);
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);
-            }
-            else { NsiModelFeatures = MapOpisViewModel.ModelFeatures; }
             
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
@@ -117,6 +114,7 @@ namespace BackSeam
                       {
                          if (WindowMen.TablFeature.SelectedIndex != -1)
                           {
+                              selectedFeature = NsiModelFeatures[WindowMen.TablFeature.SelectedIndex];
                               if (selectedFeature != null)
                               {
 

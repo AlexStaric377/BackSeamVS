@@ -232,14 +232,14 @@ namespace BackSeam
                   (saveGrDetailing = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseGrDetailing();
+                      
                       if (WindowMen.GrDetailingst3.Text.Trim().Length != 0)
                       {
                           if (IndexAddEdit == "addCommand")
                           {
                               SelectNewGrDetailing();
                               json = JsonConvert.SerializeObject(selectedViewGrDeliting);
-                              CallServer.PostServer(controlerGrDetailing, json, "PUT");
+                              CallServer.PostServer(controlerGrDetailing, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                               json = CallServer.ResponseFromServer;
                               ModelGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelGrDetailing>(CallServer.ResponseFromServer);
@@ -258,6 +258,7 @@ namespace BackSeam
 
                       }
                       else { WindowMen.GrDetailingst3.Text = edittext; }
+                      BoolFalseGrDetailing();
                       WindowMen.GrDetailingsTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
                   }));

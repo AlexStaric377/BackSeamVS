@@ -146,6 +146,7 @@ namespace BackSeam
             if (addtboolFeature == false) BoolTrueFeature();
             else BoolFalseFeature();
             WindowMen.FeatureTablGrid.SelectedItem = null;
+            SelectedViewFeature = new ViewFeatureComplaint();
 
         }
 
@@ -156,16 +157,16 @@ namespace BackSeam
             editboolFeature = true;
             WindowMen.Featuret2.IsEnabled = true;
             WindowMen.Featuret2.Background = Brushes.AntiqueWhite;
-            if (IndexAddEdit == "addCommand")
-            { 
-                WindowMen.Folder.Visibility = Visibility.Visible;
-            }
-            if (IndexAddEdit == "editCommand")
-            {
+            //if (IndexAddEdit == "addCommand")
+            //{ 
+                //WindowMen.Folder.Visibility = Visibility.Visible;
+            //}
+            //if (IndexAddEdit == "editCommand")
+            //{
                 WindowMen.Folder.Visibility = Visibility.Visible;
                 WindowMen.FolderDet5.Visibility = Visibility.Visible;
 
-            }
+            //}
         }
 
         private void BoolFalseFeature()
@@ -268,7 +269,7 @@ namespace BackSeam
                           //  формирование кода Feature по значениею группы выранной жалобы
                           SelectNewFeature();
                           if (IndexAddEdit == "addCommand")
-                         {
+                          {
                               
                               
                               // ОБращение к серверу добавляем запись
@@ -291,10 +292,10 @@ namespace BackSeam
                               if (ViewFeatures == null)ViewFeatures = new ObservableCollection<ViewFeatureComplaint>();
                               ViewFeatures.Add(selectedViewFeature);
                               WindowMen.FeatureTablGrid.ItemsSource = ViewFeatures;
-                         }
-                         else
-                         {
-                              // ОБращение к серверу измнить корректируемую запись в БД
+                          }
+                          else
+                          {
+                               // ОБращение к серверу измнить корректируемую запись в БД
                               json = JsonConvert.SerializeObject(selectedFeature);
                               CallServer.PostServer(featurecontroller, json, "PUT");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -304,6 +305,7 @@ namespace BackSeam
                       }
                       BoolFalseFeature();
                       IndexAddEdit = "";
+                      SelectedViewFeature = new ViewFeatureComplaint();
                       WindowMen.FeatureTablGrid.SelectedItem = null;
 
                   }));
@@ -316,7 +318,7 @@ namespace BackSeam
             
            //KeyFeature = "A.000.001", KeyComplaint = "A.000"            
             int _keyFeatureindex = 0;
-            selectedFeature = new ModelFeature();
+            if(selectedFeature == null) selectedFeature = new ModelFeature();
             if (IndexAddEdit == "addCommand" )
             {
                 selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
@@ -383,12 +385,16 @@ namespace BackSeam
 
         private void AddComandFeatureComplaint()
         {
+            if (selectedViewFeature == null) selectedViewFeature = new ViewFeatureComplaint();
+            if (selectedFeature == null) selectedFeature = new  ModelFeature();
             MapOpisViewModel.ActCompletedInterview = "Feature";
             NsiComplaint NewOrder = new NsiComplaint();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ActCompletedInterview = "";
+            selectedViewFeature.keyComplaint = selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Length > 0 ? MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) : selectedFeature.keyComplaint;
+            
         }
 
         // команда выбора новой жалобы для записи новой строки 
@@ -407,6 +413,8 @@ namespace BackSeam
             if (selectedViewFeature != null)
             {
                 WindowMen.FolderDet5.Visibility = Visibility.Visible;
+                selectedFeature = ModelFeatures[WindowMen.FeatureTablGrid.SelectedIndex-1];
+
             }
 
         }
@@ -439,7 +447,7 @@ namespace BackSeam
                           NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                           NewNsi.ShowDialog();
                           MapOpisViewModel.ActCompletedInterview = "";
-
+                          //ModelFeatures
                       }
 
 
