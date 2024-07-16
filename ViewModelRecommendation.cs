@@ -32,10 +32,10 @@ namespace BackSeam
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех груп квалифікації из БД
         /// через механизм REST.API
         /// </summary>
-        private bool loadbooltablRecom = false;
+        private bool loadbooltablRecom = false, activModelRecommendation = false;
         public static string controlerModelRecommendation =  "/api/RecommendationController/";
         public static ModelRecommendation selectedRecommendation;
-
+        
         public static ObservableCollection<ModelRecommendation> ModelRecommendations { get; set; }
 
         public ModelRecommendation SelectedModelRecommendation
@@ -70,7 +70,7 @@ namespace BackSeam
 
 
         // команда добавления нового объекта
-        bool activModelRecommendation = false;
+        
         private RelayCommand addModelRecommendation;
         public RelayCommand AddModelRecommendation
         {
@@ -148,8 +148,8 @@ namespace BackSeam
 
 
         // команда  редактировать
-        private bool activeditModelRecommendation = false;
-        private string edittextModelRecommendation = "";
+        
+       
         private RelayCommand? editModelRecommendation;
         public RelayCommand? EditModelRecommendation
         {
@@ -161,15 +161,12 @@ namespace BackSeam
                       if (selectedRecommendation != null)
                       {
                           IndexAddEdit = "editCommand";
-                          if (activeditModelRecommendation == false)
-                          {
-                              BoolTrueRecom();
-                              edittextModelRecommendation = WindowMen.Recommendationt2.Text.ToString();
-                          }
+                          if (activModelRecommendation == false)BoolTrueRecom();
                           else
                           {
                               BoolFalseRecom();
                               WindowMen.RecommendationTablGrid.SelectedItem = null;
+                              SelectedModelRecommendation = new ModelRecommendation();
                           }
                       }
                   }));

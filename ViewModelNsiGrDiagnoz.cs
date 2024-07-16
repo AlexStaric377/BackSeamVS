@@ -47,25 +47,9 @@ namespace BackSeam
         // конструктор класса
         public ViewModelNsiGrDiagnoz()
         {
-            //if (MapOpisViewModel.SelectActivGrupDiagnoz == "GrupDiagnoz")
-            //{
-            //    ViewGrupDiagnozs = new ObservableCollection<ModelGrupDiagnoz>();
-            //    foreach (ModelDiagnoz modelDiagnoz in MapOpisViewModel.TmpDiagnozs)
-            //    {
-            //        selectedViewGrupDiagnoz = new  ModelGrupDiagnoz();
-            //        selectedViewGrupDiagnoz.icdGrDiagnoz = modelDiagnoz.icdGrDiagnoz;
-            //        selectedViewGrupDiagnoz.nameGrDiagnoz = modelDiagnoz.nameDiagnoza;
-            //        ViewGrupDiagnozs.Add(selectedViewGrupDiagnoz);
-            //    }
-            //}
-            //else
-            //{
                 CallServer.PostServer(controlerGrDiagnoz, controlerGrDiagnoz, "GET");
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableViewGrDiagnoz(CmdStroka);
-
-            //}
-
 
         }
 
@@ -122,21 +106,29 @@ namespace BackSeam
                       NewOrder.Left = (MainWindow.ScreenWidth / 2)+100;
                       NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
-                      if (Windowmain.Diagnozt1.Text != null)
-                      {
+ 
+                  }));
+            }
+        }
 
-                          //selectedViewGrupDiagnoz = new ModelGrupDiagnoz();
-                          //selectedViewGrupDiagnoz. = MapOpisViewModel._kodDoctor;
-                          //selectedViewGrupDiagnoz.icdGrDiagnoz = Windowmain.Diagnozt1.Text;
-                          //string json = JsonConvert.SerializeObject(selectedLikarGrupDiagnoz);
-                          //CallServer.PostServer(controlerLikarGrDiagnoz, json, "POST");
-                          //CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                          //ModelLikarGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelLikarGrupDiagnoz>(CallServer.ResponseFromServer);
-                          //if (Idinsert != null)
-                          //{
-                          //    LikarGrupDiagnozs.Add(Idinsert);
-                          //}
-                      }
+        
+        // команда поиска по наименованию групового напрвления диагноза
+        RelayCommand? searchGrDiagnoz;
+        public RelayCommand SearchGrDiagnoz
+        {
+            get
+            {
+                return searchGrDiagnoz ??
+                  (searchGrDiagnoz = new RelayCommand(obj =>
+                  {
+                      WinNsiListGrDiagnoz WindowNsiGrDiag = MainWindow.LinkMainWindow("WinNsiListGrDiagnoz");
+                      string jason = controlerGrDiagnoz + "0/" + WindowNsiGrDiag.PoiskGrDiagnoz.Text;
+                      CallServer.PostServer(controlerGrDiagnoz, jason, "GETID");
+                      string CmdStroka = CallServer.ServerReturn();
+                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                      else ObservableViewGrDiagnoz(CmdStroka);
+                      WindowNsiGrDiag.TablGrupDiagnozs.ItemsSource = ViewGrupDiagnozs;
+
                   }));
             }
         }
