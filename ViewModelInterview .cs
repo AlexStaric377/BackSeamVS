@@ -119,9 +119,9 @@ namespace BackSeam
 
         private void MethodaddcomInterview()
         {
-            selectedInterview = new ModelInterview();
+            SelectedResultInterview = new ModelResultInterview();
             modelDependency = new ModelDependency();
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            IndexAddEdit = "addCommand";
             if (addtboolInterview == false) BoolTrueInterview();
             else BoolFalseInterview();
             WindowInterv.InterviewTablGrid.SelectedItem = null;

@@ -108,7 +108,7 @@ namespace BackSeam
                               if (selectedDetailing.keyGrDetailing.Length != 0)keyGr = true;
                           }
                           if(keyGr == true && MapOpisViewModel.ActCompletedInterview != "FeatureGET"
-                          && MapOpisViewModel.ActCompletedInterview != "Feature")  //&& MapOpisViewModel.ActCompletedInterview != "CreatInterview"
+                          && MapOpisViewModel.ActCompletedInterview != "Feature" )  //&& MapOpisViewModel.ActCompletedInterview != "CreatInterview"
                           {
                               MapOpisViewModel.selectGrDetailing = selectedDetailing.nameDetailing.ToString().ToUpper();
                               WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
@@ -130,6 +130,7 @@ namespace BackSeam
                                       case null:
                                           if (ViewModelCreatInterview.ContentIntervs != null) ViewModelCreatInterview.SelectContentCompl();
                                           break;
+                                      
                                       default:
                                       if (keyGr == false) MapOpisViewModel.SelectContentCompleted();
                                       break;
