@@ -245,7 +245,7 @@ namespace BackSeam
                                   NewOrder.ShowDialog();
                                   break;
                               case 9:
-                                  MapOpisViewModel.ActCreatInterview = "CreatInterview";
+                                  MapOpisViewModel.ActCreatInterview = "ActCreatInterview";
                                   MapOpisViewModel.selectFeature = selectedContentInterv.detailsInterview;
                                   NsiDetailing NewNsi = new NsiDetailing();
                                   NewNsi.Left = (MainWindow.ScreenWidth / 2)+50;

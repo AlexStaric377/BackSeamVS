@@ -108,7 +108,7 @@ namespace BackSeam
                               if (selectedDetailing.keyGrDetailing.Length != 0)keyGr = true;
                           }
                           if(keyGr == true && MapOpisViewModel.ActCompletedInterview != "FeatureGET"
-                          && MapOpisViewModel.ActCompletedInterview != "Feature" )  //&& MapOpisViewModel.ActCompletedInterview != "CreatInterview"
+                          && MapOpisViewModel.ActCompletedInterview != "Feature" && MapOpisViewModel.ActCompletedInterview != null)  //&& MapOpisViewModel.ActCompletedInterview != "ActCreatInterview"
                           {
                               MapOpisViewModel.selectGrDetailing = selectedDetailing.nameDetailing.ToString().ToUpper();
                               WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
@@ -154,7 +154,7 @@ namespace BackSeam
                   (viewGrDetaling = new RelayCommand(obj =>
                   {
                       NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
-                      if (WindowMen.TablDeliting.SelectedIndex != -1 && MapOpisViewModel.ActCreatInterview != "ActCreatInterview ")
+                      if (WindowMen.TablDeliting.SelectedIndex != -1 && MapOpisViewModel.ActCreatInterview != "ActCreatInterview")
                       { 
                           selectedDetailing = NsiModelDetailings[WindowMen.TablDeliting.SelectedIndex];
                           string tmpActCompletedInterview = MapOpisViewModel.ActCreatInterview;
