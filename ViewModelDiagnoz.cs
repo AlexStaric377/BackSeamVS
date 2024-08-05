@@ -211,8 +211,8 @@ namespace BackSeam
 
 
         // команда  редактировать
-        private bool activeditViewDiagnoz = false;
-        private string edittextViewDiagnoz = "";
+        
+        
         private RelayCommand? editViewDiagnoz;
         public RelayCommand? EditViewDiagnoz
         {
@@ -229,11 +229,7 @@ namespace BackSeam
                               return;
                           }
                           IndexAddEdit = "editCommand";
-                          if (activeditViewDiagnoz == false)
-                          {
-                              BoolTrueDiagnoz();
-                              edittextViewDiagnoz = WindowMen.Diagnozt2.Text.ToString();
-                          }
+                          if (activViewDiagnoz == false) {BoolTrueDiagnoz(); }
                           else
                           {
                               BoolFalseDiagnoz();
@@ -287,9 +283,7 @@ namespace BackSeam
                           UnloadCmdStroka("Diagnoz/", json);
 
                     }
-                    else
-                    { WindowMen.Diagnozt2.Text = edittextViewDiagnoz;  }
- 
+   
                     WindowMen.DiagnozTablGrid.SelectedItem = null;
                     IndexAddEdit = "";
                     BoolFalseDiagnoz();

@@ -208,8 +208,7 @@ namespace BackSeam
                           }
                           UnloadCmdStroka("Recommendation/", json);
                       }
-                      else
-                      { WindowMen.Recommendationt2.Text = edittextViewDiagnoz; }
+ 
                       WindowMen.RecommendationTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
                       BoolFalseRecom();

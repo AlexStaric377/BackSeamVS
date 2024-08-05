@@ -3896,7 +3896,7 @@
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
 
-                                                    <DataGridTextColumn x:Name="FeatureColumn2"  Width="350" FontSize="14" Binding="{Binding Path=nameFeature}">
+                                                    <DataGridTextColumn x:Name="FeatureColumn2"  Width="500" FontSize="14" Binding="{Binding Path=nameFeature}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="FeatureHeader2"  Text="Характер прояву"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
@@ -4974,315 +4974,6 @@
                                     </Grid>
                                 </TabItem>
 
-                                <TabItem Header="Довідник напрямків" Name="DirectoryGrDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
-                                    <!--<Grid Background="White"/>-->
-                                    <Grid Width="780" Background="White" HorizontalAlignment="Left">
-                                        <Grid.RowDefinitions>
-
-                                            <RowDefinition Height="250*"/>
-                                            <RowDefinition Height="280*"/>
-                                            <RowDefinition Height="60*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
-                                            <Grid x:Name="GrDiagnozControlPanel"    HorizontalAlignment="Right">
-                                                <Grid.ColumnDefinitions >
-                                                    <ColumnDefinition Width ="125*" />
-                                                    <ColumnDefinition Width="95*"/>
-                                                    <ColumnDefinition Width ="95*" />
-                                                    <ColumnDefinition Width="95*"/>
-                                                    <ColumnDefinition Width ="95*" />
-                                                    <ColumnDefinition Width ="95*" />
-
-                                                </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
-                                                            <Button Command="{Binding LoadViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="GrDiagnozGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
-                                                            <Button Command="{Binding AddViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-                                                            <Label Content="Додати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="GrDiagnozGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding EditViewGroupDiagnoz }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
-                                                            VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Змінити" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="GrDiagnozGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
-                                                            <Button Command="{Binding RemoveViewGroupDiagnoz}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Видалити" FontSize="14" Height="30"  VerticalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="GrDiagnozGridSave" Grid.Column="4" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding SaveViewGroupDiagnoz}"  Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Зберегти" FontSize="14" Height="30"  VerticalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="GrDiagnozGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="GrDiagnozPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding PrintGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-                                                            <Label Content="Друкувати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid Grid.Row="0" x:Name="GridGrDiagnoz" HorizontalAlignment="Right">
-                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
-                                                <StackPanel x:Name="GrDiagnozMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedViewGrupDiagnoz}" >
-                                                    <Grid Width="Auto" Height="Auto">
-                                                        <Grid.ColumnDefinitions >
-                                                            <ColumnDefinition Width="86*" />
-                                                            <ColumnDefinition Width ="239*" />
-                                                        </Grid.ColumnDefinitions>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="40*" />
-                                                            <RowDefinition Height="60*" />
-                                                            <RowDefinition Height="60*"/>
-                                                            <RowDefinition Height="60*"/>
-                                                            <RowDefinition Height="60*"/>
-                                                            <RowDefinition Height="120*"/>
-
-                                                        </Grid.RowDefinitions>
-                                                        <Label Content="" Grid.Row="0" Margin="0,0,0,32" Grid.RowSpan="2" />
-                                                        <TextBlock x:Name="GrDiagnozLab1" Grid.Row="1" Text=" Код напрямку"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Name="GrDiagnozt1" Text="{Binding Path=icdGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" VerticalAlignment="Center"
-                                                            Grid.Column="1" Grid.Row="1"  Background="White" Width="200" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Height="28"  />
-                                                        <Image x:Name="FolderGrMKX" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="400,0,0,0"  Visibility="Hidden"   >
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridDiagnozMkx, Path=DataContext.AddLoadGrMkx}" CommandParameter=""/>
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </Image>
-                                                        <TextBlock x:Name="GrDiagnozLab2" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Text=" Назва напрямку "   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Bottom" />
-
-                                                        <TextBox  Name="GrDiagnozt2" Text="{Binding Path=nameGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="2" Grid.Column="1"
-                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        <TextBlock x:Name="GrDiagnozL5" Grid.Row="3" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text="  Опис напрямку "   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
-                                                        <TextBox  Name="GrDiagnozt5" Text="{Binding Path=opisDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1"
-                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        <TextBlock x:Name="GrDiagnozLab6" Grid.Row="4" Text=" Опис в інтернеті"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                                                        <TextBox Name="GrDiagnozt6" Text="{Binding Path=uriDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="4"  Background="White" FontSize="14" BorderThickness="0,0,0,0" Height="28" Grid.ColumnSpan="2" Margin="166,0,82,30" Grid.RowSpan="2"  />
-                                                        <Image x:Name="FolderGroupDiagnoz" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,20,0"  >
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridGrQualification, Path=DataContext.UriViewGrDiagnoz}" CommandParameter=""/>
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </Image>
-                                                        <Label Name="GrDiagnozload" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="5"
-                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0" />
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Border>
-                                        </Grid>
-                                        <Grid Grid.Row="1" HorizontalAlignment="Right">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="20*" />
-                                                <RowDefinition Height="130*" />
-                                            </Grid.RowDefinitions>
-                                            <Label Content=" Довідник напрямків" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  />
-
-                                            <DataGrid x:Name="GrDiagnozTablGrid" Grid.Row="1"   Cursor="Hand"
-                                          ItemsSource="{Binding ViewGrupDiagnozs }" SelectedItem ="{Binding SelectedViewGrupDiagnoz}"
-                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
-                                          VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
-                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto">
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=GrQualificationTablGrid, Path=DataContext.VisibleGrQualification}" CommandParameter=""/>
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn x:Name="GrDiagnozColumn1" FontSize="14" Width="150" Binding="{Binding Path=icdGrDiagnoz}">
-                                                        <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="GrDiagnozHeader1"  Text="Код напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center" />
-                                                        </DataGridTextColumn.Header>
-                                                    </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="GrDiagnozColumn2" FontSize="14" Width="600" Binding="{Binding Path=nameGrDiagnoz}">
-                                                        <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="GrDiagnozHeader2"  Text="Назва напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                                                        </DataGridTextColumn.Header>
-                                                    </DataGridTextColumn>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </Grid>
-                                    </Grid>
-                                </TabItem>
-
-                                <TabItem Header="     Довідник&#xa;рекомендацій" Name="Recommendation" FontSize="13" FontFamily="Microsoft Sans Serif" Height="Auto" Width="150" HorizontalAlignment="Center">
-                                    <!--<Grid Background="White"/>-->
-                                    <Grid Width="780" Background="White" HorizontalAlignment="Left">
-                                        <Grid.RowDefinitions>
-
-                                            <RowDefinition Height="250*"/>
-                                            <RowDefinition Height="280*"/>
-                                            <RowDefinition Height="60*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="2" Width="630"  HorizontalAlignment="Right">
-                                            <Grid x:Name="RecommendationControlPanel"    HorizontalAlignment="Right">
-                                                <Grid.ColumnDefinitions >
-                                                    <ColumnDefinition Width ="125*" />
-                                                    <ColumnDefinition Width ="95*" />
-                                                    <ColumnDefinition Width="95*"/>
-                                                    <ColumnDefinition Width ="95*" />
-                                                    <ColumnDefinition Width="95*"/>
-                                                    <ColumnDefinition Width ="95*" />
-
-                                                </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecomenLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
-                                                            <Button Command="{Binding LoadModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-
-                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="RecommendationGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecommendationAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
-                                                            <Button Command="{Binding AddModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-
-                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="RecommendationGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecommendationGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding EditModelRecommendation }" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Змінити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="RecommendationGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecommendationDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding RemoveModelRecommendation}" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Видалити" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="RecommendationGridSave" Grid.Column="4" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecommendationSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding SaveModelRecommendation}" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
-                                                            </Button>
-                                                            <Label Content="Зберегти" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                                <Grid x:Name="RecommendationGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
-                                                        <StackPanel Name="RecommendationPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding PrintModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
-                                                            </Button>
-                                                            <Label Content="Друкувати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid Grid.Row="0"  HorizontalAlignment="Right">
-                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
-                                                <StackPanel x:Name="RecommendationMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedModelRecommendation}">
-                                                    <Grid Width="Auto" Height="Auto">
-                                                        <Grid.ColumnDefinitions >
-                                                            <ColumnDefinition Width="80*" />
-                                                            <ColumnDefinition Width ="281*" />
-                                                        </Grid.ColumnDefinitions>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="20*" />
-                                                            <RowDefinition Height="40*" />
-                                                            <RowDefinition Height="40*"/>
-                                                            <RowDefinition Height="120*"/>
-                                                        </Grid.RowDefinitions>
-                                                        <Label Content="" Grid.Row="0" Height="20"/>
-                                                        <TextBlock x:Name="RecommendationLab1" Grid.Column="0" Grid.Row="1" Text="   Код"  FontSize="14" Height="24" Width="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                                                        <TextBox Text="{Binding Path=kodRecommendation, UpdateSourceTrigger=PropertyChanged }" Name="Recommendationt1" Grid.Column="1" Grid.Row="1"
-                                                         IsEnabled="False" Background="White" Width="200" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
-                                                        <TextBlock x:Name="RecommendationLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="50" Text="  Назва рекомендації"   Width="134" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
-                                                        <TextBox Text="{Binding Path=contentRecommendation, UpdateSourceTrigger=PropertyChanged }" Name="Recommendationt2" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"
-                                                         IsEnabled="False" Height="52" Background="White" VerticalContentAlignment="Top" FontSize="14" Width="470" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <Label Name="LoadRecom" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="3"
-                                                       HorizontalAlignment="Center" FontSize="18"  Grid.ColumnSpan="2"  />
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Border>
-                                        </Grid>
-                                        <Grid Grid.Row="1"  HorizontalAlignment="Right">
-                                            <Grid Width="Auto" Height="Auto">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="20*" />
-                                                    <RowDefinition Height="130*" />
-                                                </Grid.RowDefinitions>
-                                                <Label Content=" Довідник рекомендацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
-                                                <DataGrid x:Name="RecommendationTablGrid"  Cursor="Hand" Grid.Row="1" ItemsSource="{Binding ModelRecommendations}" SelectedItem="{Binding SelectedModelRecommendation}"
-                                                IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
-                                                VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None" FontSize="15"
-                                                HorizontalGridLinesBrush="Black" VerticalScrollBarVisibility="Hidden">
-                                                    <DataGrid.Columns>
-                                                        <DataGridTextColumn x:Name="RecommendationColumn1" FontSize="14" Width="120" Binding="{Binding Path=kodRecommendation}">
-                                                            <DataGridTextColumn.Header>
-                                                                <TextBlock x:Name="RecommendationHeader1"  Text="Код"  TextWrapping="Wrap" HorizontalAlignment="Center" />
-                                                            </DataGridTextColumn.Header>
-                                                        </DataGridTextColumn>
-                                                        <DataGridTextColumn x:Name="RecommendationColumn2" FontSize="14" Width="550" Binding="{Binding Path=contentRecommendation}">
-                                                            <DataGridTextColumn.Header>
-                                                                <TextBlock x:Name="RecommendationHeader2"  Text="Назва рекомендації"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                                                            </DataGridTextColumn.Header>
-                                                        </DataGridTextColumn>
-                                                    </DataGrid.Columns>
-                                                </DataGrid>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </TabItem>
-
-
                                 <TabItem Header="Довідник опитувань" Name="InterviewDialog" FontSize="13" FontFamily="Microsoft Sans Serif"  Height="30" Width="150" HorizontalAlignment="Center">
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -5476,6 +5167,149 @@
                                         </Grid>
                                     </Grid>
                                 </TabItem>
+
+                                <TabItem Header="     Довідник&#xa;рекомендацій" Name="Recommendation" FontSize="13" FontFamily="Microsoft Sans Serif" Height="Auto" Width="150" HorizontalAlignment="Center">
+                                    <!--<Grid Background="White"/>-->
+                                    <Grid Width="780" Background="White" HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="250*"/>
+                                            <RowDefinition Height="280*"/>
+                                            <RowDefinition Height="60*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="2" Width="630"  HorizontalAlignment="Right">
+                                            <Grid x:Name="RecommendationControlPanel"    HorizontalAlignment="Right">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width ="125*" />
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecomenLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding LoadModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+
+                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="RecommendationGridAdd" Grid.Column="1" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecommendationAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding AddModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+
+                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="RecommendationGridGhange" Grid.Column="2" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecommendationGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding EditModelRecommendation }" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Змінити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="RecommendationGridDelete" Grid.Column="3" Grid.Row="0"   >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecommendationDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding RemoveModelRecommendation}" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Видалити" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="RecommendationGridSave" Grid.Column="4" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecommendationSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding SaveModelRecommendation}" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Зберегти" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="RecommendationGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="RecommendationPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding PrintModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Друкувати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="0"  HorizontalAlignment="Right">
+                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
+                                                <StackPanel x:Name="RecommendationMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedModelRecommendation}">
+                                                    <Grid Width="Auto" Height="Auto">
+                                                        <Grid.ColumnDefinitions >
+                                                            <ColumnDefinition Width="80*" />
+                                                            <ColumnDefinition Width ="281*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="20*" />
+                                                            <RowDefinition Height="40*" />
+                                                            <RowDefinition Height="40*"/>
+                                                            <RowDefinition Height="120*"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Label Content="" Grid.Row="0" Height="20"/>
+                                                        <TextBlock x:Name="RecommendationLab1" Grid.Column="0" Grid.Row="1" Text="   Код"  FontSize="14" Height="24" Width="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBox Text="{Binding Path=kodRecommendation, UpdateSourceTrigger=PropertyChanged }" Name="Recommendationt1" Grid.Column="1" Grid.Row="1"
+                                                         IsEnabled="False" Background="White" Width="200" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                                                        <TextBlock x:Name="RecommendationLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="50" Text="  Назва рекомендації"   Width="134" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
+                                                        <TextBox Text="{Binding Path=contentRecommendation, UpdateSourceTrigger=PropertyChanged }" Name="Recommendationt2" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"
+                                                         IsEnabled="False" Height="52" Background="White" VerticalContentAlignment="Top" FontSize="14" Width="470" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <Label Name="LoadRecom" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="3"
+                                                       HorizontalAlignment="Center" FontSize="18"  Grid.ColumnSpan="2"  />
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+                                        <Grid Grid.Row="1"  HorizontalAlignment="Right">
+                                            <Grid Width="Auto" Height="Auto">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="20*" />
+                                                    <RowDefinition Height="130*" />
+                                                </Grid.RowDefinitions>
+                                                <Label Content=" Довідник рекомендацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+                                                <DataGrid x:Name="RecommendationTablGrid"  Cursor="Hand" Grid.Row="1" ItemsSource="{Binding ModelRecommendations}" SelectedItem="{Binding SelectedModelRecommendation}"
+                                                IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
+                                                VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None" FontSize="15"
+                                                HorizontalGridLinesBrush="Black" VerticalScrollBarVisibility="Hidden">
+                                                    <DataGrid.Columns>
+                                                        <DataGridTextColumn x:Name="RecommendationColumn1" FontSize="14" Width="120" Binding="{Binding Path=kodRecommendation}">
+                                                            <DataGridTextColumn.Header>
+                                                                <TextBlock x:Name="RecommendationHeader1"  Text="Код"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                            </DataGridTextColumn.Header>
+                                                        </DataGridTextColumn>
+                                                        <DataGridTextColumn x:Name="RecommendationColumn2" FontSize="14" Width="550" Binding="{Binding Path=contentRecommendation}">
+                                                            <DataGridTextColumn.Header>
+                                                                <TextBlock x:Name="RecommendationHeader2"  Text="Назва рекомендації"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                            </DataGridTextColumn.Header>
+                                                        </DataGridTextColumn>
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+
+
+ 
                                 <TabItem Header="Взаємозв'язки ДР" Name="DependencyDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
@@ -5639,6 +5473,173 @@
                                                     <DataGridTextColumn x:Name="DependencyColumn3" FontSize="14" Width="120"  Binding="{Binding Path=nameInterview}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="DependencyHeader3"  Text="Код опитування"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Довідник напрямків" Name="DirectoryGrDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
+                                    <!--<Grid Background="White"/>-->
+                                    <Grid Width="780" Background="White" HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="250*"/>
+                                            <RowDefinition Height="280*"/>
+                                            <RowDefinition Height="60*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
+                                            <Grid x:Name="GrDiagnozControlPanel"    HorizontalAlignment="Right">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width ="125*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width ="95*" />
+
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0" Grid.Row="0" >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding LoadViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="GrDiagnozGridAdd" Grid.Column="1" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding AddViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Додати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="GrDiagnozGridGhange" Grid.Column="2" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding EditViewGroupDiagnoz }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
+                                                            VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Змінити" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="GrDiagnozGridDelete" Grid.Column="3" Grid.Row="0"   >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
+                                                            <Button Command="{Binding RemoveViewGroupDiagnoz}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Видалити" FontSize="14" Height="30"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="GrDiagnozGridSave" Grid.Column="4" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding SaveViewGroupDiagnoz}"  Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Зберегти" FontSize="14" Height="30"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="GrDiagnozGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="GrDiagnozPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding PrintGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Друкувати" FontSize="14" Height="30" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="0" x:Name="GridGrDiagnoz" HorizontalAlignment="Right">
+                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
+                                                <StackPanel x:Name="GrDiagnozMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedViewGrupDiagnoz}" >
+                                                    <Grid Width="Auto" Height="Auto">
+                                                        <Grid.ColumnDefinitions >
+                                                            <ColumnDefinition Width="86*" />
+                                                            <ColumnDefinition Width ="239*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="40*" />
+                                                            <RowDefinition Height="60*" />
+                                                            <RowDefinition Height="60*"/>
+                                                            <RowDefinition Height="60*"/>
+                                                            <RowDefinition Height="60*"/>
+                                                            <RowDefinition Height="120*"/>
+
+                                                        </Grid.RowDefinitions>
+                                                        <Label Content="" Grid.Row="0" Margin="0,0,0,32" Grid.RowSpan="2" />
+                                                        <TextBlock x:Name="GrDiagnozLab1" Grid.Row="1" Text=" Код напрямку"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Name="GrDiagnozt1" Text="{Binding Path=icdGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" VerticalAlignment="Center"
+                                                            Grid.Column="1" Grid.Row="1"  Background="White" Width="200" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Height="28"  />
+                                                        <Image x:Name="FolderGrMKX" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="400,0,0,0"  Visibility="Hidden"   >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridDiagnozMkx, Path=DataContext.AddLoadGrMkx}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <TextBlock x:Name="GrDiagnozLab2" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Text=" Назва напрямку "   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Bottom" />
+
+                                                        <TextBox  Name="GrDiagnozt2" Text="{Binding Path=nameGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="2" Grid.Column="1"
+                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        <TextBlock x:Name="GrDiagnozL5" Grid.Row="3" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text="  Опис напрямку "   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
+                                                        <TextBox  Name="GrDiagnozt5" Text="{Binding Path=opisDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1"
+                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        <TextBlock x:Name="GrDiagnozLab6" Grid.Row="4" Text=" Опис в інтернеті"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBox Name="GrDiagnozt6" Text="{Binding Path=uriDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="4"  Background="White" FontSize="14" BorderThickness="0,0,0,0" Height="28" Grid.ColumnSpan="2" Margin="166,0,82,30" Grid.RowSpan="2"  />
+                                                        <Image x:Name="FolderGroupDiagnoz" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,20,0"  >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridGrQualification, Path=DataContext.UriViewGrDiagnoz}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <Label Name="GrDiagnozload" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="5"
+                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0" />
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+                                        <Grid Grid.Row="1" HorizontalAlignment="Right">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20*" />
+                                                <RowDefinition Height="130*" />
+                                            </Grid.RowDefinitions>
+                                            <Label Content=" Довідник напрямків" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  />
+
+                                            <DataGrid x:Name="GrDiagnozTablGrid" Grid.Row="1"   Cursor="Hand"
+                                          ItemsSource="{Binding ViewGrupDiagnozs }" SelectedItem ="{Binding SelectedViewGrupDiagnoz}"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
+                                          VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
+                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseUp">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=GrQualificationTablGrid, Path=DataContext.VisibleGrQualification}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn x:Name="GrDiagnozColumn1" FontSize="14" Width="150" Binding="{Binding Path=icdGrDiagnoz}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="GrDiagnozHeader1"  Text="Код напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="GrDiagnozColumn2" FontSize="14" Width="600" Binding="{Binding Path=nameGrDiagnoz}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="GrDiagnozHeader2"  Text="Назва напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                 </DataGrid.Columns>

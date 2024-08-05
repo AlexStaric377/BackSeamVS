@@ -36,6 +36,7 @@ namespace BackSeam
         public static MainWindow WindowInterv = MainWindow.LinkNameWindow("BackMain");
         private bool editboolInterview = false, addtboolInterview = false, loadboolInterview = false;
         private string edittextInterview = "";
+        public static int selectedInterviewIndex = 0;
         public static string GetidkodProtokola = "";
         public static string Interviewcontroller =  "/api/InterviewController/";
         public static string Controlleroutfile = "/api/UnLoadController/";
@@ -405,6 +406,7 @@ namespace BackSeam
                   {
                       MapOpisViewModel.ModelCall = IndexAddEdit == ""? "ModelInterview" : "";
                       if (IndexAddEdit == "addCommand") SelectNewInterview();
+                      if (selectedInterview == null) return;
                       GetidkodProtokola = selectedInterview.kodProtokola;
                       ComandCreatIntreview(); }));
             }
@@ -435,7 +437,7 @@ namespace BackSeam
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
-            selectedInterview = ModelInterviews[ModelInterviews.Count-1];
+            //selectedInterview = ModelInterviews[ModelInterviews.Count-1];
  
         }
 
@@ -458,6 +460,7 @@ namespace BackSeam
                           { 
                             selectedInterview = ModelInterviews[WindowInterv.InterviewTablGrid.SelectedIndex];
 
+                              selectedInterviewIndex = WindowInterv.InterviewTablGrid.SelectedIndex;
                               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola;
                               CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                               string CmdStroka = CallServer.ServerReturn();

@@ -27,7 +27,7 @@
                     <RowDefinition Height="550*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
-                <Label Name="Zagolovok"  Content="Групи деталізацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
+                <Label Name="Zagolovok"  Content="Гурти деталізацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
 
                 <ListBox Grid.Row="1" Name="TablGrQualifications" ItemsSource="{Binding ViewListGrDetailings}" VerticalAlignment="Top"
                     SelectedItem ="{Binding SelectedListGrDetailing}" Height="545" Background="#FFE2E2DD"
@@ -40,7 +40,7 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                                 <TextBlock Text="{Binding Path=nameGrup}"   Width="385" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                 <TextBlock Text="{Binding Path=nameGrup}"   Width="485" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

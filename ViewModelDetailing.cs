@@ -95,7 +95,9 @@ namespace BackSeam
                 ViewDetailingFeatures.Add(selectedViewDetailingFeature);
             }
             WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
-            
+            selectedViewDetailingFeature = new ViewDetailingFeature();
+
+
         }
 
         #region Команды вставки, удаления и редектирования справочника "детализация характера"
@@ -198,7 +200,7 @@ namespace BackSeam
             WindowDetailing .FolderDet.Visibility = Visibility.Hidden;
             WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
             WindowDetailing.FolderComplaint.Visibility = Visibility.Hidden;
-            GrFeatureDetailing = "";
+            //GrFeatureDetailing = "";
 
         }
 
