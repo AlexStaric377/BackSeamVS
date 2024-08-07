@@ -260,9 +260,9 @@ namespace BackSeam
                         {
 
                             WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-                            NewOrder.Left = 600;
-                            NewOrder.Top = 200;
-                            NewOrder.ShowDialog();
+                              NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                              NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                              NewOrder.ShowDialog();
                               if (WindowInterv.InterviewDependencyt3.Text.Length ==0)
                               {
                                   MainWindow.MessageError = "Увага!  " + Environment.NewLine +
@@ -282,7 +282,7 @@ namespace BackSeam
                           selectedInterview.idUser = RegIdUser;
                           // ОБращение к серверу измнить корректируемую запись в БД
                           json = JsonConvert.SerializeObject(selectedInterview);
-                          string method = selectedInterview.detailsInterview.ToString().Trim().Length == 0 ? "POST" : "PUT";
+                          string method = selectedInterview.id == 0 ? "POST" : "PUT";
                           CallServer.PostServer(Interviewcontroller, json, method);
                           CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                           ModelInterview Insertstroka = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
@@ -333,6 +333,7 @@ namespace BackSeam
                       IndexAddEdit = "";
                       BoolFalseInterview();
                       WindowInterv.InterviewTablGrid.SelectedItem = null;
+                      SelectedResultInterview = new  ModelResultInterview();
                       MapOpisViewModel.ModelCall =  "";
 
                   }));
@@ -517,8 +518,30 @@ namespace BackSeam
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ModelCall = "";
-
-
+            if (selectedInterview != null)
+            { 
+               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola;
+                CallServer.PostServer(pathcontrolerDependency, json, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == false)
+                {
+                    WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                    modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowInterv.InterviewDependencyt2.Text.IndexOf(":")).Trim();
+                    json = JsonConvert.SerializeObject(modelDependency);
+                    CallServer.PostServer(pathcontrolerDependency, json, "PUT");
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    json = CallServer.ResponseFromServer.Replace("/", "*");
+                    CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]") == false)
+                    {
+                        UnloadCmdStroka("DependencyDiagnoz/", json);
+                        MessageOk();
+                    }
+                }            
+            }
+ 
 
         }
 
@@ -542,10 +565,13 @@ namespace BackSeam
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             if(WindowInterv.InterviewDependencyt3.Text.Length >0)
-            { 
-                modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
-                WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1, WindowMain.InterviewDependencyt3.Text.Length - (WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1));
-                
+            {
+                if (WindowInterv.InterviewDependencyt3.Text.Contains(":"))
+                { 
+                    modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
+                    WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1, WindowMain.InterviewDependencyt3.Text.Length - (WindowMain.InterviewDependencyt3.Text.IndexOf(":") + 1));                
+                }
+
             }
 
         }

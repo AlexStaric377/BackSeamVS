@@ -9,16 +9,16 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelNsiRecommen}"
         mc:Ignorable="d"
         Title="WinNsiListRecommen" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="600" Width="530" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="600" Width="700" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiRecommen/>
     </Window.DataContext>
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="530" Width="500" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="530" Width="670" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="530" Width="480">
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="530" Width="650">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="520" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
@@ -29,13 +29,13 @@
 
                 <ListBox Grid.Row="1" Name="TablFeature" ItemsSource="{Binding NsiModelRecommendations}" VerticalAlignment="Top"
                     SelectedItem ="{Binding SelectedModelRecommendation}" Height="465" Background="#FFE2E2DD"
-                    Width="460" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <!---->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="5">
-                                <TextBlock Text="{Binding Path=contentRecommendation}" TextWrapping="Wrap"  Width="440" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />
+                                <TextBlock Text="{Binding Path=contentRecommendation}" TextWrapping="Wrap"  Width="620" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
