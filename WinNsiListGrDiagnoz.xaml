@@ -43,7 +43,11 @@
                     SelectedItem ="{Binding SelectedViewGrupDiagnoz}" Height="530" Background="#FFE2E2DD"
                     Width="660" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablGrupDiagnozs, Path=DataContext.SelectGrupDiagnoz}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=nameGrDiagnoz}"  TextWrapping="Wrap" Width="640" Height="40" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />

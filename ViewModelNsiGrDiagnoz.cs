@@ -133,5 +133,26 @@ namespace BackSeam
             }
         }
 
+        
+        // команда выбора по наименованию групового напрвления диагноза
+        RelayCommand? selectGrupDiagnoz;
+        public RelayCommand SelectGrupDiagnoz
+        {
+            get
+            {
+                return selectGrupDiagnoz ??
+                  (selectGrupDiagnoz = new RelayCommand(obj =>
+                  {
+                      MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
+                      if (SelectedViewGrupDiagnoz != null)
+                      {
+                          Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.nameGrDiagnoz;
+                          WindowNsiGrDiag.Close();
+                      }
+
+                  }));
+            }
+        }
+
     }
 }

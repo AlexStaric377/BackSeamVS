@@ -525,7 +525,7 @@ namespace BackSeam
             listgrdetaling = new ObservableCollection<ModelDetailing>();
             foreach (ModelDetailing modelDetailing in ViewModelNsiDetailing.NsiModelDetailings)
             {
-                if (modelDetailing.keyGrDetailing != "")
+                if (modelDetailing.keyGrDetailing != null)
                 {
                     listgrdetaling.Add(modelDetailing);
                 }
