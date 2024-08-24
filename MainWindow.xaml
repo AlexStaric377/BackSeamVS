@@ -5143,7 +5143,7 @@
                                           ItemsSource="{Binding ModelInterviews }" SelectedItem ="{Binding SelectedInterview}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="220"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
-                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Hidden">
+                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Visible">
 
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseUp">

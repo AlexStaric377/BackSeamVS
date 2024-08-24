@@ -108,7 +108,7 @@ namespace BackSeam
                               if (selectedDetailing.keyGrDetailing.Length != 0)keyGr = true;
                           }
                           if(keyGr == true && MapOpisViewModel.ActCompletedInterview != "FeatureGET"
-                          && MapOpisViewModel.ActCompletedInterview != "Feature" && MapOpisViewModel.ActCompletedInterview != null)  //&& MapOpisViewModel.ActCompletedInterview != "ActCreatInterview"
+                          && MapOpisViewModel.ActCompletedInterview != "Feature" )  //&& MapOpisViewModel.ActCompletedInterview != null&& MapOpisViewModel.ActCompletedInterview != "ActCreatInterview"
                           {
                               MapOpisViewModel.selectGrDetailing = selectedDetailing.nameDetailing.ToString().ToUpper();
                               WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
@@ -120,10 +120,23 @@ namespace BackSeam
                           {
                               if (MapOpisViewModel.ActCompletedInterview != "Detailing")
                               {
-                                  MapOpisViewModel.nameFeature3 = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
-                                  WindowMain.Detailingt3.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
-                                  WindowMain.Featuret2.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
-                                  WindowMain.Featuret3.Text = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
+                                  if (selectedDetailing.keyGrDetailing != null)
+                                  {
+
+                                      MapOpisViewModel.nameFeature3 = selectedDetailing.keyGrDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Detailingt3.Text = selectedDetailing.keyGrDetailing + ": " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Featuret2.Text = selectedDetailing.keyGrDetailing + ": " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Featuret3.Text = selectedDetailing.keyGrDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
+                                  }
+                                  else
+                                  { 
+                                       MapOpisViewModel.nameFeature3 = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Detailingt3.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Featuret2.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
+                                      WindowMain.Featuret3.Text = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();                                 
+                                  }
+
+
                                   switch (MapOpisViewModel.ActCompletedInterview)
                                   {
                                       
