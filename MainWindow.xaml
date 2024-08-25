@@ -4359,14 +4359,14 @@
                                                 <StackPanel x:Name="DetailingsMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedViewGrDeliting}">
                                                     <Grid Width="Auto" Height="Auto">
                                                         <Grid.ColumnDefinitions >
-                                                            <ColumnDefinition Width="227*" />
+                                                            <ColumnDefinition Width="150*" />
                                                             <ColumnDefinition Width ="423*" />
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="20*" />
                                                             <RowDefinition Height="38*" />
                                                             <RowDefinition Height="38*"/>
-                                                            <RowDefinition Height="38*"/>
+                                                            <RowDefinition Height="58*"/>
                                                             <RowDefinition Height="38*"/>
                                                             <RowDefinition Height="34*"/>
                                                         </Grid.RowDefinitions>
@@ -4378,11 +4378,11 @@
 
 
                                                         <TextBlock x:Name="DetailingsLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text=" Гурт деталізації"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"   />
-                                                        <TextBox Text="{Binding keyGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst2" Grid.Row="2" Grid.Column="1" Width="300" FontSize="14"
+                                                        <TextBox Text="{Binding keyGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst2" Grid.Row="2" Grid.Column="1" Width="410" FontSize="14"
                                                          Background="White" VerticalContentAlignment="Center"  HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="28" />
 
                                                         <Image x:Name="FolderGR" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2"
-                                                       Width="25"  HorizontalAlignment="Left" Visibility="Hidden" Margin="300,0,0,4" >
+                                                       Width="25"  HorizontalAlignment="Left" Visibility="Hidden" Margin="425,0,0,4" >
 
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -4391,14 +4391,14 @@
                                                             </i:Interaction.Triggers>
 
                                                         </Image>
-                                                        <TextBlock x:Name="DetailingsLab3" Grid.Column="0" Grid.Row="3" Text=" Назва деталізації"  FontSize="14" Height="28" Width="155" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                                                        <TextBox Text="{Binding nameGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst3" Grid.Column="1" Grid.Row="3"
-                                                         Background="White" Width="380" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="28" />
+                                                        <TextBlock x:Name="DetailingsLab3" Grid.Column="0" Grid.Row="3" Text=" Назва деталізації"  FontSize="14" Height="48" Width="155" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBox Text="{Binding nameGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst3" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap"
+                                                         Background="White" Width="410" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="48" />
                                                         <TextBlock x:Name="DetailingsLab4" Grid.Column="0" Grid.Row="4" Text=" Гурт кваліфікації&#xa; деталізації"  FontSize="14" Width="210" HorizontalAlignment="Left" Height="35" VerticalAlignment="Bottom" />
                                                         <TextBox Text="{Binding kodGroupQualification, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst4" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Top"
-                                                         Background="White" Width="340" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="28" />
+                                                         Background="White" Width="410" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="28" />
 
-                                                        <Image x:Name="FolderQu" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Left" Visibility="Hidden" Margin="370,0,0,4"  >
+                                                        <Image x:Name="FolderQu" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Left" Visibility="Hidden" Margin="425,0,0,4"  >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridMapGrDetailings, Path=DataContext.AddGroupQualification}" CommandParameter=""/>
@@ -4418,7 +4418,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Довідник змісту групових деталізацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
                                             <Label Content=" Вибрати гуртову деталізацію"  Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,70,0"/>
-                                            <Image x:Name="FolderGrDetaling" Grid.Row="0" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"    Margin="0,0,20,0"  >
+                                            <Image x:Name="FolderGrDetaling" Grid.Row="0" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"    Margin="0,0,10,0"  >
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeftButtonDown">
                                                         <i:InvokeCommandAction Command="{Binding ElementName=GridGrDetailing, Path=DataContext.SelectedListGrDetailing}" CommandParameter=""/>

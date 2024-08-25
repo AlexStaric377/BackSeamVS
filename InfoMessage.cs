@@ -210,9 +210,9 @@ namespace BackSeam
         public static void MessageEndDialog()
         {
             MainWindow.MessageError = "Увага!" + Environment.NewLine +
-           "Ви зупинили опитування і відмовилися від подальшої детелізації характеру зовнішніх проявів хворобливості." + Environment.NewLine +
+           "Подальша детелізація характеру зовнішніх проявів хворобливості закінчена." + Environment.NewLine +
            "Для одержання рекомендацій щодо поточного стану опитування натисніть на кнопку < Далі > або відмовитися на кнопку <Припинити> ";
-            SelectedFalseLogin(12);
+            SelectedFalseLogin(10);
         }
 
         public static void InfoRemoveZapis()

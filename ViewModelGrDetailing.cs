@@ -52,25 +52,25 @@ namespace BackSeam
             List<ModelGrDetailing> res = result.ViewGrDetailing.ToList();
             ViewGrDetailings = new ObservableCollection<ModelGrDetailing>((IEnumerable<ModelGrDetailing>)res);
 
-            foreach (ModelGrDetailing modelGrDetailing in ViewGrDetailings)
-            {
+            //foreach (ModelGrDetailing modelGrDetailing in ViewGrDetailings)
+            //{
 
 
-                if (_keyGrDetailing != modelGrDetailing.keyGrDetailing)
-                {
-                    _keyGrDetailing =  modelGrDetailing.keyGrDetailing;
-                    string json = pathcontrolerListGrDet + _keyGrDetailing;
-                    CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
+            //    if (_keyGrDetailing != modelGrDetailing.keyGrDetailing)
+            //    {
+            //        _keyGrDetailing =  modelGrDetailing.keyGrDetailing;
+            //        string json = pathcontrolerListGrDet + _keyGrDetailing;
+            //        CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
 
-                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                    json = CallServer.ResponseFromServer;
-                    ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
-                    _nameGrDetailing = Idinsert.nameGrup;
-                }
+            //        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+            //        json = CallServer.ResponseFromServer;
+            //        ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
+            //        _nameGrDetailing = Idinsert.nameGrup;
+            //    }
 
-                ViewGrDetailings[indexgr].keyGrDetailing = _nameGrDetailing;
-                indexgr++;
-            }
+            //    ViewGrDetailings[indexgr].keyGrDetailing = _nameGrDetailing;
+            //    indexgr++;
+            //}
  
 
             WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
@@ -369,10 +369,12 @@ namespace BackSeam
 
         public void SelectGroupDelit()
         {
+            MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
+            MapOpisViewModel.ActCompletedInterview = "";
             if (WindowMen.Detailingt4.Text.Length != 0)
             {
                 string pathcontroller = "/api/GrDetalingController/";
