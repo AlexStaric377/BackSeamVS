@@ -43,7 +43,7 @@
                          FontFamily="Microsoft Sans Serif" />
 
                 <Image Height="25" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Bottom" Margin="0,0,70,0"
-                    Source="pack://application:,,,/BackSeam;component/Images/lupa.png" Cursor="Hand"  >
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonDown">

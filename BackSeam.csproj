@@ -26,6 +26,7 @@
     <None Remove="Images\internet.png" />
     <None Remove="Images\loading9.gif" />
     <None Remove="Images\lupa.png" />
+    <None Remove="Images\Lupa2.png" />
     <None Remove="Images\mesage.png" />
     <None Remove="Images\podskazka1.png" />
     <None Remove="Images\printer.png" />
@@ -63,6 +64,7 @@
     <Resource Include="Images\internet.png" />
     <Resource Include="Images\loading9.gif" />
     <Resource Include="Images\lupa.png" />
+    <Resource Include="Images\Lupa2.png" />
     <Resource Include="Images\podskazka1.png" />
     <Resource Include="Images\printer.png" />
     <Resource Include="Images\save.png" />
