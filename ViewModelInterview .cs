@@ -116,6 +116,8 @@ namespace BackSeam
             else ObservableModelInterview(CmdStroka);
             IndexAddEdit = "";
             loadboolInterview = true;
+            WindowInterv.PoiskInterveiw.IsEnabled = true;
+            WindowInterv.PoiskInterveiw.Background = Brushes.AntiqueWhite;
         }
 
         private void MethodaddcomInterview()
@@ -607,6 +609,23 @@ namespace BackSeam
   
 
 
+                  }));
+            }
+        }
+
+        private RelayCommand? searchInterveiw;
+        public RelayCommand SearchInterveiw
+        {
+            get
+            {
+                return searchInterveiw ??
+                  (searchInterveiw = new RelayCommand(obj =>
+                  {
+                      string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;
+                      CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                      string CmdStroka = CallServer.ServerReturn();
+                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                      else ObservableModelInterview(CmdStroka);
                   }));
             }
         }
