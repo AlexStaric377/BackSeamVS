@@ -612,7 +612,7 @@ namespace BackSeam
                   }));
             }
         }
-
+        // Выбор названия интервью диагностики 
         private RelayCommand? searchInterveiw;
         public RelayCommand SearchInterveiw
         {
@@ -621,11 +621,15 @@ namespace BackSeam
                 return searchInterveiw ??
                   (searchInterveiw = new RelayCommand(obj =>
                   {
-                      string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;
-                      CallServer.PostServer(Interviewcontroller, jason, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                      else ObservableModelInterview(CmdStroka);
+                      if (WindowInterv.PoiskInterveiw.Text.Trim() != "")
+                      { 
+                          string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;
+                          CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableModelInterview(CmdStroka);                     
+                      }
+
                   }));
             }
         }

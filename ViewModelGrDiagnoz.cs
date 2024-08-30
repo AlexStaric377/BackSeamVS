@@ -26,11 +26,13 @@ namespace BackSeam
 
         #region Обработка событий и команд вставки, удаления и редектирования справочника "Групы квалифікації"
         /// <summary>
-       /// "Диференційна діагностика стану нездужання людини-SEAM" 
+        /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех груп квалифікації из БД
         /// через механизм REST.API
         /// </summary>
+        /// 
+        public static MainWindow WindowGrupDiagnoz = MainWindow.LinkNameWindow("BackMain");
         private static bool loadboolGrupDiagnoz = false, activeditViewGroupDiagnoz = false;
         public static string controlerGrupDiagnoz = "/api/GrupDiagnozController/";
         private ModelGrupDiagnoz selectedViewGrupDiagnoz;
@@ -65,7 +67,7 @@ namespace BackSeam
                 return loadViewGrupDiagnoz ??
                   (loadViewGrupDiagnoz = new RelayCommand(obj =>
                   {
-                      if (loadboolGrupDiagnoz == false) MethodLoadGrupDiagnoz();
+                      MethodLoadGrupDiagnoz();
                   }));
             }
         }
@@ -109,7 +111,8 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewGrupDiagnoz(CmdStroka);
-
+            WindowGrupDiagnoz.PoiskGrDiagnoz.IsEnabled = true;
+            WindowGrupDiagnoz.PoiskGrDiagnoz.Background = Brushes.AntiqueWhite;
         }
 
 
@@ -308,6 +311,31 @@ namespace BackSeam
             }
  
             
+        }
+
+
+        
+
+        // Выбор названия интервью диагностики 
+        private RelayCommand? searchGrDiagnoz;
+        public RelayCommand SearchGrDiagnoz
+        {
+            get
+            {
+                return searchGrDiagnoz ??
+                  (searchGrDiagnoz = new RelayCommand(obj =>
+                  {
+                      if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
+                      { 
+                          string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;
+                          CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewGrupDiagnoz(CmdStroka);                     
+                      }
+
+                  }));
+            }
         }
     }
     #endregion
