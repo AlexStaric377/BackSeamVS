@@ -437,7 +437,7 @@ namespace BackSeam
             }
             
             WinCreatIntreview NewOrder = new WinCreatIntreview();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             //selectedInterview = ModelInterviews[ModelInterviews.Count-1];

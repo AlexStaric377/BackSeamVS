@@ -158,15 +158,15 @@ namespace BackSeam
                           json = JsonConvert.SerializeObject(modelContentInterv);
                           CallServer.PostServer(pathcontroler, json, "POST");
                       }
-                      switch (MapOpisViewModel.IndexAddEdit)
-                      {
-                          case "addCommand":
-                              AddInterviewProtokol();
-                              break;
-                          case "editCommand":
-                              EdiInterviewProtokol();
-                              break;
-                      }
+                      //switch (MapOpisViewModel.IndexAddEdit)
+                      //{
+                      //    case "addCommand":
+                      //        AddInterviewProtokol();
+                      //        break;
+                      //    case "editCommand":
+                      //        EdiInterviewProtokol();
+                      //        break;
+                      //}
                       WindowUri.Close();
                   }));
             }
@@ -240,7 +240,7 @@ namespace BackSeam
                                   ViewModelNsiFeature.Method = "GETID";
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiFeature NewOrder = new WinNsiFeature();
-                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) + 50;
+                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) + 20;
                                   NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewOrder.ShowDialog();
                                   break;
@@ -248,14 +248,14 @@ namespace BackSeam
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   MapOpisViewModel.selectFeature = selectedContentInterv.detailsInterview;
                                   NsiDetailing NewNsi = new NsiDetailing();
-                                  NewNsi.Left = (MainWindow.ScreenWidth / 2)+50;
+                                  NewNsi.Left = (MainWindow.ScreenWidth / 2)+20;
                                   NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewNsi.ShowDialog();
                                   break;
                               case > 9:
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiGrDetailing NewGrNsi = new WinNsiGrDetailing();
-                                  NewGrNsi.Left = (MainWindow.ScreenWidth / 2)+80;
+                                  NewGrNsi.Left = (MainWindow.ScreenWidth / 2)+20;
                                   NewGrNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewGrNsi.ShowDialog();
                                   break;
@@ -264,7 +264,7 @@ namespace BackSeam
                       else
                       {
                           NsiComplaint NewOrder = new NsiComplaint();
-                          NewOrder.Left = (MainWindow.ScreenWidth / 2) + 80;
+                          NewOrder.Left = (MainWindow.ScreenWidth / 2) + 20;
                           NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                           NewOrder.ShowDialog();
                           if (WindowMain.Featuret3.Text.ToString().Trim().Length != 0)WindowUri.TablInterviews.ItemsSource = ContentIntervs;

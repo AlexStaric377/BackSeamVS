@@ -927,7 +927,7 @@ namespace BackSeam
             // "Здійснюється формування попередньої діагностичної гіпотези " + Environment.NewLine + "та відповідних рекомендацій щодо подальших дій";
             //MapOpisViewModel.SelectedFalseLogin();
 
-            var json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/0";
+            var json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/0/0";
             CallServer.PostServer(pathcontrolerInterview, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))
@@ -1135,7 +1135,7 @@ namespace BackSeam
             string json = "", CmdStroka ="";
             while (DiagnozRecomendaciya.Contains(";") == true)
             {
-                json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1";
+                json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1/0";
                 CallServer.PostServer(pathcontrolerInterview, json, "GETID");
                 CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false) { break; }
