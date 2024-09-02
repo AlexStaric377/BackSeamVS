@@ -128,6 +128,7 @@ namespace BackSeam
             if (addtboolInterview == false) BoolTrueInterview();
             else BoolFalseInterview();
             WindowInterv.InterviewTablGrid.SelectedItem = null;
+            
 
         }
 
@@ -147,6 +148,7 @@ namespace BackSeam
             WindowInterv.FolderDiagnozInterview.Visibility = Visibility.Visible;
             WindowInterv.FolderRecomenInterview.Visibility = Visibility.Visible;
             WindowInterv.InterviewLab3.Text = IndexAddEdit == "addCommand" ? "Створити" : "Корегувати";
+            WindowInterv.InterviewTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseInterview()
@@ -165,6 +167,7 @@ namespace BackSeam
             WindowInterv.FolderRecomenInterview.Visibility = Visibility.Hidden;
             WindowInterv.FolderUriInterview.Visibility = Visibility.Hidden;
             WindowInterv.InterviewLab3.Text = "Переглянути" + Environment.NewLine + "опитування";
+            WindowInterv.InterviewTablGrid.IsEnabled = true;
 
             IndexAddEdit = "";
         }
