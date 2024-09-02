@@ -28,6 +28,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelAnalogDiagnoz : BaseViewModel
     {
+        private MainWindow ReceptionLIkarGuest = MainWindow.LinkNameWindow("BackMain");
         WinAnalogDiagnoz WinAnalog = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
         public string KodProtokola = "";
         private static string pathcontrolerCompleted = "/api/CompletedInterviewController/";
@@ -320,7 +321,18 @@ namespace BackSeam
                           WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
                           MedZaklad.ShowDialog();                     
                       }
- 
+                      MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
+                      if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
+                      {
+                          WinNsiLikar NewOrder = new WinNsiLikar();
+                          NewOrder.ShowDialog();
+                          if (MapOpisViewModel.nameDoctor.Length > 0)
+                          {
+                              MapOpisViewModel.modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":"), MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
+
+                          }
+                      }
+
                   }));
             }
         }

@@ -107,7 +107,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.29;component/winnsistatususer.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.31;component/winnsistatususer.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinNsiStatusUser.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

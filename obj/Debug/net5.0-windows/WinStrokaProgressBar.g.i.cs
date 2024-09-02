@@ -54,7 +54,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.29;component/winstrokaprogressbar.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.31;component/winstrokaprogressbar.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinStrokaProgressBar.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
