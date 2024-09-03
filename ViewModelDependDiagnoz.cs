@@ -171,7 +171,7 @@ namespace BackSeam
             WindowMen.FolderDiag.Visibility = Visibility.Visible;
             WindowMen.FolderRecom.Visibility = Visibility.Visible;
             WindowMen.FolderInterv.Visibility = Visibility.Visible;
-            
+            WindowMen.DependencyTablGrid.IsEnabled = false;
         }
 
         private void ModelDependencyfalse()
@@ -181,6 +181,7 @@ namespace BackSeam
             WindowMen.FolderDiag.Visibility = Visibility.Hidden;
             WindowMen.FolderRecom.Visibility = Visibility.Hidden;
             WindowMen.FolderInterv.Visibility = Visibility.Hidden;
+            WindowMen.DependencyTablGrid.IsEnabled = true;
         }
 
         // команда удаления

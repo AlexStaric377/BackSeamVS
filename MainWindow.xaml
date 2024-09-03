@@ -6874,7 +6874,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Розклад прийому пацієнтів" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  />
                                             <DataGrid x:Name="ReseptionPacientTablGrid" Grid.Row="1"   Cursor="Hand"
-                                          ItemsSource="{Binding ViewVisitingDays }" SelectedItem ="{Binding SelectedModelVisitingDays}"
+                                          ItemsSource="{Binding ViewVisitingDays }" SelectedItem ="{Binding SelectedViewModelVisitingDays}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
                                           HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto">

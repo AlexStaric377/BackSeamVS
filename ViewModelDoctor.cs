@@ -238,7 +238,8 @@ namespace BackSeam
             WindowDoctor.DoctortBoxUri.Background = Brushes.AntiqueWhite;
             WindowDoctor.FolderDoc5.Visibility = Visibility.Visible;
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Visible;
-            WindowMedical.FolderLikarGrDia.Visibility = Visibility.Visible;
+            WindowDoctor.FolderLikarGrDia.Visibility = Visibility.Visible;
+            WindowDoctor.DoctorTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseDoctor()
@@ -264,7 +265,7 @@ namespace BackSeam
             WindowDoctor.FolderDoc5.Visibility = Visibility.Hidden;
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Hidden;
             WindowMedical.FolderLikarGrDia.Visibility = Visibility.Hidden;
-
+            WindowDoctor.DoctorTablGrid.IsEnabled = true;
 
         }
 

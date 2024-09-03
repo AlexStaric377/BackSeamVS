@@ -250,8 +250,7 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.IsEnabled = false;
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.White;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Hidden;
-
-
+            WindowMedical.MedicalTablGrid.IsEnabled = true;
         }
 
         private void ModelMedicaltrue()
@@ -273,6 +272,7 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.IsEnabled = true;
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.AntiqueWhite;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
+            WindowMedical.MedicalTablGrid.IsEnabled = false;
         }
         // команда печати
         RelayCommand? printVeiwModelMedical;

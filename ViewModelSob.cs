@@ -215,6 +215,7 @@ namespace BackSeam
             WindowSob.SobnameRajon.Background = Brushes.White;
             WindowSob.Sobnamepunkt.IsEnabled = false;
             WindowSob.Sobnamepunkt.Background = Brushes.White;
+            WindowSob.SobTablGrid.IsEnabled = true;
 
         }
 
@@ -230,7 +231,7 @@ namespace BackSeam
             WindowSob.SobnameRajon.Background = Brushes.AntiqueWhite;
             WindowSob.Sobnamepunkt.IsEnabled = true;
             WindowSob.Sobnamepunkt.Background = Brushes.AntiqueWhite;
-
+            WindowSob.SobTablGrid.IsEnabled = false;
 
         }
         // команда печати

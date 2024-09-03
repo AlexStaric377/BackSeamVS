@@ -119,6 +119,7 @@ namespace BackSeam
             activgrqualification = true;
             WindowMen.GrQualificationt2.IsEnabled = true;
             WindowMen.GrQualificationt2.Background = Brushes.AntiqueWhite;
+            WindowMen.GrQualificationTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseGrQualification()
@@ -127,6 +128,7 @@ namespace BackSeam
             WindowMen.GrQualificationt2.Background = Brushes.White;
             activgrqualification = false;
             activeditQualification = false;
+            WindowMen.GrQualificationTablGrid.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeGrQualification;

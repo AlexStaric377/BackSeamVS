@@ -194,6 +194,7 @@ namespace BackSeam
             VisitngDays.DatePicker.IsEnabled = true;
             VisitngDays.TimeofDay.IsEnabled = true;
             VisitngDays.ComboBoxOnoff.IsEnabled = true;
+            VisitngDays.ReseptionPacientTablGrid.IsEnabled = false;
 
         }
 
@@ -209,6 +210,7 @@ namespace BackSeam
             VisitngDays.DatePicker.IsEnabled = false;
             VisitngDays.TimeofDay.IsEnabled = false;
             VisitngDays.ComboBoxOnoff.IsEnabled = false;
+            VisitngDays.ReseptionPacientTablGrid.IsEnabled = true;
         }
 
         // команда  редактировать

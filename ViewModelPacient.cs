@@ -174,6 +174,7 @@ namespace BackSeam
             WindowMen.Pacientt11.Background = Brushes.AntiqueWhite;
             WindowMen.Pacientt13.IsEnabled = true;
             WindowMen.Pacientt13.Background = Brushes.AntiqueWhite;
+            WindowMen.PacientTablGrid.IsEnabled = false;
         }
 
         private void BoolFalsePacient()
@@ -201,6 +202,7 @@ namespace BackSeam
             WindowMen.Pacientt11.Background = Brushes.White;
             WindowMen.Pacientt13.IsEnabled = false;
             WindowMen.Pacientt13.Background = Brushes.White;
+            WindowMen.PacientTablGrid.IsEnabled = true;
 
         }
 

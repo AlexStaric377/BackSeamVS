@@ -110,7 +110,9 @@ namespace BackSeam
             editboolLanguageUI = true;
             WindowLanguageUI.UIt3.IsEnabled = true;
             WindowLanguageUI.UIt3.Background = Brushes.AntiqueWhite;
-            
+            WindowLanguageUI.LanguageUITablGrid.IsEnabled = false;
+
+
         }
 
         private void BoolFalseLanguageUI()
@@ -119,7 +121,8 @@ namespace BackSeam
             editboolLanguageUI = false;
             WindowLanguageUI.UIt3.IsEnabled = false;
             WindowLanguageUI.UIt3.Background = Brushes.White;
-                        
+            WindowLanguageUI.LanguageUITablGrid.IsEnabled = true;
+
         }
         // команда удаления
         private RelayCommand? removeLanguageUI;

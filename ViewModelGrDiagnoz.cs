@@ -88,7 +88,7 @@ namespace BackSeam
 
         private void AddComViewGrupDiagnoz()
         {
-            if (loadboolQualifications == false) MethodLoadGrupDiagnoz();
+            if (loadboolGrupDiagnoz == false) MethodLoadGrupDiagnoz();
             MethodAddGrupDiagnoz();
 
         }

@@ -122,6 +122,7 @@ namespace BackSeam
             if(IndexAddEdit == "addCommand") WindowMen.GrQuaFolder.Visibility = Visibility.Visible;
             activViewQualification = true;
             activeditViewQualification = true;
+            WindowMen.QualificationTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseQualification()
@@ -131,6 +132,7 @@ namespace BackSeam
             activViewQualification = false;
             activeditViewQualification = false;
             WindowMen.GrQuaFolder.Visibility = Visibility.Hidden;
+            WindowMen.QualificationTablGrid.IsEnabled = true;
         }
 
         // команда удаления
