@@ -39,7 +39,10 @@ namespace BackSeam
         public static ObservableCollection<ModelRecommendation> ModelRecommendations { get; set; }
 
         public ModelRecommendation SelectedModelRecommendation
-        { get { return selectedRecommendation; } set { selectedRecommendation = value; OnPropertyChanged("SelectedModelRecommendation"); } }
+        { 
+            get { return selectedRecommendation; }
+            set { selectedRecommendation = value; OnPropertyChanged("SelectedModelRecommendation"); }
+        }
 
         public static void ObservableModelRecommendation(string CmdStroka)
         {
@@ -58,8 +61,7 @@ namespace BackSeam
         private RelayCommand? loadModelRecommendation;
         public RelayCommand LoadModelRecommendation
         {
-            get
-            {
+            get  {
                 return loadModelRecommendation ??
                   (loadModelRecommendation = new RelayCommand(obj =>
                   {
@@ -74,12 +76,10 @@ namespace BackSeam
         private RelayCommand addModelRecommendation;
         public RelayCommand AddModelRecommendation
         {
-            get
-            {
+            get { 
                 return addModelRecommendation ??
                   (addModelRecommendation = new RelayCommand(obj =>
-                  { AddComModelRecommendation(); }));
-            }
+                  { AddComModelRecommendation(); })); }
         }
 
         private void AddComModelRecommendation()
@@ -98,11 +98,12 @@ namespace BackSeam
         private void MethodloadtablRecom()
         {
             WindowMen.LoadRecom.Visibility = Visibility.Hidden;
-            MainWindow.UrlServer = controlerModelRecommendation;
-            CallServer.PostServer(MainWindow.UrlServer, controlerModelRecommendation, "GET");
+            CallServer.PostServer(controlerModelRecommendation, controlerModelRecommendation, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableModelRecommendation(CmdStroka);
+            WindowMen.PoiskRecommendation.IsEnabled = true;
+            WindowMen.PoiskRecommendation.Background = Brushes.AntiqueWhite;
         }
 
         private void BoolTrueRecom()
@@ -110,6 +111,7 @@ namespace BackSeam
             activModelRecommendation = true;
             WindowMen.Recommendationt2.IsEnabled = true;
             WindowMen.Recommendationt2.Background = Brushes.AntiqueWhite;
+            WindowMen.RecommendationTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseRecom()
@@ -117,6 +119,7 @@ namespace BackSeam
             WindowMen.Recommendationt2.IsEnabled = false;
             WindowMen.Recommendationt2.Background = Brushes.White;
             activModelRecommendation = false;
+            WindowMen.RecommendationTablGrid.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeModelRecommendation;
@@ -243,8 +246,8 @@ namespace BackSeam
 
     
 
-// команда печати
-RelayCommand? printModelRecommendation;
+        // команда печати
+        RelayCommand? printModelRecommendation;
         public RelayCommand PrintModelRecommendation
         {
             get
@@ -258,6 +261,29 @@ RelayCommand? printModelRecommendation;
                       }
                   },
                  (obj) => ModelRecommendations != null));
+            }
+        }
+
+        
+
+        // команда поиска наименования рекомендации
+        RelayCommand? sarchRecommendation;
+        public RelayCommand SearchRecommendation
+        {
+            get
+            {
+                return sarchRecommendation ??
+                  (sarchRecommendation = new RelayCommand(obj =>
+                  {
+                      if (WindowInterv.PoiskRecommendation.Text.Trim() != "")
+                      {
+                          string jason = controlerModelRecommendation + "0/" + WindowInterv.PoiskRecommendation.Text;
+                          CallServer.PostServer(controlerModelRecommendation, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableModelRecommendation(CmdStroka);
+                      }
+                  }));
             }
         }
 

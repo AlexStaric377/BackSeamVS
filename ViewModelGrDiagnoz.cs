@@ -131,6 +131,7 @@ namespace BackSeam
             WindowMen.GrDiagnozt6.Background = Brushes.AntiqueWhite;
             WindowMen.FolderGroupDiagnoz.Visibility = Visibility.Visible;
             WindowMen.FolderGrMKX.Visibility = Visibility.Visible;
+            WindowMen.GrDiagnozTablGrid.IsEnabled = false;
             activViewGrupDiagnoz = true;
 
             
@@ -148,6 +149,7 @@ namespace BackSeam
             WindowMen.GrDiagnozt6.Background = Brushes.White;
             WindowMen.FolderGroupDiagnoz.Visibility = Visibility.Hidden;
             WindowMen.FolderGrMKX.Visibility = Visibility.Hidden;
+            WindowMen.GrDiagnozTablGrid.IsEnabled = true;
             activViewGrupDiagnoz = false;
         }
 

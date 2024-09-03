@@ -157,13 +157,14 @@ namespace BackSeam
             editboolFeature = true;
             WindowMen.Featuret2.IsEnabled = true;
             WindowMen.Featuret2.Background = Brushes.AntiqueWhite;
+            WindowMen.FeatureTablGrid.IsEnabled = false;
             //if (IndexAddEdit == "addCommand")
             //{ 
-                //WindowMen.Folder.Visibility = Visibility.Visible;
+            //WindowMen.Folder.Visibility = Visibility.Visible;
             //}
             //if (IndexAddEdit == "editCommand")
             //{
-                WindowMen.Folder.Visibility = Visibility.Visible;
+            WindowMen.Folder.Visibility = Visibility.Visible;
                 WindowMen.FolderDet5.Visibility = Visibility.Visible;
 
             //}
@@ -177,6 +178,7 @@ namespace BackSeam
             WindowMen.Featuret2.Background =  Brushes.White;
             WindowMen.Folder.Visibility = Visibility.Hidden;
             WindowMen.FolderDet5.Visibility = Visibility.Hidden;
+            WindowMen.FeatureTablGrid.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeFeature;

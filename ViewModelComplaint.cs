@@ -121,7 +121,7 @@ namespace BackSeam
             WindowMen.Simptomt2.IsEnabled = true;
             WindowMen.Simptomt2.Background = Brushes.AntiqueWhite;
             WindowMen.FolderFuter.Visibility = Visibility.Visible;
-
+            WindowMen.SimptomTablGrid.IsEnabled = false;
         }
         private void BoolFalseCompaint()
         {
@@ -130,7 +130,7 @@ namespace BackSeam
             WindowMen.Simptomt2.IsEnabled = false;
             WindowMen.Simptomt2.Background = Brushes.White;
             WindowMen.FolderFuter.Visibility = Visibility.Hidden;
-
+            WindowMen.SimptomTablGrid.IsEnabled = true;
         }
 
         // команда удаления

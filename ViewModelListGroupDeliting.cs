@@ -70,7 +70,7 @@ namespace BackSeam
                 return loadListGrDetailing ??
                   (loadListGrDetailing = new RelayCommand(obj =>
                   {
-                      if (loadboolListGrDet == false) MethodloadtablListGrDet();
+                       MethodloadtablListGrDet();
                   }));
             }
         }
@@ -110,6 +110,8 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableListViewGroupDeliting(CmdStroka);
+            WindowMen.PoiskGrDetailing.IsEnabled = true;
+            WindowMen.PoiskGrDetailing.Background = Brushes.AntiqueWhite;
         }
         
         private void BoolTrueGroupDetailing()
@@ -118,6 +120,7 @@ namespace BackSeam
             editboolListGrDet = true;
             WindowMen.GrDetailingt2.IsEnabled = true ;
             WindowMen.GrDetailingt2.Background = Brushes.AntiqueWhite;
+            WindowMen.GrDetailingTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseGroupDetailing()
@@ -127,6 +130,7 @@ namespace BackSeam
             WindowMen.GrDetailingt2.IsEnabled =  false ;
             WindowMen.GrDetailingt2.Background = Brushes.White;
             WindowMen.FolderGrDetailing.Visibility = Visibility.Hidden;
+            WindowMen.GrDetailingTablGrid.IsEnabled = true;
         }
 
         // команда удаления
@@ -346,10 +350,32 @@ namespace BackSeam
             }
         }
 
-
         
 
-        
+        // команда поиска групы детализации
+        RelayCommand? searchGrDetailing;
+        public RelayCommand SearchGrDetailing
+        {
+            get
+            {
+                return searchGrDetailing ??
+                  (searchGrDetailing = new RelayCommand(obj =>
+                  {
+                      if (ViewListGrDetailings != null)
+                      {
+                          if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
+                          {
+                              string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
+                              CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");
+                              string CmdStroka = CallServer.ServerReturn();
+                              if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                              else ObservableListViewGroupDeliting(CmdStroka);
+                          }
+                      }
+                  }));
+            }
+        }
+
         #endregion
         #endregion
     }

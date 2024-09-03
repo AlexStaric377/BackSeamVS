@@ -160,6 +160,7 @@ namespace BackSeam
             WindowMen.DiagnozOpis.Background = Brushes.AntiqueWhite;
             WindowMen.DiagnozTextUri.IsEnabled = true;
             WindowMen.DiagnozTextUri.Background = Brushes.AntiqueWhite;
+            WindowMen.DiagnozTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseDiagnoz()
@@ -172,6 +173,7 @@ namespace BackSeam
             WindowMen.DiagnozOpis.Background = Brushes.White;
             WindowMen.DiagnozTextUri.IsEnabled = false;
             WindowMen.DiagnozTextUri.Background = Brushes.White;
+            WindowMen.DiagnozTablGrid.IsEnabled = true;
             activViewDiagnoz = false;
             WindowMen.Diagnozt3.Text = "";
             WindowMen.Diagnozt1.Text = "";

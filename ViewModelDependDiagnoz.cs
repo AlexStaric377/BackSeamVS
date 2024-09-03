@@ -86,8 +86,7 @@ namespace BackSeam
             if(modelDependency.kodRecommend !=null)
             {
 
-                    MainWindow.UrlServer = controlerModelRecommendation;
-                    var json = controlerModelRecommendation + modelDependency.kodRecommend.ToString();
+                    var json = controlerModelRecommendation + modelDependency.kodRecommend.ToString()+"/0";
                     CallServer.PostServer(controlerModelRecommendation, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelRecommendation Insert = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);

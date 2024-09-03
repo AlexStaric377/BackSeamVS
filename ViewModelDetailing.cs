@@ -188,6 +188,7 @@ namespace BackSeam
             WindowDetailing.FolderFut.Visibility = Visibility.Visible;
             WindowDetailing.FolderDet.Visibility = Visibility.Visible;
             WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
+            WindowDetailing.DetailingTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseDetailing()
@@ -200,6 +201,7 @@ namespace BackSeam
             WindowDetailing .FolderDet.Visibility = Visibility.Hidden;
             WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
             WindowDetailing.FolderComplaint.Visibility = Visibility.Hidden;
+            WindowDetailing.DetailingTablGrid.IsEnabled = true;
             //GrFeatureDetailing = "";
 
         }
@@ -554,7 +556,7 @@ namespace BackSeam
 
 
                     }
-                    if (selectedViewDetailingFeature.keyGrDetailing != "" )
+                    if (selectedViewDetailingFeature.keyGrDetailing != "" && selectedViewDetailingFeature.keyGrDetailing !=null )
                     { 
                         json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
                         CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");

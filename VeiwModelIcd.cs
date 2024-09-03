@@ -105,6 +105,8 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else  ObservableVeiwModelIcd(CmdStroka);
+            WindowMen.PoiskIcd.IsEnabled = true;
+            WindowMen.PoiskIcd.Background = Brushes.AntiqueWhite;
         }
 
         // команда удаления
@@ -207,7 +209,7 @@ namespace BackSeam
             WindowMen.Icdt3.IsEnabled = false;
             WindowMen.Icdt3.Background = Brushes.White;
             WindowMen.FolderGrNapryamok.Visibility = Visibility.Hidden;
-
+            WindowMen.IcdTablGrid.IsEnabled = true;
         }
 
         private void ModelIcdtrue()
@@ -219,6 +221,7 @@ namespace BackSeam
             WindowMen.Icdt3.IsEnabled = true;
             WindowMen.Icdt3.Background = Brushes.AntiqueWhite;
             WindowMen.FolderGrNapryamok.Visibility = Visibility.Visible;
+            WindowMen.IcdTablGrid.IsEnabled = false;
 
         }
         // команда печати
@@ -277,6 +280,27 @@ namespace BackSeam
                 
             }
 
+        }
+
+        
+        private RelayCommand? searchIcd;
+        public RelayCommand SearchIcd
+        {
+            get
+            {
+                return searchIcd ??
+                  (searchIcd = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskIcd.Text.Trim() != "")
+                      {
+                          string jason = controlerIcd + "0/" + WindowInterv.PoiskIcd.Text;
+                          CallServer.PostServer(controlerIcd, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableVeiwModelIcd(CmdStroka);
+                      }
+                  }));
+            }
         }
 
         #endregion

@@ -141,6 +141,7 @@ namespace BackSeam
             WindowMen.FolderQu.Visibility = Visibility.Visible;
             WindowMen.GrDetailingst3.IsEnabled = true;
             WindowMen.GrDetailingst3.Background = Brushes.AntiqueWhite;
+            WindowMen.GrDetailingsTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseGrDetailing()
@@ -152,6 +153,7 @@ namespace BackSeam
             WindowMen.FolderQu.Visibility = Visibility.Hidden;
             WindowMen.GrDetailingst3.IsEnabled = false;
             WindowMen.GrDetailingst3.Background = Brushes.White;
+            WindowMen.GrDetailingsTablGrid.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeGrDetailing;

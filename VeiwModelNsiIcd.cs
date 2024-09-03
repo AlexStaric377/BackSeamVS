@@ -26,7 +26,7 @@ namespace BackSeam
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-        public static WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
+        //public static WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
         public static string controlerNsiIcd =  "/api/IcdController/";
         private ModelIcd selectedVeiwIcd;
         public static ObservableCollection<ModelIcd> VeiwIcds { get; set; }
@@ -71,7 +71,7 @@ namespace BackSeam
                 return closeVeiwIcd ??
                   (closeVeiwIcd = new RelayCommand(obj =>
                   {
-                      //WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
+                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
                       MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                       if (SelectedVeiwIcd != null)
                       {
@@ -94,6 +94,7 @@ namespace BackSeam
                 return searchIcd ??
                   (searchIcd = new RelayCommand(obj =>
                   {
+                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
                       if (WindowNsiIcdUri.PoiskIcd.Text.Trim() != "")
                       {
                           string jason = controlerNsiIcd + "0/" + WindowNsiIcdUri.PoiskIcd.Text;

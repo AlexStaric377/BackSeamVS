@@ -4241,7 +4241,20 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник гуртових деталізацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"/>
+                                            <!--<Label Content=" Довідник гуртових деталізацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"/>-->
+
+                                            <Label Content=" Назва гуртової деталізації" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="200" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                                            <TextBox Name="PoiskGrDetailing" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrDetailing"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchGrDetailing}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="GrDetailingTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewListGrDetailings }" SelectedItem ="{Binding SelectedListGroupDeliting}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -4254,12 +4267,12 @@
                                                 </i:Interaction.Triggers>
 
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn x:Name="GrDetailingColumn1" FontSize="14" Width="120" Binding="{Binding Path=keyGrDetailing}">
+                                                    <DataGridTextColumn x:Name="GrDetailingColumn1" FontSize="14" Width="150" Binding="{Binding Path=keyGrDetailing}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="GrDetailingHeader1"  Text="Код групи"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="GrDetailingColumn2" FontSize="14" Width="450" Binding="{Binding Path=nameGrup}">
+                                                    <DataGridTextColumn x:Name="GrDetailingColumn2" FontSize="14" Width="600" Binding="{Binding Path=nameGrup}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="GrDetailingHeader2"  Text="Назва гуртової деталізації"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
@@ -5296,9 +5309,22 @@
                                                     <RowDefinition Height="20*" />
                                                     <RowDefinition Height="130*" />
                                                 </Grid.RowDefinitions>
-                                                <Label Content=" Довідник рекомендацій" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+                                                <Label Content=" Назва рекомендації" Grid.Row="0" Height="30" Width="150" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="70,0,0,0" />
+                                                <TextBox Name="PoiskRecommendation" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Recommendation"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <i:InvokeCommandAction Command="{Binding SearchRecommendation}" CommandParameter=""/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Image>
+
+
                                                 <DataGrid x:Name="RecommendationTablGrid"  Cursor="Hand" Grid.Row="1" ItemsSource="{Binding ModelRecommendations}" SelectedItem="{Binding SelectedModelRecommendation}"
-                                                IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
+                                                IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Left" Height="240"
                                                 VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None" FontSize="15"
                                                 HorizontalGridLinesBrush="Black" VerticalScrollBarVisibility="Hidden">
                                                     <DataGrid.Columns>
@@ -5307,7 +5333,7 @@
                                                                 <TextBlock x:Name="RecommendationHeader1"  Text="Код"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                             </DataGridTextColumn.Header>
                                                         </DataGridTextColumn>
-                                                        <DataGridTextColumn x:Name="RecommendationColumn2" FontSize="14" Width="550" Binding="{Binding Path=contentRecommendation}">
+                                                        <DataGridTextColumn x:Name="RecommendationColumn2" FontSize="14" Width="650" Binding="{Binding Path=contentRecommendation}">
                                                             <DataGridTextColumn.Header>
                                                                 <TextBlock x:Name="RecommendationHeader2"  Text="Назва рекомендації"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                             </DataGridTextColumn.Header>
@@ -6641,7 +6667,19 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content="Міжнародна статистична класифікація хвороб і проблем, пов'язаних зі здоров'ям" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+
+                                            <Label Content=" Назва хвороби" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                                            <TextBox Name="PoiskIcd" Grid.Row="0" Width="560" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchIcd}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="IcdTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding VeiwModelIcds}" SelectedItem="{Binding SelectedModelIcd}" 
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"

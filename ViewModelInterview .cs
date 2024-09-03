@@ -486,7 +486,7 @@ namespace BackSeam
                                       WindowInterv.InterviewOpis.Text = selectedInterview.opistInterview;
                                       WindowInterv.InterviewTextUri.Text = selectedInterview.uriInterview;
 
-                                      json = controlerModelRecommendation + modelDependency.kodRecommend;
+                                      json = controlerModelRecommendation + modelDependency.kodRecommend+"/0";
                                       CallServer.PostServer(controlerModelRecommendation, json, "GETID");
                                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                       ModelRecommendation NameRecomen = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);
