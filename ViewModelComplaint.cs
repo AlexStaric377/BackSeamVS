@@ -319,7 +319,7 @@ namespace BackSeam
                       if (selectedComplaint != null) 
                       {
                           ViewModelNsiFeature.Method = "GETID";
-                          string jason = ViewModelNsiFeature.pathFeatureController + "0/" + selectedComplaint.keyComplaint;
+                          string jason = ViewModelNsiFeature.pathFeatureController + "0/" + selectedComplaint.keyComplaint + "/0";
                           CallServer.PostServer(ViewModelNsiFeature.pathFeatureController, jason, ViewModelNsiFeature.Method);
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]") == false)

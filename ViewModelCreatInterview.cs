@@ -236,7 +236,7 @@ namespace BackSeam
                           switch (selectedContentInterv.kodDetailing.Length)
                           {
                               case 5:
-                                  ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedContentInterv.kodDetailing;
+                                  ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedContentInterv.kodDetailing + "/0";
                                   ViewModelNsiFeature.Method = "GETID";
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiFeature NewOrder = new WinNsiFeature();

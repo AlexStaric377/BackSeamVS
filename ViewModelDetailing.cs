@@ -448,7 +448,7 @@ namespace BackSeam
         private void AddComandFeatureDeliting()
         {
             MapOpisViewModel.ActCompletedInterview = "Feature";
-            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedViewDetailingFeature.kodComplaint;
+            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedViewDetailingFeature.kodComplaint + "/0";
             ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
@@ -638,7 +638,7 @@ namespace BackSeam
 
                       loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
-                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) ;
+                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; ;
                       ViewModelNsiFeature.Method = selectedViewDetailingFeature.kodComplaint == "" ? "GET" : "GETID";
 
                         WinNsiFeature NewOrder = new WinNsiFeature();

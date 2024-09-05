@@ -380,7 +380,7 @@ namespace BackSeam
             if (WindowMen.Detailingt4.Text.Length != 0)
             {
                 string pathcontroller = "/api/GrDetalingController/";
-                string jason = pathcontroller + "0/" + WindowMen.Detailingt4.Text;
+                string jason = pathcontroller + "0/" + WindowMen.Detailingt4.Text + "/0";
                 CallServer.PostServer(pathcontroller, jason, "GETID");
 
                 string CmdStroka = CallServer.ServerReturn();

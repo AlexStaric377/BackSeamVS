@@ -485,7 +485,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             selectedComplaintname = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
-            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing;
+            ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing + "/0"; ;
             ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
@@ -498,7 +498,7 @@ namespace BackSeam
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
             string pathcontroller = "/api/DetailingController/";
-            string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing;
+            string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
             CallServer.PostServer(pathcontroller, jason, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]") == false)

@@ -22,7 +22,8 @@
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="610" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
-                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="500*" />
                     <RowDefinition Height="30*" />
 
@@ -30,8 +31,19 @@
                 <Label Name="Zagolovok"  Content="Деталізація прояву: " Grid.Row="0" Foreground="#FF4607A0" FontSize="14"  FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Center"  />
                 <Label Name="InfoSelect"  Content="Коли проявляється:" Grid.Row="1" 
                        Foreground="Blue"  FontSize="14" FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Left"  />
+                <TextBox Name="PoiskGrDeliting" Grid.Row="2" Width="500" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                         FontFamily="Microsoft Sans Serif" />
 
-                <ListBox Grid.Row="2" Name="TablDeliting" ItemsSource="{Binding NsiModelGrDetailings}" VerticalAlignment="Top"
+                <Image Height="20" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_GrDeliting"  VerticalAlignment="Center" Margin="0,0,0,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchNameGrDeliting}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="3" Name="TablDeliting" ItemsSource="{Binding NsiModelGrDetailings}" VerticalAlignment="Top"
                     SelectedItem ="{Binding SelectedModelGrDetailing}" Height="510" Background="#FFE2E2DD"
                     Width="545" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -55,7 +67,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

@@ -127,7 +127,7 @@ namespace BackSeam
                                   else
                                   { 
                                       string pathcontroller = "/api/DetailingController/";
-                                      string jason = pathcontroller + "0/" + selectedFeature.keyFeature;
+                                      string jason = pathcontroller + "0/" + selectedFeature.keyFeature + "/0";
                                       CallServer.PostServer(pathcontroller, jason, "GETID");
                                       string CmdStroka = CallServer.ServerReturn();
                                       if (CmdStroka.Contains("[]") == false)
@@ -154,7 +154,7 @@ namespace BackSeam
         }
 
         
-        // команда закрытия окна
+        // команда поиска наименования характера проявления болей
         RelayCommand? searchNameFeature;
         public RelayCommand SearchNameFeature
         {

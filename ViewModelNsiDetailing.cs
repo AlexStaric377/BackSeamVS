@@ -41,22 +41,22 @@ namespace BackSeam
                 switch (MapOpisViewModel.ActCompletedInterview)
                 {
                     case "FeatureGET":
-                        jason = pathcontroller + "0/0";
+                        jason = pathcontroller + "0/0/0";
                         break;
                     case "Feature":
-                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature;
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature + "/0";
                         break;
                     case "Detailing":
-                        jason = pathcontroller + "0/" + ViewModelNsiFeature.selectedFeature.keyFeature;
+                        jason = pathcontroller + "0/" + ViewModelNsiFeature.selectedFeature.keyFeature + "/0";
                         break;
                     case "ViewDetailing":
-                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature;
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedViewFeature.keyFeature + "/0";
                         break;
                     case null:
-                        jason = pathcontroller + "0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing;
+                        jason = pathcontroller + "0/" + ViewModelCreatInterview.selectedContentInterv.kodDetailing + "/0";
                         break;
                     default:
-                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing;
+                        jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
                         break;
                 }
                 CallServer.PostServer(pathcontroller, jason, "GETID");
@@ -175,7 +175,7 @@ namespace BackSeam
                           if (selectedDetailing.keyGrDetailing != null && selectedDetailing.keyGrDetailing !="" )
                           {
                               string pathcontroller = "/api/GrDetalingController/";
-                              string jason = pathcontroller + "0/" + selectedDetailing.keyGrDetailing;
+                              string jason = pathcontroller + "0/" + selectedDetailing.keyGrDetailing + "/0";
                               CallServer.PostServer(pathcontroller, jason, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == false)
@@ -194,6 +194,30 @@ namespace BackSeam
 
                   },
                  (obj) => NsiModelDetailings != null));
+            }
+        }
+
+       
+        // команда поиска наименования характера проявления болей
+        RelayCommand?  searchNameDeliting;
+        public RelayCommand SearchNameDeliting
+        {
+            get
+            {
+                return searchNameDeliting ??
+                  (searchNameDeliting = new RelayCommand(obj =>
+                  {
+                      NsiDetailing WindowWinNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
+                      if (WindowWinNsiDetailing.PoiskDeliting.Text.Trim() != "")
+                      {
+                          string jason = pathcontroller + "0/0/" + WindowWinNsiDetailing.PoiskDeliting.Text;
+                          CallServer.PostServer(pathcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelFeatures(CmdStroka);
+                          WindowWinNsiDetailing.TablDeliting.ItemsSource = NsiModelDetailings;
+                      }
+                  }));
             }
         }
 

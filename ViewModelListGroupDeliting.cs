@@ -308,7 +308,7 @@ namespace BackSeam
                           if (selectedListGroupDeliting.keyGrDetailing!=null && selectedListGroupDeliting.keyGrDetailing!="")
                           { 
                               string pathcontroller =  "/api/GrDetalingController/"; 
-                              string jason = pathcontroller + "0/" + selectedListGroupDeliting.keyGrDetailing;
+                              string jason = pathcontroller + "0/" + selectedListGroupDeliting.keyGrDetailing + "/0";
                               CallServer.PostServer(pathcontroller, jason, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == false)
