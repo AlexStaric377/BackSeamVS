@@ -25,14 +25,27 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
                     <RowDefinition Height="25*" />
+                    <RowDefinition Height="30*" />
                     <RowDefinition Height="490*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Прояв нездужання:  " Grid.Row="0" Foreground="#FF4607A0" FontFamily="Microsoft Sans Serif" FontSize="14" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                <TextBox Name="PoiskFeature" Grid.Row="2" Width="520" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                         FontFamily="Microsoft Sans Serif" />
+
+                <Image Height="25" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_Feature"  VerticalAlignment="Center" Margin="0,0,5,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchNameFeature}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
                 <Label Name="InfoSelect"  Content="Характер нездужання:" Grid.Row="1" 
                        Foreground="Blue"  FontSize="14" FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Left" Width="450"  />
-                <ListBox Grid.Row="2" Name="TablFeature" ItemsSource="{Binding NsiModelFeatures}" HorizontalAlignment="Center" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedModelFeature}" Height="490" Background="#FFE2E2DD"
+                <ListBox Grid.Row="3" Name="TablFeature" ItemsSource="{Binding NsiModelFeatures}" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    SelectedItem ="{Binding SelectedModelFeature}" Height="465" Background="#FFE2E2DD"
                     Width="590" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
@@ -57,7 +70,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

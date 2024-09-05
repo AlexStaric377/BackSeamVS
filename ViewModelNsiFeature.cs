@@ -153,14 +153,28 @@ namespace BackSeam
             }
         }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-
-        //}
+        
+        // команда закрытия окна
+        RelayCommand? searchNameFeature;
+        public RelayCommand SearchNameFeature
+        {
+            get
+            {
+                return searchNameFeature ??
+                  (searchNameFeature = new RelayCommand(obj =>
+                  {
+                      WinNsiFeature WindowWinNsiFeature = MainWindow.LinkMainWindow("WinNsiFeature");
+                      if (WindowWinNsiFeature.PoiskFeature.Text.Trim() != "")
+                      {
+                          string jason = pathFeatureController + "0/0/" + WindowWinNsiFeature.PoiskFeature.Text;
+                          CallServer.PostServer(pathFeatureController, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelFeatures(CmdStroka);
+                          WindowWinNsiFeature.TablFeature.ItemsSource = NsiModelFeatures;
+                      }
+                  }));
+            }
+        }
     }
 }

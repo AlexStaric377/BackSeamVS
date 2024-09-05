@@ -558,7 +558,7 @@ namespace BackSeam
                     }
                     if (selectedViewDetailingFeature.keyGrDetailing != "" && selectedViewDetailingFeature.keyGrDetailing !=null )
                     { 
-                        json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing;
+                        json = pathcontrolerListGrDet + selectedViewDetailingFeature.keyGrDetailing + "/0";
                         CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         if (CallServer.ResponseFromServer.Length != 0)
