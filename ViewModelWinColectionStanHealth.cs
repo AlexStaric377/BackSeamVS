@@ -23,19 +23,9 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    class ViewModelWinColectionStanHealth : INotifyPropertyChanged
+    class ViewModelWinColectionStanHealth : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-        
         private bool loadboolStanHealth = false;
         public static PacientMapAnaliz selectPacientStanHealth;
 
@@ -45,8 +35,6 @@ namespace BackSeam
             set { selectPacientStanHealth = value; OnPropertyChanged("SelectedPacientStanHealth"); }
         }
         public static ObservableCollection<PacientMapAnaliz> ViewPacientStanHealths { get; set; }
-
-       
 
 
         public ViewModelWinColectionStanHealth()

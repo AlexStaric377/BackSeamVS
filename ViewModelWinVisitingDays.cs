@@ -22,18 +22,9 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public class ViewModelWinVisitingDays : INotifyPropertyChanged
+    public class ViewModelWinVisitingDays : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
         private string pathcontrollerVisitingDays = "/api/VisitingDaysController/";
         public static ModelVisitingDays selectVisitingDays;
 

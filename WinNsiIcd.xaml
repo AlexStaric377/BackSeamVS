@@ -23,7 +23,7 @@
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="620" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*" />
-                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="550*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
@@ -31,7 +31,7 @@
                 <TextBox Name="PoiskIcd" Grid.Row="1" Text="" FontSize="14" BorderThickness="0,0,0,0" Margin="5,0,35,0" 
                          FontFamily="Microsoft Sans Serif" />
 
-                <Image Height="25" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,0,0"
+                <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,0,0"
                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
                     <i:Interaction.Triggers>

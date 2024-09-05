@@ -22,7 +22,7 @@ using System.Windows.Media;
 
 namespace BackSeam
 {
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
@@ -52,6 +52,8 @@ namespace BackSeam
             List<ModelGroupQualification> res = result.ViewGroupQualification.ToList();
             ViewGroupQualifications = new ObservableCollection<ModelGroupQualification>((IEnumerable<ModelGroupQualification>)res);
             WindowMen.GrQualificationTablGrid.ItemsSource = ViewGroupQualifications;
+            WindowMen.PoiskGrQualification.IsEnabled = true;
+            WindowMen.PoiskGrQualification.Background = Brushes.AntiqueWhite;
         }
 
         #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
@@ -317,6 +319,31 @@ namespace BackSeam
 
                       }
 
+                  }));
+            }
+        }
+
+        
+        // команда поиска групы квалификации
+        RelayCommand? searchGrQualification;
+        public RelayCommand SearchGrQualification
+        {
+            get
+            {
+                return searchGrQualification ??
+                  (searchGrQualification = new RelayCommand(obj =>
+                  {
+                      if (ViewGroupQualifications != null)
+                      {
+                          if (WindowMen.PoiskGrQualification.Text.Trim() != "")
+                          {
+                              string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
+                              CallServer.PostServer(controlerGroupQualification, jason, "GETID");
+                              string CmdStroka = CallServer.ServerReturn();
+                              if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                              else ObservableViewGroupQualification(CmdStroka);
+                          }
+                      }
                   }));
             }
         }

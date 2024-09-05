@@ -28,7 +28,7 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public class ViewModelRegisterAccountUser : INotifyPropertyChanged
+    public class ViewModelRegisterAccountUser : BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")

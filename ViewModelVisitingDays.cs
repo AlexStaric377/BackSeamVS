@@ -23,7 +23,7 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         private static MainWindow VisitngDays = MainWindow.LinkNameWindow("BackMain");
         private bool loadboolVisitingDays = false, addboolVisitingDays = false, editboolVisitingDays = false;

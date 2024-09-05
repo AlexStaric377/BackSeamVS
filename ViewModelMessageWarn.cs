@@ -8,17 +8,8 @@ using System.ComponentModel;
 
 namespace BackSeam
 {
-    class ViewModelMessageWarn : INotifyPropertyChanged
+    public class ViewModelMessageWarn : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
 
         // команда закрытия окна
         RelayCommand? closeWarning;

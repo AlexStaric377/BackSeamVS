@@ -3690,7 +3690,18 @@
                                                     <RowDefinition Height="20*" />
                                                     <RowDefinition Height="130*" />
                                                 </Grid.RowDefinitions>
-                                                <Label Content=" Довідник прояву нездужання" Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold"/>
+                                                <Label Content=" Назва прояву нездужання" Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold"  Width="200" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                                                <TextBox Name="PoiskSimptom" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Simptom"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <i:InvokeCommandAction Command="{Binding SearchSimptom}" CommandParameter=""/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Image>
                                                 <DataGrid x:Name="SimptomTablGrid"  Cursor="Hand" Grid.Row="1" ItemsSource="{Binding ViewComplaints}" SelectedItem="{Binding SelectedComplaint}"
                                                 IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                                 VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -3702,12 +3713,12 @@
                                                     </i:Interaction.Triggers>
 
                                                     <DataGrid.Columns>
-                                                        <DataGridTextColumn x:Name="Column1"  Width="110"  FontSize="14" Binding="{Binding keyComplaint}">
+                                                        <DataGridTextColumn x:Name="Column1"  Width="130"  FontSize="14" Binding="{Binding keyComplaint}">
                                                             <DataGridTextColumn.Header>
                                                                 <TextBlock x:Name="Header1"  Text="Код"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                             </DataGridTextColumn.Header>
                                                         </DataGridTextColumn>
-                                                        <DataGridTextColumn x:Name="Column2"  Width="500" FontSize="14" Binding="{Binding name}" >
+                                                        <DataGridTextColumn x:Name="Column2"  Width="600" FontSize="14" Binding="{Binding name}" >
                                                             <DataGridTextColumn.Header>
                                                                 <TextBlock x:Name="Header2"  Text="Як або де проявляється  нездужання"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                             </DataGridTextColumn.Header>
@@ -4605,7 +4616,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник груп кваліфікації деталізації" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  />
+                                            <Label Content=" Назва гурту кваліфікації " Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="190" HorizontalAlignment="Left"  />
+                                            <TextBox Name="PoiskGrQualification" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrQualification"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchGrQualification}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="GrQualificationTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewGroupQualifications }" SelectedItem ="{Binding SelectedViewGroupQualification}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -4623,7 +4645,7 @@
                                                             <TextBlock x:Name="GrQualificationHeader1"  Text="Код групи"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="GrQualificationColumn2" FontSize="14" Width="450" Binding="{Binding Path=nameGroupQualification}">
+                                                    <DataGridTextColumn x:Name="GrQualificationColumn2" FontSize="14" Width="600" Binding="{Binding Path=nameGroupQualification}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="GrQualificationHeader2"  Text="Назва групи кваліфікаці"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
@@ -4763,6 +4785,15 @@
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
                                             <Label Content=" Довідник групових кваліфікацій" Grid.Row="0" Height="30" FontWeight="Bold"  FontSize="14" />
+                                            <Label Content=" Вибрати гуртову кваліфікацію"  Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,70,0"/>
+                                            <Image x:Name="FolderGrQualification" Grid.Row="0" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"    Margin="0,0,10,0"  >
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=GridGrDetailing, Path=DataContext.SelectedListGrQualification}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
+
                                             <DataGrid x:Name="QualificationTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewQualifications }" SelectedItem ="{Binding SelectedViewQualification}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -4784,9 +4815,9 @@
                                                             <TextBlock x:Name="QualificationHeader2"  Text="Назва кваліфікації"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="QualificationColumn3" FontSize="14" Width="110" Binding="{Binding Path=kodGroupQualification}">
+                                                    <DataGridTextColumn x:Name="QualificationColumn3" FontSize="14" Width="300" Binding="{Binding Path=kodGroupQualification}">
                                                         <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="QualificationHeader3"  Text="Код гурту"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                            <TextBlock x:Name="QualificationHeader3"  Text="Назва гурту"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                 </DataGrid.Columns>

@@ -31,7 +31,7 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         // ViewModelUploadDb - Загрузка таблиц из внешних текстовых файлов
         // клавиша в окне:  Завантажити

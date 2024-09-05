@@ -43,22 +43,10 @@ namespace BackSeam
         }
 
     }
-    public class ViewModelUnloadTab : INotifyPropertyChanged
+    public class ViewModelUnloadTab : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
         public ModelUnloadTab ModelUnloadTab;
-
-
         public ViewModelUnloadTab(ModelUnloadTab modelUnloadTab)
         {
             this.ModelUnloadTab = modelUnloadTab;
@@ -139,7 +127,7 @@ namespace BackSeam
 
 
     // -------------------------------------------------------
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         // ViewModelUnloadDb - Выгрузка таблиц во внешние текстовые файлы
         // клавиша в окне:  Вивантажити

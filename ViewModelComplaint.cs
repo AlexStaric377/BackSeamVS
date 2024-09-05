@@ -62,6 +62,8 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else { ObservableViewComplaints(CmdStroka); }
+            WindowMen.PoiskSimptom.IsEnabled = true;
+            WindowMen.PoiskSimptom.Background = Brushes.AntiqueWhite;
         }
 
         public static void ObservableViewComplaints(string CmdStroka)
@@ -340,9 +342,32 @@ namespace BackSeam
                  (obj) => ViewComplaints != null));
             }
         }
+
+        
+        // команда печати
+        RelayCommand? searchSimptom;
+        public RelayCommand SearchSimptom
+        {
+            get
+            {
+                return searchSimptom ??
+                  (searchSimptom = new RelayCommand(obj =>
+                  {
+                      if (ViewComplaints == null) return;
+                      if (WindowMen.PoiskSimptom.Text.Trim() == "") return;
+                      string jason = pathComplaint + "0/" + WindowMen.PoiskSimptom.Text;
+                      CallServer.PostServer(pathComplaint, jason, "GETID");
+                      string CmdStroka = CallServer.ServerReturn();
+                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                      else ObservableViewComplaints(CmdStroka);
+  
+                  }));
+            }
+        }
+
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event  PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
@@ -351,6 +376,9 @@ namespace BackSeam
             }
 
         }
+
+
+
         #endregion
     }
 }

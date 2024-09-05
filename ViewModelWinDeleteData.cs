@@ -24,18 +24,9 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    class ViewModelWinDeleteData : INotifyPropertyChanged
+    class ViewModelWinDeleteData : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
+ 
         // команда отказа от удаления закрытия окна
         RelayCommand? noDelete;
         public RelayCommand NoDelete

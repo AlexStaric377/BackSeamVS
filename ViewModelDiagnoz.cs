@@ -20,7 +20,7 @@ using Newtonsoft.Json.Converters;
 using System.Windows.Media;
 namespace BackSeam
 {
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com

@@ -38,18 +38,14 @@ namespace BackSeam
         // конструктор класса
         public ViewNsiGrQualification()
         {
-            if (MapOpisViewModel.ViewGroupQualifications == null)
-            {
+ 
                 MainWindow.UrlServer = controlerGroupQualification;
                 CallServer.PostServer(MainWindow.UrlServer, controlerGroupQualification, "GET");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableGrViewQualification(CmdStroka);
-            }
-            else
-            {
-                NsiGroupQualifications = MapOpisViewModel.ViewGroupQualifications;
-            }
+
+ 
         }
 
         public static void ObservableGrViewQualification(string CmdStroka)

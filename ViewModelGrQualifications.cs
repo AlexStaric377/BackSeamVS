@@ -21,7 +21,7 @@ using System.Windows.Media;
 
 namespace BackSeam
 {
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
@@ -335,7 +335,38 @@ namespace BackSeam
                   }));
             }
         }
+
         
+        // команда выбора групы детализации
+        RelayCommand? selectedListGrQualification;
+        public RelayCommand SelectedListGrQualification
+        {
+            get
+            {
+                return selectedListGrQualification ??
+                  (selectedListGrQualification = new RelayCommand(obj =>
+                  {
+                      SelectGroupQualification();
+                  }));
+            }
+        }
+
+        public void SelectGroupQualification()
+        {
+            WinNsiGrQualification NewOrder = new WinNsiGrQualification();
+            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+            NewOrder.ShowDialog();
+            if (WindowMen.Qualificationt4.Text.Length != 0)
+            {
+                string jason = controlerViewQualification + "0/" + WindowMen.Qualificationt4.Text + "/0";
+                CallServer.PostServer(controlerViewQualification, jason, "GETID");
+
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == false) ObservableViewQualification(CmdStroka);
+                else ViewQualifications = new  ObservableCollection<ModelQualification>();
+            }
+        }
 
         #endregion
         #endregion

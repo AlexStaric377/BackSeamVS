@@ -108,7 +108,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.32;component/winnsilistgroupdelit.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.33;component/winnsilistgroupdelit.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinNsiListGroupDelit.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

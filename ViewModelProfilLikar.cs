@@ -21,7 +21,7 @@ using System.Diagnostics;
 
 namespace BackSeam
 {
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
 
         // ViewModelProfilLikar Справочник докторов
