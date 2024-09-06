@@ -333,17 +333,15 @@ namespace BackSeam
                 return searchGrQualification ??
                   (searchGrQualification = new RelayCommand(obj =>
                   {
-                      if (ViewGroupQualifications != null)
-                      {
-                          if (WindowMen.PoiskGrQualification.Text.Trim() != "")
-                          {
-                              string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
-                              CallServer.PostServer(controlerGroupQualification, jason, "GETID");
-                              string CmdStroka = CallServer.ServerReturn();
-                              if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                              else ObservableViewGroupQualification(CmdStroka);
-                          }
-                      }
+ 
+                        if (WindowMen.PoiskGrQualification.Text.Trim() != "")
+                        {
+                            string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
+                            CallServer.PostServer(controlerGroupQualification, jason, "GETID");
+                            string CmdStroka = CallServer.ServerReturn();
+                            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                            else ObservableViewGroupQualification(CmdStroka);
+                        }
                   }));
             }
         }

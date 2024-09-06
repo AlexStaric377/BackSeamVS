@@ -110,8 +110,7 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableListViewGroupDeliting(CmdStroka);
-            WindowMen.PoiskGrDetailing.IsEnabled = true;
-            WindowMen.PoiskGrDetailing.Background = Brushes.AntiqueWhite;
+
         }
         
         private void BoolTrueGroupDetailing()
@@ -361,17 +360,16 @@ namespace BackSeam
                 return searchGrDetailing ??
                   (searchGrDetailing = new RelayCommand(obj =>
                   {
-                      if (ViewListGrDetailings != null)
-                      {
-                          if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
-                          {
-                              string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
-                              CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");
-                              string CmdStroka = CallServer.ServerReturn();
-                              if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                              else ObservableListViewGroupDeliting(CmdStroka);
-                          }
-                      }
+                     
+                        if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
+                        {
+                            string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
+                            CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");
+                            string CmdStroka = CallServer.ServerReturn();
+                            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                            else ObservableListViewGroupDeliting(CmdStroka);
+                        }
+ 
                   }));
             }
         }

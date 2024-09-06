@@ -117,7 +117,6 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableVeiwMedical(CmdStroka);
-            
         }
 
         // команда удаления
@@ -366,6 +365,28 @@ namespace BackSeam
         }
 
         
+
+        // Выбор названия мед закладу
+        private RelayCommand? searchMedical;
+        public RelayCommand SearchMedical
+        {
+            get
+            {
+                return searchMedical ??
+                  (searchMedical = new RelayCommand(obj =>
+                  {
+                      if (WindowMedical.PoiskMedical.Text.Trim() != "")
+                      {
+                          string jason = controlerMedical + "0/0/" + WindowMedical.PoiskMedical.Text;
+                          CallServer.PostServer(controlerMedical, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableVeiwMedical(CmdStroka);
+                      }
+
+                  }));
+            }
+        }
         #endregion
         #endregion
 

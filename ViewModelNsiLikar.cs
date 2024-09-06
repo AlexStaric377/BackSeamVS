@@ -52,13 +52,13 @@ namespace BackSeam
                         CallServer.PostServer(pathcontroller, pathcontroller, "GET");
                         break;
                     default:
-                        CallServer.PostServer(pathcontroller, pathcontroller + MapOpisViewModel.selectedColectionInterview.kodDoctor+"/0", "GETID");
+                        CallServer.PostServer(pathcontroller, pathcontroller + MapOpisViewModel.selectedColectionInterview.kodDoctor+"/0/0", "GETID");
                         break;
                 }
             }
             else
             {
-                CallServer.PostServer(pathcontroller, pathcontroller + "0/" + MapOpisViewModel.EdrpouMedZaklad, "GETID");
+                CallServer.PostServer(pathcontroller, pathcontroller + "0/" + MapOpisViewModel.EdrpouMedZaklad + "/0", "GETID");
             }
             string CmdStroka = CallServer.ServerReturn();
             ObservableNsiModelLikar(CmdStroka);
@@ -153,7 +153,31 @@ namespace BackSeam
                   }));
             }
         }
-       
+
+        
+
+        // Выбор названия мед закладу
+        private RelayCommand? searchPoiskSurnaeLikar;
+        public RelayCommand SearchPoiskSurnaeLikar
+        {
+            get
+            {
+                return searchPoiskSurnaeLikar ??
+                  (searchPoiskSurnaeLikar = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskSurnaeLikar.Text.Trim() != "")
+                      {
+                          string jason = pathcontroller + "0/0/" + WindowMen.PoiskSurnaeLikar.Text;
+                          CallServer.PostServer(pathcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelLikar(CmdStroka);
+                          WindowMen.TablLikars.ItemsSource = NsiLikars;
+                      }
+
+                  }));
+            }
+        }
 
     }
  

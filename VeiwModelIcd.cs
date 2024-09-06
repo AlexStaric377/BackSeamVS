@@ -105,8 +105,6 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else  ObservableVeiwModelIcd(CmdStroka);
-            WindowMen.PoiskIcd.IsEnabled = true;
-            WindowMen.PoiskIcd.Background = Brushes.AntiqueWhite;
         }
 
         // команда удаления

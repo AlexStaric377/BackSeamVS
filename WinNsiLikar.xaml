@@ -25,14 +25,26 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*" />
                     <RowDefinition Height="30*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="270*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Довідник лікарів " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
                 <Label Name="ZagolovokGrid" Width="740"  Content="Ім'я                   Прізвище                       Спеціальність              Напрямок                               Телефон                      Сторінка в інтернет " Grid.Row="1" FontSize="12" FontWeight="Light" HorizontalAlignment="Center"  />
+                <Label Content=" Призвіще лікаря" Grid.Row="2" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
+                <TextBox Name="PoiskSurnaeLikar" Grid.Row="2" Width="500" Height="20" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White"  />
+                <Image Height="25" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_PoiskSurnaeLikar"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
-                <ListBox Grid.Row="2" Name="TablLikars" ItemsSource="{Binding NsiLikars}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedLikar}" Height="260" Background="#FFE2E2DD"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchPoiskSurnaeLikar}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="3" Name="TablLikars" ItemsSource="{Binding NsiLikars}" VerticalAlignment="Top"
+                    SelectedItem ="{Binding SelectedLikar}" Height="250" Background="#FFE2E2DD"
                     Width="760" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
 
@@ -63,7 +75,7 @@
                         <Image  Source="pack://application:,,,/BackSeam;component/Images/internet.png"  Height="24" Width="24"   ></Image>
                     </Button>
                 </Border>
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

@@ -416,7 +416,31 @@ namespace BackSeam
             }
         }
 
-        
+       
+
+        // Выбор фамилии доктора
+        private RelayCommand? searchPacientT;
+        public RelayCommand SearchPacientT
+        {
+            get
+            {
+                return searchPacientT ??
+                  (searchPacientT = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskPacientT.Text.Trim() != "")
+                      {
+                          string jason = pathcontrolerPacient + "0/0/0/" + WindowMen.PoiskPacientT.Text + "/0";
+                          CallServer.PostServer(pathcontrolerPacient, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewPacient(CmdStroka);
+                      }
+
+                  }));
+            }
+
+
+        }
         #endregion
         #endregion
     }

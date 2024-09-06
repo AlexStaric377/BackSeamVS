@@ -116,8 +116,7 @@ namespace BackSeam
             else ObservableModelInterview(CmdStroka);
             IndexAddEdit = "";
             loadboolInterview = true;
-            WindowInterv.PoiskInterveiw.IsEnabled = true;
-            WindowInterv.PoiskInterveiw.Background = Brushes.AntiqueWhite;
+
         }
 
         private void MethodaddcomInterview()

@@ -379,9 +379,8 @@ namespace BackSeam
             MapOpisViewModel.ActCompletedInterview = "";
             if (WindowMen.Detailingt4.Text.Length != 0)
             {
-                string pathcontroller = "/api/GrDetalingController/";
-                string jason = pathcontroller + "0/" + WindowMen.Detailingt4.Text + "/0";
-                CallServer.PostServer(pathcontroller, jason, "GETID");
+                string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
+                CallServer.PostServer(controlerGrDetailing, jason, "GETID");
 
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false) ObservableViewGrDeliting(CmdStroka);
@@ -398,10 +397,17 @@ namespace BackSeam
                 return selectNtameGrDeteling ??
                   (selectNtameGrDeteling = new RelayCommand(obj =>
                   {
-                      if (ViewGrDetailings != null)
-                      {
-  
-                      }
+                      //if (ViewGrDetailings != null)
+                      //{
+                      //    if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
+                      //    {
+                      //        string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;
+                      //        CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                      //        string CmdStroka = CallServer.ServerReturn();
+                      //        if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                      //        else ObservableViewGrupDiagnoz(CmdStroka);
+                      //    }
+                      //}
                   }));
             }
         }

@@ -102,8 +102,7 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableModelRecommendation(CmdStroka);
-            WindowMen.PoiskRecommendation.IsEnabled = true;
-            WindowMen.PoiskRecommendation.Background = Brushes.AntiqueWhite;
+
         }
 
         private void BoolTrueRecom()

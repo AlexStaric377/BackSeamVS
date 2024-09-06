@@ -62,8 +62,7 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else { ObservableViewComplaints(CmdStroka); }
-            WindowMen.PoiskSimptom.IsEnabled = true;
-            WindowMen.PoiskSimptom.Background = Brushes.AntiqueWhite;
+
         }
 
         public static void ObservableViewComplaints(string CmdStroka)
@@ -353,7 +352,7 @@ namespace BackSeam
                 return searchSimptom ??
                   (searchSimptom = new RelayCommand(obj =>
                   {
-                      if (ViewComplaints == null) return;
+                     
                       if (WindowMen.PoiskSimptom.Text.Trim() == "") return;
                       string jason = pathComplaint + "0/" + WindowMen.PoiskSimptom.Text;
                       CallServer.PostServer(pathComplaint, jason, "GETID");

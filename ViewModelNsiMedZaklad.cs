@@ -27,6 +27,8 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiMedZaklad : BaseViewModel
     {
+        private WinNsiMedZaklad WindowMedZaklad = MainWindow.LinkMainWindow("WinNsiMedZaklad");
+
         private string pathcontrollerMedZaklad =  "/api/MedicalInstitutionController/";
         public  static MedicalInstitution selectedMedZaklad;
         public static ObservableCollection<MedicalInstitution> NsiModelMedZaklads { get; set; }
@@ -67,7 +69,7 @@ namespace BackSeam
                         }
                         else
                         {
-                            json = pathcontrollerMedZaklad + medGrupDiagnoz.edrpou + "/0";
+                            json = pathcontrollerMedZaklad + medGrupDiagnoz.edrpou + "/0/0";
                             CallServer.PostServer(pathcontrollerMedZaklad, json, "GETID");
                             if (CallServer.ResponseFromServer.Contains("[]") == false)
                             {
@@ -100,17 +102,12 @@ namespace BackSeam
 
         private void AddNsiModelMedZaklads()
         {
-            if (MapOpisViewModel.VeiwModelMedicals != null)
-            {
-                NsiModelMedZaklads = MapOpisViewModel.VeiwModelMedicals;
-            }
-            else
-            {
+ 
                 CallServer.PostServer(pathcontrollerMedZaklad, pathcontrollerMedZaklad, "GET");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableNsiModelMedical(CmdStroka);
-            }
+ 
         }
 
         public static void ObservableNsiModelMedical(string CmdStroka)
@@ -169,6 +166,31 @@ namespace BackSeam
                   }));
             }
         }
+
         
+
+        // Выбор названия мед закладу
+        private RelayCommand? searchNameMedical;
+        public RelayCommand SearchNameMedical
+        {
+            get
+            {
+                return searchNameMedical ??
+                  (searchNameMedical = new RelayCommand(obj =>
+                  {
+                      if (WindowMedZaklad.PoiskMedical.Text.Trim() != "")
+                      {
+                          string jason = pathcontrollerMedZaklad + "0/0/" + WindowMedZaklad.PoiskMedical.Text;
+                          CallServer.PostServer(pathcontrollerMedZaklad, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelMedical(CmdStroka);
+                          WindowMedZaklad.TablMedzaklad.ItemsSource = NsiModelMedZaklads;
+                      }
+
+                  }));
+            }
+        }
+
     }
 }

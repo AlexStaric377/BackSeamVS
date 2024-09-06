@@ -23,14 +23,26 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35*" />
                     <RowDefinition Height="30*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="290*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Довідник Мед закладів " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
                 <Label Name="ZagolovokGrid"  Content="          Нава мед закладу                                                               Адреса                                      Телефон                      Сторінка в інтернет " Grid.Row="1" FontSize="12" FontWeight="Light" HorizontalAlignment="Center"  />
+                <Label Content=" Назва медичного закладу" Grid.Row="2" Height="25" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
+                <TextBox Name="PoiskMedical" Grid.Row="2" Width="500" Height="20" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="White"  />
+                <Image Height="25" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_Medical"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
-                <ListBox Grid.Row="2" Name="TablMedzaklad" ItemsSource="{Binding NsiModelMedZaklads}" VerticalAlignment="Bottom"
-                    SelectedItem ="{Binding SelectedMedZaklad}" Height="290" Background="#FFE2E2DD"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchNameMedical}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="3" Name="TablMedzaklad" ItemsSource="{Binding NsiModelMedZaklads}" VerticalAlignment="Bottom"
+                    SelectedItem ="{Binding SelectedMedZaklad}" Height="280" Background="#FFE2E2DD"
                     Width="790" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <!---->
@@ -60,7 +72,7 @@
                         <Image  Source="pack://application:,,,/BackSeam;component/Images/internet.png"  Height="24" Width="24"   ></Image>
                     </Button>
                 </Border>
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

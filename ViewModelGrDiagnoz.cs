@@ -111,8 +111,7 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewGrupDiagnoz(CmdStroka);
-            WindowGrupDiagnoz.PoiskGrDiagnoz.IsEnabled = true;
-            WindowGrupDiagnoz.PoiskGrDiagnoz.Background = Brushes.AntiqueWhite;
+
         }
 
 

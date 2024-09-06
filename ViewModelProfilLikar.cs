@@ -206,7 +206,7 @@ namespace BackSeam
                         if (modelDoctor.edrpou != null)
                         {
                             MainWindow.UrlServer = pathcontrolerMedZaklad;
-                            string json = pathcontrolerMedZakladProfilLikar + modelDoctor.edrpou.ToString()+"/0";
+                            string json = pathcontrolerMedZakladProfilLikar + modelDoctor.edrpou.ToString()+"/0/0";
                             CallServer.PostServer(pathcontrolerMedZakladProfilLikar, json, "GETID");
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                             MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);

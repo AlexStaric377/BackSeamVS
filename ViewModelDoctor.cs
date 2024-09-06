@@ -35,8 +35,8 @@ namespace BackSeam
         /// </summary>      
         public static MainWindow WindowDoctor = MainWindow.LinkNameWindow("BackMain");
         private bool editboolDoctor = false, addboolDoctor = false, loadboolDoctor = false;
-        public static string pathcontrolerDoctor =  "/api/ApiControllerDoctor/";
-        private static string pathcontrolerMedZaklad =  "/api/MedicalInstitutionController/";
+        public static string pathcontrolerDoctor = "/api/ApiControllerDoctor/";
+        private static string pathcontrolerMedZaklad = "/api/MedicalInstitutionController/";
         private ModelDoctor selectedDoctor;
         private static ModelGridDoctor selectedGridDoctor;
         public static string CallViewDoctor = "";
@@ -67,7 +67,7 @@ namespace BackSeam
             ViewGridDoctors = new ObservableCollection<ModelGridDoctor>();
             foreach (ModelDoctor modelDoctor in ViewDoctors)
             {
-                selectedGridDoctor = new  ModelGridDoctor();
+                selectedGridDoctor = new ModelGridDoctor();
                 selectedGridDoctor.kodDoctor = modelDoctor.kodDoctor;
                 selectedGridDoctor.id = modelDoctor.id;
                 selectedGridDoctor.name = modelDoctor.name;
@@ -78,9 +78,9 @@ namespace BackSeam
                 selectedGridDoctor.edrpou = modelDoctor.edrpou;
                 selectedGridDoctor.uriwebDoctor = modelDoctor.uriwebDoctor;
                 selectedGridDoctor.napryamok = modelDoctor.napryamok;
-                if (modelDoctor.edrpou !="")
+                if (modelDoctor.edrpou != "")
                 {
-                    string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0"; //
+                    string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0"; //
                     CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -89,7 +89,7 @@ namespace BackSeam
                         selectedGridDoctor.nameZaklad = Idinsert.name;
                         selectedGridDoctor.adrZaklad = Idinsert.adres;
                         selectedGridDoctor.pind = Idinsert.postIndex;
-                    } 
+                    }
                 }
                 ViewGridDoctors.Add(selectedGridDoctor);
             }
@@ -199,9 +199,9 @@ namespace BackSeam
             {
                 SelectedGridDoctor = new ModelGridDoctor();
                 BoolTrueDoctor();
-            } 
+            }
             else BoolFalseDoctor();
- 
+
 
         }
 
@@ -232,8 +232,7 @@ namespace BackSeam
             WindowDoctor.Doctort6.Background = Brushes.AntiqueWhite;
             WindowDoctor.Doctort7.IsEnabled = true;
             WindowDoctor.Doctort7.Background = Brushes.AntiqueWhite;
-            //WindowDoctor.DoctorNaprTextBox.IsEnabled = true;
-            //WindowDoctor.DoctorNaprTextBox.Background = Brushes.AntiqueWhite;
+
             WindowDoctor.DoctortBoxUri.IsEnabled = true;
             WindowDoctor.DoctortBoxUri.Background = Brushes.AntiqueWhite;
             WindowDoctor.FolderDoc5.Visibility = Visibility.Visible;
@@ -258,8 +257,7 @@ namespace BackSeam
             WindowDoctor.Doctort6.Background = Brushes.White;
             WindowDoctor.Doctort7.IsEnabled = false;
             WindowDoctor.Doctort7.Background = Brushes.White;
-            //WindowDoctor.DoctorNaprTextBox.IsEnabled = false;
-            //WindowDoctor.DoctorNaprTextBox.Background = Brushes.White;
+ 
             WindowDoctor.DoctortBoxUri.IsEnabled = false;
             WindowDoctor.DoctortBoxUri.Background = Brushes.White;
             WindowDoctor.FolderDoc5.Visibility = Visibility.Hidden;
@@ -295,7 +293,7 @@ namespace BackSeam
                               BoolFalseDoctor();
                               WindowDoctor.DoctorTablGrid.SelectedItem = null;
                           }
-                          
+
                       }
                       IndexAddEdit = "";
                   },
@@ -380,7 +378,7 @@ namespace BackSeam
                   (saveDoctor = new RelayCommand(obj =>
                   {
                       string json = "";
-                      
+
                       if (WindowDoctor.Doctort10.Text.Length != 0 && WindowDoctor.Doctort2.Text.Length != 0)
                       {
 
@@ -397,19 +395,19 @@ namespace BackSeam
                               json = JsonConvert.SerializeObject(selectedDoctor);
                               CallServer.PostServer(pathcontrolerDoctor, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_"); 
+                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                               ModelDoctor Idinsert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
                               if (ViewDoctors == null) ViewDoctors.Add(Idinsert);
-                              else { ViewDoctors.Insert(ViewDoctors.Count, Idinsert);  }
+                              else { ViewDoctors.Insert(ViewDoctors.Count, Idinsert); }
                               SelectedDoctor = Idinsert;
                           }
                           else
                           {
-                              
+
                               json = JsonConvert.SerializeObject(selectedDoctor);
                               CallServer.PostServer(pathcontrolerDoctor, json, "PUT");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_"); 
+                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                           }
                           UnloadCmdStroka("Doctor/", json);
                       }
@@ -428,7 +426,7 @@ namespace BackSeam
             if (selectedDoctor == null) selectedDoctor = new ModelDoctor();
             if (ViewGridDoctors == null) ViewGridDoctors = new ObservableCollection<ModelGridDoctor>();
             if (IndexAddEdit == "addCommand")
-            { 
+            {
                 if (ViewDoctors != null)
                 {
                     int _keyDoctorindex = 0, setindex = 0;
@@ -445,9 +443,9 @@ namespace BackSeam
                 else
                 {
                     ViewDoctors = new ObservableCollection<ModelDoctor>();
-                    selectedDoctor.kodDoctor = "DTR.000000001"; 
-                }           
-            
+                    selectedDoctor.kodDoctor = "DTR.000000001";
+                }
+
             }
 
             selectedGridDoctor = new ModelGridDoctor();
@@ -480,7 +478,7 @@ namespace BackSeam
                         string json = JsonConvert.SerializeObject(modelLikarGrupDiagnoz);
                         CallServer.PostServer(controlerLikarGrDiagnoz, json, "POST");
                     }
-                
+
                 }
             }
         }
@@ -497,7 +495,7 @@ namespace BackSeam
                       WindowMen.DetailingTablGrid.SelectedItem = null;
                       if (ViewDoctors != null)
                       {
-                          MessageBox.Show("Ім'я та прізвище лікаря :" + ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex].name.ToString()+" "+ ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex].surname.ToString());
+                          MessageBox.Show("Ім'я та прізвище лікаря :" + ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex].name.ToString() + " " + ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex].surname.ToString());
                       }
                   },
                  (obj) => ViewDoctors != null));
@@ -555,7 +553,7 @@ namespace BackSeam
                       if (ViewDoctors != null)
                       {
                           if (WindowDoctor.DoctorTablGrid.SelectedIndex >= 0)
-                          { 
+                          {
                               if (ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex].uriwebDoctor != null)
                               {
                                   string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
@@ -568,10 +566,10 @@ namespace BackSeam
                                   Rungoogle.StartInfo.UseShellExecute = false;
                                   Rungoogle.EnableRaisingEvents = true;
                                   Rungoogle.Start();
-                              }                                        
+                              }
                           }
 
-       
+
                       }
 
                   }));
@@ -610,27 +608,42 @@ namespace BackSeam
                 return listLikarGrupDiagnoz ??
                   (listLikarGrupDiagnoz = new RelayCommand(obj =>
                   {
-                      //if (_kodDoctor != "")
-                      //{
-                          WinLikarGrupDiagnoz Order = new WinLikarGrupDiagnoz();
-                          Order.Left = (MainWindow.ScreenWidth / 2);
-                          Order.Top = (MainWindow.ScreenHeight / 2) - 350;
-                          Order.ShowDialog();
-                      //}
-                      //else
-                      //{
-                      //    MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                      //   "Для завантаження напрямків роботи необхідно зберегти профіль лікаря "+Environment.NewLine +
-                      //   "Далі вибрати збережений профіль натиснути на кнопку 'Змінити' і на папку 'Напрямки'.  "; 
-                      //    SelectedFalseLogin();
-
-                      //}
+                      WinLikarGrupDiagnoz Order = new WinLikarGrupDiagnoz();
+                      Order.Left = (MainWindow.ScreenWidth / 2);
+                      Order.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      Order.ShowDialog();
 
                   }));
             }
         }
+
+
+
+
+        // Выбор фамилии доктора
+        private RelayCommand? searchDoctor;
+        public RelayCommand SearchDoctor
+        {
+            get
+            {
+                return searchDoctor ??
+                  (searchDoctor = new RelayCommand(obj =>
+                  {
+                      if (WindowDoctor.PoiskDoctor.Text.Trim() != "")
+                      {
+                          string jason = pathcontrolerDoctor + "0/0/" + WindowDoctor.PoiskDoctor.Text;
+                          CallServer.PostServer(pathcontrolerDoctor, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewDoctors(CmdStroka);
+                      }
+
+                  }));
+            }
+
+
+        }
         #endregion
         #endregion
     }
-
 }

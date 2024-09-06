@@ -602,7 +602,7 @@ namespace BackSeam
                       {
                           if (selectedViewDetailingFeature.keyGrDetailing != null)
                           {
-                              string jason = controlerGrDetailing + "0/" + selectedViewDetailingFeature.keyGrDetailing;
+                              string jason = controlerGrDetailing + "0/" + selectedViewDetailingFeature.keyGrDetailing + "/0";
                               CallServer.PostServer(controlerGrDetailing, jason, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == false)

@@ -3692,7 +3692,7 @@
                                                 </Grid.RowDefinitions>
                                                 <Label Content=" Назва прояву нездужання" Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold"  Width="200" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                                                 <TextBox Name="PoiskSimptom" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
                                                 <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Simptom"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -4256,7 +4256,7 @@
 
                                             <Label Content=" Назва гуртової деталізації" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="200" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                                             <TextBox Name="PoiskGrDetailing" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrDetailing"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -4618,7 +4618,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва гурту кваліфікації " Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="190" HorizontalAlignment="Left"  />
                                             <TextBox Name="PoiskGrQualification" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrQualification"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5184,7 +5184,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва опитування" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  Margin="80,0,0,0"/>
                                             <TextBox Name="PoiskInterveiw" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5342,7 +5342,7 @@
                                                 </Grid.RowDefinitions>
                                                 <Label Content=" Назва рекомендації" Grid.Row="0" Height="30" Width="150" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="70,0,0,0" />
                                                 <TextBox Name="PoiskRecommendation" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                                 <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Recommendation"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5688,7 +5688,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва напрямку" Grid.Row="0" Height="30" Width="130" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="120,0,0,0" />
                                             <TextBox Name="PoiskGrDiagnoz" Grid.Row="0" Width="430" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrDiagnoz"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5935,7 +5935,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="120*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник медичних закладів де працюють зареєстровані лікарі " Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+                                            <Label Content=" Назва медичного закладу" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
+                                            <TextBox Name="PoiskMedical" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Medical"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchMedical}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="MedicalTablGrid" Grid.Row="2"   Cursor="Hand" ItemsSource="{Binding VeiwModelMedicals }" SelectedItem="{Binding SelectedMedical}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -6226,7 +6237,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник лікарів" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+                                            <Label Content=" Прізвище лікаря" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
+                                            <TextBox Name="PoiskDoctor" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Doctor"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchDoctor}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="DoctorTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewGridDoctors}" SelectedItem="{Binding SelectedGridDoctor}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Left" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -6517,7 +6539,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник пацієнтів" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"/>
+                                            <Label Content=" Прізвище пацієнта" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
+                                            <TextBox Name="PoiskPacientT" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_PacientT"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchPacientT}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="PacientTablGrid" Grid.Row="2"   Cursor="Hand" ItemsSource="{Binding ViewPacients}" SelectedItem="{Binding SelectedPacient}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -6701,7 +6734,7 @@
 
                                             <Label Content=" Назва хвороби" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                                             <TextBox Name="PoiskIcd" Grid.Row="0" Width="560" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White" IsEnabled="False" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
