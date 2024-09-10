@@ -747,7 +747,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.33;component/wincolectionanalizblood.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.35;component/wincolectionanalizblood.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinColectionAnalizBlood.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

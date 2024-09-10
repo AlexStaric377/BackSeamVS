@@ -74,7 +74,7 @@ namespace BackSeam
  
             if(modelDependency.kodDiagnoz != null)
             {
-                   MainWindow.UrlServer = controlerViewDiagnoz;
+                   
                     string json = controlerViewDiagnoz + modelDependency.kodDiagnoz.ToString()+"/0";
                     CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -383,7 +383,31 @@ namespace BackSeam
             NewOrder.ShowDialog();
 
         }
+
+
         
+        // Выбор названия диагноза
+        private RelayCommand? searchDependency;
+        public RelayCommand SearchDependency
+        {
+            get
+            {
+                return searchDependency ??
+                  (searchDependency = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskDependency.Text.Trim() != "")
+                      {
+                          string jason = pathcontrolerDependency + "0/0/" + WindowMen.PoiskDependency.Text;
+                          CallServer.PostServer(pathcontrolerDependency, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewModelDependency(CmdStroka);
+                      }
+
+                  }));
+            }
+        }
+
         #endregion
         #endregion
     }

@@ -5479,7 +5479,7 @@
                                                         <Label Content="" Grid.Row="0" Height="20"/>
                                                         <TextBlock x:Name="DependencyLab1" Grid.Column="0" Grid.Row="1" Text=""  FontSize="16" Height="24" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Text="{Binding id}" Name="Dependencyt1" Grid.Column="1" Grid.Row="0" Background="White" Width="100" Height="16" FontSize="16" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Visibility="Hidden"/>
-                                                        <TextBlock x:Name="DependencyLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Назва діагнозу"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
+                                                        <TextBlock x:Name="DependencyLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="50" Text="  Назва діагнозу"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
                                                         <TextBox Text="{Binding nameDiagnoza, UpdateSourceTrigger=PropertyChanged}" Name="Dependencyt2" Grid.Row="2" Grid.Column="1" Height="50" FontSize="16"
                                                          TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
                                                         <Image x:Name="FolderDiag" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,0,0,0"  Visibility="Hidden"   >
@@ -5489,9 +5489,9 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <TextBlock x:Name="DependencyLab3" Grid.Column="0" Grid.Row="3" Text="  Зміст рекомендації" TextWrapping="Wrap"  FontSize="14" Height="50" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBlock x:Name="DependencyLab3" Grid.Column="0" Grid.Row="3" Text="  Зміст рекомендації" TextWrapping="Wrap"  FontSize="14" Height="75" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                                                         <TextBox Text="{Binding contentRecommendation, UpdateSourceTrigger=PropertyChanged}" Name="Dependencyt3" Grid.Column="1" Grid.Row="3" Background="White"
-                                                         TextWrapping="Wrap" Width="400" Height="50" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" />
+                                                         TextWrapping="Wrap" Width="400" Height="75" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" />
                                                         <Image x:Name="FolderRecom" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="3" Width="25"  HorizontalAlignment="Left" Margin="420,0,0,20"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -5510,7 +5510,7 @@
                                                             </i:Interaction.Triggers>
                                                         </Image>
 
-                                                        <Label Name="LoadDepen" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="5" Height="50"
+                                                        <Label Name="LoadDepen" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="5" Height="40"
                                                        HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0"/>
                                                     </Grid>
                                                 </StackPanel>
@@ -5521,7 +5521,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник взаємозв'язків діагнозу з рекомендаціями" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
+                                            <Label Content=" Назва діагнозу" Grid.Row="0" Height="30" Width="150" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="70,0,0,0" />
+                                            <TextBox Name="PoiskDependency" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Dependency"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchDependency}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="DependencyTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding  ViewModelDependencys}" SelectedItem="{Binding SelectedModelDependency}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
