@@ -97,7 +97,7 @@ namespace BackSeam
                     ModelDiagnoz Idinsert = new ModelDiagnoz();
                     if (likarGrupDiagnoz.icdGrDiagnoz != "")
                     { 
-                        json = controlerViewDiagnoz+ "0/" + likarGrupDiagnoz.icdGrDiagnoz ;
+                        json = controlerViewDiagnoz+ "0/" + likarGrupDiagnoz.icdGrDiagnoz + "/0";
                         CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
                         CmdStroka = CallServer.ServerReturn();
                         ObservableViewWorkDiagnoz(CmdStroka);
@@ -161,7 +161,7 @@ namespace BackSeam
                     ViewWorkDiagnozs.Add(Idinsert);
                     if (Idinsert.icdGrDiagnoz != "")
                     {
-                        json = controlerViewDiagnoz + "0/" + Idinsert.icdGrDiagnoz;
+                        json = controlerViewDiagnoz + "0/" + Idinsert.icdGrDiagnoz + "/0";
                         CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
                         CmdStroka = CallServer.ServerReturn();
                         ObservableViewWorkDiagnoz(CmdStroka);

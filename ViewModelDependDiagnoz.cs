@@ -75,7 +75,7 @@ namespace BackSeam
             if(modelDependency.kodDiagnoz != null)
             {
                    
-                    string json = controlerViewDiagnoz + modelDependency.kodDiagnoz.ToString()+"/0";
+                    string json = controlerViewDiagnoz + modelDependency.kodDiagnoz.ToString()+"/0/0";
                     CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
@@ -336,8 +336,8 @@ namespace BackSeam
         {
             ModelCall = "Dependency";
             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-            NewOrder.Left = 600;
-            NewOrder.Top = 200;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 
         }
@@ -357,8 +357,8 @@ namespace BackSeam
         private void AddComandDependencyRecomen()
         {
             WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-            NewOrder.Left = 600;
-            NewOrder.Top = 200;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 
         }
@@ -378,8 +378,8 @@ namespace BackSeam
         private void AddComandAddInterview()
         {
             WinNsiIntreview NewOrder = new WinNsiIntreview();
-            NewOrder.Left = 600;
-            NewOrder.Top = 200;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 
         }

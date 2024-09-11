@@ -26,6 +26,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiRecommen : BaseViewModel
     {
+        private WinNsiListRecommen WindowMen = MainWindow.LinkMainWindow("WinNsiListRecommen");
         private string pathcontrapirecom = "/api/RecommendationController/";
         private ModelRecommendation selectedRecommendation;
         public static ObservableCollection<ModelRecommendation> NsiModelRecommendations { get; set; }
@@ -68,7 +69,7 @@ namespace BackSeam
                   (closeModelRecommendation = new RelayCommand(obj =>
                   {
                       MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiListRecommen WindowMen = MainWindow.LinkMainWindow("WinNsiListRecommen");
+
                       if (SelectedModelRecommendation != null)
                       {
                           WindowMain.Dependencyt3.Text = SelectedModelRecommendation.contentRecommendation;
@@ -83,5 +84,29 @@ namespace BackSeam
         }
 
         
+
+        // Выбор названия опитування
+        private RelayCommand? searchRecomen;
+        public RelayCommand SearchRecomen
+        {
+            get
+            {
+                return searchRecomen ??
+                  (searchRecomen = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskRecomen.Text.Trim() != "")
+                      {
+                          string jason = pathcontrapirecom + "0/" + WindowMen.PoiskRecomen.Text;
+                          CallServer.PostServer(pathcontrapirecom, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelRecommendation(CmdStroka);
+                          WindowMen.TablFeature.ItemsSource = NsiModelRecommendations;
+                      }
+
+                  }));
+            }
+        }
+
     }
 }

@@ -505,7 +505,7 @@ namespace BackSeam
             {
                 GrupDiagnoz = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
                 loadGrupDiagnoz = true;
-                string jason = controlerViewDiagnoz + "0/" + WindowMen.Diagnozt1.Text;
+                string jason = controlerViewDiagnoz + "0/" + WindowMen.Diagnozt1.Text + "/0";
                 CallServer.PostServer(controlerViewDiagnoz, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();

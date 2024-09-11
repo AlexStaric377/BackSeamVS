@@ -8,34 +8,48 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:BackSeam" d:DataContext ="{d:DesignInstance Type=local:ViewModelNsiIntreview}"
         mc:Ignorable="d"
-        Title="WinNsiIntreview"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  
-         ShowInTaskbar="True"   Height="400" Width="580" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        Title="WinNsiIntreview"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
+         ShowInTaskbar="True"   Height="600" Width="580" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiIntreview/>
     </Window.DataContext>
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="330" Width="550" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="530" Width="550" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="330" Width="530">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="320" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="530" Width="530">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="520" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
-                    <RowDefinition Height="270*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="470*" />
                     <RowDefinition Height="30*" />
 
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Колекція опитувань " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
+                <Label Content="Назва опитування" Grid.Row="1" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
 
-                <ListBox Grid.Row="1" Name="TablDeliting" ItemsSource="{Binding NsiModelInterviews}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedModelInterview}" Height="265" Background="#FFE2E2DD"
+                <TextBox Name="PoiskDeliting" Grid.Row="1" Text="" FontSize="14" BorderThickness="0,0,0,0" Margin="85,0,0,0" Width="350" Height="20"
+                         FontFamily="Microsoft Sans Serif" />
+
+                <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Deliting"  VerticalAlignment="Center" Margin="0,0,0,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchDeliting}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="2" Name="TablDeliting" ItemsSource="{Binding NsiModelInterviews}" VerticalAlignment="Bottom"
+                    SelectedItem ="{Binding SelectedModelInterview}" Height="445" Background="#FFE2E2DD"
                     Width="500" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                                 <TextBlock Text="{Binding Path=nametInterview}" TextWrapping="Wrap"  Width="490" Height="40" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                 <TextBlock Text="{Binding Path=nametInterview}" TextWrapping="Wrap"  Width="490" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />
                          </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -48,7 +62,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

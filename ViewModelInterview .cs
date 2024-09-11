@@ -466,7 +466,7 @@ namespace BackSeam
                             selectedInterview = ModelInterviews[WindowInterv.InterviewTablGrid.SelectedIndex];
 
                               selectedInterviewIndex = WindowInterv.InterviewTablGrid.SelectedIndex;
-                              string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola;
+                              string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
                               CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == false)
@@ -476,7 +476,7 @@ namespace BackSeam
                                   modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
                                   if (modelDependency.kodDiagnoz != "")
                                   { 
-                                      json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0";
+                                      json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0/0";
                                       CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
 
                                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -524,7 +524,7 @@ namespace BackSeam
             MapOpisViewModel.ModelCall = "";
             if (selectedInterview != null)
             { 
-               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola;
+               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
                 CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false)

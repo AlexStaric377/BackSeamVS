@@ -25,7 +25,7 @@ namespace BackSeam
     class ViewModelNsiIntreview : BaseViewModel
     {
 
-
+        private WinNsiIntreview WindowMen = MainWindow.LinkMainWindow("WinNsiIntreview");
         private string pathcontroller =  "/api/InterviewController/";
         public static ModelInterview selectedInterview;
         public static ObservableCollection<ModelInterview> NsiModelInterviews { get; set; }
@@ -71,13 +71,38 @@ namespace BackSeam
                   (selectModelIntreview = new RelayCommand(obj =>
                   {
                       MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiIntreview WindowMen = MainWindow.LinkMainWindow("WinNsiIntreview");
+                      
                       if (selectedInterview != null)
                       {
                           WindowMain.Dependencyt4.Text = selectedInterview.nametInterview.ToString();
                           MapOpisViewModel.selectedDependency.kodProtokola = selectedInterview.kodProtokola;
                       }
                       WindowMen.Close();
+                  }));
+            }
+        }
+
+        
+
+        // Выбор названия опитування
+        private RelayCommand? searchDeliting;
+        public RelayCommand SearchDeliting
+        {
+            get
+            {
+                return searchDeliting ??
+                  (searchDeliting = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.PoiskDeliting.Text.Trim() != "")
+                      {
+                          string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text;
+                          CallServer.PostServer(pathcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableNsiModelFeatures(CmdStroka);
+                          WindowMen.TablDeliting.ItemsSource = NsiModelInterviews;
+                      }
+
                   }));
             }
         }

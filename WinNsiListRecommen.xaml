@@ -22,13 +22,27 @@
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="520" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="470*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Довідник рекомендацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
+                <Label Content="Назва рекомендації" Grid.Row="1" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
 
-                <ListBox Grid.Row="1" Name="TablFeature" ItemsSource="{Binding NsiModelRecommendations}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedModelRecommendation}" Height="465" Background="#FFE2E2DD"
+                <TextBox Name="PoiskRecomen" Grid.Row="1" Text="" FontSize="14" BorderThickness="0,0,0,0" Margin="95,0,0,0" Width="460" Height="20"
+                         FontFamily="Microsoft Sans Serif" />
+
+                <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Recomen"  VerticalAlignment="Center" Margin="0,0,0,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchRecomen}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="2" Name="TablFeature" ItemsSource="{Binding NsiModelRecommendations}" VerticalAlignment="Bottom"
+                    SelectedItem ="{Binding SelectedModelRecommendation}" Height="445" Background="#FFE2E2DD"
                     Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <!---->
@@ -49,7 +63,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />
