@@ -415,8 +415,7 @@ namespace BackSeam
             if (selectedViewFeature != null)
             {
                 WindowMen.FolderDet5.Visibility = Visibility.Visible;
-                selectedFeature = ModelFeatures[WindowMen.FeatureTablGrid.SelectedIndex-1];
-
+                if (WindowMen.FeatureTablGrid.SelectedIndex > 0)selectedFeature = ModelFeatures[WindowMen.FeatureTablGrid.SelectedIndex-1];
             }
 
         }
@@ -437,7 +436,7 @@ namespace BackSeam
                           {
                               MapOpisViewModel.ActCompletedInterview = "ViewDetailing";
                               string pathDetailingcontroller = "/api/DetailingController/";
-                              string jason = pathDetailingcontroller + "0/" + selectedViewFeature.keyFeature;
+                              string jason = pathDetailingcontroller + "0/" + selectedViewFeature.keyFeature + "/0";
                               CallServer.PostServer(pathDetailingcontroller, jason, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == true) return;
@@ -475,7 +474,7 @@ namespace BackSeam
                           NewOrder.ShowDialog();
                           MapOpisViewModel.ActCompletedInterview = "";
                           if (MapOpisViewModel.nameFeature3 == "") return;
-                          string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                          string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) + "/0";
                           CallServer.PostServer(featurecontroller, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();

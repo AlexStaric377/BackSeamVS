@@ -255,7 +255,7 @@ namespace BackSeam
             while (maxindex == false)
             {
                 selectedListGroupDeliting.keyGrDetailing = dictiontygr[indexdictionty] + addindex;
-                string json = pathcontrolerListGrDet + selectedListGroupDeliting.keyGrDetailing;
+                string json = pathcontrolerListGrDet + selectedListGroupDeliting.keyGrDetailing +"/0";
                 CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
                 if (CallServer.ResponseFromServer.Contains("[]") == true)
                 {

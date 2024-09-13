@@ -84,7 +84,7 @@ namespace BackSeam
                 if (ViewDetailingFeatures.Count == 0 || keyFeature != modelDetailing.keyFeature)
                 {
                     keyFeature = modelDetailing.keyFeature;
-                    string json = featurecontroller + modelDetailing.keyFeature+"/0";  
+                    string json = featurecontroller + modelDetailing.keyFeature+"/0/0";  
                     CallServer.PostServer(featurecontroller, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelFeature Idinsert = JsonConvert.DeserializeObject<ModelFeature>(CallServer.ResponseFromServer);
@@ -638,7 +638,7 @@ namespace BackSeam
 
                       loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
-                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; ;
+                      ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 
                       ViewModelNsiFeature.Method = selectedViewDetailingFeature.kodComplaint == "" ? "GET" : "GETID";
 
                         WinNsiFeature NewOrder = new WinNsiFeature();
@@ -649,7 +649,7 @@ namespace BackSeam
                         MapOpisViewModel.ActCompletedInterview = "";
                         if (MapOpisViewModel.nameFeature3 == "") return;
                         GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                        string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
+                        string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                         CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
                         string CmdStroka = CallServer.ServerReturn();
                       if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
