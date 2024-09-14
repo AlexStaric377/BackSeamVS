@@ -960,7 +960,7 @@ namespace BackSeam
 
         public static void LoadDiagnozRecomen(string KodProtokola)
         {
-            string json = MapOpisViewModel.Protocolcontroller + "0/" + KodProtokola;
+            string json = MapOpisViewModel.Protocolcontroller + "0/" + KodProtokola + "/0";
             CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) return;
@@ -971,7 +971,7 @@ namespace BackSeam
 
                 if (Insert != null)
                 {
-                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString() + "/0";
+                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString() + "/0/0";
                     CallServer.PostServer(MapOpisViewModel.Diagnozcontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -979,7 +979,7 @@ namespace BackSeam
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         MapOpisViewModel.NameDiagnoz = Insert1.nameDiagnoza;
 
-                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString();
+                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString() + "/0";
                         CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
                         if (CallServer.ResponseFromServer.Contains("[]") == false)
                         {
@@ -989,7 +989,7 @@ namespace BackSeam
                         }
                     }
 
-                    json = MapOpisViewModel.Recomencontroller + Insert.kodRecommend.ToString();
+                    json = MapOpisViewModel.Recomencontroller + Insert.kodRecommend.ToString() + "/0";
                     CallServer.PostServer(MapOpisViewModel.Recomencontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
