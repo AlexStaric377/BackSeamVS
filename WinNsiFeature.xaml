@@ -55,7 +55,7 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=name}"  Width="580" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=name}"  Width="580" Height="20" TextWrapping="Wrap" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
                             <!--TextWrapping="Wrap"-->
 
                         </DataTemplate>
