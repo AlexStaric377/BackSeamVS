@@ -73,7 +73,8 @@ namespace BackSeam
                 return loadPacient ??
                   (loadPacient = new RelayCommand(obj =>
                   {
-                       MethodLoadPacient();
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadPacient();
                   }));
             }
         }
@@ -87,7 +88,7 @@ namespace BackSeam
             {
                 return addPacient ??
                   (addPacient = new RelayCommand(obj =>
-                  { AddComandPacient(); }));
+                  { if (CheckStatusUser() == false) return; AddComandPacient(); }));
             }
         }
 

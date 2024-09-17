@@ -115,7 +115,8 @@ namespace BackSeam
                 return loadAccountUser ??
                   (loadAccountUser = new RelayCommand(obj =>
                   {
-                       MethodLoadAccountUser();  
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadAccountUser();  
                   }));
             }
         }
@@ -129,7 +130,7 @@ namespace BackSeam
             {
                 return addAccountUser ??
                   (addAccountUser = new RelayCommand(obj =>
-                  { AddComandAccountUser(); }));
+                  { if (CheckStatusUser() == false) return; AddComandAccountUser(); }));
             }
         }
 

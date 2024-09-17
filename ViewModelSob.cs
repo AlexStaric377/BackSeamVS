@@ -67,6 +67,7 @@ namespace BackSeam
                 return loadVeiwModelSob ??
                   (loadVeiwModelSob = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodloadtabSob();
                   }));
             }
@@ -82,7 +83,7 @@ namespace BackSeam
             {
                 return addVeiwModelSob ??
                   (addVeiwModelSob = new RelayCommand(obj =>
-                  { AddComVeiwModelSob(); }));
+                  { if (CheckStatusUser() == false) return; AddComVeiwModelSob(); }));
             }
         }
 

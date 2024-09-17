@@ -35,7 +35,7 @@
                 <Label Name="StatusUser"  Content="Пацїєнт " Grid.Row="0" Height="30" FontSize="16" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Center"  />
 
                 <Label Name="Zagolovok"  Content="Вхід до системи " Grid.Row="1" Height="30" FontSize="16" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Center"  />
-                <Label Name="Nomtel"  Content="Номер телефону:      XX XX XXX XX " Grid.Row="2" Height="30" Width="180" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />
+                <Label Name="Nomtel"  Content="Номер телефону:   +380  XX XX XXX XX " Grid.Row="2" Height="30" Width="200" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />
 
 
                 <Image Height="30" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
@@ -48,18 +48,18 @@
                 </Image>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="70*"/>
-                        <ColumnDefinition Width ="170*"/>
+                        <ColumnDefinition Width ="65*"/>
+                        <ColumnDefinition Width ="175*"/>
                     </Grid.ColumnDefinitions>
 
                     <ComboBox x:Name="KodCountry" Grid.Column="0" Width="60" Height="25" Background="#FFCED7F7" HorizontalAlignment="Left" Margin="10,0,0,0"
-                               ItemsSource="{Binding Countrys}" SelectedIndex="{Binding SelectedCountry}"  >
+                               ItemsSource="{Binding Countrys}" SelectedIndex="{Binding SelectedCountry}" Visibility="Hidden" >
                         <!--Text="{Binding gender,UpdateSourceTrigger=PropertyChanged }"-->
 
                     </ComboBox>
                     <TextBox Text="" x:Name="TelAccount"  Grid.Column="1" Height="22" Width="120" Background="#FFDCE2F5"
                               FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <!--GotFocus="{Binding ClearTextBox}"-->
+                   
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="KeyUp">
                             <i:InvokeCommandAction Command="{Binding CheckKeyText}" CommandParameter=""/>

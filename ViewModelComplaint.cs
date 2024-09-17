@@ -78,6 +78,15 @@ namespace BackSeam
         /// <summary>
         /// Команды вставки, удаления и редектирования справочника "Жалобы"
         /// </summary>
+        /// 
+
+        // контроль доступа к процедурам администрирования справочников
+        public static bool CheckStatusUser()
+        {
+            bool _return = true;
+            if (RegUserStatus != "1" && RegUserStatus != "4") _return = false;
+            return _return ;
+        }
         // команда добавления нового объекта
 
         private RelayCommand loadComplaint;
@@ -88,6 +97,7 @@ namespace BackSeam
                 return loadComplaint ??
                   (loadComplaint = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       ComplaintLoadData();
                       loadboolComplaint = true;
                   }));
@@ -103,6 +113,7 @@ namespace BackSeam
                 return addComplaint ??
                   (addComplaint = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (loadboolComplaint == false) ComplaintLoadData();
                       AddComand(); }));
             }

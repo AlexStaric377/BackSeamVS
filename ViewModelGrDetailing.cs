@@ -90,7 +90,8 @@ namespace BackSeam
                 return loadGrDetailing ??
                   (loadGrDetailing = new RelayCommand(obj =>
                   {
-                      if (loadboolGrDeliting == false) MehodloadtablGrDeliting();
+                      if (CheckStatusUser() == false) return;
+                      MehodloadtablGrDeliting();
 
                   }));
             }
@@ -105,7 +106,7 @@ namespace BackSeam
             {
                 return addGrDeliting ??
                   (addGrDeliting = new RelayCommand(obj =>
-                  { AddComGrDeliting(); }));
+                  { if (CheckStatusUser() == false) return; AddComGrDeliting(); }));
             }
         }
 

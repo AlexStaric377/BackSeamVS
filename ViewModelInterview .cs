@@ -80,6 +80,7 @@ namespace BackSeam
                 return loadInterview ??
                   (loadInterview = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodLoadtableInterview();
                   }));
             }
@@ -93,7 +94,7 @@ namespace BackSeam
             {
                 return addInterview ??
                   (addInterview = new RelayCommand(obj =>
-                  { AddComandInterview(); }));
+                  { if (CheckStatusUser() == false) return; AddComandInterview(); }));
             }
         }
 

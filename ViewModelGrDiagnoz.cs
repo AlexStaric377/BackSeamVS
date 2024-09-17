@@ -67,6 +67,7 @@ namespace BackSeam
                 return loadViewGrupDiagnoz ??
                   (loadViewGrupDiagnoz = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodLoadGrupDiagnoz();
                   }));
             }
@@ -82,7 +83,7 @@ namespace BackSeam
             {
                 return addViewGrupDiagnoz ??
                   (addViewGrupDiagnoz = new RelayCommand(obj =>
-                  { AddComViewGrupDiagnoz(); }));
+                  { if (CheckStatusUser() == false) return; AddComViewGrupDiagnoz(); }));
             }
         }
 

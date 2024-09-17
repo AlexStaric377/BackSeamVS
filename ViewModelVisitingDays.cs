@@ -102,6 +102,7 @@ namespace BackSeam
                 return loadVisitingDays ??
                   (loadVisitingDays = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodLoadVisitingDays(); 
                   }));
             }
@@ -155,7 +156,7 @@ namespace BackSeam
             {
                 return addVisitingDays ??
                   (addVisitingDays = new RelayCommand(obj =>
-                  { AddComandVisitingDays(); }));
+                  { if (CheckStatusUser() == false) return; AddComandVisitingDays(); }));
             }
         }
 

@@ -123,7 +123,8 @@ namespace BackSeam
                 return loadDependency ??
                   (loadDependency = new RelayCommand(obj =>
                   {
-                      if (loadbooltablDependency == false) MethodloadtablDependency();
+                      if (CheckStatusUser() == false) return;
+                      MethodloadtablDependency();
                   }));
             }
         }
@@ -137,7 +138,7 @@ namespace BackSeam
             {
                 return addDependency ??
                   (addDependency = new RelayCommand(obj =>
-                  { AddComandDependency(); }));
+                  { if (CheckStatusUser() == false) return; AddComandDependency(); }));
             }
         }
 

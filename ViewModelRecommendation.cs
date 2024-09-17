@@ -65,7 +65,8 @@ namespace BackSeam
                 return loadModelRecommendation ??
                   (loadModelRecommendation = new RelayCommand(obj =>
                   {
-                      if (loadbooltablRecom == false) MethodloadtablRecom();
+                      if (CheckStatusUser() == false) return;
+                      MethodloadtablRecom();
                   }));
             }
         }
@@ -79,7 +80,7 @@ namespace BackSeam
             get { 
                 return addModelRecommendation ??
                   (addModelRecommendation = new RelayCommand(obj =>
-                  { AddComModelRecommendation(); })); }
+                  { if (CheckStatusUser() == false) return; AddComModelRecommendation(); })); }
         }
 
         private void AddComModelRecommendation()

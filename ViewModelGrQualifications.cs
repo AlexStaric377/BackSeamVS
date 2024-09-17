@@ -68,7 +68,8 @@ namespace BackSeam
                 return loadViewQualification ??
                   (loadViewQualification = new RelayCommand(obj =>
                   {
-                      if(loadboolQualifications == false) MethodLoadQualification();
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadQualification();
                   }));
             }
         }
@@ -83,7 +84,7 @@ namespace BackSeam
             {
                 return addViewQualification ??
                   (addViewQualification = new RelayCommand(obj =>
-                  { AddComViewQualification(); }));
+                  { if (CheckStatusUser() == false) return; AddComViewQualification(); }));
             }
         }
 

@@ -176,7 +176,8 @@ namespace BackSeam
                 return loadColectionInterview ??
                   (loadColectionInterview = new RelayCommand(obj =>
                   {
-                       MethodLoadtableColectionInterview(); //if (loadboolColectionCompl == false)
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadtableColectionInterview(); //if (loadboolColectionCompl == false)
                   }));
             }
         }

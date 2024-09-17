@@ -61,7 +61,8 @@ namespace BackSeam
                 return loadLanguageUI ??
                   (loadLanguageUI = new RelayCommand(obj =>
                   {
-                      if (loadboolLanguageUI == false) MethodLoadtableLanguageUI();
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadtableLanguageUI();
                   }));
             }
         }
@@ -74,7 +75,7 @@ namespace BackSeam
             {
                 return addLanguageUI ??
                   (addLanguageUI = new RelayCommand(obj =>
-                  { AddComandLanguageUI(); }));
+                  { if (CheckStatusUser() == false) return; AddComandLanguageUI(); }));
             }
         }
 

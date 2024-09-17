@@ -70,7 +70,8 @@ namespace BackSeam
                 return loadListGrDetailing ??
                   (loadListGrDetailing = new RelayCommand(obj =>
                   {
-                       MethodloadtablListGrDet();
+                      if (CheckStatusUser() == false) return;
+                      MethodloadtablListGrDet();
                   }));
             }
         }
@@ -83,7 +84,7 @@ namespace BackSeam
             {
                 return addListGroupDeliting ??
                   (addListGroupDeliting = new RelayCommand(obj =>
-                  { AddComListGroupDeliting(); }));
+                  { if (CheckStatusUser() == false) return; AddComListGroupDeliting(); }));
             }
         }
 

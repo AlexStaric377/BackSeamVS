@@ -70,6 +70,7 @@ namespace BackSeam
                 return loadVeiwModelMedical ??
                   (loadVeiwModelMedical = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodloadtabMedical();
                   }));
             }
@@ -85,7 +86,7 @@ namespace BackSeam
             {
                 return addVeiwModelMedical ??
                   (addVeiwModelMedical = new RelayCommand(obj =>
-                  { AddComVeiwModelMedical(); }));
+                  { if (CheckStatusUser() == false) return; AddComVeiwModelMedical(); }));
             }
         }
 

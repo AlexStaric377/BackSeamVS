@@ -93,6 +93,7 @@ namespace BackSeam
                 return loadViewDiagnoz ??
                   (loadViewDiagnoz = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodloadtablDiagnoz();
                   }));
             }
@@ -108,7 +109,7 @@ namespace BackSeam
             {
                 return addViewViewDiagnoz ??
                   (addViewViewDiagnoz = new RelayCommand(obj =>
-                  { AddComViewViewDiagnoz(); }));
+                  { if (CheckStatusUser() == false) return; AddComViewViewDiagnoz(); }));
             }
         }
 

@@ -35,7 +35,7 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary> 
         
-        private bool editboolPacientProfil = false, addboolPacientProfil = false, loadboolPacientProfil = false;
+        private bool editboolPacientProfil = false, addboolPacientProfil = false;
         private string edittextPacientProfil = "";
         private string pathcontrolerPacientProfil =  "/api/PacientController/";
         public static ModelPacient selectedPacientProfil;

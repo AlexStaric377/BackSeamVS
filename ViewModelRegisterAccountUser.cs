@@ -30,15 +30,16 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public class ViewModelRegisterAccountUser : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
 
-        }
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
+
+        //}
 
         WinRegisterAccountUser WindowAccount = MainWindow.LinkMainWindow("WinRegisterAccountUser");
         MainWindow WindowAccountUser = MainWindow.LinkNameWindow("BackMain");
@@ -56,8 +57,6 @@ namespace BackSeam
 
         public ViewModelRegisterAccountUser()
         {
-            //WindowAccount.AppPanelNumber.SelectedIndex = 1;
-
 
         }
 
@@ -254,9 +253,7 @@ namespace BackSeam
                 return openAccount ??
                   (openAccount = new RelayCommand(obj =>
                   {
-                      string LogPasw = WindowAccount.TelAccount.Text.ToString(); // CountryKod + WindowAccount.TelAccount.Text.ToString();
-                      //if (MapOpisViewModel.WindowProfilPacient.ControlMain.SelectedIndex == 3) LogPasw = WindowAccount.TelAccount.Text.ToString();
-                      string json = pathcontrolerAccountUser + "0/" + LogPasw + "/" + WindowAccount.PasswText.Text.ToString();
+                      string json = pathcontrolerAccountUser + "0/" + WindowAccount.TelAccount.Text.ToString() + "/" + WindowAccount.PasswText.Text.ToString();
                       CallServer.PostServer(pathcontrolerAccountUser, json, "GETID");
                       string CmdStroka = CallServer.ServerReturn();
                       if (CmdStroka.Contains("[]"))
@@ -274,7 +271,7 @@ namespace BackSeam
                       switch (IdAccountUser.idStatus)
                       {
                           case "2":
-                              CallServer.PostServer(pathcontroller, pathcontroller + IdAccountUser.idUser + "/0", "GETID");
+                              CallServer.PostServer(pathcontroller, pathcontroller + IdAccountUser.idUser + "/0/0", "GETID");
                               CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]"))
                               {
@@ -286,16 +283,15 @@ namespace BackSeam
                                   return;
                               }
                               MapOpisViewModel.ObservableViewPacientProfil(CmdStroka);
-                              //MapOpisViewModel.loadboolPacientProfil = true;
-                              MapOpisViewModel.boolSetAccountUser = false;
+                              MapOpisViewModel.boolSetAccountUser = true;
                               break;
                           case "3":
-                              CallServer.PostServer(pathcontrolerProfilLikar, pathcontrolerProfilLikar + IdAccountUser.idUser + "/0", "GETID");
+                              CallServer.PostServer(pathcontrolerProfilLikar, pathcontrolerProfilLikar + IdAccountUser.idUser + "/0/0", "GETID");
                               CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]"))
                               {
                                   MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                                    "Інформація про користувача за вказаним обліковим записом відсутня у довіднику пацієнтів ";
+                                    "Інформація про користувача за вказаним обліковим записом відсутня у довіднику лікарів ";
                                   MapOpisViewModel.SelectedFalseLogin();
                                   MapOpisViewModel.boolSetAccountUser = false;
                                   WindowAccount.Open.Visibility = Visibility.Hidden;
@@ -303,7 +299,6 @@ namespace BackSeam
                               }
                               MapOpisViewModel.ObservableViewProfilLikars(CmdStroka);
                               MapOpisViewModel.boolSetAccountUser = true;
-                              //MapOpisViewModel.loadboolPacientProfil = false;
                               break;
 
 
@@ -322,33 +317,33 @@ namespace BackSeam
 
 
 
-        public static List<string> Countrys { get; set; } = new List<string> { "+380", "+44" };
+        //public static List<string> Countrys { get; set; } = new List<string> { "+380", "+44" };
 
-        private string _SelectedCountry;
-        public string SelectedCountry
-        {
-            get => _SelectedCountry;
-            set
-            {
-                //// сохраняем старое значение
-                //var origValue = _SelectedUnit;
+        //private string _SelectedCountry;
+        //public string SelectedCountry
+        //{
+        //    get => _SelectedCountry;
+        //    set
+        //    {
+        //        //// сохраняем старое значение
+        //        //var origValue = _SelectedUnit;
 
-                //меняем значение в обычном порядке
-                _SelectedCountry = value;
-                //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedCountry)));
-                //OnPropertyChanged(nameof(SelectedUnit));
-                //а здесь уже преобразуем изменившиеся значение
-                //в необходимое uint
-                SetNewCountry(_SelectedCountry);
-            }
-        }
+        //        //меняем значение в обычном порядке
+        //        _SelectedCountry = value;
+        //        //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedCountry)));
+        //        //OnPropertyChanged(nameof(SelectedUnit));
+        //        //а здесь уже преобразуем изменившиеся значение
+        //        //в необходимое uint
+        //        SetNewCountry(_SelectedCountry);
+        //    }
+        //}
 
-        public void SetNewCountry(string selected = "")
-        {
-            //MainWindow WindowMen = MainWindow.LinkNameWindow("WindowMain");
-            CountryKod = selected == "0" ? "+380" : "+44";
-        }
+        //public void SetNewCountry(string selected = "")
+        //{
+        //    //MainWindow WindowMen = MainWindow.LinkNameWindow("WindowMain");
+        //    CountryKod = selected == "0" ? "+380" : "+44";
+        //}
     }
 
     public class IdCardKeyUp

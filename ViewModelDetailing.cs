@@ -114,6 +114,7 @@ namespace BackSeam
                 return loadDetailing ??
                   (loadDetailing = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodLoadDetailing();
                   }));
             }
@@ -128,7 +129,7 @@ namespace BackSeam
             {
                 return addDetailing ??
                   (addDetailing = new RelayCommand(obj =>
-                  { AddComandDetailing(); }));
+                  { if (CheckStatusUser() == false) return;  AddComandDetailing(); }));
             }
         }
 

@@ -107,7 +107,8 @@ namespace BackSeam
                     return loadFeature ??
                       (loadFeature = new RelayCommand(obj =>
                       {
-                          if (loadboolFeature == false) MethodLoadtableFeature();
+                          if (CheckStatusUser() == false) return;
+                          MethodLoadtableFeature();
                       }));
                 }
             }
@@ -120,7 +121,7 @@ namespace BackSeam
             {
                 return addFeature ??
                   (addFeature = new RelayCommand(obj =>
-                  { AddComandFeature(); }));
+                  { if (CheckStatusUser() == false) return;  AddComandFeature(); }));
             }
         }
 

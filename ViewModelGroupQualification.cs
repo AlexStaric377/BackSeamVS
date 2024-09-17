@@ -70,7 +70,8 @@ namespace BackSeam
                 return loadGrQualification ??
                   (loadGrQualification = new RelayCommand(obj =>
                   {
-                      if (loadboolGroupQua == false) MethodloadGroupQua();
+                      if (CheckStatusUser() == false) return;
+                      MethodloadGroupQua();
                   }));
             }
         }
@@ -84,7 +85,7 @@ namespace BackSeam
                 return addGrQualification ??
                   (addGrQualification = new RelayCommand(obj =>
                   {
-                     AddComQualification();
+                      if (CheckStatusUser() == false) return; AddComQualification();
                   }));
             }
         }

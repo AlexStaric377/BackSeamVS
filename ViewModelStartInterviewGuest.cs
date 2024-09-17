@@ -34,7 +34,7 @@ namespace BackSeam
         private int IdItemSelected = 0;
         public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "";
         public static bool endwhileselected = false, OnOffStartGuest = false, DeleteOnOff = false, ViewAnalogDiagnoz = false,
-            PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false;
+            PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false;
         public static string ActCompletedInterview = "null", ActCreatInterview="", IndikatorSelected = "",InfoSborka="", 
                              selectedComplaintname = "", selectFeature = "", selectGrDetailing = "", selectQualification = "", selectIcdGrDiagnoz ="";
         public static string InputContent = "", PacientContent = "", LikarContent = "", RegIdUser = "", RegUserStatus = "";

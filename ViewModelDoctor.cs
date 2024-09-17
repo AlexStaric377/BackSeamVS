@@ -165,7 +165,8 @@ namespace BackSeam
                 return loadDoctor ??
                   (loadDoctor = new RelayCommand(obj =>
                   {
-                      MethodLoadDoctor(); //if (loadboolDoctor == false) 
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadDoctor();  
                   }));
             }
         }
@@ -179,7 +180,7 @@ namespace BackSeam
             {
                 return addDoctor ??
                   (addDoctor = new RelayCommand(obj =>
-                  { AddComandDoctor(); }));
+                  { if (CheckStatusUser() == false) return; AddComandDoctor(); }));
             }
         }
 
