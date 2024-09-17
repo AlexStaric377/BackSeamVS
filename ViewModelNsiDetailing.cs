@@ -37,7 +37,8 @@ namespace BackSeam
         {
             //NsiDetailing WindowNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
             string jason = "";
-           
+            if (ViewModelNsiDetailing.NsiModelDetailings == null)
+            {
                 switch (MapOpisViewModel.ActCompletedInterview)
                 {
                     case "FeatureGET":
@@ -62,7 +63,7 @@ namespace BackSeam
                 CallServer.PostServer(pathcontroller, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);
-          
+            }
  
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
@@ -120,7 +121,7 @@ namespace BackSeam
                           {
                               if (MapOpisViewModel.ActCompletedInterview != "Detailing")
                               {
-                                  if (selectedDetailing.keyGrDetailing != null)
+                                  if (selectedDetailing.keyGrDetailing != null && selectedDetailing.keyGrDetailing != "")
                                   {
 
                                       MapOpisViewModel.nameFeature3 = selectedDetailing.keyGrDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
