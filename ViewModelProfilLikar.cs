@@ -86,6 +86,7 @@ namespace BackSeam
                 return loadProfilLikar ??
                   (loadProfilLikar = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus == "2" ) return;
                       MetodLoadProfilLikar();
  
                   }));

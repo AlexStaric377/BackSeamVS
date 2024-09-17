@@ -96,6 +96,7 @@ namespace BackSeam
                 return loadLikarAppointments ??
                   (loadLikarAppointments = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus == "2") return;
                       MethodLoadLikarAppointments();
                   }));
             }
@@ -134,7 +135,7 @@ namespace BackSeam
             {
                 return addLikarAppointments ??
                   (addLikarAppointments = new RelayCommand(obj =>
-                  { AddComandLikarAppointments(); }));
+                  { if (RegUserStatus == "2") return;  AddComandLikarAppointments(); }));
             }
         }
 

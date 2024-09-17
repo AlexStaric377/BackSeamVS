@@ -44,7 +44,8 @@ namespace BackSeam
                 return loadLanguageDefault ??
                   (loadLanguageDefault = new RelayCommand(obj =>
                   {
-                      if (loadboolLanguageUI == false) MethodLoadDefaultLanguageUI();
+                      if (CheckStatusUser() == false) return;
+                      MethodLoadDefaultLanguageUI();
                   }));
             }
         }

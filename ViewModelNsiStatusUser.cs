@@ -73,6 +73,7 @@ namespace BackSeam
                 return loadStatustUser ??
                   (loadStatustUser = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       MethodLoadNsiStatusUser();
                   }));
             }
@@ -87,7 +88,7 @@ namespace BackSeam
             {
                 return addNsiStatusUser ??
                   (addNsiStatusUser = new RelayCommand(obj =>
-                  { AddComandNsiStatusUser(); }));
+                  { if (CheckStatusUser() == false) return; AddComandNsiStatusUser(); }));
             }
         }
 

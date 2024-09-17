@@ -191,6 +191,7 @@ namespace BackSeam
                 return selectPathUnload ??
                   (selectPathUnload = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       RegStatusUser = "Адміністратор";
                       if (boolSetAccountUser == false)
                       { 
@@ -218,6 +219,7 @@ namespace BackSeam
                 return unLoadComand ??
                 (unLoadComand = new RelayCommand(obj =>
                 {
+                    if (CheckStatusUser() == false) return;
                     if (boolSetAccountUser == true)
                     {
                         //WindowUnload.GifUnloadBd.Visibility = Visibility.Visible;

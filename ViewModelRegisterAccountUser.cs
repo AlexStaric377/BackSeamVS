@@ -271,7 +271,7 @@ namespace BackSeam
                       switch (IdAccountUser.idStatus)
                       {
                           case "2":
-                              CallServer.PostServer(pathcontroller, pathcontroller + IdAccountUser.idUser + "/0/0", "GETID");
+                              CallServer.PostServer(pathcontroller, pathcontroller + IdAccountUser.idUser + "/0/0/0/0", "GETID");
                               CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]"))
                               {

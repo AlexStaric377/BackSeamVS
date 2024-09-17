@@ -65,7 +65,8 @@ namespace BackSeam
                 return loadViewWorkDiagnoz ??
                   (loadViewWorkDiagnoz = new RelayCommand(obj =>
                   {
-                      if(_kodDoctor == "") SelectRegAccountUser();
+                      if (RegUserStatus == "2") return;
+                      if (_kodDoctor == "") SelectRegAccountUser();
                       if (_kodDoctor == "") return;
                       MethodloadtablWorkDiagnoz();
                   }));
@@ -126,6 +127,7 @@ namespace BackSeam
                 return addViewViewWorkDiagnoz ??
                   (addViewViewWorkDiagnoz = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus == "2") return;
                       if (loadWorkGrupDiagnoz == false) MethodloadtablWorkDiagnoz();
                       MethodaddcomWorkDiagnoz();
                   }));

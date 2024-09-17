@@ -48,8 +48,9 @@ namespace BackSeam
             {
                 return methodLoadReceptionPacient ??
                   (methodLoadReceptionPacient = new RelayCommand(obj =>
-                  { 
-                      if(_pacientProfil == "") { MethodLoadPacientProfil(); }
+                  {
+                      if (RegUserStatus != "3") if (CheckStatusUser() == false) return;
+                      if (_pacientProfil == "") { MethodLoadPacientProfil(); }
                       LoadReceptionPacients(); }));
             }
         }
@@ -164,7 +165,7 @@ namespace BackSeam
             {
                 return addReceptionPacient ??
                   (addReceptionPacient = new RelayCommand(obj =>
-                  { MethodAddReceptionPacient(); }));
+                  { if (RegUserStatus != "2") if (CheckStatusUser() == false) return; MethodAddReceptionPacient(); }));
             }
         }
         public void MethodAddReceptionPacient()

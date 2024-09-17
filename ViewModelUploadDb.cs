@@ -127,6 +127,7 @@ namespace BackSeam
                 return setPathComand ??
                   (setPathComand = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       RegStatusUser = "Адміністратор";
                       if (boolSetAccountUser == false)
                       {
@@ -154,6 +155,7 @@ namespace BackSeam
                 return setPathTabComand ??
                   (setPathTabComand = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       RegStatusUser = "Адміністратор";
                       if (boolSetAccountUser == false)
                       {
@@ -194,6 +196,7 @@ namespace BackSeam
                 return upLoadComand ??
                   (upLoadComand = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (boolSetAccountUser == true)
                       {
                           WindowUpload.LoadButton.Width += 30;

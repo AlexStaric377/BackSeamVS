@@ -175,7 +175,8 @@ namespace BackSeam
                 return loadColectionIntevLikar ??
                   (loadColectionIntevLikar = new RelayCommand(obj =>
                   {
-                      if(_kodDoctor == "") { MetodLoadProfilLikar(); }  
+                      if (RegUserStatus == "2") return;
+                      if (_kodDoctor == "") { MetodLoadProfilLikar(); }  
                         MethodLoadtableColectionIntevLikar();
                       
                   }));

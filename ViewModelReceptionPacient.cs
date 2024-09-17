@@ -155,6 +155,7 @@ namespace BackSeam
                 return loadReceptionLikar ??
                   (loadReceptionLikar = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus == "2") return;
                       if (_kodDoctor == "") { MetodLoadProfilLikar(); }
                       MethodLoadReceptionLikar();
                   }));
@@ -186,11 +187,7 @@ namespace BackSeam
                 return addReceptionLikar ??
                   (addReceptionLikar = new RelayCommand(obj =>
                   {
-                      //if (_pacientProfil == "")
-                      //{ 
-                      //    //WarningMessageReceptionLIkar();
-                      //    return; 
-                      //}
+                      if (RegUserStatus == "2") return;
                       AddComandReceptionLikar(); 
                   }));
             }

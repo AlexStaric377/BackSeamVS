@@ -677,6 +677,7 @@ namespace BackSeam
                 return addStartPacient ??
                   (addStartPacient = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       selectedCompletedInterv = new ModelCompletedInterview();
                       modelColectionInterview = new ModelColectionInterview();
                       if (_pacientProfil == "") { WarningMessageOfProfilPacient(); return; }
@@ -774,6 +775,7 @@ namespace BackSeam
                 return addStartLikar ??
                   (addStartLikar = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus == "2") return;
                       selectedCompletedInterv = new ModelCompletedInterview();
                       modelColectionInterview = new ModelColectionInterview();
                       WindowMain.KabLikarNameInterv.Text = "Лікарське опитування: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();

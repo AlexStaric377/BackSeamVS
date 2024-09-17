@@ -173,6 +173,7 @@ namespace BackSeam
                 return loadColectionIntevPacient ??
                   (loadColectionIntevPacient = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       if (_pacientProfil == "") MethodLoadPacientProfil();
                       MethodLoadtableColectionIntevPacient(); 
                   }));

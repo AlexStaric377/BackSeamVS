@@ -73,6 +73,7 @@ namespace BackSeam
                 return loadPacientProfil ??
                   (loadPacientProfil = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       MethodLoadPacientProfil();
                   }));
             }
@@ -87,7 +88,7 @@ namespace BackSeam
             {
                 return addPacientProfil ??
                   (addPacientProfil = new RelayCommand(obj =>
-                  { MethodaddcomPacientProfil(); }));
+                  { if (RegUserStatus != "2") if (CheckStatusUser() == false) return; MethodaddcomPacientProfil(); }));
             }
         }
 

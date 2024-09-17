@@ -49,6 +49,7 @@ namespace BackSeam
                 return loadStanHealthPacient ??
                   (loadStanHealthPacient = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       if (_pacientProfil == "") { MethodLoadPacientProfil(); }
                       MethodLoadStanHealthPacient();
                   }));
@@ -85,6 +86,7 @@ namespace BackSeam
                 return addStanHealthPacient ??
                   (addStanHealthPacient = new RelayCommand(obj =>
                   {
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       if (_pacientProfil == "") { WarningMessageOfCompletedINterviewPacient(); return; }
                       MethodAddStanHealthPacient();
                   }));
