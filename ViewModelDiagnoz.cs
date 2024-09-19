@@ -32,7 +32,7 @@ namespace BackSeam
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех груп квалифікації из БД
         /// через механизм REST.API
         /// </summary>
-        static bool activViewDiagnoz = false, loadbooltableDiagnoz = false, addboolGrDiagnoz = false, loadGrupDiagnoz = false;
+        static bool activViewDiagnoz = false,  addboolGrDiagnoz = false, loadGrupDiagnoz = false;
         public static string controlerViewDiagnoz =  "/api/DiagnozController/", SelectActivGrupDiagnoz = "", GrupDiagnoz="", KeiIcdGrup = "";
         public static ModelDiagnoz selectedDiagnoz;
 
@@ -93,7 +93,7 @@ namespace BackSeam
                 return loadViewDiagnoz ??
                   (loadViewDiagnoz = new RelayCommand(obj =>
                   {
-                      if (RegUserStatus != "3") if (CheckStatusUser() == false) return;
+                      if (CheckStatusUser() == false) return;
                       MethodloadtablDiagnoz();
                   }));
             }
@@ -109,7 +109,7 @@ namespace BackSeam
             {
                 return addViewViewDiagnoz ??
                   (addViewViewDiagnoz = new RelayCommand(obj =>
-                  { if (RegUserStatus != "3") if (CheckStatusUser() == false) return; AddComViewViewDiagnoz(); }));
+                  { if (CheckStatusUser() == false) return; AddComViewViewDiagnoz(); }));
             }
         }
 
@@ -140,7 +140,7 @@ namespace BackSeam
             GrupDiagnoz = "";
             addboolGrDiagnoz = false;
             loadGrupDiagnoz = false;
-            loadbooltableDiagnoz = true;
+            
             WindowMen.LoadDia.Visibility = Visibility.Hidden;
             WindowMen.LibFoldInterv.Visibility = Visibility.Hidden;
             WindowMen.LibCompInterviewLab.Visibility = Visibility.Hidden;
@@ -497,6 +497,7 @@ namespace BackSeam
 
         private void ComandFindNameGrDiagnoz()
         {
+            if (CheckStatusUser() == false) return;
             SelectActivGrupDiagnoz = "GrupDiagnoz";
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);

@@ -624,6 +624,7 @@ namespace BackSeam
                 return searchInterveiw ??
                   (searchInterveiw = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowInterv.PoiskInterveiw.Text.Trim() != "")
                       { 
                           string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;

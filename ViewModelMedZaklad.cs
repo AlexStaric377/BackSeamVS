@@ -376,6 +376,7 @@ namespace BackSeam
                 return searchMedical ??
                   (searchMedical = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowMedical.PoiskMedical.Text.Trim() != "")
                       {
                           string jason = controlerMedical + "0/0/" + WindowMedical.PoiskMedical.Text;

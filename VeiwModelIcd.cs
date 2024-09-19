@@ -290,6 +290,7 @@ namespace BackSeam
                 return searchIcd ??
                   (searchIcd = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowMen.PoiskIcd.Text.Trim() != "")
                       {
                           string jason = controlerIcd + "0/" + WindowInterv.PoiskIcd.Text;

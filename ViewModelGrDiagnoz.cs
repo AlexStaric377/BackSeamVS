@@ -327,6 +327,7 @@ namespace BackSeam
                 return searchGrDiagnoz ??
                   (searchGrDiagnoz = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
                       { 
                           string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;

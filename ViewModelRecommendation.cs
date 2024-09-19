@@ -275,6 +275,7 @@ namespace BackSeam
                 return sarchRecommendation ??
                   (sarchRecommendation = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowInterv.PoiskRecommendation.Text.Trim() != "")
                       {
                           string jason = controlerModelRecommendation + "0/" + WindowInterv.PoiskRecommendation.Text;

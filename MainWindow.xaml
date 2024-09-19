@@ -1,6 +1,6 @@
 ﻿<!--"Диференційна діагностика стану нездужання людини-SEAM" 
     Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com-->
-    <Window x:Class="BackSeam.MainWindow"
+<Window x:Class="BackSeam.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -1622,7 +1622,7 @@
                                                             <Label Name="LikarLoadInf" Content="Для проведення опитування необхідно завантажити профіль лікаря" Width="520"  Height="30"
                                                        HorizontalAlignment="Center" FontSize="16"  Grid.ColumnSpan="2" Margin="0,0,0,0" />
 
-                                                           
+
                                                         </Grid>
                                                     </Grid>
                                                 </StackPanel>
@@ -5377,7 +5377,7 @@
                                 </TabItem>
 
 
- 
+
                                 <TabItem Header="Взаємозв'язки ДР" Name="DependencyDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
@@ -6154,7 +6154,7 @@
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock x:Name="DoctorLab4" Grid.Column="0"  Text="  Адреса мед.&#xa;  закладу" TextWrapping="Wrap"  FontSize="14" Width="90" HorizontalAlignment="Left" Height="35" />
                                                             <TextBox Text="{Binding adrZaklad,UpdateSourceTrigger=PropertyChanged}" Name="Doctort4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" Height="30" Width="400"  Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                            <Image x:Name="FolderDoc5" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"   Visibility="Visible" Margin="0,0,30,0"  >
+                                                            <Image x:Name="FolderDoc5" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,30,0"  >
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                         <i:InvokeCommandAction Command="{Binding ElementName=GridProfilDoctor, Path=DataContext.AddMedzaklad}" CommandParameter=""/>
@@ -7128,7 +7128,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник деталізацій характеру жалоби" Grid.Row="0" Height="30"  FontSize="14" FontWeight="Bold" />
+                                            <Label Content=" Назва області" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                                            <TextBox Name="PoiskSob" Grid.Row="0" Width="560" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Sob"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchSob}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="SobTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewSobs }" SelectedItem ="{Binding SelectedViewModelSob}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -7556,7 +7567,18 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Довідник облікових записів" Grid.Row="0" Height="30" Width="630" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                            <Label Content=" Номер телефону" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="160" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                                            <TextBox Name="PoiskAccountUser" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right"  Margin="0,0,60,0"
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_AccountUser"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding SearchAccountUser}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="AccountUserTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewModelAccountUsers }" SelectedItem ="{Binding SelectedModelAccountUser}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="245"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -7587,7 +7609,7 @@
                                                             <TextBlock x:Name="AccountUserHeader4"  Text="Пароль"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="AccountUserColumn5" FontSize="14" Width="150" Binding="{Binding Path=idUser}">
+                                                    <DataGridTextColumn x:Name="AccountUserColumn5" FontSize="14" Width="200" Binding="{Binding Path=idUser}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="AccountUserHeader5"  Text="Id користувача"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
@@ -7949,7 +7971,7 @@
                                                 <Label x:Name="LoadLabel"  Grid.Column="2"  Height="28" FontSize="14"  Width="100" Content="Завантажити" Background="#FFC8E0F7"
                                             VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Microsoft Sans Serif" >
                                                 </Label>
- 
+
                                             </Border>
                                             <Label x:Name="LoadCopy"  Grid.Column="2"  Height="28"  Width="50" Content="" Background="#FFC8E0F7" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden"/>
 
@@ -7959,13 +7981,13 @@
                                                 <RowDefinition Height="50*" />
                                                 <RowDefinition Height="50*"/>
                                             </Grid.RowDefinitions>
-                                            
+
                                             <Grid Grid.Row="0" Width="630">
-                                               
-                                                    <Label Content="Завантажується :" Grid.Row="0" Height="30" HorizontalAlignment="Left" />
-                                                    <Label Content=" " x:Name="UpTabl"  Grid.Row="0" Height="30" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="200" Margin="150,0,0,0" />                                                  
-                                               
- 
+
+                                                <Label Content="Завантажується :" Grid.Row="0" Height="30" HorizontalAlignment="Left" />
+                                                <Label Content=" " x:Name="UpTabl"  Grid.Row="0" Height="30" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="200" Margin="150,0,0,0" />
+
+
                                             </Grid>
                                             <Grid Grid.Row="1" Width="630">
                                                 <!--<ProgressBar Value="{Binding Percentage, Mode=OneWay}" Name="IsProgressBar" Minimum="0" Maximum="100" Width="400" Height="30" Foreground="Green" IsIndeterminate="True" Visibility="Hidden"  />-->

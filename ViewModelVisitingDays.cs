@@ -282,6 +282,8 @@ namespace BackSeam
                   (saveVisitingDays = new RelayCommand(obj =>
                   {
                       string json = "";
+                      if (VisitngDays.ReseptionPacientVisit.Text.Trim().Length <= 0) return;
+
                       VisitngDays.ReseptionPacientVisit.Text =VisitngDays.ReseptionPacientVisit.Text.Substring(0, 10);
                       selectModelVisitingDays = new ModelVisitingDays();
                       selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));

@@ -253,7 +253,7 @@ namespace BackSeam
                 return openAccount ??
                   (openAccount = new RelayCommand(obj =>
                   {
-                      string json = pathcontrolerAccountUser + "0/" + WindowAccount.TelAccount.Text.ToString() + "/" + WindowAccount.PasswText.Text.ToString();
+                      string json = pathcontrolerAccountUser + "0/" + WindowAccount.TelAccount.Text.ToString() + "/" + WindowAccount.PasswText.Text.ToString() + "/0";
                       CallServer.PostServer(pathcontrolerAccountUser, json, "GETID");
                       string CmdStroka = CallServer.ServerReturn();
                       if (CmdStroka.Contains("[]"))

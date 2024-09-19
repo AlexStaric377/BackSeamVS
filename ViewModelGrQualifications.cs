@@ -347,6 +347,7 @@ namespace BackSeam
                 return selectedListGrQualification ??
                   (selectedListGrQualification = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       SelectGroupQualification();
                   }));
             }

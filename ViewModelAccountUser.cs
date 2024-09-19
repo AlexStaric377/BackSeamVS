@@ -472,7 +472,7 @@ namespace BackSeam
                                       if (Idinsert != null) WindowAccountUser.AccountUsert5.Text = Idinsert.kodPacient + ": " + Idinsert.name + " " + Idinsert.surname;
                                       break;
                                   case "3":
-                                      json = pathcontrolernsiLikar + Iduser + "/0";
+                                      json = pathcontrolernsiLikar + Iduser + "/0/0";
                                       CallServer.PostServer(pathcontrolernsiLikar, json, "GETID");
                                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                       ModelDoctor Insert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
@@ -490,6 +490,28 @@ namespace BackSeam
         }
 
  
+        // Выбор назви області
+        private RelayCommand? searchAccountUser;
+        public RelayCommand SearchAccountUser
+        {
+            get
+            {
+                return searchAccountUser ??
+                  (searchAccountUser = new RelayCommand(obj =>
+                  {
+                      if (CheckStatusUser() == false) return;
+                      if (WindowAccountUser.PoiskAccountUser.Text.Trim() != "")
+                      {
+                          string jason = pathcontrolerAccountUser + "0/0/0/" + WindowAccountUser.PoiskAccountUser.Text;
+                          CallServer.PostServer(pathcontrolerAccountUser, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewAccountUsers(CmdStroka);
+                      }
+
+                  }));
+            }
+        }
         #endregion
         #endregion
     }

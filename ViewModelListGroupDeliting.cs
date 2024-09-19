@@ -361,8 +361,8 @@ namespace BackSeam
                 return searchGrDetailing ??
                   (searchGrDetailing = new RelayCommand(obj =>
                   {
-                     
-                        if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
+                      if (CheckStatusUser() == false) return;
+                      if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
                         {
                             string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
                             CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");

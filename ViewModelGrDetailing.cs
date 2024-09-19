@@ -365,7 +365,8 @@ namespace BackSeam
                 return selectedListGrDetailing ??
                   (selectedListGrDetailing = new RelayCommand(obj =>
                   {
-                     SelectGroupDelit();
+                      if (CheckStatusUser() == false) return;
+                      SelectGroupDelit();
                   }));
             }
         }
@@ -389,29 +390,6 @@ namespace BackSeam
             }
         }
 
-
-        RelayCommand? selectNtameGrDeteling;
-        public RelayCommand SelectNameGrDeteling
-        {
-            get
-            {
-                return selectNtameGrDeteling ??
-                  (selectNtameGrDeteling = new RelayCommand(obj =>
-                  {
-                      //if (ViewGrDetailings != null)
-                      //{
-                      //    if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
-                      //    {
-                      //        string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;
-                      //        CallServer.PostServer(Interviewcontroller, jason, "GETID");
-                      //        string CmdStroka = CallServer.ServerReturn();
-                      //        if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                      //        else ObservableViewGrupDiagnoz(CmdStroka);
-                      //    }
-                      //}
-                  }));
-            }
-        }
 
         #endregion
         #endregion

@@ -244,11 +244,34 @@ namespace BackSeam
                 return printVeiwModelSob ??
                   (printVeiwModelSob = new RelayCommand(obj =>
                   {
-                      
-                          MessageBox.Show("Довідник областей :" + ViewSobs[0].nameObl.ToString());
-                     
+                           MessageBox.Show("Довідник областей :" + ViewSobs[0].nameObl.ToString());
                   },
                  (obj) => ViewSobs != null));
+            }
+        }
+
+        
+
+        // Выбор назви області
+        private RelayCommand? searchSob;
+        public RelayCommand SearchSob
+        {
+            get
+            {
+                return searchSob ??
+                  (searchSob = new RelayCommand(obj =>
+                  {
+                      if (CheckStatusUser() == false) return;
+                      if (WindowSob.PoiskSob.Text.Trim() != "")
+                      {
+                          string jason = pathcontrolerSob + "0/0/" + WindowSob.PoiskSob.Text;
+                          CallServer.PostServer(pathcontrolerSob, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableViewSob(CmdStroka);
+                      }
+
+                  }));
             }
         }
     }

@@ -334,8 +334,8 @@ namespace BackSeam
                 return searchGrQualification ??
                   (searchGrQualification = new RelayCommand(obj =>
                   {
- 
-                        if (WindowMen.PoiskGrQualification.Text.Trim() != "")
+                      if (CheckStatusUser() == false) return;
+                      if (WindowMen.PoiskGrQualification.Text.Trim() != "")
                         {
                             string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
                             CallServer.PostServer(controlerGroupQualification, jason, "GETID");

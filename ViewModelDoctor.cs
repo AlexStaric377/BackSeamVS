@@ -630,6 +630,7 @@ namespace BackSeam
                 return searchDoctor ??
                   (searchDoctor = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowDoctor.PoiskDoctor.Text.Trim() != "")
                       {
                           string jason = pathcontrolerDoctor + "0/0/" + WindowDoctor.PoiskDoctor.Text;

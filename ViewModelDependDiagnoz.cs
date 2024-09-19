@@ -396,6 +396,7 @@ namespace BackSeam
                 return searchDependency ??
                   (searchDependency = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowMen.PoiskDependency.Text.Trim() != "")
                       {
                           string jason = pathcontrolerDependency + "0/0/" + WindowMen.PoiskDependency.Text;

@@ -123,6 +123,17 @@ namespace BackSeam
             else ObservableViewPacient(CmdStroka);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+        }
+
+
         private string _SelectedComb;
         public string SelectedComb
         {
@@ -428,6 +439,7 @@ namespace BackSeam
                 return searchPacientT ??
                   (searchPacientT = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       if (WindowMen.PoiskPacientT.Text.Trim() != "")
                       {
                           string jason = pathcontrolerPacient + "0/0/0/" + WindowMen.PoiskPacientT.Text + "/0";

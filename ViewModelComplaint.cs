@@ -24,12 +24,12 @@ namespace BackSeam
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
 
-    public partial class MapOpisViewModel : INotifyPropertyChanged
+    public partial class MapOpisViewModel : BaseViewModel
     {
         // ViewComplaint   модель  Complaint
-        // клавиша в окне: ""Жалобы""
+        // клавиша в окне: "Як або де проявляється  нездужання"
 
-        #region Обработка событий и команд вставки, удаления и редектирования справочника "Жалобы"
+        #region Обработка событий и команд вставки, удаления и редектирования справочника "Як або де проявляється нездужання"
         /// <summary>
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех жалоб из БД
         /// через механизм REST.API
@@ -363,7 +363,7 @@ namespace BackSeam
                 return searchSimptom ??
                   (searchSimptom = new RelayCommand(obj =>
                   {
-                     
+                      if (CheckStatusUser() == false) return;
                       if (WindowMen.PoiskSimptom.Text.Trim() == "") return;
                       string jason = pathComplaint + "0/" + WindowMen.PoiskSimptom.Text;
                       CallServer.PostServer(pathComplaint, jason, "GETID");
@@ -376,19 +376,6 @@ namespace BackSeam
         }
 
         #endregion
-
-        public event  PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
-
-
         #endregion
     }
 }

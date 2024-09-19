@@ -466,9 +466,9 @@ namespace BackSeam
                 return selectedCompl ??
                   (selectedCompl = new RelayCommand(obj =>
                   {
-                     
- 
-                          MapOpisViewModel.ActCompletedInterview = "NameCompl";
+
+                      if (CheckStatusUser() == false) return;
+                      MapOpisViewModel.ActCompletedInterview = "NameCompl";
                           NsiComplaint NewOrder = new NsiComplaint();
                           NewOrder.Left = (MainWindow.ScreenWidth / 2);
                           NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;

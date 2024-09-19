@@ -635,8 +635,9 @@ namespace BackSeam
                 return selectedNewFeature ??
                   (selectedNewFeature = new RelayCommand(obj =>
                   {
+                      if (CheckStatusUser() == false) return;
                       SelectedNsiComplaint();
-
+                      if (selectedViewDetailingFeature == null) return;
                       loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
                       ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 
