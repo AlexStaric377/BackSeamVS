@@ -452,12 +452,16 @@ namespace BackSeam
             ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedViewDetailingFeature.kodComplaint + "/0";
             ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) -150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ActCompletedInterview = "";
-            selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-            selectedViewDetailingFeature.nameFeature = MapOpisViewModel.selectFeature;
+            if (MapOpisViewModel.nameFeature3.Length > 0)
+            {
+                selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                selectedViewDetailingFeature.nameFeature = MapOpisViewModel.selectFeature;
+
+            }
         }
 
         
@@ -509,7 +513,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (WindowDetailing.Detailingt4.Text.Length !=0)
@@ -610,7 +614,7 @@ namespace BackSeam
                               {
                                   MapOpisViewModel.ActCompletedInterview = "ViewGrDetailing";
                                   WinNsiGrDetailing NewNsi = new WinNsiGrDetailing();
-                                  NewNsi.Left = (MainWindow.ScreenWidth / 2);
+                                  NewNsi.Left = (MainWindow.ScreenWidth / 2) -50;
                                   NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewNsi.ShowDialog();
                                   MapOpisViewModel.ActCompletedInterview = null;

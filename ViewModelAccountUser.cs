@@ -186,7 +186,7 @@ namespace BackSeam
             WindowAccountUser.AccountUsert2.Background = Brushes.AntiqueWhite;
             WindowAccountUser.AccountUsert4.IsEnabled = true;
             WindowAccountUser.AccountUsert4.Background = Brushes.AntiqueWhite;
-            if (IndexAddEdit == "addCommand")
+            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand" )
             { 
                 WindowAccountUser.FoldAccountUser0.Visibility = Visibility.Visible;
                 WindowAccountUser.FoldAccountUser1.Visibility = Visibility.Visible;
@@ -399,7 +399,8 @@ namespace BackSeam
             if (WindowAccountUser.AccountUsert3.Text.Trim().Length > 0)
             { 
                 SetIdStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
-                selectedAccountUser.idStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));           
+                selectedAccountUser.idStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
+                WindowDetailing.AccountUsert3.Text = WindowDetailing.AccountUsert3.Text.ToString().Substring(WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1, WindowDetailing.AccountUsert3.Text.Length- (WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1)).TrimStart();
             }
 
         }

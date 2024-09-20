@@ -26,6 +26,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class ViewModelNsiListGroupDelit : BaseViewModel
     {
+        private WinNsiListGroupDelit WindowMen = MainWindow.LinkMainWindow("WinNsiListGroupDelit");
         string controlerListGrDetailing =  "/api/ControllerListGroupDetail/";
         private ModelListGrDetailing selectedListGrDetailing;
         public  static ObservableCollection<ModelListGrDetailing> ViewListGrDetailings { get; set; }
@@ -88,7 +89,7 @@ namespace BackSeam
                             {
                            
                                 MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                                WinNsiListGroupDelit WindowMen = MainWindow.LinkMainWindow("WinNsiListGroupDelit");
+                                
                                 WindowMain.GrDetailingst2.Text = SelectedListGrDetailing.keyGrDetailing.ToString() + ": " + SelectedListGrDetailing.nameGrup.ToString();
                                 WindowMain.Detailingt4.Text = SelectedListGrDetailing.keyGrDetailing.ToString();
                                 WindowMain.Detailingt2.Text = SelectedListGrDetailing.nameGrup.ToString();
@@ -98,6 +99,31 @@ namespace BackSeam
                                             
                       }
 
+                  }));
+            }
+        }
+
+        
+
+        // команда поиска наименования характера проявления болей
+        RelayCommand? searchGroupDelit;
+        public RelayCommand SearchGroupDelit
+        {
+            get
+            {
+                return searchGroupDelit ??
+                  (searchGroupDelit = new RelayCommand(obj =>
+                  {
+                      
+                      if (WindowMen.PoiskGroupDelit.Text.Trim() != "")
+                      {
+                          string jason = controlerListGrDetailing + "0/0/" + WindowMen.PoiskGroupDelit.Text;
+                          CallServer.PostServer(controlerListGrDetailing, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableListGrDetailing(CmdStroka);
+                          WindowMen.TablGrQualifications.ItemsSource = ViewListGrDetailings;
+                      }
                   }));
             }
         }

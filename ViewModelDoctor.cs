@@ -610,7 +610,7 @@ namespace BackSeam
                   (listLikarGrupDiagnoz = new RelayCommand(obj =>
                   {
                       WinLikarGrupDiagnoz Order = new WinLikarGrupDiagnoz();
-                      Order.Left = (MainWindow.ScreenWidth / 2);
+                      Order.Left = (MainWindow.ScreenWidth / 2)-50;
                       Order.Top = (MainWindow.ScreenHeight / 2) - 350;
                       Order.ShowDialog();
 

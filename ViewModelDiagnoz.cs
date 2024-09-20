@@ -500,7 +500,7 @@ namespace BackSeam
             if (CheckStatusUser() == false) return;
             SelectActivGrupDiagnoz = "GrupDiagnoz";
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (WindowMen.Diagnozt1.Text.Length != 0)

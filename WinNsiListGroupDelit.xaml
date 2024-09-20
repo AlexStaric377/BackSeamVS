@@ -10,29 +10,41 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelNsiListGroupDelit}"
         mc:Ignorable="d" 
         Title="WinNsiListGroupDelit"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="680" Width="560" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680" Width="700" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiListGroupDelit/>
     </Window.DataContext>
 
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="530" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="670" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="510">
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="650">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="600" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="25*" />
                     <RowDefinition Height="25*" />
                     <RowDefinition Height="550*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Гурти деталізацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
+                <TextBox Name="PoiskGroupDelit" Grid.Row="1" Width="520" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="45,0,0,0" 
+                         FontFamily="Microsoft Sans Serif" />
 
-                <ListBox Grid.Row="1" Name="TablGrQualifications" ItemsSource="{Binding ViewListGrDetailings}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedListGrDetailing}" Height="545" Background="#FFE2E2DD"
-                    Width="490" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_GroupDelit"  VerticalAlignment="Center" Margin="0,0,5,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchGroupDelit}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="2" Name="TablGrQualifications" ItemsSource="{Binding ViewListGrDetailings}" VerticalAlignment="Top"
+                    SelectedItem ="{Binding SelectedListGrDetailing}" Height="520" Background="#FFE2E2DD"
+                    Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">
                             <i:InvokeCommandAction Command="{Binding ElementName=TablGrQualifications, Path=DataContext.SelectedNameGrDetaling}" CommandParameter=""/>
@@ -40,11 +52,11 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                                 <TextBlock Text="{Binding Path=nameGrup}"   Width="485" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                 <TextBlock Text="{Binding Path=nameGrup}"   Width="625" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
+                <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" Margin="0,0,5,0"
                     Source="pack://application:,,,/BackSeam;component/Images/xrestik.png"
                      Cursor="Hand"  >
                     <i:Interaction.Triggers>
@@ -53,7 +65,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />

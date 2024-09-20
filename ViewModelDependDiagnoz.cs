@@ -358,7 +358,7 @@ namespace BackSeam
         private void AddComandDependencyRecomen()
         {
             WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 

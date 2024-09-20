@@ -375,7 +375,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ActCompletedInterview = "";
