@@ -45,7 +45,11 @@
                     SelectedItem ="{Binding SelectedModelRecommendation}" Height="445" Background="#FFE2E2DD"
                     Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <!---->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablFeature, Path=DataContext.SelectModelRecommendation}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="5">
@@ -59,7 +63,7 @@
                      Cursor="Hand"  >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonDown">
-                            <i:InvokeCommandAction Command="{Binding CloseModelRecommendation}" CommandParameter=""/>
+                            <i:InvokeCommandAction Command="{Binding CloseRecommendation}" CommandParameter=""/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
@@ -72,7 +76,7 @@
                             Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
-                                <i:InvokeCommandAction Command="{Binding CloseModelRecommendation}" CommandParameter=""/>
+                                <i:InvokeCommandAction Command="{Binding SelectModelRecommendation}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <Label Grid.Column="2" Height="25" FontSize="10"  Width="70" Content="Вибрати" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"   FontFamily="Arial"  >
@@ -82,7 +86,7 @@
                             Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
-                                <i:InvokeCommandAction Command="{Binding CloseModelRecommendation}" CommandParameter=""/>
+                                <i:InvokeCommandAction Command="{Binding CloseRecommendation}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <Label Grid.Column="2" Height="25" FontSize="10"  FontStyle="Normal" FontFamily="Courier"  Width="65" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >

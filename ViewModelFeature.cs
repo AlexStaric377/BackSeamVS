@@ -445,7 +445,7 @@ namespace BackSeam
 
                           MapOpisViewModel.ActCompletedInterview = "Feature";
                           NsiDetailing NewNsi = new NsiDetailing();
-                          NewNsi.Left = (MainWindow.ScreenWidth / 2);
+                          NewNsi.Left = (MainWindow.ScreenWidth / 2)-50;
                           NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                           NewNsi.ShowDialog();
                           MapOpisViewModel.ActCompletedInterview = "";

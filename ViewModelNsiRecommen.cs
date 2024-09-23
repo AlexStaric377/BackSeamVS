@@ -58,15 +58,30 @@ namespace BackSeam
 
         }
 
-
         // команда закрытия окна
-        RelayCommand? closeModelRecommendation;
-        public RelayCommand CloseModelRecommendation
+        RelayCommand? closeRecommendation;
+        public RelayCommand CloseRecommendation
         {
             get
             {
-                return closeModelRecommendation ??
-                  (closeModelRecommendation = new RelayCommand(obj =>
+                return closeRecommendation ??
+                  (closeRecommendation = new RelayCommand(obj =>
+                  {
+                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+                      WindowMen.Close();
+                      
+                  }));
+            }
+        }
+
+        // команда закрытия окна
+        RelayCommand? selectModelRecommendation;
+        public RelayCommand SelectModelRecommendation
+        {
+            get
+            {
+                return selectModelRecommendation ??
+                  (selectModelRecommendation = new RelayCommand(obj =>
                   {
                       MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
 
@@ -77,8 +92,9 @@ namespace BackSeam
                           WindowMain.Interviewt5.Text = SelectedModelRecommendation.kodRecommendation.ToString() + ": " + SelectedModelRecommendation.contentRecommendation;
                           WindowMain.LikarInterviewt5.Text = SelectedModelRecommendation.kodRecommendation.ToString() + ": " + SelectedModelRecommendation.contentRecommendation;
                           WindowMain.InterviewDependencyt3.Text = SelectedModelRecommendation.kodRecommendation.ToString() + ": " + SelectedModelRecommendation.contentRecommendation;
+                          WindowMen.Close();
                       }
-                      WindowMen.Close();
+                      
                   }));
             }
         }

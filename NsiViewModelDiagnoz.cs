@@ -109,9 +109,9 @@ namespace BackSeam
                           Windowmain.Interviewt6.Text = selectedVeiwDiagnoz.kodDiagnoza.ToString() + ": " + SelectedVeiwDiagnoz.nameDiagnoza;
                           Windowmain.LikarInterviewt6.Text = selectedVeiwDiagnoz.kodDiagnoza.ToString() + ": " + SelectedVeiwDiagnoz.nameDiagnoza;
                           Windowmain.InterviewDependencyt2.Text = selectedVeiwDiagnoz.kodDiagnoza.ToString() + ": " + SelectedVeiwDiagnoz.nameDiagnoza;
-
+                          WindowNsiListUri.Close();
                       }
-                      WindowNsiListUri.Close();
+                      
                   }));
             }
         }
@@ -140,5 +140,6 @@ namespace BackSeam
                   }));
             }
         }
+
     }
 }

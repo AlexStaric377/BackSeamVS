@@ -64,7 +64,7 @@ namespace BackSeam
  
                 if (modelVisitingDays.kodDoctor != "")
                 {
-                    string json = pathcontrolerDoctor + modelVisitingDays.kodDoctor.ToString()+"/0";
+                    string json = pathcontrolerDoctor + modelVisitingDays.kodDoctor.ToString()+"/0/0";
                     CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelDoctor Idinsert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
@@ -72,7 +72,7 @@ namespace BackSeam
                     {
                         selectViewModelVisitingDays.nameDoctor = Idinsert.name+ Idinsert.telefon;
                         selectViewModelVisitingDays.edrpou = Idinsert.edrpou;
-                        json = pathcontrolerMedZaklad + Idinsert.edrpou.ToString()+"/0";
+                        json = pathcontrolerMedZaklad + Idinsert.edrpou.ToString()+"/0/0";
                         CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         MedicalInstitution Idzaklad = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -162,7 +162,7 @@ namespace BackSeam
 
         private void AddComandVisitingDays()
         {
-            if (loadboolVisitingDays == false) MethodLoadVisitingDays();
+            if (IndexAddEdit != "addCommand") MethodLoadVisitingDays();     // 
             MethodaddcomVisitingDays();
         }
 
@@ -176,7 +176,7 @@ namespace BackSeam
             SelectedViewModelVisitingDays = selectViewModelVisitingDays;
             if (addboolVisitingDays == false) BoolTrueVisitingDays();
             else BoolFalseVisitingDays();
-            VisitngDays.ReseptionPacientTablGrid.SelectedItem = null;
+            //VisitngDays.ReseptionPacientTablGrid.SelectedItem = null;
             VisitngDays.DayoftheWeek.SelectedIndex = 0;
             VisitngDays.TimeofDay.SelectedIndex = 0;
             VisitngDays.ComboBoxOnoff.SelectedIndex = 0;
@@ -300,8 +300,8 @@ namespace BackSeam
                           CallServer.PostServer(pathcontrolerVisitingDays, json, "POST");
                           CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                           ModelVisitingDays Idinsert = JsonConvert.DeserializeObject<ModelVisitingDays>(CallServer.ResponseFromServer);
-                          int Countins = ViewVisitingDays != null ? ViewVisitingDays.Count : 0;
-                          ViewVisitingDays.Insert(Countins, Idinsert);
+                          if(ViewVisitingDays == null) ViewVisitingDays = new ObservableCollection<ModelVisitingDays>();
+                          ViewVisitingDays.Add(Idinsert);
                           selectViewModelVisitingDays = new ViewModelVisitingDays();
                           selectViewModelVisitingDays.kodDoctor = Idinsert.kodDoctor;
                           selectViewModelVisitingDays.id = Idinsert.id;

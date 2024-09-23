@@ -5673,10 +5673,10 @@
                                                         <TextBlock x:Name="GrDiagnozLab2" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Text=" Назва напрямку "   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Bottom" />
 
                                                         <TextBox  Name="GrDiagnozt2" Text="{Binding Path=nameGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="2" Grid.Column="1"
-                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                          Background="White" VerticalAlignment="Center" Height="40" Width="400" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" TextWrapping="Wrap"  />
                                                         <TextBlock x:Name="GrDiagnozL5" Grid.Row="3" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text="  Опис напрямку "   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
-                                                        <TextBox  Name="GrDiagnozt5" Text="{Binding Path=opisDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1"
-                                                          Background="White" VerticalAlignment="Center" Height="28" Width="350" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        <TextBox  Name="GrDiagnozt5" Text="{Binding Path=opisDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"
+                                                          Background="White" VerticalAlignment="Center" Height="65" Width="400" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <TextBlock x:Name="GrDiagnozLab6" Grid.Row="4" Text=" Опис в інтернеті"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                                                         <TextBox Name="GrDiagnozt6" Text="{Binding Path=uriDiagnoza, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="4" Grid.Column="1" Width="400" Background="White" FontSize="14" BorderThickness="0,0,0,0" Height="28" HorizontalAlignment="Left" />
                                                         <Image x:Name="FolderGroupDiagnoz" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,20,0"  >
@@ -5713,7 +5713,7 @@
                                           ItemsSource="{Binding ViewGrupDiagnozs }" SelectedItem ="{Binding SelectedViewGrupDiagnoz}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
-                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto">
+                                          HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseUp">
                                                         <i:InvokeCommandAction Command="{Binding ElementName=GrQualificationTablGrid, Path=DataContext.VisibleGrQualification}" CommandParameter=""/>
@@ -5723,12 +5723,12 @@
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn x:Name="GrDiagnozColumn1" FontSize="14" Width="150" Binding="{Binding Path=icdGrDiagnoz}">
                                                         <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="GrDiagnozHeader1"  Text="Код напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                            <TextBlock x:Name="GrDiagnozHeader1"  Text="Код напрямку"  HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="GrDiagnozColumn2" FontSize="14" Width="600" Binding="{Binding Path=nameGrDiagnoz}">
+                                                    <DataGridTextColumn x:Name="GrDiagnozColumn2" FontSize="14" Width="670" Binding="{Binding Path=nameGrDiagnoz}">
                                                         <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="GrDiagnozHeader2"  Text="Назва напрямку"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                            <TextBlock x:Name="GrDiagnozHeader2"  Text="Назва напрямку"   HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                 </DataGrid.Columns>

@@ -37,8 +37,8 @@ namespace BackSeam
         {
             //NsiDetailing WindowNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
             string jason = "";
-            if (ViewModelNsiDetailing.NsiModelDetailings == null)
-            {
+            //if (ViewModelNsiDetailing.NsiModelDetailings == null)
+            //{
                 switch (MapOpisViewModel.ActCompletedInterview)
                 {
                     case "FeatureGET":
@@ -63,7 +63,7 @@ namespace BackSeam
                 CallServer.PostServer(pathcontroller, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);
-            }
+            //}
  
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
@@ -113,7 +113,7 @@ namespace BackSeam
                           {
                               MapOpisViewModel.selectGrDetailing = selectedDetailing.nameDetailing.ToString().ToUpper();
                               WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
-                              NewOrder.Left = (MainWindow.ScreenWidth / 2) + 100;
+                              NewOrder.Left = (MainWindow.ScreenWidth / 2) -50;
                               NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
                               NewOrder.ShowDialog();
                           }
@@ -183,7 +183,7 @@ namespace BackSeam
                               {
                                   MapOpisViewModel.selectedComplaintname = selectedDetailing.nameDetailing;
                                   WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
-                                  NewOrder.Left = (MainWindow.ScreenWidth / 2)+100;
+                                  NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
                                   NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewOrder.ShowDialog();
                               }

@@ -108,6 +108,31 @@ namespace BackSeam
                   }));
             }
         }
+
+        
+
+        // команда закрытия окна
+        RelayCommand? selectIcdDiagnoz;
+        public RelayCommand SelectIcdDiagnoz
+        {
+            get
+            {
+                return selectIcdDiagnoz ??
+                  (selectIcdDiagnoz = new RelayCommand(obj =>
+                  {
+                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
+                      MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
+                      if (selectedVeiwIcd != null)
+                      {
+                          Windowmain.Diagnozt4.Text = SelectedVeiwIcd.keyIcd.ToString();
+                          Windowmain.Diagnozt3.Text = SelectedVeiwIcd.name.ToString();
+                          Windowmain.LibDiagnozt3.Text = SelectedVeiwIcd.name.ToString();
+                          WindowNsiIcdUri.Close();
+                      }
+                      
+                  }));
+            }
+        }
     }
 
 }

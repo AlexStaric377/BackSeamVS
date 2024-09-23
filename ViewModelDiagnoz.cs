@@ -352,7 +352,7 @@ namespace BackSeam
         {
             
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (WindowMen.Diagnozt1.Text.Length != 0)
@@ -388,7 +388,7 @@ namespace BackSeam
             }
             
             WinNsiIcd NewOrder = new WinNsiIcd();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();

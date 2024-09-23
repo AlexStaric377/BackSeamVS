@@ -355,7 +355,7 @@ namespace BackSeam
                       { 
                            EdrpouMedZaklad = WindowMedical.Medicalt2.Text;
                            WinMedicalGrDiagnoz Order = new WinMedicalGrDiagnoz();
-                           Order.Left = (MainWindow.ScreenWidth / 2);
+                           Order.Left = (MainWindow.ScreenWidth / 2)-150;
                            Order.Top = (MainWindow.ScreenHeight / 2) - 350;
                            Order.ShowDialog();
                       }

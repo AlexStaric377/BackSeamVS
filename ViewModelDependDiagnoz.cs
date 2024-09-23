@@ -34,6 +34,7 @@ namespace BackSeam
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех жалоб из БД
         /// через механизм REST.API
         /// </summary>      
+        private MainWindow Windowmen = MainWindow.LinkNameWindow("BackMain");
         private bool loadbooltablDependency = false;
         public static string pathcontrolerDependency =  "/api/DependencyDiagnozController/";
         public static ModelDependencyDiagnoz selectedDependency;
@@ -183,6 +184,7 @@ namespace BackSeam
             WindowMen.FolderRecom.Visibility = Visibility.Hidden;
             WindowMen.FolderInterv.Visibility = Visibility.Hidden;
             WindowMen.DependencyTablGrid.IsEnabled = true;
+            SelectedModelDependency = new ModelDependencyDiagnoz();
         }
 
         // команда удаления

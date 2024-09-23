@@ -229,7 +229,7 @@ namespace BackSeam
                                   ViewModelNsiFeature.Method = "GETID";
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiFeature NewOrder = new WinNsiFeature();
-                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) + 20;
+                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) -150;
                                   NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewOrder.ShowDialog();
                                   break;
@@ -237,14 +237,14 @@ namespace BackSeam
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   MapOpisViewModel.selectFeature = selectedContentInterv.detailsInterview;
                                   NsiDetailing NewNsi = new NsiDetailing();
-                                  NewNsi.Left = (MainWindow.ScreenWidth / 2)+20;
+                                  NewNsi.Left = (MainWindow.ScreenWidth / 2)-80;
                                   NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewNsi.ShowDialog();
                                   break;
                               case > 9:
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiGrDetailing NewGrNsi = new WinNsiGrDetailing();
-                                  NewGrNsi.Left = (MainWindow.ScreenWidth / 2)+20;
+                                  NewGrNsi.Left = (MainWindow.ScreenWidth / 2)-50;
                                   NewGrNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewGrNsi.ShowDialog();
                                   break;
@@ -253,7 +253,7 @@ namespace BackSeam
                       else
                       {
                           NsiComplaint NewOrder = new NsiComplaint();
-                          NewOrder.Left = (MainWindow.ScreenWidth / 2) + 20;
+                          NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
                           NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                           NewOrder.ShowDialog();
                           if (WindowMain.Featuret3.Text.ToString().Trim().Length != 0)WindowUri.TablInterviews.ItemsSource = ContentIntervs;

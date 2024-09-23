@@ -24,7 +24,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiIntreview : BaseViewModel
     {
-
+        private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         private WinNsiIntreview WindowMen = MainWindow.LinkMainWindow("WinNsiIntreview");
         private string pathcontroller =  "/api/InterviewController/";
         public static ModelInterview selectedInterview;
@@ -38,6 +38,7 @@ namespace BackSeam
             CallServer.PostServer(MainWindow.UrlServer, pathcontroller , "GET");
             string CmdStroka = CallServer.ServerReturn();
             ObservableNsiModelFeatures(CmdStroka);
+            selectedInterview = new ModelInterview();
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
         {
@@ -55,7 +56,6 @@ namespace BackSeam
                 return closeModelInterview ??
                   (closeModelInterview = new RelayCommand(obj =>
                   {
-                      WinNsiIntreview WindowMen = MainWindow.LinkMainWindow("WinNsiIntreview");
                       WindowMen.Close();
                   }));
             }
@@ -70,14 +70,13 @@ namespace BackSeam
                 return selectModelIntreview ??
                   (selectModelIntreview = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      
-                      if (selectedInterview != null)
+                      if (selectedInterview.id != 0)
                       {
                           WindowMain.Dependencyt4.Text = selectedInterview.nametInterview.ToString();
                           MapOpisViewModel.selectedDependency.kodProtokola = selectedInterview.kodProtokola;
+                          WindowMen.Close();
                       }
-                      WindowMen.Close();
+                      
                   }));
             }
         }

@@ -46,7 +46,11 @@
                     SelectedItem ="{Binding SelectedModelInterview}" Height="445" Background="#FFE2E2DD"
                     Width="500" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablDeliting, Path=DataContext.SelectModelIntreviewg}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                                  <TextBlock Text="{Binding Path=nametInterview}" TextWrapping="Wrap"  Width="490" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />

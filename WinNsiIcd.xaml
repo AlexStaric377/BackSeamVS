@@ -45,7 +45,11 @@
                     SelectedItem ="{Binding SelectedVeiwIcd}" Height="540" Background="#FFE2E2DD"
                     Width="560" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <!---->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablFeature, Path=DataContext.SelectIcdDiagnoz}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=name}"   Width="540" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />

@@ -483,7 +483,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCompletedInterview = "NameCompl";
             NsiComplaint NewOrder = new NsiComplaint();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 

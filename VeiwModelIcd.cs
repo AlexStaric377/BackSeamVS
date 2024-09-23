@@ -259,7 +259,7 @@ namespace BackSeam
         private void ComandFindNameDiagnozMKX()
         {
             WinNsiIcd NewOrder = new WinNsiIcd();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (WindowMen.Diagnozt4.Text.Length != 0)

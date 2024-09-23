@@ -440,7 +440,7 @@ namespace BackSeam
             }
             
             WinCreatIntreview NewOrder = new WinCreatIntreview();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             //selectedInterview = ModelInterviews[ModelInterviews.Count-1];
@@ -519,7 +519,7 @@ namespace BackSeam
             selectedDependency = new ModelDependencyDiagnoz();
             MapOpisViewModel.ModelCall = "Dependency";
             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ModelCall = "";
@@ -566,7 +566,7 @@ namespace BackSeam
         {
             selectedDependency = new ModelDependencyDiagnoz();
             WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             if(WindowInterv.InterviewDependencyt3.Text.Length >0)
