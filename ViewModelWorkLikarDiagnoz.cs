@@ -235,12 +235,12 @@ namespace BackSeam
                         selectedWorkDiagnoz = ViewWorkDiagnozs[WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex];
                         if (loadWorkGrupDiagnoz == false)
                         {
-                            SelectActivGrupDiagnoz = selectedWorkDiagnoz.icdGrDiagnoz;
-                            SelectedViewWorkDiagnoz = new ModelDiagnoz();
-                            WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                            NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                            NewOrder.ShowDialog();
+                            //SelectActivGrupDiagnoz = selectedWorkDiagnoz.icdGrDiagnoz;
+                            //SelectedViewWorkDiagnoz = new ModelDiagnoz();
+                            //WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
+                            //NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                            //NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                            //NewOrder.ShowDialog();
 
                         }
                         else
@@ -319,7 +319,7 @@ namespace BackSeam
                   {
                       MapOpisViewModel.IndexAddEdit = "";
                       MapOpisViewModel.ModelCall = "ModelColectionInterview";
-                      string json = pathcontrolerDependency + selectedWorkDiagnoz.kodDiagnoza + "/0";
+                      string json = pathcontrolerDependency + selectedWorkDiagnoz.kodDiagnoza + "/0/0";
                       CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                       ModelDependencyDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelDependencyDiagnoz>(CallServer.ResponseFromServer);

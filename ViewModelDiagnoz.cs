@@ -418,7 +418,8 @@ namespace BackSeam
                         selectedDiagnoz = ViewDiagnozs[WindowMen.DiagnozTablGrid.SelectedIndex];
                         if (loadGrupDiagnoz == false && addboolGrDiagnoz == false)
                         {
-                            SelectActivGrupDiagnoz = selectedDiagnoz.icdGrDiagnoz;
+
+                            SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
                             SelectedViewDiagnoz = new ModelDiagnoz();
                             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
                             NewOrder.Left = (MainWindow.ScreenWidth / 2);
@@ -469,7 +470,7 @@ namespace BackSeam
                   {
                       MapOpisViewModel.IndexAddEdit = "";
                       MapOpisViewModel.ModelCall = "ModelColectionInterview";
-                      string json = pathcontrolerDependency + selectedDiagnoz.kodDiagnoza + "/0";
+                      string json = pathcontrolerDependency + selectedDiagnoz.kodDiagnoza + "/0/0";
                       CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                       ModelDependencyDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelDependencyDiagnoz>(CallServer.ResponseFromServer);
@@ -505,7 +506,7 @@ namespace BackSeam
             NewOrder.ShowDialog();
             if (WindowMen.Diagnozt1.Text.Length != 0)
             {
-                GrupDiagnoz = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
+                GrupDiagnoz = WindowMen.Diagnozt1.Text;
                 loadGrupDiagnoz = true;
                 string jason = controlerViewDiagnoz + "0/" + WindowMen.Diagnozt1.Text + "/0";
                 CallServer.PostServer(controlerViewDiagnoz, jason, "GETID");

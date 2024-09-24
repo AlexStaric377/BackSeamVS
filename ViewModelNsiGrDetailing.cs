@@ -142,7 +142,7 @@ namespace BackSeam
         private void OpenQualification()
         {
             WinNsiQualification NewOrder = new WinNsiQualification();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2) + 80;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400; //350;
             NewOrder.ShowDialog();
         }
@@ -169,7 +169,7 @@ namespace BackSeam
                                   
                                   MapOpisViewModel.selectedComplaintname = selectedGrDetailing.nameGrDetailing;
                                   WinNsiQualification NewOrder = new WinNsiQualification();
-                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) + 80;
+                                  NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
                                   NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400; //350;
                                   NewOrder.ShowDialog();
                                   

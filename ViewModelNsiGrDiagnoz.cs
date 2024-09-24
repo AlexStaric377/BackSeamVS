@@ -146,7 +146,7 @@ namespace BackSeam
                       MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                       if (SelectedViewGrupDiagnoz != null)
                       {
-                          Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.nameGrDiagnoz;
+                          Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.icdGrDiagnoz;
                           WindowNsiGrDiag.Close();
                       }
 

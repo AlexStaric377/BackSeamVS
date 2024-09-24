@@ -39,11 +39,11 @@ namespace BackSeam
             switch (MapOpisViewModel.ActCompletedInterview)
             {
                 case "Qualification":
-                    jason = pathcontroller + "0/" + MapOpisViewModel.selectedGroupQualification.kodGroupQualification;
+                    jason = pathcontroller + "0/" + MapOpisViewModel.selectedGroupQualification.kodGroupQualification + "/0";
                     break;
        
                 default:
-                    jason = pathcontroller + "0/" + ViewModelNsiGrDetailing.selectedGrDetailing.kodGroupQualification;
+                    jason = pathcontroller + "0/" + ViewModelNsiGrDetailing.selectedGrDetailing.kodGroupQualification + "/0"; ;
                     break;
             }
 

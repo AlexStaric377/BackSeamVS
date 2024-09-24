@@ -105,7 +105,7 @@ namespace BackSeam
         private void MethodLoadLikarAppointments()
         {
             if (_kodDoctor == "") { MetodLoadProfilLikar(); }
-            //LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text;
+            LikarAppointments.CabinetNameMedZaklad.Text = ReceptionLIkarGuest.Likart9.Text.ToString();
             LikarAppointments.CabinetReseptionLikar.Text = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
                     LikarAppointments.CabinetReseptionPacientLab.Visibility = Visibility.Hidden;
                     CallServer.PostServer(pathcontrolerVisitingDays, pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor+"/0", "GETID");

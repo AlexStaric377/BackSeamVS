@@ -473,7 +473,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             NsiComplaint NewOrder = new NsiComplaint();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; 
             NewOrder.ShowDialog();
             IndikatorSelected = "NsiComplaint";
@@ -488,7 +488,7 @@ namespace BackSeam
             ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing + "/0"; ;
             ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
         }
@@ -509,7 +509,7 @@ namespace BackSeam
                 if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
                 { 
                     NsiDetailing NewNsi = new NsiDetailing();
-                    NewNsi.Left = (MainWindow.ScreenWidth / 2);
+                    NewNsi.Left = (MainWindow.ScreenWidth / 2)-150;
                     NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                     NewNsi.ShowDialog();            
                
@@ -539,7 +539,7 @@ namespace BackSeam
                     ViewModelNsiDetailing.selectedDetailing = modelDetailing;
                     MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
                     WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
-                    NewOrder.Left = (MainWindow.ScreenWidth / 2) + 100;
+                    NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
                     NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
                     NewOrder.ShowDialog();
                 }
@@ -551,7 +551,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             WinNsiGrDetailing NewNsi = new WinNsiGrDetailing();
-            NewNsi.Left = (MainWindow.ScreenWidth / 2);
+            NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
             NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewNsi.ShowDialog();
         }

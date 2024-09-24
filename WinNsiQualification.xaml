@@ -9,16 +9,16 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext ="{d:DesignInstance Type=local:ViewModelNsiQualification}"
         mc:Ignorable="d"
         Title="WinNsiQualification"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="680"  Width="370" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680"  Width="470" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiQualification/>
     </Window.DataContext>
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="340" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="440" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="320">
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="420">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="590" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
@@ -32,7 +32,7 @@
 
                 <ListBox Grid.Row="2" Name="TablQualification" ItemsSource="{Binding NsiModelQualifications}" VerticalAlignment="Top"
                     SelectedItem ="{Binding SelectedQualification}" Height="490" Background="#FFE2E2DD"
-                    Width="300" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    Width="400" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">
@@ -41,7 +41,7 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=nameQualification}"  Width="280" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=nameQualification}"  Width="380" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

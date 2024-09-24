@@ -132,7 +132,7 @@ namespace BackSeam
             WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
             MedZaklad.ShowDialog();
             EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
-
+            WindowProfilDoctor.CabinetNameMedZaklad.Text = ReceptionLIkarGuest.Likart9.Text.ToString();
 
             if (EdrpouMedZaklad != "")
             {
@@ -153,7 +153,7 @@ namespace BackSeam
                     _kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
                     ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
                     WindowProfilDoctor.ReceptionPacientTablGrid.ItemsSource = ViewReceptionPacients;
-                    WindowIntevLikar.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text;
+                    LikarAppointments.CabinetNameMedZaklad.Text = ReceptionLIkarGuest.Likart9.Text.ToString();
                     LikarAppointments.CabinetReseptionLikar.Text = modelColectionInterview.nameDoctor;
                     ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
                     LikarAppointments.CabinetReseptionPacientTablGrid.ItemsSource = ViewLikarAppointments;
