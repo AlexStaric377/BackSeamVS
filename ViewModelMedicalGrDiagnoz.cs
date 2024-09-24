@@ -121,10 +121,12 @@ namespace BackSeam
                   {
                         MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                         Windowmain.Diagnozt1.Text = "";
+                        MapOpisViewModel.ActCompletedInterview = "NameGrDiagnoz";
                         WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
                         NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
                         NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                         NewOrder.ShowDialog();
+                      MapOpisViewModel.ActCompletedInterview = "";
                         if (Windowmain.Diagnozt1.Text != null)
                         { 
                                 

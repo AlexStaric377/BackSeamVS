@@ -298,6 +298,7 @@ namespace BackSeam
 
         private void ComandAddLoadGrMkxMkx()
         {
+            MapOpisViewModel.GrupDiagnoz = "";
             WinNsiIcd NewOrder = new WinNsiIcd();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;

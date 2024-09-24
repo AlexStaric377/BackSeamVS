@@ -146,7 +146,20 @@ namespace BackSeam
                       MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                       if (SelectedViewGrupDiagnoz != null)
                       {
-                          Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.icdGrDiagnoz;
+                          switch (MapOpisViewModel.ActCompletedInterview)
+                          {
+                              case "IcdGrDiagnoz":
+                                  Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.icdGrDiagnoz;
+                                  break;
+                              case "NameGrDiagnoz":
+                                  Windowmain.Diagnozt1.Text = selectedViewGrupDiagnoz.nameGrDiagnoz;
+                                  break;
+                              default:
+                                  
+                                  break;
+
+                          }
+ 
                           WindowNsiGrDiag.Close();
                       }
 

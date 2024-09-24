@@ -350,16 +350,17 @@ namespace BackSeam
 
         private void AddComandAddLoadGrDiagnoz()
         {
-            
+            MapOpisViewModel.ActCompletedInterview = "NameGrDiagnoz";
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
+            MapOpisViewModel.ActCompletedInterview = "";
             if (WindowMen.Diagnozt1.Text.Length != 0)
             { 
                if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();
                selectedDiagnoz.icdGrDiagnoz= WindowMen.Diagnozt1.Text;
-                GrupDiagnoz = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
+                GrupDiagnoz = WindowMen.Diagnozt1.Text;
             }
  
 
@@ -418,14 +419,14 @@ namespace BackSeam
                         selectedDiagnoz = ViewDiagnozs[WindowMen.DiagnozTablGrid.SelectedIndex];
                         if (loadGrupDiagnoz == false && addboolGrDiagnoz == false)
                         {
-
+                            MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";
                             SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
                             SelectedViewDiagnoz = new ModelDiagnoz();
                             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
                             NewOrder.Left = (MainWindow.ScreenWidth / 2);
                             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                             NewOrder.ShowDialog();
-
+                            MapOpisViewModel.ActCompletedInterview = "";
                         }
                         else
                         { 
