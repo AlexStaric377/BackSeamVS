@@ -230,7 +230,7 @@ namespace BackSeam
             {
                 if (ViewWorkDiagnozs != null)
                 {
-                    if (WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex >= 0)
+                    if (WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex >= 0 && ViewWorkDiagnozs.Count>0)
                     {
                         selectedWorkDiagnoz = ViewWorkDiagnozs[WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex];
                         if (loadWorkGrupDiagnoz == false)

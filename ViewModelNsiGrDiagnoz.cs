@@ -103,7 +103,7 @@ namespace BackSeam
                       Windowmain.Diagnozt1.Text = "";
                       WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
 
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2)+100;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2);
                       NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
  

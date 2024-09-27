@@ -432,7 +432,7 @@ namespace BackSeam
                           MapOpisViewModel.ActCompletedInterview = "";
                           if (MapOpisViewModel.nameFeature3 == "") return;
                           GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                          string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
+                          string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                           CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
@@ -550,7 +550,7 @@ namespace BackSeam
                 
                 if (selectedViewDetailingFeature.keyFeature != "")
                 { 
-                    string json = featurecontroller + selectedViewDetailingFeature.keyFeature+"/0";
+                    string json = featurecontroller + selectedViewDetailingFeature.keyFeature+"/0/0";
                     CallServer.PostServer(featurecontroller, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     if (CallServer.ResponseFromServer.Length != 0)

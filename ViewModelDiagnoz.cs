@@ -500,7 +500,8 @@ namespace BackSeam
         private void ComandFindNameGrDiagnoz()
         {
             if (CheckStatusUser() == false) return;
-            SelectActivGrupDiagnoz = "GrupDiagnoz";
+            //SelectActivGrupDiagnoz = "GrupDiagnoz";  //   
+            ActCompletedInterview = "IcdGrDiagnoz";
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
@@ -512,10 +513,16 @@ namespace BackSeam
                 string jason = controlerViewDiagnoz + "0/" + WindowMen.Diagnozt1.Text + "/0";
                 CallServer.PostServer(controlerViewDiagnoz, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                if (CmdStroka.Contains("[]"))
+                { 
+                    ViewDiagnozs = new ObservableCollection<ModelDiagnoz>();
+                    WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; 
+                    CallServer.BoolFalseTabl();
+                }
                 else ObservableViewDiagnoz(CmdStroka);
             }
-            SelectActivGrupDiagnoz = "";
+
+            ActCompletedInterview = "";
         }
 
         #endregion
