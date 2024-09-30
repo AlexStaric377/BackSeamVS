@@ -29,7 +29,11 @@
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Міжнародна класифікація хвороб " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
                 <TextBox Name="PoiskIcd" Grid.Row="1" Text="" FontSize="14" BorderThickness="0,0,0,0" Margin="5,0,35,0" 
-                         FontFamily="Microsoft Sans Serif" />
+                         FontFamily="Microsoft Sans Serif" >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding CheckKeyText}" />
+                    </TextBox.InputBindings>
+                </TextBox>
 
                 <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,0,0"
                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >

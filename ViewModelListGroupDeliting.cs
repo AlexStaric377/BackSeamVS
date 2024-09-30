@@ -361,20 +361,39 @@ namespace BackSeam
                 return searchGrDetailing ??
                   (searchGrDetailing = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
-                        {
-                            string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
-                            CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");
-                            string CmdStroka = CallServer.ServerReturn();
-                            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                            else ObservableListViewGroupDeliting(CmdStroka);
-                        }
- 
+                      MetodDetailingEnter();
+
                   }));
             }
         }
 
+        
+
+       RelayCommand? checkKeyTextDetailing;
+        public RelayCommand CheckKeyTextDetailing
+        {
+            get
+            {
+                return checkKeyTextDetailing ??
+                  (checkKeyTextDetailing = new RelayCommand(obj =>
+                  {
+                      MetodDetailingEnter();
+                  }));
+            }
+        }
+        public void MetodDetailingEnter()
+        {
+
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskGrDetailing.Text.Trim() != "")
+            {
+                string jason = pathcontrolerListGrDet + "0/" + WindowMen.PoiskGrDetailing.Text;
+                CallServer.PostServer(pathcontrolerListGrDet, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableListViewGroupDeliting(CmdStroka);
+            }
+        }
         #endregion
         #endregion
     }

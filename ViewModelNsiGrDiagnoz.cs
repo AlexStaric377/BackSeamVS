@@ -121,14 +121,7 @@ namespace BackSeam
                 return searchGrDiagnoz ??
                   (searchGrDiagnoz = new RelayCommand(obj =>
                   {
-                      WinNsiListGrDiagnoz WindowNsiGrDiag = MainWindow.LinkMainWindow("WinNsiListGrDiagnoz");
-                      string jason = controlerGrDiagnoz + "0/" + WindowNsiGrDiag.PoiskGrDiagnoz.Text;
-                      CallServer.PostServer(controlerGrDiagnoz, jason, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                      else ObservableViewGrDiagnoz(CmdStroka);
-                      WindowNsiGrDiag.TablGrupDiagnozs.ItemsSource = ViewGrupDiagnozs;
-
+                      MetodGrupDiagnozEnter();
                   }));
             }
         }
@@ -165,6 +158,30 @@ namespace BackSeam
 
                   }));
             }
+        }
+
+        RelayCommand? checkKeyText;
+        public RelayCommand CheckKeyText
+        {
+            get
+            {
+                return checkKeyText ??
+                  (checkKeyText = new RelayCommand(obj =>
+                  {
+                      MetodGrupDiagnozEnter();
+                  }));
+            }
+        }
+        public void MetodGrupDiagnozEnter()
+        {
+
+            WinNsiListGrDiagnoz WindowNsiGrDiag = MainWindow.LinkMainWindow("WinNsiListGrDiagnoz");
+            string jason = controlerGrDiagnoz + "0/" + WindowNsiGrDiag.PoiskGrDiagnoz.Text;
+            CallServer.PostServer(controlerGrDiagnoz, jason, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            else ObservableViewGrDiagnoz(CmdStroka);
+            WindowNsiGrDiag.TablGrupDiagnozs.ItemsSource = ViewGrupDiagnozs;
         }
 
     }

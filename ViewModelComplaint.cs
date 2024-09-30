@@ -363,18 +363,35 @@ namespace BackSeam
                 return searchSimptom ??
                   (searchSimptom = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskSimptom.Text.Trim() == "") return;
-                      string jason = pathComplaint + "0/" + WindowMen.PoiskSimptom.Text;
-                      CallServer.PostServer(pathComplaint, jason, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                      else ObservableViewComplaints(CmdStroka);
-  
+                      MetodSimptomEnter();
                   }));
             }
         }
 
+        
+       RelayCommand? checkKeyTextSimptom;
+        public RelayCommand CheckKeyTextSimptom
+        {
+            get
+            {
+                return checkKeyTextSimptom ??
+                  (checkKeyTextSimptom = new RelayCommand(obj =>
+                  {
+                      MetodSimptomEnter();
+                  }));
+            }
+        }
+        public void MetodSimptomEnter()
+        {
+
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskSimptom.Text.Trim() == "") return;
+            string jason = pathComplaint + "0/" + WindowMen.PoiskSimptom.Text;
+            CallServer.PostServer(pathComplaint, jason, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            else ObservableViewComplaints(CmdStroka);
+        }
         #endregion
         #endregion
     }

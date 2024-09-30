@@ -26,7 +26,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public class ViewModelNsiComplaint : BaseViewModel
     {
-        
+        private NsiComplaint WindowMen = MainWindow.LinkMainWindow("NsiComplaint");
         public static string pathComplaint =  "/api/ApiControllerComplaint/";
         public  static ModelComplaint selectedComplaint;
         public static ObservableCollection<ModelComplaint> NsiComplaints { get; set; }
@@ -77,14 +77,7 @@ namespace BackSeam
                 return searchComplaint ??
                   (searchComplaint = new RelayCommand(obj =>
                   {
-                      NsiComplaint WindowMen = MainWindow.LinkMainWindow("NsiComplaint");
-                      string jason = pathComplaint + "0/" + WindowMen.PoiskComplaints.Text;
-                      CallServer.PostServer(pathComplaint, jason, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                      else ObservableViewComplaints(CmdStroka);
-                      WindowMen.TablComplaints.ItemsSource = NsiComplaints;
-
+                      MetodComplaintEnter();
                   }));
             }
         }
@@ -147,7 +140,31 @@ namespace BackSeam
             }
         }
 
-        
+        RelayCommand? checkKeyText;
+        public RelayCommand CheckKeyText
+        {
+            get
+            {
+                return checkKeyText ??
+                  (checkKeyText = new RelayCommand(obj =>
+                  {
+                      MetodComplaintEnter();
+                  }));
+            }
+        }
+        public void MetodComplaintEnter()
+        {
+
+            if (WindowMen.PoiskComplaints.Text.Trim() != "")
+            {
+                string jason = pathComplaint + "0/" + WindowMen.PoiskComplaints.Text;
+                CallServer.PostServer(pathComplaint, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewComplaints(CmdStroka);
+                WindowMen.TablComplaints.ItemsSource = NsiComplaints;
+            }
+        }
 
     }
 }

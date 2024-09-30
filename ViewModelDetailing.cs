@@ -316,7 +316,7 @@ namespace BackSeam
                               json = CallServer.ResponseFromServer;
                               if (GrFeatureDetailing != "")
                               {
-                                  string grjason = pathcontrolerDetailing + "0/" + GrFeatureDetailing;
+                                  string grjason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                                   CallServer.PostServer(pathcontrolerDetailing, grjason, "GETID");
                                   string CmdStroka = CallServer.ServerReturn();
                                   ObservableViewDetailings(CmdStroka);                             
@@ -330,7 +330,7 @@ namespace BackSeam
                       WindowDetailing.Detailingt2.Text = "";
                       //WindowDetailing.Detailingt3.Text = "";
                       WindowDetailing.Detailingt4.Text = "";
-                      WindowDetailing .DetailingTablGrid.SelectedItem = null;
+                      //WindowDetailing .DetailingTablGrid.SelectedItem = null;
                       BoolFalseDetailing();
                       IndexAddEdit = "";
 

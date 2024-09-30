@@ -40,7 +40,7 @@ namespace BackSeam
         // конструктор класса
         public ViewModelResultInterview()
         {
-            CallServer.PostServer(pathcontroller, pathcontroller + MapOpisViewModel.modelColectionInterview.kodProtokola + "/0/0", "GETID");
+            CallServer.PostServer(pathcontroller, pathcontroller + MapOpisViewModel.modelColectionInterview.kodProtokola + "/0/0/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]") == false)
             {
@@ -130,8 +130,8 @@ namespace BackSeam
                       MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola ;
                       
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 130;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
 
                   }));

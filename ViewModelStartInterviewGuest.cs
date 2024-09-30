@@ -473,7 +473,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             NsiComplaint NewOrder = new NsiComplaint();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-90;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; 
             NewOrder.ShowDialog();
             IndikatorSelected = "NsiComplaint";
@@ -509,7 +509,7 @@ namespace BackSeam
                 if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
                 { 
                     NsiDetailing NewNsi = new NsiDetailing();
-                    NewNsi.Left = (MainWindow.ScreenWidth / 2)-150;
+                    NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
                     NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                     NewNsi.ShowDialog();            
                

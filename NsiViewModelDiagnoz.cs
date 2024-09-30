@@ -127,17 +127,35 @@ namespace BackSeam
                 return searchDiagnoz ??
                   (searchDiagnoz = new RelayCommand(obj =>
                   {
-                      if (WindowNsiListUri.PoiskDiagnoz.Text.Trim() != "")
-                      {
-                          string jason = controlerNsiDiagnoz + "0/0/" + WindowNsiListUri.PoiskDiagnoz.Text;
-                          CallServer.PostServer(controlerNsiDiagnoz, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewNsiDiagnoz(CmdStroka);
-                          WindowNsiListUri.TablFeature.ItemsSource = VeiwDiagnozs;
-                      }
-
+                      MetodEnter();
                   }));
+            }
+        }
+
+        RelayCommand? checkKeyText;
+        public RelayCommand CheckKeyText
+        {
+            get
+            {
+                return checkKeyText ??
+                  (checkKeyText = new RelayCommand(obj =>
+                  {
+                        MetodEnter();
+                  }));
+            }
+        }
+
+        public void MetodEnter()
+        {
+
+            if (WindowNsiListUri.PoiskDiagnoz.Text.Trim() != "")
+            {
+                string jason = controlerNsiDiagnoz + "0/0/" + WindowNsiListUri.PoiskDiagnoz.Text;
+                CallServer.PostServer(controlerNsiDiagnoz, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewNsiDiagnoz(CmdStroka);
+                WindowNsiListUri.TablFeature.ItemsSource = VeiwDiagnozs;
             }
         }
 

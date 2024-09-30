@@ -26,7 +26,7 @@ namespace BackSeam
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-        //public static WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
+        private WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
         public static string controlerNsiIcd =  "/api/IcdController/";
         private ModelIcd selectedVeiwIcd;
         public static ObservableCollection<ModelIcd> VeiwIcds { get; set; }
@@ -36,22 +36,11 @@ namespace BackSeam
         // конструктор класса
         public VeiwModelNsiIcd()
         {
-
-            if (MapOpisViewModel.GrupDiagnoz == "")
-            {
-                CallServer.PostServer(controlerNsiIcd, controlerNsiIcd, "GET");
-            }
-            else
-            {
-                CallServer.PostServer(controlerNsiIcd, controlerNsiIcd + "0/"+ MapOpisViewModel.GrupDiagnoz, "GETID");
-            }
-               
-                
+            if (MapOpisViewModel.GrupDiagnoz == "") CallServer.PostServer(controlerNsiIcd, controlerNsiIcd, "GET");
+            else CallServer.PostServer(controlerNsiIcd, controlerNsiIcd + "0/"+ MapOpisViewModel.GrupDiagnoz, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewNsiIcd(CmdStroka);
-
-
         }
 
         public static void ObservableViewNsiIcd(string CmdStroka)
@@ -59,7 +48,6 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
             List<ModelIcd> res = result.ModelIcd.ToList();
             VeiwIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
-            
         }
 
         // команда закрытия окна
@@ -71,7 +59,6 @@ namespace BackSeam
                 return closeVeiwIcd ??
                   (closeVeiwIcd = new RelayCommand(obj =>
                   {
-                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
                       MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                       if (SelectedVeiwIcd != null)
                       {
@@ -94,22 +81,10 @@ namespace BackSeam
                 return searchIcd ??
                   (searchIcd = new RelayCommand(obj =>
                   {
-                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
-                      if (WindowNsiIcdUri.PoiskIcd.Text.Trim() != "")
-                      {
-                          string jason = controlerNsiIcd + "0/" + WindowNsiIcdUri.PoiskIcd.Text;
-                          CallServer.PostServer(controlerNsiIcd, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewNsiIcd(CmdStroka);
-                          WindowNsiIcdUri.TablFeature.ItemsSource = VeiwIcds;
-                      }
-
+                      MetodIcdEnter();
                   }));
             }
         }
-
-        
 
         // команда закрытия окна
         RelayCommand? selectIcdDiagnoz;
@@ -120,7 +95,6 @@ namespace BackSeam
                 return selectIcdDiagnoz ??
                   (selectIcdDiagnoz = new RelayCommand(obj =>
                   {
-                      WinNsiIcd WindowNsiIcdUri = MainWindow.LinkMainWindow("WinNsiIcd");
                       MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
                       if (selectedVeiwIcd != null)
                       {
@@ -131,6 +105,32 @@ namespace BackSeam
                       }
                       
                   }));
+            }
+        }
+
+        RelayCommand? checkKeyText;
+        public RelayCommand CheckKeyText
+        {
+            get
+            {
+                return checkKeyText ??
+                  (checkKeyText = new RelayCommand(obj =>
+                  {
+                      MetodIcdEnter();
+                  }));
+            }
+        }
+        public void MetodIcdEnter()
+        {
+
+            if (WindowNsiIcdUri.PoiskIcd.Text.Trim() != "")
+            {
+                string jason = controlerNsiIcd + "0/" + WindowNsiIcdUri.PoiskIcd.Text;
+                CallServer.PostServer(controlerNsiIcd, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewNsiIcd(CmdStroka);
+                WindowNsiIcdUri.TablFeature.ItemsSource = VeiwIcds;
             }
         }
     }

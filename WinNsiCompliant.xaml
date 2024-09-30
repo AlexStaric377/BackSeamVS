@@ -39,7 +39,11 @@
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Як і де проявляється нездужання у вашому організмі" Grid.Row="0" Foreground="#FF4607A0" FontSize="14"  FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Left"  />
                 <TextBox Name="PoiskComplaints" Grid.Row="1" Width="470" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="5,0,0,0" 
-                         FontFamily="Microsoft Sans Serif" />
+                         FontFamily="Microsoft Sans Serif"  >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding CheckKeyText}" />
+                    </TextBox.InputBindings>
+                </TextBox>
 
                 <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Center" Margin="0,0,5,0"
                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >

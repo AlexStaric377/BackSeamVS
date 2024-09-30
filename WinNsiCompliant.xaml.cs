@@ -27,7 +27,7 @@ namespace BackSeam
         public NsiComplaint()
         {
             InitializeComponent();
-            //DataContext = new ViewModelNsiComplaint();
         }
+
     }
 }

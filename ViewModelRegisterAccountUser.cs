@@ -350,7 +350,7 @@ namespace BackSeam
     {
         public static void CheckKeyUpIdCard(TextBox SetTextBox, int IdLengh)
         {
-
+          
             if (SetTextBox.Text.Length >= (IdLengh + 1)) SetTextBox.Text = SetTextBox.Text.Substring(0, IdLengh); ;
 
             for (int indPoint = 1; indPoint <= SetTextBox.Text.Length; indPoint++)
