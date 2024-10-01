@@ -25,7 +25,7 @@ namespace BackSeam
         public WinRegisterAccountUser()
         {
             InitializeComponent();
-			KodCountry.SelectedIndex = 0;
+			//KodCountry.SelectedIndex = 0;
             StatusUser.Content = MapOpisViewModel.RegStatusUser;
         }
     }

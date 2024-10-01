@@ -49,7 +49,7 @@ namespace BackSeam
                 return methodLoadReceptionPacient ??
                   (methodLoadReceptionPacient = new RelayCommand(obj =>
                   {
-                      if (RegUserStatus != "3") if (CheckStatusUser() == false) return;
+                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
                       if (_pacientProfil == "") { MethodLoadPacientProfil(); }
                       LoadReceptionPacients(); }));
             }
@@ -99,7 +99,7 @@ namespace BackSeam
 
         public static void MethodReceptionDoctor(ModelRegistrationAppointment colectionInterview)
         {
-            var json = DoctorcontrollerIntev + colectionInterview.kodDoctor.ToString() + "/0";
+            var json = DoctorcontrollerIntev + colectionInterview.kodDoctor.ToString() + "/0/0";
             CallServer.PostServer(DoctorcontrollerIntev, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") == false)
             {
@@ -127,7 +127,7 @@ namespace BackSeam
 
         public static void MethodReceptionProtokol(ModelRegistrationAppointment colectionInterview)
         {
-            var json = ProtocolcontrollerIntevLikar + "0/" + colectionInterview.kodProtokola.ToString();
+            var json = ProtocolcontrollerIntevLikar + "0/" + colectionInterview.kodProtokola.ToString() + "/0";
             CallServer.PostServer(ProtocolcontrollerIntevLikar, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") == false)
             {
@@ -135,7 +135,7 @@ namespace BackSeam
                 ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
                 if (Insert != null)
                 {
-                    json = DiagnozcontrollerIntevLikar + Insert.kodDiagnoz.ToString() + "/0";
+                    json = DiagnozcontrollerIntevLikar + Insert.kodDiagnoz.ToString() + "/0/0";
                     CallServer.PostServer(DiagnozcontrollerIntevLikar, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -144,7 +144,7 @@ namespace BackSeam
                         modelColectionInterview.nameDiagnoz = Insert1.nameDiagnoza;
                     }
 
-                    json = RecomencontrollerIntevLikar + Insert.kodRecommend.ToString();
+                    json = RecomencontrollerIntevLikar + Insert.kodRecommend.ToString() + "/0";
                     CallServer.PostServer(RecomencontrollerIntevLikar, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -165,7 +165,10 @@ namespace BackSeam
             {
                 return addReceptionPacient ??
                   (addReceptionPacient = new RelayCommand(obj =>
-                  { if (RegUserStatus != "2") if (CheckStatusUser() == false) return; MethodAddReceptionPacient(); }));
+                  { if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
+                      if (_pacientProfil == "") { MethodLoadPacientProfil(); }
+                      MethodAddReceptionPacient();
+                  }));
             }
         }
         public void MethodAddReceptionPacient()
@@ -264,7 +267,7 @@ namespace BackSeam
                         string json = pathcontrollerAppointment + ViewRegistrAppoints[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex].id.ToString()+"/0/0";
                         CallServer.PostServer(pathcontrollerAppointment, json, "DELETE");
                         modelColectionInterview = ViewReceptionPatients[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex];
-                        
+                        selectRegistrationAppointment = ViewRegistrAppoints[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex];
 
                         json = pathcontrolerAdmissionPatients + modelColectionInterview.kodPacient.ToString() + "/" + modelColectionInterview.kodDoctor.ToString() + "/" + modelColectionInterview.kodComplInterv + "/0";
                         CallServer.PostServer(pathcontrolerAdmissionPatients, json, "GETID");
@@ -273,13 +276,15 @@ namespace BackSeam
                         {
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                             admissionPatient = JsonConvert.DeserializeObject<AdmissionPatient>(CallServer.ResponseFromServer);
-                            json = pathcontrolerAdmissionPatients + admissionPatient.id+"/0";
+                            json = pathcontrolerAdmissionPatients + admissionPatient.id+"/0/0";
                             CallServer.PostServer(pathcontrolerAdmissionPatients, json, "DELETE");
-                            CmdStroka = CallServer.ServerReturn();
-                            if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
+                            //CmdStroka = CallServer.ServerReturn();
+                            //if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
                         }
-                        
+                        ViewRegistrAppoints.Remove(selectRegistrationAppointment);
                         ViewReceptionPatients.Remove(modelColectionInterview);
+                        BildModelReceptionPatient();
+                        ReceptionLIkar.ReceptionLikarTablGrid.ItemsSource = ViewReceptionPatients;
                         modelColectionInterview = new  ModelColectionInterview();
                         BoolFalseAppointment();
                         IndexAddEdit = "";
@@ -456,7 +461,7 @@ namespace BackSeam
                 return reseptionPacientLikars ??
                   (reseptionPacientLikars = new RelayCommand(obj =>
                   {
-
+                      
                       WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
                       MedZaklad.ShowDialog();
 
@@ -493,6 +498,8 @@ namespace BackSeam
                           if (CmdStroka.Contains("[]") == false)
                           {
                               WinListInteviewPacient NewOrder = new WinListInteviewPacient();
+                              NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                              NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                               NewOrder.ShowDialog();
                               if (KodProtokola.Length != 0)
                               {
@@ -564,6 +571,8 @@ namespace BackSeam
                       }
 
                       WinVisitingDays NewOrder = new WinVisitingDays();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                       if (selectVisitingDays != null)
                       {

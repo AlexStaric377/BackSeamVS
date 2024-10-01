@@ -40,7 +40,7 @@ namespace BackSeam
         public ViewModelNsiMedZaklad()
         {
             string CmdStroka = "";
-            if (MapOpisViewModel.selectIcdGrDiagnoz != "" )
+            if (MapOpisViewModel.selectIcdGrDiagnoz != "" && MapOpisViewModel.selectIcdGrDiagnoz != null)
             {
 
                 NsiModelMedZaklads = new ObservableCollection<MedicalInstitution>();
