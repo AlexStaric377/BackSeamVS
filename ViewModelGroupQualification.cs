@@ -334,19 +334,40 @@ namespace BackSeam
                 return searchGrQualification ??
                   (searchGrQualification = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskGrQualification.Text.Trim() != "")
-                        {
-                            string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
-                            CallServer.PostServer(controlerGroupQualification, jason, "GETID");
-                            string CmdStroka = CallServer.ServerReturn();
-                            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                            else ObservableViewGroupQualification(CmdStroka);
-                        }
+                      MetodSearchGrQualification();
                   }));
             }
         }
 
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyTextQualification;
+        public RelayCommand CheckKeyTextQualification
+        {
+            get
+            {
+                return checkKeyTextQualification ??
+                  (checkKeyTextQualification = new RelayCommand(obj =>
+                  {
+                      MetodSearchGrQualification();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchGrQualification()
+        {
+
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskGrQualification.Text.Trim() != "")
+            {
+                string jason = controlerGroupQualification + "0/" + WindowMen.PoiskGrQualification.Text;
+                CallServer.PostServer(controlerGroupQualification, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewGroupQualification(CmdStroka);
+            }
+        }
         #endregion
         #endregion
 

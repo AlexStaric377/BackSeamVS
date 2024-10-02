@@ -114,17 +114,37 @@ namespace BackSeam
                 return searchGroupDelit ??
                   (searchGroupDelit = new RelayCommand(obj =>
                   {
-                      
-                      if (WindowMen.PoiskGroupDelit.Text.Trim() != "")
-                      {
-                          string jason = controlerListGrDetailing + "0/0/" + WindowMen.PoiskGroupDelit.Text;
-                          CallServer.PostServer(controlerListGrDetailing, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableListGrDetailing(CmdStroka);
-                          WindowMen.TablGrQualifications.ItemsSource = ViewListGrDetailings;
-                      }
+                      MetodKeyEnterGroupDelit();
                   }));
+            }
+        }
+
+        
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyEnterGroupDelit;
+        public RelayCommand CheckKeyEnterGroupDelit
+        {
+            get
+            {
+                return checkKeyEnterGroupDelit ??
+                  (checkKeyEnterGroupDelit = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterGroupDelit();
+                  }));
+            }
+        }
+
+        private void MetodKeyEnterGroupDelit()
+        {
+            if (WindowMen.PoiskGroupDelit.Text.Trim() != "")
+            {
+                string jason = controlerListGrDetailing + "0/" + WindowMen.PoiskGroupDelit.Text;
+                CallServer.PostServer(controlerListGrDetailing, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableListGrDetailing(CmdStroka);
+                WindowMen.TablGrQualifications.ItemsSource = ViewListGrDetailings;
             }
         }
 

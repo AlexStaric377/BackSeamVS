@@ -110,19 +110,36 @@ namespace BackSeam
                 return searchRecomen ??
                   (searchRecomen = new RelayCommand(obj =>
                   {
-                      if (WindowMen.PoiskRecomen.Text.Trim() != "")
-                      {
-                          string jason = pathcontrapirecom + "0/" + WindowMen.PoiskRecomen.Text;
-                          CallServer.PostServer(pathcontrapirecom, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableNsiModelRecommendation(CmdStroka);
-                          WindowMen.TablFeature.ItemsSource = NsiModelRecommendations;
-                      }
-
+                      MetodKeyEnterRecomen();
+                  }));
+            }
+        }
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyEnterRecomen;
+        public RelayCommand CheckKeyEnterRecomen
+        {
+            get
+            {
+                return checkKeyEnterRecomen ??
+                  (checkKeyEnterRecomen = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterRecomen();
                   }));
             }
         }
 
+        private void MetodKeyEnterRecomen()
+        {
+            if (WindowMen.PoiskRecomen.Text.Trim() != "")
+            {
+                string jason = pathcontrapirecom + "0/" + WindowMen.PoiskRecomen.Text;
+                CallServer.PostServer(pathcontrapirecom, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableNsiModelRecommendation(CmdStroka);
+                WindowMen.TablFeature.ItemsSource = NsiModelRecommendations;
+            }
+        }
     }
 }

@@ -275,19 +275,37 @@ namespace BackSeam
                 return sarchRecommendation ??
                   (sarchRecommendation = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowInterv.PoiskRecommendation.Text.Trim() != "")
-                      {
-                          string jason = controlerModelRecommendation + "0/" + WindowInterv.PoiskRecommendation.Text;
-                          CallServer.PostServer(controlerModelRecommendation, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableModelRecommendation(CmdStroka);
-                      }
+                      MetodKeyEnterRecommendation();
+                  }));
+            }
+        }
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyTextRecommendation;
+        public RelayCommand CheckKeyTextRecommendation
+        {
+            get
+            {
+                return checkKeyTextRecommendation ??
+                  (checkKeyTextRecommendation = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterRecommendation();
                   }));
             }
         }
 
+        private void MetodKeyEnterRecommendation()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowInterv.PoiskRecommendation.Text.Trim() != "")
+            {
+                string jason = controlerModelRecommendation + "0/" + WindowInterv.PoiskRecommendation.Text;
+                CallServer.PostServer(controlerModelRecommendation, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableModelRecommendation(CmdStroka);
+            }
+        }
     }
     #endregion
     #endregion

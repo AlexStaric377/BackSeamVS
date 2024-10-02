@@ -4627,8 +4627,6 @@
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва гурту кваліфікації " Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="190" HorizontalAlignment="Left"  />
-                                            <TextBox Name="PoiskGrQualification" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrQualification"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -4638,6 +4636,13 @@
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                             </Image>
+                                            <TextBox Name="PoiskGrQualification" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyTextQualification}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
+                                            
                                             <DataGrid x:Name="GrQualificationTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewGroupQualifications }" SelectedItem ="{Binding SelectedViewGroupQualification}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -5194,7 +5199,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва опитування" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  Margin="80,0,0,0"/>
                                             <TextBox Name="PoiskInterveiw" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyTextInterveiw}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5352,7 +5361,11 @@
                                                 </Grid.RowDefinitions>
                                                 <Label Content=" Назва рекомендації" Grid.Row="0" Height="30" Width="150" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="70,0,0,0" />
                                                 <TextBox Name="PoiskRecommendation" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" >
+                                                    <TextBox.InputBindings>
+                                                        <KeyBinding Key="Enter" Command="{Binding CheckKeyTextRecommendation}" />
+                                                    </TextBox.InputBindings>
+                                                </TextBox>
                                                 <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Recommendation"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 

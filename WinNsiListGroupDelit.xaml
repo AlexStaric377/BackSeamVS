@@ -30,8 +30,11 @@
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Гурти деталізацій " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
                 <TextBox Name="PoiskGroupDelit" Grid.Row="1" Width="520" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="45,0,0,0" 
-                         FontFamily="Microsoft Sans Serif" />
-
+                         FontFamily="Microsoft Sans Serif" >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding CheckKeyEnterGroupDelit}" />
+                    </TextBox.InputBindings>
+                </TextBox>
                 <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_GroupDelit"  VerticalAlignment="Center" Margin="0,0,5,0"
                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 

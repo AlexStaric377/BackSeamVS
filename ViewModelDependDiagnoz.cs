@@ -58,7 +58,7 @@ namespace BackSeam
             foreach (ModelDependency dependency in modelDependencies)
             {
                 selectedDependency = new ModelDependencyDiagnoz();
-                SelectDiagnozRecom(dependency);
+                if (dependency !=null) SelectDiagnozRecom(dependency);
                 ViewModelDependencys.Add(selectedDependency);
             }
             WindowMen.DependencyTablGrid.ItemsSource = ViewModelDependencys;

@@ -624,20 +624,38 @@ namespace BackSeam
                 return searchInterveiw ??
                   (searchInterveiw = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowInterv.PoiskInterveiw.Text.Trim() != "")
-                      { 
-                          string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;
-                          CallServer.PostServer(Interviewcontroller, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableModelInterview(CmdStroka);                     
-                      }
-
+                      MetodKeyEnterInterveiw();
                   }));
             }
         }
 
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyTextInterveiw;
+        public RelayCommand CheckKeyTextInterveiw
+        {
+            get
+            {
+                return checkKeyTextInterveiw ??
+                  (checkKeyTextInterveiw = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterInterveiw();
+                  }));
+            }
+        }
+
+        private void MetodKeyEnterInterveiw()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowInterv.PoiskInterveiw.Text.Trim() != "")
+            {
+                string jason = Interviewcontroller + "0/0/0/" + WindowInterv.PoiskInterveiw.Text;
+                CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableModelInterview(CmdStroka);
+            }
+        }
         #endregion
         #endregion
     }

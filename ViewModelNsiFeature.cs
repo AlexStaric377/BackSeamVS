@@ -163,17 +163,37 @@ namespace BackSeam
                 return searchNameFeature ??
                   (searchNameFeature = new RelayCommand(obj =>
                   {
-                      WinNsiFeature WindowWinNsiFeature = MainWindow.LinkMainWindow("WinNsiFeature");
-                      if (WindowWinNsiFeature.PoiskFeature.Text.Trim() != "")
-                      {
-                          string jason = pathFeatureController + "0/0/" + WindowWinNsiFeature.PoiskFeature.Text;
-                          CallServer.PostServer(pathFeatureController, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableNsiModelFeatures(CmdStroka);
-                          WindowWinNsiFeature.TablFeature.ItemsSource = NsiModelFeatures;
-                      }
+                      MetodKeyEnterFeature();
                   }));
+            }
+        }
+
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyEnterFeature;
+        public RelayCommand CheckKeyEnterFeature
+        {
+            get
+            {
+                return checkKeyEnterFeature ??
+                  (checkKeyEnterFeature = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterFeature();
+                  }));
+            }
+        }
+
+        private void MetodKeyEnterFeature()
+        {
+            WinNsiFeature WindowWinNsiFeature = MainWindow.LinkMainWindow("WinNsiFeature");
+            if (WindowWinNsiFeature.PoiskFeature.Text.Trim() != "")
+            {
+                string jason = pathFeatureController + "0/0/" + WindowWinNsiFeature.PoiskFeature.Text;
+                CallServer.PostServer(pathFeatureController, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableNsiModelFeatures(CmdStroka);
+                WindowWinNsiFeature.TablFeature.ItemsSource = NsiModelFeatures;
             }
         }
     }
