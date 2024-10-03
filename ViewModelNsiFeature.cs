@@ -86,6 +86,8 @@ namespace BackSeam
                           WindowMain.Featuret3.Text = selectedFeature.keyFeature.ToString() + ":    " + selectedFeature.name.ToString();
                           switch (MapOpisViewModel.ActCompletedInterview)
                           {
+                              case "Feature":
+                                  break;
                               case null:
                                   if (ViewModelCreatInterview.ContentIntervs != null) ViewModelCreatInterview.SelectContentCompl();
                                   break;
@@ -93,7 +95,6 @@ namespace BackSeam
                                   MapOpisViewModel.SelectContentCompleted();
                                   break;
                           }
-                          
                           if(MapOpisViewModel.CallViewDetailing == "ModelDetailing") WindowMen.Close();
                       }
                   }));

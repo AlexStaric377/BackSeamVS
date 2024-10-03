@@ -264,7 +264,7 @@ namespace BackSeam
                 return reseptionLikar ??
                   (reseptionLikar = new RelayCommand(obj =>
                   {
-
+                      MapOpisViewModel.ViewAnalogDiagnoz = true;
                       MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
                       if (MapOpisViewModel.ColectionInterviewIntevLikars == null) MapOpisViewModel.ColectionInterviewIntevLikars = new ObservableCollection<ModelColectionInterview>();
                       MapOpisViewModel.ColectionInterviewIntevLikars.Add(MapOpisViewModel.modelColectionInterview);

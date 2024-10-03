@@ -928,7 +928,7 @@ namespace BackSeam
             //MainWindow.MessageError = "Почекайте будьласка." + Environment.NewLine +
             // "Здійснюється формування попередньої діагностичної гіпотези " + Environment.NewLine + "та відповідних рекомендацій щодо подальших дій";
             //MapOpisViewModel.SelectedFalseLogin();
-
+            ViewAnalogDiagnoz = false;
             var json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/0/0";
             CallServer.PostServer(pathcontrolerInterview, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
@@ -980,14 +980,15 @@ namespace BackSeam
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         MapOpisViewModel.NameDiagnoz = Insert1.nameDiagnoza;
+                        selectIcdGrDiagnoz = Insert1.icdGrDiagnoz;
 
-                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString() + "/0";
+                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString() ;
                         CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
                         if (CallServer.ResponseFromServer.Contains("[]") == false)
                         {
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                             ModelGrupDiagnoz insertGrDiagnoz = JsonConvert.DeserializeObject<ModelGrupDiagnoz>(CallServer.ResponseFromServer);
-                            selectIcdGrDiagnoz = insertGrDiagnoz.nameGrDiagnoz;
+                            selectIcdGrDiagnoz = insertGrDiagnoz.icdGrDiagnoz;
                         }
                     }
 
@@ -1010,7 +1011,6 @@ namespace BackSeam
             if (NameDiagnoz.Length != 0)
             {
                 MapOpisViewModel.IndexAddEdit = "editCommand";
-                ViewAnalogDiagnoz = true;
                 MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodComplInterv + "/0";
                 WinResultInterview NewResult = new WinResultInterview();
                 NewResult.ShowDialog();
@@ -1152,6 +1152,7 @@ namespace BackSeam
                 MapOpisViewModel.SelectedFalseLogin(4);
                 return;
             }
+            
             MainWindow.MessageError = "Увага!" + Environment.NewLine +
             "За результатами вашого опитування в базі знань знайдені " + Environment.NewLine +
             "визначення попереднього діагнозу. "; //+ Environment.NewLine +"Ви будете переглядати?"
@@ -1183,7 +1184,7 @@ namespace BackSeam
 
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
                 NewResult.ShowDialog();
-                //if (ViewAnalogDiagnoz == true) SelectReception();
+               
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)
                 {
                     SetContent();
