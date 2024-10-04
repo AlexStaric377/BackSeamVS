@@ -376,16 +376,58 @@ namespace BackSeam
                 return searchMedical ??
                   (searchMedical = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMedical.PoiskMedical.Text.Trim() != "")
-                      {
-                          string jason = controlerMedical + "0/0/" + WindowMedical.PoiskMedical.Text;
-                          CallServer.PostServer(controlerMedical, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableVeiwMedical(CmdStroka);
-                      }
+                      MetodSearchMedical();
+                  }));
+            }
+        }
 
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyMedical;
+        public RelayCommand CheckKeyMedical
+        {
+            get
+            {
+                return checkKeyMedical ??
+                  (checkKeyMedical = new RelayCommand(obj =>
+                  {
+                      MetodSearchMedical();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchMedical()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowMedical.PoiskMedical.Text.Trim() != "")
+            {
+                string jason = controlerMedical + "0/0/" + WindowMedical.PoiskMedical.Text;
+                CallServer.PostServer(controlerMedical, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableVeiwMedical(CmdStroka);
+            }
+        }
+
+
+
+        RelayCommand? checkMedicalPind;
+        public RelayCommand CheckMedicalPind
+        {
+            get
+            {
+                return checkMedicalPind ??
+                  (checkMedicalPind = new RelayCommand(obj =>
+                  {
+
+                      IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Medicalt4, 5);
+                      if (MapOpisViewModel.WindowMen.Medicalt4.Text.Length >= 4)
+                      {
+                          string jason = MapOpisViewModel.pathcontrolerSob + "0/0/0/" + MapOpisViewModel.WindowMen.Medicalt4.Text;
+                          CallServer.PostServer(MapOpisViewModel.pathcontrolerSob, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) MapOpisViewModel.InfoOfPind();
+                      }
                   }));
             }
         }

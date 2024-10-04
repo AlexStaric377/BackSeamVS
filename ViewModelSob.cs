@@ -179,7 +179,7 @@ namespace BackSeam
                   {
                       if (WindowSob.SobPind.Text.Trim().Length != 0 & WindowSob.Sobnamepunkt.Text.Trim().Length != 0)
                       {
-                          selectedSob.pind = Convert.ToInt32(WindowSob.SobPind.Text);
+                          selectedSob.pind = WindowSob.SobPind.Text;
                           selectedSob.nameObl = WindowSob.SobnameObl.Text;
                           selectedSob.nameRajon = WindowSob.SobnameRajon.Text;
                           selectedSob.namepunkt = WindowSob.Sobnamepunkt.Text;
@@ -261,18 +261,38 @@ namespace BackSeam
                 return searchSob ??
                   (searchSob = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowSob.PoiskSob.Text.Trim() != "")
-                      {
-                          string jason = pathcontrolerSob + "0/0/" + WindowSob.PoiskSob.Text;
-                          CallServer.PostServer(pathcontrolerSob, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewSob(CmdStroka);
-                      }
-
+                      MetodSearchSob();
                   }));
             }
+        }
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeySob;
+        public RelayCommand CheckKeySob
+        {
+            get
+            {
+                return checkKeySob ??
+                  (checkKeySob = new RelayCommand(obj =>
+                  {
+                      MetodSearchSob();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchSob()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowSob.PoiskSob.Text.Trim() != "")
+            {
+                string jason = pathcontrolerSob + "0/0/" + WindowSob.PoiskSob.Text + "/0";
+                CallServer.PostServer(pathcontrolerSob, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewSob(CmdStroka);
+            }
+
         }
     }
     #endregion

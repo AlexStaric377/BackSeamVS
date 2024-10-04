@@ -172,7 +172,7 @@ namespace BackSeam
                 return saveVeiwModelIcd ??
                   (saveVeiwModelIcd = new RelayCommand(obj =>
                   {
-                      ModelIcdfalse();
+                      
                       if (WindowMen.Icdt2.Text.Trim().Length != 0 & WindowMen.Icdt3.Text.Trim().Length != 0)
                       {
                           if (selectedIcd == null)
@@ -192,6 +192,7 @@ namespace BackSeam
                           MethodloadtabIcd();
 
                       }
+                      ModelIcdfalse();
                       IndexAddEdit = "";
                       SelectedModelIcd = new ModelIcd();
                       WindowMen.IcdTablGrid.SelectedItem = null;
@@ -290,19 +291,38 @@ namespace BackSeam
                 return searchIcd ??
                   (searchIcd = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskIcd.Text.Trim() != "")
-                      {
-                          string jason = controlerIcd + "0/" + WindowInterv.PoiskIcd.Text;
-                          CallServer.PostServer(controlerIcd, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableVeiwModelIcd(CmdStroka);
-                      }
+                      MetodSearchIcd();
                   }));
             }
         }
 
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyIcd;
+        public RelayCommand CheckKeyIcd
+        {
+            get
+            {
+                return checkKeyIcd ??
+                  (checkKeyIcd = new RelayCommand(obj =>
+                  {
+                      MetodSearchIcd();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchIcd()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskIcd.Text.Trim() != "")
+            {
+                string jason = controlerIcd + "0/" + WindowInterv.PoiskIcd.Text;
+                CallServer.PostServer(controlerIcd, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableVeiwModelIcd(CmdStroka);
+            }
+        }
         #endregion
         #endregion
 

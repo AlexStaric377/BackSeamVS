@@ -240,6 +240,7 @@ namespace BackSeam
                           if (IndexAddEdit == "addCommand")
                           {
                               selectedViewGrupDiagnoz.idUser = RegIdUser;
+                              selectedViewGrupDiagnoz.nameGrDiagnoz = WindowMen.GrDiagnozt2.Text;
                               json = JsonConvert.SerializeObject(selectedViewGrupDiagnoz);
                               CallServer.PostServer(controlerGrupDiagnoz, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -306,10 +307,22 @@ namespace BackSeam
             if (WindowMen.Diagnozt4.Text != "")
             {
 
+                string tmpkod = WindowMen.Diagnozt4.Text.Substring(0, WindowMen.Diagnozt4.Text.Length - 1);
+                string tmpkod1 = tmpkod.Substring(tmpkod.LastIndexOf(".") + 1, tmpkod.Length - tmpkod.LastIndexOf(".") - 1);
+                if (tmpkod.Length - tmpkod1.Length >= 3)
+                {
+                    WindowMen.GrDiagnozt1.Text = WindowMen.Diagnozt4.Text + "01.";
+                }
+                else
+                {
+                    int number = Convert.ToInt32(tmpkod.Substring(tmpkod.LastIndexOf(".") + 1, tmpkod.Length - tmpkod.LastIndexOf(".") - 1)) + 1;
+                    string addtext = number >= 10 ? Convert.ToString(number) : "0" + Convert.ToString(number) + ".";
+                    WindowMen.GrDiagnozt1.Text = tmpkod.Substring(0, tmpkod.LastIndexOf(".") + 1) + addtext;
+                }
+
                 if (selectedViewGrupDiagnoz == null) selectedViewGrupDiagnoz = new ModelGrupDiagnoz();
-                WindowMen.GrDiagnozt1.Text = WindowMen.Diagnozt4.Text;
                 WindowMen.GrDiagnozt2.Text = WindowMen.Diagnozt3.Text;
-                selectedViewGrupDiagnoz.icdGrDiagnoz = WindowMen.Diagnozt4.Text;
+                selectedViewGrupDiagnoz.icdGrDiagnoz = WindowMen.GrDiagnozt1.Text;
                 selectedViewGrupDiagnoz.nameGrDiagnoz = WindowMen.Diagnozt3.Text;
             }
  
@@ -328,18 +341,37 @@ namespace BackSeam
                 return searchGrDiagnoz ??
                   (searchGrDiagnoz = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
-                      { 
-                          string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;
-                          CallServer.PostServer(Interviewcontroller, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewGrupDiagnoz(CmdStroka);                     
-                      }
-
+                      MetodSearchGrDiagnoz();
                   }));
             }
+        }
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyGrDiagnoz;
+        public RelayCommand CheckKeyGrDiagnoz
+        {
+            get
+            {
+                return checkKeyGrDiagnoz ??
+                  (checkKeyGrDiagnoz = new RelayCommand(obj =>
+                  {
+                      MetodSearchGrDiagnoz();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchGrDiagnoz()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowGrupDiagnoz.PoiskGrDiagnoz.Text.Trim() != "")
+            {
+                string jason = controlerGrupDiagnoz + "0/" + WindowGrupDiagnoz.PoiskGrDiagnoz.Text;
+                CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewGrupDiagnoz(CmdStroka);
+            }
+
         }
     }
     #endregion

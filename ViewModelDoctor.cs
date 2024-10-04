@@ -630,19 +630,39 @@ namespace BackSeam
                 return searchDoctor ??
                   (searchDoctor = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowDoctor.PoiskDoctor.Text.Trim() != "")
-                      {
-                          string jason = pathcontrolerDoctor + "0/0/" + WindowDoctor.PoiskDoctor.Text;
-                          CallServer.PostServer(pathcontrolerDoctor, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewDoctors(CmdStroka);
-                      }
-
+                      MetodSearchDoctor();
                   }));
             }
 
+
+        }
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyDoctor;
+        public RelayCommand CheckKeyDoctor
+        {
+            get
+            {
+                return checkKeyDoctor ??
+                  (checkKeyDoctor = new RelayCommand(obj =>
+                  {
+                      MetodSearchDoctor();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchDoctor()
+        {
+            if (CheckStatusUser() == false) return;
+            if (WindowDoctor.PoiskDoctor.Text.Trim() != "")
+            {
+                string jason = pathcontrolerDoctor + "0/0/" + WindowDoctor.PoiskDoctor.Text;
+                CallServer.PostServer(pathcontrolerDoctor, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewDoctors(CmdStroka);
+            }
 
         }
         #endregion

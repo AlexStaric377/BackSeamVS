@@ -79,6 +79,13 @@ namespace BackSeam
                   (checkProfilPind = new RelayCommand(obj =>
                   {
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.PacientProfilt13, 5);
+                      if (MapOpisViewModel.WindowMen.PacientProfilt13.Text.Length >= 4)
+                      {
+                          string jason = MapOpisViewModel.pathcontrolerSob + "0/0/0/" + MapOpisViewModel.WindowMen.PacientProfilt13.Text;
+                          CallServer.PostServer(MapOpisViewModel.pathcontrolerSob, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) MapOpisViewModel.InfoOfPind(); 
+                      }
                   }));
             }
         }

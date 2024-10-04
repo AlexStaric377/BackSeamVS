@@ -126,10 +126,7 @@ namespace BackSeam
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         }
 
@@ -439,20 +436,41 @@ namespace BackSeam
                 return searchPacientT ??
                   (searchPacientT = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskPacientT.Text.Trim() != "")
-                      {
-                          string jason = pathcontrolerPacient + "0/0/0/" + WindowMen.PoiskPacientT.Text + "/0";
-                          CallServer.PostServer(pathcontrolerPacient, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewPacient(CmdStroka);
-                      }
-
+                      MetodSearchPacientT();
                   }));
             }
 
 
+        }
+
+        
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyPacientT;
+        public RelayCommand CheckKeyPacientT
+        {
+            get
+            {
+                return checkKeyPacientT ??
+                  (checkKeyPacientT = new RelayCommand(obj =>
+                  {
+                      MetodSearchPacientT();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchPacientT()
+        {
+
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskPacientT.Text.Trim() != "")
+            {
+                string jason = pathcontrolerPacient + "0/0/0/" + WindowMen.PoiskPacientT.Text + "/0";
+                CallServer.PostServer(pathcontrolerPacient, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewPacient(CmdStroka);
+            }
         }
         #endregion
         #endregion

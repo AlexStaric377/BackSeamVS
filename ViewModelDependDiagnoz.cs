@@ -398,20 +398,41 @@ namespace BackSeam
                 return searchDependency ??
                   (searchDependency = new RelayCommand(obj =>
                   {
-                      if (CheckStatusUser() == false) return;
-                      if (WindowMen.PoiskDependency.Text.Trim() != "")
-                      {
-                          string jason = pathcontrolerDependency + "0/0/" + WindowMen.PoiskDependency.Text;
-                          CallServer.PostServer(pathcontrolerDependency, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                          else ObservableViewModelDependency(CmdStroka);
-                      }
-
+                      MetodSearchDependency();
                   }));
             }
         }
 
+        
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyDependency;
+        public RelayCommand CheckKeyDependency
+        {
+            get
+            {
+                return checkKeyDependency ??
+                  (checkKeyDependency = new RelayCommand(obj =>
+                  {
+                      MetodSearchDependency();
+                  }));
+            }
+        }
+
+
+        private void MetodSearchDependency()
+        {
+
+            if (CheckStatusUser() == false) return;
+            if (WindowMen.PoiskDependency.Text.Trim() != "")
+            {
+                string jason = pathcontrolerDependency + "0/0/" + WindowMen.PoiskDependency.Text;
+                CallServer.PostServer(pathcontrolerDependency, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableViewModelDependency(CmdStroka);
+            }
+        }
         #endregion
         #endregion
     }

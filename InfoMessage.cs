@@ -222,6 +222,13 @@ namespace BackSeam
             SelectedWirning();
         }
 
+        public static void InfoOfPind()
+        {
+            MainWindow.MessageError = "Увага!" + Environment.NewLine +
+            "Шановний користувач,  введено не існуючий поштовий індекс. ";
+            SelectedWirning();
+        }
+
         public static void InfoEditZapis()
         {
             MainWindow.MessageError = "Увага!" + Environment.NewLine +

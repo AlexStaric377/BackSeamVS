@@ -69,7 +69,7 @@ namespace BackSeam
                         NameRajon = worksheet.Cell(row, 3).GetValue<string>(),
                         Namepunkt = worksheet.Cell(row, 4).GetValue<string>(),
                         Piple = worksheet.Cell(row, 5).GetValue<int>(),
-                        Pind = worksheet.Cell(row, 6).GetValue<int>(),
+                        Pind = worksheet.Cell(row, 6).GetValue<string>(),
                 };
                     
                  // И возвращаем его

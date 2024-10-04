@@ -38,7 +38,7 @@ namespace BackSeam
         public string NameRajon { get; set; }
         public string Namepunkt { get; set; }
         public int Piple { get; set; }
-        public int Pind { get; set; }
+        public string Pind { get; set; }
     }
 
     public class ViewModelSob : INotifyPropertyChanged
@@ -60,10 +60,10 @@ namespace BackSeam
         private string NameRajon;
         private string Namepunkt;
         private int Piple;
-        private int Pind;
+        private string Pind;
 
 
-        public ViewModelSob(int Id=0, string KodObl="", string NameObl="", string NameRajon="", string Namepunkt="", int Piple=0, int Pind=0)
+        public ViewModelSob(int Id=0, string KodObl="", string NameObl="", string NameRajon="", string Namepunkt="", int Piple=0, string Pind="")
         {
             this.KodObl = KodObl;
             this.Id = Id;
@@ -117,7 +117,7 @@ namespace BackSeam
         }
 
         [JsonProperty("pind")]
-        public int pind
+        public string pind
         {
             get { return Pind; }
             set { Pind = value; OnPropertyChanged("pind"); }

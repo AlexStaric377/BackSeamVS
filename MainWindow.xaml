@@ -5547,7 +5547,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва діагнозу" Grid.Row="0" Height="30" Width="150" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="70,0,0,0" />
                                             <TextBox Name="PoiskDependency" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyDependency}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Dependency"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -5686,7 +5690,7 @@
                                                         <Label Content="" Grid.Row="0" Margin="0,0,0,32" Grid.RowSpan="2" />
                                                         <TextBlock x:Name="GrDiagnozLab1" Grid.Row="1" Text=" Код напрямку"  FontSize="14" Height="28" Width="118" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Name="GrDiagnozt1" Text="{Binding Path=icdGrDiagnoz, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" VerticalAlignment="Center"
-                                                            Grid.Column="1" Grid.Row="1"  Background="White" Width="200" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Height="28"  />
+                                                            Grid.Column="1" Grid.Row="1"  Background="White" Width="300" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Height="28"  />
                                                         <Image x:Name="FolderGrMKX" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="400,0,0,0"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -5723,10 +5727,13 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва напрямку" Grid.Row="0" Height="30" Width="130" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="120,0,0,0" />
                                             <TextBox Name="PoiskGrDiagnoz" Grid.Row="0" Width="430" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyGrDiagnoz}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_GrDiagnoz"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
-
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeftButtonDown">
                                                         <i:InvokeCommandAction Command="{Binding SearchGrDiagnoz}" CommandParameter=""/>
@@ -5872,7 +5879,17 @@
                                                                 <ColumnDefinition Width ="95*" />
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock x:Name="MedicalLab4" Grid.Column="0"  Text="  Пошт.  индекс" TextWrapping="Wrap"  FontSize="14" Width="110" HorizontalAlignment="Left" />
-                                                            <TextBox Text="{Binding postIndex,UpdateSourceTrigger=PropertyChanged}" Name="Medicalt4" Grid.Column="1" FontSize="14" Height="30" Width="100"  Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" />
+                                                            <TextBox Text="{Binding postIndex,UpdateSourceTrigger=PropertyChanged}" Name="Medicalt4"  Grid.Column="1" FontSize="14" Height="30" Width="100"  Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" >
+                                                                <TextBox.InputBindings>
+                                                                    <KeyBinding Key="Enter" Command="{Binding CheckMedicalPind}" />
+                                                                </TextBox.InputBindings>
+                                                            </TextBox>
+                                                            <i:Interaction.Triggers>
+                                                                 <i:EventTrigger EventName="KeyUp">
+                                                                    <i:InvokeCommandAction Command="{Binding CheckMedicalPind}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                           
                                                         </Grid>
                                                         <Grid x:Name="MedicalGridUriWeb" Height="30" Grid.Column="0" Grid.Row="2" >
                                                             <Grid.ColumnDefinitions >
@@ -5972,7 +5989,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва медичного закладу" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
                                             <TextBox Name="PoiskMedical" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyMedical}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Medical"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -6274,7 +6295,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Прізвище лікаря" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
                                             <TextBox Name="PoiskDoctor" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyDoctor}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Doctor"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -6576,7 +6601,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Прізвище пацієнта" Grid.Row="0" Height="30" Width="200" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14" Margin="0,0,0,0" />
                                             <TextBox Name="PoiskPacientT" Grid.Row="0" Width="500" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyPacientT}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_PacientT"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -6769,7 +6798,11 @@
 
                                             <Label Content=" Назва хвороби" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                                             <TextBox Name="PoiskIcd" Grid.Row="0" Width="560" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyIcd}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Icd"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
@@ -7154,7 +7187,11 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Назва області" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="120" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                                             <TextBox Name="PoiskSob" Grid.Row="0" Width="560" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0" />
+                                                        FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeySob}" />
+                                                </TextBox.InputBindings>
+                                            </TextBox>
                                             <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Sob"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
