@@ -456,7 +456,7 @@ namespace BackSeam
                 return readColectionPatients ??
                   (readColectionPatients = new RelayCommand(obj =>
                   {
-                      if (selectedModelReceptionPatient.kodPacient.Contains("PCN") == true)
+                      if (selectedModelReceptionPatient != null) //kodPacient.Contains("PCN") == true
                       {
                           _pacientProfil = selectedModelReceptionPatient.kodPacient;
                           _readOnlyProfil = true;
@@ -516,6 +516,7 @@ namespace BackSeam
                               selectedReceptionPacient.dateInterview = selectedModelReceptionPatient.dateInterview;
                               selectedReceptionPacient.dateVizita = selectedModelReceptionPatient.dateVizita;
                               selectedReceptionPacient.topictVizita = selectedModelReceptionPatient.topictVizita;
+                              if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
                               ViewReceptionPacients.Add(selectedReceptionPacient); 
 
                           }
