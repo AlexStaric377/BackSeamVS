@@ -2426,7 +2426,7 @@
                                             </Grid.RowDefinitions>
                                             <Label Content=" Розклад прийому пацієнтів" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" Width="300" HorizontalAlignment="Right" Margin="0,0,330,0"/>
                                             <DataGrid x:Name="CabinetReseptionPacientTablGrid" Grid.Row="1"   Cursor="Hand"
-                                          ItemsSource="{Binding ViewLikarAppointments }" SelectedItem ="{Binding SelectedModelVisitingDays}"
+                                          ItemsSource="{Binding ViewLikarAppointments }" SelectedItem ="{Binding SelectedViewModelLikarAppointments}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="230"
                                           VerticalAlignment="Top"  Width="630" GridLinesVisibility="None"
                                           HorizontalGridLinesBrush="Black"   VerticalScrollBarVisibility="Auto">

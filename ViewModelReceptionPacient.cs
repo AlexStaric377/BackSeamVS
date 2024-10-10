@@ -107,7 +107,7 @@ namespace BackSeam
             selectedModelReceptionPatient.nameDiagnoz = "";
             selectedModelReceptionPatient.nameRecomen = "";
 
-            var json = Protocolcontroller + "0/" + colectionInterview.kodProtokola.ToString();
+            var json = Protocolcontroller + "0/" + colectionInterview.kodProtokola.ToString() + "/0";
             CallServer.PostServer(Protocolcontroller, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") == false)
             {
@@ -116,7 +116,7 @@ namespace BackSeam
                 if (Insert != null)
                 {
 
-                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString()+"/0";
+                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString()+"/0/0";
                     CallServer.PostServer(Diagnozcontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -127,7 +127,7 @@ namespace BackSeam
                     }
 
 
-                    json = Recomencontroller + Insert.kodRecommend.ToString();
+                    json = Recomencontroller + Insert.kodRecommend.ToString() + "/0";
                     CallServer.PostServer(Recomencontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -353,7 +353,7 @@ namespace BackSeam
                                   MessageWarning NewOrder = new MessageWarning(MainWindow.MessageError, 2, 10);
                                   return;
                               }
-                              if ((IndexAddEdit == "editCommand" && Method == "POST") || IndexAddEdit == "addCommand")
+                              if ((IndexAddEdit == "editCommand" ) || IndexAddEdit == "addCommand")
                               {
 
                                   json = JsonConvert.SerializeObject(selectedReceptionPacient);
@@ -386,7 +386,12 @@ namespace BackSeam
                                       json = JsonConvert.SerializeObject(selectedReceptionPacient);
                                       CallServer.PostServer(pathcontrolerAdmissionPatients, json, "PUT");
                                   }
-                              }                             
+                              }
+                              if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
+                              ViewReceptionPacients.Add(selectedReceptionPacient);
+                              if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
+                              ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
+                              WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
                           }
 
 
@@ -456,7 +461,7 @@ namespace BackSeam
                 return readColectionPatients ??
                   (readColectionPatients = new RelayCommand(obj =>
                   {
-                      if (selectedModelReceptionPatient != null) //kodPacient.Contains("PCN") == true
+                      if (selectedModelReceptionPatient != null && selectedModelReceptionPatient.kodPacient !="") //kodPacient.Contains("PCN") == true
                       {
                           _pacientProfil = selectedModelReceptionPatient.kodPacient;
                           _readOnlyProfil = true;
@@ -496,6 +501,7 @@ namespace BackSeam
                                   return;
                               }
                               WindowReceptionPacient.ReceptionPacient1.Text = MapOpisViewModel.DateInterview;
+                              selectedModelReceptionPatient.dateVizita = WindowReceptionPacient.ReceptionPacient4.Text;
                               selectedModelReceptionPatient.dateInterview = MapOpisViewModel.DateInterview;
                               selectedModelReceptionPatient.kodProtokola = MapOpisViewModel.KodProtokola;
                               selectedModelReceptionPatient.kodComplInterv = MapOpisViewModel.KodInterviewPacient;
@@ -504,9 +510,9 @@ namespace BackSeam
                               colectionInterview.kodProtokola = selectedModelReceptionPatient.kodProtokola;
                               MethodReceptionPacients(colectionInterview);
                               MethodProtokolaReception(colectionInterview);
-                              if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
-                              ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
-                              WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
+                              //if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
+                              //ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
+                              //WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
                               SelectedReceptionPacient = ViewModelReceptionPatients[ViewModelReceptionPatients.Count - 1];
                               if (selectedReceptionPacient == null) selectedReceptionPacient = new AdmissionPatient();
                               selectedReceptionPacient.kodComplInterv = selectedModelReceptionPatient.kodComplInterv;
@@ -516,8 +522,8 @@ namespace BackSeam
                               selectedReceptionPacient.dateInterview = selectedModelReceptionPatient.dateInterview;
                               selectedReceptionPacient.dateVizita = selectedModelReceptionPatient.dateVizita;
                               selectedReceptionPacient.topictVizita = selectedModelReceptionPatient.topictVizita;
-                              if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
-                              ViewReceptionPacients.Add(selectedReceptionPacient); 
+                              //if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
+                              //ViewReceptionPacients.Add(selectedReceptionPacient); 
 
                           }
                       }

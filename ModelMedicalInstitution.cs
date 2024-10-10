@@ -31,36 +31,7 @@ namespace BackSeam
 
     public class MedicalInstitution : BaseViewModel
     {
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-
-        //}
-        // команда закрытия окна
-        RelayCommand? checkMedicalPind;
-        public RelayCommand CheckMedicalPind
-        {
-            get
-            {
-                return checkMedicalPind ??
-                  (checkMedicalPind = new RelayCommand(obj =>
-                  {
-                      
-                      IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Medicalt4, 5);
-                      if (MapOpisViewModel.WindowMen.Medicalt4.Text.Length >= 4)
-                      {
-                          string jason = MapOpisViewModel.pathcontrolerSob + "0/0/0/" + MapOpisViewModel.WindowMen.Medicalt4.Text;
-                          CallServer.PostServer(MapOpisViewModel.pathcontrolerSob, jason, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) MapOpisViewModel.InfoOfPind();
-                      }
-                  }));
-            }
-        }
+  
 
         private int Id;
         private string Edrpou;

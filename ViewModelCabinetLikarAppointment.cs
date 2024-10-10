@@ -58,7 +58,7 @@ namespace BackSeam
 
                 if (modelLikarAppointments.kodDoctor != "")
                 {
-                    string json = pathcontrolerDoctor + modelLikarAppointments.kodDoctor.ToString() + "/0";
+                    string json = pathcontrolerDoctor + modelLikarAppointments.kodDoctor.ToString() + "/0/0";
                     CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelDoctor Idinsert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
@@ -66,7 +66,7 @@ namespace BackSeam
                     {
                         selectViewModelLikarAppointments.nameDoctor = Idinsert.name + Idinsert.telefon;
                         selectViewModelLikarAppointments.edrpou = Idinsert.edrpou;
-                        json = pathcontrolerMedZaklad + Idinsert.edrpou.ToString();
+                        json = pathcontrolerMedZaklad + Idinsert.edrpou.ToString() + "/0/0";
                         CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         MedicalInstitution Idzaklad = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -105,10 +105,10 @@ namespace BackSeam
         private void MethodLoadLikarAppointments()
         {
             if (_kodDoctor == "") { MetodLoadProfilLikar(); }
-            LikarAppointments.CabinetNameMedZaklad.Text = ReceptionLIkarGuest.Likart9.Text.ToString();
+            LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text.ToString();
             LikarAppointments.CabinetReseptionLikar.Text = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
                     LikarAppointments.CabinetReseptionPacientLab.Visibility = Visibility.Hidden;
-                    CallServer.PostServer(pathcontrolerVisitingDays, pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor+"/0", "GETID");
+                    CallServer.PostServer(pathcontrolerVisitingDays, pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor, "GETID");
                     string CmdStroka = CallServer.ServerReturn();
                     if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                     else ObservableModelLikarAppointments(CmdStroka);
@@ -150,16 +150,19 @@ namespace BackSeam
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
             selectModelLikarAppointments = new ModelVisitingDays();
             selectViewModelLikarAppointments = new ViewModelVisitingDays();
-            selectViewModelLikarAppointments.nameZaklad = LikarAppointments.Likart9.Text;
-            selectViewModelLikarAppointments.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
-            SelectedViewModelLikarAppointments = selectViewModelLikarAppointments;
+           
+            ;
             if (addboolLikarAppointments == false) BoolTrueLikarAppointments();
             else BoolFalseLikarAppointments();
-            LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
+            //LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
             LikarAppointments.CabinetDayoftheWeek.SelectedIndex = 0;
             LikarAppointments.CabinetTimeofDay.SelectedIndex = 0;
             LikarAppointments.CabinetComboBoxOnoff.SelectedIndex = 0;
-
+            LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text.ToString();
+            LikarAppointments.CabinetReseptionLikar.Text = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
+            selectViewModelLikarAppointments.nameZaklad = LikarAppointments.Likart9.Text;
+            selectViewModelLikarAppointments.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
+            SelectedViewModelLikarAppointments = selectViewModelLikarAppointments;
         }
 
 
@@ -233,10 +236,11 @@ namespace BackSeam
                               if (LikarAppointments.CabinetReseptionPacientTablGrid.SelectedIndex >= 0)
                               {
                                   int _indexremove = LikarAppointments.CabinetReseptionPacientTablGrid.SelectedIndex;
-                                  ViewLikarAppointments.Remove(ViewLikarAppointments[_indexremove]);
-                                  ViewModeLikarAppointments.Remove(ViewModeLikarAppointments[_indexremove]);
+                                  selectViewModelLikarAppointments = ViewModeLikarAppointments[_indexremove];                                
                                   string json = pathcontrolerLikarAppointments + selectViewModelLikarAppointments.id.ToString();
                                   CallServer.PostServer(pathcontrolerVisitingDays, json, "DELETE");
+                                  ViewLikarAppointments.Remove(ViewLikarAppointments[_indexremove]);
+                                  ViewModeLikarAppointments.Remove(ViewModeLikarAppointments[_indexremove]);
                                   LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
                                   selectViewModelLikarAppointments = new ViewModelVisitingDays();
                                   SelectedViewModelLikarAppointments = selectViewModelLikarAppointments;                            
@@ -284,6 +288,7 @@ namespace BackSeam
                           selectViewModelLikarAppointments.dateVizita = Idinsert.dateVizita;
                           selectViewModelLikarAppointments.timeVizita = Idinsert.timeVizita;
                           selectViewModelLikarAppointments.onOff = Idinsert.onOff;
+                          if (ViewModeLikarAppointments == null) ViewModeLikarAppointments = new ObservableCollection<ViewModelVisitingDays>();
                           ViewModeLikarAppointments.Add(selectViewModelLikarAppointments);
                           LikarAppointments.CabinetReseptionPacientTablGrid.ItemsSource = ViewLikarAppointments;
 
@@ -298,7 +303,6 @@ namespace BackSeam
                       }
                       UnloadCmdStroka("VisitingDays/", json);
                       BoolFalseLikarAppointments();
-                      LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
 
                   }));

@@ -244,7 +244,7 @@ namespace BackSeam
         public void SetAppointmentsNewDayWeek(string selected = "")
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-            WindowMen.CabinetReseptionPacient.Text = (selected == "0" ) ? WindowMen.CabinetReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
+            WindowMen.CabinetReseptionPacient.Text = (selected == "0" && WindowMen.CabinetReseptionPacient.Text!=null) ? WindowMen.CabinetReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
             selectedIndexAppointmentsDayWeek = selected;
         }
 
