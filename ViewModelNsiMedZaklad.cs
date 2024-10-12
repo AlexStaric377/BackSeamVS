@@ -128,16 +128,7 @@ namespace BackSeam
                 return closeModelMedZaklad ??
                   (closeModelMedZaklad = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiMedZaklad WindowMedZaklad = MainWindow.LinkMainWindow("WinNsiMedZaklad");
-                      if (selectedMedZaklad != null)
-                      {
-                          WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
-                          WindowMain.Likart8.Text = selectedMedZaklad.edrpou.ToString();
-                          WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
-                          WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
-                      }
-                      WindowMedZaklad.Close();
+                      MetodSelectMedzaklad();
                   }));
             }
         }
@@ -190,6 +181,34 @@ namespace BackSeam
 
                   }));
             }
+        }
+
+        
+
+        RelayCommand? selectMedzaklad;
+        public RelayCommand SelectMedzaklad
+        {
+            get
+            {
+                return selectMedzaklad ??
+                  (selectMedzaklad = new RelayCommand(obj =>
+                  {
+                      MetodSelectMedzaklad();
+                  }));
+            }
+        }
+
+        private void MetodSelectMedzaklad()
+        { 
+            MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+            if (selectedMedZaklad != null)
+            {
+                WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
+                WindowMain.Likart8.Text = selectedMedZaklad.edrpou.ToString();
+                WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
+                WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
+            }
+            WindowMedZaklad.Close();        
         }
 
     }

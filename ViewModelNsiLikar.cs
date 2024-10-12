@@ -137,19 +137,7 @@ namespace BackSeam
                 return viewUriWebProfilLikar ??
                   (viewUriWebProfilLikar = new RelayCommand(obj =>
                   {
-                      if (selectedLikar.uriwebDoctor != "")
-                      {
-                          string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-                          string System_path = System.IO.Path.GetPathRoot(System.Environment.SystemDirectory);
-                          string Puthgoogle = workingDirectory + @"\Google\Chrome\Application\chrome.exe";
-                          Process Rungoogle = new Process();
-                          Rungoogle.StartInfo.FileName = Puthgoogle;//C:\Program Files (x86)\Google\Chrome\Application\
-                          Rungoogle.StartInfo.Arguments = selectedLikar.uriwebDoctor;
-                          //Rungoogle.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.System);
-                          Rungoogle.StartInfo.UseShellExecute = false;
-                          Rungoogle.EnableRaisingEvents = true;
-                          Rungoogle.Start();
-                      }
+                      MetodSelectTablLikars();
                   }));
             }
         }
@@ -179,6 +167,40 @@ namespace BackSeam
             }
         }
 
+        
+
+        // команда выбора строки из списка жалоб
+        RelayCommand? selectTablLikars;
+        public RelayCommand SelectTablLikars
+        {
+            get
+            {
+                return selectTablLikars ??
+                  (selectTablLikars = new RelayCommand(obj =>
+                  {
+                      MetodSelectTablLikars();
+                  }));
+            }
+        }
+
+        private void MetodSelectTablLikars()
+        {
+            MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+            WindowMain.AccountUsert5.Text = "";
+            MapOpisViewModel.nameDoctor = "";
+            WindowMain.Intert2.Text = "";
+            if (selectedLikar != null)
+            {
+                MapOpisViewModel._kodDoctor = selectedLikar.kodDoctor.ToString();
+                MapOpisViewModel.nameDoctor = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString() + " " + selectedLikar.telefon.ToString();
+                WindowMain.Intert2.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString();
+                WindowMain.LikarIntert2.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString() + " " + selectedLikar.telefon.ToString();
+                WindowMain.AccountUsert5.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString();
+
+                if (MapOpisViewModel.CallViewProfilLikar == "ProfilLikar") MapOpisViewModel.selectedProfilLikar = selectedLikar;
+            }
+            WindowMen.Close();
+        }
     }
  
 }

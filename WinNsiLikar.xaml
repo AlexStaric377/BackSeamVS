@@ -47,7 +47,11 @@
                     SelectedItem ="{Binding SelectedLikar}" Height="250" Background="#FFE2E2DD"
                     Width="760" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablLikars, Path=DataContext.SelectTablLikars}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel x:Name="StackPanel"  Orientation="Horizontal" Margin="5" Height="20">

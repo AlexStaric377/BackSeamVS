@@ -190,7 +190,7 @@ namespace BackSeam
         }
 
 
-        public static List<string> DayWeeks { get; set; } = new List<string> { "Дні неділі","Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
+        public static List<string> DayWeeks { get; set; } = new List<string> { "Дні неділі", "Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
         public static string selectedIndexDayWeek = "0";
         private string _SelectedDayWeek;
         public string SelectedDayWeek
@@ -215,9 +215,38 @@ namespace BackSeam
         public void SetNewDayWeek(string selected = "")
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-            WindowMen.ReseptionPacient.Text = (selected == "0") ? WindowMen.ReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
+            WindowMen.CabinetReseptionPacient.Text = (selected == "0") ? WindowMen.CabinetReseptionPacient.Text : DayWeeks[Convert.ToInt32(selected)];
             selectedIndexDayWeek = selected;
         }
+
+        //public static List<string> DayWeeks { get; set; } = new List<string> { "Дні неділі","Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
+        //public static string selectedIndexDayWeek = "0";
+        //private string _SelectedDayWeek;
+        //public string SelectedDayWeek
+        //{
+        //    get => _SelectedDayWeek;
+        //    set
+        //    {
+        //        //// сохраняем старое значение
+        //        //var origValue = _SelectedUnit;
+
+        //        //меняем значение в обычном порядке
+        //        _SelectedDayWeek = value;
+        //        //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedDayWeek)));
+        //        //OnPropertyChanged(nameof(SelectedUnit));
+        //        //а здесь уже преобразуем изменившиеся значение
+        //        //в необходимое uint
+        //        SetNewDayWeek(_SelectedDayWeek);
+        //    }
+        //}
+
+        //public void SetNewDayWeek(string selected = "")
+        //{
+        //    MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
+        //    WindowMen.ReseptionPacient.Text = (selected == "0") ? WindowMen.ReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
+        //    selectedIndexDayWeek = selected;
+        //}
 
         public static List<string> AppointmentsDayWeeks { get; set; } = new List<string> { "Дні неділі", "Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
         public static string selectedIndexAppointmentsDayWeek = "0";
@@ -244,7 +273,7 @@ namespace BackSeam
         public void SetAppointmentsNewDayWeek(string selected = "")
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-            WindowMen.CabinetReseptionPacient.Text = (selected == "0" && WindowMen.CabinetReseptionPacient.Text!=null) ? WindowMen.CabinetReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
+            WindowMen.CabinetReseptionPacient.Text = AppointmentsDayWeeks[Convert.ToInt32(selected)]; // : WindowMen.CabinetReseptionPacient.Text; //(selected == "0" )&& WindowMen.CabinetReseptionPacient.Text!=null
             selectedIndexAppointmentsDayWeek = selected;
         }
 

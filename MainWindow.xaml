@@ -2127,7 +2127,7 @@
                                                         <TextBlock x:Name="ReceptionPacientLab2" Grid.Row="0" TextWrapping="Wrap"  Grid.Column="0" Height="30" Text="  Лікар"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox Text="" Name="ReceptionPacient2" Grid.Row="0" Grid.Column="1" FontSize="14" Height="30" Background="White" VerticalContentAlignment="Center" Width="370" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
                                                         <TextBlock x:Name="Receptionrozklad" Grid.Row="2" Grid.Column="1" Text="Розклад прийому"  FontSize="14" Height="22" Width="120" Margin="230,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"   />
-                                                        <Image x:Name="ReceptionrozkladFolder" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25" Height="24" Margin="360,0,0,0" Visibility="Visible"  >
+                                                        <Image x:Name="ReceptionrozkladFolder" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25" Height="24" Margin="360,0,0,0" Visibility="Visible" IsEnabled ="False" >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridCompletedInterview, Path=DataContext.RozkladPatientsLikar}" CommandParameter=""/>
@@ -2175,7 +2175,7 @@
                                                        HorizontalAlignment="Center" FontSize="16"  Grid.ColumnSpan="2" Margin="60,0,0,0"/>
 
                                                         <TextBlock x:Name="ReceptionPacientCompInterview" Grid.Row="4" Grid.Column="1" Text=" Зміст опитування"  FontSize="14" Height="22" Width="120" Margin="230,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"   />
-                                                        <Image x:Name="ReceptionPacientFoldInterv" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25" Height="24" Margin="360,0,0,0" Visibility="Visible"  >
+                                                        <Image x:Name="ReceptionPacientFoldInterv" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25" Height="24" Margin="360,0,0,0" Visibility="Visible" IsEnabled ="False" >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridCompletedInterview, Path=DataContext.ReadIntevPatients}" CommandParameter=""/>
@@ -2183,7 +2183,7 @@
                                                             </i:Interaction.Triggers>
                                                         </Image>
                                                         <TextBlock x:Name="ReceptionPacientProfil" Grid.Row="3" Grid.Column="1" Text="Профіль"  FontSize="14" Height="22" Width="60" Margin="285,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"   />
-                                                        <Image x:Name="ReceptionPacientFoldProfil" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="3" Width="25" Height="24" Margin="360,0,0,0" Visibility="Visible"  >
+                                                        <Image x:Name="ReceptionPacientFoldProfil" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="3" Width="25" Height="24" Margin="380,3,20,0" Visibility="Visible" IsEnabled ="False" VerticalAlignment="Top"  >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridCompletedInterview, Path=DataContext.ReadColectionPatients}" CommandParameter=""/>
@@ -2193,7 +2193,7 @@
                                                         <TextBlock x:Name="ReceptionPacientPriyomOn" Grid.Row="1" Grid.Column="1" Text=" Відмітка про прийом:"  FontSize="14" Height="24" Width="145" Margin="200,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"   />
                                                         <TextBox Text="Так" Name="ReceptionPacientPriyomOnOff" Grid.Row="1" Grid.Column="1" FontSize="14" Height="24" Width="30" Background="White" VerticalContentAlignment="Top"  HorizontalAlignment="Right" BorderThickness="0,0,0,0" Margin="0,0,80,0"/>
                                                         <ComboBox x:Name="CombPriyomOnOff" Grid.Row="1" Grid.Column="1" Width="60" Height="24"  ItemsSource="{Binding TakNi}" SelectedIndex="{Binding SelectedCombPriyomOnOff}"
-                                                                  Text=""    HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"    >
+                                                                  Text=""    HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"  IsEnabled ="False"  >
                                                         </ComboBox>
                                                     </Grid>
 
@@ -2363,7 +2363,7 @@
                                                         <TextBlock x:Name="CabinetReseptionPacientLab1" Grid.Row="2" Text="  День неділі"  FontSize="14" Height="24" Width="118" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Name="CabinetReseptionPacient" Text="{Binding Path=daysOfTheWeek, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" 
                                                             Grid.Column="1" Grid.Row="2"  Background="White" Width="130" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
-                                                        <ComboBox Name="CabinetDayoftheWeek"  ItemsSource="{Binding AppointmentsDayWeeks}" SelectedIndex="{Binding SelectedAppointmentsDayWeek}" Grid.Column="1" Grid.Row="2" 
+                                                        <ComboBox Name="CabinetDayoftheWeek"  ItemsSource="{Binding DayWeeks}" SelectedIndex="{Binding SelectedDayWeek}" Grid.Column="1" Grid.Row="2" 
                                                              IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
                                                         <!--Text="{Binding Path=daysOfTheWeek, UpdateSourceTrigger=PropertyChanged}"-->
                                                         <!--SelectionChanged="AppPanelNumberChanged" DropDownClosed="ComboBox_DropDownClosed"-->
@@ -3706,7 +3706,7 @@
                                                         <KeyBinding Key="Enter" Command="{Binding CheckKeyTextSimptom}" />
                                                     </TextBox.InputBindings>
                                                 </TextBox>
-                                                
+
                                                 <DataGrid x:Name="SimptomTablGrid"  Cursor="Hand" Grid.Row="1" ItemsSource="{Binding ViewComplaints}" SelectedItem="{Binding SelectedComplaint}"
                                                 IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                                 VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -4276,7 +4276,7 @@
                                                     <KeyBinding Key="Enter" Command="{Binding CheckKeyTextDetailing}" />
                                                 </TextBox.InputBindings>
                                             </TextBox>
-                                            
+
                                             <DataGrid x:Name="GrDetailingTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewListGrDetailings }" SelectedItem ="{Binding SelectedListGroupDeliting}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -4643,7 +4643,7 @@
                                                     <KeyBinding Key="Enter" Command="{Binding CheckKeyTextQualification}" />
                                                 </TextBox.InputBindings>
                                             </TextBox>
-                                            
+
                                             <DataGrid x:Name="GrQualificationTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ViewGroupQualifications }" SelectedItem ="{Binding SelectedViewGroupQualification}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
@@ -5885,11 +5885,11 @@
                                                                 </TextBox.InputBindings>
                                                             </TextBox>
                                                             <i:Interaction.Triggers>
-                                                                 <i:EventTrigger EventName="KeyUp">
+                                                                <i:EventTrigger EventName="KeyUp">
                                                                     <i:InvokeCommandAction Command="{Binding CheckMedicalPind}" CommandParameter=""/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
-                                                           
+
                                                         </Grid>
                                                         <Grid x:Name="MedicalGridUriWeb" Height="30" Grid.Column="0" Grid.Row="2" >
                                                             <Grid.ColumnDefinitions >

@@ -227,7 +227,7 @@ namespace BackSeam
             }
         }
 
-        public void SetNewCombPriyomOnOff(string selected = "")
+        public static void SetNewCombPriyomOnOff(string selected = "")
         {
             MainWindow WindowProfilPacient = MainWindow.LinkNameWindow("BackMain");
             WindowProfilPacient.ReceptionPacientPriyomOnOff.Text = selected == "0" ? "Так" : "Ні";
@@ -240,9 +240,13 @@ namespace BackSeam
             List<string> TakNi = new List<string> { "Так", "Ні" };
             WindowMen.CombPriyomOnOff.ItemsSource = TakNi;
             WindowMen.CombPriyomOnOff.SelectedIndex = Convert.ToInt32(SelectedCombPriyomOnOff);
+            WindowMen.CombPriyomOnOff.IsEnabled = true;
             WindowMen.ReceptionPacient7.IsEnabled = true;
             WindowMen.ReceptionPacient7.Background = Brushes.AntiqueWhite;
-           
+            WindowMen.ReceptionrozkladFolder.IsEnabled = true;
+            WindowMen.ReceptionPacientFoldProfil.IsEnabled = true;
+            WindowMen.ReceptionPacientFoldInterv.IsEnabled = true;
+
         }
 
         private void BoolFalseReceptionLikar()
@@ -254,7 +258,10 @@ namespace BackSeam
             WindowMen.ReceptionPacient4.Background = Brushes.White;
             WindowMen.ReceptionPacient7.IsEnabled = false;
             WindowMen.ReceptionPacient7.Background = Brushes.White;
-            
+            WindowMen.CombPriyomOnOff.IsEnabled = false;
+            WindowMen.ReceptionrozkladFolder.IsEnabled = false;
+            WindowMen.ReceptionPacientFoldProfil.IsEnabled = false;
+            WindowMen.ReceptionPacientFoldInterv.IsEnabled = false;
         }
 
         // команда удаления
@@ -567,12 +574,14 @@ namespace BackSeam
                           if (WindowIntevLikar.ReceptionPacientTablGrid.SelectedIndex == -1) return;
                           if (ViewModelReceptionPatients != null)
                           {
-                              MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
-                              WindowIntevLikar.CombPriyomOnOff.IsEnabled = true;
-                              if (editboolIntevLikar == true) BoolFalseReceptionLikar();
-                              selectedReceptionPacient = ViewReceptionPacients[WindowIntevLikar.ReceptionPacientTablGrid.SelectedIndex];
-                              selectedModelReceptionPatient = ViewModelReceptionPatients[WindowIntevLikar.ReceptionPacientTablGrid.SelectedIndex];
                               
+                             
+                              WindowMen.ReceptionPacientFoldProfil.IsEnabled = true;
+                              WindowMen.ReceptionPacientFoldInterv.IsEnabled = true;
+                              if (editboolIntevLikar == true) BoolFalseReceptionLikar();
+                              selectedReceptionPacient = ViewReceptionPacients[WindowMen.ReceptionPacientTablGrid.SelectedIndex];
+                              selectedModelReceptionPatient = ViewModelReceptionPatients[WindowMen.ReceptionPacientTablGrid.SelectedIndex];
+                              SetNewCombPriyomOnOff("0");
                               if (selectedModelReceptionPatient.kodPacient != null && selectedModelReceptionPatient.kodPacient.Length != 0) MethodReceptionPacients(selectedReceptionPacient);
                               if (selectedModelReceptionPatient.kodProtokola != null && selectedModelReceptionPatient.kodProtokola.Length != 0) MethodProtokolaReception(selectedReceptionPacient);
                               _pacientProfil = selectedModelReceptionPatient.kodPacient;

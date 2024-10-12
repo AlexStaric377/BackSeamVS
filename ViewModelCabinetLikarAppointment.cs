@@ -148,21 +148,22 @@ namespace BackSeam
         private void MethodaddcomLikarAppointments()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            selectModelLikarAppointments = new ModelVisitingDays();
-            selectViewModelLikarAppointments = new ViewModelVisitingDays();
-           
-            ;
+            
+ 
             if (addboolLikarAppointments == false) BoolTrueLikarAppointments();
             else BoolFalseLikarAppointments();
-            //LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
-            LikarAppointments.CabinetDayoftheWeek.SelectedIndex = 0;
-            LikarAppointments.CabinetTimeofDay.SelectedIndex = 0;
-            LikarAppointments.CabinetComboBoxOnoff.SelectedIndex = 0;
+            LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
+
+            selectModelLikarAppointments = new ModelVisitingDays();
+            selectViewModelLikarAppointments = new ViewModelVisitingDays();
             LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text.ToString();
             LikarAppointments.CabinetReseptionLikar.Text = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
             selectViewModelLikarAppointments.nameZaklad = LikarAppointments.Likart9.Text;
             selectViewModelLikarAppointments.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
             SelectedViewModelLikarAppointments = selectViewModelLikarAppointments;
+            LikarAppointments.CabinetDayoftheWeek.SelectedIndex = 0;
+            LikarAppointments.CabinetTimeofDay.SelectedIndex = 0;
+            LikarAppointments.CabinetComboBoxOnoff.SelectedIndex = 0;
         }
 
 
