@@ -40,7 +40,7 @@
                                 </i:Interaction.Triggers>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                                 <TextBlock Text="{Binding Path=detailsInterview}" TextWrapping="Wrap"   Width="540" Height="40" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                                 <TextBlock Text="{Binding Path=detailsInterview}" TextWrapping="Wrap"   Width="540" Height="45" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
                          </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

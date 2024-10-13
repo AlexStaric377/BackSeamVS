@@ -82,7 +82,7 @@ namespace BackSeam
                catch
                {
                     indrestapiok++;
-                    if (indrestapiok >= 3)
+                    if (indrestapiok >= 5)
                     {
                         if (response == null)
                         {

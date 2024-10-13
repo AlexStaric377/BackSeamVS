@@ -31,7 +31,11 @@
                 <Label Name="ZagolovokGrid"  Content="          Нава мед закладу                                                               Адреса                                      Телефон                      Сторінка в інтернет " Grid.Row="1" FontSize="12" FontWeight="Light" HorizontalAlignment="Center"  />
                 <Label Content=" Назва медичного закладу" Grid.Row="2" Height="25" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
                 <TextBox Name="PoiskMedical" Grid.Row="2" Width="500" Height="20" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
-                                                        FontFamily="Microsoft Sans Serif" Background="White"  />
+                                                        FontFamily="Microsoft Sans Serif" Background="White"  >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding SearchNameMedical}" />
+                    </TextBox.InputBindings>
+                </TextBox>
                 <Image Height="25" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_Medical"  VerticalAlignment="Center" Margin="0,0,20,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 

@@ -28,7 +28,7 @@ namespace BackSeam
     class ViewModelNsiMedZaklad : BaseViewModel
     {
         private WinNsiMedZaklad WindowMedZaklad = MainWindow.LinkMainWindow("WinNsiMedZaklad");
-
+        private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         private string pathcontrollerMedZaklad =  "/api/MedicalInstitutionController/";
         public  static MedicalInstitution selectedMedZaklad;
         public static ObservableCollection<MedicalInstitution> NsiModelMedZaklads { get; set; }
@@ -200,7 +200,6 @@ namespace BackSeam
 
         private void MetodSelectMedzaklad()
         { 
-            MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
             if (selectedMedZaklad != null)
             {
                 WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
