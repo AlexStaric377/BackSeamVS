@@ -444,8 +444,8 @@ namespace BackSeam
                       GetidkodProtokola = modelColectionInterview.kodComplInterv + "/0";
 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 130;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                       IndexAddEdit = TempIndexAddEdit;
                   }));
@@ -571,7 +571,7 @@ namespace BackSeam
                       }
 
                       WinVisitingDays NewOrder = new WinVisitingDays();
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2)  ;
                       NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                       if (selectVisitingDays != null)

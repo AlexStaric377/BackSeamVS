@@ -41,7 +41,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="5">
                                 <TextBlock Text="{Binding Path=dateInterview}"   Width="160" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
-                                <TextBlock Text="{Binding Path=nameInterview}"   Width="200" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                <TextBlock Text="{Binding Path=nameInterview}"   Width="390" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
