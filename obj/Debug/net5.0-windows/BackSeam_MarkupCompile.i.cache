@@ -1,5 +1,5 @@
 ﻿BackSeam
-1.0.1.41
+1.0.1.43
 
 winexe
 C#
@@ -16,5 +16,5 @@ D:\BackSeam\App.xaml
 242-2086747598
 MainWindow.xaml;MessageError.xaml;MessageWarn.xaml;MessageWarning.xaml;WinAccountRecords.xaml;WinAnalogDiagnoz.xaml;WinColectionAnalizBlood.xaml;WinColectionAnalizUrine.xaml;WinColectionStanHealth.xaml;WinCreatIntreview.xaml;WinDeleteData.xaml;WinLikarGrupDiagnoz.xaml;WinListInteviewPacient.xaml;WinMedicalGrDiagnoz.xaml;WinMessageDialog.xaml;WinMessageErr.xaml;WinNsiCompliant.xaml;WinNsiDetailing.xaml;WinNsiFeature.xaml;WinNsiGrDetailing.xaml;WinNsiGrQualification.xaml;WinNsiIcd.xaml;WinNsiIntreview.xaml;WinNsiLikar.xaml;WinNsiListDiagnoz.xaml;WinNsiListGrDiagnoz.xaml;WinNsiListGroupDelit.xaml;WinNsiListRecommen.xaml;WinNsiMedZaklad.xaml;WinNsiPacient.xaml;WinNsiQualification.xaml;WinNsiStatusUser.xaml;WinProfilPacient.xaml;WinRegisterAccountUser.xaml;WinResultInterview.xaml;WinStrokaProgressBar.xaml;WinVisitingDays.xaml;
 
-True
+False
 

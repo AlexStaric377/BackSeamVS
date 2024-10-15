@@ -24,7 +24,7 @@ namespace BackSeam
 {
     public class ViewModelNsiPacient : BaseViewModel
     {
-
+        MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         WinNsiPacient WindowMen = MainWindow.LinkMainWindow("WinNsiPacient");
         public static string pathcontroller =  "/api/PacientController/";
 
@@ -130,19 +130,7 @@ namespace BackSeam
                 return selectPacient ??
                   (selectPacient = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      if (selectedPacient != null)
-                      {
-                          MapOpisViewModel.namePacient = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString();
-                          WindowMain.Intert3.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString();
-                          WindowMain.LikarIntert3.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString() + " " + selectedPacient.surname.ToString() + " " + selectedPacient.tel.ToString();
-                          WindowMain.AccountUsert2.Text = selectedPacient.tel;
-                          WindowMain.AccountUsert5.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString() + " " + selectedPacient.surname.ToString();
-                          if (MapOpisViewModel.CallViewProfilLikar == "ProfilPacient") MapOpisViewModel.selectedProfilPacient = selectedPacient;
-                          if (MapOpisViewModel.CallViewProfilLikar == "PacientProfil") MapOpisViewModel.selectedPacientProfil = selectedPacient;
-
-                      }
-                      WindowMen.Close();
+                      MetodselectPacient();
                   }));
             }
         }
@@ -250,6 +238,38 @@ namespace BackSeam
 
                   }));
             }
+        }
+
+        // команда выбора строки из списка 
+        RelayCommand? selectTablPacients;
+        public RelayCommand SelectTablPacients
+        {
+            get
+            {
+                return selectTablPacients ??
+                  (selectTablPacients = new RelayCommand(obj =>
+                  {
+                      MetodselectPacient();
+                  }));
+            }
+        }
+
+        private void MetodselectPacient()
+        {
+            
+            if (selectedPacient != null && selectedPacient.id != 0)
+            {
+                MapOpisViewModel.namePacient = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString();
+                WindowMain.Intert3.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString();
+                WindowMain.LikarIntert3.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString() + " " + selectedPacient.surname.ToString() + " " + selectedPacient.tel.ToString();
+                WindowMain.AccountUsert2.Text = selectedPacient.tel;
+                WindowMain.AccountUsert5.Text = selectedPacient.kodPacient.ToString() + ": " + selectedPacient.name.ToString() + " " + selectedPacient.surname.ToString();
+                if (MapOpisViewModel.CallViewProfilLikar == "ProfilPacient") MapOpisViewModel.selectedProfilPacient = selectedPacient;
+                if (MapOpisViewModel.CallViewProfilLikar == "PacientProfil") MapOpisViewModel.selectedPacientProfil = selectedPacient;
+                selectedPacient = new ModelPacient();
+                WindowMen.Close();
+            }
+            
         }
     }
 }

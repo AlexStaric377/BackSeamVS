@@ -165,7 +165,7 @@ namespace BackSeam
 
         private void MethodLoadReceptionLikar()
         {
-
+            ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
             ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
             WindowReceptionPacient.ReceptionPacientLoadinterv.Visibility = Visibility.Hidden;
             json =  pathcontrolerReceptionPacient + "0/" + _kodDoctor+"/0/0";
@@ -195,8 +195,7 @@ namespace BackSeam
 
         private void AddComandReceptionLikar()
         {
-            if(ViewReceptionPacients == null) MethodLoadReceptionLikar();
-            if (ViewReceptionPacients.Count == 0) MethodLoadReceptionLikar();
+            if(ViewReceptionPacients == null || ViewReceptionPacients.Count == 0) MethodLoadReceptionLikar(); 
             MethodaddcomReceptionPacient();
         }
 
@@ -278,7 +277,7 @@ namespace BackSeam
                           MessageDeleteData();
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
-                              int _setindex = WindowReceptionPacient.ReceptionPacientTablGrid.SelectedIndex; // == 0? WindowMen.ReceptionPacientTablGrid.SelectedIndex : WindowMen.ReceptionPacientTablGrid.SelectedIndex-1;
+                              int _setindex = WindowReceptionPacient.ReceptionPacientTablGrid.SelectedIndex; 
                               string json = pathcontrolerReceptionPacient + ViewReceptionPacients[_setindex].id.ToString()+"/0/0";
                               CallServer.PostServer(pathcontrolerReceptionPacient, json, "DELETE");
                               selectedReceptionPacient = ViewReceptionPacients[_setindex];
@@ -517,10 +516,8 @@ namespace BackSeam
                               colectionInterview.kodProtokola = selectedModelReceptionPatient.kodProtokola;
                               MethodReceptionPacients(colectionInterview);
                               MethodProtokolaReception(colectionInterview);
-                              //if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
-                              //ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
-                              //WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
-                              SelectedReceptionPacient = ViewModelReceptionPatients[ViewModelReceptionPatients.Count - 1];
+                              if (ViewModelReceptionPatients.Count > 0) SelectedReceptionPacient = ViewModelReceptionPatients[ViewModelReceptionPatients.Count - 1];
+                              else SelectedReceptionPacient = selectedModelReceptionPatient;
                               if (selectedReceptionPacient == null) selectedReceptionPacient = new AdmissionPatient();
                               selectedReceptionPacient.kodComplInterv = selectedModelReceptionPatient.kodComplInterv;
                               selectedReceptionPacient.kodDoctor = _kodDoctor;
@@ -529,8 +526,7 @@ namespace BackSeam
                               selectedReceptionPacient.dateInterview = selectedModelReceptionPatient.dateInterview;
                               selectedReceptionPacient.dateVizita = selectedModelReceptionPatient.dateVizita;
                               selectedReceptionPacient.topictVizita = selectedModelReceptionPatient.topictVizita;
-                              //if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
-                              //ViewReceptionPacients.Add(selectedReceptionPacient); 
+ 
 
                           }
                       }

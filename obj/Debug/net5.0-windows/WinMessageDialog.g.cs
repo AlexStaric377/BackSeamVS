@@ -107,7 +107,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.41;component/winmessagedialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.43;component/winmessagedialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinMessageDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

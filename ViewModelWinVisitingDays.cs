@@ -24,14 +24,14 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public class ViewModelWinVisitingDays : BaseViewModel
     {
-
+        WinVisitingDays WindowMen = MainWindow.LinkMainWindow("WinVisitingDays");
         private string pathcontrollerVisitingDays = "/api/VisitingDaysController/";
-        public static ModelVisitingDays selectVisitingDays;
+        public static ModelVisitingDays selectVisitDays;
 
         public ModelVisitingDays SelectedVisitingDays
         {
-            get { return selectVisitingDays; }
-            set { selectVisitingDays = value; OnPropertyChanged("SelectedVisitingDays"); }
+            get { return selectVisitDays; }
+            set { selectVisitDays = value; OnPropertyChanged("SelectedVisitingDays"); }
         }
         public static ObservableCollection<ModelVisitingDays> ViewVisitingDayss { get; set; }
 
@@ -39,7 +39,7 @@ namespace BackSeam
 
         public ViewModelWinVisitingDays()
         {
-
+            
             CallServer.PostServer(pathcontrollerVisitingDays, pathcontrollerVisitingDays  + MapOpisViewModel._kodDoctor + "/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             ObservableVisitingDays(CmdStroka);
@@ -50,6 +50,7 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelVisitingDays>(CmdStroka);
             List<ModelVisitingDays> res = result.ModelVisitingDays.ToList();
             ViewVisitingDayss = new ObservableCollection<ModelVisitingDays>((IEnumerable<ModelVisitingDays>)res);
+            
         }
 
         // команда выбора строки из списка жалоб
@@ -61,14 +62,7 @@ namespace BackSeam
                 return selectDaysVisiting ??
                   (selectDaysVisiting = new RelayCommand(obj =>
                   {
-                      if (selectVisitingDays != null)
-                      {
-                          MapOpisViewModel.selectVisitingDays = new ModelVisitingDays();
-                          MapOpisViewModel.selectVisitingDays = selectVisitingDays;
-
-                      }
-                      WinVisitingDays WindowMen = MainWindow.LinkMainWindow("WinVisitingDays");
-                      WindowMen.Close();
+                      MetodSetVisitingDays();
                   }));
                 
             }
@@ -83,10 +77,34 @@ namespace BackSeam
                 return closeModelWinVisitingDays ??
                   (closeModelWinVisitingDays = new RelayCommand(obj =>
                   {
-
-                      WinVisitingDays WindowMen = MainWindow.LinkMainWindow("WinVisitingDays");
                       WindowMen.Close();
                   }));
+            }
+        }
+
+        // команда выбора строки из списка жалоб
+        RelayCommand? setVisitingDays;
+        public RelayCommand SetVisitingDays
+        {
+            get
+            {
+                return setVisitingDays ??
+                  (setVisitingDays = new RelayCommand(obj =>
+                  {
+                      MetodSetVisitingDays();
+                  }));
+
+            }
+        }
+
+        private void MetodSetVisitingDays()
+        {
+            if (selectVisitDays != null && selectVisitDays.id !=0)
+            {
+                
+                MapOpisViewModel.selectVisitingDays = selectVisitDays;
+                selectVisitDays = new ModelVisitingDays();
+                WindowMen.Close();
             }
         }
 

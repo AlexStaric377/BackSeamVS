@@ -63,8 +63,12 @@
                     SelectedItem ="{Binding SelectedPacient}" Height="260" Background="#FFE2E2DD"
                     Width="680" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-
-                    <ListBox.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding ElementName=TablPacients, Path=DataContext.SelectTablPacients}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel x:Name="StackPanel"  Orientation="Horizontal" Margin="5" Height="30">
                                 <TextBlock Text="{Binding Path=name}" Margin="0,0,0,5" VerticalAlignment="Center"  Width="180" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
