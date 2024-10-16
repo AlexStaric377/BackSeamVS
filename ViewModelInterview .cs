@@ -297,7 +297,7 @@ namespace BackSeam
                               WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;                         
                           }
  
-                          json = CallServer.ResponseFromServer.Replace("/","*");
+                          json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
                           UnloadCmdStroka("Interview/", json);
  
                           // дозапись в справочник взаимосвязи диагнозов рекомендаций и протоколов интервью
@@ -311,7 +311,7 @@ namespace BackSeam
                             json = JsonConvert.SerializeObject(modelDependency);
                             CallServer.PostServer(pathcontrolerDependency, json, "POST");
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            json = CallServer.ResponseFromServer.Replace("/", "*");
+                            json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                             string CmdStroka = CallServer.ServerReturn();
                             if (CmdStroka.Contains("[]") == false)
                             {
@@ -324,7 +324,7 @@ namespace BackSeam
                                 json = JsonConvert.SerializeObject(modelDependency);
                                 CallServer.PostServer(pathcontrolerDependency, json, "PUT");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                json = CallServer.ResponseFromServer.Replace("/", "*");
+                                json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                                 CmdStroka = CallServer.ServerReturn();
                                 if (CmdStroka.Contains("[]") == false)
                                 {
@@ -545,7 +545,7 @@ namespace BackSeam
                     json = JsonConvert.SerializeObject(modelDependency);
                     CallServer.PostServer(pathcontrolerDependency, json, "PUT");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                    json = CallServer.ResponseFromServer.Replace("/", "*");
+                    json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                     CmdStroka = CallServer.ServerReturn();
                     if (CmdStroka.Contains("[]") == false)
                     {

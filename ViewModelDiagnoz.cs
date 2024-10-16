@@ -263,7 +263,7 @@ namespace BackSeam
                                 json = JsonConvert.SerializeObject(selectedDiagnoz);
                                 CallServer.PostServer(controlerViewDiagnoz, json, "POST");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                json = CallServer.ResponseFromServer.Replace("/", "*");
+                                json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_") ;
                                 ModelDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
  
                                   if (ViewDiagnozs == null)
@@ -279,7 +279,7 @@ namespace BackSeam
                                 json = JsonConvert.SerializeObject(selectedDiagnoz);
                                 CallServer.PostServer(controlerViewDiagnoz, json, "PUT");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                json = CallServer.ResponseFromServer.Replace("/", "*");
+                                json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                              
 
                           }
@@ -299,7 +299,7 @@ namespace BackSeam
         {
             int indexdia = 1, setindex =0;
             if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();
-            if (ViewDiagnozs != null)
+            if (ViewDiagnozs != null && ViewDiagnozs.Count>0)
             {
                 indexdia = Convert.ToInt32(ViewDiagnozs[0].kodDiagnoza.Substring(ViewDiagnozs[0].kodDiagnoza.LastIndexOf(".") + 1, ViewDiagnozs[0].kodDiagnoza.Length - (ViewDiagnozs[0].kodDiagnoza.LastIndexOf(".")+1)));
                 for (int i = 0; i < ViewDiagnozs.Count; i++)
@@ -509,17 +509,17 @@ namespace BackSeam
             if (WindowMen.Diagnozt1.Text.Length != 0)
             {
                 GrupDiagnoz = WindowMen.Diagnozt1.Text;
-                loadGrupDiagnoz = true;
+                
                 string jason = controlerViewDiagnoz + "0/" + WindowMen.Diagnozt1.Text + "/0";
                 CallServer.PostServer(controlerViewDiagnoz, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]"))
-                { 
+                {
                     ViewDiagnozs = new ObservableCollection<ModelDiagnoz>();
-                    WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; 
+                    WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
                     CallServer.BoolFalseTabl();
                 }
-                else ObservableViewDiagnoz(CmdStroka);
+                else { ObservableViewDiagnoz(CmdStroka); loadGrupDiagnoz = true; }
             }
 
             ActCompletedInterview = "";
