@@ -258,7 +258,7 @@ namespace BackSeam
                   (saveInterview = new RelayCommand(obj =>
                   {
                       string json = "";
-
+                      int lengthInterviewOpis = 0;
                       if (WindowInterv.Interviewt2.Text.Length != 0)
                       {
                         if (WindowInterv.InterviewDependencyt3.Text.ToString().Length == 0)
@@ -285,7 +285,8 @@ namespace BackSeam
                           selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.ToString();
                           selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.ToString();
                           selectedInterview.idUser = RegIdUser;
-                          // ОБращение к серверу измнить корректируемую запись в БД
+                          
+                          // ОБращение к серверу добавить или  измнить  запись в БД
                           json = JsonConvert.SerializeObject(selectedInterview);
                           string method = selectedInterview.id == 0 ? "POST" : "PUT";
                           CallServer.PostServer(Interviewcontroller, json, method);
@@ -298,41 +299,36 @@ namespace BackSeam
                           }
  
                           json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
-                          UnloadCmdStroka("Interview/", json);
- 
+                          if (json.Length > 1024)
+                          {
+                              selectedInterview.uriInterview = "";
+                              json = JsonConvert.SerializeObject(selectedInterview);
+                              if (json.Length > 1024)
+                              {
+                                selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.ToString().Substring(0, WindowInterv.InterviewOpis.Text.Length-(json.Length - 1024));
+                                json = JsonConvert.SerializeObject(selectedInterview);
+                              }
+                          }
+                          CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
+                          
+
                           // дозапись в справочник взаимосвязи диагнозов рекомендаций и протоколов интервью
-        
-                        switch (IndexAddEdit)
-                        {
-                            case "addCommand":
-                                
-                            modelDependency.kodProtokola = selectedInterview.kodProtokola;
-                            modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.ToString().Length == 0 ? "" : WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowMain.InterviewDependencyt2.Text.IndexOf(":"));
-                            json = JsonConvert.SerializeObject(modelDependency);
-                            CallServer.PostServer(pathcontrolerDependency, json, "POST");
-                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
-                            string CmdStroka = CallServer.ServerReturn();
-                            if (CmdStroka.Contains("[]") == false)
-                            {
-                                UnloadCmdStroka("Interview/", json);
-                                MessageOk();
-                            }                                  
-                                break;
-                            case "editCommand":
-                                  
-                                json = JsonConvert.SerializeObject(modelDependency);
-                                CallServer.PostServer(pathcontrolerDependency, json, "PUT");
-                                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
-                                CmdStroka = CallServer.ServerReturn();
-                                if (CmdStroka.Contains("[]") == false)
-                                {
-                                    UnloadCmdStroka("Interview/", json);
-                                    MessageOk();
-                                }
-                                break;
-                        }
+
+                          if (IndexAddEdit == "addCommand")
+                          {
+                              modelDependency.kodProtokola = selectedInterview.kodProtokola;
+                              modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.ToString().Length == 0 ? "" : WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowMain.InterviewDependencyt2.Text.IndexOf(":"));
+                          }
+                          json = JsonConvert.SerializeObject(modelDependency);
+                          CallServer.PostServer(pathcontrolerDependency, json, method);
+                          CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                          json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]") == false)
+                          {
+                              CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
+                              MessageOk();
+                          }
 
                       }
                       IndexAddEdit = "";

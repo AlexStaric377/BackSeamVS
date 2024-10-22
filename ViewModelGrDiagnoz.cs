@@ -234,7 +234,6 @@ namespace BackSeam
                   (saveViewGroupDiagnoz = new RelayCommand(obj =>
                   {
                       string json = "";
-                      
                       if (WindowMen.GrDiagnozt2.Text.Trim().Length != 0)
                       {
                           if (IndexAddEdit == "addCommand")
@@ -244,7 +243,7 @@ namespace BackSeam
                               json = JsonConvert.SerializeObject(selectedViewGrupDiagnoz);
                               CallServer.PostServer(controlerGrupDiagnoz, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              json = CallServer.ResponseFromServer;
+                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                               ModelGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelGrupDiagnoz>(CallServer.ResponseFromServer);
                               ViewGrupDiagnozs.Add(Idinsert);
                               WindowMen.GrDiagnozTablGrid.ItemsSource = ViewGrupDiagnozs.OrderBy(x => x.icdGrDiagnoz);
@@ -254,11 +253,22 @@ namespace BackSeam
                               json = JsonConvert.SerializeObject(selectedViewGrupDiagnoz);
                               CallServer.PostServer(controlerGrupDiagnoz, json, "PUT");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              json = CallServer.ResponseFromServer;
+                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                           }
-                          UnloadCmdStroka("GrupDiagnoz/", json);
+
+                          if (json.Length > 1024)
+                          {
+                              selectedViewGrupDiagnoz.uriDiagnoza = "";
+                              json = JsonConvert.SerializeObject(selectedViewGrupDiagnoz);
+                              if (json.Length > 1024)
+                              {
+                                  selectedViewGrupDiagnoz.opisDiagnoza = selectedViewGrupDiagnoz.opisDiagnoza.Substring(0, selectedViewGrupDiagnoz.opisDiagnoza.Length - (json.Length - 1024));
+                                  json = JsonConvert.SerializeObject(selectedViewGrupDiagnoz);
+                              }
+                          }
+                          CallServer.PostServer(Controlleroutfile, Controlleroutfile + "GrupDiagnoz/" + json + "/0", "GETID");
+                          //UnloadCmdStroka("GrupDiagnoz/", json);
                       }
-                      
                       WindowMen.GrDiagnozTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
                       BoolFalseGrupDiagnoz();

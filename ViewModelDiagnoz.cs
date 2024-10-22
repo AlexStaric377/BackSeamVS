@@ -283,7 +283,18 @@ namespace BackSeam
                              
 
                           }
-                          UnloadCmdStroka("Diagnoz/", json);
+                        if (json.Length > 1024)
+                        {
+                            selectedDiagnoz.uriDiagnoza = "";
+                            json = JsonConvert.SerializeObject(selectedDiagnoz);
+                            if (json.Length > 1024)
+                            {
+                                selectedDiagnoz.opisDiagnoza = WindowMen.DiagnozOpis.Text.ToString().Substring(0, WindowMen.DiagnozOpis.Text.Length - (json.Length - 1024));
+                                json = JsonConvert.SerializeObject(selectedDiagnoz);
+                            }
+                        }
+                        CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Diagnoz/" + json + "/0", "GETID");
+                        //UnloadCmdStroka("Diagnoz/", json);
 
                     }
    

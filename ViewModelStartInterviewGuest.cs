@@ -1299,11 +1299,7 @@ namespace BackSeam
         }
         public static void UnloadCmdStroka(string model = "", string CmdStroka = "")
         {
-            
             CallServer.PostServer(Controlleroutfile, Controlleroutfile + model + CmdStroka + "/0", "GETID");
-            if (CmdStroka == "0") upLoadstroka = CallServer.ResponseFromServer;
-            CmdStroka = CallServer.ResponseFromServer;
-
         }
 
        
