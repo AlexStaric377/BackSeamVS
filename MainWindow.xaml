@@ -4979,8 +4979,8 @@
                                         </Grid>
                                         <Grid Grid.Row="1" x:Name="GridMkx11" HorizontalAlignment="Right">
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="20*" />
-                                                <RowDefinition Height="130*" />
+                                                <RowDefinition Height="38.346" />
+                                                <RowDefinition />
                                             </Grid.RowDefinitions>
                                             <Label Content=" Довідник діагнозів" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14" />
                                             <Label Content=" Вибрати напрямок"  Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,70,0"/>
@@ -5198,22 +5198,39 @@
                                                 <RowDefinition Height="20*" />
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
-                                            <Label Content=" Назва опитування" Grid.Row="0" Height="30" FontWeight="Bold" FontSize="14"  Margin="80,0,0,0"/>
-                                            <TextBox Name="PoiskInterveiw" Grid.Row="0" Width="460" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                                            <Grid  x:Name="Poshuk"  Grid.Row="0" >
+                                                <Grid.ColumnDefinitions>
+
+                                                    <ColumnDefinition Width ="120*"/>
+                                                    <ColumnDefinition Width ="350*"/>
+                                                    <ColumnDefinition Width ="200*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Content=" Назва опитування" Grid.Column="0" Height="30" FontWeight="Bold" FontSize="14"  Margin="0,0,0,0"/>
+                                                <TextBox Name="PoiskInterveiw" Grid.Column="1" Width="360" Height="25" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="0,0,0,0" 
                                                         FontFamily="Microsoft Sans Serif" Background="#FFF0F0F0"  >
-                                                <TextBox.InputBindings>
-                                                    <KeyBinding Key="Enter" Command="{Binding CheckKeyTextInterveiw}" />
-                                                </TextBox.InputBindings>
-                                            </TextBox>
-                                            <Image Height="25" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Center" Margin="0,0,20,0"
+                                                    <TextBox.InputBindings>
+                                                        <KeyBinding Key="Enter" Command="{Binding CheckKeyTextInterveiw}" />
+                                                    </TextBox.InputBindings>
+                                                </TextBox>
+                                                <Image Height="25" Width="30" Grid.Column="1" HorizontalAlignment="Right"  Name="Poisk_Compl"  VerticalAlignment="Center" Margin="0,0,0,0"
                                                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                        <i:InvokeCommandAction Command="{Binding SearchInterveiw}" CommandParameter=""/>
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-                                            </Image>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <i:InvokeCommandAction Command="{Binding SearchInterveiw}" CommandParameter=""/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Image>
+                                                <Label Content="Прояв нездужання"  Grid.Column="2" Height="30" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                                                <Image x:Name="FolderPoshuk" Grid.Column="2"  Source="pack://application:,,,/BackSeam;component/Images/folder_.png"  Width="25"  HorizontalAlignment="Right"    Margin="0,0,20,0"  >
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <i:InvokeCommandAction Command="{Binding ElementName=Poshuk, Path=DataContext.SelectedListComplaint}" CommandParameter=""/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Image>
+                                            </Grid>
+
                                             <DataGrid x:Name="InterviewTablGrid" Grid.Row="1"   Cursor="Hand"
                                           ItemsSource="{Binding ModelInterviews }" SelectedItem ="{Binding SelectedInterview}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="220"

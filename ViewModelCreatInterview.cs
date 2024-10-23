@@ -25,7 +25,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class ViewModelCreatInterview : BaseViewModel
     {
-
+        public static WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
         bool endwhile = false;
         //public static  WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
         public static MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
@@ -100,8 +100,8 @@ namespace BackSeam
                 return closeCreatInterview ??
                   (closeCreatInterview = new RelayCommand(obj =>
                   {
-                      WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
-                      WindowUri.Close();
+                      //WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
+                      WindowCreat.Close();
                   }));
             }
         }
@@ -117,7 +117,6 @@ namespace BackSeam
                   {
                       if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
                       {
-                          WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
                           WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
                           WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
                           WindowCreat.BorderSave.Visibility = Visibility.Hidden;
@@ -147,15 +146,6 @@ namespace BackSeam
                           json = JsonConvert.SerializeObject(modelContentInterv);
                           CallServer.PostServer(pathcontroler, json, "POST");
                       }
-                      //switch (MapOpisViewModel.IndexAddEdit)
-                      //{
-                      //    case "addCommand":
-                      //        AddInterviewProtokol();
-                      //        break;
-                      //    case "editCommand":
-                      //        EdiInterviewProtokol();
-                      //        break;
-                      //}
                       WindowUri.Close();
                   }));
             }
@@ -173,12 +163,12 @@ namespace BackSeam
   
                       if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
                       {
-                          WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
                           WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
                           WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
                           WindowCreat.BorderSave.Visibility = Visibility.Hidden;
                           return;
                       }
+
                       if (selectedContentInterv != null)
                       {
                           if (selectedContentInterv.idUser != MapOpisViewModel.RegIdUser && MapOpisViewModel.RegUserStatus != "1")
@@ -197,6 +187,45 @@ namespace BackSeam
             }
         }
 
+        
+
+        // команда удаления всего интервью
+        RelayCommand? deleteCreatInterview;
+        public RelayCommand DeleteCreatInterview
+        {
+            get
+            {
+                return deleteCreatInterview ??
+                  (deleteCreatInterview = new RelayCommand(obj =>
+                  {
+
+                      if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
+                      {
+                          //WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
+                          WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderSave.Visibility = Visibility.Hidden;
+                          return;
+                      }
+                      foreach (ModelContentInterv selectedContentInterv in ContentIntervs)
+                      {
+                          if (selectedContentInterv.idUser != MapOpisViewModel.RegIdUser && MapOpisViewModel.RegUserStatus != "1")
+                          {
+                              MapOpisViewModel.InfoRemoveZapis();
+                              return;
+                          }
+                          if (selectedContentInterv.id != 0)
+                          {
+                              string json = pathcontroler + "0/" + selectedContentInterv.id.ToString(); //selectedContentInterv.kodProtokola +
+                              CallServer.PostServer(pathcontroler, json, "DELETE");
+                          }
+                      }
+                      ContentIntervs = new ObservableCollection<ModelContentInterv>();
+                      WindowCreat.TablInterviews.ItemsSource = ContentIntervs;
+                  }));
+            }
+        }
+
         // команда вывзова окна со списком жалоб для выбора строки  и записи в интервью
         RelayCommand? addstrokaInterview;
         public RelayCommand AddstrokaInterview
@@ -206,17 +235,17 @@ namespace BackSeam
                 return addstrokaInterview ??
                   (addstrokaInterview = new RelayCommand(obj =>
                   {
-                      WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
+                      
                       if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
                       {
-                          WindowUri.BorderPlus.Visibility = Visibility.Hidden;
-                          WindowUri.BorderDelete.Visibility = Visibility.Hidden;
-                          WindowUri.BorderSave.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderSave.Visibility = Visibility.Hidden;
                           return;
                       }
                       if (MapOpisViewModel.IndexAddEdit == "editCommand") booladdprotokol = true;
 
-                      IdItemContentInterv = WindowUri.TablInterviews.SelectedIndex;
+                      IdItemContentInterv = WindowCreat.TablInterviews.SelectedIndex;
                       
                       if (selectedContentInterv != null && IdItemContentInterv >= 0)
                       {
@@ -256,10 +285,9 @@ namespace BackSeam
                           NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
                           NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                           NewOrder.ShowDialog();
-                          if (WindowMain.Featuret3.Text.ToString().Trim().Length != 0)WindowUri.TablInterviews.ItemsSource = ContentIntervs;
+                          if (WindowMain.Featuret3.Text.ToString().Trim().Length != 0) WindowCreat.TablInterviews.ItemsSource = ContentIntervs;
                       }
-
-                      WindowUri.TablInterviews.SelectedItem = null;
+                      WindowCreat.TablInterviews.SelectedItem = null;
                   }));
             }
         }
@@ -273,7 +301,6 @@ namespace BackSeam
         {
             if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
             {
-                WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
                 WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
                 WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
                 WindowCreat.BorderSave.Visibility = Visibility.Hidden;
@@ -297,8 +324,7 @@ namespace BackSeam
             }
             if (ContentIntervs.Count == TmpContentIntervs.Count) AddselectedContent();
             ContentIntervs = TmpContentIntervs;
-            WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
-            WindowUri.TablInterviews.ItemsSource = ContentIntervs;
+            WindowCreat.TablInterviews.ItemsSource = ContentIntervs;
         }
 
   

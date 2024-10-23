@@ -398,14 +398,14 @@ namespace BackSeam
             { 
                 GrupDiagnoz = KeiIcdGrup = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
             }
-            
+            MapOpisViewModel.ActCompletedInterview = "KeiIcdGrup";
             WinNsiIcd NewOrder = new WinNsiIcd();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();
             selectedDiagnoz.keyIcd = WindowMen.Diagnozt4.Text;
-
+            MapOpisViewModel.ActCompletedInterview = "";
         }
         // команда загрузки  строки исх МКХ11 по указанному коду для вівода наименования болезни
         private RelayCommand? findNameMkx;
@@ -450,12 +450,17 @@ namespace BackSeam
 
                                 string json = VeiwModelNsiIcd.controlerNsiIcd + selectedDiagnoz.keyIcd.ToString()+"/0";
                                 CallServer.PostServer(VeiwModelNsiIcd.controlerNsiIcd, json, "GETID");
-                                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                ModelIcd Idinsert = JsonConvert.DeserializeObject<ModelIcd>(CallServer.ResponseFromServer);
+                                //CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                                                
+                                string CmdStroka = CallServer.ServerReturn();
+                                var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+                                List<ModelIcd> res = result.ModelIcd.ToList();
+                                ObservableCollection<ModelIcd> Idinsert = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+                                
                                 if (Idinsert != null)
-                                { 
-                                    WindowMen.Diagnozt3.Text = Idinsert.name;
-                                    WindowMen.LibDiagnozt3.Text = Idinsert.name;
+                                {
+                                    WindowMen.Diagnozt3.Text = Idinsert[0].name;
+                                    WindowMen.LibDiagnozt3.Text = Idinsert[0].name;
                                 } 
                             }
                             WindowMen.LibFoldInterv.Visibility = Visibility.Visible;

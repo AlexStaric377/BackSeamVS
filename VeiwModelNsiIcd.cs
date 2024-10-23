@@ -37,7 +37,12 @@ namespace BackSeam
         public VeiwModelNsiIcd()
         {
             if (MapOpisViewModel.GrupDiagnoz == "") CallServer.PostServer(controlerNsiIcd, controlerNsiIcd, "GET");
-            else CallServer.PostServer(controlerNsiIcd, controlerNsiIcd + "0/"+ MapOpisViewModel.GrupDiagnoz, "GETID");
+            else
+            { 
+                if(MapOpisViewModel.ActCompletedInterview == "KeiIcdGrup") CallServer.PostServer(controlerNsiIcd, controlerNsiIcd + MapOpisViewModel.GrupDiagnoz + "/0" , "GETID");
+                else CallServer.PostServer(controlerNsiIcd, controlerNsiIcd + "0/"+ MapOpisViewModel.GrupDiagnoz, "GETID");
+            } 
+            
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewNsiIcd(CmdStroka);

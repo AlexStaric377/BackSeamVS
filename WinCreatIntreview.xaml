@@ -55,9 +55,10 @@
                 </Image>                
                 <Grid  x:Name="Podval"  Grid.Row="2" >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="150*"/>
-                        <ColumnDefinition Width ="150*"/>
-                        <ColumnDefinition Width ="150*"/>
+                        <ColumnDefinition Width ="100*"/>
+                        <ColumnDefinition Width ="100*"/>
+                        <ColumnDefinition Width ="100*"/>
+                        <ColumnDefinition Width ="100*"/>
                     </Grid.ColumnDefinitions>
                     <Border x:Name="BorderPlus" Grid.Row="2" Grid.Column="0" Height="25" Width="50" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
                         Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Cursor="Hand"  >
@@ -81,16 +82,28 @@
                     <Label Grid.Column="2" Height="20" FontSize="10"  Width="70" Content="Зберегти" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  HorizontalAlignment="Center" FontFamily="Arial"  >
                     </Label>
                     </Border>
-                    <Border x:Name="BorderDelete"  Grid.Row="2" Grid.Column="2" Height="25" Width="50" BorderBrush="#FF3E3E3B" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                        Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Cursor="Hand"    >
-                        <Image Height="35" Width="35" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center"  Name="Deletestr"   
+                    <Border x:Name="BorderDelet" Grid.Row="2" Grid.Column="2" Height="25" Width="80" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                        Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding DeleteCreatInterview}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <Label Grid.Column="3" Height="20" FontSize="10"  Width="70" Content="Стерти все" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  HorizontalAlignment="Center" FontFamily="Arial"  >
+                        </Label>
+                    </Border>
+                    <Border x:Name="BorderDelete"  Grid.Row="2" Grid.Column="3" Height="25" Width="90" BorderBrush="#FF3E3E3B" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand"    >
+                        <!--<Image Height="35" Width="35" Grid.Row="2" Grid.Column="3"  HorizontalAlignment="Center"  Name="Deletestr"   
                         Source="pack://application:,,,/BackSeam;component/Images/corzina3.png"
-                        Cursor="Hand"   ></Image>
+                        Cursor="Hand"   ></Image>-->
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding DeletestrokaInterview}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
+                        <Label Grid.Column="3" Height="20" FontSize="10"  Width="80" Content="Стерти рядок" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  HorizontalAlignment="Center" FontFamily="Arial" />
                     </Border>
                 </Grid>
             </Grid>

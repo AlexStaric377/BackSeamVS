@@ -660,6 +660,41 @@ namespace BackSeam
                 else ObservableModelInterview(CmdStroka);
             }
         }
+
+
+        
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? selectedListComplaint;
+        public RelayCommand SelectedListComplaint
+        {
+            get
+            {
+                return selectedListComplaint ??
+                  (selectedListComplaint = new RelayCommand(obj =>
+                  {
+                      MapOpisViewModel.ActCompletedInterview = "NameCompl";
+                      NsiComplaint NewOrder = new NsiComplaint();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 90;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+                      MapOpisViewModel.ActCompletedInterview = "";
+
+                      if (MapOpisViewModel.nameFeature3 != "")
+                      {
+                          string keyComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                          string jason = Interviewcontroller + "0/" + keyComplaint + "/-1/0";
+                          CallServer.PostServer(Interviewcontroller, jason, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                          else ObservableModelInterview(CmdStroka);
+                          IndexAddEdit = "";
+                          loadboolInterview = true;
+
+                      }
+                  }));
+            }
+        }
         #endregion
         #endregion
     }

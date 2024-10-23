@@ -440,7 +440,7 @@ namespace BackSeam
                               string jason = pathDetailingcontroller + "0/" + selectedViewFeature.keyFeature + "/0";
                               CallServer.PostServer(pathDetailingcontroller, jason, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
-                              if (CmdStroka.Contains("[]") == true || CmdStroka.Contains("") == true) return;
+                              if (CmdStroka.Contains("[]") == true || CmdStroka.Length == 0) return;
                           }
 
                           MapOpisViewModel.ActCompletedInterview = "Feature";
