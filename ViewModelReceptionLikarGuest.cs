@@ -26,9 +26,9 @@ namespace BackSeam
     {
         private MainWindow ReceptionLIkarGuest = MainWindow.LinkNameWindow("BackMain");
         public static bool addReceptionLIkarGuest = false;
-        private string pathcontrolerAdmissionPatients = "/api/ControllerAdmissionPatients/";
+        public static string pathcontrolerAdmissionPatients = "/api/ControllerAdmissionPatients/";
         public static string EdrpouMedZaklad = "", PacientPostIndex="";
-        private AdmissionPatient admissionPatient;
+        public static AdmissionPatient admissionPatient;
         public ModelColectionInterview SelectReceptionLIkarGuest
         { get { return modelColectionInterview; } set { modelColectionInterview = value; OnPropertyChanged("SelectReceptionLIkarGuest"); } }
 
