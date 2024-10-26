@@ -61,8 +61,8 @@ namespace BackSeam
                       MapOpisViewModel.nameFeature3 = "";
                       WindowMain.Detailingt3.Text = "";
                       WindowMain.Featuret3.Text = "";
-                      WinNsiFeature WindowMen = MainWindow.LinkMainWindow("WinNsiFeature");
-                      WindowMen.Close();
+                      WinNsiFeature WindowFeature = MainWindow.LinkMainWindow("WinNsiFeature");
+                      WindowFeature.Close();
                   }));
             }
         }

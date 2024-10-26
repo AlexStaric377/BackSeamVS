@@ -25,7 +25,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class ViewModelCreatInterview : BaseViewModel
     {
-        public static WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
+        WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
         bool endwhile = false;
         //public static  WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
         public static MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
@@ -299,6 +299,7 @@ namespace BackSeam
         // метод дозаписи выбранной строки жалобы в общий контекст интервью.
         public static void SelectContentCompl()
         {
+            WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
             if (MapOpisViewModel.ModelCall == "ModelColectionInterview" || MapOpisViewModel.ModelCall == "ModelInterview")
             {
                 WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
