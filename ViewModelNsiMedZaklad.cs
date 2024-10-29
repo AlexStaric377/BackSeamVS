@@ -27,9 +27,10 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiMedZaklad : BaseViewModel
     {
-        WinNsiMedZaklad WindowMedZaklad = MainWindow.LinkMainWindow("WinNsiMedZaklad");
+        private WinNsiMedZaklad WindowMedZaklad = MainWindow.LinkMainWindow("WinNsiMedZaklad");
         MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         private string pathcontrollerMedZaklad =  "/api/MedicalInstitutionController/";
+        private bool closeWin = false;
         public  static MedicalInstitution selectedMedZaklad;
         public static ObservableCollection<MedicalInstitution> NsiModelMedZaklads { get; set; }
         public static ObservableCollection<ModelMedGrupDiagnoz> GrupMedZaklads { get; set; }
@@ -128,6 +129,7 @@ namespace BackSeam
                 return closeModelMedZaklad ??
                   (closeModelMedZaklad = new RelayCommand(obj =>
                   {
+                      closeWin = true;
                       MetodSelectMedzaklad();
                   }));
             }
@@ -202,14 +204,15 @@ namespace BackSeam
         {
             if (selectedMedZaklad != null && selectedMedZaklad.id != 0)
             {
+                closeWin = true;
                 WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
                 WindowMain.Likart8.Text = selectedMedZaklad.edrpou.ToString();
                 WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
                 WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
                 selectedMedZaklad = new MedicalInstitution();
-                WindowMedZaklad.Close();
+ 
             }
-                   
+            if(closeWin == true) WindowMedZaklad.Close();       
         }
 
     }

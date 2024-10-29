@@ -148,6 +148,7 @@ namespace BackSeam
             else BoolFalseFeature();
             WindowMen.FeatureTablGrid.SelectedItem = null;
             SelectedViewFeature = new ViewFeatureComplaint();
+            selectedFeature = new ModelFeature();
 
         }
 
@@ -296,7 +297,7 @@ namespace BackSeam
                               ViewFeatures.Add(selectedViewFeature);
                               WindowMen.FeatureTablGrid.ItemsSource = ViewFeatures;
                           }
-                          else
+                          if (IndexAddEdit == "editCommand")
                           {
                                // ОБращение к серверу измнить корректируемую запись в БД
                               json = JsonConvert.SerializeObject(selectedFeature);

@@ -237,6 +237,10 @@ namespace BackSeam
 
             }
             WindowMen.Close();
+            WinResultInterview WindowResult = MainWindow.LinkMainWindow("WinResultInterview");
+            if (WindowResult != null) WindowResult.Close();
+            WinAnalogDiagnoz WinAnalog = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
+            if (WinAnalog != null) WinAnalog.Close();
         }
     }
  
