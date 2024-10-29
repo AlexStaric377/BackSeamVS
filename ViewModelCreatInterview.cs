@@ -78,7 +78,15 @@ namespace BackSeam
                     else ObservableContentInterv(CmdStroka);
                     break;
                 case "addCommand":
-                    ContentIntervs = new ObservableCollection<ModelContentInterv>();
+                    
+                    CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
+                    CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]"))
+                    {
+                        selectedContentInterv = new ModelContentInterv();
+                        ContentIntervs = new ObservableCollection<ModelContentInterv>();
+                    }
+                    else ObservableContentInterv(CmdStroka);
                     break;
             }
         }
