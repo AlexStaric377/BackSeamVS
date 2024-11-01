@@ -129,6 +129,7 @@ namespace BackSeam
                 CallServer.BoolFalseTabl();
                 return;
             }
+            MapOpisViewModel.selectIcdGrDiagnoz = "";
             WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
             MedZaklad.ShowDialog();
             EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();

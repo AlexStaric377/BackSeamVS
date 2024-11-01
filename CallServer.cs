@@ -99,6 +99,7 @@ namespace BackSeam
                             MainWindow.TextName = status.ToString();
                             ResponseFromServer = response.Content.ReadAsStringAsync().Result;
                             FalseServerGet("Код завершення: " + MainWindow.TextName + " Рядок данних: " + UrlAdresId);
+                            ResponseFromServer = "[]";
                         }
                         restapiok = true;
                         return;
@@ -157,7 +158,7 @@ namespace BackSeam
         {
             MainWindow.MessageError = "Сервер не відповідає, " + Environment.NewLine + "Похибка при зверненні." + Environment.NewLine +
              ErrStroka + Environment.NewLine + "Необхідно перевірити з'єднання з сервером або стан БД";
-            MessageError NewOrder = new MessageError(MainWindow.MessageError, 2, 10);
+            MessageError NewOrder = new MessageError(MainWindow.MessageError, 2, 5);
             NewOrder.ShowDialog();
             
         }

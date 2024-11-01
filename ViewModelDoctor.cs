@@ -609,11 +609,12 @@ namespace BackSeam
                 return listLikarGrupDiagnoz ??
                   (listLikarGrupDiagnoz = new RelayCommand(obj =>
                   {
+                      MapOpisViewModel.ActCompletedInterview = "NameGrDiagnoz";
                       WinLikarGrupDiagnoz Order = new WinLikarGrupDiagnoz();
                       Order.Left = (MainWindow.ScreenWidth / 2)-50;
                       Order.Top = (MainWindow.ScreenHeight / 2) - 350;
                       Order.ShowDialog();
-
+                      MapOpisViewModel.ActCompletedInterview = "";
                   }));
             }
         }

@@ -116,6 +116,7 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelMedical>(CmdStroka);
             List<MedicalInstitution> res = result.MedicalInstitution.ToList();
             NsiModelMedZaklads = new ObservableCollection<MedicalInstitution>((IEnumerable<MedicalInstitution>)res);
+            selectedMedZaklad = new MedicalInstitution();
 
         }
 
@@ -209,8 +210,7 @@ namespace BackSeam
                 WindowMain.Likart8.Text = selectedMedZaklad.edrpou.ToString();
                 WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
                 WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
-                selectedMedZaklad = new MedicalInstitution();
- 
+                
             }
             if(closeWin == true) WindowMedZaklad.Close();       
         }

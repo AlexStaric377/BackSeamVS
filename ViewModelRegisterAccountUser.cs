@@ -31,15 +31,7 @@ namespace BackSeam
     public class ViewModelRegisterAccountUser : BaseViewModel
     {
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-
-        //}
+  
 
         WinRegisterAccountUser WindowAccount = MainWindow.LinkMainWindow("WinRegisterAccountUser");
         MainWindow WindowAccountUser = MainWindow.LinkNameWindow("BackMain");
@@ -296,6 +288,7 @@ namespace BackSeam
             string json = pathcontrolerAccountUser + "0/" + WindowAccount.TelAccount.Text.ToString() + "/" + WindowAccount.PasswText.Text.ToString() + "/0";
             CallServer.PostServer(pathcontrolerAccountUser, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
+            if(CallServer.ResponseFromServer == "[]") return;
             if (CmdStroka.Contains("[]"))
             {
                 MainWindow.MessageError = "Увага!" + Environment.NewLine +

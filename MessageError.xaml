@@ -35,7 +35,7 @@
                               BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
-                        <i:InvokeCommandAction Command="{Binding CloseWarning}" CommandParameter=""/>
+                        <i:InvokeCommandAction Command="{Binding CloseError}" CommandParameter=""/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <Label Grid.Column="2" Height="28" FontSize="14"  Width="80" Content="Далі" Background="#FFFBE16B"

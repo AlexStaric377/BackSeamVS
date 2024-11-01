@@ -144,23 +144,6 @@ namespace BackSeam
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
             selectedViewDetailingFeature = new  ViewDetailingFeature();
             SelectedViewDetailingFeature = selectedViewDetailingFeature;
-            //if (GrFeatureDetailing != "")
-            //{
-            //    if (ViewDetailingFeatures.Count == 0)
-            //    {
-
-            //        selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-            //        selectedViewDetailingFeature.nameFeature = MapOpisViewModel.nameFeature3.Substring(MapOpisViewModel.nameFeature3.IndexOf(":")+1, MapOpisViewModel.nameFeature3.Length - (MapOpisViewModel.nameFeature3.IndexOf(":")+1));
-            //    }
-            //    else
-            //    { 
-            //        selectedViewDetailingFeature.nameFeature = ViewDetailingFeatures[0].nameFeature;
-            //        selectedViewDetailingFeature.keyFeature = ViewDetailingFeatures[0].keyFeature;               
-            //    }
-
-            //    //WindowDetailing.Detailingt3.Text = MapOpisViewModel.nameFeature3;
-
-            //}
             if (addboolDetailing == false) BoolTrueDetailing();
             else BoolFalseDetailing();
 
@@ -321,16 +304,11 @@ namespace BackSeam
                                   string CmdStroka = CallServer.ServerReturn();
                                   ObservableViewDetailings(CmdStroka);                             
                               }
-
- 
-                              //WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
                           }
                           UnloadCmdStroka("Detailing/", json);
                       }
                       WindowDetailing.Detailingt2.Text = "";
-                      //WindowDetailing.Detailingt3.Text = "";
                       WindowDetailing.Detailingt4.Text = "";
-                      //WindowDetailing .DetailingTablGrid.SelectedItem = null;
                       BoolFalseDetailing();
                       IndexAddEdit = "";
 
