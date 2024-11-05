@@ -115,7 +115,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.45;component/windeletedata.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.47;component/windeletedata.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinDeleteData.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

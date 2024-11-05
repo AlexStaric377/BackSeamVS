@@ -56,6 +56,9 @@
                             <RowDefinition Height="70*"/>
                             <RowDefinition Height="70*"/>
                         </Grid.RowDefinitions>
+                            
+
+                            
                             <TextBlock x:Name="NameInterview" Grid.Row="1" TextWrapping="Wrap" FontSize="14" Text="  Назва опитування" FontFamily="Microsoft Sans Serif"  Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="40" />
                             <TextBox  Name="BoxNameInterview" Text="{Binding Path=nametInterview, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Microsoft Sans Serif"
                                                           Background="#FFCED7F7" VerticalAlignment="Center" Height="40" TextWrapping="Wrap" Width="310" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />

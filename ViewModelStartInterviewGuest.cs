@@ -96,6 +96,7 @@ namespace BackSeam
                       GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
                       InputContent = InputContent == "" ? WindowMain.InputNameInterview.Content.ToString() : InputContent;
                       WindowMain.NameInterv.Text = "Загальне опитування: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                      modelColectionInterview.nameInterview = WindowMain.NameInterv.Text; 
                       WindowMain.StackPanelGuestInterview.Visibility = Visibility.Hidden;
                       IndexAddEdit = "addCommand";
                       ActCompletedInterview = "Guest";
@@ -683,6 +684,7 @@ namespace BackSeam
                       if (_pacientProfil == "") { WarningMessageOfProfilPacient(); return; }
                       PacientContent = PacientContent == "" ? WindowMain.PacientKabinetInterv.Content.ToString() : PacientContent;
                       WindowMain.KabPacientNameInterv.Text = "Опитування пацієнта: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                      modelColectionInterview.nameInterview = WindowMain.KabPacientNameInterv.Text;
                       WindowMain.StackPanelPacient.Visibility = Visibility.Hidden;
                       GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
                       IndexAddEdit = "addCommand";
@@ -779,6 +781,7 @@ namespace BackSeam
                       selectedCompletedInterv = new ModelCompletedInterview();
                       modelColectionInterview = new ModelColectionInterview();
                       WindowMain.KabLikarNameInterv.Text = "Лікарське опитування: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                      modelColectionInterview.nameInterview = WindowMain.KabLikarNameInterv.Text;
                       if (_kodDoctor == "")
                       {
                           WarningMessageOfProfilLikar();

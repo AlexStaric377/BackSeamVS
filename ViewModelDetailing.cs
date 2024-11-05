@@ -619,7 +619,8 @@ namespace BackSeam
                   {
                       if (CheckStatusUser() == false) return;
                       SelectedNsiComplaint();
-                      if (selectedViewDetailingFeature == null) return;
+                      if (MapOpisViewModel.nameFeature3 == ""  || selectedViewDetailingFeature == null) return;
+                      
                       loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
                       ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 

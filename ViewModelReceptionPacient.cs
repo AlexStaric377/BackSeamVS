@@ -156,7 +156,7 @@ namespace BackSeam
                   (loadReceptionLikar = new RelayCommand(obj =>
                   {
                       if (RegUserStatus == "2") return;
-                      if (_kodDoctor == "") { MetodLoadProfilLikar(); }
+                      if (_kodDoctor == "" || WindowReceptionPacient.Likart2.Text == "") { MetodLoadProfilLikar(); }
                       MethodLoadReceptionLikar();
                   }));
             }

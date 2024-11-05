@@ -71,7 +71,9 @@
                                 <RowDefinition Height="60*"/>
 
                             </Grid.RowDefinitions>
-
+                            <Grid  Grid.Row="0" Grid.ColumnSpan="3" >
+                                <TextBlock  Height="22"  Text="  Створити профіль пацієнта натисніть на Плюс. Зберегти, натисніть на Дискету. "  Width="560" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12"  />
+                            </Grid>
                             <Grid x:Name="PacientProfilGridLab1"  Grid.Column="0" Grid.Row="1" >
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="60*"/>
