@@ -51,28 +51,6 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelGrDetailing>(CmdStroka);
             List<ModelGrDetailing> res = result.ViewGrDetailing.ToList();
             ViewGrDetailings = new ObservableCollection<ModelGrDetailing>((IEnumerable<ModelGrDetailing>)res);
-
-            //foreach (ModelGrDetailing modelGrDetailing in ViewGrDetailings)
-            //{
-
-
-            //    if (_keyGrDetailing != modelGrDetailing.keyGrDetailing)
-            //    {
-            //        _keyGrDetailing =  modelGrDetailing.keyGrDetailing;
-            //        string json = pathcontrolerListGrDet + _keyGrDetailing;
-            //        CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
-
-            //        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-            //        json = CallServer.ResponseFromServer;
-            //        ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
-            //        _nameGrDetailing = Idinsert.nameGrup;
-            //    }
-
-            //    ViewGrDetailings[indexgr].keyGrDetailing = _nameGrDetailing;
-            //    indexgr++;
-            //}
- 
-
             WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
         }
 
@@ -252,6 +230,10 @@ namespace BackSeam
                           }
                           else
                           {
+                              if (selectedViewGrDeliting.keyGrDetailing != "" || selectedViewGrDeliting.keyGrDetailing != null)
+                              {
+                                  selectedViewGrDeliting.keyGrDetailing = selectedViewGrDeliting.keyGrDetailing.Substring(0, selectedViewGrDeliting.keyGrDetailing.IndexOf(" "));
+                              }
                               json = JsonConvert.SerializeObject(selectedViewGrDeliting);
                               CallServer.PostServer(controlerGrDetailing, json, "PUT");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -386,10 +368,42 @@ namespace BackSeam
 
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false) ObservableViewGrDeliting(CmdStroka);
-                else ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
+                else
+                { 
+                    ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
+                    WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
+                }
             }
         }
 
+
+        
+        // команда выбора групы детализации
+        RelayCommand? selectNameGrDeteling;
+        public RelayCommand SelectNameGrDeteling
+        {
+            get
+            {
+                return selectNameGrDeteling ??
+                  (selectNameGrDeteling = new RelayCommand(obj =>
+                  {
+                      if (WindowMen.GrDetailingsTablGrid.SelectedIndex >=0)
+                      {
+                          selectedViewGrDeliting = ViewGrDetailings[WindowMen.GrDetailingsTablGrid.SelectedIndex];
+                          if (selectedViewGrDeliting.keyGrDetailing != "" || selectedViewGrDeliting.keyGrDetailing != null)
+                          {
+                              selectedViewGrDeliting.keyGrDetailing = selectedViewGrDeliting.keyGrDetailing.Contains(" ") ? selectedViewGrDeliting.keyGrDetailing.Substring(0, selectedViewGrDeliting.keyGrDetailing.IndexOf(" ")) : selectedViewGrDeliting.keyGrDetailing;
+                              string json = pathcontrolerListGrDet + selectedViewGrDeliting.keyGrDetailing + "/0";
+                              CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
+                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              json = CallServer.ResponseFromServer;
+                              ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
+                              selectedViewGrDeliting.keyGrDetailing += " "+Idinsert.nameGrup;
+                          }
+                      }
+                  }));
+            }
+        }
 
         #endregion
         #endregion

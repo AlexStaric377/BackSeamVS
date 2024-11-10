@@ -138,7 +138,7 @@ namespace BackSeam
                                           NewNsi.Left = (MainWindow.ScreenWidth / 2) - 90;
                                           NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                           NewNsi.ShowDialog();
-                                          MapOpisViewModel.ActCompletedInterview = null;
+                                          MapOpisViewModel.ActCompletedInterview = "";
 
                                       }                                  
                                   }

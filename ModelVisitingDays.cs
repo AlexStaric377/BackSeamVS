@@ -219,38 +219,10 @@ namespace BackSeam
             selectedIndexDayWeek = selected;
         }
 
-        //public static List<string> DayWeeks { get; set; } = new List<string> { "Дні неділі","Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
-        //public static string selectedIndexDayWeek = "0";
-        //private string _SelectedDayWeek;
-        //public string SelectedDayWeek
-        //{
-        //    get => _SelectedDayWeek;
-        //    set
-        //    {
-        //        //// сохраняем старое значение
-        //        //var origValue = _SelectedUnit;
-
-        //        //меняем значение в обычном порядке
-        //        _SelectedDayWeek = value;
-        //        //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedDayWeek)));
-        //        //OnPropertyChanged(nameof(SelectedUnit));
-        //        //а здесь уже преобразуем изменившиеся значение
-        //        //в необходимое uint
-        //        SetNewDayWeek(_SelectedDayWeek);
-        //    }
-        //}
-
-        //public void SetNewDayWeek(string selected = "")
-        //{
-        //    MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-        //    WindowMen.ReseptionPacient.Text = (selected == "0") ? WindowMen.ReseptionPacient.Text : AppointmentsDayWeeks[Convert.ToInt32(selected)];
-        //    selectedIndexDayWeek = selected;
-        //}
-
+ 
         public static List<string> AppointmentsDayWeeks { get; set; } = new List<string> { "Дні неділі", "Понеділок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота", "Неділя" };
         public static string selectedIndexAppointmentsDayWeek = "0";
-        private string _SelectedAppointmentsDayWeek;
+        private string _SelectedAppointmentsDayWeek = "0";
         public string SelectedAppointmentsDayWeek
         {
             get => _SelectedAppointmentsDayWeek;
@@ -280,7 +252,7 @@ namespace BackSeam
         public static List<string> AppointmentsTimeVizits { get; set; } = new List<string> {"Час приому", "08.00", "08.30", "09.00", "09.30", "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30" };
         public static string selectedIndexAppointmentsTimeVizita = "0";
 
-        private string _SelectedAppointmentsTimeVizita;
+        private string _SelectedAppointmentsTimeVizita = "0";
         public string SelectedAppointmentsTimeVizita
         {
             get => _SelectedAppointmentsTimeVizita;
@@ -310,7 +282,7 @@ namespace BackSeam
         public static List<string> TimeVizits { get; set; } = new List<string> { "Час приому", "08.00", "08.30", "09.00", "09.30", "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30" };
         public static string selectedIndexTimeVizita = "0";
 
-        private string _SelectedTimeVizita;
+        private string _SelectedTimeVizita = "0";
         public string SelectedTimeVizita
         {
             get => _SelectedTimeVizita;
@@ -340,7 +312,7 @@ namespace BackSeam
         public static List<string> VizitsOnOff { get; set; } = new List<string> { "Прийом","Так", "Ні" };
         public static string selectedIndexVizitsOnOff = "0";
 
-        private string _SelectedVizitsOnOff;
+        private string _SelectedVizitsOnOff = "0";
         public string SelectedVizitsOnOff
         {
             get => _SelectedVizitsOnOff;
@@ -371,7 +343,7 @@ namespace BackSeam
         public static List<string> AppointmentsVizitsOnOff { get; set; } = new List<string> { "Прийом", "Так", "Ні" };
         public static string selectedIndexAppointmentsVizitsOnOff = "0";
 
-        private string _SelectedAppointmentsVizitsOnOff;
+        private string _SelectedAppointmentsVizitsOnOff = "0";
         public string SelectedAppointmentsVizitsOnOff
         {
             get => _SelectedAppointmentsVizitsOnOff;
@@ -396,6 +368,53 @@ namespace BackSeam
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
             WindowMen.CabinetReseptionTextBoxOnoff.Text = selected == "0" ? WindowMen.CabinetReseptionTextBoxOnoff.Text : VizitsOnOff[Convert.ToInt32(selected)];
             selectedIndexAppointmentsVizitsOnOff = selected;
+
+        }
+
+        public static List<string> MonthYear { get; set; } = new List<string> {"Місяць року", "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вереснь", "Жовтень", "Листопад", "Грудень" };
+        private string _SelectedMonthYear = "0";
+        public string SelectedMonthYear
+        {
+            get => _SelectedMonthYear;
+            set
+            {
+                //// сохраняем старое значение
+                //var origValue = _SelectedUnit;
+
+                //меняем значение в обычном порядке
+                _SelectedMonthYear = value;
+                //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedMonthYear)));
+                //OnPropertyChanged(nameof(SelectedUnit));
+                //а здесь уже преобразуем изменившиеся значение
+                //в необходимое uint
+                SetNewMonthYear(_SelectedMonthYear);
+            }
+        }
+
+        public void SetNewMonthYear(string selected = "")
+        {
+            MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
+            WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)]; 
+            int indexDay = Convert.ToInt32(selected) == 2 ? 28 : 31;
+            for (int i = 1; i < indexDay; i++)
+            {
+                MapOpisViewModel.selectModelVisitingDays = new ModelVisitingDays();
+                MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
+                //MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek = VisitngDays.ReseptionPacient.Text;
+                string dateVisit = Convert.ToString(i) + "." + Convert.ToString(selected) + "." + DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".")+1, DateTime.Now.ToShortDateString().Length-(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1) );
+                MapOpisViewModel.selectModelVisitingDays.dateVizita = dateVisit;
+                MapOpisViewModel.selectModelVisitingDays.onOff = "Так";
+                for (int itime = 1; itime < 24; itime++)
+                {
+                    MapOpisViewModel.selectModelVisitingDays.timeVizita = TimeVizits[itime];
+                    string json = JsonConvert.SerializeObject(MapOpisViewModel.selectModelVisitingDays);
+                    CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "POST");
+                }
+
+            }
+
+
 
         }
     }

@@ -278,8 +278,7 @@ namespace BackSeam
                             admissionPatient = JsonConvert.DeserializeObject<AdmissionPatient>(CallServer.ResponseFromServer);
                             json = pathcontrolerAdmissionPatients + admissionPatient.id+"/0/0";
                             CallServer.PostServer(pathcontrolerAdmissionPatients, json, "DELETE");
-                            //CmdStroka = CallServer.ServerReturn();
-                            //if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
+                            
                         }
                         ViewRegistrAppoints.Remove(selectRegistrationAppointment);
                         ViewReceptionPatients.Remove(modelColectionInterview);
@@ -392,10 +391,8 @@ namespace BackSeam
 
                 }
                 admissionPatient = new AdmissionPatient();
-                //IndexAddEdit = "editCommand";
                 CopycolectionInterview();
                 SaveInterviewProtokol();
-                //IndexAddEdit = "addCommand";
                 MethodEditFalse();
                 ViewRegistrAppoints = new ObservableCollection<ModelRegistrationAppointment>();
                 modelColectionInterview = new ModelColectionInterview();

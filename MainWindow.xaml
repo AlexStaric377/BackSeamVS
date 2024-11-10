@@ -349,7 +349,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <TextBlock Name="ReseptionZapisLikar" Text="Для запису на прийом необхідно виконати опитування, потім перейти на цю закладку , вибрати лікаря, ввести дані та натиснути на кнопк 'Зберегти'. " Width="625"  Height="70"
+                                                        <TextBlock Name="ReseptionZapisLikar" Text="Для запису на прийом необхідно виконати опитування, потім перейти на цю закладку, натиснути на кнопку 'Додати' , вибрати лікаря, ввести дані та натиснути на кнопк 'Зберегти'. " Width="625"  Height="70"
                                                    TextWrapping="Wrap" Grid.Row="9" HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="3" Margin="5,0,0,0"/>
                                                     </Grid>
 
@@ -2352,6 +2352,7 @@
                                                             <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="90*"/>
+                                                            <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="120*"/>
                                                         </Grid.RowDefinitions>
                                                         <Label Name="CabinetMedZaklad" Content=" Медичний заклад" Grid.Column="0" Grid.Row="0" Height="24" FontSize="14"  Width="140" HorizontalAlignment="Left" />
@@ -2365,15 +2366,11 @@
                                                             Grid.Column="1" Grid.Row="2"  Background="White" Width="130" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
                                                         <ComboBox Name="CabinetDayoftheWeek"  ItemsSource="{Binding DayWeeks}" SelectedIndex="{Binding SelectedDayWeek}" Grid.Column="1" Grid.Row="2" 
                                                              IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
-                                                        <!--Text="{Binding Path=daysOfTheWeek, UpdateSourceTrigger=PropertyChanged}"-->
-                                                        <!--SelectionChanged="AppPanelNumberChanged" DropDownClosed="ComboBox_DropDownClosed"-->
-
+                                                        
                                                         <TextBlock x:Name="CabinetReseptionPacientLab2" Grid.Row="3" TextWrapping="Wrap" FontSize="14" Text="  Дата прийому"   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Center" />
                                                         <TextBox  Name="CabinetReseptionPacientVisit" Text="{Binding dateVizita, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="28" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        <!--<DatePicker x:Name="DatePicker1"  Grid.Column="1" Grid.Row="3"  IsEnabled="false" 
-                                                            IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Bottom"
-                                                            FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28"/>-->
+                                                        
                                                         <DatePicker x:Name="CabinetDatePicker" Grid.Column="1" Grid.Row="3" SelectedDate="{Binding Path=dateVizita}" 
                                                                     IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Bottom"
                                                                     FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
@@ -2391,29 +2388,27 @@
                                                                 </Style>
                                                             </DatePicker.Resources>
                                                         </DatePicker>
-                                                        <!--SelectedDateChanged="datePicker25_CopyLogS_SelectedDateChanged"-->
+                                                        
                                                         <TextBlock x:Name="CabinetReseptionPacientLab3" Grid.Row="4" TextWrapping="Wrap"  Grid.Column="0" Height="28" Text="  Час прийому"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox  Name="CabinetReseptionTime" Text="{Binding Path=timeVizita, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="4" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <ComboBox  Name="CabinetTimeofDay"  ItemsSource="{Binding AppointmentsTimeVizits }" SelectedIndex="{Binding SelectedAppointmentsTimeVizita}" 
                                                            Grid.Column="1" Grid.Row="4" Width="130" IsEnabled="false" Margin="312,0,0,2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="24"  />
-                                                        <!--Text="{Binding Path=timeVizita, UpdateSourceTrigger=PropertyChanged}"-->
-                                                        <!--SelectionChanged="AppPanelNumberChanged" DropDownClosed="ComboBox_DropDownClosed"-->
-                                                        <!--<Image x:Name="FolderGrQua" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="3" Width="25"  HorizontalAlignment="Left"   Visibility="Hidden" Margin="20,0,0,0"  >
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridGrQualification, Path=DataContext.ViewGrQualification}" CommandParameter=""/>
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </Image>-->
+                                                        
                                                         <TextBlock x:Name="CabinetReseptionOnoff" Grid.Row="5" TextWrapping="Wrap"  Grid.Column="0" Height="28" Text="  Дійсність прийому"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox  Name="CabinetReseptionTextBoxOnoff" Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="5" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <ComboBox   Name="CabinetComboBoxOnoff"  ItemsSource="{Binding AppointmentsVizitsOnOff }" SelectedIndex="{Binding SelectedAppointmentsVizitsOnOff}" 
                                                           Grid.Column="1" Grid.Row="5"   Height="24" Width="130" IsEnabled="false" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center"  />
-                                                        <!--Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}"-->
-                                                        <!--SelectionChanged="AppPanelNumberChanged" DropDownClosed="ComboBox_DropDownClosed"-->
-                                                        <Label Name="CabinetReseptionPacientLab" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6"
+
+                                                        <TextBlock x:Name="CabinetReseptionBlockMonth" Grid.Row="6" Text=" Створити розклад на місяць" TextWrapping="Wrap"  FontSize="14" Height="34" Width="148" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Name="CabinetReseptionBoxMonth" Text="{Binding Path=daysOfTheWeek, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" 
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="130" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <ComboBox Name="CabinetDayoftheMonth"  ItemsSource="{Binding MonthYear}" SelectedIndex="{Binding SelectedMonthYear}" Grid.Column="1" Grid.Row="6" 
+                                                             IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
+
+
+                                                        <Label Name="CabinetReseptionPacientLab" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="7"
                                                        HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0" />
                                                     </Grid>
                                                 </StackPanel>

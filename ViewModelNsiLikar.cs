@@ -189,6 +189,7 @@ namespace BackSeam
             WindowMain.AccountUsert5.Text = "";
             MapOpisViewModel.nameDoctor = "";
             WindowMain.Intert2.Text = "";
+            string CmdStroka = "";
             if (selectedLikar != null)
             {
                 MapOpisViewModel._kodDoctor = selectedLikar.kodDoctor.ToString();
@@ -221,16 +222,39 @@ namespace BackSeam
                             MapOpisViewModel.admissionPatient.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
                             MapOpisViewModel.admissionPatient.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
                             MapOpisViewModel.admissionPatient.topictVizita = "Гість:  " + WindowMain.ReceptionLikarGuest7.Text.ToString();
-                            MapOpisViewModel.admissionPatient.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview; 
-                            MapOpisViewModel.admissionPatient.dateVizita = WindowMain.ReceptionLikarGuest4.Text.ToString();
+                            MapOpisViewModel.admissionPatient.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
+
+                            MapOpisViewModel.modelColectionInterview.namePacient = MapOpisViewModel.selectedProfilPacient.name + " " + MapOpisViewModel.selectedProfilPacient.surname;
+
+                            CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, MapOpisViewModel.pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor, "GETID");
+                            CmdStroka = CallServer.ServerReturn();
+                            if (CmdStroka.Contains("[]") == false)
+                            {
+                                WinVisitingDays NewOrder = new WinVisitingDays();
+                                NewOrder.Left = (MainWindow.ScreenWidth / 2);//- 90
+                                NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400;
+                                NewOrder.ShowDialog();
+                                if (MapOpisViewModel.selectVisitingDays != null)
+                                {
+                                    WindowMain.ReceptionLikarGuest4.Text = MapOpisViewModel.selectVisitingDays.dateVizita + " :" + MapOpisViewModel.selectVisitingDays.timeVizita;
+                                    MapOpisViewModel.admissionPatient.dateVizita = WindowMain.ReceptionLikarGuest4.Text.ToString();
+                                    MapOpisViewModel.modelColectionInterview.dateDoctor = WindowMain.ReceptionLikarGuest4.Text.ToString();
+                                }
+                            }
+                            else MapOpisViewModel.NotVisitingDays();
+                            
                             var json = JsonConvert.SerializeObject(MapOpisViewModel.admissionPatient);
                             CallServer.PostServer(MapOpisViewModel.pathcontrolerAdmissionPatients, json, "POST");
-                            string CmdStroka = CallServer.ServerReturn();
+                            CmdStroka = CallServer.ServerReturn();
                             if (CmdStroka.Contains("[]")) CallServer.FalseServerGet();
  
                         }
-                     
-                    
+
+ 
+                        
+
+                        
+                        
                     }                
                 }
 

@@ -62,19 +62,14 @@ namespace BackSeam
                 WarningMessageReceptionLIkarGuest();
                 return;
             }
-
             SelectReceptionLIkarGuest = modelColectionInterview;
-            if (addReceptionLIkarGuest == false)
-            {
-                ReceptionLIkarGuestTrue();
-            }
+            if (addReceptionLIkarGuest == false) ReceptionLIkarGuestTrue();
             else
             {
+                SelectReceptionLIkarGuest = new ModelColectionInterview();
                 ReceptionLIkarGuestFalse();
             }
-            WindowIntevLikar.ReceptionLikarGuest3.Text = "";
-            WindowIntevLikar.ReceptionLikarGuest4.Text = "";
-            WindowIntevLikar.ReceptionLikarGuest7.Text = "";
+
         }
 
         public void ReceptionLIkarGuestTrue()
@@ -310,8 +305,8 @@ namespace BackSeam
                       }
 
                       WinVisitingDays NewOrder = new WinVisitingDays();
-                      NewOrder.Left = 550;
-                      NewOrder.Top = 100;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) ;//- 90
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                       if (selectVisitingDays != null)
                       {

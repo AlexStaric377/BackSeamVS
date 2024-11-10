@@ -208,25 +208,17 @@ namespace BackSeam
                           CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                           json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_"); 
                           MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
-                          if (VeiwModelMedicals == null)
-                          {
-                              VeiwModelMedicals = new ObservableCollection<MedicalInstitution>();
-                              
+                          if (VeiwModelMedicals == null)VeiwModelMedicals = new ObservableCollection<MedicalInstitution>();
+                          if (IndexAddEdit == "addCommand")
+                          { 
+                            VeiwModelMedicals.Add(Idinsert);
+                            WindowMedical.MedicalTablGrid.ItemsSource = VeiwModelMedicals;
                           } 
-                          if (IndexAddEdit == "addCommand") VeiwModelMedicals.Add(Idinsert);
- 
-
-                          WindowMedical.MedicalTablGrid.ItemsSource = VeiwModelMedicals;
+                          
                           UnloadCmdStroka("MedicalInstitution/", json);
                       }
                       IndexAddEdit = "";
-                      WindowMedical .Medicalt2.Text = "";
-                      WindowMedical .Medicalt3.Text = "";
-                      WindowMedical .Medicalt5.Text = "";
-                      WindowMedical .Medicalt9.Text = "";
-                      WindowMedical .Medicalt4.Text = "";
-                      WindowMedical .Medicalt8.Text = "";
-                      //WindowMedical .MedicalTablGrid.SelectedItem = null;
+                      SelectedMedical = new MedicalInstitution();
                   }));
             }
         }

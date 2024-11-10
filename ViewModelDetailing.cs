@@ -623,15 +623,16 @@ namespace BackSeam
                       
                       loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
+                      MapOpisViewModel.ActCreatInterview = "Feature";
                       ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 
                       ViewModelNsiFeature.Method = selectedViewDetailingFeature.kodComplaint == "" ? "GET" : "GETID";
-
-                        WinNsiFeature NewOrder = new WinNsiFeature();
-                        NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                        NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                        NewOrder.ShowDialog();
-                        CallViewDetailing = "";
-                        MapOpisViewModel.ActCompletedInterview = "";
+                      WinNsiFeature NewOrder = new WinNsiFeature();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+                      CallViewDetailing = "";
+                      MapOpisViewModel.ActCompletedInterview = "";
+                      MapOpisViewModel.ActCreatInterview = "";
                         if (MapOpisViewModel.nameFeature3 == "") return;
                         GrFeatureDetailing = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
                         string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";

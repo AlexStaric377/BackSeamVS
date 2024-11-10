@@ -178,6 +178,7 @@ namespace BackSeam
             LikarAppointments.CabinetDatePicker.IsEnabled = true;
             LikarAppointments.CabinetTimeofDay.IsEnabled = true;
             LikarAppointments.CabinetComboBoxOnoff.IsEnabled = true;
+            LikarAppointments.CabinetDayoftheMonth.IsEnabled = true;
 
         }
 
@@ -193,6 +194,7 @@ namespace BackSeam
             LikarAppointments.CabinetDatePicker.IsEnabled = false;
             LikarAppointments.CabinetTimeofDay.IsEnabled = false;
             LikarAppointments.CabinetComboBoxOnoff.IsEnabled = false;
+            LikarAppointments.CabinetDayoftheMonth.IsEnabled = false;
         }
 
         // команда  редактировать

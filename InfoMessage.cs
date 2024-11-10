@@ -408,5 +408,15 @@ namespace BackSeam
             }
  
         }
+
+        public static void NotVisitingDays()
+        {
+            if (MapOpisViewModel.boolVisibleMessage == true) return;
+            MainWindow.MessageError = "Розклад прийому пацієнтів не введено" + Environment.NewLine +
+            "Дата та час прийому буде визначена лікарем додатково";
+            MessageWarn NewOrder = new MessageWarn(MainWindow.MessageError, 2, 5);
+            NewOrder.ShowDialog();
+
+        }
     }
 }

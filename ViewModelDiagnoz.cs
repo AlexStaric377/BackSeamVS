@@ -38,6 +38,7 @@ namespace BackSeam
 
         public static ObservableCollection<ModelDiagnoz> ViewDiagnozs { get; set; }
         public static ObservableCollection<ModelDiagnoz> TmpDiagnozs = new ObservableCollection<ModelDiagnoz>();
+        public static ObservableCollection<ModelDiagnoz> ListDiagnozs = new ObservableCollection<ModelDiagnoz>();
         public ModelDiagnoz SelectedViewDiagnoz
         { get { return selectedDiagnoz; } set { selectedDiagnoz = value; OnPropertyChanged("SelectedViewDiagnoz"); } }
 
@@ -47,8 +48,8 @@ namespace BackSeam
             List<ModelDiagnoz> res = result.ModelDiagnoz.ToList();
             ViewDiagnozs = new ObservableCollection<ModelDiagnoz>((IEnumerable<ModelDiagnoz>)res);
             if(addboolGrDiagnoz == false && loadGrupDiagnoz == false) GrupIcdGrDiagnoz();
-            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
-            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;
+            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs.OrderBy(x => x.kodDiagnoza);
+            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs.OrderBy(x => x.kodDiagnoza);
         }
 
         public static  void GrupIcdGrDiagnoz()
@@ -312,10 +313,15 @@ namespace BackSeam
             if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();
             if (ViewDiagnozs != null && ViewDiagnozs.Count>0)
             {
-                indexdia = Convert.ToInt32(ViewDiagnozs[0].kodDiagnoza.Substring(ViewDiagnozs[0].kodDiagnoza.LastIndexOf(".") + 1, ViewDiagnozs[0].kodDiagnoza.Length - (ViewDiagnozs[0].kodDiagnoza.LastIndexOf(".")+1)));
+
+                foreach (ModelDiagnoz modelDiagnozs in ViewDiagnozs.OrderBy(x => x.kodDiagnoza))
+                {
+                    ListDiagnozs.Add(modelDiagnozs);
+                }
+                indexdia = Convert.ToInt32(ListDiagnozs[0].kodDiagnoza.Substring(ListDiagnozs[0].kodDiagnoza.LastIndexOf(".") + 1, ListDiagnozs[0].kodDiagnoza.Length - (ListDiagnozs[0].kodDiagnoza.LastIndexOf(".")+1)));
                 for (int i = 0; i < ViewDiagnozs.Count; i++)
                 {
-                  setindex = Convert.ToInt32(ViewDiagnozs[i].kodDiagnoza.Substring(ViewDiagnozs[i].kodDiagnoza.LastIndexOf(".") + 1, ViewDiagnozs[i].kodDiagnoza.Length - ( ViewDiagnozs[i].kodDiagnoza.LastIndexOf(".")+1)));
+                  setindex = Convert.ToInt32(ListDiagnozs[i].kodDiagnoza.Substring(ListDiagnozs[i].kodDiagnoza.LastIndexOf(".") + 1, ListDiagnozs[i].kodDiagnoza.Length - (ListDiagnozs[i].kodDiagnoza.LastIndexOf(".")+1)));
                   if (indexdia < setindex) indexdia = setindex; 
                 }
                 indexdia++;
@@ -535,7 +541,7 @@ namespace BackSeam
                     WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
                     CallServer.BoolFalseTabl();
                 }
-                else { ObservableViewDiagnoz(CmdStroka); loadGrupDiagnoz = true; }
+                else { loadGrupDiagnoz = true; ObservableViewDiagnoz(CmdStroka);  }
             }
 
             ActCompletedInterview = "";

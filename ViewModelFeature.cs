@@ -329,7 +329,7 @@ namespace BackSeam
                 selectedFeature.name = WindowMen.Featuret2.Text.ToString();
                 selectedFeature.idUser = RegIdUser;
                 string _keyComplaint = selectedFeature.keyComplaint;
-                foreach (ModelFeature modelFeature in ModelFeatures)
+                foreach (ModelFeature modelFeature in ModelFeatures.OrderBy(x=>x.keyComplaint).OrderBy(x=>x.keyFeature))
                 {
                     if (_keyComplaint == modelFeature.keyComplaint)
                     {
