@@ -395,22 +395,34 @@ namespace BackSeam
         public void SetNewMonthYear(string selected = "")
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-            WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)]; 
-            int indexDay = Convert.ToInt32(selected) == 2 ? 28 : 31;
+            string ThisDay = "", ThisMonth = "";
+            WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)];
+
+            
+            int indexDay = System.DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(selected));    
             for (int i = 1; i < indexDay; i++)
             {
                 MapOpisViewModel.selectModelVisitingDays = new ModelVisitingDays();
                 MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
-                //MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek = VisitngDays.ReseptionPacient.Text;
-                string dateVisit = Convert.ToString(i) + "." + Convert.ToString(selected) + "." + DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".")+1, DateTime.Now.ToShortDateString().Length-(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1) );
+
+                ThisDay = i > 9 ? Convert.ToString(i) : "0" + Convert.ToString(i);
+                ThisMonth = selected.Length > 1 ? selected : "0" + selected;
+                string dateVisit = ThisDay + "." + ThisMonth + "." + DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".")+1, DateTime.Now.ToShortDateString().Length-(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1) );
                 MapOpisViewModel.selectModelVisitingDays.dateVizita = dateVisit;
+                DateTime convertedDate = Convert.ToDateTime(dateVisit);
+                int theweek = (int)convertedDate.DayOfWeek;
+                MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek = AppointmentsDayWeeks[(int)convertedDate.DayOfWeek];
                 MapOpisViewModel.selectModelVisitingDays.onOff = "Так";
-                for (int itime = 1; itime < 24; itime++)
-                {
-                    MapOpisViewModel.selectModelVisitingDays.timeVizita = TimeVizits[itime];
-                    string json = JsonConvert.SerializeObject(MapOpisViewModel.selectModelVisitingDays);
-                    CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "POST");
+                if (MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek != "Субота" && MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek != "Неділя" && theweek !=0)
+                { 
+                    for (int itime = 1; itime < 4; itime++)
+                    {
+                        MapOpisViewModel.selectModelVisitingDays.timeVizita = TimeVizits[itime];
+                        string json = JsonConvert.SerializeObject(MapOpisViewModel.selectModelVisitingDays);
+                        CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "POST");
+                    }               
                 }
+ 
 
             }
 

@@ -110,6 +110,13 @@
 {"id":14188,"kodDetailing":"YAA.021.004","keyGrDetailing":"YAA.021","kodGroupQualification":"","nameGrDetailing":"можуть бути періоди зникнення болю","idUser":"Admin"}
 {"id":14189,"kodDetailing":"YAA.021.005","keyGrDetailing":"YAA.021","kodGroupQualification":"","nameGrDetailing":"поновлення болю як правило довші, сильніші","idUser":"Admin"}
 {"id":14190,"kodDetailing":"YAA.021.006","keyGrDetailing":"YAA.021","kodGroupQualification":"","nameGrDetailing":"як правило біль тимчасово усувається карбомазеніном або аналогами","idUser":"Admin"}
+{"id":14192,"kodDetailing":"YAA.022.001","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"головокружіння супроводжується шумом у вусі часто пульсуючим","idUser":"Admin"}
+{"id":14193,"kodDetailing":"YAA.022.002","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"приступи головокружіння виникають раптово інколи аж до падіння","idUser":"Admin"}
+{"id":14194,"kodDetailing":"YAA.022.003","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"головокружиння триває як правило не довго протягом хвилини інколи години","idUser":"Admin"}
+{"id":14195,"kodDetailing":"YAA.022.004","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"головокружіння повторюються багато разів на день","idUser":"Admin"}
+{"id":14196,"kodDetailing":"YAA.022.005","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"періоди загострення і спонтанного зникнення приступів типово на початку захворювання","idUser":"Admin"}
+{"id":14197,"kodDetailing":"YAA.022.006","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"приступи головокружіння можуть виникати без видимої причини або при найменьшій будь якій активності","idUser":"Admin"}
+{"id":14198,"kodDetailing":"YAA.022.007","keyGrDetailing":"YAA.022","kodGroupQualification":"","nameGrDetailing":"приступи головокружіння як правило не усуваються стандартними препаратами (бета-серк, вистібо та ін.)","idUser":"Admin"}
 {"id":105,"kodDetailing":"YBB.000.001","keyGrDetailing":"YBB.000","kodGroupQualification":null,"nameGrDetailing":"після ГРВІ","idUser":"Admin"}
 {"id":106,"kodDetailing":"YBB.000.002","keyGrDetailing":"YBB.000","kodGroupQualification":null,"nameGrDetailing":"вдома","idUser":"Admin"}
 {"id":107,"kodDetailing":"YBB.000.003","keyGrDetailing":"YBB.000","kodGroupQualification":null,"nameGrDetailing":"під час прибирання вдома","idUser":"Admin"}

@@ -382,7 +382,15 @@
 {"id":8419,"kodProtokola":"PRT.000000023","numberstr":3,"kodDetailing":"M.000.012.002","detailsInterview":"        при максимальному напружені на праву ногу не хватає сили","idUser":"Admin"}
 {"id":8420,"kodProtokola":"PRT.000000023","numberstr":4,"kodDetailing":"M.000.012.003","detailsInterview":"        триває рік - півтора","idUser":"Admin"}
 {"id":8421,"kodProtokola":"PRT.000000023","numberstr":5,"kodDetailing":"M.000.012.004","detailsInterview":"        при максимальному напружені правої руки також не хватає сили","idUser":"Admin"}
-{"id":25502,"kodProtokola":"PRT.000000024","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":25511,"kodProtokola":"PRT.000000024","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":25512,"kodProtokola":"PRT.000000024","numberstr":1,"kodDetailing":"M.000.013","detailsInterview":"    Головокружіння із шумом у вусі( пароксизмальна вестибулопатія","idUser":"Admin"}
+{"id":25513,"kodProtokola":"PRT.000000024","numberstr":2,"kodDetailing":"YAA.022.001","detailsInterview":"        головокружіння супроводжується шумом у вусі часто пульсуючим","idUser":"Admin"}
+{"id":25514,"kodProtokola":"PRT.000000024","numberstr":3,"kodDetailing":"YAA.022.002","detailsInterview":"        приступи головокружіння виникають раптово інколи аж до падіння","idUser":"Admin"}
+{"id":25515,"kodProtokola":"PRT.000000024","numberstr":4,"kodDetailing":"YAA.022.003","detailsInterview":"        головокружиння триває як правило не довго протягом хвилини інколи години","idUser":"Admin"}
+{"id":25516,"kodProtokola":"PRT.000000024","numberstr":5,"kodDetailing":"YAA.022.004","detailsInterview":"        головокружіння повторюються багато разів на день","idUser":"Admin"}
+{"id":25517,"kodProtokola":"PRT.000000024","numberstr":6,"kodDetailing":"YAA.022.005","detailsInterview":"        періоди загострення і спонтанного зникнення приступів типово на початку захворювання","idUser":"Admin"}
+{"id":25518,"kodProtokola":"PRT.000000024","numberstr":7,"kodDetailing":"YAA.022.006","detailsInterview":"        приступи головокружіння можуть виникати без видимої причини або при найменьшій будь якій активності","idUser":"Admin"}
+{"id":25519,"kodProtokola":"PRT.000000024","numberstr":8,"kodDetailing":"YAA.022.007","detailsInterview":"        приступи головокружіння як правило не усуваються стандартними препаратами (бета-серк, вистібо та ін.)","idUser":"Admin"}
 {"id":9422,"kodProtokola":"PRT.000000025","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
 {"id":9423,"kodProtokola":"PRT.000000025","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
 {"id":10463,"kodProtokola":"PRT.000000026","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
