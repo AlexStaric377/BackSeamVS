@@ -2402,8 +2402,15 @@
                                                           Grid.Column="1" Grid.Row="5"   Height="24" Width="130" IsEnabled="false" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center"  />
 
                                                         <TextBlock x:Name="CabinetReseptionBlockMonth" Grid.Row="6" Text=" Створити розклад на місяць" TextWrapping="Wrap"  FontSize="14" Height="34" Width="148" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Name="CabinetReseptionBoxMonth" Text="{Binding Path=daysOfTheWeek, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" 
-                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="130" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBox Name="CabinetReseptionBoxMonth" Text="" IsEnabled="False" 
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="90" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBlock x:Name="CabinetReseptionIntervalTime" Grid.Row="6" Grid.Column="1"  Text=" Час: з " FontSize="14" Height="28" Width="100" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="CabinetReseptionTimeOn" Text="09.00" IsEnabled="False" Margin="150,0,0,0"
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBlock x:Name="CabinetReseptionTimeLast" Grid.Row="6" Grid.Column="1"  Text=" по " FontSize="14" Height="28" Width="30" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="CabinetReseptionTimeBoxLast" Text="17.00" IsEnabled="False" Margin="230,0,0,0"
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+
                                                         <ComboBox Name="CabinetDayoftheMonth"  ItemsSource="{Binding MonthYear}" SelectedIndex="{Binding SelectedMonthYear}" Grid.Column="1" Grid.Row="6" 
                                                              IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
 

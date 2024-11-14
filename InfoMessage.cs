@@ -94,7 +94,7 @@ namespace BackSeam
             MainWindow.MessageError = "Увага!" + Environment.NewLine + "Ви дійсно бажаєте стерти облікові данні?";
             SelectedDelete();
         }
-        public void LoadInfoPacient(string user = "")
+        public static void LoadInfoPacient(string user = "")
         {
             MainWindow.MessageError = "Увага!" + Environment.NewLine +
             "Будь ласка зачекайте, завантажується вся інформація щодо " + user;

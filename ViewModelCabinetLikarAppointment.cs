@@ -20,7 +20,7 @@ namespace BackSeam
     {
 
         private static MainWindow LikarAppointments = MainWindow.LinkNameWindow("BackMain");
-        private bool loadboolLikarAppointments = false, addboolLikarAppointments = false, editboolLikarAppointments = false;
+        public static bool loadboolLikarAppointments = false, addboolLikarAppointments = false, editboolLikarAppointments = false, loadthisMonth = false;
         public static string pathcontrolerLikarAppointments = "/api/ApiControllerVisitingDays/";
         public static ModelVisitingDays selectModelLikarAppointments;
         public static ViewModelVisitingDays selectViewModelLikarAppointments;
@@ -108,7 +108,7 @@ namespace BackSeam
             LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text.ToString();
             LikarAppointments.CabinetReseptionLikar.Text = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
                     LikarAppointments.CabinetReseptionPacientLab.Visibility = Visibility.Hidden;
-                    CallServer.PostServer(pathcontrolerVisitingDays, pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor, "GETID");
+                    CallServer.PostServer(pathcontrolerVisitingDays, pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor+"/0", "GETID");
                     string CmdStroka = CallServer.ServerReturn();
                     if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                     else ObservableModelLikarAppointments(CmdStroka);
@@ -153,7 +153,7 @@ namespace BackSeam
             if (addboolLikarAppointments == false) BoolTrueLikarAppointments();
             else BoolFalseLikarAppointments();
             LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
-
+            selectModelVisitingDays = new ModelVisitingDays();
             selectModelLikarAppointments = new ModelVisitingDays();
             selectViewModelLikarAppointments = new ViewModelVisitingDays();
             LikarAppointments.CabinetNameMedZaklad.Text = LikarAppointments.Likart9.Text.ToString();
@@ -179,7 +179,10 @@ namespace BackSeam
             LikarAppointments.CabinetTimeofDay.IsEnabled = true;
             LikarAppointments.CabinetComboBoxOnoff.IsEnabled = true;
             LikarAppointments.CabinetDayoftheMonth.IsEnabled = true;
-
+            LikarAppointments.CabinetReseptionTimeOn.IsEnabled = true;
+            LikarAppointments.CabinetReseptionTimeOn.Background = Brushes.AntiqueWhite;
+            LikarAppointments.CabinetReseptionTimeBoxLast.IsEnabled = true;
+            LikarAppointments.CabinetReseptionTimeBoxLast.Background = Brushes.AntiqueWhite;
         }
 
 
@@ -195,6 +198,10 @@ namespace BackSeam
             LikarAppointments.CabinetTimeofDay.IsEnabled = false;
             LikarAppointments.CabinetComboBoxOnoff.IsEnabled = false;
             LikarAppointments.CabinetDayoftheMonth.IsEnabled = false;
+            LikarAppointments.CabinetReseptionTimeOn.IsEnabled = false;
+            LikarAppointments.CabinetReseptionTimeBoxLast.IsEnabled = false;
+            LikarAppointments.CabinetReseptionTimeOn.Background = Brushes.White;
+            LikarAppointments.CabinetReseptionTimeBoxLast.Background = Brushes.White;
         }
 
         // команда  редактировать
@@ -265,46 +272,49 @@ namespace BackSeam
                 return saveLikarAppointments ??
                   (saveLikarAppointments = new RelayCommand(obj =>
                   {
-                      string json = "";
-                      LikarAppointments.CabinetReseptionPacientVisit.Text = LikarAppointments.CabinetReseptionPacientVisit.Text.Substring(0, 10);
-                      selectModelLikarAppointments = new ModelVisitingDays();
-                      selectModelLikarAppointments.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
-                      selectModelLikarAppointments.daysOfTheWeek = LikarAppointments.CabinetReseptionPacient.Text;
-                      selectModelLikarAppointments.dateVizita = LikarAppointments.CabinetReseptionPacientVisit.Text;
-                      selectModelLikarAppointments.timeVizita = LikarAppointments.CabinetReseptionTime.Text;
-                      selectModelLikarAppointments.onOff = LikarAppointments.CabinetReseptionTextBoxOnoff.Text;
+                      if (loadthisMonth == false)
+                      { 
+                          string json = "";
+                          LikarAppointments.CabinetReseptionPacientVisit.Text = LikarAppointments.CabinetReseptionPacientVisit.Text.Substring(0, 10);
+                          selectModelLikarAppointments = new ModelVisitingDays();
+                          selectModelLikarAppointments.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
+                          selectModelLikarAppointments.daysOfTheWeek = LikarAppointments.CabinetReseptionPacient.Text;
+                          selectModelLikarAppointments.dateVizita = LikarAppointments.CabinetReseptionPacientVisit.Text;
+                          selectModelLikarAppointments.timeVizita = LikarAppointments.CabinetReseptionTime.Text;
+                          selectModelLikarAppointments.onOff = LikarAppointments.CabinetReseptionTextBoxOnoff.Text;
 
-                      if (IndexAddEdit == "addCommand")
-                      {
+                          if (IndexAddEdit == "addCommand")
+                          {
 
 
-                          json = JsonConvert.SerializeObject(selectModelLikarAppointments);
-                          CallServer.PostServer(pathcontrolerVisitingDays, json, "POST");
-                          CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                          ModelVisitingDays Idinsert = JsonConvert.DeserializeObject<ModelVisitingDays>(CallServer.ResponseFromServer);
-                          int Countins = ViewLikarAppointments != null ? ViewLikarAppointments.Count : 0;
-                          ViewLikarAppointments.Insert(Countins, Idinsert);
-                          selectViewModelLikarAppointments = new ViewModelVisitingDays();
-                          selectViewModelLikarAppointments.kodDoctor = Idinsert.kodDoctor;
-                          selectViewModelLikarAppointments.id = Idinsert.id;
-                          selectViewModelLikarAppointments.daysOfTheWeek = Idinsert.daysOfTheWeek;
-                          selectViewModelLikarAppointments.dateVizita = Idinsert.dateVizita;
-                          selectViewModelLikarAppointments.timeVizita = Idinsert.timeVizita;
-                          selectViewModelLikarAppointments.onOff = Idinsert.onOff;
-                          if (ViewModeLikarAppointments == null) ViewModeLikarAppointments = new ObservableCollection<ViewModelVisitingDays>();
-                          ViewModeLikarAppointments.Add(selectViewModelLikarAppointments);
-                          LikarAppointments.CabinetReseptionPacientTablGrid.ItemsSource = ViewLikarAppointments;
+                              json = JsonConvert.SerializeObject(selectModelLikarAppointments);
+                              CallServer.PostServer(pathcontrolerVisitingDays, json, "POST");
+                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              ModelVisitingDays Idinsert = JsonConvert.DeserializeObject<ModelVisitingDays>(CallServer.ResponseFromServer);
+                              int Countins = ViewLikarAppointments != null ? ViewLikarAppointments.Count : 0;
+                              ViewLikarAppointments.Insert(Countins, Idinsert);
+                              selectViewModelLikarAppointments = new ViewModelVisitingDays();
+                              selectViewModelLikarAppointments.kodDoctor = Idinsert.kodDoctor;
+                              selectViewModelLikarAppointments.id = Idinsert.id;
+                              selectViewModelLikarAppointments.daysOfTheWeek = Idinsert.daysOfTheWeek;
+                              selectViewModelLikarAppointments.dateVizita = Idinsert.dateVizita;
+                              selectViewModelLikarAppointments.timeVizita = Idinsert.timeVizita;
+                              selectViewModelLikarAppointments.onOff = Idinsert.onOff;
+                              if (ViewModeLikarAppointments == null) ViewModeLikarAppointments = new ObservableCollection<ViewModelVisitingDays>();
+                              ViewModeLikarAppointments.Add(selectViewModelLikarAppointments);
+                              LikarAppointments.CabinetReseptionPacientTablGrid.ItemsSource = ViewLikarAppointments;
 
+                          }
+                          else
+                          {
+                              selectModelLikarAppointments.id = selectViewModelLikarAppointments.id;
+                              json = JsonConvert.SerializeObject(selectModelLikarAppointments);
+                              CallServer.PostServer(pathcontrolerVisitingDays, json, "PUT");
+                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              json = CallServer.ResponseFromServer;
+                          }
+                          UnloadCmdStroka("VisitingDays/", json);
                       }
-                      else
-                      {
-                          selectModelLikarAppointments.id = selectViewModelLikarAppointments.id;
-                          json = JsonConvert.SerializeObject(selectModelLikarAppointments);
-                          CallServer.PostServer(pathcontrolerVisitingDays, json, "PUT");
-                          CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                          json = CallServer.ResponseFromServer;
-                      }
-                      UnloadCmdStroka("VisitingDays/", json);
                       BoolFalseLikarAppointments();
                       IndexAddEdit = "";
 

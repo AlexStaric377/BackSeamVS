@@ -279,7 +279,7 @@ namespace BackSeam
             selectedIndexAppointmentsTimeVizita = selected;
         }
 
-        public static List<string> TimeVizits { get; set; } = new List<string> { "Час приому", "08.00", "08.30", "09.00", "09.30", "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30" };
+        public static List<string> TimeVizits { get; set; } = new List<string> { "Час приому",  "09.00", "09.30", "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30" };
         public static string selectedIndexTimeVizita = "0";
 
         private string _SelectedTimeVizita = "0";
@@ -395,36 +395,96 @@ namespace BackSeam
         public void SetNewMonthYear(string selected = "")
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
-            string ThisDay = "", ThisMonth = "";
+            string ThisDay = "", ThisMonth = "", json = "";
+            int itime = 1;
+            ObservableCollection<ModelVisitingDays> ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
             WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)];
+            MapOpisViewModel.LoadInfoPacient("розкладу прийому пацієнтів на "+ WindowMen.CabinetReseptionBoxMonth.Text);
+            MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
+            if (WindowMen.CabinetReseptionTimeOn.Text != "09.00" || WindowMen.CabinetReseptionTimeBoxLast.Text != "17.00")
+            {
+                decimal TimeOn = Convert.ToDecimal(WindowMen.CabinetReseptionTimeOn.Text.Replace(".", ","));
+                decimal TimeLast = Convert.ToDecimal(WindowMen.CabinetReseptionTimeBoxLast.Text.Replace(".", ","));
+                if (TimeOn > TimeLast)
+                {
+                    MainWindow.MessageError = " Час закінчення прийому меньше часу початку прийому";
+                    MapOpisViewModel.SelectedWirning(0);
+                    return;
+                }
 
-            
+                for (decimal ind= TimeOn; ind<= TimeLast; ind++ )
+                {
+                    string stringTime = Convert.ToString(ind);
+                    TimeVizits[itime] = stringTime;
+                    if (ind < TimeLast)
+                    { 
+                        itime++;
+                        stringTime = Convert.ToString(ind+0.3m);
+                        TimeVizits[itime] = stringTime;
+                        itime++;                   
+                    }
+ 
+                }
+                for (int ind = itime; ind < 19; ind++)
+                {  TimeVizits[ind] ="";  } 
+ 
+            }
+            // выбранный месяц и год 
+            string ThisYear = DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1, DateTime.Now.ToShortDateString().Length - (DateTime.Now.ToShortDateString().LastIndexOf(".") + 1));
+            ThisMonth = selected.Length > 1 ? selected : "0" + selected;
+            json = MapOpisViewModel.pathcontrolerVisitingDays + MapOpisViewModel.selectModelVisitingDays.kodDoctor+"/"+ ThisMonth + "." + ThisYear;
+            CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]") == false)
+            {
+                MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                "Розклад по місяцю " + WindowMen.CabinetReseptionBoxMonth.Text + " вже сформовано. Ви бажаєте стерти існуючий розклад?";
+                MapOpisViewModel.SelectedDelete();
+                
+                if (MapOpisViewModel.DeleteOnOff == false) 
+                {
+                    WindowMen.CabinetDayoftheMonth.SelectedIndex = 0;
+                    return; 
+                }
+                json = MapOpisViewModel.pathcontrolerVisitingDays +"0/"+ MapOpisViewModel.selectModelVisitingDays.kodDoctor + "/" + ThisMonth + "." + ThisYear;
+                CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "DELETE");
+                MapOpisViewModel.ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
+                MapOpisViewModel.ViewModeLikarAppointments = new ObservableCollection<ViewModelVisitingDays>();
+                WindowMen.CabinetReseptionPacientTablGrid.ItemsSource = MapOpisViewModel.ViewModeLikarAppointments;
+                
+            }
+            if(Convert.ToInt32(selected) == 0) return;
+            // количество дней в месяце
             int indexDay = System.DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(selected));    
             for (int i = 1; i < indexDay; i++)
             {
-                MapOpisViewModel.selectModelVisitingDays = new ModelVisitingDays();
-                MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
-
                 ThisDay = i > 9 ? Convert.ToString(i) : "0" + Convert.ToString(i);
-                ThisMonth = selected.Length > 1 ? selected : "0" + selected;
-                string dateVisit = ThisDay + "." + ThisMonth + "." + DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".")+1, DateTime.Now.ToShortDateString().Length-(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1) );
+                string dateVisit = ThisDay + "." + ThisMonth + "." + ThisYear;
                 MapOpisViewModel.selectModelVisitingDays.dateVizita = dateVisit;
                 DateTime convertedDate = Convert.ToDateTime(dateVisit);
                 int theweek = (int)convertedDate.DayOfWeek;
-                MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek = AppointmentsDayWeeks[(int)convertedDate.DayOfWeek];
+                MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek = AppointmentsDayWeeks[theweek];
                 MapOpisViewModel.selectModelVisitingDays.onOff = "Так";
                 if (MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek != "Субота" && MapOpisViewModel.selectModelVisitingDays.daysOfTheWeek != "Неділя" && theweek !=0)
                 { 
-                    for (int itime = 1; itime < 4; itime++)
+                    for (int indtime = 1; indtime <itime; indtime++)  //18
                     {
-                        MapOpisViewModel.selectModelVisitingDays.timeVizita = TimeVizits[itime];
-                        string json = JsonConvert.SerializeObject(MapOpisViewModel.selectModelVisitingDays);
+                        ModelVisitingDays VisitingDays = MapOpisViewModel.selectModelVisitingDays;
+                        VisitingDays.timeVizita = TimeVizits[indtime];
+                        json = JsonConvert.SerializeObject(VisitingDays);
                         CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "POST");
+                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                        ModelVisitingDays Idinsert = JsonConvert.DeserializeObject<ModelVisitingDays>(CallServer.ResponseFromServer);
+                        int Countins = ViewLikarAppointments != null ? ViewLikarAppointments.Count : 0;
+                        MapOpisViewModel.ViewLikarAppointments.Add( Idinsert);
                     }               
                 }
- 
-
             }
+            MessageWarning Info = MainWindow.LinkMainWindow("MessageWarning");
+            if (Info != null) Info.Close();
+            MapOpisViewModel.loadthisMonth = true;
+            MapOpisViewModel.MetodLoadGridViewModelLikarAppointments();
+
 
 
 
