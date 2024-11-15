@@ -355,25 +355,8 @@ namespace BackSeam
                               AdmissionPatient Idinsert = JsonConvert.DeserializeObject<AdmissionPatient>(CallServer.ResponseFromServer);
                               if (Idinsert == null)
                               {
-                                  MainWindow.MessageError = "Увага!" + Environment.NewLine + "Данні не записані в базу даних";
-                                  MessageWarning NewOrder = new MessageWarning(MainWindow.MessageError, 2, 10);
-                                  return;
-                              }
-                              if ((IndexAddEdit == "editCommand" ) || IndexAddEdit == "addCommand")
-                              {
-
-                                  json = JsonConvert.SerializeObject(selectedReceptionPacient);
-                                  CallServer.PostServer(pathcontrolerAdmissionPatients, json, Method);
-                                  CmdStroka = CallServer.ServerReturn();
-                                  if (CmdStroka.Contains("[]")) CallServer.FalseServerGet();
-                                  {
-                                      CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                      selectedReceptionPacient = JsonConvert.DeserializeObject<AdmissionPatient>(CallServer.ResponseFromServer);
-
-                                  }
-                              }
-                              else
-                              {
+                                  //MainWindow.MessageError = "Увага!" + Environment.NewLine + "Данні не записані в базу даних";
+                                  //MessageWarning NewOrder = new MessageWarning(MainWindow.MessageError, 2, 10);
                                   json = pathcontrolerAdmissionPatients + selectedReceptionPacient.kodPacient.ToString() + "/" + selectedReceptionPacient.kodDoctor.ToString() + "/" + selectedReceptionPacient.kodComplInterv + "/0";
                                   CallServer.PostServer(pathcontrolerAdmissionPatients, json, "GETID");
                                   CmdStroka = CallServer.ServerReturn();
@@ -392,17 +375,19 @@ namespace BackSeam
                                       json = JsonConvert.SerializeObject(selectedReceptionPacient);
                                       CallServer.PostServer(pathcontrolerAdmissionPatients, json, "PUT");
                                   }
+                                  return;
                               }
-                              if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
-                              ViewReceptionPacients.Add(selectedReceptionPacient);
-                              if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
-                              ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
-                              WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
+                              if (IndexAddEdit == "addCommand")
+                              {
+                                  if (ViewReceptionPacients == null) ViewReceptionPacients = new ObservableCollection<AdmissionPatient>();
+                                  ViewReceptionPacients.Add(selectedReceptionPacient);
+                                  if (ViewModelReceptionPatients == null) ViewModelReceptionPatients = new ObservableCollection<ModelReceptionPatient>();
+                                  ViewModelReceptionPatients.Add(selectedModelReceptionPatient);
+                                  WindowReceptionPacient.ReceptionPacientTablGrid.ItemsSource = ViewModelReceptionPatients;
+                              }
+                               
                           }
 
-
-
-                          
                       }
                       BoolFalseReceptionLikar();
                       IndexAddEdit = "";
@@ -516,8 +501,8 @@ namespace BackSeam
                               colectionInterview.kodProtokola = selectedModelReceptionPatient.kodProtokola;
                               MethodReceptionPacients(colectionInterview);
                               MethodProtokolaReception(colectionInterview);
-                              if (ViewModelReceptionPatients.Count > 0) SelectedReceptionPacient = ViewModelReceptionPatients[ViewModelReceptionPatients.Count - 1];
-                              else SelectedReceptionPacient = selectedModelReceptionPatient;
+
+                              SelectedReceptionPacient = selectedModelReceptionPatient;
                               if (selectedReceptionPacient == null) selectedReceptionPacient = new AdmissionPatient();
                               selectedReceptionPacient.kodComplInterv = selectedModelReceptionPatient.kodComplInterv;
                               selectedReceptionPacient.kodDoctor = _kodDoctor;

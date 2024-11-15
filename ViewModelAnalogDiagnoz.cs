@@ -135,21 +135,7 @@ namespace BackSeam
             }
         }
 
-        //// команда закрытия окна
-        //private RelayCommand? resultDelete;
-        //public RelayCommand ResultDelete
-        //{
-        //    get
-        //    {
-        //        return resultDelete ??
-        //          (resultDelete = new RelayCommand(obj =>
-        //          {
-        //              WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-        //              WindowResult.Close();
-        //          }));
-        //    }
-        //}
-
+        
         // команда закрытия окна
         private RelayCommand? reseptionLikar;
         public RelayCommand ReseptionAnalogLikar

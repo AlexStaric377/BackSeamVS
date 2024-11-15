@@ -843,6 +843,7 @@ namespace BackSeam
                 if (modelColectionInterview == null) modelColectionInterview = new ModelColectionInterview();
                 modelColectionInterview.namePacient = selectedProfilPacient.name + selectedProfilPacient.surname;
                 modelColectionInterview.kodPacient = selectedProfilPacient.kodPacient;
+                selectedPacientProfil = selectedProfilPacient;
             }
             WindowMain.LikarIntert3.Text = "";
 

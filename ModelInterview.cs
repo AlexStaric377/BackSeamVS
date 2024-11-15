@@ -255,7 +255,7 @@ namespace BackSeam
             }
         }
 
-        // команда закрытия окна
+        // 
         private RelayCommand? reseptionLikar;
         public RelayCommand ReseptionLikar
         {

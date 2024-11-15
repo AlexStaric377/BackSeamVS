@@ -83,21 +83,7 @@ namespace BackSeam
                   }));
             }
         }
-        //// команда закрытия окна
-        //RelayCommand? resultDelete;
-        //public RelayCommand ResultDelete
-        //{
-        //    get
-        //    {
-        //        return resultDelete ??
-        //          (resultDelete = new RelayCommand(obj =>
-        //          {
-        //              WinResultInterview WindowResult = MainWindow.LinkMainWindow("WinResultInterview");
-        //              MapOpisViewModel.ViewAnalogDiagnoz = false;
-        //              WindowResult.Close();
-        //          }));
-        //    }
-        //}
+ 
 
         // команда закрытия окна
         RelayCommand? nextLikarResult;

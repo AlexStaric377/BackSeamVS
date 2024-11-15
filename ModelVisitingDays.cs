@@ -399,7 +399,7 @@ namespace BackSeam
             int itime = 1;
             ObservableCollection<ModelVisitingDays> ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
             WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)];
-            MapOpisViewModel.LoadInfoPacient("розкладу прийому пацієнтів на "+ WindowMen.CabinetReseptionBoxMonth.Text);
+            
             MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
             if (WindowMen.CabinetReseptionTimeOn.Text != "09.00" || WindowMen.CabinetReseptionTimeBoxLast.Text != "17.00")
             {
@@ -414,12 +414,12 @@ namespace BackSeam
 
                 for (decimal ind= TimeOn; ind<= TimeLast; ind++ )
                 {
-                    string stringTime = Convert.ToString(ind);
+                    string stringTime = ind <=9 ? "0"+Convert.ToString(ind): Convert.ToString(ind);
                     TimeVizits[itime] = stringTime;
                     if (ind < TimeLast)
                     { 
                         itime++;
-                        stringTime = Convert.ToString(ind+0.3m);
+                        stringTime = ind <= 9 ? "0" + Convert.ToString(ind + 0.3m) : Convert.ToString(ind + 0.3m); 
                         TimeVizits[itime] = stringTime;
                         itime++;                   
                     }
@@ -446,6 +446,7 @@ namespace BackSeam
                     WindowMen.CabinetDayoftheMonth.SelectedIndex = 0;
                     return; 
                 }
+                MapOpisViewModel.LoadInfoPacient("розкладу прийому пацієнтів на " + WindowMen.CabinetReseptionBoxMonth.Text);
                 json = MapOpisViewModel.pathcontrolerVisitingDays +"0/"+ MapOpisViewModel.selectModelVisitingDays.kodDoctor + "/" + ThisMonth + "." + ThisYear;
                 CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "DELETE");
                 MapOpisViewModel.ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
