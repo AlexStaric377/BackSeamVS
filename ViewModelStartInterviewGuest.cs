@@ -1161,23 +1161,23 @@ namespace BackSeam
             "За результатами вашого опитування в базі знань знайдені " + Environment.NewLine +
             "визначення попереднього діагнозу. "; //+ Environment.NewLine +"Ви будете переглядати?"
             WinDeleteData NewOrder = new WinDeleteData(MainWindow.MessageError);
-            NewOrder.Height = NewOrder.Height + 50;
-            NewOrder.grid2.Height = NewOrder.grid2.Height + 20;
-            NewOrder.MessageText.Height = NewOrder.MessageText.Height + 10;
-            NewOrder.BorderYes.Margin = new Thickness(20, 0, 0, 0);
+            NewOrder.Width = NewOrder.Width + 250;
+            //NewOrder.grid2.Height = NewOrder.grid2.Height + 20;
+            //NewOrder.MessageText.Height = NewOrder.MessageText.Height + 10;
+            NewOrder.BorderYes.Margin = new Thickness(180, 0, 0, 0);
             NewOrder.BorderYes.Width = NewOrder.BorderYes.Width + 40;
             NewOrder.Yes.Width = NewOrder.Yes.Width + 40;
             NewOrder.Yes.Height = NewOrder.Yes.Height + 6;
             NewOrder.Yes.FontSize = 15;
             NewOrder.Yes.Content = "Переглянути";
-            NewOrder.BorderNo.Margin = new Thickness(0, 0, 20, 0);
+            NewOrder.BorderNo.Margin = new Thickness(0, 0, 180, 0);
             NewOrder.BorderNo.Width = NewOrder.BorderNo.Width + 120;
             NewOrder.No.Width = NewOrder.No.Width + 120;
             NewOrder.No.Height = NewOrder.No.Height + 6;
             NewOrder.No.FontSize = 15;
             NewOrder.No.Content = "Продовжити опитування";
-            NewOrder.Left = 250;
-            NewOrder.Top = 100;
+            //NewOrder.Left = 250;
+            //NewOrder.Top = 100;
             NewOrder.ShowDialog();
             if (MapOpisViewModel.DeleteOnOff == true)
             {

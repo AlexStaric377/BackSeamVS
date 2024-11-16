@@ -74,7 +74,7 @@ namespace BackSeam
                           selectItogInterview = AnalogDiagnozs[WinAnalog.ColectionDiagnozTablGrid.SelectedIndex];
                           SelectedAnalogDiagnoz = selectItogInterview;
                           KodProtokola = selectItogInterview.kodProtokola;
-                          
+                          MapOpisViewModel.NameDiagnoz = selectItogInterview.nameDiagnoza;
                           MapOpisViewModel.modelColectionInterview.dateInterview = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
                           MapOpisViewModel.modelColectionInterview.nameDiagnoz = selectItogInterview.nameDiagnoza;
                           MapOpisViewModel.modelColectionInterview.nameInterview = selectItogInterview.nametInterview;
