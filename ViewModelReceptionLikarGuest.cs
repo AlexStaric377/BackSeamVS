@@ -132,8 +132,6 @@ namespace BackSeam
                 {
                     MainWindow.MessageError = "Увага!" + Environment.NewLine + "Не введено ім'я та прізвище пацієнта";
                     MessageWarning NewOrder = new MessageWarning(MainWindow.MessageError, 2, 10);
-                    NewOrder.Left = 150;
-                    NewOrder.Top = 300;
                     NewOrder.ShowDialog();
                     return;
                 }
@@ -240,9 +238,9 @@ namespace BackSeam
                       if (MapOpisViewModel._pacientProfil == "")
                       { 
                           MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                          "Для запису на прийом до лікаря необхідно ввести початкові данні про себе. " + Environment.NewLine +
+                          "Для запису на прийом до лікаря необхідно" + Environment.NewLine + " ввести початкові данні про себе. " + Environment.NewLine +
                           "Ви будете формувати особисту картку? ";
-                          SelectedDelete();
+                          SelectedDelete(-1);
 
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {

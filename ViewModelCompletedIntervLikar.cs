@@ -369,12 +369,16 @@ namespace BackSeam
                 return readColectionIntevLikars ??
                   (readColectionIntevLikars = new RelayCommand(obj =>
                   {
-                      IndexAddEdit = "editCommand";
-                      ModelCall = "ModelColectionInterview";
-                      GetidkodProtokola = ColectionInterviewIntevLikars[WindowMen.ColectionIntevLikarTablGrid.SelectedIndex].kodComplInterv + "/0";
-                      ComandreadColectionIntevLikars();
-                      BoolFalseIntevLikarCompl();
-                      editboolIntevLikar = false;
+                      if (WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
+                      { 
+                          IndexAddEdit = "editCommand";
+                          ModelCall = "ModelColectionInterview";
+                          GetidkodProtokola = ColectionInterviewIntevLikars[WindowMen.ColectionIntevLikarTablGrid.SelectedIndex].kodComplInterv + "/0";
+                          ComandreadColectionIntevLikars();
+                          BoolFalseIntevLikarCompl();
+                          editboolIntevLikar = false;                     
+                      }
+
                   }));
             }
         }

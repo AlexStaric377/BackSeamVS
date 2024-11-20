@@ -206,9 +206,9 @@ namespace BackSeam
                     if (MapOpisViewModel._pacientProfil == "")
                     {
                         MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                                "Для запису на прийом до лікаря необхідно ввести початкові данні про себе. " + Environment.NewLine +
+                                "Для запису на прийом до лікаря необхідно"+ Environment.NewLine + "ввести початкові данні про себе. " + Environment.NewLine +
                                 "Ви будете формувати особисту картку? ";
-                        MapOpisViewModel.SelectedDelete();
+                        MapOpisViewModel.SelectedDelete(-1);
 
                         if (MapOpisViewModel.DeleteOnOff == true)
                         {
@@ -223,20 +223,21 @@ namespace BackSeam
                     {
                         MapOpisViewModel.admissionPatient = new AdmissionPatient();
                         MapOpisViewModel.admissionPatient.kodDoctor = MapOpisViewModel._kodDoctor;
-                        MapOpisViewModel.admissionPatient.kodPacient = MapOpisViewModel.selectedPacientProfil.kodPacient;
+                        MapOpisViewModel.admissionPatient.kodPacient = MapOpisViewModel._pacientProfil;
                         MapOpisViewModel.admissionPatient.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
                         MapOpisViewModel.admissionPatient.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
                         MapOpisViewModel.admissionPatient.topictVizita = "Гість:  " + WindowMain.ReceptionLikarGuest7.Text.ToString();
                         MapOpisViewModel.admissionPatient.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
 
+                        MapOpisViewModel.modelColectionInterview.kodDoctor = MapOpisViewModel._kodDoctor;
                         MapOpisViewModel.modelColectionInterview.namePacient = MapOpisViewModel.selectedPacientProfil.name + " " + MapOpisViewModel.selectedPacientProfil.surname;
-
+                        MapOpisViewModel.modelColectionInterview.kodPacient = MapOpisViewModel.selectedPacientProfil.kodPacient;
                         CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, MapOpisViewModel.pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor +"/0", "GETID");
                         CmdStroka = CallServer.ServerReturn();
                         if (CmdStroka.Contains("[]") == false)
                         {
                             WinVisitingDays NewOrder = new WinVisitingDays();
-                            NewOrder.Left = (MainWindow.ScreenWidth / 2);//- 90
+                            NewOrder.Left = (MainWindow.ScreenWidth / 2);//- 100;
                             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400;
                             NewOrder.ShowDialog();
                             if (MapOpisViewModel.selectVisitingDays != null)
@@ -260,21 +261,24 @@ namespace BackSeam
                             CallServer.PostServer(MapOpisViewModel.pathcontrolerAdmissionPatients, json, "POST");
                             CmdStroka = CallServer.ServerReturn();
                             if (CmdStroka.Contains("[]") == false) MapOpisViewModel.ObservableViewReceptionPacient(CmdStroka);
-                            else { CallServer.FalseServerGet(); return; }                        
+                            else { CallServer.FalseServerGet(); return; }
+             
+                            MapOpisViewModel.selectRegistrationAppointment = new ModelRegistrationAppointment();
+                            MapOpisViewModel.selectRegistrationAppointment.kodDoctor = MapOpisViewModel.modelColectionInterview.kodDoctor; //nameDoctor.Substring(0, modelColectionInterview.nameDoctor.IndexOf(":"));
+                            MapOpisViewModel.selectRegistrationAppointment.kodPacient = MapOpisViewModel.modelColectionInterview.kodPacient; //.namePacient;
+                            MapOpisViewModel.selectRegistrationAppointment.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
+                            MapOpisViewModel.selectRegistrationAppointment.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
+                            MapOpisViewModel.selectRegistrationAppointment.topictVizita = MapOpisViewModel.modelColectionInterview.resultDiagnoz;
+                            MapOpisViewModel.selectRegistrationAppointment.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
+                            MapOpisViewModel.selectRegistrationAppointment.dateDoctor = MapOpisViewModel.modelColectionInterview.dateDoctor; // selectReceptionPatient.dateDoctor;
+
+                            json = JsonConvert.SerializeObject(MapOpisViewModel.selectRegistrationAppointment);
+                            CallServer.PostServer(MapOpisViewModel.pathcontrollerAppointment, json, "POST");
+                            CmdStroka = CallServer.ServerReturn();
+                            if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
                         }
-
-
                     }
-
- 
-                        
-
-                        
-                        
-                                    
                 }
-
-
             }
             WindowMen.Close();
             WinResultInterview WindowResult = MainWindow.LinkMainWindow("WinResultInterview");

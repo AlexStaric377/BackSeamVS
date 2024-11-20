@@ -49,7 +49,7 @@ namespace BackSeam
                 selectItogInterview.uriInterview = modelInterview.uriInterview;
                 MapOpisViewModel.LoadDiagnozRecomen(modelInterview.kodProtokola);
                 selectItogInterview.kodProtokola = modelInterview.kodProtokola;
-                selectItogInterview.nameDiagnoza = MapOpisViewModel.NameDiagnoz;
+                selectItogInterview.nameDiagnoza =  MapOpisViewModel.NameDiagnoz;
                 selectItogInterview.nameRecommendation = MapOpisViewModel.NameRecomendaciya;
                 KodProtokola = modelInterview.kodProtokola;
                 AnalogDiagnozs.Add(selectItogInterview);

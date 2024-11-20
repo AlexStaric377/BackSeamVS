@@ -48,8 +48,8 @@ namespace BackSeam
             List<ModelDiagnoz> res = result.ModelDiagnoz.ToList();
             ViewDiagnozs = new ObservableCollection<ModelDiagnoz>((IEnumerable<ModelDiagnoz>)res);
             if(addboolGrDiagnoz == false && loadGrupDiagnoz == false) GrupIcdGrDiagnoz();
-            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs.OrderBy(x => x.kodDiagnoza);
-            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs.OrderBy(x => x.kodDiagnoza);
+            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; //.OrderBy(x => x.kodDiagnoza)
+            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;//.OrderBy(x => x.kodDiagnoza)
         }
 
         public static  void GrupIcdGrDiagnoz()

@@ -966,8 +966,8 @@ namespace BackSeam
 
         public static void LoadDiagnozRecomen(string KodProtokola)
         {
-            string json = MapOpisViewModel.Protocolcontroller + "0/" + KodProtokola + "/0";
-            CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
+            string json = Protocolcontroller + "0/" + KodProtokola + "/0";
+            CallServer.PostServer(Protocolcontroller, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) return;
             else
@@ -1156,10 +1156,20 @@ namespace BackSeam
                 MapOpisViewModel.SelectedFalseLogin(4);
                 return;
             }
-            
-            MainWindow.MessageError = "Увага!" + Environment.NewLine +
-            "За результатами вашого опитування в базі знань знайдені " + Environment.NewLine +
-            "визначення попереднього діагнозу. "; //+ Environment.NewLine +"Ви будете переглядати?"
+            if (DiagnozRecomendaciya.Length <= 6)
+            {
+                MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                 "За результатами вашого опитування в базі знань знайдені " + Environment.NewLine +
+                 "попередні діагнози за місцем прояву але без" + Environment.NewLine + 
+                 "визначення характеру прояву нездужання. " + Environment.NewLine+ "Опитування не змістовне. ";
+            }
+            else
+            { 
+                MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                "За результатами вашого опитування в базі знань знайдені " + Environment.NewLine +
+                "визначення попереднього діагнозу. ";
+            }
+  
             WinDeleteData NewOrder = new WinDeleteData(MainWindow.MessageError);
             NewOrder.Width = NewOrder.Width + 250;
             //NewOrder.grid2.Height = NewOrder.grid2.Height + 20;

@@ -277,6 +277,7 @@ namespace BackSeam
                                   NewEnd.ShowDialog();
                                   return;
                               }
+                              modelDependency.kodProtokola = selectedInterview.kodProtokola;
                               modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
                               WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
                           }                      
@@ -461,16 +462,18 @@ namespace BackSeam
                       }
                       
                           
-                          WindowInterv.FolderInterview.Visibility = Visibility.Visible;
-                          WindowInterv.InterviewLab3.Visibility = Visibility.Visible;
-                          WindowInterv.InterviewUri.Visibility = Visibility.Visible;
-                          WindowInterv.FolderUriInterview.Visibility = Visibility.Visible;
+                          
 
                           if (WindowInterv.InterviewTablGrid.SelectedIndex > -1)
                           {
-                              selectedInterview = ModelInterviews[WindowInterv.InterviewTablGrid.SelectedIndex];
+                                WindowInterv.FolderInterview.Visibility = Visibility.Visible;
+                                WindowInterv.InterviewLab3.Visibility = Visibility.Visible;
+                                WindowInterv.InterviewUri.Visibility = Visibility.Visible;
+                                WindowInterv.FolderUriInterview.Visibility = Visibility.Visible;
+                                selectedInterview = ModelInterviews[WindowInterv.InterviewTablGrid.SelectedIndex];
+                                SelectedResultInterview = new ModelResultInterview();
 
-                              selectedInterviewIndex = WindowInterv.InterviewTablGrid.SelectedIndex;
+                                selectedInterviewIndex = WindowInterv.InterviewTablGrid.SelectedIndex;
                               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
                               CallServer.PostServer(pathcontrolerDependency, json, "GETID");
                               string CmdStroka = CallServer.ServerReturn();
@@ -506,7 +509,7 @@ namespace BackSeam
             }
         }
 
-        // команда выбора новой жалобы для записи новой строки 
+        // команда выбора 
         private RelayCommand? ghangeDiagnozInterview;
         public RelayCommand GhangeDiagnozInterview
         {
@@ -522,6 +525,7 @@ namespace BackSeam
         {
             selectedDependency = new ModelDependencyDiagnoz();
             MapOpisViewModel.ModelCall = "Dependency";
+            MapOpisViewModel.SelectActivGrupDiagnoz = "";
             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;

@@ -200,18 +200,12 @@ namespace BackSeam
                           MapOpisViewModel._pacientProfil = Idinsert.kodPacient;
                           ViewModelNsiPacient.LoadNsiPacient();
                           if (winNsiPacient != null) winNsiPacient.TablPacients.ItemsSource = ViewModelNsiPacient.NsiPacients;
-                          MapOpisViewModel.selectedProfilPacient = selectedPacientProfil;
+                          MapOpisViewModel.selectedProfilPacient = MapOpisViewModel.selectedPacientProfil = Idinsert;
+                          MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                          "Ви бажаєте створити кабінет пацієнта для зберігання" + Environment.NewLine + " результатів ваших опитувань та записів до лікаря?";
+                          MapOpisViewModel.SelectedDelete(-1);
+                          if (MapOpisViewModel.DeleteOnOff == true) MapOpisViewModel.NewAccountRecords();
                       }
-                      MainWindow.MessageError = "Увага!" + Environment.NewLine +
-           "Ви бажаєте створити кабінет пацієнта для зберігання" + Environment.NewLine + " результатів ваших опитувань та записів до лікаря?";
-                      MapOpisViewModel.SelectedOkNo();
-                      if (MapOpisViewModel.DeleteOnOff == true)
-                      {
-                          MapOpisViewModel.selectedProfilPacient = selectedPacientProfil;
-                          MapOpisViewModel.NewAccountRecords();
-
-                      }
-
                       WindowResult.Close();
                       if (winNsiPacient != null) winNsiPacient.Close();
 
