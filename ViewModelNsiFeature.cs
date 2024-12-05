@@ -111,7 +111,7 @@ namespace BackSeam
                   (viewDetaling = new RelayCommand(obj =>
                   {
                       WinNsiFeature WindowMen = MainWindow.LinkMainWindow("WinNsiFeature");
-                      if (MapOpisViewModel.ActCompletedInterview != "ModelDetailing" && MapOpisViewModel.ActCreatInterview != "CreatInterview")
+                      if (MapOpisViewModel.ActCompletedInterview == "Complaint" || MapOpisViewModel.ActCompletedInterview == "") // (MapOpisViewModel.ActCompletedInterview != "ModelDetailing" && MapOpisViewModel.ActCreatInterview != "CreatInterview") || 
                       {
                          if (WindowMen.TablFeature.SelectedIndex != -1)
                           {

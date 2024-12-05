@@ -97,6 +97,20 @@ namespace BackSeam
                     }
                     ViewModelAccountUsers.Add(selectedModelAccountUser);
                 }
+                if (accountUser.accountCreatDate == null)
+                {
+                    accountUser.accountCreatDate = DateTime.Now.ToShortDateString();
+                    json = JsonConvert.SerializeObject(accountUser);
+                    CallServer.PostServer(pathcontrolerAccountUser, json, "PUT");
+                }
+                selectedModelAccountUser.accountCreatDate = accountUser.accountCreatDate;
+                if (accountUser.subscription == null)
+                {
+                    accountUser.subscription = "false";
+                    json = JsonConvert.SerializeObject(accountUser);
+                    CallServer.PostServer(pathcontrolerAccountUser, json, "PUT");
+                }
+                selectedModelAccountUser.subscription = accountUser.subscription;
             }
             WindowAccountUser.AccountUserTablGrid.ItemsSource = ViewModelAccountUsers;
         }

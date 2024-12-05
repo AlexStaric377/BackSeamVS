@@ -204,8 +204,10 @@ namespace BackSeam
                               CallServer.PostServer(Interviewcontroller, json, "DELETE");
                               ModelInterviews.Remove(selectedInterview);
                               selectedInterview = new ModelInterview();
+
                               BoolFalseInterview();
                               WindowInterv.InterviewTablGrid.SelectedItem = null;
+                              SelectedResultInterview = new ModelResultInterview();
                           }
 
                       }
@@ -282,9 +284,9 @@ namespace BackSeam
                               WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
                           }                      
                           if (selectedInterview == null) SelectNewInterview();
-                          selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.ToString();
-                          selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.ToString();
-                          selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.ToString();
+                          selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Length>0 ? WindowInterv.InterviewOpis.Text : selectedInterview.opistInterview;
+                          selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.Length>0 ? WindowInterv.InterviewTextUri.Text : selectedInterview.uriInterview;
+                          selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.Length>0 ? WindowInterv.Interviewt2.Text : selectedInterview.nametInterview;
                           selectedInterview.idUser = RegIdUser;
                           
                           // ОБращение к серверу добавить или  измнить  запись в БД
@@ -377,7 +379,7 @@ namespace BackSeam
                 selectedInterview.kodProtokola = "PRT." + _repl + _keyInterview.ToString();
             }
             else selectedInterview.kodProtokola = "PRT.000000001";
-            selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.ToString();
+            
         }
 
         // команда печати
@@ -440,8 +442,9 @@ namespace BackSeam
             NewOrder.Left = (MainWindow.ScreenWidth / 2) - 220;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
-            //selectedInterview = ModelInterviews[ModelInterviews.Count-1];
- 
+            MapOpisViewModel.ActCompletedInterview = "";
+
+
         }
 
         private RelayCommand? onVisibleFolderInterv;
@@ -460,10 +463,7 @@ namespace BackSeam
                           WindowInterv.InterviewTablGrid.SelectedItem = null;
 
                       }
-                      
-                          
-                          
-
+ 
                           if (WindowInterv.InterviewTablGrid.SelectedIndex > -1)
                           {
                                 WindowInterv.FolderInterview.Visibility = Visibility.Visible;
@@ -541,7 +541,8 @@ namespace BackSeam
                     WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                    modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowInterv.InterviewDependencyt2.Text.IndexOf(":")).Trim();
+                    modelDependency.kodDiagnoz = MapOpisViewModel.selectedDependency.kodDiagnoz;
+                    //modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowInterv.InterviewDependencyt2.Text.IndexOf(":")).Trim();
                     json = JsonConvert.SerializeObject(modelDependency);
                     CallServer.PostServer(pathcontrolerDependency, json, "PUT");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");

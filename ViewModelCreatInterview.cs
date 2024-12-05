@@ -50,45 +50,14 @@ namespace BackSeam
         {
             string CmdStroka = "";
             MapOpisViewModel.ActCompletedInterview = null;
-            switch (MapOpisViewModel.IndexAddEdit)
-            {
-                case "":
+            selectedContentInterv = new ModelContentInterv();
+            if (MapOpisViewModel.ModelCall == "ModelColectionInterview")pathcontroler = Completedcontroller;
 
-                    CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
-                    CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]"))
-                    { 
-                        selectedContentInterv = new ModelContentInterv();
-                        ContentIntervs = new ObservableCollection<ModelContentInterv>();
-                    } 
-                    else ObservableContentInterv(CmdStroka);
-                    break;
-                case "editCommand":
-                    if (MapOpisViewModel.ModelCall == "ModelColectionInterview")
-                    {
-                        pathcontroler = Completedcontroller;
-                    }
-                    CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
-                    CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]"))
-                    {
-                        selectedContentInterv = new ModelContentInterv();
-                        ContentIntervs = new ObservableCollection<ModelContentInterv>();
-                    }
-                    else ObservableContentInterv(CmdStroka);
-                    break;
-                case "addCommand":
-                    
-                    CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
-                    CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]"))
-                    {
-                        selectedContentInterv = new ModelContentInterv();
-                        ContentIntervs = new ObservableCollection<ModelContentInterv>();
-                    }
-                    else ObservableContentInterv(CmdStroka);
-                    break;
-            }
+            CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
+            CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
+            else ObservableContentInterv(CmdStroka);
+
         }
 
         public static void ObservableContentInterv(string CmdStroka)

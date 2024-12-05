@@ -7600,10 +7600,14 @@
                                                             <RowDefinition Height="7*"/>
                                                             <RowDefinition Height="6*"/>
                                                             <RowDefinition Height="6*"/>
+                                                            <RowDefinition Height="6*"/>
                                                             <RowDefinition Height="10*"/>
                                                         </Grid.RowDefinitions>
-
-                                                        <Label Content="" Grid.Row="0" Height="30"/>
+                                                        
+                                                        <TextBlock x:Name="AccountUserDateCreat" Grid.Row="0" TextWrapping="Wrap" FontSize="14" Text="  Дата створення запису"   Width="180" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Center" />
+                                                        <TextBox  Name="AccountUserDateCreatBox" Text="{Binding accountCreatDate, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="0" Grid.Column="1"
+                                                          Background="White" VerticalAlignment="Center" Height="28" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        
                                                         <TextBlock x:Name="AccountUserLab3" Grid.Column="0" Grid.Row="1" Text="  Статус користувача"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
                                                         <TextBox Text="{Binding nameStatus, UpdateSourceTrigger=PropertyChanged}" Name="AccountUsert3" Grid.Column="1" Grid.Row="1"
                                                         IsEnabled="False" Background="White" Width="150" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
@@ -7635,7 +7639,10 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <Label Name="LoadAccountUser" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="50"
+                                                        <TextBlock x:Name="AccountUserSubscript" Grid.Row="6" TextWrapping="Wrap" FontSize="14" Text="  Підписка"   Width="180" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Center" />
+                                                        <TextBox  Name="AccountUserSubscriptBox" Grid.Row="6" Text="{Binding subscription, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"  Grid.Column="1"
+                                                          Background="White" VerticalAlignment="Center" Height="28" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        <Label Name="LoadAccountUser" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="7" Height="50"
                                                        HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0"/>
 
                                                     </Grid>
@@ -7692,6 +7699,16 @@
                                                     <DataGridTextColumn x:Name="AccountUserColumn5" FontSize="14" Width="200" Binding="{Binding Path=idUser}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="AccountUserHeader5"  Text="Id користувача"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="AccountUserColumn6" FontSize="14" Width="150" Binding="{Binding Path=accountCreatDate}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="AccountUserHeader6"  Text="Дата створення"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="AccountUserColumn7" FontSize="14" Width="80" Binding="{Binding Path=subscription}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="AccountUserHeader7"  Text="Підписка"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                 </DataGrid.Columns>

@@ -58,7 +58,12 @@ namespace BackSeam
             
             foreach (ModelDiagnoz modelDiagnoz in ViewDiagnozs)
             {
-                
+                if (modelDiagnoz.kodDiagnoza == "" || modelDiagnoz.kodDiagnoza == null)
+                {
+                    string json = controlerViewDiagnoz + modelDiagnoz.id.ToString();
+                    CallServer.PostServer(controlerViewDiagnoz, json, "DELETE");
+                    break;
+                }
                 if (strokaIcdGrDiagnoz != modelDiagnoz.IcdGrDiagnoz )
                 {
                     modelDiagnoz.nameDiagnoza = modelDiagnoz.icdGrDiagnoz;
@@ -463,7 +468,7 @@ namespace BackSeam
                                 List<ModelIcd> res = result.ModelIcd.ToList();
                                 ObservableCollection<ModelIcd> Idinsert = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
                                 
-                                if (Idinsert != null)
+                                if (Idinsert != null && Idinsert.Count>0)
                                 {
                                     WindowMen.Diagnozt3.Text = Idinsert[0].name;
                                     WindowMen.LibDiagnozt3.Text = Idinsert[0].name;

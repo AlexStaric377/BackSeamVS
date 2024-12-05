@@ -43,10 +43,11 @@ namespace BackSeam
         private string Password;
         private string KodDostupa;
         private string NameStatus;
-
+        private string AccountCreatDate;
+        private string Subscription;
 
         public ModelAccountUser(int Id = 0, string IdUser = "", string IdStatus = "", string Login = "", string Password = "",
-            string KodDostupa="",string NameStatus="")
+            string KodDostupa="",string NameStatus="", string AccountCreatDate ="", string Subscription = "")
         {
             this.Id = Id;
             this.IdUser = IdUser;
@@ -55,6 +56,8 @@ namespace BackSeam
             this.Password = Password;
             this.KodDostupa = KodDostupa;
             this.NameStatus = NameStatus;
+            this.AccountCreatDate = AccountCreatDate;
+            this.Subscription = Subscription;
         }
 
         public int id
@@ -90,6 +93,20 @@ namespace BackSeam
             get { return NameStatus; }
             set { NameStatus = value; OnPropertyChanged("nameStatus"); }
         }
+
+        
+        public string accountCreatDate
+        { 
+            get { return AccountCreatDate; }
+            set { AccountCreatDate = value; OnPropertyChanged("accountCreatDate"); }
+        }
+
+        
+        public string subscription
+        { 
+            get { return Subscription; }
+            set { Subscription = value; OnPropertyChanged("subscription"); }
+        }
     }
 
     public partial class ListAccountUser
@@ -115,6 +132,12 @@ namespace BackSeam
 
         [JsonProperty("password")]
         public string password { get; set; }
+
+        [JsonProperty("accountCreatDate")]
+        public string accountCreatDate { get; set; }
+
+        [JsonProperty("subscription")]
+        public string subscription { get; set; }
 
 
     }
