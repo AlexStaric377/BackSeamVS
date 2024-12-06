@@ -27,7 +27,7 @@ namespace BackSeam
     public partial class ViewModelNsiListGroupDelit : BaseViewModel
     {
         private WinNsiListGroupDelit WindowMen = MainWindow.LinkMainWindow("WinNsiListGroupDelit");
-        string controlerListGrDetailing =  "/api/ControllerListGroupDetail/";
+        public static string controlerListGrDetailing =  "/api/ControllerListGroupDetail/";
         private ModelListGrDetailing selectedListGrDetailing;
         public  static ObservableCollection<ModelListGrDetailing> ViewListGrDetailings { get; set; }
 

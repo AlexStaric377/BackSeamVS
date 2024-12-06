@@ -69,7 +69,7 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=name}" Margin="0,0,0,5" VerticalAlignment="Center"   Width="470" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=name}" Margin="0,0,0,5" TextWrapping="Wrap" VerticalAlignment="Center"   Width="520" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
                             <!--TextWrapping="Wrap"-->
                         </DataTemplate>
                     </ListView.ItemTemplate>

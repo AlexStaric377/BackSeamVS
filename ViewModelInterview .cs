@@ -308,7 +308,7 @@ namespace BackSeam
                               json = JsonConvert.SerializeObject(selectedInterview);
                               if (json.Length > 1024)
                               {
-                                selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.ToString().Substring(0, WindowInterv.InterviewOpis.Text.Length-(json.Length - 1024));
+                                selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.ToString().Substring(0, WindowInterv.InterviewOpis.Text.Length-(json.Length - 1025));
                                 json = JsonConvert.SerializeObject(selectedInterview);
                               }
                           }
