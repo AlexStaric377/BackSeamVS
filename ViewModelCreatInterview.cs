@@ -119,7 +119,7 @@ namespace BackSeam
                       {
                           modelContentInterv.idUser = MapOpisViewModel.RegIdUser;
                           modelContentInterv.id = 0;
-                          modelContentInterv.numberstr = Numberstroka++;
+                          modelContentInterv.numberstr = ++Numberstroka;
                           json = JsonConvert.SerializeObject(modelContentInterv);
                           CallServer.PostServer(pathcontroler, json, "POST");
                       }
@@ -240,19 +240,23 @@ namespace BackSeam
                                   NewOrder.ShowDialog();
                                   break;
                               case 9:
+                                  
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   MapOpisViewModel.selectFeature = selectedContentInterv.detailsInterview;
                                   NsiDetailing NewNsi = new NsiDetailing();
                                   NewNsi.Left = (MainWindow.ScreenWidth / 2)-80;
                                   NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewNsi.ShowDialog();
+                                  
                                   break;
                               case > 9:
+                                  
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   WinNsiGrDetailing NewGrNsi = new WinNsiGrDetailing();
                                   NewGrNsi.Left = (MainWindow.ScreenWidth / 2)-50;
                                   NewGrNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                                   NewGrNsi.ShowDialog();
+                                  
                                   break;
                           }
                       }

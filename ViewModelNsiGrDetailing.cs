@@ -34,7 +34,7 @@ namespace BackSeam
         //    }
 
         //}
-
+        private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         private static string pathcontroller =  "/api/GrDetalingController/";
         public static ModelGrDetailing selectedGrDetailing;
         public static ObservableCollection<ModelGrDetailing> NsiModelGrDetailings { get; set; }
@@ -95,7 +95,27 @@ namespace BackSeam
             }
         }
 
+        
+        // команда закрытия окна
+        RelayCommand? addAllCreatInterview;
+        public RelayCommand AddAllCreatInterview
+        {
+            get
+            {
+                return addAllCreatInterview ??
+                  (addAllCreatInterview = new RelayCommand(obj =>
+                  {
 
+                      foreach (ModelGrDetailing modelGrDetailing in NsiModelGrDetailings)
+                      {
+                          WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = modelGrDetailing.kodDetailing.ToString() + ":        " + modelGrDetailing.nameGrDetailing.ToString();
+                          ViewModelCreatInterview.SelectContentCompl();
+                      }
+                      CloseWin();
+
+                  }));
+            }
+        }
         // команда выбора строки харакутера жалобы
         RelayCommand? selectModelGrDetailing;
         public RelayCommand SelectModelGrDetailing
@@ -105,7 +125,7 @@ namespace BackSeam
                 return selectModelGrDetailing ??
                   (selectModelGrDetailing = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+                      //MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
                       WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
                       if (selectedGrDetailing != null)
                       {

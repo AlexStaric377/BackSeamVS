@@ -4108,9 +4108,9 @@
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn x:Name="DetailingColumn4" FontSize="14" Width="300" Binding="{Binding Path=nameFeature}">
+                                                    <DataGridTextColumn x:Name="DetailingColumn4" FontSize="14" Width="350" Binding="{Binding Path=nameGrDetailing}">
                                                         <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="DetailingHeader4"  Text="Характер прояву нездужання"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                            <TextBlock x:Name="DetailingHeader4"  Text="Деталізація гуртова"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                     <DataGridTextColumn x:Name="DetailingColumn2" FontSize="14"  Width="300" Binding="{Binding Path=nameDetailing}">
@@ -4118,9 +4118,9 @@
                                                             <TextBlock x:Name="DetailingHeader2"  Text="Деталізація окрема"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="DetailingColumn1" FontSize="14" Width="210" Binding="{Binding Path=nameGrDetailing}">
+                                                    <DataGridTextColumn x:Name="DetailingColumn1" FontSize="14" Width="210" Binding="{Binding Path=nameFeature}">
                                                         <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="DetailingHeader1"  Text="Деталізація гуртова"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                            <TextBlock x:Name="DetailingHeader1"  Text="Характер прояву нездужання"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
 

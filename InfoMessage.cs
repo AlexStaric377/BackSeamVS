@@ -364,6 +364,7 @@ namespace BackSeam
         public static void ViewNsiGrDetaling()
         {
             WinNsiGrDetailing zagolovok = MainWindow.LinkMainWindow("WinNsiGrDetailing");
+            zagolovok.BorderAddAll.Visibility = Visibility.Hidden;
             switch (MapOpisViewModel.ActCompletedInterview)
             {
                 case "Guest":
@@ -378,8 +379,12 @@ namespace BackSeam
                 case "GrDetailing":
                     zagolovok.Zagolovok.Content += selectedListGroupDeliting.nameGrup.ToUpper();
                     break;
+                case null:
+                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectedComplaintname.ToUpper();
+                    zagolovok.BorderAddAll.Visibility = Visibility.Visible;
+                    break;
                 default:
-                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectedComplaintname.ToUpper(); 
+                    zagolovok.Zagolovok.Content += MapOpisViewModel.selectedComplaintname.ToUpper();
                     break;
             }
         }
