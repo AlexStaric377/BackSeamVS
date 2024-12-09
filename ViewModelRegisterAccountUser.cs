@@ -343,7 +343,8 @@ namespace BackSeam
             string Versia = FileVersionInfo.GetVersionInfo(PuthConecto).ToString();  // версия файла.
             string VersiaT = Versia.Substring(Versia.IndexOf("FileVersion") + 12, Versia.IndexOf("FileDescription") - (Versia.IndexOf("FileVersion") + 12)).Replace("\r\n", "").Replace(" ", "");
             MapOpisViewModel.InfoSborka = VersiaT;
-            //WindowAccountUser.InfoSeamVer.Text = WindowAccountUser.InfoSeamVer.Text + MapOpisViewModel.InfoSborka;        
+            //WindowAccountUser.InfoSeamVer.Text = WindowAccountUser.InfoSeamVer.Text + MapOpisViewModel.InfoSborka;
+            
         }
 
         //public static List<string> Countrys { get; set; } = new List<string> { "+380", "+44" };

@@ -2866,7 +2866,7 @@
                         </Grid>
                     </TabItem>
                     <TabItem Header="Аналіз опитуваннь" FontFamily="Microsoft Sans Serif" FontSize="14" Name="Analiz" Height="Auto" Width="150" HorizontalAlignment="Center">
-                        <TabControl  HorizontalAlignment="Left" Height="650" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
+                        <TabControl x:Name="AnalizDiagnoz" HorizontalAlignment="Left" Height="650" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
 
                             <TabItem Header=" Динаміка опитувань" Name="AnalizProfil" Height="60" Width="160" HorizontalAlignment="Center">
                                 <Grid Width="790" Background= "White" HorizontalAlignment="Right">
@@ -8101,34 +8101,35 @@
 
                                     </Grid>
                                 </TabItem>
-                                <TabItem Header="Про програму" Name="InfoSeam" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="140" HorizontalAlignment="Center">
-                                    <Grid Width="800" x:Name="InfoSeamGrids" Background="White" HorizontalAlignment="Left">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="63*" />
-                                            <RowDefinition Height="185*"/>
-                                            <RowDefinition Height="50*" />
-                                            <RowDefinition Height="50*" />
-                                            <RowDefinition Height="100*" />
-                                            <RowDefinition Height="200*"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="0" Width="630"/>
-                                        <Grid Grid.Row="1" Width="630">
-                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Height="170" Padding="0,0,0,0">
-                                                <StackPanel x:Name="InfoSeamBd" Width="Auto" Background="White" Height="170" DataContext="{Binding SelectedModelAccountUser}">
-                                                    <Grid Width="Auto" Height="170">
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="63*" />
-                                                            <RowDefinition Height="100*"/>
-                                                        </Grid.RowDefinitions>
-                                                        <TextBlock Grid.Row="0" x:Name="InfoSeamVer"   Text="  Веріся зборки:"  FontSize="14" Height="30" Width="410"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                                        <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Border>
-                                        </Grid>
-                                    </Grid>
-                                </TabItem>
+
                             </TabControl>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Про програму" Name="InfoSeam" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="140" HorizontalAlignment="Center">
+                        <Grid Width="800" x:Name="InfoSeamGrids" Background="White" HorizontalAlignment="Center" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="63*" />
+                                <RowDefinition Height="185*"/>
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="100*" />
+                                <RowDefinition Height="200*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Width="630"/>
+                            <Grid Grid.Row="1" Width="630">
+                                <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Height="170" Padding="0,0,0,0">
+                                    <StackPanel x:Name="InfoSeamBd" Width="Auto" Background="White" Height="170" DataContext="{Binding SelectedModelAccountUser}">
+                                        <Grid Width="Auto" Height="170">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="63*" />
+                                                <RowDefinition Height="100*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" x:Name="InfoSeamVer"   Text="  Веріся зборки:"  FontSize="14" Height="30" Width="410"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
                         </Grid>
                     </TabItem>
                 </TabControl>

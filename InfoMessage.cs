@@ -32,6 +32,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class MapOpisViewModel : BaseViewModel
     {
+        public static  MainWindow WindowInfo = MainWindow.LinkNameWindow("BackMain");
         protected Process[] procs;
         public static void SelectedDelete(int HeightWidth =0)
         {
@@ -249,7 +250,6 @@ namespace BackSeam
         }
         public static void VersiyaBack()
         {
-            MainWindow WindowInfo = MainWindow.LinkNameWindow("BackMain");
             // Информация для администрирования Версия программы, путь архивирования
             //string PuthConecto = Process.GetCurrentProcess().MainModule.FileName;
             //string Versia = FileVersionInfo.GetVersionInfo(PuthConecto).ToString();  // версия файла.
@@ -292,12 +292,12 @@ namespace BackSeam
             }
             CallServer._UrlAdres = ConfigBuild();
             LoadSelectLanguageUI();
+            ViewAccountUser();
         }
 
         public static string ConfigBuild()
         {
-            MainWindow WindowInfo = MainWindow.LinkNameWindow("BackMain");
-            var builder = new ConfigurationBuilder()
+           var builder = new ConfigurationBuilder()
                           .SetBasePath(Directory.GetCurrentDirectory())
                           .AddJsonFile("appsettings.json", true);
 
@@ -310,7 +310,7 @@ namespace BackSeam
         
         public static void LoadSelectLanguageUI()
         {
-            MainWindow WindowInfo = MainWindow.LinkNameWindow("BackMain");
+            
             string LoadLanguageUI = "";
             if (MainWindow.SelectLanguageUI != "Ukraine")
             {
@@ -336,7 +336,31 @@ namespace BackSeam
 
         }
 
+        public static void ViewAccountUser()
+        {
+            if (RegUserStatus != "1" )
+            {
+                WindowInfo.AccountZap.Visibility = Visibility.Hidden;
+                WindowInfo.NsiStatusUser.Visibility = Visibility.Hidden;
+                WindowInfo.UnLoadBd.Visibility = Visibility.Hidden;
+                WindowInfo.LoadBd.Visibility = Visibility.Hidden;
+                WindowInfo.AnalizDiagnoz.Visibility = Visibility.Hidden;
+                WindowInfo.SetupGrid.Visibility = Visibility.Hidden;
+                
 
+
+            }
+            else
+            {
+                WindowInfo.AccountZap.Visibility = Visibility.Visible;
+                WindowInfo.NsiStatusUser.Visibility = Visibility.Visible;
+                WindowInfo.UnLoadBd.Visibility = Visibility.Visible;
+                WindowInfo.LoadBd.Visibility = Visibility.Visible;
+                WindowInfo.AnalizDiagnoz.Visibility = Visibility.Visible;
+                WindowInfo.SetupGrid.Visibility = Visibility.Visible;
+            }
+
+        }
         public static void ViewNsiFeature()
         {
             WinNsiFeature zagolovok = MainWindow.LinkMainWindow("WinNsiFeature");
