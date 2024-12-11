@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\BackSeam\App.xaml
 37-385926977
 
-151-626529904
+155-620908012
 242-2086747598
 MainWindow.xaml;MessageError.xaml;MessageWarn.xaml;MessageWarning.xaml;WinAccountRecords.xaml;WinAnalogDiagnoz.xaml;WinColectionAnalizBlood.xaml;WinColectionAnalizUrine.xaml;WinColectionStanHealth.xaml;WinCreatIntreview.xaml;WinDeleteData.xaml;WinLikarGrupDiagnoz.xaml;WinListInteviewPacient.xaml;WinMedicalGrDiagnoz.xaml;WinMessageDialog.xaml;WinMessageErr.xaml;WinNsiCompliant.xaml;WinNsiDetailing.xaml;WinNsiFeature.xaml;WinNsiGrDetailing.xaml;WinNsiGrQualification.xaml;WinNsiIcd.xaml;WinNsiIntreview.xaml;WinNsiLikar.xaml;WinNsiListDiagnoz.xaml;WinNsiListGrDiagnoz.xaml;WinNsiListGroupDelit.xaml;WinNsiListRecommen.xaml;WinNsiMedZaklad.xaml;WinNsiPacient.xaml;WinNsiQualification.xaml;WinNsiStatusUser.xaml;WinProfilPacient.xaml;WinRegisterAccountUser.xaml;WinResultInterview.xaml;WinStrokaProgressBar.xaml;WinVisitingDays.xaml;
 
-False
+True
 

@@ -7761,7 +7761,7 @@
                                                 <Grid x:Name="StatusUserGridGhange" Grid.Column="3" Grid.Row="0"  >
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="StatusUserGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding EditNsiStatusUser  }" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                            <Button Command="{Binding EditNsiStatusUser  }" CommandParameter="{Binding SelectedStatusUser}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
                                                             </Button>
                                                             <Label Content="Змінити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
@@ -7771,7 +7771,7 @@
                                                 <Grid x:Name="StatusUserGridDelete" Grid.Column="4" Grid.Row="0"   >
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="StatusUserDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding RemoveNsiStatusUser}" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                            <Button Command="{Binding RemoveNsiStatusUser}" CommandParameter="{Binding SelectedStatusUser}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
                                                             </Button>
                                                             <Label Content="Видалити" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
@@ -7781,7 +7781,7 @@
                                                 <Grid x:Name="StatusUserGridSave" Grid.Column="5" Grid.Row="0"  >
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="StatusUserSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
-                                                            <Button Command="{Binding SaveNsiStatusUser}" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                            <Button Command="{Binding SaveNsiStatusUser}" CommandParameter="{Binding SelectedStatusUser}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
                                                             </Button>
                                                             <Label Content="Зберегти" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
@@ -7881,6 +7881,366 @@
                                                     <DataGridTextColumn x:Name="StatusUserColumn4" FontSize="14" Width="150" Binding="{Binding Path=statusUser}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="StatusUserHeader4"  Text="стан статусу"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+
+                                <TabItem Header="        Вартість &#xa;  пакетів послуг" Name="PriceTabItem" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="140" HorizontalAlignment="Center">
+                                    <!--<Grid Background="White"/>-->
+                                    <Grid Width="800" Background="White" HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="250*"/>
+                                            <RowDefinition Height="280*"/>
+                                            <RowDefinition Height="60*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
+                                            <Grid x:Name="PriceControlPanel"    HorizontalAlignment="Right">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width ="125*" />
+                                                    <ColumnDefinition Width="110*"/>
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width ="95*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="1" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PriceLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding LoadPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+
+                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PriceGridAdd" Grid.Column="2" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PriceAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding AddPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PriceGridGhange" Grid.Column="3" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PriceGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding EditPrice  }" CommandParameter="{Binding SelectedPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Змінити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PriceGridDelete" Grid.Column="4" Grid.Row="0"   >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PriceDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding RemovePrice}" CommandParameter="{Binding SelectedPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Видалити" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PriceGridSave" Grid.Column="5" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PriceSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding SavePrice}" CommandParameter="{Binding SelectedPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Зберегти" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PriceGridPrint" Grid.Column="6" Grid.Row="0" Margin="2,0,0,0" >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PricePrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding PrintPrice}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Друкувати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="0" x:Name="PricegMap" Width="630" HorizontalAlignment="Right">
+                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
+                                                <StackPanel x:Name="PriceMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedPrice}">
+                                                    <Grid Width="Auto" Height="Auto">
+                                                        <Grid.ColumnDefinitions >
+                                                            <ColumnDefinition Width="110*" />
+                                                            <ColumnDefinition Width ="281*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="20*" />
+                                                            <RowDefinition Height="70*" />
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="100*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Content="" Grid.Row="0" Height="30"/>
+                                                        <TextBlock x:Name="PriceLab3" Grid.Column="0" Grid.Row="1" Text="  Номер пакету"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
+                                                        <TextBox Text="{Binding keyPrice, UpdateSourceTrigger=PropertyChanged}" Name="Pricet3" Grid.Column="1" Grid.Row="1"
+                                                        IsEnabled="False" Background="White" Width="50" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <!--<Image x:Name="FoldPrice" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="180,0,0,0"  Visibility="Hidden"   >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridAccountUsergMap, Path=DataContext.AddStatusUser}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>-->
+                                                        <TextBlock x:Name="PriceLab1" Grid.Column="0" Grid.Row="2" Text="  Назва пакету"  FontSize="14" Height="24" Width="130" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding namePrice, UpdateSourceTrigger=PropertyChanged}" Name="Pricet1" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"
+                                                        IsEnabled="False" Background="White" Width="400" Height="48" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                                                        <TextBlock x:Name="PriceLab2" Grid.Row="3" Text="  Вартість пакету" TextWrapping="Wrap"  Grid.Column="0" Height="30"    Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
+                                                        <TextBox Text="{Binding priceQuantity, UpdateSourceTrigger=PropertyChanged}" Name="Pricet2" Grid.Row="3" Grid.Column="1"
+                                                         FontSize="14" Height="30" IsEnabled="False" Background="White" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+
+                                                        <TextBlock x:Name="PriceLab4" Grid.Column="0" Grid.Row="4" Text="  Кількість днів діїї пакету"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding quantityDays, UpdateSourceTrigger=PropertyChanged}" Name="Pricet4" Grid.Column="1" Grid.Row="4" 
+                                                        IsEnabled="False" Background="White" Width="50" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+
+                                                        <TextBlock x:Name="PriceL5" Grid.Row="5" TextWrapping="Wrap" Text="  "  Grid.Column="0" Height="24"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Visibility="Hidden" />
+                                                        <TextBox Text="{Binding password, UpdateSourceTrigger=PropertyChanged}" Name="Pricet5" Grid.Column="1" Grid.Row="5" Visibility="Hidden"
+                                                        IsEnabled="False" Background="White" Width="200" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+
+                                                        <Label Name="LoadPrice" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="50"
+                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0"/>
+
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20*" />
+                                                <RowDefinition Height="130*" />
+                                            </Grid.RowDefinitions>
+                                            <Label Content=" Вартість пакетів послуг" Grid.Row="0" Height="30" Width="630" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"/>
+                                            <DataGrid x:Name="PriceTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewPrices }" SelectedItem ="{Binding SelectedPrice}"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="245"
+                                          VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
+                                          HorizontalGridLinesBrush="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn x:Name="PriceColumn1" FontSize="14" Width="80" Binding="{Binding Path=keyPrice}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PriceHeader1"  Text="Пакет"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PriceColumn2" FontSize="14"  Width="400" Binding="{Binding Path=namePrice}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PriceHeader2"  Text="Назва пакету"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PriceColumn3" FontSize="14" Width="130" Binding="{Binding Path=priceQuantity}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PriceHeader3"  Text="Вартість пакету"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PriceColumn4" FontSize="14" Width="180" Binding="{Binding Path=quantityDays}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PriceHeader4"  Text="Кількість днів діїї пакету"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+
+                                        </Grid>
+                                    </Grid>
+                                </TabItem>
+
+
+                                <TabItem Header="Статистика оплат&#xa;  вартості пакетів" Name="PaymentTabItem" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="140" HorizontalAlignment="Center">
+                                    <!--<Grid Background="White"/>-->
+                                    <Grid Width="800" Background="White" HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="250*"/>
+                                            <RowDefinition Height="280*"/>
+                                            <RowDefinition Height="60*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
+                                            <Grid x:Name="PaymentControlPanel"    HorizontalAlignment="Right">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width ="125*" />
+                                                    <ColumnDefinition Width="110*"/>
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width="95*"/>
+                                                    <ColumnDefinition Width ="95*" />
+                                                    <ColumnDefinition Width ="95*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="1" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding LoadPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+
+                                                            <Label Content="Завантажити" FontSize="14" Height="28" Width="100" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PaymentGridAdd" Grid.Column="2" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
+                                                            <Button Command="{Binding AddPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PaymentGridGhange" Grid.Column="3" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding EditPayment  }" CommandParameter="{Binding SelectedModelPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Змінити" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PaymentGridDelete" Grid.Column="4" Grid.Row="0"   >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding RemovePayment}" CommandParameter="{Binding SelectedModelPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Видалити" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PaymentGridSave" Grid.Column="5" Grid.Row="0"  >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentSave" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding SavePayment}" CommandParameter="{Binding SelectedModelPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/save.png"  Height="28" Width="70" ></Image>
+                                                            </Button>
+                                                            <Label Content="Зберегти" FontSize="14" Height="28"  VerticalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="PaymentGridPrint" Grid.Column="6" Grid.Row="0" Margin="2,0,0,0" >
+                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                        <StackPanel Name="PaymentPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+                                                            <Button Command="{Binding PrintPayment}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
+                                                            </Button>
+                                                            <Label Content="Друкувати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="0" x:Name="PaymentMap" Width="630" HorizontalAlignment="Right">
+                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
+                                                <StackPanel x:Name="PaymentMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedModelPayment}">
+                                                    <Grid Width="Auto" Height="Auto">
+                                                        <Grid.ColumnDefinitions >
+                                                            <ColumnDefinition Width="110*" />
+                                                            <ColumnDefinition Width ="281*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="20*" />
+                                                            <RowDefinition Height="70*" />
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="70*"/>
+                                                            <RowDefinition Height="100*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Content="" Grid.Row="0" Height="30"/>
+                                                        <TextBlock x:Name="PaymentLab3" Grid.Column="0" Grid.Row="1" Text="  Назва пакету"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
+                                                        <TextBox Text="{Binding namePrice, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt3" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"
+                                                        IsEnabled="False" Background="White" Width="400" Height="48" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <Image x:Name="FoldSelectPaket" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Visible"   >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridAccountUsergMap, Path=DataContext.SelectPaket}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <TextBlock x:Name="PaymentLab1" Grid.Column="0" Grid.Row="2" Text="  Користувач"  FontSize="14" Height="24" Width="130" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding nameClient, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt1" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"
+                                                        IsEnabled="False" Background="White" Width="400" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                                                        <Image x:Name="FoldSelectUser" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Visible"   >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=GridAccountUsergMap, Path=DataContext.SelectUser}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+
+                                                        <TextBlock x:Name="PaymentLab2" Grid.Row="3" Text="  Сума оплати" TextWrapping="Wrap"  Grid.Column="0" Height="30"    Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
+                                                        <TextBox Text="{Binding suma, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt2" Grid.Row="3" Grid.Column="1"
+                                                         FontSize="14" Height="30" IsEnabled="False" Background="White" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+
+                                                        <TextBlock x:Name="PaymentLab4" Grid.Column="0" Grid.Row="5" Text="  Дата оплати"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt4" Grid.Column="1" Grid.Row="5" 
+                                                        IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+
+                                                        <TextBlock x:Name="PaymentL5" Grid.Row="4" TextWrapping="Wrap" Text="  Вартість пакету за:&#xa;  тарифом "  Grid.Column="0" Height="32"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Visibility="Visible" />
+                                                        <TextBox Text="{Binding priceQuantity, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt5" Grid.Column="1" Grid.Row="4" Visibility="Visible"
+                                                        IsEnabled="False" Background="White" Width="100" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+
+                                                        <Label Name="LoadPayment" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="50"
+                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0"/>
+
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20*" />
+                                                <RowDefinition Height="130*" />
+                                            </Grid.RowDefinitions>
+                                            <Label Content=" Вартість пакетів послуг" Grid.Row="0" Height="30" Width="630" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"/>
+                                            <DataGrid x:Name="PaymentTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewModelPayments }" SelectedItem ="{Binding SelectedModelPayment}"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="245"
+                                          VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
+                                          HorizontalGridLinesBrush="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn x:Name="PaymentColumn1" FontSize="14" Width="280" Binding="{Binding Path=nameClient}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PaymentHeader1"  Text="Користувач"  TextWrapping="Wrap" HorizontalAlignment="Center" />
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PaymentColumn2" FontSize="14"  Width="130" Binding="{Binding Path=suma}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PaymentHeader2"  Text=" Сума оплати"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PaymentColumn3" FontSize="14" Width="130" Binding="{Binding Path=priceQuantity}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PaymentHeader3"  Text="Вартість пакету"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PaymentColumn4" FontSize="14" Width="180" Binding="{Binding Path=datePayment}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PaymentHeader4"  Text="Дата оплати"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="PaymentColumn5" FontSize="14" Width="280" Binding="{Binding Path=namePrice}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="PaymentHeader5"  Text="Назва пакету"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
                                                 </DataGrid.Columns>
