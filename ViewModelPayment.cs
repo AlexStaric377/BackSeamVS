@@ -136,10 +136,8 @@ namespace BackSeam
 
         private void AddComandPayment()
         {
-            selectedPayment = new Payment();
-            SelectedPayment = selectedPayment;
-            selectedModelPayment = new ModelPayment();
-            SelectedModelPayment = selectedModelPayment;
+
+            NewModelPayment();
             if (loadboolPayment == false)
             {
                 MethodLoadPayment();
@@ -175,10 +173,9 @@ namespace BackSeam
             editboolPayment = true;
             WindowPayment.FoldSelectUser.Visibility = Visibility.Visible;
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Visible;
-            WindowPayment.Paymentt1.IsEnabled = true;
-            WindowPayment.Paymentt1.Background = Brushes.AntiqueWhite;
-            WindowPayment.Paymentt4.IsEnabled = true;
-            WindowPayment.Paymentt4.Background = Brushes.AntiqueWhite;
+            WindowPayment.PaymentDatePicker.IsEnabled = true;
+            //WindowPayment.Paymentt4.IsEnabled = true;
+            //WindowPayment.Paymentt4.Background = Brushes.AntiqueWhite;
             WindowPayment.Paymentt2.IsEnabled = true;
             WindowPayment.Paymentt2.Background = Brushes.AntiqueWhite;
 
@@ -190,10 +187,9 @@ namespace BackSeam
             editboolPayment = false;
             WindowPayment.FoldSelectUser.Visibility = Visibility.Hidden;
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Hidden;
-            WindowPayment.Paymentt1.IsEnabled = false;
-            WindowPayment.Paymentt1.Background = Brushes.White;
-            WindowPayment.Paymentt4.IsEnabled = false;
-            WindowPayment.Paymentt4.Background = Brushes.White;
+            WindowPayment.PaymentDatePicker.IsEnabled = false;
+            //WindowPayment.Paymentt4.IsEnabled = false;
+            //WindowPayment.Paymentt4.Background = Brushes.White;
             WindowPayment.Paymentt2.IsEnabled = false;
             WindowPayment.Paymentt2.Background = Brushes.White;
 
@@ -269,6 +265,7 @@ namespace BackSeam
                           {
                               //  формирование кода Detailing по значениею группы выранного храктера жалобы
                               //SelectNewNsiPayment();
+                              selectedPayment.datePayment = WindowPayment.Paymentt4.Text;
                               string json = JsonConvert.SerializeObject(selectedPayment);
                               CallServer.PostServer(pathcontPayment, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -297,7 +294,7 @@ namespace BackSeam
             }
         }
 
- 
+
         // команда печати
         RelayCommand? printPayment;
         public RelayCommand PrintPayment
@@ -317,7 +314,7 @@ namespace BackSeam
             }
         }
 
-        
+
         // команда выбора пакета услуг
         RelayCommand? selectPaket;
         public RelayCommand SelectPaket
@@ -327,9 +324,24 @@ namespace BackSeam
                 return selectPaket ??
                   (selectPaket = new RelayCommand(obj =>
                   {
-                     
+                      NewModelPayment();
+                      selectedPrice = new Price();
+                      CallViewProfilLikar = "WinNsiPacient";
+                      WinNsiPrice NewOrder = new WinNsiPrice();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+                      CallViewProfilLikar = "";
+
+                      if (selectedPrice.keyPrice != "")
+                      {
+                          SelectedModelPayment.keyPrice = selectedPrice.keyPrice;
+                          SelectedModelPayment.namePrice = selectedPrice.keyPrice + ": " + selectedPrice.namePrice;
+                          SelectedModelPayment.priceQuantity = selectedPrice.priceQuantity;
+
+                      }
                   }));
-                 
+
             }
         }
 
@@ -342,10 +354,29 @@ namespace BackSeam
                 return selectUser ??
                   (selectUser = new RelayCommand(obj =>
                   {
+                      NewModelPayment();
+                      CallViewProfilLikar = "WinNsiPacient";
+                      WinNsiPacient NewOrder = new WinNsiPacient();
+                      NewOrder.ShowDialog();
+                      CallViewProfilLikar = "";
+                      string CmdStroka = CallServer.ServerReturn();
+                      if (WindowPayment.LikarIntert3.Text != "")
+                      {
+                          SelectedModelPayment.keyClient = selectedModelPayment.keyClient = MapOpisViewModel.namePacient.Substring(0, MapOpisViewModel.namePacient.IndexOf(":")).Trim();
+                          WindowPayment.Paymentt1.Text = SelectedModelPayment.nameClient = selectedModelPayment.nameClient = "Тел." + WindowPayment.AccountUsert2.Text + " " + WindowPayment.AccountUsert5.Text.Substring(WindowPayment.AccountUsert5.Text.IndexOf(":"), WindowPayment.AccountUsert5.Text.Length - WindowPayment.AccountUsert5.Text.IndexOf(":"));
+                      }
 
                   }));
 
             }
+        }
+
+        private void NewModelPayment()
+        {
+            if (selectedPayment == null) selectedPayment = new Payment();
+            if (SelectedPayment == null) SelectedPayment = new Payment();
+            if (selectedModelPayment == null) selectedModelPayment = new ModelPayment();
+            if (SelectedModelPayment == null) SelectedModelPayment = new ModelPayment();
         }
 
         #endregion

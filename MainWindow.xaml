@@ -8195,6 +8195,24 @@
                                                         <TextBlock x:Name="PaymentLab4" Grid.Column="0" Grid.Row="5" Text="  Дата оплати"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt4" Grid.Column="1" Grid.Row="5" 
                                                         IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+                                                        <DatePicker x:Name="PaymentDatePicker" Grid.Column="1" Grid.Row="5" SelectedDate="{Binding Path=datePayment}" 
+                                                                    IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Bottom"
+                                                                    FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
+                                                            <DatePicker.Resources>
+                                                                <Style TargetType="DatePickerTextBox">
+                                                                    <Setter Property="Control.Template">
+                                                                        <Setter.Value>
+                                                                            <ControlTemplate>
+                                                                                <TextBox x:Name="PART_TextBox"
+                                                                                Text="{Binding Path=SelectedDate, StringFormat={}{0:dd.MM.yyyy}, 
+                                                                                RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                                                            </ControlTemplate>
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                </Style>
+                                                            </DatePicker.Resources>
+                                                        </DatePicker>
+
 
                                                         <TextBlock x:Name="PaymentL5" Grid.Row="4" TextWrapping="Wrap" Text="  Вартість пакету за:&#xa;  тарифом "  Grid.Column="0" Height="32"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Visibility="Visible" />
                                                         <TextBox Text="{Binding priceQuantity, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt5" Grid.Column="1" Grid.Row="4" Visibility="Visible"
