@@ -8168,9 +8168,9 @@
 
                                                         <Label Content="" Grid.Row="0" Height="30"/>
                                                         <TextBlock x:Name="PaymentLab3" Grid.Column="0" Grid.Row="1" Text="  Назва пакету"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
-                                                        <TextBox Text="{Binding namePrice, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt3" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"
+                                                        <TextBox Text="{Binding namePrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Name="Paymentt3" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"
                                                         IsEnabled="False" Background="White" Width="400" Height="48" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <Image x:Name="FoldSelectPaket" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Visible"   >
+                                                        <Image x:Name="FoldSelectPaket" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridAccountUsergMap, Path=DataContext.SelectPaket}" CommandParameter=""/>
@@ -8178,9 +8178,9 @@
                                                             </i:Interaction.Triggers>
                                                         </Image>
                                                         <TextBlock x:Name="PaymentLab1" Grid.Column="0" Grid.Row="2" Text="  Користувач"  FontSize="14" Height="24" Width="130" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Text="{Binding nameClient, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt1" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"
+                                                        <TextBox Text="{Binding nameClient, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Name="Paymentt1" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"
                                                         IsEnabled="False" Background="White" Width="400" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
-                                                        <Image x:Name="FoldSelectUser" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Visible"   >
+                                                        <Image x:Name="FoldSelectUser" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25"  HorizontalAlignment="Right" Margin="0,0,10,0"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridAccountUsergMap, Path=DataContext.SelectUser}" CommandParameter=""/>
@@ -8193,17 +8193,17 @@
                                                          FontSize="14" Height="30" IsEnabled="False" Background="White" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
 
                                                         <TextBlock x:Name="PaymentLab4" Grid.Column="0" Grid.Row="5" Text="  Дата оплати"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged}" Name="Paymentt4" Grid.Column="1" Grid.Row="5" 
+                                                        <TextBox Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Name="Paymentt4" Grid.Column="1" Grid.Row="5"   
                                                         IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
                                                         <DatePicker x:Name="PaymentDatePicker" Grid.Column="1" Grid.Row="5" SelectedDate="{Binding Path=datePayment}" 
-                                                                    IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Bottom"
+                                                                    IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Center"
                                                                     FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
                                                             <DatePicker.Resources>
                                                                 <Style TargetType="DatePickerTextBox">
                                                                     <Setter Property="Control.Template">
                                                                         <Setter.Value>
                                                                             <ControlTemplate>
-                                                                                <TextBox x:Name="PART_TextBox"
+                                                                                <TextBox x:Name="Pay_TextBox"
                                                                                 Text="{Binding Path=SelectedDate, StringFormat={}{0:dd.MM.yyyy}, 
                                                                                 RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
                                                                             </ControlTemplate>

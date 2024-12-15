@@ -51,7 +51,7 @@ namespace BackSeam
         public ModelPayment SelectedModelPayment
         {
             get { return selectedModelPayment; }
-            set { selectedModelPayment = value; OnPropertyChanged("SelectedModelPayment"); }
+            set { selectedModelPayment = value; OnPropertyChanged(nameof(SelectedModelPayment));}
         }
         public static void ObservableViewPayments(string CmdStroka)
         {
@@ -175,7 +175,8 @@ namespace BackSeam
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Visible;
             WindowPayment.PaymentDatePicker.IsEnabled = true;
             //WindowPayment.Paymentt4.IsEnabled = true;
-            //WindowPayment.Paymentt4.Background = Brushes.AntiqueWhite;
+            //WindowPayment.Paymentt3.IsEnabled = true;
+            //WindowPayment.Paymentt1.IsEnabled = true;
             WindowPayment.Paymentt2.IsEnabled = true;
             WindowPayment.Paymentt2.Background = Brushes.AntiqueWhite;
 
@@ -189,9 +190,11 @@ namespace BackSeam
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Hidden;
             WindowPayment.PaymentDatePicker.IsEnabled = false;
             //WindowPayment.Paymentt4.IsEnabled = false;
-            //WindowPayment.Paymentt4.Background = Brushes.White;
+            //WindowPayment.Paymentt3.IsEnabled = false;
+            //WindowPayment.Paymentt1.IsEnabled = false;
             WindowPayment.Paymentt2.IsEnabled = false;
             WindowPayment.Paymentt2.Background = Brushes.White;
+            SelectedModelPayment = new ModelPayment();
 
         }
 
@@ -336,8 +339,9 @@ namespace BackSeam
                       if (selectedPrice.keyPrice != "")
                       {
                           SelectedModelPayment.keyPrice = selectedPrice.keyPrice;
-                          SelectedModelPayment.namePrice = selectedPrice.keyPrice + ": " + selectedPrice.namePrice;
+                          WindowPayment.Paymentt3.Text = SelectedModelPayment.namePrice = selectedPrice.keyPrice + ": " + selectedPrice.namePrice;
                           SelectedModelPayment.priceQuantity = selectedPrice.priceQuantity;
+                          WindowPayment.Paymentt5.Text = selectedPrice.priceQuantity.ToString();
 
                       }
                   }));
@@ -363,6 +367,7 @@ namespace BackSeam
                       if (WindowPayment.LikarIntert3.Text != "")
                       {
                           SelectedModelPayment.keyClient = selectedModelPayment.keyClient = MapOpisViewModel.namePacient.Substring(0, MapOpisViewModel.namePacient.IndexOf(":")).Trim();
+
                           WindowPayment.Paymentt1.Text = SelectedModelPayment.nameClient = selectedModelPayment.nameClient = "Тел." + WindowPayment.AccountUsert2.Text + " " + WindowPayment.AccountUsert5.Text.Substring(WindowPayment.AccountUsert5.Text.IndexOf(":"), WindowPayment.AccountUsert5.Text.Length - WindowPayment.AccountUsert5.Text.IndexOf(":"));
                       }
 
