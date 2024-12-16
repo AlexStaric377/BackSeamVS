@@ -8193,12 +8193,12 @@
                                                          FontSize="14" Height="30" IsEnabled="False" Background="White" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
 
                                                         <TextBlock x:Name="PaymentLab4" Grid.Column="0" Grid.Row="5" Text="  Дата оплати"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Name="Paymentt4" Grid.Column="1" Grid.Row="5"   
-                                                        IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding ElementName=PaymentDatePicker, Path=Text}" Name="Paymentt4" Grid.Column="1" Grid.Row="5"   
+                                                        IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" /> <!--Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"-->
                                                         <DatePicker x:Name="PaymentDatePicker" Grid.Column="1" Grid.Row="5" SelectedDate="{Binding Path=datePayment}" 
                                                                     IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Center"
                                                                     FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
-                                                            <DatePicker.Resources>
+                                                           <DatePicker.Resources>
                                                                 <Style TargetType="DatePickerTextBox">
                                                                     <Setter Property="Control.Template">
                                                                         <Setter.Value>
@@ -8206,11 +8206,13 @@
                                                                                 <TextBox x:Name="Pay_TextBox"
                                                                                 Text="{Binding Path=SelectedDate, StringFormat={}{0:dd.MM.yyyy}, 
                                                                                 RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                                                                
                                                                             </ControlTemplate>
                                                                         </Setter.Value>
                                                                     </Setter>
                                                                 </Style>
                                                             </DatePicker.Resources>
+ 
                                                         </DatePicker>
 
 

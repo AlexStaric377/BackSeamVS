@@ -367,7 +367,6 @@ namespace BackSeam
                       if (WindowPayment.LikarIntert3.Text != "")
                       {
                           SelectedModelPayment.keyClient = selectedModelPayment.keyClient = MapOpisViewModel.namePacient.Substring(0, MapOpisViewModel.namePacient.IndexOf(":")).Trim();
-
                           WindowPayment.Paymentt1.Text = SelectedModelPayment.nameClient = selectedModelPayment.nameClient = "Тел." + WindowPayment.AccountUsert2.Text + " " + WindowPayment.AccountUsert5.Text.Substring(WindowPayment.AccountUsert5.Text.IndexOf(":"), WindowPayment.AccountUsert5.Text.Length - WindowPayment.AccountUsert5.Text.IndexOf(":"));
                       }
 
@@ -383,6 +382,8 @@ namespace BackSeam
             if (selectedModelPayment == null) selectedModelPayment = new ModelPayment();
             if (SelectedModelPayment == null) SelectedModelPayment = new ModelPayment();
         }
+
+      
 
         #endregion
 
