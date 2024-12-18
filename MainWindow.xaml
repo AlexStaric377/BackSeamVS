@@ -1957,6 +1957,14 @@
                                                 <RowDefinition Height="130*" />
                                             </Grid.RowDefinitions>
                                             <Label Content=" Колекція проведених опитувань" Grid.Row="0" Height="28" FontSize="14" FontWeight="Bold" />
+                                            <Label Content=" За вказаним діагнозом"  Grid.Row="0" Height="30" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,70,0"/>
+                                            <Image x:Name="FolderWorkDiagnoz" Grid.Row="0" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"    Margin="0,0,20,0"  >
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=GridWorkSelectGrupDiag, Path=DataContext.SelectedListWorkDiagnoz}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
                                             <DataGrid x:Name="ColectionIntevLikarTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding  ColectionInterviewIntevLikars}" SelectedItem="{Binding SelectedColectionIntevLikar}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="220"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
@@ -8237,6 +8245,11 @@
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="245"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
                                           HorizontalGridLinesBrush="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseUp">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=PaymentTablGrid, Path=DataContext.OnVisibleObjPayment}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn x:Name="PaymentColumn1" FontSize="14" Width="280" Binding="{Binding Path=nameClient}">
                                                         <DataGridTextColumn.Header>

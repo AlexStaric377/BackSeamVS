@@ -51,7 +51,7 @@ namespace BackSeam
             TmpWorkDiagnozs = new ObservableCollection<ModelDiagnoz>((IEnumerable<ModelDiagnoz>)res);
         }
 
-        #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
+        #region Команды вставки, удаления и редектирования 
         /// <summary>
         /// Команды вставки, удаления и редектирования справочника "Жалобы"
         /// </summary>
@@ -76,6 +76,49 @@ namespace BackSeam
         private void MethodloadtablWorkDiagnoz()
         {
             loadWorkGrupDiagnoz = false;
+            AddAllWorkDiagnozs();
+            //AllWorkDiagnozs = new ObservableCollection<ModelDiagnoz>();
+            //WindowWorkGrDiagnoz.WorkLoadDia.Visibility = Visibility.Hidden;
+            //WindowWorkGrDiagnoz.WorkFoldInterv.Visibility = Visibility.Hidden;
+            //WindowWorkGrDiagnoz.WorkCompInterviewLab.Visibility = Visibility.Hidden;
+            //string json = controlerLikarGrDiagnoz + _kodDoctor + "/0";
+            //CallServer.PostServer(controlerLikarGrDiagnoz, json, "GETID");
+            //string CmdStroka = CallServer.ServerReturn();
+            //if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            //else ViewModelLikarGrupDiagnoz.ObservableViewLikarGrDiagnoz(CmdStroka);
+            //ViewWorkDiagnozs = new ObservableCollection<ModelDiagnoz>();
+            //foreach (ModelLikarGrupDiagnoz likarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
+            //{
+            //    ModelDiagnoz likarGrupDiagnozs = new ModelDiagnoz();
+            //    if(likarGrupDiagnoz.icdGrDiagnoz != "")
+            //    { 
+            //        likarGrupDiagnozs.icdGrDiagnoz = likarGrupDiagnoz.icdGrDiagnoz;
+            //        likarGrupDiagnozs.nameDiagnoza = likarGrupDiagnoz.icdGrDiagnoz;
+            //        likarGrupDiagnozs.id = likarGrupDiagnoz.id;
+            //        ViewWorkDiagnozs.Add(likarGrupDiagnozs);
+            //        ModelDiagnoz Idinsert = new ModelDiagnoz();
+            //        if (likarGrupDiagnoz.icdGrDiagnoz != "")
+            //        { 
+            //            json = controlerViewDiagnoz+ "0/" + likarGrupDiagnoz.icdGrDiagnoz.Substring(0, likarGrupDiagnoz.icdGrDiagnoz.IndexOf(".")) + "/0";
+            //            CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
+            //            CmdStroka = CallServer.ServerReturn();
+            //            ObservableViewWorkDiagnoz(CmdStroka);
+            //            foreach (ModelDiagnoz modelDiagnoz in TmpWorkDiagnozs)
+            //            { 
+            //                AllWorkDiagnozs.Add(modelDiagnoz);
+            //            }               
+            //        }
+            //    }
+                
+ 
+            //}
+            WindowWorkGrDiagnoz.DiagnozTablGrid.ItemsSource = ViewWorkDiagnozs;
+            WindowWorkGrDiagnoz.WorkDiagnozTablGrid.ItemsSource = ViewWorkDiagnozs;
+            loadboolWorkDiagnoz = true;
+        }
+
+        public void AddAllWorkDiagnozs()
+        {
             AllWorkDiagnozs = new ObservableCollection<ModelDiagnoz>();
             WindowWorkGrDiagnoz.WorkLoadDia.Visibility = Visibility.Hidden;
             WindowWorkGrDiagnoz.WorkFoldInterv.Visibility = Visibility.Hidden;
@@ -86,37 +129,38 @@ namespace BackSeam
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ViewModelLikarGrupDiagnoz.ObservableViewLikarGrDiagnoz(CmdStroka);
             ViewWorkDiagnozs = new ObservableCollection<ModelDiagnoz>();
-            foreach (ModelLikarGrupDiagnoz likarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
-            {
-                ModelDiagnoz likarGrupDiagnozs = new ModelDiagnoz();
-                if(likarGrupDiagnoz.icdGrDiagnoz != "")
-                { 
-                    likarGrupDiagnozs.icdGrDiagnoz = likarGrupDiagnoz.icdGrDiagnoz;
-                    likarGrupDiagnozs.nameDiagnoza = likarGrupDiagnoz.icdGrDiagnoz;
-                    likarGrupDiagnozs.id = likarGrupDiagnoz.id;
-                    ViewWorkDiagnozs.Add(likarGrupDiagnozs);
-                    ModelDiagnoz Idinsert = new ModelDiagnoz();
+            if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs != null)
+            { 
+               foreach (ModelLikarGrupDiagnoz likarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
+                {
+                    ModelDiagnoz likarGrupDiagnozs = new ModelDiagnoz();
                     if (likarGrupDiagnoz.icdGrDiagnoz != "")
-                    { 
-                        json = controlerViewDiagnoz+ "0/" + likarGrupDiagnoz.icdGrDiagnoz.Substring(0, likarGrupDiagnoz.icdGrDiagnoz.IndexOf(".")) + "/0";
-                        CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
-                        CmdStroka = CallServer.ServerReturn();
-                        ObservableViewWorkDiagnoz(CmdStroka);
-                        foreach (ModelDiagnoz modelDiagnoz in TmpWorkDiagnozs)
-                        { 
-                            AllWorkDiagnozs.Add(modelDiagnoz);
-                        }               
+                    {
+                        likarGrupDiagnozs.icdGrDiagnoz = likarGrupDiagnoz.icdGrDiagnoz;
+                        likarGrupDiagnozs.nameDiagnoza = likarGrupDiagnoz.icdGrDiagnoz;
+                        likarGrupDiagnozs.id = likarGrupDiagnoz.id;
+                        ViewWorkDiagnozs.Add(likarGrupDiagnozs);
+                        ModelDiagnoz Idinsert = new ModelDiagnoz();
+                        if (likarGrupDiagnoz.icdGrDiagnoz != "")
+                        {
+                            json = controlerViewDiagnoz + "0/" + likarGrupDiagnoz.icdGrDiagnoz.Substring(0, likarGrupDiagnoz.icdGrDiagnoz.IndexOf(".")) + "/0";
+                            CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
+                            CmdStroka = CallServer.ServerReturn();
+                            ObservableViewWorkDiagnoz(CmdStroka);
+                            foreach (ModelDiagnoz modelDiagnoz in TmpWorkDiagnozs)
+                            {
+                                AllWorkDiagnozs.Add(modelDiagnoz);
+                            }
+                        }
                     }
-                }
-                
- 
+
+
+                }            
             }
-            WindowWorkGrDiagnoz.DiagnozTablGrid.ItemsSource = ViewWorkDiagnozs;
-            WindowWorkGrDiagnoz.WorkDiagnozTablGrid.ItemsSource = ViewWorkDiagnozs;
-            loadboolWorkDiagnoz = true;
+ 
         }
 
- 
+
         // команда добавления нового объекта
 
         private RelayCommand addViewViewWorkDiagnoz;

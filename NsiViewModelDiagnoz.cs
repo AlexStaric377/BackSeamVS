@@ -50,8 +50,15 @@ namespace BackSeam
                     VeiwDiagnozs = new ObservableCollection<ModelDiagnoz>();
                     foreach (ModelDiagnoz modelDiagnoz in MapOpisViewModel.AllWorkDiagnozs)
                     {
-                        if (modelDiagnoz.icdGrDiagnoz == MapOpisViewModel.SelectActivGrupDiagnoz) VeiwDiagnozs.Add(modelDiagnoz);
- ;                  }
+                        if (MapOpisViewModel.SelectActivGrupDiagnoz == "WorkDiagnozs")
+                        {
+                            VeiwDiagnozs.Add(modelDiagnoz);
+                        }
+                        else
+                        {
+                            if (modelDiagnoz.icdGrDiagnoz == MapOpisViewModel.SelectActivGrupDiagnoz) VeiwDiagnozs.Add(modelDiagnoz);
+                        }
+                    }
 
                 }
                 else

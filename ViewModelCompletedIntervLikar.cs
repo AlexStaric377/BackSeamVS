@@ -24,7 +24,7 @@ namespace BackSeam
     {
         /// "Диференційна діагностика стану нездужання людини-SEAM" 
         /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-        // ViewModelReestrCompletedInterview модель ViewQualification
+        // ViewModelReestrCompletedInterview 
         //  клавиша в окне: "Рекомендації щодо звернення до вказаного лікаря"
 
         #region Обработка событий и команд вставки, удаления и редектирования справочника "Групы квалифікації"
@@ -185,6 +185,8 @@ namespace BackSeam
         {
             IndexAddEdit = "";
             WindowMen.LikarLoadinterv.Visibility = Visibility.Hidden;
+            WindowMen.LikarInterGridSave.Visibility = Visibility.Hidden;
+            WindowMen.LikarColectionGridGhange.Visibility = Visibility.Hidden;
 
             CallServer.PostServer(ColectioncontrollerIntevLikar, ColectioncontrollerIntevLikar+ "0/" + _kodDoctor + "/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
@@ -196,11 +198,8 @@ namespace BackSeam
 
         private void BoolTrueIntevLikarCompl()
         {
-            //addtboolInterview = true;
             editboolIntevLikar = true;
             WindowMen.LikarFoldInterv.Visibility = Visibility.Visible;
-            //WindowMen.LikarFolderLikar.Visibility = Visibility.Visible;
-            //WindowMen.LikarFolderPacient.Visibility = Visibility.Visible;
             WindowMen.LikarFolderRecomen.Visibility = Visibility.Visible;
             WindowMen.LikarFolderDiagn.Visibility = Visibility.Visible;
             WindowMen.LikarInterviewt7.IsEnabled = true;
@@ -210,11 +209,7 @@ namespace BackSeam
 
         private void BoolFalseIntevLikarCompl()
         {
-            //addtboolInterview = false;
             editboolIntevLikar = false;
-            //WindowMen.LikarFoldInterv.Visibility = Visibility.Hidden;
-            //WindowMen.LikarFolderLikar.Visibility = Visibility.Hidden;
-            //WindowMen.LikarFolderPacient.Visibility = Visibility.Hidden;
             WindowMen.LikarFolderRecomen.Visibility = Visibility.Hidden;
             WindowMen.LikarFolderDiagn.Visibility = Visibility.Hidden;
             WindowMen.LikarInterviewt7.IsEnabled = false;
@@ -298,7 +293,7 @@ namespace BackSeam
                       {
                           if (selectedIntevLikar.kodProtokola != "") 
                           { 
-                            MainWindow.UrlServer = ProtocolcontrollerIntevLikar;
+                           
                             //json = ProtocolcontrollerIntevLikar + "0/" + WindowMen.LikarIntert1.Text.ToString();
                             CallServer.PostServer(ProtocolcontrollerIntevLikar, json, "GETID");
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -511,6 +506,25 @@ namespace BackSeam
             }
         }
 
+        
+        
+        private RelayCommand? selectedListWorkDiagnoz;
+        public RelayCommand SelectedListWorkDiagnoz
+        {
+            get
+            {
+                return selectedListWorkDiagnoz ??
+                  (selectedListWorkDiagnoz = new RelayCommand(obj =>
+                  {
+                      AddAllWorkDiagnozs();
+                      MapOpisViewModel.SelectActivGrupDiagnoz = "WorkDiagnozs";
+                      WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+                  }));
+            }
+        }
 
         #endregion
         #endregion

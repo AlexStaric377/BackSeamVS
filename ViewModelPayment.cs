@@ -67,37 +67,56 @@ namespace BackSeam
             ViewModelPayments = new ObservableCollection<ModelPayment>();
             foreach (Payment payment in ViewPayments)
             {
-                selectedModelPayment = new ModelPayment();
-                selectedModelPayment.id = payment.id;
-                selectedModelPayment.keyClient = payment.keyClient;
-                selectedModelPayment.keyPrice = payment.keyPrice;
-                selectedModelPayment.datePayment = payment.datePayment;
-                selectedModelPayment.suma = payment.suma;
-                selectedModelPayment.telefon = payment.telefon;
-                SelectNameClient();
-                SelectNamePrice();
-                ViewModelPayments.Add(selectedModelPayment);
+                AddModelPayment(payment);
             }
+        }
+
+        private static void AddModelPayment(Payment payment)
+        {
+            CopyModelPayment(payment);
+            SelectNameClient();
+            SelectNamePrice();
+            ViewModelPayments.Add(selectedModelPayment);
+        }
+
+        private static void CopyModelPayment(Payment payment)
+        {
+            selectedModelPayment = new ModelPayment();
+            selectedModelPayment.id = payment.id;
+            selectedModelPayment.keyClient = payment.keyClient;
+            selectedModelPayment.keyPrice = payment.keyPrice;
+            selectedModelPayment.datePayment = payment.datePayment;
+            selectedModelPayment.suma = payment.suma;
+            selectedModelPayment.telefon = payment.telefon;
         }
         private static void SelectNameClient()
         {
             string jason = pathcontPrice + selectedModelPayment.keyPrice;
-            CallServer.PostServer(pathcontPrice, pathcontPrice, "GETID");
+            CallServer.PostServer(pathcontPrice, jason, "GETID");
             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-            json = CallServer.ResponseFromServer;
-            Price Idinsert = JsonConvert.DeserializeObject<Price>(CallServer.ResponseFromServer);
-            selectedModelPayment.namePrice = Idinsert.namePrice;
-            selectedModelPayment.priceQuantity = Idinsert.priceQuantity;
+            if (CallServer.ResponseFromServer.Length == 0) selectedModelPayment.namePrice = "";
+            else
+            {
+                json = CallServer.ResponseFromServer;
+                Price Idinsert = JsonConvert.DeserializeObject<Price>(CallServer.ResponseFromServer);
+                selectedModelPayment.namePrice = Idinsert.namePrice;
+                selectedModelPayment.priceQuantity = Idinsert.priceQuantity;
+            }
         }
 
         private static void SelectNamePrice()
         {
-            string jason = pathcontrolerPacient + selectedModelPayment.keyClient;
-            CallServer.PostServer(pathcontrolerPacient, pathcontrolerPacient, "GETID");
+            string jason = pathcontrolerPacient + selectedModelPayment.keyClient + "/0/0/0/0";
+            CallServer.PostServer(pathcontrolerPacient, jason, "GETID");
             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-            json = CallServer.ResponseFromServer;
-            ModelPacient Idinsert = JsonConvert.DeserializeObject<ModelPacient>(CallServer.ResponseFromServer);
-            selectedModelPayment.nameClient = "Тел."+Idinsert.login + " " + Idinsert.name+" "+ Idinsert.surname;
+            if (CallServer.ResponseFromServer.Length == 0) selectedModelPayment.nameClient = "";
+            else
+            { 
+                json = CallServer.ResponseFromServer;
+                ModelPacient Idinsert = JsonConvert.DeserializeObject<ModelPacient>(CallServer.ResponseFromServer);
+                selectedModelPayment.nameClient = "Тел."+Idinsert.login + " " + Idinsert.name+" "+ Idinsert.surname;
+            }
+ 
             
         }
 
@@ -174,9 +193,6 @@ namespace BackSeam
             WindowPayment.FoldSelectUser.Visibility = Visibility.Visible;
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Visible;
             WindowPayment.PaymentDatePicker.IsEnabled = true;
-            //WindowPayment.Paymentt4.IsEnabled = true;
-            //WindowPayment.Paymentt3.IsEnabled = true;
-            //WindowPayment.Paymentt1.IsEnabled = true;
             WindowPayment.Paymentt2.IsEnabled = true;
             WindowPayment.Paymentt2.Background = Brushes.AntiqueWhite;
 
@@ -189,9 +205,6 @@ namespace BackSeam
             WindowPayment.FoldSelectUser.Visibility = Visibility.Hidden;
             WindowPayment.FoldSelectPaket.Visibility = Visibility.Hidden;
             WindowPayment.PaymentDatePicker.IsEnabled = false;
-            //WindowPayment.Paymentt4.IsEnabled = false;
-            //WindowPayment.Paymentt3.IsEnabled = false;
-            //WindowPayment.Paymentt1.IsEnabled = false;
             WindowPayment.Paymentt2.IsEnabled = false;
             WindowPayment.Paymentt2.Background = Brushes.White;
             SelectedModelPayment = new ModelPayment();
@@ -207,15 +220,18 @@ namespace BackSeam
                 return removePayment ??
                   (removePayment = new RelayCommand(obj =>
                   {
-                      if (selectedPayment != null)
+                      if (selectedModelPayment != null)
                       {
                           SelectedRemove();
                           // Видалення данных о гостях, пациентах, докторах, учетных записях
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
-                              string json = pathcontPayment + selectedPayment.id.ToString();
+                              selectedPayment = ViewPayments[WindowPayment.PaymentTablGrid.SelectedIndex];
+                              string json = pathcontPayment + selectedPayment.id.ToString()+"/0";
                               CallServer.PostServer(pathcontPayment, json, "DELETE");
                               ViewPayments.Remove(selectedPayment);
+                              //CopyModelPayment(selectedPayment);
+                              ViewModelPayments.Remove(selectedModelPayment);
                           }
                       }
                       BoolFalsePayment();
@@ -234,9 +250,11 @@ namespace BackSeam
                 return editPayment ??
                   (editPayment = new RelayCommand(obj =>
                   {
-                      if (selectedPayment != null)
+                      if (selectedModelPayment != null)
                       {
                           IndexAddEdit = "editCommand";
+                          selectedPayment = new Payment();
+                          selectedPayment.id = selectedModelPayment.id;
                           if (editboolPayment == false)
                           {
                               BoolTruePayment();
@@ -261,37 +279,47 @@ namespace BackSeam
                 return savePayment ??
                   (savePayment = new RelayCommand(obj =>
                   {
-                      BoolFalsePayment();
-                      if (WindowPayment.Paymentt1.Text.Length != 0 && WindowPayment.Paymentt3.Text.Length != 0 && WindowPayment.Paymentt2.Text.Length != 0)
+                      
+                      if (WindowPayment.Paymentt1.Text.Length != 0 && WindowPayment.Paymentt2.Text.Length != 0 && WindowPayment.Paymentt3.Text.Length != 0 && WindowPayment.Paymentt2.Text.Length != 0)
                       {
-                          if (IndexAddEdit == "addCommand")
-                          {
-                              //  формирование кода Detailing по значениею группы выранного храктера жалобы
-                              //SelectNewNsiPayment();
-                              selectedPayment.datePayment = WindowPayment.Paymentt4.Text;
-                              string json = JsonConvert.SerializeObject(selectedPayment);
-                              CallServer.PostServer(pathcontPayment, json, "POST");
-                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              Payment Idinsert = JsonConvert.DeserializeObject<Payment>(CallServer.ResponseFromServer);
-                              if (ViewPayments == null)
-                              {
-                                  ViewPayments = new ObservableCollection<Payment>();
-                                  ViewPayments.Add(Idinsert);
-                              }
-                              else
-                              { ViewPayments.Insert(ViewPayments.Count, Idinsert); }
-                              SelectedPayment = Idinsert;
+                          
+                          selectedPayment.datePayment = WindowPayment.Paymentt4.Text;
+                          selectedPayment.keyClient = selectedModelPayment.keyClient;
+                          selectedPayment.keyPrice = selectedModelPayment.keyPrice;
+                          selectedPayment.suma = selectedModelPayment.suma = Convert.ToDecimal(WindowPayment.Paymentt2.Text);
+                          selectedPayment.telefon = selectedModelPayment.nameClient.Substring(4, selectedModelPayment.nameClient.IndexOf(" ") - 4);
+                          string json = JsonConvert.SerializeObject(selectedPayment);
+                          switch (IndexAddEdit)
+                          { 
+                            case "addCommand":
+                                  CallServer.PostServer(pathcontPayment, json, "POST");
+                                  CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                  Payment Idinsert = JsonConvert.DeserializeObject<Payment>(CallServer.ResponseFromServer);
+                                  if (Idinsert != null)
+                                  {
+                                      if (ViewPayments == null)
+                                      {
+                                          ViewPayments = new ObservableCollection<Payment>();
+                                          ViewPayments.Add(Idinsert);
+                                          LoadViewModelPayments();
+                                      }
+                                      else
+                                      {
+                                          ViewPayments.Insert(ViewPayments.Count, Idinsert);
+                                          AddModelPayment(Idinsert);
+                                      }
+
+                                  }
+                                  break;
+                           case "editCommand":
+                                  CallServer.PostServer(pathcontPayment, json, "PUT");
+                                  break;
                           }
-                          else
-                          {
-                              string json = JsonConvert.SerializeObject(selectedPayment);
-                              CallServer.PostServer(pathcontPayment, json, "PUT");
-                          }
-                          WindowPayment.PaymentTablGrid.ItemsSource = ViewPayments;
+                          WindowPayment.PaymentTablGrid.ItemsSource = ViewModelPayments;
                       }
                       WindowPayment.PaymentTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
-
+                      BoolFalsePayment();
                   }));
 
             }
@@ -383,7 +411,30 @@ namespace BackSeam
             if (SelectedModelPayment == null) SelectedModelPayment = new ModelPayment();
         }
 
-      
+        
+        private RelayCommand? onVisibleObjPayment;
+        public RelayCommand OnVisibleObjPayment
+        {
+            get
+            {
+                return onVisibleObjPayment ??
+                  (onVisibleObjPayment = new RelayCommand(obj =>
+                  {
+                      if (IndexAddEdit == "" && ViewModelPayments != null)
+                      {
+                            if (ViewModelPayments.Count != 0 && WindowPayment.PaymentTablGrid.SelectedIndex >= 0)
+                            {
+                                selectedModelPayment = ViewModelPayments[WindowPayment.PaymentTablGrid.SelectedIndex];
+                                WindowPayment.Paymentt4.Text = selectedModelPayment.datePayment;
+
+                            }
+                       }
+
+
+
+                  }));
+            }
+        }
 
         #endregion
 
