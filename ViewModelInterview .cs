@@ -472,45 +472,40 @@ namespace BackSeam
                                 WindowInterv.InterviewUri.Visibility = Visibility.Visible;
                                 WindowInterv.FolderUriInterview.Visibility = Visibility.Visible;
                                 selectedInterview = ModelInterviews[WindowInterv.InterviewTablGrid.SelectedIndex];
-                                SelectedResultInterview = new ModelResultInterview();
-
+                                WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
+                                WindowInterv.InterviewOpis.Text = selectedInterview.opistInterview;
+                                WindowInterv.InterviewTextUri.Text = selectedInterview.uriInterview;
+                                
                                 selectedInterviewIndex = WindowInterv.InterviewTablGrid.SelectedIndex;
-                              string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
-                              CallServer.PostServer(pathcontrolerDependency, json, "GETID");
-                              string CmdStroka = CallServer.ServerReturn();
-                              if (CmdStroka.Contains("[]") == false)
-                              {
-                                  WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
-                                  CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                  modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                                  if (modelDependency.kodDiagnoz != "")
-                                  {
-                                      json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0/0";
-                                      CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
+                                string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
+                                CallServer.PostServer(pathcontrolerDependency, json, "GETID");
+                                string CmdStroka = CallServer.ServerReturn();
+                                if (CmdStroka.Contains("[]") == false)
+                                {
+                                  
+                                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                    modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                                    if (modelDependency.kodDiagnoz != "")
+                                    {
+                                        json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0/0";
+                                        CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
                                         if (CallServer.ResponseFromServer.Contains("[]") == false)
                                         { 
                                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                             ModelDiagnoz NameDiagnoz = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                                             WindowInterv.InterviewDependencyt2.Text = NameDiagnoz.nameDiagnoza.ToString();
-                                            WindowInterv.InterviewOpis.Text = selectedInterview.opistInterview;
-                                            WindowInterv.InterviewTextUri.Text = selectedInterview.uriInterview;
+
                                         }
-                                     
-
-                                      json = controlerModelRecommendation + modelDependency.kodRecommend + "/0";
-                                      CallServer.PostServer(controlerModelRecommendation, json, "GETID");
-                                      if (CallServer.ResponseFromServer.Contains("[]") == false)
-                                      {
-                                          CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                          ModelRecommendation NameRecomen = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);
-                                          WindowInterv.InterviewDependencyt3.Text = NameRecomen.contentRecommendation.ToString();
-                                      }
-
-                                  }
-
-
-
-                              }
+                                    }
+                                    json = controlerModelRecommendation + modelDependency.kodRecommend + "/0";
+                                    CallServer.PostServer(controlerModelRecommendation, json, "GETID");
+                                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                                    {
+                                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                        ModelRecommendation NameRecomen = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);
+                                        WindowInterv.InterviewDependencyt3.Text = NameRecomen.contentRecommendation.ToString();
+                                    }
+                                }
                           }
                       
                   }));

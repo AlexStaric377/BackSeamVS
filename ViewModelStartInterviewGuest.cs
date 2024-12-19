@@ -1105,7 +1105,7 @@ namespace BackSeam
 
         public void SelectIcdGrDiagnoz()
         {
-            string json = Protocolcontroller + "0/" + modelColectionInterview.kodProtokola;
+            string json = Protocolcontroller + "0/" + modelColectionInterview.kodProtokola + "/0";
             CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) return;

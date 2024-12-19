@@ -282,9 +282,7 @@ namespace BackSeam
                           UnloadCmdStroka("DependencyDiagnoz/", json);
                       }
                       WindowMen.DependencyTablGrid.SelectedItem = null;
-                      WindowMen.Dependencyt2.Text = "";
-                      WindowMen.Dependencyt3.Text = "";
-                      WindowMen.Dependencyt4.Text = "";
+                      SelectedModelDependency = new ModelDependencyDiagnoz();
                       IndexAddEdit = "";
                       ModelDependencyfalse();
 

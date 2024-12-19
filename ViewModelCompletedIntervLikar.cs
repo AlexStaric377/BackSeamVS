@@ -514,15 +514,33 @@ namespace BackSeam
             get
             {
                 return selectedListWorkDiagnoz ??
-                  (selectedListWorkDiagnoz = new RelayCommand(obj =>
-                  {
-                      AddAllWorkDiagnozs();
-                      MapOpisViewModel.SelectActivGrupDiagnoz = "WorkDiagnozs";
-                      WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
-                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                      NewOrder.ShowDialog();
-                  }));
+                (selectedListWorkDiagnoz = new RelayCommand(obj =>
+                {
+                    AddAllWorkDiagnozs();
+                    MapOpisViewModel.SelectActivGrupDiagnoz = "WorkDiagnozs";
+                    WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
+                    NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
+                    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                    NewOrder.ShowDialog();
+                    MapOpisViewModel.SelectActivGrupDiagnoz = "";
+                    string json = Protocolcontroller +  MapOpisViewModel.selectedDependency.kodDiagnoz + "/0/0/";
+                    CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
+                    string CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]")) return;
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                    if (Insert != null)
+                    {
+                        ObservableCollection<ColectionInterview> tmpColectionIntev = new ObservableCollection<ColectionInterview>();
+                        foreach (ColectionInterview colectionInterview in ColectionIntevLikars )
+                        {
+                            if (Insert.kodProtokola == colectionInterview.kodProtokola)tmpColectionIntev.Add(colectionInterview);
+                        }
+                        ColectionIntevLikars = tmpColectionIntev;
+                        BildModelColectionIntevLikar();
+                        WindowMen.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
+                    }
+                }));
             }
         }
 
