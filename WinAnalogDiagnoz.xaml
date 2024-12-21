@@ -38,7 +38,7 @@
                             <RowDefinition Height="350*" />
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                        <Label Name="PopDiagnoz"  Content="Попередній діагноз"  Height="30"  FontSize="14" FontFamily="Microsoft Sans Serif" Foreground="#FF4607A0" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,40,0,0" />                           
+                        <Label Name="PopDiagnoz"  Content="Імовірний попередній діагноз"  Height="30"  FontSize="14" FontFamily="Microsoft Sans Serif" Foreground="#FF4607A0" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,40,0,0" />                           
                         </Grid>
                         <Grid Grid.Row="1">
                         <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" Height="380" Width="345" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -156,7 +156,7 @@
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Image>
-                                        <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Попередній діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
+                                    <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Імовірний попередній&#xa;  діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
                                         <TextBox Text="{Binding Path=nameDiagnoza,UpdateSourceTrigger=PropertyChanged}" Name="BoxNameDiagnoz" Grid.Row="2" Grid.Column="1" Height="65" FontSize="14" FontFamily="Microsoft Sans Serif"
                                                              IsReadOnly="true"    TextWrapping="Wrap" Background="#FFCED7F7" VerticalContentAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
                                         <TextBlock x:Name="ShortOPis" Grid.Row="3" Text="  Короткий опис&#xa;  попереднього діагнозу " FontFamily="Microsoft Sans Serif"  FontSize="14" Height="32" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />

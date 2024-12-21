@@ -70,7 +70,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Image>
-                            <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Попередній діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
+                            <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Імовірний попередній діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
                             <TextBox Text="{Binding Path=nameDiagnoza,UpdateSourceTrigger=PropertyChanged}" Name="BoxNameDiagnoz" Grid.Row="2" Grid.Column="1" Height="65" FontSize="14" FontFamily="Microsoft Sans Serif"
                                                          TextWrapping="Wrap" Background="#FFCED7F7" VerticalContentAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsReadOnly="True"/>
                             <TextBlock x:Name="ShortOPis" Grid.Row="3" Text="  Короткий опис&#xa;  попереднього діагнозу " FontFamily="Microsoft Sans Serif"  FontSize="14" Height="32" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />

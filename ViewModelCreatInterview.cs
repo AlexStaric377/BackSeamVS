@@ -48,12 +48,12 @@ namespace BackSeam
 
         public static void LoadCreatInterview()
         {
-            string CmdStroka = "";
+            string CmdStroka = "", nawpathcontroler= pathcontroler;
             MapOpisViewModel.ActCompletedInterview = null;
             selectedContentInterv = new ModelContentInterv();
-            if (MapOpisViewModel.ModelCall == "ModelColectionInterview")pathcontroler = Completedcontroller;
+            if (MapOpisViewModel.ModelCall == "ModelColectionInterview") nawpathcontroler = Completedcontroller;
 
-            CallServer.PostServer(pathcontroler, pathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
+            CallServer.PostServer(nawpathcontroler, nawpathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
             else ObservableContentInterv(CmdStroka);
