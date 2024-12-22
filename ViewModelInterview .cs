@@ -260,7 +260,7 @@ namespace BackSeam
                   (saveInterview = new RelayCommand(obj =>
                   {
                       string json = "";
-                      int lengthInterviewOpis = 0;
+
                       if (WindowInterv.Interviewt2.Text.Length != 0)
                       {
                         if (WindowInterv.InterviewDependencyt3.Text.ToString().Length == 0)

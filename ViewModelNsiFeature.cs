@@ -26,6 +26,8 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiFeature : BaseViewModel
     {
+        private WinNsiFeature WindowFeature = MainWindow.LinkMainWindow("WinNsiFeature");
+        private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         public static string pathFeatureController = "/api/FeatureController/";
         public static string jasonstoka="", Method = "";
         public static ModelFeature selectedFeature;
@@ -57,11 +59,9 @@ namespace BackSeam
                 return closeModelFeature ??
                   (closeModelFeature = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
                       MapOpisViewModel.nameFeature3 = "";
                       WindowMain.Detailingt3.Text = "";
                       WindowMain.Featuret3.Text = "";
-                      WinNsiFeature WindowFeature = MainWindow.LinkMainWindow("WinNsiFeature");
                       WindowFeature.Close();
                   }));
             }
@@ -76,8 +76,6 @@ namespace BackSeam
                 return selectModelFeature ??
                   (selectModelFeature = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiFeature WindowMen = MainWindow.LinkMainWindow("WinNsiFeature");
                       if (selectedFeature != null)
                       {
                           MapOpisViewModel.selectFeature = selectedFeature.name.ToString();
@@ -95,7 +93,7 @@ namespace BackSeam
                                   MapOpisViewModel.SelectContentCompleted();
                                   break;
                           }
-                          if(MapOpisViewModel.CallViewDetailing == "ModelDetailing") WindowMen.Close();
+                          if(MapOpisViewModel.CallViewDetailing == "ModelDetailing") WindowFeature.Close();
                       }
                   }));
             }
@@ -110,12 +108,11 @@ namespace BackSeam
                 return viewDetaling ??
                   (viewDetaling = new RelayCommand(obj =>
                   {
-                      WinNsiFeature WindowMen = MainWindow.LinkMainWindow("WinNsiFeature");
                       if (MapOpisViewModel.ActCompletedInterview == "Complaint" || MapOpisViewModel.ActCompletedInterview == "" || MapOpisViewModel.ActCompletedInterview == "Feature") // (MapOpisViewModel.ActCompletedInterview != "ModelDetailing" && MapOpisViewModel.ActCreatInterview != "CreatInterview") || 
                       {
-                         if (WindowMen.TablFeature.SelectedIndex != -1)
+                         if (WindowFeature.TablFeature.SelectedIndex != -1)
                           {
-                              selectedFeature = NsiModelFeatures[WindowMen.TablFeature.SelectedIndex];
+                              selectedFeature = NsiModelFeatures[WindowFeature.TablFeature.SelectedIndex];
                               if (selectedFeature != null)
                               {
 
@@ -123,7 +120,7 @@ namespace BackSeam
                                   {
                                       MapOpisViewModel.selectFeature = selectedFeature.name.ToString();
                                       MapOpisViewModel.nameFeature3 = selectedFeature.keyFeature.ToString() + ":    " + selectedFeature.name.ToString();
-                                      WindowMen.Close();
+                                      WindowFeature.Close();
                                   }
                                   else
                                   { 
@@ -186,15 +183,15 @@ namespace BackSeam
 
         private void MetodKeyEnterFeature()
         {
-            WinNsiFeature WindowWinNsiFeature = MainWindow.LinkMainWindow("WinNsiFeature");
-            if (WindowWinNsiFeature.PoiskFeature.Text.Trim() != "")
+
+            if (WindowFeature.PoiskFeature.Text.Trim() != "")
             {
-                string jason = pathFeatureController + "0/0/" + WindowWinNsiFeature.PoiskFeature.Text;
+                string jason = pathFeatureController + "0/0/" + WindowFeature.PoiskFeature.Text;
                 CallServer.PostServer(pathFeatureController, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableNsiModelFeatures(CmdStroka);
-                WindowWinNsiFeature.TablFeature.ItemsSource = NsiModelFeatures;
+                WindowFeature.TablFeature.ItemsSource = NsiModelFeatures;
             }
         }
     }

@@ -32,9 +32,9 @@ namespace BackSeam
     public partial class MapOpisViewModel : BaseViewModel
     {
         private int IdItemSelected = 0;
-        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "";
+        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "";
         public static bool endwhileselected = false, OnOffStartGuest = false, DeleteOnOff = false, ViewAnalogDiagnoz = false,
-            PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false;
+            PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false, loadTreeInterview = false;
         public static string ActCompletedInterview = "null", ActCreatInterview="", IndikatorSelected = "",InfoSborka="", 
                              selectedComplaintname = "", selectFeature = "", selectGrDetailing = "", selectQualification = "", selectIcdGrDiagnoz ="";
         public static string InputContent = "", PacientContent = "", LikarContent = "", RegIdUser = "", RegUserStatus = "";
@@ -100,6 +100,7 @@ namespace BackSeam
                       WindowMain.StackPanelGuestInterview.Visibility = Visibility.Hidden;
                       IndexAddEdit = "addCommand";
                       ActCompletedInterview = "Guest";
+                      StrokaInterview = "";
                       OnOffStartGuest = false;
                       StopDialog = false;
                       ZagolovokInterview();
@@ -496,31 +497,48 @@ namespace BackSeam
 
         public static void OpenNsiDetailing()
         {
-            MapOpisViewModel.ActCreatInterview = "CreatInterview";
-            selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
-            string pathcontroller = "/api/DetailingController/";
-            string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
-            CallServer.PostServer(pathcontroller, jason, "GETID");
-            string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]") == false)
-            {
 
-                ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
-                LoadNsiGrDetailing();
-                if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
-                { 
-                    NsiDetailing NewNsi = new NsiDetailing();
-                    NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
-                    NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
-                    NewNsi.ShowDialog();            
+            if (loadTreeInterview == false) LoadTreeInterview(); // загрузка деревьв подобных интервью для настройки груповых детализаций
+ 
+                MapOpisViewModel.ActCreatInterview = "CreatInterview";
+                selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
+                string pathcontroller = "/api/DetailingController/";
+                string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
+                CallServer.PostServer(pathcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == false)
+                {
+
+                    ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
+                    LoadNsiGrDetailing();
+                    if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
+                    { 
+                        NsiDetailing NewNsi = new NsiDetailing();
+                        NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
+                        NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
+                        NewNsi.ShowDialog();            
                
-                }
-                ViewModelNsiDetailing.NsiModelDetailings = null;
-            }
+                    }
+                    ViewModelNsiDetailing.NsiModelDetailings = null;
+                }            
+ 
+
+
        
         }
 
-
+        public static void LoadTreeInterview()
+        {
+            string detailsInterview = "";
+            loadTreeInterview = true;
+            foreach (ModelCompletedInterview modelCompletedInterview in GuestIntervs.OrderBy(x => x.kodDetailing))
+            {
+                 detailsInterview +=  modelCompletedInterview.kodDetailing + ";";
+            }
+            string jason = Interviewcontroller +"0/"+ detailsInterview +"/-1/0";
+            CallServer.PostServer(Interviewcontroller, jason, "GETID");
+            StrokaInterview = CallServer.ServerReturn();
+        }
         public static void LoadNsiGrDetailing()
         {
             listgrdetaling = new ObservableCollection<ModelDetailing>();
@@ -536,13 +554,16 @@ namespace BackSeam
                 foreach (ModelDetailing modelDetailing in listgrdetaling)
                 {
                     ViewModelNsiDetailing.NsiModelDetailings.Remove(modelDetailing);
-
-                    ViewModelNsiDetailing.selectedDetailing = modelDetailing;
-                    MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
-                    WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
-                    NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
-                    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
-                    NewOrder.ShowDialog();
+                    if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true || StrokaInterview.Length == 0)
+                    { 
+                        ViewModelNsiDetailing.selectedDetailing = modelDetailing;
+                        MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
+                        WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
+                        NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
+                        NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
+                        NewOrder.ShowDialog();                   
+                    }
+ 
                 }
             }
 
