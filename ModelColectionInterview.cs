@@ -19,7 +19,7 @@ namespace BackSeam
 {
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    public partial class ListColectionInterview
+    public class ListColectionInterview
     {
 
         [JsonProperty("list")]
@@ -41,26 +41,15 @@ namespace BackSeam
 
     }
 
-    public partial class ListModelColectionInterview
+    public class ListModelColectionInterview
     {
 
         [JsonProperty("list")]
         public ModelColectionInterview[] ModelColectionInterview { get; set; }
 
     }
-    public partial class ModelColectionInterview : INotifyPropertyChanged
+    public class ModelColectionInterview : BaseViewModel
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
 
         private int Id;
         private string KodDoctor;
@@ -193,5 +182,83 @@ namespace BackSeam
         }
 
     }
+
+    // модель статистики количества диагнозов установленных врачем за текущий квартал. 
+    public class ModelColectionDiagnozInterview : BaseViewModel
+    {
+
+        private int Id;
+        private string KodDoctor;
+        private string KodPacient;
+        private string KodProtokola;
+        private string NameDiagnoz;
+        private string NamePacient;
+        private int    QuanntityDiagnoz;
+
+
+        public ModelColectionDiagnozInterview(int Id = 0, string KodDoctor = "", string KodPacient = "", string KodProtokola = "",
+            string NameDiagnoz = "", string NamePacient = "", int QuanntityDiagnoz = 0)
+        { 
+
+            this.Id = Id;
+            this.KodDoctor = KodDoctor;
+            this.KodPacient = KodPacient;
+            this.KodProtokola = KodProtokola;
+            this.NameDiagnoz = NameDiagnoz;
+            this.NamePacient = NamePacient;
+            this.QuanntityDiagnoz = QuanntityDiagnoz;
+
+        }
+
+        [JsonProperty("id")]
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; OnPropertyChanged("id"); }
+        }
+        [JsonProperty("kodDoctor")]
+        public string kodDoctor
+        {
+            get { return KodDoctor; }
+            set { KodDoctor = value; OnPropertyChanged("kodDoctor"); }
+        }
+
+        [JsonProperty("kodPacient")]
+        public string kodPacient
+        {
+            get { return KodPacient; }
+            set { KodPacient = value; OnPropertyChanged("kodPacient"); }
+        }
+
+
+        [JsonProperty("kodProtokola")]
+        public string kodProtokola
+        {
+            get { return KodProtokola; }
+            set { KodProtokola = value; OnPropertyChanged("kodProtokola"); }
+        }
+
+
+        [JsonProperty("nameDiagnoz")]
+        public string nameDiagnoz
+        {
+            get { return NameDiagnoz; }
+            set { NameDiagnoz = value; OnPropertyChanged("nameDiagnoz"); }
+        }
+
+        [JsonProperty("namePacient")]
+        public string namePacient
+        {
+            get { return NamePacient; }
+            set { NamePacient = value; OnPropertyChanged("namePacient"); }
+        }
+
+        [JsonProperty("quanntityDiagnoz")]
+        public int quanntityDiagnoz
+        {
+            get { return QuanntityDiagnoz; }
+            set { QuanntityDiagnoz = value; OnPropertyChanged("quanntityDiagnoz"); }
+        }
+    }    
 
 }

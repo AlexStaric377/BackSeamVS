@@ -1976,16 +1976,6 @@
                                                 </i:Interaction.Triggers>
 
                                                 <DataGrid.Columns>
-                                                    <!--<DataGridTextColumn x:Name="LikarInterColumn1"  Width="140" FontSize="14" Binding="{Binding Path=kodProtokola}">
-                                                    <DataGridTextColumn.Header>
-                                                        <TextBlock x:Name="LikarIntervHeader1"  Text="Гість"  TextWrapping="Wrap" HorizontalAlignment="Center" />
-                                                    </DataGridTextColumn.Header>
-                                                </DataGridTextColumn>-->
-                                                    <!--<DataGridTextColumn x:Name="LikarInterColumn2"  Width="140" FontSize="14" Binding="{Binding Path=nameDoctor}" >
-                                                    <DataGridTextColumn.Header>
-                                                        <TextBlock x:Name="LikarIntervHeader2"  Text="Лікар"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                                                    </DataGridTextColumn.Header>
-                                                </DataGridTextColumn>-->
                                                     <DataGridTextColumn x:Name="LikarInterColumn3"  Width="300" FontSize="14" Binding="{Binding Path=namePacient}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="LikarInterviewHeader3"  Text="Пацієнт"   TextWrapping="Wrap" HorizontalAlignment="Center"/>
@@ -2014,6 +2004,32 @@
 
                                                 </DataGrid.Columns>
                                             </DataGrid>
+                                            <DataGrid x:Name="ColectionDiagnozTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding  ColectionDiagnozLikars}" SelectedItem="{Binding SelectModelColectionDiagnozInterview}"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="180"
+                                          VerticalAlignment="Center"  Width="Auto" GridLinesVisibility="None"
+                                          HorizontalGridLinesBrush="Black"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseUp">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=ColectionIntevLikarTablGrid, Path=DataContext.OnVisibleObjDiagnozLikars}" CommandParameter=""/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn x:Name="LikarDiagnozColumn3"  Width="500" FontSize="14" Binding="{Binding Path=nameDiagnoz}">
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="LikarDiagnozHeader3"  Text="Назва діагноза"   TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    <DataGridTextColumn x:Name="LikarDiagnozColumn4"  Width="150" FontSize="14" Binding="{Binding Path=quanntityDiagnoz}" >
+                                                        <DataGridTextColumn.Header>
+                                                            <TextBlock x:Name="LikarDiagnozHeader4"  Text="Кількість пацієнтів"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                        </DataGridTextColumn.Header>
+                                                    </DataGridTextColumn>
+                                                    
+
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+
                                         </Grid>
                                     </Grid>
                                 </TabItem>
