@@ -634,7 +634,7 @@ namespace BackSeam
         public static void SelectNewKodComplInteriew()
         {
             string indexcmp = "CMP.000000000001";
-            CallServer.PostServer(pathcontroler, pathcontroler + "0/0", "GETID");
+            CallServer.PostServer(pathcontroler, pathcontroler + "0/1", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]") == false)
             {
@@ -832,7 +832,7 @@ namespace BackSeam
                               if (GuestIntervs.Count != 0) MetodSaveInterview();
                               WindowMain.NameInterv.Text = "";
                         }
-                          BildModelColectionIntevLikar();
+                          //BildModelColectionIntevLikar();
                       }
                   }));
             }

@@ -181,7 +181,7 @@ namespace BackSeam
         }
 
 
-        private void MethodLoadtableColectionIntevPacient()
+        public static void MethodLoadtableColectionIntevPacient()
         {
             IndexAddEdit = "";
             CallServer.PostServer(ColectioncontrollerIntevPacient, ColectioncontrollerIntevPacient + "0/0/" + _pacientProfil, "GETID");

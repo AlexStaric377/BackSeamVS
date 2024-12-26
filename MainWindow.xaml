@@ -2005,8 +2005,8 @@
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                             <DataGrid x:Name="ColectionDiagnozTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding  ColectionDiagnozLikars}" SelectedItem="{Binding SelectModelColectionDiagnozInterview}"
-                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="180"
-                                          VerticalAlignment="Center"  Width="Auto" GridLinesVisibility="None"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Right" Height="170"
+                                          VerticalAlignment="Bottom"  Width="Auto" GridLinesVisibility="None"
                                           HorizontalGridLinesBrush="Black"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseUp">

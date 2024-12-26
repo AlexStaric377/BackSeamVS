@@ -68,10 +68,16 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListColectionInterview>(CmdStroka);
             List<ColectionInterview> res = result.ColectionInterview.ToList();
             ColectionIntevLikars = new ObservableCollection<ColectionInterview>((IEnumerable<ColectionInterview>)res);
-            if(ColectionDiagnozLikars == null) ColectionDiagnozLikars = new ObservableCollection<ModelColectionDiagnozInterview>();
             BildModelColectionIntevLikar();
             WindowMen.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
-            if(ColectionDiagnozIntevLikars == null) ColectionDiagnozIntevLikars = ColectionInterviewIntevLikars;
+            if (ColectionDiagnozIntevLikars == null)
+            {
+                ColectionDiagnozIntevLikars = new ObservableCollection<ModelColectionInterview>();
+                foreach (ModelColectionInterview modelColectionInterview in ColectionInterviewIntevLikars)
+                {
+                    ColectionDiagnozIntevLikars.Add(modelColectionInterview);
+                }
+            } 
 
         }
 
@@ -93,10 +99,10 @@ namespace BackSeam
                 selectedIntevLikar.resultDiagnoz = colectionInterview.resultDiagnoz;
                 ColectionInterviewIntevLikars.Add(selectedIntevLikar);
             }
-            if (ColectionDiagnozLikars.Count != ColectionInterviewIntevLikars.Count)
-            {
+            //if (ColectionDiagnozLikars.Count != ColectionInterviewIntevLikars.Count)
+            //{
                 int indexDiagnoz = 0;
-               
+                ColectionDiagnozLikars = new ObservableCollection<ModelColectionDiagnozInterview>();
                 foreach (ModelColectionInterview modelColectionInterview in ColectionInterviewIntevLikars.OrderBy(x=> x.kodProtokola))
                 {
                     selectModelColectionDiagnozInterview = new ModelColectionDiagnozInterview();
@@ -115,7 +121,7 @@ namespace BackSeam
                     }
                 }
                 WindowMen.ColectionDiagnozTablGrid.ItemsSource = ColectionDiagnozLikars;
-            }
+            //}
 
         }
 
@@ -195,7 +201,7 @@ namespace BackSeam
 
         #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
         /// <summary>
-        /// Команды вставки, удаления и редектирования справочника "Жалобы"
+        /// Команды вставки, удаления и редектирования справочника 
         /// </summary>
 
         // загрузка справочника по нажатию клавиши Завантажити
@@ -222,6 +228,7 @@ namespace BackSeam
             WindowMen.LikarLoadinterv.Visibility = Visibility.Hidden;
             WindowMen.LikarInterGridSave.Visibility = Visibility.Hidden;
             WindowMen.LikarColectionGridGhange.Visibility = Visibility.Hidden;
+            WindowMen.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
 
             CallServer.PostServer(ColectioncontrollerIntevLikar, ColectioncontrollerIntevLikar+ "0/" + _kodDoctor + "/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
@@ -322,7 +329,7 @@ namespace BackSeam
                   (saveColectionIntevLikar = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseIntevLikarCompl();
+                      
                       // ОБращение к серверу измнить корректируемую запись в БД
                       if (selectedIntevLikar != null)
                       {
@@ -364,7 +371,7 @@ namespace BackSeam
                           json = JsonConvert.SerializeObject(selectedColection);
                           CallServer.PostServer(ColectioncontrollerIntevLikar, json, "PUT");
                       }
-
+                      BoolFalseIntevLikarCompl();
                       IndexAddEdit = "";
                       WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedItem = null;
 
@@ -401,7 +408,7 @@ namespace BackSeam
                   {
                       if (WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
                       { 
-                          IndexAddEdit = "editCommand";
+                          //IndexAddEdit = "editCommand";
                           ModelCall = "ModelColectionInterview";
                           GetidkodProtokola = ColectionInterviewIntevLikars[WindowMen.ColectionIntevLikarTablGrid.SelectedIndex].kodComplInterv + "/0";
                           ComandreadColectionIntevLikars();
@@ -418,8 +425,8 @@ namespace BackSeam
         {
 
             WinCreatIntreview NewOrder = new WinCreatIntreview();
-            NewOrder.Left = 600;
-            NewOrder.Top = 130;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 
 
@@ -435,8 +442,8 @@ namespace BackSeam
                   {
                       MapOpisViewModel.CallViewProfilLikar = "WinNsiLikar";
                       WinNsiLikar NewOrder = new WinNsiLikar();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 200;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                       MapOpisViewModel.CallViewProfilLikar = "";
                       if (selectedIntevLikar != null && WindowIntevLikar.LikarIntert2.Text.ToString().Trim() != "")
@@ -513,23 +520,23 @@ namespace BackSeam
                 return onVisibleObjIntevLikars ??
                   (onVisibleObjIntevLikars = new RelayCommand(obj =>
                   {
-                      if (IndexAddEdit == "")
-                      { 
+
                            if (ColectionInterviewIntevLikars != null)
                           {
+ 
                               if (editboolIntevLikar == true) BoolFalseIntevLikarCompl();
-                              if (ColectionInterviewIntevLikars.Count != 0 && WindowMen.ColectionIntevLikarTablGrid.SelectedIndex>=0)
-                              { 
+                              if (ColectionInterviewIntevLikars.Count != 0 && WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
+                              {
                                   WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
                                   selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                                  selectedIntevLikar= ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                                  if (selectedColectionIntevLikar.kodPacient != null && selectedColectionIntevLikar.kodPacient.Length != 0) MethodPacientIntevLikars(selectedColectionIntevLikar, true);
-                                  if (selectedColectionIntevLikar.kodDoctor != null && selectedColectionIntevLikar.kodDoctor.Length != 0) MethodDoctorIntevLikars(selectedColectionIntevLikar, true);
-                                  if (selectedColectionIntevLikar.kodProtokola != null && selectedColectionIntevLikar.kodProtokola.Length != 0) MethodProtokolaIntevLikars(selectedColectionIntevLikar, true);
-                               
+                                  selectedIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
+                                  //if (selectedColectionIntevLikar.kodPacient != null && selectedColectionIntevLikar.kodPacient.Length != 0) MethodPacientIntevLikars(selectedColectionIntevLikar, true);
+                                  //if (selectedColectionIntevLikar.kodDoctor != null && selectedColectionIntevLikar.kodDoctor.Length != 0) MethodDoctorIntevLikars(selectedColectionIntevLikar, true);
+                                  //if (selectedColectionIntevLikar.kodProtokola != null && selectedColectionIntevLikar.kodProtokola.Length != 0) MethodProtokolaIntevLikars(selectedColectionIntevLikar, true);
+
                               }
-                           }                    
-                      }
+                          }                    
+ 
                   }));
             }
         }
@@ -544,35 +551,36 @@ namespace BackSeam
                 return selectedListWorkDiagnoz ??
                 (selectedListWorkDiagnoz = new RelayCommand(obj =>
                 {
-                    AddAllWorkDiagnozs();
-                    WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
-                    MapOpisViewModel.SelectActivGrupDiagnoz = "WorkDiagnozs";
-                    WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                    NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
-                    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                    NewOrder.ShowDialog();
-                    MapOpisViewModel.SelectActivGrupDiagnoz = "";
-                    if (MapOpisViewModel.selectedDependency != null)
-                    { 
-                        string json = Protocolcontroller +  MapOpisViewModel.selectedDependency.kodDiagnoz + "/0/0/";
-                        CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
-                        string CmdStroka = CallServer.ServerReturn();
-                        if (CmdStroka.Contains("[]")) { WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Visible; return;}
-                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                        ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                        if (Insert != null)
-                        {
-                            ObservableCollection<ColectionInterview> tmpColectionIntev = new ObservableCollection<ColectionInterview>();
-                            foreach (ColectionInterview colectionInterview in ColectionIntevLikars )
-                            {
-                                if (Insert.kodProtokola == colectionInterview.kodProtokola)tmpColectionIntev.Add(colectionInterview);
-                            }
-                            ColectionIntevLikars = tmpColectionIntev;
-                            BildModelColectionIntevLikar();
-                            WindowIntevLikar.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
-                        }                   
-                    }
- 
+                    //AddAllWorkDiagnozs();
+                    if (WindowIntevLikar.ColectionDiagnozTablGrid.Visibility == Visibility.Hidden) WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Visible;
+                    else WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
+                    //MapOpisViewModel.SelectActivGrupDiagnoz = "WorkDiagnozs";
+                    //WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
+                    //NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
+                    //NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                    //NewOrder.ShowDialog();
+                    //MapOpisViewModel.SelectActivGrupDiagnoz = "";
+                    //if (MapOpisViewModel.selectedDependency != null)
+                    //{ 
+                    //    string json = Protocolcontroller +  MapOpisViewModel.selectedDependency.kodDiagnoz + "/0/0/";
+                    //    CallServer.PostServer(MapOpisViewModel.Protocolcontroller, json, "GETID");
+                    //    string CmdStroka = CallServer.ServerReturn();
+                    //    if (CmdStroka.Contains("[]")) { WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Visible; return;}
+                    //    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    //    ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                    //    if (Insert != null)
+                    //    {
+                    //        ObservableCollection<ColectionInterview> tmpColectionIntev = new ObservableCollection<ColectionInterview>();
+                    //        foreach (ColectionInterview colectionInterview in ColectionIntevLikars )
+                    //        {
+                    //            if (Insert.kodProtokola == colectionInterview.kodProtokola)tmpColectionIntev.Add(colectionInterview);
+                    //        }
+                    //        ColectionIntevLikars = tmpColectionIntev;
+                    //        BildModelColectionIntevLikar();
+                    //        WindowIntevLikar.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
+                    //    }                   
+                    //}
+
                 }));
             }
         }
@@ -586,8 +594,7 @@ namespace BackSeam
                 return onVisibleObjDiagnozLikars ??
                   (onVisibleObjDiagnozLikars = new RelayCommand(obj =>
                   {
-                      if (IndexAddEdit == "")
-                      {
+
                           if (ColectionDiagnozLikars != null)
                           {
                               if (ColectionDiagnozLikars.Count != 0 && WindowIntevLikar.ColectionDiagnozTablGrid.SelectedIndex >= 0)
@@ -603,7 +610,7 @@ namespace BackSeam
                                   WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
                               }
                           }
-                      }
+
                   }));
             }
         }

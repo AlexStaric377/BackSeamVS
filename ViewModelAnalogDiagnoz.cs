@@ -342,6 +342,16 @@ namespace BackSeam
                       MapOpisViewModel.SaveAnalogDiagnoz = true;
                       MapOpisViewModel.IndexAddEdit = "addCommand";
                       SaveInterview();
+                      switch (MapOpisViewModel.ActCompletedInterview)
+                      {
+                          case "Likar":
+                              MapOpisViewModel.MethodLoadtableColectionIntevLikar();
+                              break;
+                          case "Pacient":
+                              MapOpisViewModel.MethodLoadtableColectionIntevPacient();
+                              break;
+                      }
+
                       MainWindow.MessageError = "Увага! вибраний вами попередній діагноз " + Environment.NewLine +
                        " збережений у реєстрі проведених опитуваннь. Для  його перегляду " + Environment.NewLine +
                        "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь' та  на кнопку 'Завантажити'.";
