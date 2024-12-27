@@ -99,8 +99,7 @@ namespace BackSeam
                 selectedIntevLikar.resultDiagnoz = colectionInterview.resultDiagnoz;
                 ColectionInterviewIntevLikars.Add(selectedIntevLikar);
             }
-            //if (ColectionDiagnozLikars.Count != ColectionInterviewIntevLikars.Count)
-            //{
+
                 int indexDiagnoz = 0;
                 ColectionDiagnozLikars = new ObservableCollection<ModelColectionDiagnozInterview>();
                 foreach (ModelColectionInterview modelColectionInterview in ColectionInterviewIntevLikars.OrderBy(x=> x.kodProtokola))
@@ -121,7 +120,7 @@ namespace BackSeam
                     }
                 }
                 WindowMen.ColectionDiagnozTablGrid.ItemsSource = ColectionDiagnozLikars;
-            //}
+
 
         }
 
@@ -529,10 +528,6 @@ namespace BackSeam
                               {
                                   WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
                                   selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                                  selectedIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                                  //if (selectedColectionIntevLikar.kodPacient != null && selectedColectionIntevLikar.kodPacient.Length != 0) MethodPacientIntevLikars(selectedColectionIntevLikar, true);
-                                  //if (selectedColectionIntevLikar.kodDoctor != null && selectedColectionIntevLikar.kodDoctor.Length != 0) MethodDoctorIntevLikars(selectedColectionIntevLikar, true);
-                                  //if (selectedColectionIntevLikar.kodProtokola != null && selectedColectionIntevLikar.kodProtokola.Length != 0) MethodProtokolaIntevLikars(selectedColectionIntevLikar, true);
 
                               }
                           }                    

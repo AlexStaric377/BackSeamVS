@@ -354,7 +354,7 @@ namespace BackSeam
 
                       MainWindow.MessageError = "Увага! вибраний вами попередній діагноз " + Environment.NewLine +
                        " збережений у реєстрі проведених опитуваннь. Для  його перегляду " + Environment.NewLine +
-                       "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь' та  на кнопку 'Завантажити'.";
+                       "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь'.";
                       MapOpisViewModel.SelectedFalseLogin(10);
                       WindowResult.Close();
                   }));

@@ -832,7 +832,7 @@ namespace BackSeam
                               if (GuestIntervs.Count != 0) MetodSaveInterview();
                               WindowMain.NameInterv.Text = "";
                         }
-                          //BildModelColectionIntevLikar();
+
                       }
                   }));
             }
