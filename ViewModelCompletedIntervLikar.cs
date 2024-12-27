@@ -609,6 +609,34 @@ namespace BackSeam
                   }));
             }
         }
+
+        private RelayCommand? hiddenEditSaveLikars;
+
+        public RelayCommand HiddenEditSaveLikars
+        {
+            get
+            {
+                return hiddenEditSaveLikars ??
+                (hiddenEditSaveLikars = new RelayCommand(obj =>
+                {
+                    switch (WindowIntevLikar.ControlLikar.SelectedIndex)
+                    {
+
+                        case 2:
+                           
+                            WindowIntevLikar.LikarColectionGridGhange.Visibility = Visibility.Hidden;
+                            WindowIntevLikar.LikarInterGridSave.Visibility = Visibility.Hidden;
+
+                            break;
+                        default:
+                            
+                            WindowIntevLikar.LikarColectionGridGhange.Visibility = Visibility.Visible;
+                            WindowIntevLikar.LikarInterGridSave.Visibility = Visibility.Visible;
+                            break;
+                    }
+                }));
+            }
+        }
         #endregion
         #endregion
     }
