@@ -111,7 +111,7 @@ namespace BackSeam
         {
 
             
-            var json = Doctorcontroller + colectionInterview.kodDoctor.ToString() + "/0";
+            var json = Doctorcontroller + colectionInterview.kodDoctor.ToString() + "/0/0";
             CallServer.PostServer(Doctorcontroller, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") ==false)
             {
@@ -127,7 +127,7 @@ namespace BackSeam
         {
  
                
-            var json = Protocolcontroller + "0/" + colectionInterview.kodProtokola.ToString();
+            var json = Protocolcontroller + "0/" + colectionInterview.kodProtokola.ToString() + "/0";
             CallServer.PostServer(Protocolcontroller, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") == false)
             {
@@ -136,7 +136,7 @@ namespace BackSeam
                 if (Insert != null)
                 {
                     MainWindow.UrlServer = Diagnozcontroller;
-                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString()+"/0";
+                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString()+ "/0/0";
                     CallServer.PostServer(Diagnozcontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -147,7 +147,7 @@ namespace BackSeam
                     }
 
                     MainWindow.UrlServer = Recomencontroller;
-                    json = Recomencontroller + Insert.kodRecommend.ToString();
+                    json = Recomencontroller + Insert.kodRecommend.ToString() + "/0";
                     CallServer.PostServer(Recomencontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {

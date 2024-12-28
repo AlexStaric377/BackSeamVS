@@ -130,6 +130,7 @@ namespace BackSeam
                                       string CmdStroka = CallServer.ServerReturn();
                                       if (CmdStroka.Contains("[]") == false)
                                       {
+                                          ViewModelNsiDetailing.NsiModelDetailings = null;
                                           MapOpisViewModel.ActCompletedInterview = "Detailing";
                                           NsiDetailing NewNsi = new NsiDetailing();
                                           NewNsi.Left = (MainWindow.ScreenWidth / 2) - 90;

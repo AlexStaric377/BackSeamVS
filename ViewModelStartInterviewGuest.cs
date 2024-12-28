@@ -554,7 +554,7 @@ namespace BackSeam
                 foreach (ModelDetailing modelDetailing in listgrdetaling)
                 {
                     ViewModelNsiDetailing.NsiModelDetailings.Remove(modelDetailing);
-                    if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true || StrokaInterview.Length == 0)
+                    if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true || StrokaInterview.Contains("[]") == true)
                     { 
                         ViewModelNsiDetailing.selectedDetailing = modelDetailing;
                         MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();

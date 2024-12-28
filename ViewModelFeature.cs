@@ -443,7 +443,7 @@ namespace BackSeam
                               string CmdStroka = CallServer.ServerReturn();
                               if (CmdStroka.Contains("[]") == true || CmdStroka.Length == 0) return;
                           }
-
+                          ViewModelNsiDetailing.NsiModelDetailings = null;
                           MapOpisViewModel.ActCompletedInterview = "Feature";
                           NsiDetailing NewNsi = new NsiDetailing();
                           NewNsi.Left = (MainWindow.ScreenWidth / 2)-50;
