@@ -57,12 +57,22 @@ namespace BackSeam
             selectItogInterview.nametInterview = MapOpisViewModel.modelColectionInterview.nameInterview;
             selectItogInterview.opistInterview = selectedResultInterview.opistInterview;
             selectItogInterview.uriInterview = selectedResultInterview.uriInterview;
+            selectItogInterview.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
+            selectItogInterview.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
+            selectItogInterview.detailsInterview = MapOpisViewModel.modelColectionInterview.detailsInterview;
+         
             SelectedResultInterview = selectItogInterview;
             MapOpisViewModel.modelColectionInterview.nameDiagnoz = MapOpisViewModel.NameDiagnoz;
             MapOpisViewModel.modelColectionInterview.nameRecomen = MapOpisViewModel.NameRecomendaciya;
+            MapOpisViewModel.NameDiagnoz = selectItogInterview.nameDiagnoza;
+            MapOpisViewModel.NameRecomendaciya = selectItogInterview.nameRecommendation;
+            MapOpisViewModel.OpistInterview = selectItogInterview.opistInterview;
+            MapOpisViewModel.UriInterview = selectItogInterview.uriInterview;
 
             ResultInterviews = new ObservableCollection<ModelResultInterview>();
             ResultInterviews.Add(selectItogInterview);
+            MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
+            ViewModelCreatInterview.LoadCreatInterview();
             
         }
 
@@ -111,7 +121,7 @@ namespace BackSeam
                   (readIntreviewProtokol = new RelayCommand(obj =>
                   {
                       MapOpisViewModel.IndexAddEdit = "";
-                      MapOpisViewModel.ModelCall = "ModelColectionInterview";
+                      MapOpisViewModel.ModelCall = "";
                       string t = MapOpisViewModel.KodProtokola;
                       MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola ;
                       

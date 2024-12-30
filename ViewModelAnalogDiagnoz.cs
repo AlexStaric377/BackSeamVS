@@ -75,6 +75,9 @@ namespace BackSeam
                           SelectedAnalogDiagnoz = selectItogInterview;
                           KodProtokola = selectItogInterview.kodProtokola;
                           MapOpisViewModel.NameDiagnoz = selectItogInterview.nameDiagnoza;
+                          MapOpisViewModel.NameRecomendaciya = selectItogInterview.nameRecommendation;
+                          MapOpisViewModel.OpistInterview = selectItogInterview.opistInterview;
+                          MapOpisViewModel.UriInterview = selectItogInterview.uriInterview;
                           MapOpisViewModel.modelColectionInterview.dateInterview = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
                           MapOpisViewModel.modelColectionInterview.nameDiagnoz = selectItogInterview.nameDiagnoza;
                           MapOpisViewModel.modelColectionInterview.nameInterview = selectItogInterview.nametInterview;

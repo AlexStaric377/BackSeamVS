@@ -207,14 +207,15 @@ namespace BackSeam
                       {
                           MapOpisViewModel.IndexAddEdit = "editCommand";
                           MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodComplInterv + "/0";
+                          MapOpisViewModel.ModelCall = "ModelColectionInterview";
                       }
                       else
                       {
                           MapOpisViewModel.IndexAddEdit = "";
-                          MapOpisViewModel.ModelCall = "ModelColectionInterview";
+                          MapOpisViewModel.ModelCall = "";
                           MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
                       }
-                      MapOpisViewModel.ModelCall = "ModelColectionInterview";
+                      
 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
                       NewOrder.Left = 600;

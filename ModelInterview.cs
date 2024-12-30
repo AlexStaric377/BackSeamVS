@@ -220,7 +220,7 @@ namespace BackSeam
                   (readIntreviewProtokol = new RelayCommand(obj =>
                   {
                       MapOpisViewModel.IndexAddEdit = "";
-                      MapOpisViewModel.ModelCall = "ModelColectionInterview";
+                      MapOpisViewModel.ModelCall = "";
                       MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;  //+ "/0"
 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();

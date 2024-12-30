@@ -51,7 +51,6 @@ D:\BackSeam\bin\Debug\net5.0-windows\System.Text.Json.dll
 D:\BackSeam\bin\Debug\net5.0-windows\Microsoft.Expression.Interactions.dll
 D:\BackSeam\bin\Debug\net5.0-windows\System.Windows.Interactivity.dll
 D:\BackSeam\bin\Debug\net5.0-windows\XLParser.dll
-D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.csproj.AssemblyReference.cache
 D:\BackSeam\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageError.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarn.g.cs
@@ -82,6 +81,7 @@ D:\BackSeam\obj\Debug\net5.0-windows\WinNsiListGroupDelit.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiListRecommen.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiMedZaklad.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPacient.g.cs
+D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPrice.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiQualification.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiStatusUser.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinProfilPacient.g.cs
@@ -123,6 +123,7 @@ D:\BackSeam\obj\Debug\net5.0-windows\WinNsiListGroupDelit.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiListRecommen.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiMedZaklad.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPacient.baml
+D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPrice.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiQualification.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiStatusUser.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinProfilPacient.baml
@@ -140,5 +141,3 @@ D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\ref\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.pdb
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.genruntimeconfig.cache
-D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPrice.g.cs
-D:\BackSeam\obj\Debug\net5.0-windows\WinNsiPrice.baml

@@ -48,7 +48,8 @@ namespace BackSeam
 
         public static void PrintDiagnoz()
         {
-            
+            MapOpisViewModel.ModelCall = "";
+            MapOpisViewModel.GetidkodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
             ViewModelCreatInterview.LoadCreatInterview();
 
 
@@ -110,7 +111,7 @@ namespace BackSeam
                 // Добавляем абзац в раздел       
                 sec.Blocks.Add(p0);
                 
-                p0 = new Paragraph(new Run("Система дистанційної диференційної діагностики захворювань людини - SEAM"));
+                p0 = new Paragraph(new Run("Диференційна діагностика стану нездужання людини - SEAM"));
                 p0.FontSize = 14;
                 p0.FontStyle = FontStyles.Normal;
                 p0.TextAlignment = TextAlignment.Center;

@@ -103,6 +103,7 @@ namespace BackSeam
                       StrokaInterview = "";
                       OnOffStartGuest = false;
                       StopDialog = false;
+                      loadTreeInterview = false;
                       ZagolovokInterview();
                       AutoSelectedInterview();
                       WindowMain.TablGuestInterviews.SelectedItem = null;
@@ -407,7 +408,6 @@ namespace BackSeam
             if (GuestIntervs.Count == 0)
             {
                 WindowMain.InputNameProfilLikar.Visibility = Visibility.Visible;
-                //WindowMain.StackPanelLikar.Visibility = Visibility.Visible;
                 return;
             }
             
@@ -711,6 +711,7 @@ namespace BackSeam
                       IndexAddEdit = "addCommand";
                       ActCompletedInterview = "Pacient";
                       StopDialog = false;
+                      loadTreeInterview = false;
                       ZagolovokInterview();
                       AutoSelectedInterview();
                       if (GuestIntervs.Count != 0 && StopDialog == false)
@@ -812,6 +813,7 @@ namespace BackSeam
                       IndexAddEdit = "addCommand";
                       ActCompletedInterview = "Likar";
                       StopDialog = false;
+                      loadTreeInterview = false;
                       WindowMain.StackPanelLikar.Visibility = Visibility.Hidden;
                       GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
                       LoadProfPacient();

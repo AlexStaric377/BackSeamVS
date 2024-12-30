@@ -57,7 +57,7 @@ namespace BackSeam
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
             else ObservableContentInterv(CmdStroka);
-
+            MapOpisViewModel.ModelCall = "";
         }
 
         public static void ObservableContentInterv(string CmdStroka)
