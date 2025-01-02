@@ -230,7 +230,7 @@ namespace BackSeam
 
         private void BoolTrueProfilLikar()
         {
-
+            loadboolProfilLikar = true;
             editboolProfilLikar = true;
             WindowProfilDoctor.Likart10.IsEnabled = true;
             WindowProfilDoctor.Likart10.Background = Brushes.AntiqueWhite;

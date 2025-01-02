@@ -61,4 +61,6 @@ namespace BackSeam
             mainWindow.Simptomt2.IsEnabled = true;
         }
     }
+
+
 }

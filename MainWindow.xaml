@@ -29,7 +29,7 @@
                 <RowDefinition Height="30*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TabControl  HorizontalAlignment="Left" Height="670" VerticalAlignment="Top" Width="960" BorderThickness="0,0,0,0"  TabStripPlacement="Top" Background="White">
+                <TabControl x:Name="ControlMain" HorizontalAlignment="Left" Height="670" VerticalAlignment="Top" Width="960" BorderThickness="0,0,0,0"  TabStripPlacement="Top" Background="White">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
@@ -58,10 +58,20 @@
 
 
                     <TabItem Header="Приймальня" Name="Online"   FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="120" BorderThickness="0,0,0,0"  HorizontalAlignment="Center"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>                       
                         <Grid Background="White" >
                             <TabControl  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
 
                                 <TabItem Header="Загальне опитування" Name="InterviewGuestReestr" Height="50" Width="160" HorizontalAlignment="Center" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="790" x:Name="GuestGrid" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -367,9 +377,13 @@
                     </TabItem>
 
                     <TabItem Header="Кабінет пацієнта" Name="KabinetPacient" FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="140" HorizontalAlignment="Center">
-                        <!--<Grid Background="White"/>-->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <Grid Background="White">
-                            <TabControl  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
+                            <TabControl x:Name="ControlPacient" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
                                 <TabItem Header="Профіль пацієнта" Name="PacientProfil" Height="50" Width="150" HorizontalAlignment="Left" >
                                     <Grid Width="800" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -390,8 +404,8 @@
 
                                                 </Grid.ColumnDefinitions>
 
-                                                <Grid x:Name="ProfilPacientGridAdd" Grid.Column="0" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid x:Name="ProfilPacientGridLoad" Grid.Column="0" Grid.Row="0"  >
+                                                    <Border  Name="ProfilPacientBorderdAdd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilPacientAdd"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding ProfilLoadPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -626,6 +640,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="   Провести&#xa; опитування" Name="PacientInterview" Height="50" Width="150" HorizontalAlignment="Center"  >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" x:Name="PacientGrids" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -746,6 +765,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header=" Перегляд&#xa;проведених&#xa;опитуваннь" Name="PacientListInterview" Height="80" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" Background= "White" HorizontalAlignment="Left">
                                         <!--"White"-->
                                         <Grid.RowDefinitions>
@@ -934,6 +958,11 @@
 
                                 </TabItem>
                                 <TabItem Header="Запис на прийом&#xa;     до лікаря" Name="ZapisLikar" Height="50" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" Background= "White" HorizontalAlignment="Left">
                                         <!--"White"-->
                                         <Grid.RowDefinitions>
@@ -1173,7 +1202,11 @@
 
                                 </TabItem>
                                 <TabItem Header="Показники стану&#xa;     здоров'я" Name="StatusHealth" Height="50" Width="150" HorizontalAlignment="Center">
-
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" Background= "White" HorizontalAlignment="Left">
                                         <!--"White"-->
                                         <Grid.RowDefinitions>
@@ -1393,7 +1426,11 @@
                     </TabItem>
 
                     <TabItem Header="Кабінет лікаря" Name="KabinetLikar" FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <!--<Grid Background="White"/>-->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <Grid Background="White" Name="GridKabinetLikar">
                             <TabControl x:Name="ControlLikar"  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
                                 <TabItem Header="Профіль лікаря" Name="KabinetOn" Height="60" Width="150" HorizontalAlignment="Center">
@@ -1416,7 +1453,7 @@
                                                     <ColumnDefinition Width ="95*" />
 
                                                 </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0" Grid.Row="0" >
+                                                <Grid Grid.Column="0" Grid.Row="0" Name="GridLikarProfLoad">
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="LikarProfLoad"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadProfilLikar}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
@@ -1647,7 +1684,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="   Провести&#xa; опитування" Name="LikarInterview" Height="60" Width="150" HorizontalAlignment="Center" >
-
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" x:Name="LikarGrids" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -1799,7 +1840,7 @@
                                 <TabItem Header="     Перегляд&#xa;    проведених&#xa;    опитуваннь" Name="LikarListInterview" Height="80" Width="150" HorizontalAlignment="Center">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseUp">
-                                            <i:InvokeCommandAction Command="{Binding ElementName=GridKabinetLikar, Path=DataContext.HiddenEditSaveLikars}" CommandParameter=""/>
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
 
@@ -2041,6 +2082,11 @@
 
 
                                 <TabItem Header="Розклад прийому&#xa;     пацієнтів" Name="LikarPacient" Height="60" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" Background= "White" HorizontalAlignment="Left">
                                         <!--"White"-->
                                         <Grid.RowDefinitions>
@@ -2285,7 +2331,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Розклад прийому&#xa;        лікаря" Name="CabinetLikarListPacient" Height="60" Width="150" HorizontalAlignment="Center">
-
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="800" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -2496,7 +2546,11 @@
                                 </TabItem>
 
                                 <TabItem Header="Робочі напрямки&#xa;          лікаря" Name="WorkDiagnoz"  FontFamily="Microsoft Sans Serif" Height="35" Width="150" HorizontalAlignment="Center">
-                                    <!--<Grid Background="White"/>-->
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="780" x:Name="GridWorkSelectGrupDiag"  Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -2689,7 +2743,11 @@
 
                                 </TabItem>
                                 <TabItem Header="Бібліотека робочих&#xa;          напрямків" Name="LibDiagnoz"  FontFamily="Microsoft Sans Serif" Height="35" Width="150" HorizontalAlignment="Center">
-                                    <!--<Grid Background="White"/>-->
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 

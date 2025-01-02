@@ -194,9 +194,12 @@ namespace BackSeam
                 p2.FontWeight = FontWeights.Normal;
                 sec1.Blocks.Add(p2);
             }
+            string Avtor = "Гість";
+            Avtor = _kodDoctor != "" ? modelColectionInterview.nameDoctor : Avtor;
+            Avtor = _pacient != "" ? modelColectionInterview.namePacient : Avtor;
             Underline underline = new Underline();
-            underline.Inlines.Add(new Run("Кінець інформації за результатом опитування.      Контактний телефон:         "));
-            p2 = new Paragraph(new Run(" "));
+            underline.Inlines.Add(new Run("Опитування провів:"+ Avtor+"      Контактний телефон: "+ selectedGridProfilLikar.telefon)); 
+             p2 = new Paragraph(new Run(" "));
             p2.Inlines.Add(underline);
             p2.FontSize = 14;
             p2.FontStyle = FontStyles.Normal;

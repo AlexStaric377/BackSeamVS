@@ -25,7 +25,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class ViewModelCreatInterview : BaseViewModel
     {
-        WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
+        private WinCreatIntreview WindowCreat = MainWindow.LinkMainWindow("WinCreatIntreview");
         bool endwhile = false;
         //public static  WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
         public static MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
@@ -77,7 +77,6 @@ namespace BackSeam
                 return closeCreatInterview ??
                   (closeCreatInterview = new RelayCommand(obj =>
                   {
-                      //WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
                       WindowCreat.Close();
                   }));
             }

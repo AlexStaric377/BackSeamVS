@@ -699,36 +699,41 @@ namespace BackSeam
                 return addStartPacient ??
                   (addStartPacient = new RelayCommand(obj =>
                   {
-                      if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
-                      selectedCompletedInterv = new ModelCompletedInterview();
-                      modelColectionInterview = new ModelColectionInterview();
-                      if (_pacientProfil == "") { WarningMessageOfProfilPacient(); return; }
-                      PacientContent = PacientContent == "" ? WindowMain.PacientKabinetInterv.Content.ToString() : PacientContent;
-                      WindowMain.KabPacientNameInterv.Text = "Опитування пацієнта: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-                      modelColectionInterview.nameInterview = WindowMain.KabPacientNameInterv.Text;
-                      WindowMain.StackPanelPacient.Visibility = Visibility.Hidden;
-                      GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
-                      IndexAddEdit = "addCommand";
-                      ActCompletedInterview = "Pacient";
-                      StopDialog = false;
-                      loadTreeInterview = false;
-                      ZagolovokInterview();
-                      AutoSelectedInterview();
-                      if (GuestIntervs.Count != 0 && StopDialog == false)
-                      {
-                          SuccessEndInterview();
-                          if (MapOpisViewModel.StopDialog == true)
-                          {
-                              GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
-                              Selectedswitch();
-                              return;
-                          }
-                          if (GuestIntervs.Count != 0) MetodSaveInterview();
-                          WindowMain.NameInterv.Text = "";
-                      }
-
+                      MetodStartPacient();
                   }));
                       
+            }
+        }
+
+        public void MetodStartPacient()
+        {
+
+            if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
+            selectedCompletedInterv = new ModelCompletedInterview();
+            modelColectionInterview = new ModelColectionInterview();
+            if (_pacientProfil == "") { WarningMessageOfProfilPacient(); return; }
+            PacientContent = PacientContent == "" ? WindowMain.PacientKabinetInterv.Content.ToString() : PacientContent;
+            WindowMain.KabPacientNameInterv.Text = "Опитування пацієнта: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            modelColectionInterview.nameInterview = WindowMain.KabPacientNameInterv.Text;
+            WindowMain.StackPanelPacient.Visibility = Visibility.Hidden;
+            GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+            IndexAddEdit = "addCommand";
+            ActCompletedInterview = "Pacient";
+            StopDialog = false;
+            loadTreeInterview = false;
+            ZagolovokInterview();
+            AutoSelectedInterview();
+            if (GuestIntervs.Count != 0 && StopDialog == false)
+            {
+                SuccessEndInterview();
+                if (MapOpisViewModel.StopDialog == true)
+                {
+                    GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+                    Selectedswitch();
+                    return;
+                }
+                if (GuestIntervs.Count != 0) MetodSaveInterview();
+                WindowMain.NameInterv.Text = "";
             }
         }
 
@@ -799,44 +804,49 @@ namespace BackSeam
                 return addStartLikar ??
                   (addStartLikar = new RelayCommand(obj =>
                   {
-                      if (RegUserStatus == "2") return;
-                      selectedCompletedInterv = new ModelCompletedInterview();
-                      modelColectionInterview = new ModelColectionInterview();
-                      WindowMain.KabLikarNameInterv.Text = "Лікарське опитування: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-                      modelColectionInterview.nameInterview = WindowMain.KabLikarNameInterv.Text;
-                      if (_kodDoctor == "")
-                      {
-                          WarningMessageOfProfilLikar();
-                          return;
-                      }
-                      LikarContent = LikarContent == "" ? WindowMain.InputNameProfilLikar.Content.ToString() : LikarContent;
-                      IndexAddEdit = "addCommand";
-                      ActCompletedInterview = "Likar";
-                      StopDialog = false;
-                      loadTreeInterview = false;
-                      WindowMain.StackPanelLikar.Visibility = Visibility.Hidden;
-                      GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
-                      LoadProfPacient();
-                      if (_pacientProfil.Length != 0)
-                      {
-                          StopDialog = false;
-                          ZagolovokInterview();
-                          AutoSelectedInterview();
-                        if (GuestIntervs.Count != 0 && StopDialog == false)
-                        {
-                              SuccessEndInterview();
-                              if (MapOpisViewModel.StopDialog == true)
-                              {
-                                  GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
-                                  Selectedswitch();
-                                  return;
-                              }
-                              if (GuestIntervs.Count != 0) MetodSaveInterview();
-                              WindowMain.NameInterv.Text = "";
-                        }
-
-                      }
+                      MetodInterviewStartLikar();
                   }));
+            }
+        }
+
+        public void MetodInterviewStartLikar()
+        {
+            if (RegUserStatus == "2") return;
+            selectedCompletedInterv = new ModelCompletedInterview();
+            modelColectionInterview = new ModelColectionInterview();
+            WindowMain.KabLikarNameInterv.Text = "Лікарське опитування: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            modelColectionInterview.nameInterview = WindowMain.KabLikarNameInterv.Text;
+            if (_kodDoctor == "")
+            {
+                WarningMessageOfProfilLikar();
+                return;
+            }
+            LikarContent = LikarContent == "" ? WindowMain.InputNameProfilLikar.Content.ToString() : LikarContent;
+            IndexAddEdit = "addCommand";
+            ActCompletedInterview = "Likar";
+            StopDialog = false;
+            loadTreeInterview = false;
+            WindowMain.StackPanelLikar.Visibility = Visibility.Hidden;
+            GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+            LoadProfPacient();
+            if (_pacientProfil.Length != 0)
+            {
+                StopDialog = false;
+                ZagolovokInterview();
+                AutoSelectedInterview();
+                if (GuestIntervs.Count != 0 && StopDialog == false)
+                {
+                    SuccessEndInterview();
+                    if (MapOpisViewModel.StopDialog == true)
+                    {
+                        GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+                        Selectedswitch();
+                        return;
+                    }
+                    if (GuestIntervs.Count != 0) MetodSaveInterview();
+                    WindowMain.NameInterv.Text = "";
+                }
+
             }
         }
 

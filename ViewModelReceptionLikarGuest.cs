@@ -218,8 +218,8 @@ namespace BackSeam
                       
 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 130;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
 
                   }));
