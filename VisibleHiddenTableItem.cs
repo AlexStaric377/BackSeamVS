@@ -59,7 +59,7 @@ namespace BackSeam
                                       //CheckLoadKabinetPacient();
                                       if (_pacientProfil == "") MethodLoadPacientProfil();
                                       if (_pacientProfil == "") { WindowHidden.ControlPacient.SelectedIndex = 0; return;}
-                                      MethodLoadtableColectionIntevPacient();
+
                                       break;
 
                               }
@@ -92,7 +92,6 @@ namespace BackSeam
                                       //CheckLoadKabinetLikar();
                                       if (_kodDoctor == "") MetodLoadProfilLikar();
                                       if (_kodDoctor == "") { WindowHidden.ControlLikar.SelectedIndex = 0; return; }
-                                      MethodLoadtableColectionIntevLikar();
                                       break;
 
                               }

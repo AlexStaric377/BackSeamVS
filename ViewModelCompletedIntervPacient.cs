@@ -284,7 +284,7 @@ namespace BackSeam
                   {
                       IndexAddEdit = "editCommand";
                       ModelCall = "ModelColectionInterview";
-                      GetidkodProtokola = selectedIntevPacient.kodComplInterv; //+"/0"
+                      GetidkodProtokola = selectedIntevPacient.kodComplInterv +"/0"; 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
                       NewOrder.Left = 600;
                       NewOrder.Top = 130;
@@ -310,9 +310,11 @@ namespace BackSeam
                               if (WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex >= 0)
                               { 
                                  ColectionInterview selectedColection = ColectionIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
+
                                   if (selectedColection.kodPacient != null && selectedColection.kodPacient.Length != 0) MethodPacientIntevPacient(selectedColection, true);
                                   if (selectedColection.kodDoctor != null && selectedColection.kodDoctor.Length != 0) MethodDoctorIntevPacient(selectedColection, true);
-                                  if (selectedColection.kodProtokola != null && selectedColection.kodProtokola.Length != 0) MethodProtokolaIntevPacient(selectedColection, true);                              
+                                  if (selectedColection.kodProtokola != null && selectedColection.kodProtokola.Length != 0) MethodProtokolaIntevPacient(selectedColection, true);
+                                  SelectedColectionIntevPacient = ColectionInterviewIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
                               }
  
 
