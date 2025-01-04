@@ -180,7 +180,7 @@ namespace BackSeam
             WindowPayment.LoadPayment.Visibility = Visibility.Hidden;
             CallServer.PostServer(pathcontPayment, pathcontPayment, "GET");
             string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            if (CmdStroka.Contains("[]")) { ViewPayments = new ObservableCollection<Payment>(); CallServer.BoolFalseTabl(); }
             else ObservableViewPayments(CmdStroka);
             loadboolPayment = true;
         }

@@ -152,7 +152,7 @@ namespace BackSeam
                                   break;
 
                           }
- 
+                          MapOpisViewModel.selectednameGrDiagnoz = selectedViewGrupDiagnoz.nameGrDiagnoz;
                           WindowNsiGrDiag.Close();
                       }
 
@@ -183,6 +183,8 @@ namespace BackSeam
             else ObservableViewGrDiagnoz(CmdStroka);
             WindowNsiGrDiag.TablGrupDiagnozs.ItemsSource = ViewGrupDiagnozs;
         }
+
+
 
     }
 }

@@ -93,6 +93,8 @@ namespace BackSeam
                               WindowMain.Featuret3.Text = selectedlQualification.kodQualification.ToString() + ":            " + selectedlQualification.nameQualification.ToString();
                               switch (MapOpisViewModel.ActCompletedInterview)
                               {
+                                  case "Admin":
+                                      break;
                                   case "Guest":
                                       MapOpisViewModel.SelectContentCompleted();
                                       break;

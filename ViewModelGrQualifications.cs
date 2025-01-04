@@ -355,10 +355,12 @@ namespace BackSeam
 
         public void SelectGroupQualification()
         {
+            MapOpisViewModel.ActCompletedInterview = "Admin";
             WinNsiGrQualification NewOrder = new WinNsiGrQualification();
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
+            MapOpisViewModel.ActCompletedInterview = "";
             if (WindowMen.Qualificationt4.Text.Length != 0)
             {
                 string jason = controlerViewQualification + "0/" + WindowMen.Qualificationt4.Text + "/0";
@@ -370,6 +372,8 @@ namespace BackSeam
             }
         }
 
+
+        
         #endregion
         #endregion
 

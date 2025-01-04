@@ -36,7 +36,7 @@ namespace BackSeam
         private bool activedit = false, loadboolGrDeliting = false;
         bool activGrDeliting = false;
         int GrDetailingSelectedIndex = 0;
-        public static string controlerGrDetailing =  "/api/GrDetalingController/";
+        public static string controlerGrDetailing =  "/api/GrDetalingController/", _nameGrDetailing = "";
         private ModelGrDetailing selectedViewGrDeliting;
 
         public static ObservableCollection<ModelGrDetailing> ViewGrDetailings { get; set; }
@@ -47,7 +47,7 @@ namespace BackSeam
         public static void ObservableViewGrDeliting(string CmdStroka)
         {
             int indexgr = 0;
-            string _keyGrDetailing = "", _nameGrDetailing = "";
+            string _keyGrDetailing = "";
             var result = JsonConvert.DeserializeObject<ListModelGrDetailing>(CmdStroka);
             List<ModelGrDetailing> res = result.ViewGrDetailing.ToList();
             ViewGrDetailings = new ObservableCollection<ModelGrDetailing>((IEnumerable<ModelGrDetailing>)res);
@@ -114,9 +114,10 @@ namespace BackSeam
         private void MethodaddcomGrDeliting()
         {
             IndexAddEdit =  "addCommand";
-            if (activGrDeliting == false) BoolTrueGrDetailing();
+            if (activGrDeliting == false) BoolTrueGrDetailing(); 
             else BoolFalseGrDetailing();
-            WindowMen.GrDetailingsTablGrid.SelectedItem = null;
+            TrueNameGrDetailing();
+            SelectNewGrDetailing();
         }
         private void MehodloadtablGrDeliting()
         {
@@ -127,7 +128,14 @@ namespace BackSeam
             else ObservableViewGrDeliting(CmdStroka);
         }
 
-
+        private void TrueNameGrDetailing()
+        {
+            if (_nameGrDetailing != "")
+            {
+                WindowMen.GrDetailingst2.Text = _nameGrDetailing;
+                selectedViewGrDeliting.keyGrDetailing = _nameGrDetailing;
+            }
+        }
         private void BoolTrueGrDetailing()
         {
             activedit = true;
@@ -207,7 +215,6 @@ namespace BackSeam
                           if (activedit == false)
                           {
                                 BoolTrueGrDetailing();
-                                edittext = WindowMen.GrDetailingst3.Text.ToString();
                           }
                           else
                           {
@@ -234,7 +241,8 @@ namespace BackSeam
                       {
                           if (IndexAddEdit == "addCommand")
                           {
-                              SelectNewGrDetailing();
+
+                              selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
                               json = JsonConvert.SerializeObject(selectedViewGrDeliting);
                               CallServer.PostServer(controlerGrDetailing, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -264,7 +272,7 @@ namespace BackSeam
                           UnloadCmdStroka("GrDetailing/", json);
 
                       }
-                      else { WindowMen.GrDetailingst3.Text = edittext; }
+                      
                       BoolFalseGrDetailing();
                       WindowMen.GrDetailingsTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
@@ -284,7 +292,7 @@ namespace BackSeam
             string _keyGrDetailing = selectedViewGrDeliting.keyGrDetailing;
             foreach (ModelGrDetailing modelDetailing in ViewGrDetailings)
             {
-                if (_keyGrDetailing == modelDetailing.keyGrDetailing.Substring(0, WindowMen.GrDetailingst2.Text.ToString().IndexOf(" ")-1))
+                if (_keyGrDetailing == modelDetailing.keyGrDetailing.Substring(0, modelDetailing.keyGrDetailing.IndexOf(" "))) //WindowMen.GrDetailingst2.Text.ToString()
                 {
                     lenghkod = modelDetailing.kodDetailing.Length - modelDetailing.kodDetailing.LastIndexOf(".")-1;
                     stringkod = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, lenghkod);
@@ -377,25 +385,37 @@ namespace BackSeam
 
         public void SelectGroupDelit()
         {
-            MapOpisViewModel.ActCompletedInterview = "NameDeteling";
-            WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
-            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-            NewOrder.ShowDialog();
-            MapOpisViewModel.ActCompletedInterview = "";
-            if (WindowMen.Detailingt4.Text.Length != 0)
-            {
-                string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
-                CallServer.PostServer(controlerGrDetailing, jason, "GETID");
 
-                string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]") == false) ObservableViewGrDeliting(CmdStroka);
-                else
-                { 
-                    ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
-                    WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
-                }
-            }
+ 
+                MapOpisViewModel.ActCompletedInterview = "NameDeteling";
+                WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
+                NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
+                NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                NewOrder.ShowDialog();
+                MapOpisViewModel.ActCompletedInterview = "";
+                if (WindowMen.Detailingt4.Text.Length != 0)
+                {
+
+                    string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
+                    CallServer.PostServer(controlerGrDetailing, jason, "GETID");
+
+                    string CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]") == false)
+                    { 
+                        ObservableViewGrDeliting(CmdStroka);
+                        
+                       _nameGrDetailing = WindowMen.GrDetailingst2.Text;
+                        loadboolGrDeliting = true;
+
+                    }
+                    else
+                    {
+                        ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
+                        WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
+                    }
+                }            
+
+
         }
 
 
@@ -414,16 +434,7 @@ namespace BackSeam
                           selectedViewGrDeliting = ViewGrDetailings[WindowMen.GrDetailingsTablGrid.SelectedIndex];
                           GrDetailingSelectedIndex = WindowMen.GrDetailingsTablGrid.SelectedIndex;
                           nameGrDetailing = ViewGrDetailings[WindowMen.GrDetailingsTablGrid.SelectedIndex].keyGrDetailing;
-                          //if (selectedViewGrDeliting.keyGrDetailing != "" || selectedViewGrDeliting.keyGrDetailing != null)
-                          //{
-                          //selectedViewGrDeliting.keyGrDetailing = selectedViewGrDeliting.keyGrDetailing.Contains(" ") ? selectedViewGrDeliting.keyGrDetailing.Substring(0, selectedViewGrDeliting.keyGrDetailing.IndexOf(" ")) : selectedViewGrDeliting.keyGrDetailing;
-                          //string json = pathcontrolerListGrDet + selectedViewGrDeliting.keyGrDetailing + "/0";
-                          //CallServer.PostServer(pathcontrolerListGrDet, json, "GETID");
-                          //CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                          //json = CallServer.ResponseFromServer;
-                          //ModelListGrDetailing Idinsert = JsonConvert.DeserializeObject<ModelListGrDetailing>(CallServer.ResponseFromServer);
-                          //selectedViewGrDeliting.keyGrDetailing += " "+Idinsert.nameGrup;
-                          //}
+ 
                       }
                   }));
             }

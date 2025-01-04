@@ -33,7 +33,7 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary>
         static bool activViewDiagnoz = false,  addboolGrDiagnoz = false, loadGrupDiagnoz = false;
-        public static string controlerViewDiagnoz =  "/api/DiagnozController/", SelectActivGrupDiagnoz = "", GrupDiagnoz="", KeiIcdGrup = "";
+        public static string controlerViewDiagnoz =  "/api/DiagnozController/", SelectActivGrupDiagnoz = "", GrupDiagnoz="", KeiIcdGrup = "", selectednameGrDiagnoz="";
         public static ModelDiagnoz selectedDiagnoz;
 
         public static ObservableCollection<ModelDiagnoz> ViewDiagnozs { get; set; }
@@ -406,8 +406,10 @@ namespace BackSeam
         private void AddComandAddLoadMkx()
         {
             if (WindowMen.Diagnozt1.Text != "")
-            { 
-                GrupDiagnoz = KeiIcdGrup = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
+            {
+                if (WindowMen.Diagnozt1.Text.Contains(" ") == true) GrupDiagnoz = KeiIcdGrup = WindowMen.Diagnozt1.Text.Substring(0, WindowMen.Diagnozt1.Text.IndexOf(" ")).Trim();
+                else GrupDiagnoz = KeiIcdGrup = WindowMen.Diagnozt1.Text;
+
             }
             MapOpisViewModel.ActCompletedInterview = "KeiIcdGrup";
             WinNsiIcd NewOrder = new WinNsiIcd();
@@ -546,7 +548,12 @@ namespace BackSeam
                     WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
                     CallServer.BoolFalseTabl();
                 }
-                else { loadGrupDiagnoz = true; ObservableViewDiagnoz(CmdStroka);  }
+                else 
+                { 
+                    loadGrupDiagnoz = true;
+                    WindowMen.Diagnozt1.Text = selectednameGrDiagnoz;
+                    ObservableViewDiagnoz(CmdStroka);
+                }
             }
 
             ActCompletedInterview = "";

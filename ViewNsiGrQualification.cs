@@ -27,8 +27,8 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewNsiGrQualification : BaseViewModel
     {
-        public static WinNsiGrQualification WindowNsiUri = MainWindow.LinkMainWindow("WinNsiGrQualification");
-
+        private WinNsiGrQualification WindowNsiGrQua = MainWindow.LinkMainWindow("WinNsiGrQualification");
+        private MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
         string controlerGroupQualification =  "/api/GroupQualificationController/";
         private ModelGroupQualification selectedGroupQualification;
         public static ObservableCollection<ModelGroupQualification> NsiGroupQualifications { get; set; }
@@ -79,8 +79,6 @@ namespace BackSeam
                 return saveGrQualification ??
                   (saveGrQualification = new RelayCommand(obj =>
                   {
-                      MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiGrQualification WindowMen = MainWindow.LinkMainWindow("WinNsiGrQualification");
                       if (SelectedGroupQualification != null)
                       {
                           Windowmain.Qualificationt4.Text = SelectedGroupQualification.kodGroupQualification.ToString();
@@ -105,6 +103,31 @@ namespace BackSeam
             }
         }
 
-  
+        // команда выбора групы детализации
+        RelayCommand? viewGrQualifications;
+        public RelayCommand ViewGrQualifications
+        {
+            get
+            {
+                return viewGrQualifications ??
+                  (viewGrQualifications = new RelayCommand(obj =>
+                  {
+                      if (MapOpisViewModel.ActCompletedInterview == "Admin")
+                      { 
+                          if (SelectedGroupQualification != null)
+                          {
+                              Windowmain.Qualificationt4.Text = SelectedGroupQualification.kodGroupQualification.ToString();
+                              Windowmain.GrDetailingst4.Text = SelectedGroupQualification.kodGroupQualification.ToString() + ":  " + SelectedGroupQualification.nameGroupQualification.ToString();
+                              Windowmain.Featuret3.Text = ":           " + SelectedGroupQualification.nameGroupQualification.ToString(); 
+                              WindowNsiGrQua.Close();
+                          }                     
+                      }
+
+                     
+                  }));
+            }
+        }
+
+
     }
 }

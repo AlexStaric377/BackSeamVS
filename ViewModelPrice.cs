@@ -119,7 +119,7 @@ namespace BackSeam
             WindowPrice.LoadPrice.Visibility = Visibility.Hidden;
             CallServer.PostServer(pathcontPrice, pathcontPrice, "GET");
             string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            if (CmdStroka.Contains("[]")) { ViewPrices = new ObservableCollection<Price>(); CallServer.BoolFalseTabl(); }
             else ObservableViewPrices(CmdStroka);
             loadboolPrice = true;
         }

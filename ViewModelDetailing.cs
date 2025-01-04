@@ -71,16 +71,16 @@ namespace BackSeam
             ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
             
             foreach (ModelDetailing  modelDetailing in ViewDetailings)
-            { 
-                selectedViewDetailingFeature = new ViewDetailingFeature();
-                selectedViewDetailingFeature.id = modelDetailing.id;
-                selectedViewDetailingFeature.kodDetailing = modelDetailing.kodDetailing;
-                selectedViewDetailingFeature.keyFeature = modelDetailing.keyFeature;
-                selectedViewDetailingFeature.keyGrDetailing = modelDetailing.keyGrDetailing;
+            {
+                ViewDetailingFeature selectedDetailingFeature = new ViewDetailingFeature();
+                selectedDetailingFeature.id = modelDetailing.id;
+                selectedDetailingFeature.kodDetailing = modelDetailing.kodDetailing;
+                selectedDetailingFeature.keyFeature = modelDetailing.keyFeature;
+                selectedDetailingFeature.keyGrDetailing = modelDetailing.keyGrDetailing;
                 if (modelDetailing.keyGrDetailing == "" || modelDetailing.keyGrDetailing == null)
-                { selectedViewDetailingFeature.nameDetailing = modelDetailing.nameDetailing; }
+                { selectedDetailingFeature.nameDetailing = modelDetailing.nameDetailing; }
                 else
-                { selectedViewDetailingFeature.nameGrDetailing = modelDetailing.nameDetailing; }
+                { selectedDetailingFeature.nameGrDetailing = modelDetailing.nameDetailing; }
                 if (ViewDetailingFeatures.Count == 0 || keyFeature != modelDetailing.keyFeature)
                 {
                     keyFeature = modelDetailing.keyFeature;
@@ -91,11 +91,11 @@ namespace BackSeam
                     if (Idinsert != null) SelectednameFeature = Idinsert.name;
                 }
 
-                selectedViewDetailingFeature.nameFeature = SelectednameFeature;
-                ViewDetailingFeatures.Add(selectedViewDetailingFeature);
+                selectedDetailingFeature.nameFeature = SelectednameFeature;
+                ViewDetailingFeatures.Add(selectedDetailingFeature);
             }
             WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
-            selectedViewDetailingFeature = new ViewDetailingFeature();
+
 
 
         }
@@ -135,24 +135,48 @@ namespace BackSeam
 
         private void AddComandDetailing()
         {
-            if (loadboolDetailing == false) MethodLoadDetailing();
+            if (loadboolDetailing == false)
+            {
+                selectedViewDetailingFeature = new ViewDetailingFeature();
+                SelectedViewDetailingFeature = selectedViewDetailingFeature;
+                MethodLoadDetailing();
+            } 
             MethodaddcomDetailing();
         }
 
         private void MethodaddcomDetailing()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            selectedViewDetailingFeature = new  ViewDetailingFeature();
-            SelectedViewDetailingFeature = selectedViewDetailingFeature;
-            if (addboolDetailing == false) BoolTrueDetailing();
+
+            if (addboolDetailing == false)
+            {
+                BoolTrueDetailing();
+                if(selectedViewDetailingFeature !=null) TrueNameComplaint();
+                if (MapOpisViewModel.nameFeature3 != "") SelectNewDetailing();            
+            } 
             else BoolFalseDetailing();
+        }
 
-
+        private void TrueNameComplaint()
+        {
+            if (selectedViewDetailingFeature.kodComplaint  != "")
+            {
+                selectedViewDetailingFeature.nameFeature = MapOpisViewModel.nameFeature3;
+                selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                WindowDetailing.DetailingCopl.Text = selectedViewDetailingFeature.nameComplaint;
+                WindowDetailing.Detailingt3.Text = selectedViewDetailingFeature.nameFeature;
+                WindowDetailing.FolderComplaint.IsEnabled= false;
+                WindowDetailing.FolderFut.IsEnabled = false;
+                
+                string tmp = selectedViewDetailingFeature.nameGrDetailing;
+                WindowDetailing.Detailingt4.Text = "";
+                selectedViewDetailingFeature.nameGrDetailing = tmp;
+            }
         }
 
         private void MethodLoadDetailing()
         {
-            WindowDetailing .Loaddel.Visibility = Visibility.Hidden;
+            WindowDetailing.Loaddel.Visibility = Visibility.Hidden;
             GrFeatureDetailing = "";
             CallServer.PostServer(pathcontrolerDetailing, pathcontrolerDetailing, "GET");
             string CmdStroka = CallServer.ServerReturn();
@@ -185,9 +209,16 @@ namespace BackSeam
             WindowDetailing .FolderDet.Visibility = Visibility.Hidden;
             WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
             WindowDetailing.FolderComplaint.Visibility = Visibility.Hidden;
+            WindowDetailing.FolderComplaint.IsEnabled = true;
+            WindowDetailing.FolderFut.IsEnabled = true;
             WindowDetailing.DetailingTablGrid.IsEnabled = true;
-            //GrFeatureDetailing = "";
 
+            //if (selectedViewDetailingFeature.kodComplaint != "")
+            //{
+            //    ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
+            //    WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
+            //}
+            SelectedViewDetailingFeature = new ViewDetailingFeature();
         }
 
         // команда удаления
@@ -307,9 +338,7 @@ namespace BackSeam
                           }
                           UnloadCmdStroka("Detailing/", json);
                       }
-                      WindowDetailing.Detailingt2.Text = "";
-                      WindowDetailing.Detailingt4.Text = "";
-                      BoolFalseDetailing();
+                       BoolFalseDetailing();
                       IndexAddEdit = "";
 
                   }));
@@ -328,49 +357,55 @@ namespace BackSeam
             if (IndexAddEdit != "addCommand")
             {
                 selectedDetailing.id =selectedViewDetailingFeature.id;
-                selectedDetailing.kodDetailing = selectedViewDetailingFeature.kodDetailing;
-                selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
-                selectedDetailing.keyFeature = selectedViewDetailingFeature.keyFeature;
-                selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameDetailing;
-                selectedDetailing.idUser = selectedViewDetailingFeature.idUser;
+ 
             }
             else
             {
-                if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
-                selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                string _keyDetailing = selectedDetailing.keyFeature;
-                foreach (ModelDetailing modelDetailing in ViewDetailings)
-                {
-                    if (_keyDetailing == modelDetailing.keyFeature)
+                if (selectedViewDetailingFeature.kodDetailing == "")
+                { 
+                    if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
+                    
+                    selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                    string _keyDetailing = selectedDetailing.keyFeature;
+                    foreach (ModelDetailing modelDetailing in ViewDetailings)
                     {
-                        int shag = modelDetailing.kodDetailing.Length - (modelDetailing.kodDetailing.LastIndexOf(".")+1);
-                        string key = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, shag);
-                        if (_keyDetailingindex < Convert.ToInt32(key))
+                        if (_keyDetailing == modelDetailing.keyFeature)
                         {
-                            _keyDetailingindex = Convert.ToInt32(key);
+                            int shag = modelDetailing.kodDetailing.Length - (modelDetailing.kodDetailing.LastIndexOf(".")+1);
+                            string key = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, shag);
+                            if (_keyDetailingindex < Convert.ToInt32(key))
+                            {
+                                _keyDetailingindex = Convert.ToInt32(key);
+                            }
                         }
                     }
+                    _keyDetailingindex++;
+                    string _repl = "000";
+                    _repl = _repl.Length - _keyDetailingindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyDetailingindex.ToString().Length) : "";
+                    selectedViewDetailingFeature.kodDetailing = selectedDetailing.kodDetailing = selectedDetailing.keyFeature + "." + _repl + _keyDetailingindex.ToString();
                 }
-                _keyDetailingindex++;
-                string _repl = "000";
-                _repl = _repl.Length - _keyDetailingindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyDetailingindex.ToString().Length) : "";
-                selectedViewDetailingFeature.kodDetailing = selectedDetailing.kodDetailing = selectedDetailing.keyFeature + "." + _repl + _keyDetailingindex.ToString();
-                selectedViewDetailingFeature.nameDetailing = selectedDetailing.nameDetailing = WindowDetailing.Detailingt2.Text.ToString();
-                selectedViewDetailingFeature.nameGrDetailing = WindowDetailing.Detailingt4.Text.ToString();
-                selectedViewDetailingFeature.idUser = selectedDetailing.idUser = RegIdUser;
-                if (selectedViewDetailingFeature.keyGrDetailing != "")
-                {
-                    selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
-                    selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameGrDetailing;
-                }
-                else
-                { 
-                      selectedViewDetailingFeature.keyGrDetailing = selectedDetailing.keyGrDetailing = WindowDetailing.Detailingt4.Text.ToString();            
-                }
+                    selectedViewDetailingFeature.nameDetailing = selectedDetailing.nameDetailing = WindowDetailing.Detailingt2.Text.ToString();
+                    selectedViewDetailingFeature.nameGrDetailing = WindowDetailing.Detailingt4.Text.ToString();
+                    selectedViewDetailingFeature.idUser = selectedDetailing.idUser = RegIdUser;
+                    if (selectedViewDetailingFeature.keyGrDetailing != "")
+                    {
+                        selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
+                        selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameGrDetailing;
+                    }
+                    else
+                    { 
+                          selectedViewDetailingFeature.keyGrDetailing = selectedDetailing.keyGrDetailing = WindowDetailing.Detailingt4.Text.ToString();            
+                    }
   
-                selectedViewDetailingFeature.nameFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1, WindowDetailing.Detailingt3.Text.Length-  (WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1)).TrimStart();
-            }
+                    selectedViewDetailingFeature.nameFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1, WindowDetailing.Detailingt3.Text.Length-  (WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1)).TrimStart();                
 
+
+            }
+            selectedDetailing.kodDetailing = selectedViewDetailingFeature.kodDetailing;
+            selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
+            selectedDetailing.keyFeature = selectedViewDetailingFeature.keyFeature;
+            selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameDetailing;
+            selectedDetailing.idUser = selectedViewDetailingFeature.idUser;
 
         }
 
@@ -618,6 +653,8 @@ namespace BackSeam
                   (selectedNewFeature = new RelayCommand(obj =>
                   {
                       if (CheckStatusUser() == false) return;
+                      selectedViewDetailingFeature = new ViewDetailingFeature();
+                      SelectedViewDetailingFeature = selectedViewDetailingFeature;
                       SelectedNsiComplaint();
                       if (MapOpisViewModel.nameFeature3 == ""  || selectedViewDetailingFeature == null) return;
                       
@@ -638,7 +675,11 @@ namespace BackSeam
                         string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                         CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
                         string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
+                      if (CmdStroka.Contains("[]") == false)
+                      { 
+                          ObservableViewDetailings(CmdStroka);
+                          loadboolDetailing = true;
+                      } 
                       else
                       { 
                         ViewDetailingFeatures = new  ObservableCollection<ViewDetailingFeature>();

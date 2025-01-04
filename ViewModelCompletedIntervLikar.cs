@@ -528,7 +528,7 @@ namespace BackSeam
                               {
                                   WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
                                   selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-
+                                  SelectedColectionIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
                               }
                           }                    
  

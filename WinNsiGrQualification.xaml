@@ -34,7 +34,11 @@
                     SelectedItem ="{Binding SelectedGroupQualification}" Height="265" Background="#FFE2E2DD"
                     Width="260" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                    <!---->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablGrQualifications, Path=DataContext.ViewGrQualifications}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                                  <TextBlock Text="{Binding Path=nameGroupQualification}"   Width="240" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />

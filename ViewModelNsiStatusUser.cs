@@ -122,7 +122,7 @@ namespace BackSeam
             
             CallServer.PostServer(pathcontStatusUser, pathcontStatusUser, "GET");
             string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            if (CmdStroka.Contains("[]"))CallServer.BoolFalseTabl();
             else ObservableViewStatusUsers(CmdStroka);
             boolSetAccountUser = true;
         }
