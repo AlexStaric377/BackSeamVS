@@ -33,6 +33,9 @@ namespace BackSeam
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех груп квалифікації из БД
         /// через механизм REST.API
         /// </summary>
+        /// 
+        private WinNsiGrQualification WindowNsiGrQua = MainWindow.LinkMainWindow("WinNsiGrQualification");
+        private MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
         private static bool loadboolQualifications = false;
         public static string controlerViewQualification =  "/api/QualificationController/";
         private ModelQualification selectedViewQualification;
@@ -90,7 +93,11 @@ namespace BackSeam
 
         private void AddComViewQualification()
         {
-            if (loadboolQualifications == false) MethodLoadQualification();
+            if (loadboolQualifications == false)
+            {
+                SelectedViewQualification = new ModelQualification();
+                MethodLoadQualification();
+            } 
             MethodAddQualification();
 
         }
@@ -98,17 +105,31 @@ namespace BackSeam
         private void MethodAddQualification()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            if (activViewQualification == false) BoolTrueQualification();
+            if (activViewQualification == false)
+            { 
+                BoolTrueQualification();
+                if(WindowMen.Qualificationt4.Text != "" && ViewQualifications != null) TrueNameGRQualification();
+                SelectNewQualification();
+            } 
             else BoolFalseQualification();
-            WindowMen.QualificationTablGrid.SelectedItem = null;
+
 
         }
+        private void TrueNameGRQualification()
+        {
+            Windowmain.Qualificationt4.Text = Windowmain.GrDetailingst4.Text;
+            WindowMen.GrQuaFolder.IsEnabled = false;
+
+        }
+
+        
 
         private void MethodLoadQualification()
         {
             WindowMen.QualificationLoad.Visibility = Visibility.Hidden;
-            MainWindow.UrlServer = controlerViewQualification;
-            CallServer.PostServer(MainWindow.UrlServer, controlerViewQualification, "GET");
+            SelectedViewQualification = new ModelQualification();
+            selectedViewQualification = new ModelQualification();
+            CallServer.PostServer(controlerViewQualification, controlerViewQualification, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableViewQualification(CmdStroka);
@@ -133,7 +154,9 @@ namespace BackSeam
             activViewQualification = false;
             activeditViewQualification = false;
             WindowMen.GrQuaFolder.Visibility = Visibility.Hidden;
+            WindowMen.GrQuaFolder.IsEnabled = true;
             WindowMen.QualificationTablGrid.IsEnabled = true;
+            SelectedViewQualification = new ModelQualification();
         }
 
         // команда удаления
@@ -216,13 +239,14 @@ namespace BackSeam
                   (saveViewQualification = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseQualification();
+                     
                           if (WindowMen.Qualificationt2.Text.Trim().Length != 0)
                           {
+                              selectedViewQualification.nameQualification = WindowMen.Qualificationt2.Text;
                               if (IndexAddEdit == "addCommand")
                               {
-                                  SelectNewQualification();
-                                  json = JsonConvert.SerializeObject(selectedViewQualification);
+                                    if (WindowMen.Qualificationt4.Text != "") SelectNewQualification();
+                                    json = JsonConvert.SerializeObject(selectedViewQualification);
                                   CallServer.PostServer(controlerViewQualification, json, "POST");
                                   CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                   json = CallServer.ResponseFromServer;
@@ -235,13 +259,14 @@ namespace BackSeam
                               {
                                   json = JsonConvert.SerializeObject(selectedViewQualification);
                                   CallServer.PostServer(controlerViewQualification, json, "PUT");
-                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                              json = CallServer.ResponseFromServer;
-                          }
-                          UnloadCmdStroka("Qualification/", json);
-                      }                      
+                                  CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                  json = CallServer.ResponseFromServer;
+                              }
+                              UnloadCmdStroka("Qualification/", json);
+                          }                      
                           else { WindowMen.Qualificationt2.Text = edittextGroupQualification; }
                        WindowMen.QualificationTablGrid.SelectedItem = null;
+                      BoolFalseQualification();
                       IndexAddEdit = "";
 
                   }));
@@ -254,28 +279,33 @@ namespace BackSeam
             // KodGroupQualification = "AAA.000", KodQualification = "AAA.000.001"
 
             int _keyQuaindex = 0 , lenghkod = 0;
-            string stringkod = ""; 
-            if (selectedViewQualification == null) selectedViewQualification = new ModelQualification();
-            selectedViewQualification.kodGroupQualification = WindowMen.Qualificationt4.Text.Substring(0, WindowMen.Qualificationt4.Text.IndexOf(":"));
-            string _keyGroupQua = selectedViewQualification.kodGroupQualification;
-            foreach (ModelQualification modelGroupQua in ViewQualifications)
-            {
-                if (_keyGroupQua == modelGroupQua.kodGroupQualification)
+            string stringkod = "";
+            if (WindowMen.Qualificationt4.Text != "")
+            { 
+
+                if (selectedViewQualification == null) selectedViewQualification = new ModelQualification();
+                selectedViewQualification.kodGroupQualification = WindowMen.Qualificationt4.Text.Substring(0, WindowMen.Qualificationt4.Text.IndexOf(":"));
+                string _keyGroupQua = selectedViewQualification.kodGroupQualification;
+                foreach (ModelQualification modelGroupQua in ViewQualifications)
                 {
-                    lenghkod = modelGroupQua.kodQualification.Length - modelGroupQua.kodQualification.LastIndexOf(".") - 1;
-                    stringkod = modelGroupQua.kodQualification.Substring(modelGroupQua.kodQualification.LastIndexOf(".") + 1, lenghkod);
-                    if (_keyQuaindex < Convert.ToInt32(stringkod))
+                    if (_keyGroupQua == modelGroupQua.kodGroupQualification)
                     {
-                        _keyQuaindex = Convert.ToInt32(stringkod);
+                        lenghkod = modelGroupQua.kodQualification.Length - modelGroupQua.kodQualification.LastIndexOf(".") - 1;
+                        stringkod = modelGroupQua.kodQualification.Substring(modelGroupQua.kodQualification.LastIndexOf(".") + 1, lenghkod);
+                        if (_keyQuaindex < Convert.ToInt32(stringkod))
+                        {
+                            _keyQuaindex = Convert.ToInt32(stringkod);
+                        }
                     }
                 }
+                _keyQuaindex++;
+                string _repl = "000";
+                _repl = _repl.Length - _keyQuaindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyQuaindex.ToString().Length) : "";
+                selectedViewQualification.kodQualification = selectedViewQualification.kodGroupQualification + "." + _repl + _keyQuaindex.ToString();
+                WindowMen.Qualificationt1.Text = selectedViewQualification.kodQualification;
+                selectedViewQualification.idUser = RegIdUser;            
             }
-            _keyQuaindex++;
-            string _repl = "000";
-            _repl = _repl.Length - _keyQuaindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyQuaindex.ToString().Length) : "";
-            selectedViewQualification.kodQualification = selectedViewQualification.kodGroupQualification + "." + _repl + _keyQuaindex.ToString();
-            selectedViewQualification.nameQualification = WindowMen.Qualificationt2.Text;
-            selectedViewQualification.idUser = RegIdUser;
+
         }
         // команда печати
         RelayCommand? printViewQualification;
@@ -310,11 +340,13 @@ namespace BackSeam
 
         private void AddComandQualificationGroup()
         {
+            MapOpisViewModel.ActCompletedInterview = "Admin";
             WinNsiGrQualification NewOrder = new WinNsiGrQualification();
-            NewOrder.Left = 600;
-            NewOrder.Top = 200;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             WindowMen.Qualificationt4.Text += ":  " + WindowMen.Featuret3.Text;
+            MapOpisViewModel.ActCompletedInterview = "";
 
         }
         private RelayCommand? addNameGrQualification;
@@ -325,7 +357,7 @@ namespace BackSeam
                 return addNameGrQualification ??
                   (addNameGrQualification = new RelayCommand(obj =>
                   {
-                      CallServer.PostServer(controlerGroupQualification, controlerGroupQualification+ WindowMen.Qualificationt4.Text, "GETID");
+                      CallServer.PostServer(controlerGroupQualification, controlerGroupQualification+ WindowMen.Qualificationt4.Text+"/0", "GETID");
                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                       if (CallServer.ResponseFromServer.Length != 0)
                       {
@@ -357,7 +389,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCompletedInterview = "Admin";
             WinNsiGrQualification NewOrder = new WinNsiGrQualification();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ActCompletedInterview = "";
@@ -372,8 +404,32 @@ namespace BackSeam
             }
         }
 
+        // команда выбора групы детализации
+        RelayCommand? viewGrQualifications;
+        public RelayCommand ViewGrQualifications
+        {
+            get
+            {
+                return viewGrQualifications ??
+                  (viewGrQualifications = new RelayCommand(obj =>
+                  {
+                      if (MapOpisViewModel.ActCompletedInterview == "Admin")
+                      {
+                          if (SelectedViewQualification != null)
+                          {
+                              Windowmain.Qualificationt4.Text = SelectedViewQualification.kodQualification.ToString();
+                              Windowmain.GrDetailingst4.Text = SelectedViewQualification.kodQualification.ToString() + ":  " + SelectedViewQualification.nameQualification.ToString();
+                              Windowmain.Featuret3.Text = ":           " + SelectedViewQualification.nameQualification.ToString();
+                              WindowNsiGrQua.Close();
+                          }
+                      }
 
+
+                  }));
+            }
+        }
         
+
         #endregion
         #endregion
 

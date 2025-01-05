@@ -144,13 +144,17 @@ namespace BackSeam
         private void MethodaddcomFeature()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            if (addtboolFeature == false) BoolTrueFeature();
+            if (addtboolFeature == false)
+            { 
+                BoolTrueFeature();
+                SelectedViewFeature = new ViewFeatureComplaint();
+                selectedFeature = new ModelFeature();
+                WindowMen.FeatureTablGrid.SelectedItem = null;
+                TrueNameGrComplaint();
+                SelectNewFeature();
+            }
             else BoolFalseFeature();
-            WindowMen.FeatureTablGrid.SelectedItem = null;
-            SelectedViewFeature = new ViewFeatureComplaint();
-            selectedFeature = new ModelFeature();
-            TrueNameGrComplaint();
-            SelectNewFeature();
+            
         }
 
         private void TrueNameGrComplaint()

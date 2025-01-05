@@ -9,30 +9,45 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext ="{d:DesignInstance Type=local:ViewModelNsiQualification}"
         mc:Ignorable="d"
         Title="WinNsiQualification"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="680"  Width="470" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680"  Width="700" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiQualification/>
     </Window.DataContext>
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="440" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="670" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="420">
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="650">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="590" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="470*" />
                     <RowDefinition Height="30*" />
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Кваліфікація прояву: " Grid.Row="0" Foreground="#FF4607A0" FontSize="14"  FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Center"  />
                 <Label Name="InfoSelect"  Content="" Grid.Row="1" 
                        Foreground="Blue"  FontSize="12" FontFamily="Microsoft Sans Serif"  FontWeight="Light" HorizontalAlignment="Center"  />
+                <TextBox Name="PoiskQualification" Grid.Row="2" Width="520" Text="" FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                         FontFamily="Microsoft Sans Serif" >
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding CheckKeyEnterQualification}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Image Height="20" Width="30" Grid.Row="2" HorizontalAlignment="Right"  Name="Poisk_Qualification"  VerticalAlignment="Center" Margin="0,0,5,0"
+                    Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 
-                <ListBox Grid.Row="2" Name="TablQualification" ItemsSource="{Binding NsiModelQualifications}" VerticalAlignment="Top"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding SearchNameQualification}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <ListBox Grid.Row="3" Name="TablQualification" ItemsSource="{Binding NsiModelQualifications}" VerticalAlignment="Top"
                     SelectedItem ="{Binding SelectedQualification}" Height="490" Background="#FFE2E2DD"
-                    Width="400" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">
@@ -41,7 +56,7 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=nameQualification}"  Width="380" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=nameQualification}"  Width="620" Height="20" FontSize="14" FontFamily="Microsoft Sans Serif" FontWeight="Black" HorizontalAlignment="Left" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -55,7 +70,7 @@
                     </i:Interaction.Triggers>
                 </Image>
 
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />
@@ -81,8 +96,6 @@
                         </Label>
                     </Border>
                 </Grid>
-
-
             </Grid>
         </Border>
     </StackPanel>

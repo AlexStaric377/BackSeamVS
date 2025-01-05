@@ -112,16 +112,17 @@ namespace BackSeam
                 return viewGrQualifications ??
                   (viewGrQualifications = new RelayCommand(obj =>
                   {
-                      if (MapOpisViewModel.ActCompletedInterview == "Admin")
-                      { 
-                          if (SelectedGroupQualification != null)
+
+                  if (SelectedGroupQualification != null)
+                  {
+                          if (MapOpisViewModel.ActCompletedInterview == "Admin")
                           {
                               Windowmain.Qualificationt4.Text = SelectedGroupQualification.kodGroupQualification.ToString();
                               Windowmain.GrDetailingst4.Text = SelectedGroupQualification.kodGroupQualification.ToString() + ":  " + SelectedGroupQualification.nameGroupQualification.ToString();
                               Windowmain.Featuret3.Text = ":           " + SelectedGroupQualification.nameGroupQualification.ToString(); 
                               WindowNsiGrQua.Close();
                           }                     
-                      }
+                  }
 
                      
                   }));

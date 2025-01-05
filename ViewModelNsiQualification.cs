@@ -25,7 +25,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     class ViewModelNsiQualification : BaseViewModel
     {
-  
+        private WinNsiQualification WindowNsiQua = MainWindow.LinkMainWindow("WinNsiQualification");
         private string pathcontroller =  "/api/QualificationController/";
         public static ModelQualification selectedlQualification;
         public static ObservableCollection<ModelQualification> NsiModelQualifications { get; set; }
@@ -68,8 +68,7 @@ namespace BackSeam
                 return closeNsiModelQualification ??
                   (closeNsiModelQualification = new RelayCommand(obj =>
                   {
-                      WinNsiQualification WindowMen = MainWindow.LinkMainWindow("WinNsiQualification");
-                      WindowMen.Close();
+                      WindowNsiQua.Close();
                   }));
             }
         }
@@ -84,7 +83,6 @@ namespace BackSeam
                   (selectNsiModelQualification = new RelayCommand(obj =>
                   {
                       MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      WinNsiQualification WindowMen = MainWindow.LinkMainWindow("WinNsiQualification");
                       if (selectedlQualification != null)
                       {
                           if (MapOpisViewModel.ActCreatInterview == "CreatInterview")
@@ -111,7 +109,7 @@ namespace BackSeam
                           }
     
                       }
-                      WindowMen.TablQualification.SelectedItem = null;
+                      WindowNsiQua.TablQualification.SelectedItem = null;
                   }));
             }
         }
@@ -129,6 +127,47 @@ namespace BackSeam
                       
                   },
                  (obj) => NsiModelQualifications != null));
+            }
+        }
+
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyEnterQualification;
+        public RelayCommand CheckKeyEnterQualification
+        {
+            get
+            {
+                return checkKeyEnterQualification ??
+                  (checkKeyEnterQualification = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterQualification();
+                  }));
+            }
+        }
+
+        // команда поиска наименования характера проявления болей
+        RelayCommand? searchNameQualification;
+        public RelayCommand SearchNameQualification
+        {
+            get
+            {
+                return searchNameQualification ??
+                  (searchNameQualification = new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterQualification();
+                  }));
+            }
+        }
+        private void MetodKeyEnterQualification()
+        {
+
+            if (WindowNsiQua.PoiskQualification.Text.Trim() != "")
+            {
+                string jason = pathcontroller + "0/0/" + WindowNsiQua.PoiskQualification.Text;
+                CallServer.PostServer(pathcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableNsiModelFeatures(CmdStroka);
+                WindowNsiQua.TablQualification.ItemsSource = NsiModelQualifications;
             }
         }
 

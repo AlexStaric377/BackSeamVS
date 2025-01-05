@@ -10,29 +10,29 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewNsiGrQualification}"
         mc:Ignorable="d" 
         Title="WinNsiGrQualification"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="400" Width="330" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680" Width="700" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewNsiGrQualification/>
     </Window.DataContext>
 
-    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="330" Width="300" >
+    <StackPanel x:Name ="ButtonWin" VerticalAlignment="Center" Height="610" Width="670" >
         <StackPanel.Effect>
             <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
         </StackPanel.Effect>
-        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="330" Width="280">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="320" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
+        <Border x:Name="BorderWin" BorderBrush="#FFE2E2DD" Background="#FFE2E2DD"  BorderThickness="0,0,0,0" CornerRadius="15,15,15,15" Height="610" Width="650">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Height="590" Width="Auto" Name="WinGrid" Background="#FFE2E2DD" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*" />
-                    <RowDefinition Height="270*" />
+                    <RowDefinition Height="470*" />
                     <RowDefinition Height="30*" />
 
                 </Grid.RowDefinitions>
                 <Label Name="Zagolovok"  Content="Групи кваліфікації " Grid.Row="0" FontSize="12" FontWeight="Black" HorizontalAlignment="Center"  />
 
                 <ListBox Grid.Row="1" Name="TablGrQualifications" ItemsSource="{Binding NsiGroupQualifications}" VerticalAlignment="Top"
-                    SelectedItem ="{Binding SelectedGroupQualification}" Height="265" Background="#FFE2E2DD"
-                    Width="260" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    SelectedItem ="{Binding SelectedGroupQualification}" Height="520" Background="#FFE2E2DD"
+                    Width="630" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                     BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">
