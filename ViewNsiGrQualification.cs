@@ -39,8 +39,8 @@ namespace BackSeam
         public ViewNsiGrQualification()
         {
  
-                MainWindow.UrlServer = controlerGroupQualification;
-                CallServer.PostServer(MainWindow.UrlServer, controlerGroupQualification, "GET");
+                
+                CallServer.PostServer(controlerGroupQualification, controlerGroupQualification, "GET");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableGrViewQualification(CmdStroka);

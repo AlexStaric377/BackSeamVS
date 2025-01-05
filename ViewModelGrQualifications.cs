@@ -38,7 +38,7 @@ namespace BackSeam
         private MainWindow Windowmain = MainWindow.LinkNameWindow("BackMain");
         private static bool loadboolQualifications = false;
         public static string controlerViewQualification =  "/api/QualificationController/";
-        private ModelQualification selectedViewQualification;
+        public ModelQualification selectedViewQualification;
 
         public static ObservableCollection<ModelQualification> ViewQualifications { get; set; }
         private string edittextViewQualification = "";
@@ -96,6 +96,7 @@ namespace BackSeam
             if (loadboolQualifications == false)
             {
                 SelectedViewQualification = new ModelQualification();
+                selectedViewQualification = new ModelQualification();
                 MethodLoadQualification();
             } 
             MethodAddQualification();
@@ -157,6 +158,7 @@ namespace BackSeam
             WindowMen.GrQuaFolder.IsEnabled = true;
             WindowMen.QualificationTablGrid.IsEnabled = true;
             SelectedViewQualification = new ModelQualification();
+            selectedViewQualification = new ModelQualification();
         }
 
         // команда удаления
@@ -182,9 +184,7 @@ namespace BackSeam
                               string json = controlerViewQualification + selectedViewQualification.id.ToString();
                               CallServer.PostServer(MainWindow.UrlServer, json, "DELETE");
                               ViewQualifications.Remove(selectedViewQualification);
-                              selectedViewQualification = new ModelQualification();
                               BoolFalseQualification();
-                              
                               WindowMen.QualificationTablGrid.SelectedItem = null;
                           }
                       }
@@ -242,7 +242,8 @@ namespace BackSeam
                      
                           if (WindowMen.Qualificationt2.Text.Trim().Length != 0)
                           {
-                              selectedViewQualification.nameQualification = WindowMen.Qualificationt2.Text;
+                            if(selectedViewQualification == null ) selectedViewQualification = new ModelQualification();
+                            selectedViewQualification.nameQualification = WindowMen.Qualificationt2.Text;
                               if (IndexAddEdit == "addCommand")
                               {
                                     if (WindowMen.Qualificationt4.Text != "") SelectNewQualification();

@@ -62,7 +62,7 @@
                             <i:EventTrigger EventName="MouseUp">
                                 <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>                       
+                        </i:Interaction.Triggers>
                         <Grid Background="White" >
                             <TabControl  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
 
@@ -2071,7 +2071,7 @@
                                                             <TextBlock x:Name="LikarDiagnozHeader4"  Text="Кількість пацієнтів"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    
+
 
                                                 </DataGrid.Columns>
                                             </DataGrid>
@@ -2445,11 +2445,11 @@
                                                             Grid.Column="1" Grid.Row="2"  Background="White" Width="130" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
                                                         <ComboBox Name="CabinetDayoftheWeek"  ItemsSource="{Binding DayWeeks}" SelectedIndex="{Binding SelectedDayWeek}" Grid.Column="1" Grid.Row="2" 
                                                              IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
-                                                        
+
                                                         <TextBlock x:Name="CabinetReseptionPacientLab2" Grid.Row="3" TextWrapping="Wrap" FontSize="14" Text="  Дата прийому"   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Center" />
                                                         <TextBox  Name="CabinetReseptionPacientVisit" Text="{Binding dateVizita, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="3" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="28" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        
+
                                                         <DatePicker x:Name="CabinetDatePicker" Grid.Column="1" Grid.Row="3" SelectedDate="{Binding Path=dateVizita}" 
                                                                     IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Bottom"
                                                                     FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
@@ -2467,13 +2467,13 @@
                                                                 </Style>
                                                             </DatePicker.Resources>
                                                         </DatePicker>
-                                                        
+
                                                         <TextBlock x:Name="CabinetReseptionPacientLab3" Grid.Row="4" TextWrapping="Wrap"  Grid.Column="0" Height="28" Text="  Час прийому"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox  Name="CabinetReseptionTime" Text="{Binding Path=timeVizita, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="4" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <ComboBox  Name="CabinetTimeofDay"  ItemsSource="{Binding AppointmentsTimeVizits }" SelectedIndex="{Binding SelectedAppointmentsTimeVizita}" 
                                                            Grid.Column="1" Grid.Row="4" Width="130" IsEnabled="false" Margin="312,0,0,2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="24"  />
-                                                        
+
                                                         <TextBlock x:Name="CabinetReseptionOnoff" Grid.Row="5" TextWrapping="Wrap"  Grid.Column="0" Height="28" Text="  Дійсність прийому"   Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox  Name="CabinetReseptionTextBoxOnoff" Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="5" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
@@ -4761,7 +4761,7 @@
                                     </Grid>
                                 </TabItem>
 
-                                <TabItem Header="Зміст  гуртових&#xa;кваліфікацій" Name="GrQualification" FontSize="13" FontFamily="Microsoft Sans Serif" Height="Auto" Width="150" HorizontalAlignment="Center">
+                                <TabItem Header="Зміст  гуртових&#xa;кваліфікацій" Name="GrQualification" FontSize="13" FontFamily="Microsoft Sans Serif" Height="33" Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -7695,11 +7695,11 @@
                                                             <RowDefinition Height="6*"/>
                                                             <RowDefinition Height="10*"/>
                                                         </Grid.RowDefinitions>
-                                                        
+
                                                         <TextBlock x:Name="AccountUserDateCreat" Grid.Row="0" TextWrapping="Wrap" FontSize="14" Text="  Дата створення запису"   Width="180" HorizontalAlignment="Left" TextAlignment="Left" Height="28" VerticalAlignment="Center" />
                                                         <TextBox  Name="AccountUserDateCreatBox" Text="{Binding accountCreatDate, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="0" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="28" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        
+
                                                         <TextBlock x:Name="AccountUserLab3" Grid.Column="0" Grid.Row="1" Text="  Статус користувача"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
                                                         <TextBox Text="{Binding nameStatus, UpdateSourceTrigger=PropertyChanged}" Name="AccountUsert3" Grid.Column="1" Grid.Row="1"
                                                         IsEnabled="False" Background="White" Width="150" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
@@ -8286,11 +8286,12 @@
 
                                                         <TextBlock x:Name="PaymentLab4" Grid.Column="0" Grid.Row="5" Text="  Дата оплати"  FontSize="14" Height="30" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Text="{Binding ElementName=PaymentDatePicker, Path=Text}" Name="Paymentt4" Grid.Column="1" Grid.Row="5"   
-                                                        IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" /> <!--Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"-->
+                                                        IsEnabled="False" Background="White" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" VerticalAlignment="Center" />
+                                                        <!--Text="{Binding datePayment, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"-->
                                                         <DatePicker x:Name="PaymentDatePicker" Grid.Column="1" Grid.Row="5" SelectedDate="{Binding Path=datePayment}" 
                                                                     IsEnabled="false" IsDropDownOpen="false" SelectedDateFormat="Short" Margin="315,0,0,0" VerticalAlignment="Center"
                                                                     FontSize="16" FontFamily="Calibri" HorizontalAlignment="Left" Width="124" Height="28">
-                                                           <DatePicker.Resources>
+                                                            <DatePicker.Resources>
                                                                 <Style TargetType="DatePickerTextBox">
                                                                     <Setter Property="Control.Template">
                                                                         <Setter.Value>
@@ -8298,13 +8299,13 @@
                                                                                 <TextBox x:Name="Pay_TextBox"
                                                                                 Text="{Binding Path=SelectedDate, StringFormat={}{0:dd.MM.yyyy}, 
                                                                                 RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
-                                                                                
+
                                                                             </ControlTemplate>
                                                                         </Setter.Value>
                                                                     </Setter>
                                                                 </Style>
                                                             </DatePicker.Resources>
- 
+
                                                         </DatePicker>
 
 
