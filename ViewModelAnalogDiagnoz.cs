@@ -56,6 +56,7 @@ namespace BackSeam
 
             }
             selectItogInterview = new ModelResultInterview();
+            KodProtokola = null;
         }
 
         // загрузка описания диагноза
@@ -266,13 +267,16 @@ namespace BackSeam
                 return readColectionIntreview ??
                   (readColectionIntreview = new RelayCommand(obj =>
                   {
-                      MapOpisViewModel.IndexAddEdit = "";
-                      MapOpisViewModel.GetidkodProtokola = KodProtokola;
+                      if (KodProtokola != null && KodProtokola != "")
+                      { 
+                          MapOpisViewModel.IndexAddEdit = "";
+                          MapOpisViewModel.GetidkodProtokola = KodProtokola;
 
-                      WinCreatIntreview NewOrder = new WinCreatIntreview();
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
-                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                      NewOrder.ShowDialog();
+                          WinCreatIntreview NewOrder = new WinCreatIntreview();
+                          NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
+                          NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                          NewOrder.ShowDialog();                     
+                      }
 
                   }));
             }

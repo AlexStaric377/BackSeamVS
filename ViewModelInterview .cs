@@ -261,7 +261,7 @@ namespace BackSeam
                   {
                       string json = "";
 
-                      if (WindowInterv.Interviewt2.Text.Length != 0)
+                      if (WindowInterv.Interviewt2.Text.Length != 0 && selectedInterview !=null)
                       {
                         if (WindowInterv.InterviewDependencyt3.Text.ToString().Length == 0)
                         {
@@ -534,7 +534,7 @@ namespace BackSeam
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ModelCall = "";
-            if (selectedInterview != null)
+            if (selectedInterview != null && MapOpisViewModel.selectedDependency.kodDiagnoz !="")
             { 
                string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
                 CallServer.PostServer(pathcontrolerDependency, json, "GETID");
