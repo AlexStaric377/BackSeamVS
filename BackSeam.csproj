@@ -7,8 +7,8 @@
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>BackSeam.ico</ApplicationIcon>
     <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.53</AssemblyVersion>
-    <FileVersion>1.0.1.53</FileVersion>
+    <AssemblyVersion>1.0.1.54</AssemblyVersion>
+    <FileVersion>1.0.1.54</FileVersion>
     <Copyright>Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович Свідоцтво про реєсрацію авторського права № 126883</Copyright>
     <Description>Диференційна діагностика стану нездужання людини-SEAM Адміністратор</Description>
   </PropertyGroup>
@@ -50,6 +50,7 @@
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
     <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>

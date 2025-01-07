@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelWinDeleteData}"
         mc:Ignorable="d"
         Title="WinDeleteData" WindowState="Normal" AllowsTransparency="True" WindowStyle="None"   ShowInTaskbar="False"
-        Height="300" Width="500" Background="{x:Null}"  WindowStartupLocation="CenterScreen">
+        Height="300" Width="500" Background="{x:Null}"  WindowStartupLocation="CenterScreen" Topmost="True">
     <Window.DataContext>
         <local:ViewModelWinDeleteData/>
     </Window.DataContext>

@@ -195,7 +195,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.53;component/wincolectionstanhealth.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.54;component/wincolectionstanhealth.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinColectionStanHealth.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

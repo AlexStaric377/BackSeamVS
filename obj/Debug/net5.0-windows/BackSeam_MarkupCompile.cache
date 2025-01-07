@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\BackSeam\App.xaml
-381190475061
+391306814104
 
-156-1283168978
-242-2086747598
-MainWindow.xaml;MessageError.xaml;MessageWarn.xaml;MessageWarning.xaml;WinAccountRecords.xaml;WinAnalogDiagnoz.xaml;WinColectionAnalizBlood.xaml;WinColectionAnalizUrine.xaml;WinColectionStanHealth.xaml;WinCreatIntreview.xaml;WinDeleteData.xaml;WinLikarGrupDiagnoz.xaml;WinListInteviewPacient.xaml;WinMedicalGrDiagnoz.xaml;WinMessageDialog.xaml;WinMessageErr.xaml;WinNsiCompliant.xaml;WinNsiDetailing.xaml;WinNsiFeature.xaml;WinNsiGrDetailing.xaml;WinNsiGrQualification.xaml;WinNsiIcd.xaml;WinNsiIntreview.xaml;WinNsiLikar.xaml;WinNsiListDiagnoz.xaml;WinNsiListGrDiagnoz.xaml;WinNsiListGroupDelit.xaml;WinNsiListRecommen.xaml;WinNsiMedZaklad.xaml;WinNsiPacient.xaml;WinNsiPrice.xaml;WinNsiQualification.xaml;WinNsiStatusUser.xaml;WinProfilPacient.xaml;WinRegisterAccountUser.xaml;WinResultInterview.xaml;WinStrokaProgressBar.xaml;WinVisitingDays.xaml;
+1571544831348
+243-89650183
+MainWindow.xaml;MessageError.xaml;MessageWarn.xaml;MessageWarning.xaml;WaitWindow.xaml;WinAccountRecords.xaml;WinAnalogDiagnoz.xaml;WinColectionAnalizBlood.xaml;WinColectionAnalizUrine.xaml;WinColectionStanHealth.xaml;WinCreatIntreview.xaml;WinDeleteData.xaml;WinLikarGrupDiagnoz.xaml;WinListInteviewPacient.xaml;WinMedicalGrDiagnoz.xaml;WinMessageDialog.xaml;WinMessageErr.xaml;WinNsiCompliant.xaml;WinNsiDetailing.xaml;WinNsiFeature.xaml;WinNsiGrDetailing.xaml;WinNsiGrQualification.xaml;WinNsiIcd.xaml;WinNsiIntreview.xaml;WinNsiLikar.xaml;WinNsiListDiagnoz.xaml;WinNsiListGrDiagnoz.xaml;WinNsiListGroupDelit.xaml;WinNsiListRecommen.xaml;WinNsiMedZaklad.xaml;WinNsiPacient.xaml;WinNsiPrice.xaml;WinNsiQualification.xaml;WinNsiStatusUser.xaml;WinProfilPacient.xaml;WinRegisterAccountUser.xaml;WinResultInterview.xaml;WinStrokaProgressBar.xaml;WinVisitingDays.xaml;
 
 False
 

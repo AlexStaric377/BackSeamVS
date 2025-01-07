@@ -61,18 +61,26 @@ namespace BackSeam
 
         private static void BildModelColection()
         {
-            
-            
-            
-            
+
+            ObservableCollection<ColectionInterview> tmpColection = new ObservableCollection<ColectionInterview>();
+
+
             ColectionInterviewInterviews = new ObservableCollection<ModelColectionInterview>();
             foreach (ColectionInterview colectionInterview in ColectionInterviews)
             {
-               
-                
+                if (colectionInterview.kodPacient == null)
+                {
+                    string json = Colectioncontroller + colectionInterview.id.ToString() + "/0/0";
+                    CallServer.PostServer(Colectioncontroller, json, "DELETE");
+                }
+                else tmpColection.Add(colectionInterview);
+            }
+            ColectionInterviews = tmpColection;
+            foreach (ColectionInterview colectionInterview in ColectionInterviews)
+            {
                 selectedColectionInterview = new ModelColectionInterview();
-                if (colectionInterview.kodPacient != "Гість" && colectionInterview.kodPacient.Length !=0) MethodPacient(colectionInterview, false);
-                else { WindowMen.Intert3.Text = "Гість"; selectedColectionInterview.namePacient = "Гість";}
+                if (colectionInterview.kodPacient != "Гість" && colectionInterview.kodPacient.Length != 0) MethodPacient(colectionInterview, false);
+                else { WindowMen.Intert3.Text = "Гість"; selectedColectionInterview.namePacient = "Гість"; }
                 if (colectionInterview.kodDoctor != null && colectionInterview.kodDoctor.Length != 0) MethodDoctor(colectionInterview, false);
                 if (colectionInterview.kodProtokola != null && colectionInterview.kodProtokola.Length != 0) MethodProtokola(colectionInterview, false);
 
@@ -81,8 +89,9 @@ namespace BackSeam
                 selectedColectionInterview.kodProtokola = colectionInterview.kodProtokola;
                 selectedColectionInterview.dateInterview = colectionInterview.dateInterview;
                 selectedColectionInterview.resultDiagnoz = colectionInterview.resultDiagnoz;
-                ColectionInterviewInterviews.Add(selectedColectionInterview);
+                ColectionInterviewInterviews.Add(selectedColectionInterview);  
             }
+
         }
 
         private static void MethodPacient(ColectionInterview colectionInterview, bool boolname)

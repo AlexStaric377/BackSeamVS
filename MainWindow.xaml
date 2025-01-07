@@ -6724,7 +6724,7 @@
                                             <DataGrid x:Name="PacientTablGrid" Grid.Row="2"   Cursor="Hand" ItemsSource="{Binding ViewPacients}" SelectedItem="{Binding SelectedPacient}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
-                                          HorizontalGridLinesBrush="Black"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+                                          HorizontalGridLinesBrush="Black"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn x:Name="PacientColumn1" FontSize="14" Width="120" Binding="{Binding Path=kodPacient}">
                                                         <DataGridTextColumn.Header>

@@ -149,71 +149,76 @@ namespace BackSeam
                 return reseptionLikar ??
                   (reseptionLikar = new RelayCommand(obj =>
                   {
-                      MapOpisViewModel.ViewAnalogDiagnoz = true;
-                      MapOpisViewModel.SaveAnalogDiagnoz = true;
-                      MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
-                      if (MapOpisViewModel.ViewReceptionPatients == null) MapOpisViewModel.ViewReceptionPatients = new ObservableCollection<ModelColectionInterview>();
-                      MapOpisViewModel.ViewReceptionPatients.Add(MapOpisViewModel.modelColectionInterview);
-                      MapOpisViewModel.IndexAddEdit = "addCommand";
-                      switch (MapOpisViewModel.ActCompletedInterview)
-                      {
-                          case "Likar":
 
-                              WindowIntevLikar.ReceptionPacient7.IsEnabled = true;
-                              WindowIntevLikar.ReceptionPacient7.Background = Brushes.AntiqueWhite;
-                              WindowIntevLikar.ReceptionPacientFoldProfil.Visibility = Visibility.Visible;
-                              break;
-                          case "Pacient":
-                              WindowIntevLikar.ReceptionLikarTablGrid.ItemsSource = MapOpisViewModel.ViewReceptionPatients;
-                              WindowIntevLikar.ReceptionLikar7.IsEnabled = true;
-                              WindowIntevLikar.ReceptionLikar7.Background = Brushes.AntiqueWhite;
-                              WindowIntevLikar.ReceptionLikarFolderLikar.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarAddCompInterview.Visibility = Visibility.Hidden;
-                              WindowIntevLikar.ReceptionLikarAddInterv.Visibility = Visibility.Hidden;
-                              WindowIntevLikar.ReceptionLikarCompInterview.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarFoldInterv.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarFolderTime.Visibility = Visibility.Visible;
+                      if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
+                      { 
+                          MapOpisViewModel.ViewAnalogDiagnoz = true;
+                          MapOpisViewModel.SaveAnalogDiagnoz = true;
+                          MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
+                          if (MapOpisViewModel.ViewReceptionPatients == null) MapOpisViewModel.ViewReceptionPatients = new ObservableCollection<ModelColectionInterview>();
+                          MapOpisViewModel.ViewReceptionPatients.Add(MapOpisViewModel.modelColectionInterview);
+                          MapOpisViewModel.IndexAddEdit = "addCommand";
+                          switch (MapOpisViewModel.ActCompletedInterview)
+                          {
+                              case "Likar":
+
+                                  WindowIntevLikar.ReceptionPacient7.IsEnabled = true;
+                                  WindowIntevLikar.ReceptionPacient7.Background = Brushes.AntiqueWhite;
+                                  WindowIntevLikar.ReceptionPacientFoldProfil.Visibility = Visibility.Visible;
+                                  break;
+                              case "Pacient":
+                                  WindowIntevLikar.ReceptionLikarTablGrid.ItemsSource = MapOpisViewModel.ViewReceptionPatients;
+                                  WindowIntevLikar.ReceptionLikar7.IsEnabled = true;
+                                  WindowIntevLikar.ReceptionLikar7.Background = Brushes.AntiqueWhite;
+                                  WindowIntevLikar.ReceptionLikarFolderLikar.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarAddCompInterview.Visibility = Visibility.Hidden;
+                                  WindowIntevLikar.ReceptionLikarAddInterv.Visibility = Visibility.Hidden;
+                                  WindowIntevLikar.ReceptionLikarCompInterview.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarFoldInterv.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarFolderTime.Visibility = Visibility.Visible;
                               
-                              WindowIntevLikar.ReceptionLikarLoadinterv.Content = "Ваші дії:  -вибрати лікаря натиснув" + Environment.NewLine + " на малюнок папки; -ввести дату, час прийому та зміст звернення;-натиснути кнопку 'Зберегти'. ";
-                              WindowIntevLikar.ReceptionLikarLoadinterv.Width = 630;
-                              WindowIntevLikar.ReceptionLikarLoadinterv.Height = 70;
-                              WindowIntevLikar.ReceptionLikarLoadinterv.HorizontalAlignment = HorizontalAlignment.Left;
-                              WindowIntevLikar.ReceptionLikarLoadinterv.FontSize = 12;
-                              WindowIntevLikar.ReceptionLikarLoadinterv.FontWeight = FontWeights.Black;
-                              break;
-                          case "Guest":
-                              MapOpisViewModel.addReceptionLIkarGuest = false;
-                              MapOpisViewModel.OnOffStartGuest = true;
-                              MapOpisViewModel.modelColectionInterview.namePacient = "";
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.Content = "Ваші дії:  -вибрати лікаря натиснув" + Environment.NewLine + " на малюнок папки; -ввести дату, час прийому та зміст звернення;-натиснути кнопку 'Зберегти'. ";
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.Width = 630;
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.Height = 70;
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.HorizontalAlignment = HorizontalAlignment.Left;
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.FontSize = 12;
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.FontWeight = FontWeights.Black;
+                                  break;
+                              case "Guest":
+                                  MapOpisViewModel.addReceptionLIkarGuest = false;
+                                  MapOpisViewModel.OnOffStartGuest = true;
+                                  MapOpisViewModel.modelColectionInterview.namePacient = "";
 
-                              WindowIntevLikar.ReceptionLikarFolderLikarGuest.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarFolderGuestTime.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarGuestFoldInterv.Visibility = Visibility.Visible;
-                              WindowIntevLikar.ReceptionLikarGuestCompInterview.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarFolderLikarGuest.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarFolderGuestTime.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarGuestFoldInterv.Visibility = Visibility.Visible;
+                                  WindowIntevLikar.ReceptionLikarGuestCompInterview.Visibility = Visibility.Visible;
 
-                              WindowIntevLikar.ReseptionZapisLikar.Text = "Ваші дії: - натиснути на кнопку <Додати>; -вибрати лікаря натиснув на малюнок папки; -ввести дату, час прийому та зміст звернення; -натиснути кнопку 'Зберегти'. ";
-                              WindowIntevLikar.ReceptionLikarGuest3.Text = "";
-                              WindowIntevLikar.ReceptionLikarGuest7.IsEnabled = true;
-                              WindowIntevLikar.ReceptionLikarGuest7.Background = Brushes.AntiqueWhite;
-                              break;
+                                  WindowIntevLikar.ReseptionZapisLikar.Text = "Ваші дії: - натиснути на кнопку <Додати>; -вибрати лікаря натиснув на малюнок папки; -ввести дату, час прийому та зміст звернення; -натиснути кнопку 'Зберегти'. ";
+                                  WindowIntevLikar.ReceptionLikarGuest3.Text = "";
+                                  WindowIntevLikar.ReceptionLikarGuest7.IsEnabled = true;
+                                  WindowIntevLikar.ReceptionLikarGuest7.Background = Brushes.AntiqueWhite;
+                                  break;
+                          }
+
+
+                          if (MapOpisViewModel.ViewRegistrAppoints == null) MapOpisViewModel.ViewRegistrAppoints = new ObservableCollection<ModelRegistrationAppointment>();
+                          MapOpisViewModel.selectRegistrationAppointment = new ModelRegistrationAppointment();
+                          MapOpisViewModel.selectRegistrationAppointment.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
+                          MapOpisViewModel.selectRegistrationAppointment.kodPacient = MapOpisViewModel.modelColectionInterview.kodPacient;
+                          MapOpisViewModel.selectRegistrationAppointment.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview; ;
+                          MapOpisViewModel.selectRegistrationAppointment.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
+                          MapOpisViewModel.selectRegistrationAppointment.kodDoctor = MapOpisViewModel.modelColectionInterview.kodDoctor;
+                          MapOpisViewModel.ViewRegistrAppoints.Add(MapOpisViewModel.selectRegistrationAppointment);
+
+                          MapOpisViewModel.CopycolectionInterview();
+                          MapOpisViewModel.colectionInterview.id = MapOpisViewModel.modelColectionInterview.id;
+                          MapOpisViewModel.SaveInterviewProtokol();
+                          WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
+                          WindowResult.Close();
+                          MessageRegistrationLikar();                     
                       }
-
-
-                      if (MapOpisViewModel.ViewRegistrAppoints == null) MapOpisViewModel.ViewRegistrAppoints = new ObservableCollection<ModelRegistrationAppointment>();
-                      MapOpisViewModel.selectRegistrationAppointment = new ModelRegistrationAppointment();
-                      MapOpisViewModel.selectRegistrationAppointment.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
-                      MapOpisViewModel.selectRegistrationAppointment.kodPacient = MapOpisViewModel.modelColectionInterview.kodPacient;
-                      MapOpisViewModel.selectRegistrationAppointment.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview; ;
-                      MapOpisViewModel.selectRegistrationAppointment.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
-                      MapOpisViewModel.selectRegistrationAppointment.kodDoctor = MapOpisViewModel.modelColectionInterview.kodDoctor;
-                      MapOpisViewModel.ViewRegistrAppoints.Add(MapOpisViewModel.selectRegistrationAppointment);
-
-                      MapOpisViewModel.CopycolectionInterview();
-                      MapOpisViewModel.colectionInterview.id = MapOpisViewModel.modelColectionInterview.id;
-                      MapOpisViewModel.SaveInterviewProtokol();
-                      WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-                      WindowResult.Close();
-                      MessageRegistrationLikar();
+                      else InfoNoDiagnoz();
                   }));
             }
         }
@@ -308,24 +313,28 @@ namespace BackSeam
                 return listprofilMedical ??
                   (listprofilMedical = new RelayCommand(obj =>
                   {
-                      if (selectItogInterview.kodProtokola != "")
+                      if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
                       { 
-                          WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
-                          MedZaklad.ShowDialog();                     
-                      }
-                      MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
-                      if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
-                      {
-                          MapOpisViewModel.ModelCall = "ReceptionLIkar";
-                          WinNsiLikar NewOrder = new WinNsiLikar();
-                          NewOrder.ShowDialog();
-                          if (MapOpisViewModel.nameDoctor.Length > 0)
-                          {
-                              MapOpisViewModel.modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":"), MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
-
+                          if (selectItogInterview.kodProtokola != "")
+                          { 
+                              WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
+                              MedZaklad.ShowDialog();                     
                           }
-                          MapOpisViewModel.ModelCall = "";
+                          MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
+                          if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
+                          {
+                              MapOpisViewModel.ModelCall = "ReceptionLIkar";
+                              WinNsiLikar NewOrder = new WinNsiLikar();
+                              NewOrder.ShowDialog();
+                              if (MapOpisViewModel.nameDoctor.Length > 0)
+                              {
+                                  MapOpisViewModel.modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":"), MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
+
+                              }
+                              MapOpisViewModel.ModelCall = "";
+                          }                     
                       }
+                      else InfoNoDiagnoz();
 
                   }));
             }
@@ -340,31 +349,44 @@ namespace BackSeam
                 return selectInterview ??
                   (selectInterview = new RelayCommand(obj =>
                   {
-                      WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-                      CallServer.PostServer(MapOpisViewModel.pathcontrolerContent, MapOpisViewModel.pathcontrolerContent + MapOpisViewModel.modelColectionInterview.kodProtokola, "GETID");
-                      string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]")) return;
-                      else ObservableContentInterv(CmdStroka);
-                      MapOpisViewModel.SaveAnalogDiagnoz = true;
-                      MapOpisViewModel.IndexAddEdit = "addCommand";
-                      SaveInterview();
-                      switch (MapOpisViewModel.ActCompletedInterview)
+                      if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
                       {
-                          case "Likar":
-                              MapOpisViewModel.MethodLoadtableColectionIntevLikar();
-                              break;
-                          case "Pacient":
-                              MapOpisViewModel.MethodLoadtableColectionIntevPacient();
-                              break;
-                      }
+                          WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
+                          CallServer.PostServer(MapOpisViewModel.pathcontrolerContent, MapOpisViewModel.pathcontrolerContent + MapOpisViewModel.modelColectionInterview.kodProtokola, "GETID");
+                          string CmdStroka = CallServer.ServerReturn();
+                          if (CmdStroka.Contains("[]")) return;
+                          else ObservableContentInterv(CmdStroka);
+                          MapOpisViewModel.SaveAnalogDiagnoz = true;
+                          MapOpisViewModel.IndexAddEdit = "addCommand";
+                          SaveInterview();
+                          switch (MapOpisViewModel.ActCompletedInterview)
+                          {
+                              case "Likar":
+                                  MapOpisViewModel.MethodLoadtableColectionIntevLikar();
+                                  break;
+                              case "Pacient":
+                                  MapOpisViewModel.MethodLoadtableColectionIntevPacient();
+                                  break;
+                          }
 
-                      MainWindow.MessageError = "Увага! вибраний вами попередній діагноз " + Environment.NewLine +
-                       " збережений у реєстрі проведених опитуваннь. Для  його перегляду " + Environment.NewLine +
-                       "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь'.";
-                      MapOpisViewModel.SelectedFalseLogin(10);
-                      WindowResult.Close();
+                          MainWindow.MessageError = "Увага! вибраний вами попередній діагноз " + Environment.NewLine +
+                           " збережений у реєстрі проведених опитуваннь. Для  його перегляду " + Environment.NewLine +
+                           "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь'.";
+                          MapOpisViewModel.SelectedFalseLogin(10);
+                          WindowResult.Close();
+                      }
+                      else InfoNoDiagnoz();
                   }));
             }
+        }
+
+        private void InfoNoDiagnoz()
+        {
+            MainWindow.MessageError = "Увага! Ви не вибрали  попередній діагноз " + Environment.NewLine +
+           " Для  його  збереження або перегляду " + Environment.NewLine +
+           "вам необхідно натиснути на обраний рядок в списку попередніх діагнозів.";
+            MapOpisViewModel.SelectedFalseLogin(10);
+
         }
 
         public static void ObservableContentInterv(string CmdStroka)

@@ -12,7 +12,7 @@
         xmlns:local="clr-namespace:BackSeam"  d:DataContext ="{d:DesignInstance Type=local:ViewModelNsiComplaint}" 
         mc:Ignorable="d" 
         Title="NsiComplaint"  WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterOwner"  
-         ShowInTaskbar="True"   Height="680" Width="600" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         ShowInTaskbar="True"   Height="680" Width="600" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity ="1.0"
         Background="{x:Null}"  >
     <Window.DataContext>
         <local:ViewModelNsiComplaint/>

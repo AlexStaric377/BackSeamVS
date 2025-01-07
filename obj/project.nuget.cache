@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sqg4U0xs8tl/sFSCJWCjlE9pxQxFQQav1jK7X85j9d4Am+2nUFp/2tvh4Ah/wvGGpx5u7lrroioI7VaOuDXrSQ==",
+  "dgSpecHash": "XvsU4iFSXRKbRSZWKrI1BST05kEgoGD86koJ0K8wZYi+OZXykbc8cQqL2Ml+Ht9tdYPhcu7WegnEczngk5iJqA==",
   "success": true,
   "projectFilePath": "D:\\BackSeam\\BackSeam.csproj",
   "expectedPackageFiles": [
@@ -123,6 +123,7 @@
     "C:\\Users\\Aleksandr\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Aleksandr\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512",
     "C:\\Users\\Aleksandr\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
   ],
   "logs": [

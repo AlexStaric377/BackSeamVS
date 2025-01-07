@@ -142,3 +142,6 @@ D:\BackSeam\obj\Debug\net5.0-windows\ref\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.pdb
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.genruntimeconfig.cache
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.csproj.AssemblyReference.cache
+D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.g.cs
+D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.baml
+D:\BackSeam\bin\Debug\net5.0-windows\WpfAnimatedGif.dll

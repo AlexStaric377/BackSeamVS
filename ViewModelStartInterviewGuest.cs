@@ -1159,6 +1159,10 @@ namespace BackSeam
         {
             string json = "", CmdStroka ="";
             MapOpisViewModel.DeleteOnOff = true;
+            WaitWindow NewOrder = new WaitWindow();
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) ;
+            NewOrder.Show();
             while (DiagnozRecomendaciya.Contains(";") == true)
             {
                 json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1/0";
@@ -1168,7 +1172,7 @@ namespace BackSeam
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.Length - 1);
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.LastIndexOf(";")+1);
             }
- 
+
             if (CmdStroka.Contains("[]") == true)
             {
                 MainWindow.MessageError = "Увага!" + Environment.NewLine +
@@ -1183,10 +1187,11 @@ namespace BackSeam
                 var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
                 List<ModelInterview> res = result.ModelInterview.ToList();
                 AnalogInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
-
+                
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
+                NewOrder.Close();
                 NewResult.ShowDialog();
-               
+ 
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)
                 {
                     SetContent();

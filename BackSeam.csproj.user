@@ -16,6 +16,9 @@
     <Compile Update="MessageWarning.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="WaitWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WinAnalogDiagnoz.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +106,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MessageWarning.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WaitWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WinAnalogDiagnoz.xaml">

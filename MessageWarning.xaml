@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelMessageWarning}"
         mc:Ignorable="d"
         Title="MessageWarning" WindowState="Normal" AllowsTransparency="True" WindowStyle="None"   ShowInTaskbar="False"
-        Height="400" Width="650" Background="{x:Null}"  WindowStartupLocation="CenterScreen">
+        Height="400" Width="650" Background="{x:Null}"  WindowStartupLocation="CenterScreen" Topmost="True">
     <Window.DataContext>
         <local:ViewModelMessageWarning/>
     </Window.DataContext>

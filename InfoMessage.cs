@@ -45,7 +45,7 @@ namespace BackSeam
                 //NewOrder.Yes.Background = brush;
 
                 NewOrder.Height = NewOrder.Height + 200;
-                NewOrder.Width = NewOrder.Width + 250;
+                NewOrder.Width = NewOrder.Width + 350;
                 NewOrder.BorderNo.Margin = new Thickness(0, 0, 250, 0);
                 NewOrder.BorderYes.Margin = new Thickness(250, 0, 0, 0);
             }
