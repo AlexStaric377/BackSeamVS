@@ -459,7 +459,6 @@ namespace BackSeam
                         return;
                     } 
                     if (GuestIntervs.Count != 0) MetodSaveInterview();
-                    WindowMain.NameInterv.Text = "";
                     StopDialog = true;
                 }
                 countFeature = GuestIntervs.Count;
@@ -831,7 +830,7 @@ namespace BackSeam
                 ZagolovokInterview();
                 AutoSelectedInterview();
                 if (GuestIntervs.Count != 0 && StopDialog == false)MetodSaveInterview();
-                WindowMain.NameInterv.Text = "";
+
             }
         }
 

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Розробник: 2022-2023 ПП \'ОРІОН-С\'. Стариченко Олександр Павлович Свідоцтво про ре" +
     "єсрацію авторського права № 126883")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Диференційна діагностика стану нездужання людини-SEAM Адміністратор")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.53")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.54")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackSeam")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackSeam")]

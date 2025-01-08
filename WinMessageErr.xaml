@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BackSeam"
         mc:Ignorable="d"
-        Title="WinMessageErr" WindowState="Normal" AllowsTransparency="True" WindowStyle="None"   ShowInTaskbar="False"
+        Title="WinMessageErr" WindowState="Normal" AllowsTransparency="True" WindowStyle="None"   ShowInTaskbar="False" Topmost="True"
         Height="500" Width="600" Background="{x:Null}"  WindowStartupLocation="CenterScreen">
     <Grid x:Name="GridErr">
         <Grid.Background>
