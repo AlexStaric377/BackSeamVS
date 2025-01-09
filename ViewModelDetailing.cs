@@ -361,10 +361,10 @@ namespace BackSeam
             }
             else
             {
+                if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
                 if (selectedViewDetailingFeature.kodDetailing == "")
                 { 
-                    if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
-                    
+ 
                     selectedViewDetailingFeature.keyFeature = selectedDetailing.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
                     string _keyDetailing = selectedDetailing.keyFeature;
                     foreach (ModelDetailing modelDetailing in ViewDetailings)
@@ -404,7 +404,7 @@ namespace BackSeam
             selectedDetailing.kodDetailing = selectedViewDetailingFeature.kodDetailing;
             selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
             selectedDetailing.keyFeature = selectedViewDetailingFeature.keyFeature;
-            selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameDetailing;
+            selectedDetailing.nameDetailing = selectedDetailing.nameDetailing == "" ? selectedViewDetailingFeature.nameDetailing : selectedDetailing.nameDetailing;
             selectedDetailing.idUser = selectedViewDetailingFeature.idUser;
 
         }
