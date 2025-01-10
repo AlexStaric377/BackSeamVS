@@ -178,6 +178,7 @@ namespace BackSeam
         {
             WindowDetailing.Loaddel.Visibility = Visibility.Hidden;
             GrFeatureDetailing = "";
+            MapOpisViewModel.nameFeature3 = "";
             CallServer.PostServer(pathcontrolerDetailing, pathcontrolerDetailing, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
@@ -192,10 +193,10 @@ namespace BackSeam
             WindowDetailing .Detailingt2.IsEnabled = true;
  
             WindowDetailing .Detailingt2.Background = Brushes.AntiqueWhite;
-            
-            WindowDetailing.FolderFut.Visibility = Visibility.Visible;
+
+            if (MapOpisViewModel.nameFeature3 == "" && IndexAddEdit == "addCommand") WindowDetailing.FolderFut.Visibility = Visibility.Visible;
             WindowDetailing.FolderDet.Visibility = Visibility.Visible;
-            WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
+            if (MapOpisViewModel.nameFeature3 == "" && IndexAddEdit == "addCommand") WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
             WindowDetailing.DetailingTablGrid.IsEnabled = false;
         }
 
@@ -679,6 +680,7 @@ namespace BackSeam
                       { 
                           ObservableViewDetailings(CmdStroka);
                           loadboolDetailing = true;
+                          TrueNameComplaint();
                       } 
                       else
                       { 

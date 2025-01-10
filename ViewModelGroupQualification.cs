@@ -99,9 +99,9 @@ namespace BackSeam
         private void MethodaddcomGroupQua()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            if (activgrqualification == false) BoolTrueGrQualification();
+            if (activgrqualification == false) { BoolTrueGrQualification(); SelectNewGrQualification(); }
             else BoolFalseGrQualification();
-            WindowMen.GrQualificationTablGrid.SelectedItem = null;
+            
 
         }
         private void MethodloadGroupQua()
@@ -211,12 +211,14 @@ namespace BackSeam
                   (saveGrQualification = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseGrQualification();
+                      
                         if (WindowMen.GrQualificationt2.Text.Trim().Length != 0)
                         {
                             if (IndexAddEdit == "addCommand")
                             {
-                                SelectNewGrQualification();
+
+                                selectedGroupQualification.nameGroupQualification = WindowMen.GrQualificationt2.Text;
+                                selectedGroupQualification.idUser = RegIdUser;
                                 json = JsonConvert.SerializeObject(selectedGroupQualification);
                                 CallServer.PostServer(controlerGroupQualification, json, "POST");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -234,11 +236,11 @@ namespace BackSeam
                               json = CallServer.ResponseFromServer;
                           }
                           UnloadCmdStroka("ListGroupQualification/", json);
-                      }
+                        }
                         else { WindowMen.GrQualificationt2.Text = edittextGroupQualification; }
-                      WindowMen.GrQualificationTablGrid.SelectedItem = null;
-                      IndexAddEdit = "";
-
+                        WindowMen.GrQualificationTablGrid.SelectedItem = null;
+                        IndexAddEdit = "";
+                        BoolFalseGrQualification();
                   }));
             }
         }
@@ -248,13 +250,33 @@ namespace BackSeam
 
             //KodDetailing= "A.000.001.001", KeyFeature = "A.000.001", KeyComplaint = "A.000"
             // KodDetailing = "AA.000.001", KeyGrDetailing = "AA.000" 
-            // KodGroupQualification = "AAA.000", NameGroupQualification = "Кваліфікація погоди"
-            string _kodGroupQualification = "AAA.000";
             if (selectedGroupQualification == null) selectedGroupQualification = new ModelGroupQualification();
-            if (ViewGroupQualifications != null) _kodGroupQualification = dictiontyQu[ViewGroupQualifications.Count] + ".000";
-            selectedGroupQualification.kodGroupQualification = _kodGroupQualification;
-            selectedGroupQualification.nameGroupQualification = WindowMen.GrQualificationt2.Text;
-            selectedGroupQualification.idUser = RegIdUser;
+            bool maxindex = false;
+            string addindex = ".000";
+            int indexdictionty = 0, Numbkey = 0;
+            //string _kodGroupQualification = "AAA.000";
+            while (maxindex == false)
+            {
+                selectedGroupQualification.kodGroupQualification = dictiontyQu[indexdictionty] + addindex;
+                string json = controlerGroupQualification + selectedGroupQualification.kodGroupQualification + "/0";
+                CallServer.PostServer(controlerGroupQualification, json, "GETID");
+                if (CallServer.ResponseFromServer.Contains("[]") == true)
+                {
+                    selectedGroupQualification.kodGroupQualification = dictiontyQu[indexdictionty] + addindex;
+                    maxindex = true;
+                    break;
+                }
+                Numbkey++;
+                if (Numbkey == 1000)
+                {
+                    Numbkey = 1;
+                    indexdictionty++;
+                }
+                addindex = addindex.Length - Numbkey.ToString().Length > 0 ? addindex.Substring(0, addindex.Length - Numbkey.ToString().Length) + Numbkey.ToString() : "";
+
+            }
+            WindowMen.GrQualificationt1.Text = selectedGroupQualification.kodGroupQualification;
+
         }
 
         // команда печати

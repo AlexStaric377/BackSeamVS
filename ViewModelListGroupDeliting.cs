@@ -99,9 +99,9 @@ namespace BackSeam
             IndexAddEdit = "addCommand";
             selectedListGroupDeliting = new ModelListGrDetailing();
             SelectedListGroupDeliting = selectedListGroupDeliting;
-            if (addboolListGrDet == false) BoolTrueGroupDetailing();
+            if (addboolListGrDet == false) { BoolTrueGroupDetailing(); SelectNewGroupDetailing(); } 
             else BoolFalseGroupDetailing();
-            WindowMen.GrDetailingTablGrid.SelectedItem = null;
+
         }
 
         private void MethodloadtablListGrDet()
@@ -210,13 +210,16 @@ namespace BackSeam
                   (saveListGroupDeliting = new RelayCommand(obj =>
                   {
                       string json = "";
-                      BoolFalseGroupDetailing();
+ 
                         if (WindowMen.GrDetailingt2.Text.Length != 0)
                         {
                             if (IndexAddEdit == "addCommand")
                             {
                                 //  формирование кода Detailing по значениею группы выранного храктера жалобы
-                                SelectNewGroupDetailing();
+   
+                                selectedListGroupDeliting.id = 0;
+                                selectedListGroupDeliting.nameGrup = WindowMen.GrDetailingt2.Text;
+                                selectedListGroupDeliting.idUser = RegIdUser;
                                 json = JsonConvert.SerializeObject(selectedListGroupDeliting);
                                 CallServer.PostServer(pathcontrolerListGrDet, json, "POST");
                                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -235,10 +238,9 @@ namespace BackSeam
                           }
                           UnloadCmdStroka("ListGrDetailing/", json);
                       }
-                        //else WindowMen.GrDetailingt2.Text = edittextDetailing;
                       WindowMen.GrDetailingTablGrid.SelectedItem = null;
                       IndexAddEdit = "";
-
+                      BoolFalseGroupDetailing();
 
                   }));
             }
@@ -247,9 +249,7 @@ namespace BackSeam
         private void SelectNewGroupDetailing()
         {
             if (selectedListGroupDeliting == null) selectedListGroupDeliting = new ModelListGrDetailing();
-            //selectedListGroupDeliting.keyGrDetailing = dictiontygr[ViewListGrDetailings.Count] + ".000"; ;
-            selectedListGroupDeliting.nameGrup = WindowMen.GrDetailingt2.Text;
-            selectedListGroupDeliting.idUser = RegIdUser;
+             
             bool maxindex = false;
             string addindex = ".000";
             int indexdictionty = 0, Numbkey = 0;
@@ -271,8 +271,7 @@ namespace BackSeam
                     indexdictionty++;
                 }
                 addindex = addindex.Length - Numbkey.ToString().Length > 0 ? addindex.Substring(0, addindex.Length - Numbkey.ToString().Length) + Numbkey.ToString() : "";
-            }
-            selectedListGroupDeliting.id = 0;
+            }           
         }
 
 
