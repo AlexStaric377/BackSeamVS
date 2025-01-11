@@ -61,7 +61,7 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
             List<ModelInterview> res = result.ModelInterview.ToList();
             ModelInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
-            WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;
+            WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews.OrderBy(x=>x.kodProtokola);
         }
 
 
@@ -443,7 +443,7 @@ namespace BackSeam
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ActCompletedInterview = "";
-
+            MapOpisViewModel.ModelCall = "";
 
         }
 

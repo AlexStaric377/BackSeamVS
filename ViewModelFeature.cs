@@ -132,9 +132,7 @@ namespace BackSeam
 
         private void MethodLoadtableFeature()
         {
-            SelectedViewFeature = new ViewFeatureComplaint();
-            selectedFeature = new ModelFeature();
-            selectedViewFeature = new ViewFeatureComplaint();
+            NewEkzemplyar();
             MapOpisViewModel.nameFeature3 = "";
             WindowMen.Loadnsi.Visibility = Visibility.Hidden;
             MapOpisViewModel.ActCompletedInterview = "null";
@@ -147,9 +145,7 @@ namespace BackSeam
         private void MethodaddcomFeature()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            SelectedViewFeature = new ViewFeatureComplaint();
-            selectedFeature = new ModelFeature();
-            selectedViewFeature = new ViewFeatureComplaint();
+            NewEkzemplyar();
             MapOpisViewModel.nameFeature3 = "";
             if (addtboolFeature == false)
             { 
@@ -161,7 +157,12 @@ namespace BackSeam
             
         }
 
-
+        private void NewEkzemplyar()
+        {
+            SelectedViewFeature = new ViewFeatureComplaint();
+            selectedFeature = new ModelFeature();
+            selectedViewFeature = new ViewFeatureComplaint();
+        }
 
         private void TrueNameGrComplaint()
         {
@@ -486,7 +487,8 @@ namespace BackSeam
                     if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                     else ObservableModelFeatures(CmdStroka);
                     loadboolFeature = true;
-                    TrueNameGrComplaint();
+                      if (selectedViewFeature == null) NewEkzemplyar();
+                      TrueNameGrComplaint();
 
                   }));
             }

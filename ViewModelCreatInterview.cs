@@ -57,7 +57,7 @@ namespace BackSeam
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
             else ObservableContentInterv(CmdStroka);
-            MapOpisViewModel.ModelCall = "";
+
         }
 
         public static void ObservableContentInterv(string CmdStroka)
@@ -217,6 +217,8 @@ namespace BackSeam
                           WindowCreat.BorderPlus.Visibility = Visibility.Hidden;
                           WindowCreat.BorderDelete.Visibility = Visibility.Hidden;
                           WindowCreat.BorderSave.Visibility = Visibility.Hidden;
+                          WindowCreat.BorderDelet.Visibility = Visibility.Hidden;
+                          
                           return;
                       }
                       if (MapOpisViewModel.IndexAddEdit == "editCommand") booladdprotokol = true;
