@@ -112,6 +112,18 @@ namespace BackSeam
                 }
             }
 
+        private void MethodLoadtableFeature()
+        {
+            NewEkzemplyar();
+            MapOpisViewModel.nameFeature3 = "";
+            WindowMen.Loadnsi.Visibility = Visibility.Hidden;
+            MapOpisViewModel.ActCompletedInterview = "null";
+            CallServer.PostServer(featurecontroller, featurecontroller, "GET");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+            else ObservableModelFeatures(CmdStroka);
+        }
+
         // команда добавления нового объекта
         private RelayCommand? addFeature;
         public RelayCommand AddFeature
@@ -126,27 +138,19 @@ namespace BackSeam
 
         private void AddComandFeature()
         {
-            if (loadboolFeature == false) MethodLoadtableFeature();
+            NewEkzemplyar();
+            if (loadboolFeature == false)
+            {
+                MapOpisViewModel.nameFeature3 = "";  MethodLoadtableFeature();
+            }
             MethodaddcomFeature();
         }
 
-        private void MethodLoadtableFeature()
-        {
-            NewEkzemplyar();
-            MapOpisViewModel.nameFeature3 = "";
-            WindowMen.Loadnsi.Visibility = Visibility.Hidden;
-            MapOpisViewModel.ActCompletedInterview = "null";
-            CallServer.PostServer(featurecontroller, featurecontroller, "GET");
-            string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-            else ObservableModelFeatures(CmdStroka);
-        }
+
 
         private void MethodaddcomFeature()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            NewEkzemplyar();
-            MapOpisViewModel.nameFeature3 = "";
             if (addtboolFeature == false)
             { 
                 BoolTrueFeature();
@@ -487,8 +491,8 @@ namespace BackSeam
                     if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                     else ObservableModelFeatures(CmdStroka);
                     loadboolFeature = true;
-                      if (selectedViewFeature == null) NewEkzemplyar();
-                      TrueNameGrComplaint();
+                    if (selectedViewFeature == null) NewEkzemplyar();
+                    TrueNameGrComplaint();
 
                   }));
             }

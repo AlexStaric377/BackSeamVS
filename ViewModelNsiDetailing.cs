@@ -25,7 +25,8 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public class ViewModelNsiDetailing : BaseViewModel
     {
- 
+        private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+        private NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
         private static string pathcontroller =  "/api/DetailingController/";
         public static ModelDetailing selectedDetailing;
         public static ObservableCollection<ModelDetailing> NsiModelDetailings { get; set; }
@@ -35,7 +36,6 @@ namespace BackSeam
         // конструктор класса
         public ViewModelNsiDetailing()
         {
-            //NsiDetailing WindowNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
             string jason = "";
             if (ViewModelNsiDetailing.NsiModelDetailings == null)
             {
@@ -83,7 +83,6 @@ namespace BackSeam
                 return closeModelDetailing ??
                   (closeModelDetailing = new RelayCommand(obj =>
                   {
-                      NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
                       WindowMen.Close();
                   }));
             }
@@ -98,8 +97,7 @@ namespace BackSeam
                 return selectModelDetailing ??
                   (selectModelDetailing = new RelayCommand(obj =>
                   {
-                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                      NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
+                      
                       if (selectedDetailing != null)
                       {
                           bool keyGr = false;
@@ -123,7 +121,6 @@ namespace BackSeam
                               {
                                   if (selectedDetailing.keyGrDetailing != null && selectedDetailing.keyGrDetailing != "")
                                   {
-
                                       MapOpisViewModel.nameFeature3 = selectedDetailing.keyGrDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
                                       WindowMain.Detailingt3.Text = selectedDetailing.keyGrDetailing + ": " + selectedDetailing.nameDetailing.ToString();
                                       WindowMain.Featuret2.Text = selectedDetailing.keyGrDetailing + ": " + selectedDetailing.nameDetailing.ToString();
@@ -167,7 +164,6 @@ namespace BackSeam
                 return viewGrDetaling ??
                   (viewGrDetaling = new RelayCommand(obj =>
                   {
-                      NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
                       if (WindowMen.TablDeliting.SelectedIndex != -1 && MapOpisViewModel.ActCreatInterview != "ActCreatInterview")
                       { 
                           selectedDetailing = NsiModelDetailings[WindowMen.TablDeliting.SelectedIndex];
@@ -228,18 +224,35 @@ namespace BackSeam
         public void MetodDetailingEnter()
         {
 
-            NsiDetailing WindowWinNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
-            if (WindowWinNsiDetailing.PoiskDeliting.Text.Trim() != "")
+            //NsiDetailing WindowWinNsiDetailing = MainWindow.LinkMainWindow("NsiDetailing");
+            if (WindowMen.PoiskDeliting.Text.Trim() != "")
             {
-                string jason = pathcontroller + "0/0/" + WindowWinNsiDetailing.PoiskDeliting.Text;
+                string jason = pathcontroller + "0/0/" + WindowMen.PoiskDeliting.Text;
                 CallServer.PostServer(pathcontroller, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableNsiModelFeatures(CmdStroka);
-                WindowWinNsiDetailing.TablDeliting.ItemsSource = NsiModelDetailings;
+                WindowMen.TablDeliting.ItemsSource = NsiModelDetailings;
             }
         }
 
-
+       
+        RelayCommand? addAllModelDetailing;
+        public RelayCommand AddAllModelDetailing
+        {
+            get
+            {
+                return addAllModelDetailing ??
+                  (addAllModelDetailing = new RelayCommand(obj =>
+                  {
+                      foreach (ModelDetailing modelDetailing in NsiModelDetailings)
+                      {
+                          WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = modelDetailing.kodDetailing.ToString() + ":        " + modelDetailing.nameDetailing.ToString();
+                          ViewModelCreatInterview.SelectContentCompl();
+                      }
+                      WindowMen.Close();
+                  }));
+            }
+        }
     }
 }

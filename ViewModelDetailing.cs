@@ -35,7 +35,7 @@ namespace BackSeam
         /// </summary>      
         public static MainWindow WindowDetailing = MainWindow.LinkNameWindow("BackMain");
         private static bool editboolDetailing = false, addboolDetailing = false, loadboolDetailing = false;
-        private string GrFeatureDetailing = "";
+        private static string GrFeatureDetailing = "", NameComplate ="";
         public static string pathcontrolerDetailing =  "/api/DetailingController/";
         public ModelDetailing selectedDetailing;
         public static ModelDetailing selectedGroupDetailing;
@@ -95,6 +95,7 @@ namespace BackSeam
                 ViewDetailingFeatures.Add(selectedDetailingFeature);
             }
             WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
+            
 
 
 
@@ -135,12 +136,11 @@ namespace BackSeam
 
         private void AddComandDetailing()
         {
+            NewEkzemplyarDetailing();
             if (loadboolDetailing == false)
             {
-                selectedViewDetailingFeature = new ViewDetailingFeature();
-                SelectedViewDetailingFeature = selectedViewDetailingFeature;
-                MethodLoadDetailing();
-            } 
+                MapOpisViewModel.nameFeature3 = ""; MethodLoadDetailing();
+            }
             MethodaddcomDetailing();
         }
 
@@ -159,12 +159,12 @@ namespace BackSeam
 
         private void TrueNameComplaint()
         {
-            if (selectedViewDetailingFeature.kodComplaint  != "")
+            if (MapOpisViewModel.nameFeature3 != "")
             {
                 selectedViewDetailingFeature.nameFeature = MapOpisViewModel.nameFeature3;
                 selectedViewDetailingFeature.keyFeature = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
-                WindowDetailing.DetailingCopl.Text = selectedViewDetailingFeature.nameComplaint;
-                WindowDetailing.Detailingt3.Text = selectedViewDetailingFeature.nameFeature;
+                WindowDetailing.DetailingCopl.Text = MapOpisViewModel.selectedComplaintname;
+                WindowDetailing.Detailingt3.Text = MapOpisViewModel.nameFeature3;
                 WindowDetailing.FolderComplaint.IsEnabled= false;
                 WindowDetailing.FolderFut.IsEnabled = false;
                 
@@ -176,6 +176,7 @@ namespace BackSeam
 
         private void MethodLoadDetailing()
         {
+            NewEkzemplyarDetailing();
             WindowDetailing.Loaddel.Visibility = Visibility.Hidden;
             GrFeatureDetailing = "";
             MapOpisViewModel.nameFeature3 = "";
@@ -185,7 +186,11 @@ namespace BackSeam
             else ObservableViewDetailings(CmdStroka);
         }
 
-
+        private void NewEkzemplyarDetailing()
+        {
+            selectedViewDetailingFeature = new ViewDetailingFeature();
+            SelectedViewDetailingFeature = new ViewDetailingFeature();
+        }
         private void BoolTrueDetailing()
         {
             addboolDetailing = true;
@@ -213,12 +218,6 @@ namespace BackSeam
             WindowDetailing.FolderComplaint.IsEnabled = true;
             WindowDetailing.FolderFut.IsEnabled = true;
             WindowDetailing.DetailingTablGrid.IsEnabled = true;
-
-            //if (selectedViewDetailingFeature.kodComplaint != "")
-            //{
-            //    ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
-            //    WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
-            //}
             SelectedViewDetailingFeature = new ViewDetailingFeature();
         }
 
@@ -506,6 +505,7 @@ namespace BackSeam
             selectedViewDetailingFeature.kodComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
             selectedViewDetailingFeature.nameComplaint = MapOpisViewModel.selectedComplaintname;
             MapOpisViewModel.ActCompletedInterview = "";
+
         }
 
 
@@ -681,6 +681,7 @@ namespace BackSeam
                           ObservableViewDetailings(CmdStroka);
                           loadboolDetailing = true;
                           TrueNameComplaint();
+ 
                       } 
                       else
                       { 
