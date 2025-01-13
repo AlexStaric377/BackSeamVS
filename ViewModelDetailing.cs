@@ -679,8 +679,7 @@ namespace BackSeam
                       if (CmdStroka.Contains("[]") == false)
                       { 
                           ObservableViewDetailings(CmdStroka);
-                          loadboolDetailing = true;
-                          TrueNameComplaint();
+                          
  
                       } 
                       else
@@ -688,7 +687,9 @@ namespace BackSeam
                         ViewDetailingFeatures = new  ObservableCollection<ViewDetailingFeature>();
                         WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
                         WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
-                      } 
+                      }
+                      loadboolDetailing = true;
+                      TrueNameComplaint();
                   }));
             }
         }
