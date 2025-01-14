@@ -476,7 +476,7 @@ namespace BackSeam
                 return selectedCompl ??
                   (selectedCompl = new RelayCommand(obj =>
                   {
-
+                    if (selectedViewFeature == null) NewEkzemplyar();
                     if (CheckStatusUser() == false) return;
                     MapOpisViewModel.ActCompletedInterview = "NameCompl";
                     NsiComplaint NewOrder = new NsiComplaint();
@@ -491,7 +491,6 @@ namespace BackSeam
                     if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                     else ObservableModelFeatures(CmdStroka);
                     loadboolFeature = true;
-                    if (selectedViewFeature == null) NewEkzemplyar();
                     TrueNameGrComplaint();
 
                   }));

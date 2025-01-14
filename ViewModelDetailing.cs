@@ -654,12 +654,10 @@ namespace BackSeam
                   (selectedNewFeature = new RelayCommand(obj =>
                   {
                       if (CheckStatusUser() == false) return;
-                      selectedViewDetailingFeature = new ViewDetailingFeature();
-                      SelectedViewDetailingFeature = selectedViewDetailingFeature;
+                      NewEkzemplyarDetailing();
                       SelectedNsiComplaint();
                       if (MapOpisViewModel.nameFeature3 == ""  || selectedViewDetailingFeature == null) return;
                       
-                      loadboolDetailing = true;
                       MapOpisViewModel.ActCompletedInterview = "Feature";
                       MapOpisViewModel.ActCreatInterview = "Feature";
                       ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 
@@ -676,12 +674,7 @@ namespace BackSeam
                         string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                         CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
                         string CmdStroka = CallServer.ServerReturn();
-                      if (CmdStroka.Contains("[]") == false)
-                      { 
-                          ObservableViewDetailings(CmdStroka);
-                          
- 
-                      } 
+                      if (CmdStroka.Contains("[]") == false)ObservableViewDetailings(CmdStroka);
                       else
                       { 
                         ViewDetailingFeatures = new  ObservableCollection<ViewDetailingFeature>();
