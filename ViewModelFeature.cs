@@ -150,7 +150,7 @@ namespace BackSeam
 
         private void MethodaddcomFeature()
         {
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            IndexAddEdit = "addCommand";
             if (addtboolFeature == false)
             { 
                 BoolTrueFeature();
@@ -193,6 +193,7 @@ namespace BackSeam
         {
             addtboolFeature = false;
             editboolFeature = false;
+            IndexAddEdit = "";
             WindowMen.Featuret2.IsEnabled =  false;
             WindowMen.Featuret2.Background =  Brushes.White;
             WindowMen.Folder.Visibility = Visibility.Hidden;
@@ -228,7 +229,6 @@ namespace BackSeam
                               ViewFeatures.Remove(selectedViewFeature);
                               WindowMen.FeatureTablGrid.ItemsSource = ViewFeatures;
                               BoolFalseFeature();
-                              IndexAddEdit = "";
                               WindowMen.FeatureTablGrid.SelectedItem = null;
                           }
                       }
@@ -266,7 +266,6 @@ namespace BackSeam
                       else 
                       {
                           BoolFalseFeature();
-                          IndexAddEdit = "";
                           WindowMen.FeatureTablGrid.SelectedItem = null;
                       }
  
@@ -284,7 +283,6 @@ namespace BackSeam
                   (saveFeature = new RelayCommand(obj =>
                   {
                       string json = "";
-                      
                       if ( WindowMen.Featuret2.Text.Length !=0)
                       {
                           //  формирование кода Feature по значениею группы выранной жалобы
@@ -326,7 +324,6 @@ namespace BackSeam
                           UnloadCmdStroka("Feature/", json);
                       }
                       BoolFalseFeature();
-                      IndexAddEdit = "";
                       SelectedViewFeature = new ViewFeatureComplaint();
 
                   }));

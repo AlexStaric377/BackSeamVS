@@ -227,7 +227,10 @@ namespace BackSeam
                         WindowUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
                         WindowUnload.Unload.Background = Brushes.LimeGreen;
                         WindowUnload.BorderUnload.Background = Brushes.LimeGreen;
-
+                        WaitWindow NewOrder = new WaitWindow();
+                        NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                        NewOrder.Top = (MainWindow.ScreenHeight / 2);
+                        NewOrder.Show();
 
                         foreach (var item in arrayUnload)
                         {
@@ -253,6 +256,7 @@ namespace BackSeam
                             WindowUnload.LineUnLoad.Width += 20;
 
                         }
+                        NewOrder.Close();
                         MainWindow.MessageError = "Увага!" + Environment.NewLine + "Вивантаження бази даних завершено!.";
                         SelectedMessageOk(4);
                     }

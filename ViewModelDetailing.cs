@@ -34,7 +34,7 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary>      
         public static MainWindow WindowDetailing = MainWindow.LinkNameWindow("BackMain");
-        private static bool editboolDetailing = false, addboolDetailing = false, loadboolDetailing = false;
+        public static bool editboolDetailing = false, addboolDetailing = false, loadboolDetailing = false;
         private static string GrFeatureDetailing = "", NameComplate ="";
         public static string pathcontrolerDetailing =  "/api/DetailingController/";
         public ModelDetailing selectedDetailing;
@@ -53,9 +53,7 @@ namespace BackSeam
             get { return selectedViewDetailingFeature; }
             set { selectedViewDetailingFeature = value; OnPropertyChanged("SelectedViewDetailingFeature"); }
         }
-        
-        
-        
+ 
         public static void ObservableViewDetailings(string CmdStroka)
         {
             var result = JsonConvert.DeserializeObject<ListModelDetailing>(CmdStroka);
@@ -95,10 +93,6 @@ namespace BackSeam
                 ViewDetailingFeatures.Add(selectedDetailingFeature);
             }
             WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
-            
-
-
-
         }
 
         #region Команды вставки, удаления и редектирования справочника "детализация характера"
@@ -129,25 +123,21 @@ namespace BackSeam
             get
             {
                 return addDetailing ??
-                  (addDetailing = new RelayCommand(obj =>
-                  { if (CheckStatusUser() == false) return;  AddComandDetailing(); }));
+                (addDetailing = new RelayCommand(obj =>
+                { if (CheckStatusUser() == false) return;  AddComandDetailing(); }));
             }
         }
 
         private void AddComandDetailing()
         {
-            NewEkzemplyarDetailing();
-            if (loadboolDetailing == false)
-            {
-                MapOpisViewModel.nameFeature3 = ""; MethodLoadDetailing();
-            }
+            //NewEkzemplyarDetailing();
+            if (loadboolDetailing == false) { MapOpisViewModel.nameFeature3 = ""; MethodLoadDetailing(); }
             MethodaddcomDetailing();
         }
 
         private void MethodaddcomDetailing()
         {
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-
+            IndexAddEdit = "addCommand" ;
             if (addboolDetailing == false)
             {
                 BoolTrueDetailing();
@@ -167,7 +157,6 @@ namespace BackSeam
                 WindowDetailing.Detailingt3.Text = MapOpisViewModel.nameFeature3;
                 WindowDetailing.FolderComplaint.IsEnabled= false;
                 WindowDetailing.FolderFut.IsEnabled = false;
-                
                 string tmp = selectedViewDetailingFeature.nameGrDetailing;
                 WindowDetailing.Detailingt4.Text = "";
                 selectedViewDetailingFeature.nameGrDetailing = tmp;
@@ -196,9 +185,7 @@ namespace BackSeam
             addboolDetailing = true;
             editboolDetailing = true;
             WindowDetailing .Detailingt2.IsEnabled = true;
- 
             WindowDetailing .Detailingt2.Background = Brushes.AntiqueWhite;
-
             if (MapOpisViewModel.nameFeature3 == "" && IndexAddEdit == "addCommand") WindowDetailing.FolderFut.Visibility = Visibility.Visible;
             WindowDetailing.FolderDet.Visibility = Visibility.Visible;
             if (MapOpisViewModel.nameFeature3 == "" && IndexAddEdit == "addCommand") WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
@@ -209,6 +196,7 @@ namespace BackSeam
         {
             addboolDetailing = false;
             editboolDetailing = false;
+            IndexAddEdit = "";
             WindowDetailing .Detailingt2.IsEnabled = false;
             WindowDetailing .Detailingt2.Background =  Brushes.White ;
             WindowDetailing .FolderFut.Visibility = Visibility.Hidden;
@@ -241,9 +229,9 @@ namespace BackSeam
                           // Видалення данных о гостях, пациентах, докторах, учетных записях
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
+                              IndexAddEdit = "remove";
                               string json = pathcontrolerDetailing + selectedViewDetailingFeature.id.ToString();
                               CallServer.PostServer(pathcontrolerDetailing, json, "DELETE");
-                              IndexAddEdit = "remove";
                               SelectNewDetailing();
                               ViewDetailings.Remove(selectedDetailing);
                               ViewDetailingFeatures.Remove(selectedViewDetailingFeature);
@@ -252,7 +240,6 @@ namespace BackSeam
                               WindowDetailing.DetailingTablGrid.SelectedItem = null;
                           }
                       }
-                      IndexAddEdit = "";
                   },
                  (obj) => ViewDetailingFeatures != null));
             }
@@ -286,7 +273,6 @@ namespace BackSeam
                               WindowDetailing .DetailingTablGrid.SelectedItem = null;
                           }
                       }
-                      IndexAddEdit = "";
                   }));
             }
         }
@@ -338,9 +324,7 @@ namespace BackSeam
                           }
                           UnloadCmdStroka("Detailing/", json);
                       }
-                       BoolFalseDetailing();
-                      IndexAddEdit = "";
-
+                      BoolFalseDetailing();
                   }));
 
             }

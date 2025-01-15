@@ -4496,16 +4496,16 @@
                                                         </Grid.RowDefinitions>
 
                                                         <Label Content="" Grid.Row="0" Margin="0,0,0,24" Grid.RowSpan="2"/>
-                                                        <TextBlock x:Name="DetailingsLab1" Grid.Column="0" Grid.Row="1" Text=" Код  деталізації"  FontSize="14" Height="24" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                                                        <TextBox Text="{Binding Path=kodDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst1" Grid.Column="1" Grid.Row="1" Background="White" Width="200"
+                                                        <TextBlock x:Name="DetailingsLab1" Grid.Column="0" Grid.Row="2" Text=" Код  деталізації"  FontSize="14" Height="24" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBox Text="{Binding Path=kodDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst1" Grid.Column="1" Grid.Row="2" Background="White" Width="200"
                                                          FontSize="14" Height="28"  HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" />
 
 
-                                                        <TextBlock x:Name="DetailingsLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text=" Гурт деталізації"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"   />
-                                                        <TextBox Text="{Binding keyGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst2" Grid.Row="2" Grid.Column="1" Width="410" FontSize="14"
+                                                        <TextBlock x:Name="DetailingsLab2" Grid.Row="1" TextWrapping="Wrap"  Grid.Column="0" Height="24" Text=" Гурт деталізації"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"   />
+                                                        <TextBox Text="{Binding _nameGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="GrDetailingst2" Grid.Row="1" Grid.Column="1" Width="410" FontSize="14"
                                                          Background="White" VerticalContentAlignment="Center"  HorizontalAlignment="Left" BorderThickness="0,0,0,0" IsEnabled="False" Height="28" />
 
-                                                        <Image x:Name="FolderGR" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2"
+                                                        <Image x:Name="FolderGR" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1"
                                                        Width="25"  HorizontalAlignment="Left" Visibility="Hidden" Margin="425,0,0,4" >
 
                                                             <i:Interaction.Triggers>

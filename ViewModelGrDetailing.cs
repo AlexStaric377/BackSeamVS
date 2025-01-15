@@ -106,7 +106,7 @@ namespace BackSeam
 
         private void AddComGrDeliting()
         {
-            SelectedViewGrDeliting = selectedViewGrDeliting = new ModelGrDetailing();
+            NewEkzemplyarGrDetailing();
             if (loadboolGrDeliting == false) MehodloadtablGrDeliting();
             MethodaddcomGrDeliting();
         }
@@ -135,6 +135,11 @@ namespace BackSeam
                 WindowMen.GrDetailingst2.Text = _nameGrDetailing;
                 selectedViewGrDeliting.keyGrDetailing = _nameGrDetailing;
             }
+        }
+
+        private void NewEkzemplyarGrDetailing()
+        {
+            SelectedViewGrDeliting = selectedViewGrDeliting = new ModelGrDetailing();
         }
         private void BoolTrueGrDetailing()
         {
@@ -174,7 +179,6 @@ namespace BackSeam
                               InfoRemoveZapis();
                               return;
                           }
-
                           SelectedRemove();
                           // Видалення данных о гостях, пациентах, докторах, учетных записях
                           if (MapOpisViewModel.DeleteOnOff == true)
@@ -184,7 +188,6 @@ namespace BackSeam
                               ViewGrDetailings.Remove(selectedViewGrDeliting);
                               selectedViewGrDeliting = new ModelGrDetailing();
                               BoolFalseGrDetailing();
-                              IndexAddEdit = "";
                           }
                       }
                       
@@ -242,7 +245,7 @@ namespace BackSeam
                           if (IndexAddEdit == "addCommand")
                           {
 
-                              selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
+                              //selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
                               json = JsonConvert.SerializeObject(selectedViewGrDeliting);
                               CallServer.PostServer(controlerGrDetailing, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -275,7 +278,6 @@ namespace BackSeam
                       
                       BoolFalseGrDetailing();
                       WindowMen.GrDetailingsTablGrid.SelectedItem = null;
-                      IndexAddEdit = "";
                   }));
             }
         }
@@ -386,35 +388,32 @@ namespace BackSeam
         public void SelectGroupDelit()
         {
 
- 
-                MapOpisViewModel.ActCompletedInterview = "NameDeteling";
-                WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
-                NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
-                NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                NewOrder.ShowDialog();
-                MapOpisViewModel.ActCompletedInterview = "";
-                if (WindowMen.Detailingt4.Text.Length != 0)
+            NewEkzemplyarGrDetailing();
+            MapOpisViewModel.ActCompletedInterview = "NameDeteling";
+            WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
+            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+            NewOrder.ShowDialog();
+            MapOpisViewModel.ActCompletedInterview = "";
+            if (WindowMen.Detailingt4.Text.Length != 0)
+            {
+                string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
+                CallServer.PostServer(controlerGrDetailing, jason, "GETID");
+
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == false)
+                { 
+                    ObservableViewGrDeliting(CmdStroka);
+                    _nameGrDetailing = WindowMen.GrDetailingst2.Text;
+                }
+                else
                 {
-
-                    string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
-                    CallServer.PostServer(controlerGrDetailing, jason, "GETID");
-
-                    string CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]") == false)
-                    { 
-                        ObservableViewGrDeliting(CmdStroka);
-                        
-                       _nameGrDetailing = WindowMen.GrDetailingst2.Text;
-                        loadboolGrDeliting = true;
-
-                    }
-                    else
-                    {
-                        ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
-                        WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
-                    }
-                }            
-
+                    ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
+                    WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
+                }
+            }
+            loadboolGrDeliting = true;
+            TrueNameGrDetailing();
 
         }
 
