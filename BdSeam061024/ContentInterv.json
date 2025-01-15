@@ -326,128 +326,209 @@
 {"id":392,"kodProtokola":"PRT.000000014","numberstr":47,"kodDetailing":"A.000.013.003","detailsInterview":"        закладеність у вухах","idUser":"Admin"}
 {"id":393,"kodProtokola":"PRT.000000014","numberstr":48,"kodDetailing":"A.000.013.007","detailsInterview":"        Відчуття наявнеості рани в носі","idUser":"Admin"}
 {"id":394,"kodProtokola":"PRT.000000014","numberstr":49,"kodDetailing":"A.000.013.008","detailsInterview":"        Головна біль на лобі","idUser":"Admin"}
-{"id":395,"kodProtokola":"PRT.000000015","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль","idUser":"Admin"}
-{"id":396,"kodProtokola":"PRT.000000015","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів","idUser":"Admin"}
-{"id":397,"kodProtokola":"PRT.000000015","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням","idUser":"Admin"}
-{"id":398,"kodProtokola":"PRT.000000015","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими","idUser":"Admin"}
-{"id":399,"kodProtokola":"PRT.000000015","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини","idUser":"Admin"}
-{"id":400,"kodProtokola":"PRT.000000015","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням","idUser":"Admin"}
-{"id":401,"kodProtokola":"PRT.000000015","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими","idUser":"Admin"}
-{"id":17416,"kodProtokola":"PRT.000000016","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя","idUser":"Admin"}
-{"id":17417,"kodProtokola":"PRT.000000016","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча ","idUser":"Admin"}
-{"id":17418,"kodProtokola":"PRT.000000016","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча","idUser":"Admin"}
-{"id":17419,"kodProtokola":"PRT.000000016","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота","idUser":"Admin"}
-{"id":17420,"kodProtokola":"PRT.000000016","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність","idUser":"Admin"}
-{"id":17421,"kodProtokola":"PRT.000000016","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються","idUser":"Admin"}
-{"id":13417,"kodProtokola":"PRT.000000018","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
-{"id":13418,"kodProtokola":"PRT.000000018","numberstr":1,"kodDetailing":"M.000.005","detailsInterview":"    Головокружіння (похитування при ході)","idUser":"Admin"}
-{"id":13419,"kodProtokola":"PRT.000000018","numberstr":2,"kodDetailing":"YAA.012.001","detailsInterview":"        супроводжується шумом у вусі часто пульсуючим","idUser":"Admin"}
-{"id":13420,"kodProtokola":"PRT.000000018","numberstr":3,"kodDetailing":"YAA.012.002","detailsInterview":"        приступи головокружіння виникають раптово інколи аж до падіння","idUser":"Admin"}
-{"id":13421,"kodProtokola":"PRT.000000018","numberstr":4,"kodDetailing":"YAA.012.003","detailsInterview":"        головокружиння триває як правило не довго протягом хвилини інколи години","idUser":"Admin"}
-{"id":13422,"kodProtokola":"PRT.000000018","numberstr":5,"kodDetailing":"YAA.012.004","detailsInterview":"        повторюються багато разів на день","idUser":"Admin"}
-{"id":13423,"kodProtokola":"PRT.000000018","numberstr":6,"kodDetailing":"YAA.012.005","detailsInterview":"        зниження слуху проявляється поступово по зростаючій","idUser":"Admin"}
-{"id":6412,"kodProtokola":"PRT.000000019","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
-{"id":6413,"kodProtokola":"PRT.000000019","numberstr":1,"kodDetailing":"M.000.008","detailsInterview":"    Погіршення слуху з одного боку","idUser":"Admin"}
-{"id":6414,"kodProtokola":"PRT.000000019","numberstr":2,"kodDetailing":"M.000.008.001","detailsInterview":"        Легке зниження слуху або повна глухота","idUser":"Admin"}
-{"id":6415,"kodProtokola":"PRT.000000019","numberstr":3,"kodDetailing":"YAA.006.001","detailsInterview":"        разом із зниженням слуху","idUser":"Admin"}
-{"id":6416,"kodProtokola":"PRT.000000019","numberstr":4,"kodDetailing":"YAA.006.001","detailsInterview":"        постійний","idUser":"Admin"}
-{"id":6417,"kodProtokola":"PRT.000000019","numberstr":5,"kodDetailing":"YAA.006.001","detailsInterview":"        раніше за зниження слуху","idUser":"Admin"}
-{"id":6418,"kodProtokola":"PRT.000000019","numberstr":6,"kodDetailing":"YAA.006.001","detailsInterview":"        періодичний","idUser":"Admin"}
-{"id":6419,"kodProtokola":"PRT.000000019","numberstr":7,"kodDetailing":"YAA.006.001","detailsInterview":"        інтенсивний","idUser":"Admin"}
-{"id":6420,"kodProtokola":"PRT.000000019","numberstr":8,"kodDetailing":"YAA.006.001","detailsInterview":"        легкий","idUser":"Admin"}
-{"id":18430,"kodProtokola":"PRT.000000020","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
-{"id":18431,"kodProtokola":"PRT.000000020","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)","idUser":"Admin"}
-{"id":18432,"kodProtokola":"PRT.000000020","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль","idUser":"Admin"}
-{"id":18433,"kodProtokola":"PRT.000000020","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху","idUser":"Admin"}
-{"id":18434,"kodProtokola":"PRT.000000020","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя","idUser":"Admin"}
-{"id":18435,"kodProtokola":"PRT.000000020","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення","idUser":"Admin"}
-{"id":18436,"kodProtokola":"PRT.000000020","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення.","idUser":"Admin"}
-{"id":18437,"kodProtokola":"PRT.000000020","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль","idUser":"Admin"}
-{"id":18438,"kodProtokola":"PRT.000000020","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль","idUser":"Admin"}
-{"id":18439,"kodProtokola":"PRT.000000020","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль","idUser":"Admin"}
-{"id":18440,"kodProtokola":"PRT.000000020","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль","idUser":"Admin"}
-{"id":18441,"kodProtokola":"PRT.000000020","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку","idUser":"Admin"}
-{"id":18442,"kodProtokola":"PRT.000000020","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання","idUser":"Admin"}
-{"id":18443,"kodProtokola":"PRT.000000020","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя","idUser":"Admin"}
-{"id":18444,"kodProtokola":"PRT.000000020","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя","idUser":"Admin"}
-{"id":8416,"kodProtokola":"PRT.000000023","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
-{"id":8417,"kodProtokola":"PRT.000000023","numberstr":1,"kodDetailing":"M.000.012","detailsInterview":"    погіршення зору правого ока","idUser":"Admin"}
-{"id":8418,"kodProtokola":"PRT.000000023","numberstr":2,"kodDetailing":"M.000.012.001","detailsInterview":"        слабкість в кінцівказ рук та ніг","idUser":"Admin"}
-{"id":8419,"kodProtokola":"PRT.000000023","numberstr":3,"kodDetailing":"M.000.012.002","detailsInterview":"        при максимальному напружені на праву ногу не хватає сили","idUser":"Admin"}
-{"id":8420,"kodProtokola":"PRT.000000023","numberstr":4,"kodDetailing":"M.000.012.003","detailsInterview":"        триває рік - півтора","idUser":"Admin"}
-{"id":8421,"kodProtokola":"PRT.000000023","numberstr":5,"kodDetailing":"M.000.012.004","detailsInterview":"        при максимальному напружені правої руки також не хватає сили","idUser":"Admin"}
-{"id":8426,"kodProtokola":"PRT.000000024","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль","idUser":"Admin"}
-{"id":8427,"kodProtokola":"PRT.000000024","numberstr":1,"kodDetailing":"A.002.005","detailsInterview":"    Головний біль розширяючий або здавлюючий","idUser":"Admin"}
-{"id":8428,"kodProtokola":"PRT.000000024","numberstr":2,"kodDetailing":"A.002.005.001","detailsInterview":"        Прояв розширяючого головного болю","idUser":"Admin"}
-{"id":8429,"kodProtokola":"PRT.000000024","numberstr":3,"kodDetailing":"A.002.005.002","detailsInterview":"        Прояв нудоти при головному болі у часі","idUser":"Admin"}
-{"id":9422,"kodProtokola":"PRT.000000025","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":9423,"kodProtokola":"PRT.000000025","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":10463,"kodProtokola":"PRT.000000026","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":10464,"kodProtokola":"PRT.000000026","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":10465,"kodProtokola":"PRT.000000026","numberstr":2,"kodDetailing":"YAA.011.001","detailsInterview":"        У Вас були в минулому або зараз є скарги з боку органів травлення (важкість у шлунку, печія, відрижка повітрям)","idUser":"Admin"}
-{"id":10466,"kodProtokola":"PRT.000000026","numberstr":3,"kodDetailing":"YAA.011.001","detailsInterview":"        Ви маєте встановлений діагноз в минулому (Хронічний гастрит або гастродуоденіт, Виразков ахвороба шлунку або 12-палої кишки, Диспепсія)","idUser":"Admin"}
-{"id":10467,"kodProtokola":"PRT.000000026","numberstr":4,"kodDetailing":"YAA.011.001","detailsInterview":"        Кашель виникає після їжі","idUser":"Admin"}
-{"id":10468,"kodProtokola":"PRT.000000026","numberstr":5,"kodDetailing":"YAA.011.001","detailsInterview":"        Кашель виникає під час фізичної активності, при нахилах","idUser":"Admin"}
-{"id":10469,"kodProtokola":"PRT.000000026","numberstr":6,"kodDetailing":"YEE.000.001","detailsInterview":"        без інших симптомів застуди","idUser":"Admin"}
-{"id":10470,"kodProtokola":"PRT.000000026","numberstr":7,"kodDetailing":"YEE.000.001","detailsInterview":"        супроводжується відчуттям кислого або гіркого присмаку в ротовій порожнині","idUser":"Admin"}
-{"id":10471,"kodProtokola":"PRT.000000026","numberstr":8,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння","idUser":"Admin"}
-{"id":10472,"kodProtokola":"PRT.000000026","numberstr":9,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди","idUser":"Admin"}
-{"id":10473,"kodProtokola":"PRT.000000026","numberstr":10,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )","idUser":"Admin"}
-{"id":10474,"kodProtokola":"PRT.000000026","numberstr":11,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  ","idUser":"Admin"}
-{"id":12427,"kodProtokola":"PRT.000000027","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":12428,"kodProtokola":"PRT.000000027","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":12429,"kodProtokola":"PRT.000000027","numberstr":2,"kodDetailing":"YEE.000.012","detailsInterview":"        біль в області серця, задишка, підвищення артеріального тиску.","idUser":"Admin"}
-{"id":12430,"kodProtokola":"PRT.000000027","numberstr":3,"kodDetailing":"YBB.000.014","detailsInterview":"        Зменшення кашлю в положенні сидячі","idUser":"Admin"}
-{"id":12431,"kodProtokola":"PRT.000000027","numberstr":4,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна","idUser":"Admin"}
-{"id":12432,"kodProtokola":"PRT.000000027","numberstr":5,"kodDetailing":"YAA.000.011","detailsInterview":"        більше увечері","idUser":"Admin"}
-{"id":12433,"kodProtokola":"PRT.000000027","numberstr":6,"kodDetailing":"YAA.000.008","detailsInterview":"        переважно вночі","idUser":"Admin"}
-{"id":12434,"kodProtokola":"PRT.000000027","numberstr":7,"kodDetailing":"YEE.000.001","detailsInterview":"        без інших симптомів застуди","idUser":"Admin"}
-{"id":12435,"kodProtokola":"PRT.000000027","numberstr":8,"kodDetailing":"YEE.000.001","detailsInterview":"        супроводжується набряками ніг","idUser":"Admin"}
-{"id":12436,"kodProtokola":"PRT.000000027","numberstr":9,"kodDetailing":"YEE.000.001","detailsInterview":"        супроводжується зміною кольору кінчиків пальців ","idUser":"Admin"}
-{"id":12437,"kodProtokola":"PRT.000000027","numberstr":10,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння","idUser":"Admin"}
-{"id":12447,"kodProtokola":"PRT.000000028","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":12448,"kodProtokola":"PRT.000000028","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":12449,"kodProtokola":"PRT.000000028","numberstr":2,"kodDetailing":"YAA.009.002","detailsInterview":"        біль у горлі","idUser":"Admin"}
-{"id":12450,"kodProtokola":"PRT.000000028","numberstr":3,"kodDetailing":"YAA.009.003","detailsInterview":"        закладеність носа","idUser":"Admin"}
-{"id":12451,"kodProtokola":"PRT.000000028","numberstr":4,"kodDetailing":"YAA.009.004","detailsInterview":"        відчуття стікання слизу в горлі","idUser":"Admin"}
-{"id":12452,"kodProtokola":"PRT.000000028","numberstr":5,"kodDetailing":"YAA.009.001","detailsInterview":"        провокується відчуттям першіння в горлі.","idUser":"Admin"}
-{"id":12453,"kodProtokola":"PRT.000000028","numberstr":6,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди","idUser":"Admin"}
-{"id":12454,"kodProtokola":"PRT.000000028","numberstr":7,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )","idUser":"Admin"}
-{"id":12455,"kodProtokola":"PRT.000000028","numberstr":8,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  ","idUser":"Admin"}
-{"id":12456,"kodProtokola":"PRT.000000028","numberstr":9,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0","idUser":"Admin"}
-{"id":12457,"kodProtokola":"PRT.000000028","numberstr":10,"kodDetailing":"YCC.000.003","detailsInterview":"        зазвичай підвищується до вечора до 37 - 37.5","idUser":"Admin"}
-{"id":12458,"kodProtokola":"PRT.000000028","numberstr":11,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна","idUser":"Admin"}
-{"id":12459,"kodProtokola":"PRT.000000028","numberstr":12,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння","idUser":"Admin"}
-{"id":12491,"kodProtokola":"PRT.000000029","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":12492,"kodProtokola":"PRT.000000029","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":12493,"kodProtokola":"PRT.000000029","numberstr":2,"kodDetailing":"YAA.000.017","detailsInterview":"        симптоми з підвищенням температури тривають більше 3-х днів поспіль","idUser":"Admin"}
-{"id":12494,"kodProtokola":"PRT.000000029","numberstr":3,"kodDetailing":"YCC.000.017","detailsInterview":"        температура погано збивається, швидко вертається назад до високих цифр. ","idUser":"Admin"}
-{"id":12495,"kodProtokola":"PRT.000000029","numberstr":4,"kodDetailing":"YCC.000.016","detailsInterview":"        38 і вище","idUser":"Admin"}
-{"id":12496,"kodProtokola":"PRT.000000029","numberstr":5,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0","idUser":"Admin"}
-{"id":12497,"kodProtokola":"PRT.000000029","numberstr":6,"kodDetailing":"YAA.009.003","detailsInterview":"        закладеність носа","idUser":"Admin"}
-{"id":12498,"kodProtokola":"PRT.000000029","numberstr":7,"kodDetailing":"YAA.009.005","detailsInterview":"        мокротиння в'язке, гнійне (жовте, зелене, сіре) ","idUser":"Admin"}
-{"id":12499,"kodProtokola":"PRT.000000029","numberstr":8,"kodDetailing":"YAA.009.006","detailsInterview":"        кашель має прогресуючий характер ","idUser":"Admin"}
-{"id":12500,"kodProtokola":"PRT.000000029","numberstr":9,"kodDetailing":"YAA.009.007","detailsInterview":"        кашель провокує біль за грудиною, виникнення задишки","idUser":"Admin"}
-{"id":12501,"kodProtokola":"PRT.000000029","numberstr":10,"kodDetailing":"YAA.009.008","detailsInterview":"        загальна слабкість","idUser":"Admin"}
-{"id":12502,"kodProtokola":"PRT.000000029","numberstr":11,"kodDetailing":"YAA.009.009","detailsInterview":"        відчуття нестачі повітря","idUser":"Admin"}
-{"id":12503,"kodProtokola":"PRT.000000029","numberstr":12,"kodDetailing":"YEE.000.010","detailsInterview":"        з відходженням мокротиння","idUser":"Admin"}
-{"id":12512,"kodProtokola":"PRT.000000030","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
-{"id":12513,"kodProtokola":"PRT.000000030","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
-{"id":15420,"kodProtokola":"PRT.000000031","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"+380501586559"}
-{"id":15421,"kodProtokola":"PRT.000000031","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"+380501586559"}
-{"id":15422,"kodProtokola":"PRT.000000031","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель","idUser":"+380501586559"}
-{"id":15423,"kodProtokola":"PRT.000000031","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі","idUser":"+380501586559"}
-{"id":15424,"kodProtokola":"PRT.000000031","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання.","idUser":"+380501586559"}
-{"id":15425,"kodProtokola":"PRT.000000031","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі.","idUser":"+380501586559"}
-{"id":15426,"kodProtokola":"PRT.000000031","numberstr":6,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)","idUser":"+380501586559"}
-{"id":15427,"kodProtokola":"PRT.000000031","numberstr":7,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) ","idUser":"+380501586559"}
-{"id":15428,"kodProtokola":"PRT.000000031","numberstr":8,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами.","idUser":"+380501586559"}
-{"id":15429,"kodProtokola":"PRT.000000031","numberstr":9,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)","idUser":"+380501586559"}
-{"id":15430,"kodProtokola":"PRT.000000031","numberstr":10,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди","idUser":"+380501586559"}
-{"id":15431,"kodProtokola":"PRT.000000031","numberstr":11,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)","idUser":"+380501586559"}
-{"id":15432,"kodProtokola":"PRT.000000031","numberstr":12,"kodDetailing":"YAA.000.002","detailsInterview":"        більше навесні","idUser":"+380501586559"}
-{"id":15433,"kodProtokola":"PRT.000000031","numberstr":13,"kodDetailing":"YAA.000.003","detailsInterview":"        бiльше влітку","idUser":"+380501586559"}
-{"id":15434,"kodProtokola":"PRT.000000031","numberstr":14,"kodDetailing":"YAA.000.004","detailsInterview":"        більше восени","idUser":"+380501586559"}
-{"id":15435,"kodProtokola":"PRT.000000031","numberstr":15,"kodDetailing":"YAA.000.005","detailsInterview":"        більше взимку","idUser":"+380501586559"}
-{"id":15436,"kodProtokola":"PRT.000000031","numberstr":16,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна","idUser":"+380501586559"}
-{"id":15437,"kodProtokola":"PRT.000000031","numberstr":17,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0","idUser":"+380501586559"}
+{"id":4572,"kodProtokola":"PRT.000000015","numberstr":1,"kodDetailing":"A.002","detailsInterview":" Головний біль","idUser":"Admin"}
+{"id":4573,"kodProtokola":"PRT.000000015","numberstr":2,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів без видимої причини або періодичні болі що посилюються","idUser":"Admin"}
+{"id":4574,"kodProtokola":"PRT.000000015","numberstr":3,"kodDetailing":"YAA.001.007","detailsInterview":"        Не вгамовується знеболюючими або діє короткочасно","idUser":"Admin"}
+{"id":4575,"kodProtokola":"PRT.000000015","numberstr":4,"kodDetailing":"YAA.001.001","detailsInterview":"        Може супроводжуватися нудотою чи блюванням","idUser":"Admin"}
+{"id":4576,"kodProtokola":"PRT.000000015","numberstr":5,"kodDetailing":"YAA.001.002","detailsInterview":"        Може бути запаморочення, головокружіння, порушення координації руху","idUser":"Admin"}
+{"id":4577,"kodProtokola":"PRT.000000015","numberstr":6,"kodDetailing":"YAA.001.003","detailsInterview":"        Може з'являтися порушення чутливості, слабкісті в руці в нозі чи в обох кінцівках","idUser":"Admin"}
+{"id":4578,"kodProtokola":"PRT.000000015","numberstr":7,"kodDetailing":"YAA.001.004","detailsInterview":"        Можуть виникати судомні приступи","idUser":"Admin"}
+{"id":4579,"kodProtokola":"PRT.000000015","numberstr":8,"kodDetailing":"YAA.001.005","detailsInterview":"        Може бути порушення зору, слуху,сприйняття смаку та запахів","idUser":"Admin"}
+{"id":4580,"kodProtokola":"PRT.000000015","numberstr":9,"kodDetailing":"YAA.001.006","detailsInterview":"        Може бути порушення функцій органів випорожнення(неутримання сечі, затримки дефікації, закреп)","idUser":"Admin"}
+{"id":4581,"kodProtokola":"PRT.000000016","numberstr":1,"kodDetailing":"A.006","detailsInterview":" Спазми на обличчі","idUser":"Admin"}
+{"id":4582,"kodProtokola":"PRT.000000016","numberstr":2,"kodDetailing":"A.006.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча ","idUser":"Admin"}
+{"id":4583,"kodProtokola":"PRT.000000016","numberstr":3,"kodDetailing":"A.006.001.001","detailsInterview":"        Спастичні мимовільні скорочення повік з одної сторони які з часом поширюються на всю половину обличчя","idUser":"Admin"}
+{"id":4584,"kodProtokola":"PRT.000000016","numberstr":4,"kodDetailing":"A.006.001.002","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційну активність","idUser":"Admin"}
+{"id":4585,"kodProtokola":"PRT.000000016","numberstr":5,"kodDetailing":"A.006.001.003","detailsInterview":"        Порушує зір, з роками провокує випадіння їжі з рота","idUser":"Admin"}
+{"id":405,"kodProtokola":"PRT.000000018","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Біль в обличчі,голові","idUser":"Admin"}
+{"id":406,"kodProtokola":"PRT.000000018","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    приступоподібний, колючий, стриляючий інколи пекучий в одній половині обличчя або її частині, лоб, вилицця, половина губи, нижня щелепа","idUser":"Admin"}
+{"id":407,"kodProtokola":"PRT.000000018","numberstr":2,"kodDetailing":"YAA.021.001","detailsInterview":"        приступи виникають або спонтанно або на торкання, холод, незначні навантаження","idUser":"Admin"}
+{"id":408,"kodProtokola":"PRT.000000018","numberstr":3,"kodDetailing":"YAA.021.002","detailsInterview":"        приступи як правило короткочасні, секунди, хвилини ","idUser":"Admin"}
+{"id":409,"kodProtokola":"PRT.000000018","numberstr":4,"kodDetailing":"YAA.021.003","detailsInterview":"        можуть повторюватися часто створюючи відяуття постійного болю","idUser":"Admin"}
+{"id":410,"kodProtokola":"PRT.000000018","numberstr":5,"kodDetailing":"YAA.021.004","detailsInterview":"        можуть бути періоди зникнення болю","idUser":"Admin"}
+{"id":411,"kodProtokola":"PRT.000000018","numberstr":6,"kodDetailing":"YAA.021.005","detailsInterview":"        поновлення болю як правило довші, сильніші","idUser":"Admin"}
+{"id":412,"kodProtokola":"PRT.000000018","numberstr":7,"kodDetailing":"YAA.021.006","detailsInterview":"        як правило біль тимчасово усувається карбомазеніном або аналогами","idUser":"Admin"}
+{"id":413,"kodProtokola":"PRT.000000019","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":414,"kodProtokola":"PRT.000000019","numberstr":1,"kodDetailing":"M.000.008","detailsInterview":"    Погіршення слуху з одного боку","idUser":"Admin"}
+{"id":415,"kodProtokola":"PRT.000000019","numberstr":2,"kodDetailing":"M.000.008.001","detailsInterview":"        Легке зниження слуху або повна глухота","idUser":"Admin"}
+{"id":416,"kodProtokola":"PRT.000000019","numberstr":3,"kodDetailing":"YAA.006.001","detailsInterview":"        разом із зниженням слуху","idUser":"Admin"}
+{"id":417,"kodProtokola":"PRT.000000019","numberstr":4,"kodDetailing":"YAA.006.001","detailsInterview":"        постійний","idUser":"Admin"}
+{"id":418,"kodProtokola":"PRT.000000019","numberstr":5,"kodDetailing":"YAA.006.001","detailsInterview":"        раніше за зниження слуху","idUser":"Admin"}
+{"id":419,"kodProtokola":"PRT.000000019","numberstr":6,"kodDetailing":"YAA.006.001","detailsInterview":"        періодичний","idUser":"Admin"}
+{"id":420,"kodProtokola":"PRT.000000019","numberstr":7,"kodDetailing":"YAA.006.001","detailsInterview":"        інтенсивний","idUser":"Admin"}
+{"id":421,"kodProtokola":"PRT.000000019","numberstr":8,"kodDetailing":"YAA.006.001","detailsInterview":"        легкий","idUser":"Admin"}
+{"id":2576,"kodProtokola":"PRT.000000020","numberstr":1,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":2577,"kodProtokola":"PRT.000000020","numberstr":2,"kodDetailing":"M.000.009","detailsInterview":"    Головокружіння, погіршення координіції руху при ходьбі (Невринома)","idUser":"Admin"}
+{"id":2578,"kodProtokola":"PRT.000000020","numberstr":3,"kodDetailing":"YAA.012.001","detailsInterview":"        зниження слуху на одне вухо, проявляється поступово по зростаючій","idUser":"Admin"}
+{"id":2579,"kodProtokola":"PRT.000000020","numberstr":4,"kodDetailing":"YAA.012.002","detailsInterview":"        можливий дзвін,шум або повна глухота з однієї сторони","idUser":"Admin"}
+{"id":2580,"kodProtokola":"PRT.000000020","numberstr":5,"kodDetailing":"YAA.012.003","detailsInterview":"        головокружіння супроводжується шумом у вусі часто пульсуючим","idUser":"Admin"}
+{"id":2581,"kodProtokola":"PRT.000000020","numberstr":6,"kodDetailing":"YAA.013.001","detailsInterview":"        з'являється головокружіння при ходьбі або запаморочення","idUser":"Admin"}
+{"id":2582,"kodProtokola":"PRT.000000020","numberstr":7,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху","idUser":"Admin"}
+{"id":2583,"kodProtokola":"PRT.000000020","numberstr":8,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя","idUser":"Admin"}
+{"id":2584,"kodProtokola":"PRT.000000020","numberstr":9,"kodDetailing":"YAA.013.004","detailsInterview":"        погіршення посилюється при швидких рухах або при зміні положення тіла","idUser":"Admin"}
+{"id":2585,"kodProtokola":"PRT.000000020","numberstr":10,"kodDetailing":"YAA.013.005","detailsInterview":"        з часом проявляється  головний  біль","idUser":"Admin"}
+{"id":2586,"kodProtokola":"PRT.000000020","numberstr":11,"kodDetailing":"YAA.013.006","detailsInterview":"        головний біль може супроводжуватися нудотою, блювотою.","idUser":"Admin"}
+{"id":2587,"kodProtokola":"PRT.000000020","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя  або болі з одного боку","idUser":"Admin"}
+{"id":2588,"kodProtokola":"PRT.000000020","numberstr":13,"kodDetailing":"YAA.002.001","detailsInterview":"        може проявлятися порушення ковтання","idUser":"Admin"}
+{"id":2589,"kodProtokola":"PRT.000000020","numberstr":14,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя з однієї сторони","idUser":"Admin"}
+{"id":2590,"kodProtokola":"PRT.000000020","numberstr":15,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя","idUser":"Admin"}
+{"id":5579,"kodProtokola":"PRT.000000023","numberstr":1,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":5580,"kodProtokola":"PRT.000000023","numberstr":2,"kodDetailing":"M.000.012","detailsInterview":"    Погіршення зору і можливе двоїння в очах","idUser":"Admin"}
+{"id":5581,"kodProtokola":"PRT.000000023","numberstr":3,"kodDetailing":"M.000.012.001","detailsInterview":"        порушення чутливості в руці в нозі на тулубі","idUser":"Admin"}
+{"id":5582,"kodProtokola":"PRT.000000023","numberstr":4,"kodDetailing":"M.000.012.002","detailsInterview":"        може бути слабкість в руках та ногах ","idUser":"Admin"}
+{"id":5583,"kodProtokola":"PRT.000000023","numberstr":5,"kodDetailing":"M.000.012.003","detailsInterview":"        може бути порушення ковтання, поперхування, відчуття кома в горлі","idUser":"Admin"}
+{"id":5584,"kodProtokola":"PRT.000000023","numberstr":6,"kodDetailing":"M.000.012.004","detailsInterview":"        може бути утруднення дихання, перебої в роботі серця","idUser":"Admin"}
+{"id":5585,"kodProtokola":"PRT.000000023","numberstr":7,"kodDetailing":"M.000.012.005","detailsInterview":"        може бути перекос обличчя, порушення слуху з однієї сторони","idUser":"Admin"}
+{"id":4598,"kodProtokola":"PRT.000000024","numberstr":1,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":4599,"kodProtokola":"PRT.000000024","numberstr":2,"kodDetailing":"M.000.013","detailsInterview":"    Приступи головокружіння можливо із шумом у вусі(вестибулопатія)","idUser":"Admin"}
+{"id":4600,"kodProtokola":"PRT.000000024","numberstr":3,"kodDetailing":"YAA.022.001","detailsInterview":"        головокружіння  часто супроводжується шумом у вусі пульсуючим або закладеністю","idUser":"Admin"}
+{"id":4601,"kodProtokola":"PRT.000000024","numberstr":4,"kodDetailing":"YAA.022.002","detailsInterview":"        приступи головокружіння виникають раптово інколи аж до падіння","idUser":"Admin"}
+{"id":4602,"kodProtokola":"PRT.000000024","numberstr":5,"kodDetailing":"YAA.022.005","detailsInterview":"        приступи головокружіння можуть супроводжуватися нудотою, блювотою","idUser":"Admin"}
+{"id":4603,"kodProtokola":"PRT.000000024","numberstr":6,"kodDetailing":"YAA.022.007","detailsInterview":"        періоди загострення і спонтанного зникнення приступів типово на початку захворювання","idUser":"Admin"}
+{"id":4604,"kodProtokola":"PRT.000000024","numberstr":7,"kodDetailing":"YAA.022.008","detailsInterview":"        приступи головокружіння як правило не усуваються стандартними препаратами (бета-серк, вистібо та ін.)","idUser":"Admin"}
+{"id":4605,"kodProtokola":"PRT.000000024","numberstr":8,"kodDetailing":"YAA.022.009","detailsInterview":"        може турбувати головний біль","idUser":"Admin"}
+{"id":3562,"kodProtokola":"PRT.000000025","numberstr":1,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":3563,"kodProtokola":"PRT.000000025","numberstr":2,"kodDetailing":"B.000.018","detailsInterview":"    кашель без мокротиння (сухий, нападоподібний)","idUser":"Admin"}
+{"id":3564,"kodProtokola":"PRT.000000025","numberstr":3,"kodDetailing":"YAA.026.001","detailsInterview":"        Біль у горлі","idUser":"Admin"}
+{"id":3565,"kodProtokola":"PRT.000000025","numberstr":4,"kodDetailing":"YAA.026.002","detailsInterview":"        Закладеність носа","idUser":"Admin"}
+{"id":3566,"kodProtokola":"PRT.000000025","numberstr":5,"kodDetailing":"YAA.026.003","detailsInterview":"        Відчуття \"стікання\" слизу в горлі","idUser":"Admin"}
+{"id":3567,"kodProtokola":"PRT.000000025","numberstr":6,"kodDetailing":"YAA.026.004","detailsInterview":"        Кашель (нападоподібний, сухий, надривний, що провокується \"лоскотом\" у горлі)","idUser":"Admin"}
+{"id":3568,"kodProtokola":"PRT.000000025","numberstr":7,"kodDetailing":"YAA.026.005","detailsInterview":"        Підвищення температури тіла","idUser":"Admin"}
+{"id":3569,"kodProtokola":"PRT.000000025","numberstr":8,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  ","idUser":"Admin"}
+{"id":3570,"kodProtokola":"PRT.000000025","numberstr":9,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди","idUser":"Admin"}
+{"id":3571,"kodProtokola":"PRT.000000025","numberstr":10,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )","idUser":"Admin"}
+{"id":452,"kodProtokola":"PRT.000000026","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":453,"kodProtokola":"PRT.000000026","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
+{"id":454,"kodProtokola":"PRT.000000026","numberstr":2,"kodDetailing":"YAA.011.001","detailsInterview":"        У Вас були в минулому або зараз є скарги з боку органів травлення (важкість у шлунку, печія, відрижка повітрям)","idUser":"Admin"}
+{"id":455,"kodProtokola":"PRT.000000026","numberstr":3,"kodDetailing":"YAA.011.001","detailsInterview":"        Ви маєте встановлений діагноз в минулому (Хронічний гастрит або гастродуоденіт, Виразков ахвороба шлунку або 12-палої кишки, Диспепсія)","idUser":"Admin"}
+{"id":456,"kodProtokola":"PRT.000000026","numberstr":4,"kodDetailing":"YAA.011.001","detailsInterview":"        Кашель виникає після їжі","idUser":"Admin"}
+{"id":457,"kodProtokola":"PRT.000000026","numberstr":5,"kodDetailing":"YAA.011.001","detailsInterview":"        Кашель виникає під час фізичної активності, при нахилах","idUser":"Admin"}
+{"id":458,"kodProtokola":"PRT.000000026","numberstr":6,"kodDetailing":"YEE.000.001","detailsInterview":"        без інших симптомів застуди","idUser":"Admin"}
+{"id":459,"kodProtokola":"PRT.000000026","numberstr":7,"kodDetailing":"YEE.000.001","detailsInterview":"        супроводжується відчуттям кислого або гіркого присмаку в ротовій порожнині","idUser":"Admin"}
+{"id":460,"kodProtokola":"PRT.000000026","numberstr":8,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння","idUser":"Admin"}
+{"id":461,"kodProtokola":"PRT.000000026","numberstr":9,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди","idUser":"Admin"}
+{"id":462,"kodProtokola":"PRT.000000026","numberstr":10,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )","idUser":"Admin"}
+{"id":463,"kodProtokola":"PRT.000000026","numberstr":11,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  ","idUser":"Admin"}
+{"id":464,"kodProtokola":"PRT.000000027","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":465,"kodProtokola":"PRT.000000027","numberstr":1,"kodDetailing":"B.000.014","detailsInterview":"    кашель без мокротиння без температури","idUser":"Admin"}
+{"id":466,"kodProtokola":"PRT.000000027","numberstr":2,"kodDetailing":"YAA.019.001","detailsInterview":"        Без симптомів застуди","idUser":"Admin"}
+{"id":467,"kodProtokola":"PRT.000000027","numberstr":3,"kodDetailing":"YAA.019.002","detailsInterview":"        Кашель супроводжується набряками ніг","idUser":"Admin"}
+{"id":468,"kodProtokola":"PRT.000000027","numberstr":4,"kodDetailing":"YAA.019.003","detailsInterview":"        Кашель супроводжується болем в області серця, задишкою","idUser":"Admin"}
+{"id":469,"kodProtokola":"PRT.000000027","numberstr":5,"kodDetailing":"YAA.019.004","detailsInterview":"        Стан супроводжується зміною кольору кінчиків пальців (синюшність) або обличчя ","idUser":"Admin"}
+{"id":470,"kodProtokola":"PRT.000000027","numberstr":6,"kodDetailing":"YAA.019.005","detailsInterview":"        Стан супроводжується підвищенням артеріального тиску","idUser":"Admin"}
+{"id":471,"kodProtokola":"PRT.000000027","numberstr":7,"kodDetailing":"YAA.019.006","detailsInterview":"        Ви помічаєте зменшення кашлю в положенні сидячі","idUser":"Admin"}
+{"id":472,"kodProtokola":"PRT.000000027","numberstr":8,"kodDetailing":"YAA.019.007","detailsInterview":"        Кашель виникає переважно вночі або у вечірній час","idUser":"Admin"}
+{"id":473,"kodProtokola":"PRT.000000028","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":474,"kodProtokola":"PRT.000000028","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"Admin"}
+{"id":475,"kodProtokola":"PRT.000000028","numberstr":2,"kodDetailing":"YAA.009.002","detailsInterview":"        біль у горлі","idUser":"Admin"}
+{"id":476,"kodProtokola":"PRT.000000028","numberstr":3,"kodDetailing":"YAA.009.003","detailsInterview":"        закладеність носа","idUser":"Admin"}
+{"id":477,"kodProtokola":"PRT.000000028","numberstr":4,"kodDetailing":"YAA.009.004","detailsInterview":"        відчуття стікання слизу в горлі","idUser":"Admin"}
+{"id":478,"kodProtokola":"PRT.000000028","numberstr":5,"kodDetailing":"YAA.009.001","detailsInterview":"        провокується відчуттям першіння в горлі.","idUser":"Admin"}
+{"id":479,"kodProtokola":"PRT.000000028","numberstr":6,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди","idUser":"Admin"}
+{"id":480,"kodProtokola":"PRT.000000028","numberstr":7,"kodDetailing":"YAA.010.001","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )","idUser":"Admin"}
+{"id":481,"kodProtokola":"PRT.000000028","numberstr":8,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  ","idUser":"Admin"}
+{"id":482,"kodProtokola":"PRT.000000028","numberstr":9,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0","idUser":"Admin"}
+{"id":483,"kodProtokola":"PRT.000000028","numberstr":10,"kodDetailing":"YCC.000.003","detailsInterview":"        зазвичай підвищується до вечора до 37 - 37.5","idUser":"Admin"}
+{"id":484,"kodProtokola":"PRT.000000028","numberstr":11,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна","idUser":"Admin"}
+{"id":485,"kodProtokola":"PRT.000000028","numberstr":12,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння","idUser":"Admin"}
+{"id":486,"kodProtokola":"PRT.000000029","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":487,"kodProtokola":"PRT.000000029","numberstr":1,"kodDetailing":"B.000.015","detailsInterview":"    кашель з мокротинням","idUser":"Admin"}
+{"id":488,"kodProtokola":"PRT.000000029","numberstr":2,"kodDetailing":"YAA.009.001","detailsInterview":"        біль у горлі, закладеність носа, відчуття стікання слизу в горлі","idUser":"Admin"}
+{"id":489,"kodProtokola":"PRT.000000029","numberstr":3,"kodDetailing":"YAA.009.001","detailsInterview":"        кашель нападоподібний, надривний, сухий, \"гавкаючий\". ","idUser":"Admin"}
+{"id":490,"kodProtokola":"PRT.000000029","numberstr":4,"kodDetailing":"YAA.009.001","detailsInterview":"        провокується відчуттям першіння в горлі.","idUser":"Admin"}
+{"id":491,"kodProtokola":"PRT.000000029","numberstr":5,"kodDetailing":"YAA.009.002","detailsInterview":"        біль у горлі","idUser":"Admin"}
+{"id":492,"kodProtokola":"PRT.000000029","numberstr":6,"kodDetailing":"YAA.009.003","detailsInterview":"        закладеність носа","idUser":"Admin"}
+{"id":493,"kodProtokola":"PRT.000000029","numberstr":7,"kodDetailing":"YAA.009.004","detailsInterview":"        відчуття стікання слизу в горлі","idUser":"Admin"}
+{"id":494,"kodProtokola":"PRT.000000029","numberstr":8,"kodDetailing":"YAA.009.005","detailsInterview":"        мокротиння в'язке, гнійне (жовте, зелене, сіре) ","idUser":"Admin"}
+{"id":495,"kodProtokola":"PRT.000000029","numberstr":9,"kodDetailing":"YAA.009.006","detailsInterview":"        кашель має прогресуючий характер ","idUser":"Admin"}
+{"id":496,"kodProtokola":"PRT.000000029","numberstr":10,"kodDetailing":"YAA.009.007","detailsInterview":"        кашель провокує біль за грудиною, виникнення задишки","idUser":"Admin"}
+{"id":497,"kodProtokola":"PRT.000000029","numberstr":11,"kodDetailing":"YAA.009.008","detailsInterview":"        загальна слабкість","idUser":"Admin"}
+{"id":498,"kodProtokola":"PRT.000000029","numberstr":12,"kodDetailing":"YAA.009.009","detailsInterview":"        відчуття нестачі повітря","idUser":"Admin"}
+{"id":499,"kodProtokola":"PRT.000000029","numberstr":13,"kodDetailing":"YCC.000.017","detailsInterview":"        температура погано збивається, швидко вертається назад до високих цифр. ","idUser":"Admin"}
+{"id":500,"kodProtokola":"PRT.000000029","numberstr":14,"kodDetailing":"YCC.000.016","detailsInterview":"        38 і вище","idUser":"Admin"}
+{"id":501,"kodProtokola":"PRT.000000029","numberstr":15,"kodDetailing":"YCC.000.005","detailsInterview":"        при застуді зазвичай підвищується до 38","idUser":"Admin"}
+{"id":504,"kodProtokola":"PRT.000000031","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"+380501586559"}
+{"id":505,"kodProtokola":"PRT.000000031","numberstr":1,"kodDetailing":"B.000.002","detailsInterview":"    кашель","idUser":"+380501586559"}
+{"id":506,"kodProtokola":"PRT.000000031","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель","idUser":"+380501586559"}
+{"id":507,"kodProtokola":"PRT.000000031","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі","idUser":"+380501586559"}
+{"id":508,"kodProtokola":"PRT.000000031","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання.","idUser":"+380501586559"}
+{"id":509,"kodProtokola":"PRT.000000031","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі.","idUser":"+380501586559"}
+{"id":510,"kodProtokola":"PRT.000000031","numberstr":6,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)","idUser":"+380501586559"}
+{"id":511,"kodProtokola":"PRT.000000031","numberstr":7,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) ","idUser":"+380501586559"}
+{"id":512,"kodProtokola":"PRT.000000031","numberstr":8,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами.","idUser":"+380501586559"}
+{"id":513,"kodProtokola":"PRT.000000031","numberstr":9,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)","idUser":"+380501586559"}
+{"id":514,"kodProtokola":"PRT.000000031","numberstr":10,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди","idUser":"+380501586559"}
+{"id":515,"kodProtokola":"PRT.000000031","numberstr":11,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)","idUser":"+380501586559"}
+{"id":516,"kodProtokola":"PRT.000000031","numberstr":12,"kodDetailing":"YAA.000.002","detailsInterview":"        більше навесні","idUser":"+380501586559"}
+{"id":517,"kodProtokola":"PRT.000000031","numberstr":13,"kodDetailing":"YAA.000.003","detailsInterview":"        бiльше влітку","idUser":"+380501586559"}
+{"id":518,"kodProtokola":"PRT.000000031","numberstr":14,"kodDetailing":"YAA.000.004","detailsInterview":"        більше восени","idUser":"+380501586559"}
+{"id":519,"kodProtokola":"PRT.000000031","numberstr":15,"kodDetailing":"YAA.000.005","detailsInterview":"        більше взимку","idUser":"+380501586559"}
+{"id":520,"kodProtokola":"PRT.000000031","numberstr":16,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна","idUser":"+380501586559"}
+{"id":521,"kodProtokola":"PRT.000000031","numberstr":17,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0","idUser":"+380501586559"}
+{"id":522,"kodProtokola":"PRT.000000032","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":523,"kodProtokola":"PRT.000000032","numberstr":1,"kodDetailing":"B.000.014","detailsInterview":"    кашель без мокротиння без температури","idUser":"Admin"}
+{"id":524,"kodProtokola":"PRT.000000032","numberstr":2,"kodDetailing":"YAA.016.005","detailsInterview":"        Без інших ознак застуди","idUser":"Admin"}
+{"id":525,"kodProtokola":"PRT.000000032","numberstr":3,"kodDetailing":"YAA.016.001","detailsInterview":"        Кашель виникає або посилюється під час нервового  напруження (на робочих зібраннях, під час відповіді на заняттях, знаходженні в новому колективі тощо)","idUser":"Admin"}
+{"id":526,"kodProtokola":"PRT.000000032","numberstr":4,"kodDetailing":"YAA.016.002","detailsInterview":"        Кашель зникає якщо відволіктись на бесіду, перегляд фільму або гру","idUser":"Admin"}
+{"id":527,"kodProtokola":"PRT.000000032","numberstr":5,"kodDetailing":"YAA.016.003","detailsInterview":"        Кашель виникає частіше «на людях», не виникає коли людина знаходиться сама","idUser":"Admin"}
+{"id":528,"kodProtokola":"PRT.000000032","numberstr":6,"kodDetailing":"YAA.016.004","detailsInterview":"        Кашель зникає при концентрації уваги та/або під час сну","idUser":"Admin"}
+{"id":1572,"kodProtokola":"PRT.000000033","numberstr":1,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":1573,"kodProtokola":"PRT.000000033","numberstr":2,"kodDetailing":"B.000.019","detailsInterview":"    кашель без мокротиння (раптовий)","idUser":"Admin"}
+{"id":1574,"kodProtokola":"PRT.000000033","numberstr":3,"kodDetailing":"YAA.017.001","detailsInterview":"        Кашель раптово виник під час їжі, розмови або сміху, гри з маленькими деталями іграшок, конструктора тощо","idUser":"Admin"}
+{"id":1575,"kodProtokola":"PRT.000000033","numberstr":4,"kodDetailing":"YAA.017.002","detailsInterview":"        Кашель з’явився після вдавлення їжею","idUser":"Admin"}
+{"id":1576,"kodProtokola":"PRT.000000033","numberstr":5,"kodDetailing":"YAA.017.003","detailsInterview":"        Кашель виник після контакту/гри з дрібними предметами","idUser":"Admin"}
+{"id":4592,"kodProtokola":"PRT.000000034","numberstr":1,"kodDetailing":"A.002","detailsInterview":" Головний біль","idUser":"Admin"}
+{"id":4593,"kodProtokola":"PRT.000000034","numberstr":2,"kodDetailing":"A.002.007","detailsInterview":"    Найчастіше проявляється як здавлюючий в потилиці, скронях","idUser":"Admin"}
+{"id":4594,"kodProtokola":"PRT.000000034","numberstr":3,"kodDetailing":"YAA.018.001","detailsInterview":"        біль ніби здавлює потилицю скроні, посилюється принавантаженях, нахилах","idUser":"Admin"}
+{"id":4595,"kodProtokola":"PRT.000000034","numberstr":4,"kodDetailing":"YAA.018.002","detailsInterview":"        може супроводжуватися відчуттям кома в горлі, нехваткою повітря","idUser":"Admin"}
+{"id":4596,"kodProtokola":"PRT.000000034","numberstr":5,"kodDetailing":"YAA.018.003","detailsInterview":"        може виникати відчуття затерпання або мурашок в пальцях рук","idUser":"Admin"}
+{"id":4597,"kodProtokola":"PRT.000000034","numberstr":6,"kodDetailing":"YAA.018.004","detailsInterview":"        може виникати порушення температурної чутливості в руках (шкіра не відчуває гарячі поверхні), провокує опіки","idUser":"Admin"}
+{"id":540,"kodProtokola":"PRT.000000035","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":541,"kodProtokola":"PRT.000000035","numberstr":1,"kodDetailing":"B.000.016","detailsInterview":"    тривалий кашель з моркотинням та задишкою","idUser":"Admin"}
+{"id":542,"kodProtokola":"PRT.000000035","numberstr":2,"kodDetailing":"YAA.023.001","detailsInterview":"        Задишка, що прогресує впродовж тривалого часу, посилюється під час фізичного навантаження.","idUser":"Admin"}
+{"id":543,"kodProtokola":"PRT.000000035","numberstr":3,"kodDetailing":"YAA.023.002","detailsInterview":"        Тривалий, щоденний кашель  з відходженням мокротиння (особливо зранку).","idUser":"Admin"}
+{"id":544,"kodProtokola":"PRT.000000035","numberstr":4,"kodDetailing":"YAA.023.003","detailsInterview":"        Кашель супроводжується хриплячи ми або свистячими звуками.","idUser":"Admin"}
+{"id":545,"kodProtokola":"PRT.000000035","numberstr":5,"kodDetailing":"YAA.023.004","detailsInterview":"        Кашель супроводжують інші прояви (швидка втомлюваність, втрата апетиту, ваги, синюшність шкіри (кінцівки, обличчя)).","idUser":"Admin"}
+{"id":546,"kodProtokola":"PRT.000000035","numberstr":6,"kodDetailing":"YAA.023.005","detailsInterview":"        Протягом останнього часу Ви стали частіше хворіти на застудні захворювання, бронхіти.","idUser":"Admin"}
+{"id":547,"kodProtokola":"PRT.000000035","numberstr":7,"kodDetailing":"YAA.023.006","detailsInterview":"        Ви маєте таку звичку як тютюнопаління","idUser":"Admin"}
+{"id":548,"kodProtokola":"PRT.000000036","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло","idUser":"Admin"}
+{"id":549,"kodProtokola":"PRT.000000036","numberstr":1,"kodDetailing":"B.000.017","detailsInterview":"    тривалий кашель з моркотинням та невисокою температурою","idUser":"Admin"}
+{"id":550,"kodProtokola":"PRT.000000036","numberstr":2,"kodDetailing":"YAA.024.001","detailsInterview":"        Кашель  більше 2-х тижнів, супроводжується болем у грудній клітині","idUser":"Admin"}
+{"id":551,"kodProtokola":"PRT.000000036","numberstr":3,"kodDetailing":"YAA.024.002","detailsInterview":"        Ви помічаєте підвищену пітливість, особливо вночі","idUser":"Admin"}
+{"id":552,"kodProtokola":"PRT.000000036","numberstr":4,"kodDetailing":"YAA.024.003","detailsInterview":"        У мокроті наявні прожилки або сліди крові при кашлі","idUser":"Admin"}
+{"id":553,"kodProtokola":"PRT.000000036","numberstr":5,"kodDetailing":"YAA.024.004","detailsInterview":"        Ви помічаєте підвищену втомлюваність, слабкість, зниження апетиту, втрату ваги","idUser":"Admin"}
+{"id":554,"kodProtokola":"PRT.000000036","numberstr":6,"kodDetailing":"YAA.024.005","detailsInterview":"        Присутня задишка при незначному фізичному навантаженні","idUser":"Admin"}
+{"id":555,"kodProtokola":"PRT.000000036","numberstr":7,"kodDetailing":"YAA.024.006","detailsInterview":"        У Вас є постійне незначне підвищення температури тіла до 37 – 37,2°С","idUser":"Admin"}
+{"id":556,"kodProtokola":"PRT.000000036","numberstr":8,"kodDetailing":"YAA.025.001","detailsInterview":"        Ви хворіли на туберкульоз в минулому або мали контакт із особою із захворюванням на туберкульоз протягом останніх 2 років?","idUser":"Admin"}
+{"id":557,"kodProtokola":"PRT.000000036","numberstr":9,"kodDetailing":"YAA.025.002","detailsInterview":"        У Вас є хронічне захворювання, що призводить до зниження імунітету (ВІЛ-інфекція, цукровий діабет, онкологічні захворювання тощо)?","idUser":"Admin"}
+{"id":558,"kodProtokola":"PRT.000000036","numberstr":10,"kodDetailing":"YAA.025.003","detailsInterview":"        Ви отримуєте лікування преднізолоном, або іншими препаратами, які впливають на імунітет (зазвичай, застосовуються при лікуванні злоякісних новоутворень, бронхіальної астми, ревматоїдного артриту тощо)?","idUser":"Admin"}
+{"id":559,"kodProtokola":"PRT.000000036","numberstr":11,"kodDetailing":"YAA.025.004","detailsInterview":"        Вам проводилася трансплантація органів (кісткового мозку)?","idUser":"Admin"}
+{"id":560,"kodProtokola":"PRT.000000036","numberstr":12,"kodDetailing":"YAA.025.005","detailsInterview":"        Ви перебували в місцях позбавлення волі впродовж останніх 2-х років","idUser":"Admin"}
+{"id":561,"kodProtokola":"PRT.000000036","numberstr":13,"kodDetailing":"YAA.025.006","detailsInterview":"        Хоча б одне з нижчепереліченого характерне для Вашого життя: низький рівень матеріального забезпечення сім’ї, міграція, вживання алкоголю та наркотичних речовин, відсутність постійного місця проживання","idUser":"Admin"}
+{"id":3580,"kodProtokola":"PRT.000000037","numberstr":1,"kodDetailing":"D.000","detailsInterview":" бронхи та легені","idUser":"Admin"}
+{"id":3581,"kodProtokola":"PRT.000000037","numberstr":2,"kodDetailing":"D.000.002","detailsInterview":"    труднощі з диханням","idUser":"Admin"}
+{"id":3582,"kodProtokola":"PRT.000000037","numberstr":3,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)","idUser":"Admin"}
+{"id":3583,"kodProtokola":"PRT.000000037","numberstr":4,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) ","idUser":"Admin"}
+{"id":3584,"kodProtokola":"PRT.000000037","numberstr":5,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами.","idUser":"Admin"}
+{"id":3585,"kodProtokola":"PRT.000000037","numberstr":6,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)","idUser":"Admin"}
+{"id":3586,"kodProtokola":"PRT.000000037","numberstr":7,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди","idUser":"Admin"}
+{"id":3587,"kodProtokola":"PRT.000000037","numberstr":8,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)","idUser":"Admin"}
+{"id":3588,"kodProtokola":"PRT.000000037","numberstr":9,"kodDetailing":"YAA.015.007","detailsInterview":"        Напади ускладненого дихання, кашлю переважно виникають у нічний або ранній ранковий час ","idUser":"Admin"}
+{"id":3589,"kodProtokola":"PRT.000000037","numberstr":10,"kodDetailing":"YAA.015.008","detailsInterview":"        Напади ускалдненого дихання, кашлю провокуються під час фізичного навантаження, швидкої ходи","idUser":"Admin"}
+{"id":3590,"kodProtokola":"PRT.000000037","numberstr":11,"kodDetailing":"YAA.015.009","detailsInterview":"        Напади ускалдненого дихання, кашлю посилюються на вулиці (при вдиханні холодного повітря, морозній погоді)","idUser":"Admin"}
+{"id":3591,"kodProtokola":"PRT.000000037","numberstr":12,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель","idUser":"Admin"}
+{"id":3592,"kodProtokola":"PRT.000000037","numberstr":13,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі","idUser":"Admin"}
+{"id":3593,"kodProtokola":"PRT.000000037","numberstr":14,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання.","idUser":"Admin"}
+{"id":3594,"kodProtokola":"PRT.000000037","numberstr":15,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі.","idUser":"Admin"}
+{"id":3595,"kodProtokola":"PRT.000000037","numberstr":16,"kodDetailing":"YAA.014.005","detailsInterview":"        Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)","idUser":"Admin"}
+{"id":3596,"kodProtokola":"PRT.000000037","numberstr":17,"kodDetailing":"YAA.014.006","detailsInterview":"        Кашель супроводжується відчуттям \"ускладненого дихання\", стисканням у грудях, затруденим видихом, свистами  ","idUser":"Admin"}
+{"id":5586,"kodProtokola":"PRT.000000038","numberstr":1,"kodDetailing":"M.000","detailsInterview":" Голова","idUser":"Admin"}
+{"id":5587,"kodProtokola":"PRT.000000038","numberstr":2,"kodDetailing":"M.000.014","detailsInterview":"    Порушення ходи, шаркаюча хода  найчастіше стосується дюдей похилого віку","idUser":"Admin"}
+{"id":5588,"kodProtokola":"PRT.000000038","numberstr":3,"kodDetailing":"M.000.014.001","detailsInterview":"        порушення короткочасної памяті","idUser":"Admin"}
+{"id":5589,"kodProtokola":"PRT.000000038","numberstr":4,"kodDetailing":"M.000.014.002","detailsInterview":"        труднощі з утриманням сечі або втрата контролю","idUser":"Admin"}
+{"id":6572,"kodProtokola":"PRT.000000039","numberstr":1,"kodDetailing":"A.002","detailsInterview":" Головний біль","idUser":"Admin"}
+{"id":6573,"kodProtokola":"PRT.000000039","numberstr":2,"kodDetailing":"A.002.008","detailsInterview":"    Проявляється часто розшируючого характеру, прогресивно зростаючи, тривалий","idUser":"Admin"}
+{"id":6574,"kodProtokola":"PRT.000000039","numberstr":3,"kodDetailing":"A.002.008.001","detailsInterview":"        Головні болі іноді призводять до блювоти яка їх полегшує","idUser":"Admin"}
+{"id":6575,"kodProtokola":"PRT.000000039","numberstr":4,"kodDetailing":"A.002.008.002","detailsInterview":"        Призводить до погіршення зору аж до сліпоти при ненаданні своєчасної допомоги","idUser":"Admin"}
+{"id":6576,"kodProtokola":"PRT.000000039","numberstr":5,"kodDetailing":"A.002.008.003","detailsInterview":"        Може призвести до запаморочення, порушення свідомості","idUser":"Admin"}
+{"id":6577,"kodProtokola":"PRT.000000039","numberstr":6,"kodDetailing":"A.002.008.004","detailsInterview":"        Уразі тривалості головної болі 10-14 днів або зростаючої зробити КТ або МРТ","idUser":"Admin"}

@@ -19,9 +19,43 @@ namespace BackSeam
     /// </summary>
     public partial class WaitWindow : Window
     {
-        public WaitWindow()
+ 
+
+        public static int AutoCloseTick = 0, SetTimeClose = 0;
+        System.Windows.Threading.DispatcherTimer CloseAuto = new System.Windows.Threading.DispatcherTimer();
+    public WaitWindow(string TextWindows = null, int AutoClose = 0, int TimeClose = 0)
         {
             InitializeComponent();
+
+            if (AutoClose == 1 || AutoClose == 2)
+            {
+                // Автозакрытие окна
+                SetTimeClose = TimeClose;
+                AutoCloseTick = AutoClose;
+                CloseAuto.Tick += CloseAutoTick;
+                CloseAuto.Interval = TimeSpan.FromSeconds(1);
+                CloseAuto.Start();
+            }
+ 
+        }
+
+        private void CloseAutoTick(object sender, EventArgs e)
+        {
+            --SetTimeClose;
+            if (SetTimeClose < 0)
+            {
+                CloseAuto.Stop();
+                if (AutoCloseTick == 2)
+                {
+                    this.Close();
+                }
+                if (AutoCloseTick == 1)
+                {
+                    this.Close();
+                }
+
+            }
+
         }
     }
 }

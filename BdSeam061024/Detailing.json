@@ -1,6 +1,7 @@
-{"id":14320,"keyFeature":"","kodDetailing":"","keyGrDetailing":"YAA.002","nameDetailing":"","idUser":""}
+{"id":359,"keyFeature":"","kodDetailing":"","keyGrDetailing":"YAA.014","nameDetailing":"","idUser":""}
 {"id":157,"keyFeature":"A.000.001","kodDetailing":"A.000.001.001","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
 {"id":158,"keyFeature":"A.000.001","kodDetailing":"A.000.001.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":4359,"keyFeature":"A.000.001","kodDetailing":"A.000.001.004","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
 {"id":159,"keyFeature":"A.000.002","kodDetailing":"A.000.002.001","keyGrDetailing":null,"nameDetailing":"епізодичне","idUser":"Admin"}
 {"id":160,"keyFeature":"A.000.002","kodDetailing":"A.000.002.002","keyGrDetailing":null,"nameDetailing":"нападоподібне","idUser":"Admin"}
 {"id":161,"keyFeature":"A.000.002","kodDetailing":"A.000.002.003","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
@@ -43,146 +44,170 @@
 {"id":198,"keyFeature":"A.000.013","kodDetailing":"A.000.013.009","keyGrDetailing":"","nameDetailing":"свербіння в вухах","idUser":"Admin"}
 {"id":199,"keyFeature":"A.002.002","kodDetailing":"A.002.002.002","keyGrDetailing":"YAA.001","nameDetailing":"Зовнішні прояви приголовному болі","idUser":"Admin"}
 {"id":200,"keyFeature":"A.002.003","kodDetailing":"A.002.003.002","keyGrDetailing":"YAA.001","nameDetailing":"Зовнішні прояви приголовному болі","idUser":"Admin"}
-{"id":3320,"keyFeature":"A.002.005","kodDetailing":"A.002.005.001","keyGrDetailing":"YAA.004","nameDetailing":"Прояв розширяючого головного болю","idUser":"Admin"}
-{"id":3321,"keyFeature":"A.002.005","kodDetailing":"A.002.005.002","keyGrDetailing":"YAA.005","nameDetailing":"Прояв нудоти при головному болі у часі","idUser":"Admin"}
-{"id":201,"keyFeature":"A.007.001","kodDetailing":"A.007.001.001","keyGrDetailing":"","nameDetailing":"Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча","idUser":""}
-{"id":202,"keyFeature":"A.007.001","kodDetailing":"A.007.001.002","keyGrDetailing":"","nameDetailing":"Порушує зір, провокує випадіння їжі з рота","idUser":""}
-{"id":319,"keyFeature":"A.007.001","kodDetailing":"A.007.001.003","keyGrDetailing":"","nameDetailing":"Виникають спонтанно на найменьшу фізичну або емоційнук активність","idUser":"Admin"}
-{"id":13320,"keyFeature":"A.007.001","kodDetailing":"A.007.001.004","keyGrDetailing":"","nameDetailing":"Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються","idUser":""}
-{"id":1320,"keyFeature":"A.008.001","kodDetailing":"A.008.001.001","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви опущений кут рота","idUser":"Admin"}
-{"id":203,"keyFeature":"B.000.001","kodDetailing":"B.000.001.001","keyGrDetailing":"YFF.000","nameDetailing":"Деталізація біль у горлі","idUser":"Admin"}
-{"id":204,"keyFeature":"B.000.002","kodDetailing":"B.000.002.001","keyGrDetailing":"YEE.000","nameDetailing":"Деталізація кашель","idUser":"Admin"}
-{"id":8320,"keyFeature":"B.000.002","kodDetailing":"B.000.002.005","keyGrDetailing":"YAA.011","nameDetailing":"Ситуативна для кашлю при ГЕРХ","idUser":"Admin"}
-{"id":8321,"keyFeature":"B.000.002","kodDetailing":"B.000.002.006","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
-{"id":8322,"keyFeature":"B.000.002","kodDetailing":"B.000.002.007","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":8323,"keyFeature":"B.000.002","kodDetailing":"B.000.002.008","keyGrDetailing":"YAA.010","nameDetailing":"Гурт ситуативних контактів при кашлі ","idUser":"Admin"}
-{"id":8324,"keyFeature":"B.000.002","kodDetailing":"B.000.002.009","keyGrDetailing":"YAA.009","nameDetailing":"Деталізація подразнення при кашлі ","idUser":"Admin"}
-{"id":9320,"keyFeature":"B.000.002","kodDetailing":"B.000.002.010","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":11320,"keyFeature":"B.000.002","kodDetailing":"B.000.002.011","keyGrDetailing":"YAA.014","nameDetailing":"Алергічний кашель","idUser":"+380501586559"}
-{"id":11321,"keyFeature":"B.000.002","kodDetailing":"B.000.002.012","keyGrDetailing":"YAA.015","nameDetailing":"Ситуативний алргічний кашель","idUser":"+380501586559"}
-{"id":205,"keyFeature":"B.000.010","kodDetailing":"B.000.010.001","keyGrDetailing":null,"nameDetailing":"подібні проблеми у найближчих кровних родичів","idUser":"Admin"}
-{"id":206,"keyFeature":"B.000.011","kodDetailing":"B.000.011.001","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
-{"id":207,"keyFeature":"B.000.011","kodDetailing":"B.000.011.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":208,"keyFeature":"B.000.012","kodDetailing":"B.000.012.004","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
-{"id":209,"keyFeature":"B.000.012","kodDetailing":"B.000.012.005","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":210,"keyFeature":"C.000.002","kodDetailing":"C.000.002.001","keyGrDetailing":"YDD.000","nameDetailing":"Деталізація виділення","idUser":"Admin"}
-{"id":211,"keyFeature":"C.000.004","kodDetailing":"C.000.004.001","keyGrDetailing":null,"nameDetailing":"1нед","idUser":"Admin"}
-{"id":212,"keyFeature":"C.000.004","kodDetailing":"C.000.004.002","keyGrDetailing":null,"nameDetailing":"1міс","idUser":"Admin"}
-{"id":213,"keyFeature":"C.000.004","kodDetailing":"C.000.004.003","keyGrDetailing":null,"nameDetailing":"6міс","idUser":"Admin"}
-{"id":214,"keyFeature":"C.000.004","kodDetailing":"C.000.004.004","keyGrDetailing":null,"nameDetailing":"більше 1 року","idUser":"Admin"}
-{"id":215,"keyFeature":"C.000.005","kodDetailing":"C.000.005.001","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":216,"keyFeature":"D.000.001","kodDetailing":"D.000.001.001","keyGrDetailing":"YEE.000","nameDetailing":"Деталізація кашель","idUser":"Admin"}
-{"id":217,"keyFeature":"D.000.001","kodDetailing":"D.000.001.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":218,"keyFeature":"D.000.002","kodDetailing":"D.000.002.001","keyGrDetailing":null,"nameDetailing":"важко вдихнути","idUser":"Admin"}
-{"id":219,"keyFeature":"D.000.002","kodDetailing":"D.000.002.002","keyGrDetailing":null,"nameDetailing":"важко видихнути","idUser":"Admin"}
-{"id":220,"keyFeature":"D.000.002","kodDetailing":"D.000.002.003","keyGrDetailing":null,"nameDetailing":"хочеться зайвий раз вдихнути","idUser":"Admin"}
-{"id":221,"keyFeature":"D.000.002","kodDetailing":"D.000.002.004","keyGrDetailing":null,"nameDetailing":"відчуття нестачі повітря","idUser":"Admin"}
-{"id":222,"keyFeature":"D.000.002","kodDetailing":"D.000.002.005","keyGrDetailing":null,"nameDetailing":"свист у грудях при диханні","idUser":"Admin"}
-{"id":223,"keyFeature":"D.000.003","kodDetailing":"D.000.003.001","keyGrDetailing":null,"nameDetailing":"рідка","idUser":"Admin"}
-{"id":224,"keyFeature":"D.000.003","kodDetailing":"D.000.003.002","keyGrDetailing":null,"nameDetailing":"густа","idUser":"Admin"}
-{"id":225,"keyFeature":"D.000.003","kodDetailing":"D.000.003.003","keyGrDetailing":null,"nameDetailing":"в'язка","idUser":"Admin"}
-{"id":226,"keyFeature":"D.000.003","kodDetailing":"D.000.003.004","keyGrDetailing":null,"nameDetailing":"легко відходить","idUser":"Admin"}
-{"id":227,"keyFeature":"D.000.003","kodDetailing":"D.000.003.005","keyGrDetailing":null,"nameDetailing":"неможливо відкашлювати","idUser":"Admin"}
-{"id":228,"keyFeature":"D.000.003","kodDetailing":"D.000.003.006","keyGrDetailing":null,"nameDetailing":"світла","idUser":"Admin"}
-{"id":229,"keyFeature":"D.000.003","kodDetailing":"D.000.003.007","keyGrDetailing":null,"nameDetailing":"жовта","idUser":"Admin"}
-{"id":230,"keyFeature":"D.000.003","kodDetailing":"D.000.003.008","keyGrDetailing":null,"nameDetailing":"зелена","idUser":"Admin"}
-{"id":231,"keyFeature":"D.000.003","kodDetailing":"D.000.003.009","keyGrDetailing":null,"nameDetailing":"з неприємним запахом","idUser":"Admin"}
-{"id":232,"keyFeature":"D.000.003","kodDetailing":"D.000.003.010","keyGrDetailing":null,"nameDetailing":"без запаху","idUser":"Admin"}
-{"id":233,"keyFeature":"D.000.004","kodDetailing":"D.000.004.001","keyGrDetailing":null,"nameDetailing":"ниюча","idUser":"Admin"}
-{"id":234,"keyFeature":"D.000.004","kodDetailing":"D.000.004.002","keyGrDetailing":null,"nameDetailing":"гостра","idUser":"Admin"}
-{"id":235,"keyFeature":"D.000.004","kodDetailing":"D.000.004.003","keyGrDetailing":null,"nameDetailing":"давить","idUser":"Admin"}
-{"id":236,"keyFeature":"D.000.004","kodDetailing":"D.000.004.004","keyGrDetailing":null,"nameDetailing":"тупа","idUser":"Admin"}
-{"id":237,"keyFeature":"D.000.005","kodDetailing":"D.000.005.001","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":238,"keyFeature":"D.000.005","kodDetailing":"D.000.005.001","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":239,"keyFeature":"D.000.006","kodDetailing":"D.000.006.001","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
-{"id":240,"keyFeature":"D.000.006","kodDetailing":"D.000.006.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":241,"keyFeature":"D.000.007","kodDetailing":"D.000.007.001","keyGrDetailing":"AA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
-{"id":242,"keyFeature":"D.000.007","kodDetailing":"D.000.007.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
-{"id":243,"keyFeature":"D.000.008","kodDetailing":"D.000.008.001","keyGrDetailing":null,"nameDetailing":"1нед","idUser":"Admin"}
-{"id":244,"keyFeature":"D.000.008","kodDetailing":"D.000.008.002","keyGrDetailing":null,"nameDetailing":"1міс","idUser":"Admin"}
-{"id":245,"keyFeature":"D.000.008","kodDetailing":"D.000.008.003","keyGrDetailing":null,"nameDetailing":"6міс","idUser":"Admin"}
-{"id":246,"keyFeature":"D.000.008","kodDetailing":"D.000.008.004","keyGrDetailing":null,"nameDetailing":"більше 1 року","idUser":"Admin"}
-{"id":247,"keyFeature":"E.000.001","kodDetailing":"E.000.001.001","keyGrDetailing":null,"nameDetailing":"у згинах рук","idUser":"Admin"}
-{"id":248,"keyFeature":"E.000.001","kodDetailing":"E.000.001.002","keyGrDetailing":null,"nameDetailing":"у згинах ніг","idUser":"Admin"}
-{"id":249,"keyFeature":"E.000.001","kodDetailing":"E.000.001.003","keyGrDetailing":null,"nameDetailing":"на шиї","idUser":"Admin"}
-{"id":250,"keyFeature":"E.000.001","kodDetailing":"E.000.001.004","keyGrDetailing":null,"nameDetailing":"на животі","idUser":"Admin"}
-{"id":251,"keyFeature":"E.000.001","kodDetailing":"E.000.001.005","keyGrDetailing":null,"nameDetailing":"на спині","idUser":"Admin"}
-{"id":252,"keyFeature":"E.000.001","kodDetailing":"E.000.001.006","keyGrDetailing":null,"nameDetailing":"на обличі","idUser":"Admin"}
-{"id":253,"keyFeature":"E.000.001","kodDetailing":"E.000.001.007","keyGrDetailing":null,"nameDetailing":"навколо рота","idUser":"Admin"}
-{"id":254,"keyFeature":"E.000.001","kodDetailing":"E.000.001.008","keyGrDetailing":null,"nameDetailing":"навколо вік","idUser":"Admin"}
-{"id":255,"keyFeature":"E.000.001","kodDetailing":"E.000.001.009","keyGrDetailing":null,"nameDetailing":"на волосистій частині голови","idUser":"Admin"}
-{"id":256,"keyFeature":"E.000.001","kodDetailing":"E.000.001.010","keyGrDetailing":null,"nameDetailing":"у паховій області","idUser":"Admin"}
-{"id":257,"keyFeature":"E.000.001","kodDetailing":"E.000.001.011","keyGrDetailing":null,"nameDetailing":"між пальцями","idUser":"Admin"}
-{"id":258,"keyFeature":"E.000.001","kodDetailing":"E.000.001.012","keyGrDetailing":null,"nameDetailing":"в іншій області","idUser":"Admin"}
-{"id":259,"keyFeature":"E.000.001","kodDetailing":"E.000.001.013","keyGrDetailing":null,"nameDetailing":"без сверблячки","idUser":"Admin"}
-{"id":260,"keyFeature":"E.000.001","kodDetailing":"E.000.001.014","keyGrDetailing":null,"nameDetailing":"сверблячі","idUser":"Admin"}
-{"id":261,"keyFeature":"E.000.001","kodDetailing":"E.000.001.015","keyGrDetailing":null,"nameDetailing":"погіршення навесні","idUser":"Admin"}
-{"id":262,"keyFeature":"E.000.001","kodDetailing":"E.000.001.016","keyGrDetailing":null,"nameDetailing":"погіршення влітку","idUser":"Admin"}
-{"id":263,"keyFeature":"E.000.001","kodDetailing":"E.000.001.017","keyGrDetailing":null,"nameDetailing":"погіршення восени","idUser":"Admin"}
-{"id":264,"keyFeature":"E.000.001","kodDetailing":"E.000.001.018","keyGrDetailing":null,"nameDetailing":"погіршення взимку","idUser":"Admin"}
-{"id":265,"keyFeature":"E.000.001","kodDetailing":"E.000.001.019","keyGrDetailing":null,"nameDetailing":"покращення навесні","idUser":"Admin"}
-{"id":266,"keyFeature":"E.000.001","kodDetailing":"E.000.001.020","keyGrDetailing":null,"nameDetailing":"покращення влітку","idUser":"Admin"}
-{"id":267,"keyFeature":"E.000.001","kodDetailing":"E.000.001.021","keyGrDetailing":null,"nameDetailing":"покращення восени","idUser":"Admin"}
-{"id":268,"keyFeature":"E.000.001","kodDetailing":"E.000.001.022","keyGrDetailing":null,"nameDetailing":"покращення взимку","idUser":"Admin"}
-{"id":269,"keyFeature":"E.000.001","kodDetailing":"E.000.001.023","keyGrDetailing":null,"nameDetailing":"після контакту з водою","idUser":"Admin"}
-{"id":270,"keyFeature":"E.000.001","kodDetailing":"E.000.001.024","keyGrDetailing":null,"nameDetailing":"після вживання солодкого","idUser":"Admin"}
-{"id":271,"keyFeature":"E.000.001","kodDetailing":"E.000.001.025","keyGrDetailing":null,"nameDetailing":"інше","idUser":"Admin"}
-{"id":272,"keyFeature":"G.000.001","kodDetailing":"G.000.001.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":273,"keyFeature":"G.000.001","kodDetailing":"G.000.001.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":274,"keyFeature":"G.000.001","kodDetailing":"G.000.001.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":275,"keyFeature":"G.000.001","kodDetailing":"G.000.001.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":276,"keyFeature":"G.000.001","kodDetailing":"G.000.001.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":277,"keyFeature":"G.000.001","kodDetailing":"G.000.001.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":278,"keyFeature":"G.000.002","kodDetailing":"G.000.002.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":279,"keyFeature":"G.000.002","kodDetailing":"G.000.002.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":280,"keyFeature":"G.000.002","kodDetailing":"G.000.002.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":281,"keyFeature":"G.000.002","kodDetailing":"G.000.002.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":282,"keyFeature":"G.000.002","kodDetailing":"G.000.002.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":283,"keyFeature":"G.000.002","kodDetailing":"G.000.002.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":284,"keyFeature":"G.000.003","kodDetailing":"G.000.003.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":285,"keyFeature":"G.000.003","kodDetailing":"G.000.003.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":286,"keyFeature":"G.000.003","kodDetailing":"G.000.003.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":287,"keyFeature":"G.000.003","kodDetailing":"G.000.003.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":288,"keyFeature":"G.000.003","kodDetailing":"G.000.003.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":289,"keyFeature":"G.000.003","kodDetailing":"G.000.003.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":290,"keyFeature":"G.000.004","kodDetailing":"G.000.004.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":291,"keyFeature":"G.000.004","kodDetailing":"G.000.004.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":292,"keyFeature":"G.000.004","kodDetailing":"G.000.004.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":293,"keyFeature":"G.000.004","kodDetailing":"G.000.004.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":294,"keyFeature":"G.000.004","kodDetailing":"G.000.004.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":295,"keyFeature":"G.000.004","kodDetailing":"G.000.004.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":296,"keyFeature":"G.000.005","kodDetailing":"G.000.005.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":297,"keyFeature":"G.000.005","kodDetailing":"G.000.005.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":298,"keyFeature":"G.000.005","kodDetailing":"G.000.005.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":299,"keyFeature":"G.000.005","kodDetailing":"G.000.005.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":300,"keyFeature":"G.000.005","kodDetailing":"G.000.005.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":301,"keyFeature":"G.000.005","kodDetailing":"G.000.005.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":302,"keyFeature":"G.000.006","kodDetailing":"G.000.006.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":303,"keyFeature":"G.000.006","kodDetailing":"G.000.006.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":304,"keyFeature":"G.000.006","kodDetailing":"G.000.006.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":305,"keyFeature":"G.000.006","kodDetailing":"G.000.006.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":306,"keyFeature":"G.000.006","kodDetailing":"G.000.006.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":307,"keyFeature":"G.000.006","kodDetailing":"G.000.006.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":308,"keyFeature":"G.000.007","kodDetailing":"G.000.007.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":309,"keyFeature":"G.000.007","kodDetailing":"G.000.007.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
-{"id":310,"keyFeature":"G.000.007","kodDetailing":"G.000.007.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":311,"keyFeature":"G.000.007","kodDetailing":"G.000.007.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":312,"keyFeature":"G.000.007","kodDetailing":"G.000.007.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":313,"keyFeature":"G.000.007","kodDetailing":"G.000.007.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
-{"id":314,"keyFeature":"G.000.008","kodDetailing":"G.000.008.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
-{"id":315,"keyFeature":"G.000.008","kodDetailing":"G.000.008.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
-{"id":316,"keyFeature":"G.000.008","kodDetailing":"G.000.008.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
-{"id":317,"keyFeature":"G.000.008","kodDetailing":"G.000.008.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
-{"id":318,"keyFeature":"G.000.008","kodDetailing":"G.000.008.006","keyGrDetailing":"YAA.001","nameDetailing":"","idUser":"Admin"}
-{"id":2321,"keyFeature":"M.000.001","kodDetailing":"M.000.001.001","keyGrDetailing":"YAA.003","nameDetailing":"Зовнішній прояв при головокружінні","idUser":"Admin"}
-{"id":2320,"keyFeature":"M.000.002","kodDetailing":"M.000.002.001","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви опущений кут рота","idUser":"Admin"}
-{"id":10320,"keyFeature":"M.000.005","kodDetailing":"M.000.005.001","keyGrDetailing":"YAA.012","nameDetailing":"Головокружіння при ходьбі","idUser":"Admin"}
-{"id":4320,"keyFeature":"M.000.008","kodDetailing":"M.000.008.001","keyGrDetailing":"","nameDetailing":"Легке зниження слуху або повна глухота","idUser":"Admin"}
-{"id":4321,"keyFeature":"M.000.008","kodDetailing":"M.000.008.002","keyGrDetailing":"YAA.006","nameDetailing":"Шум у вусі","idUser":"Admin"}
-{"id":10321,"keyFeature":"M.000.009","kodDetailing":"M.000.009.001","keyGrDetailing":"YAA.013","nameDetailing":"Порушення координіції руху при ходьбі","idUser":"Admin"}
-{"id":5321,"keyFeature":"M.000.009","kodDetailing":"M.000.009.002","keyGrDetailing":"YAA.008","nameDetailing":"Порушення координації руху при головному болі","idUser":"Admin"}
-{"id":14321,"keyFeature":"M.000.009","kodDetailing":"M.000.009.004","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви слабкості м'язів обличчя (Невринома)","idUser":"Admin"}
-{"id":6320,"keyFeature":"M.000.012","kodDetailing":"M.000.012.001","keyGrDetailing":"","nameDetailing":"слабкість в кінцівказ рук та ніг","idUser":"Admin"}
-{"id":6321,"keyFeature":"M.000.012","kodDetailing":"M.000.012.002","keyGrDetailing":"","nameDetailing":"при максимальному напружені на праву ногу не хватає сили","idUser":"Admin"}
-{"id":6322,"keyFeature":"M.000.012","kodDetailing":"M.000.012.003","keyGrDetailing":"","nameDetailing":"триває рік - півтора","idUser":"Admin"}
-{"id":6323,"keyFeature":"M.000.012","kodDetailing":"M.000.012.004","keyGrDetailing":"","nameDetailing":"при максимальному напружені правої руки також не хватає сили","idUser":"Admin"}
+{"id":201,"keyFeature":"A.002.005","kodDetailing":"A.002.005.001","keyGrDetailing":"YAA.004","nameDetailing":"Прояв розширяючого головного болю","idUser":"Admin"}
+{"id":202,"keyFeature":"A.002.006","kodDetailing":"A.002.006.002","keyGrDetailing":"YAA.005","nameDetailing":"Час прояву нудоти або блювотини","idUser":"Admin"}
+{"id":203,"keyFeature":"A.002.007","kodDetailing":"A.002.007.001","keyGrDetailing":"YAA.018","nameDetailing":"Прояв здавлюючого головного болю","idUser":"Admin"}
+{"id":6356,"keyFeature":"A.002.008","kodDetailing":"A.002.008.001","keyGrDetailing":"","nameDetailing":"Головні болі іноді призводять до блювоти яка їх полегшує","idUser":"Admin"}
+{"id":6357,"keyFeature":"A.002.008","kodDetailing":"A.002.008.002","keyGrDetailing":"","nameDetailing":"Призводить до погіршення зору аж до сліпоти при ненаданні своєчасної допомоги","idUser":"Admin"}
+{"id":6358,"keyFeature":"A.002.008","kodDetailing":"A.002.008.003","keyGrDetailing":"","nameDetailing":"Може призвести до запаморочення, порушення свідомості","idUser":"Admin"}
+{"id":6359,"keyFeature":"A.002.008","kodDetailing":"A.002.008.004","keyGrDetailing":"","nameDetailing":"Уразі тривалості головної болі 10-14 днів або зростаючої зробити КТ або МРТ","idUser":"Admin"}
+{"id":204,"keyFeature":"A.006.001","kodDetailing":"A.006.001.001","keyGrDetailing":"","nameDetailing":"Спастичні мимовільні скорочення повік з одної сторони які з часом поширюються на всю половину обличчя","idUser":""}
+{"id":205,"keyFeature":"A.006.001","kodDetailing":"A.006.001.002","keyGrDetailing":"","nameDetailing":"Виникають спонтанно на найменьшу фізичну або емоційну активність","idUser":""}
+{"id":206,"keyFeature":"A.006.001","kodDetailing":"A.006.001.003","keyGrDetailing":"","nameDetailing":"Порушує зір, з роками провокує випадіння їжі з рота","idUser":""}
+{"id":208,"keyFeature":"A.007.001","kodDetailing":"A.007.001.001","keyGrDetailing":"YAA.021","nameDetailing":"Прояв невралгії трійчастого нерву","idUser":"Admin"}
+{"id":209,"keyFeature":"A.008.001","kodDetailing":"A.008.001.001","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви опущений кут рота","idUser":"Admin"}
+{"id":210,"keyFeature":"B.000.001","kodDetailing":"B.000.001.001","keyGrDetailing":"YFF.000","nameDetailing":"Деталізація біль у горлі","idUser":"Admin"}
+{"id":211,"keyFeature":"B.000.002","kodDetailing":"B.000.002.001","keyGrDetailing":"YEE.000","nameDetailing":"Деталізація кашель","idUser":"Admin"}
+{"id":212,"keyFeature":"B.000.002","kodDetailing":"B.000.002.005","keyGrDetailing":"YAA.011","nameDetailing":"Ситуативна для кашлю при ГЕРХ","idUser":"Admin"}
+{"id":213,"keyFeature":"B.000.002","kodDetailing":"B.000.002.006","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
+{"id":214,"keyFeature":"B.000.002","kodDetailing":"B.000.002.007","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":215,"keyFeature":"B.000.002","kodDetailing":"B.000.002.008","keyGrDetailing":"YAA.010","nameDetailing":"Гурт ситуативних контактів при кашлі ","idUser":"Admin"}
+{"id":216,"keyFeature":"B.000.002","kodDetailing":"B.000.002.010","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":217,"keyFeature":"B.000.002","kodDetailing":"B.000.002.011","keyGrDetailing":"YAA.014","nameDetailing":"Алергічний кашель","idUser":"+380501586559"}
+{"id":218,"keyFeature":"B.000.002","kodDetailing":"B.000.002.012","keyGrDetailing":"YAA.015","nameDetailing":"Ситуативний алргічний кашель","idUser":"+380501586559"}
+{"id":219,"keyFeature":"B.000.002","kodDetailing":"B.000.002.013","keyGrDetailing":"YEE.000","nameDetailing":"Загальні прояви кашлю","idUser":"Admin"}
+{"id":220,"keyFeature":"B.000.002","kodDetailing":"B.000.002.014","keyGrDetailing":"YAA.016","nameDetailing":"Ситуативний психогенний кашель","idUser":"Admin"}
+{"id":221,"keyFeature":"B.000.002","kodDetailing":"B.000.002.016","keyGrDetailing":"YAA.017","nameDetailing":"Ситуативний прояв при сторонньому тілі в дихальних шляхах","idUser":"Admin"}
+{"id":222,"keyFeature":"B.000.010","kodDetailing":"B.000.010.001","keyGrDetailing":null,"nameDetailing":"подібні проблеми у найближчих кровних родичів","idUser":"Admin"}
+{"id":223,"keyFeature":"B.000.011","kodDetailing":"B.000.011.001","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
+{"id":224,"keyFeature":"B.000.011","kodDetailing":"B.000.011.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":225,"keyFeature":"B.000.012","kodDetailing":"B.000.012.004","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
+{"id":226,"keyFeature":"B.000.012","kodDetailing":"B.000.012.005","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":227,"keyFeature":"B.000.014","kodDetailing":"B.000.014.002","keyGrDetailing":"YAA.016","nameDetailing":"Ситуативний психогенний кашель","idUser":"Admin"}
+{"id":228,"keyFeature":"B.000.014","kodDetailing":"B.000.014.003","keyGrDetailing":"YAA.019","nameDetailing":"Серцева недостатність","idUser":"Admin"}
+{"id":229,"keyFeature":"B.000.014","kodDetailing":"B.000.014.004","keyGrDetailing":"YEE.000","nameDetailing":"Ситуативний при ГЕРХ","idUser":"Admin"}
+{"id":230,"keyFeature":"B.000.015","kodDetailing":"B.000.015.001","keyGrDetailing":"YAA.009","nameDetailing":"Подразнення при кашлі (пневмонія)","idUser":"Admin"}
+{"id":231,"keyFeature":"B.000.015","kodDetailing":"B.000.015.002","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":232,"keyFeature":"B.000.016","kodDetailing":"B.000.016.001","keyGrDetailing":"YAA.023","nameDetailing":"Симптоми ХОЗЛ","idUser":"Admin"}
+{"id":233,"keyFeature":"B.000.017","kodDetailing":"B.000.017.001","keyGrDetailing":"YAA.024","nameDetailing":"Симптоми туберкульозу","idUser":"Admin"}
+{"id":234,"keyFeature":"B.000.017","kodDetailing":"B.000.017.002","keyGrDetailing":"YAA.025","nameDetailing":"Контакти при туберкульозі","idUser":"Admin"}
+{"id":356,"keyFeature":"B.000.018","kodDetailing":"B.000.018.001","keyGrDetailing":"YAA.026","nameDetailing":"Зовнішні прояви при гострому ларингіті","idUser":"Admin"}
+{"id":357,"keyFeature":"B.000.018","kodDetailing":"B.000.018.002","keyGrDetailing":"YAA.010","nameDetailing":"Гурт ситуативних контактів при кашлі ","idUser":"Admin"}
+{"id":1356,"keyFeature":"B.000.018","kodDetailing":"B.000.018.003","keyGrDetailing":"YAA.014","nameDetailing":"Алергічний кашель","idUser":"Admin"}
+{"id":358,"keyFeature":"B.000.019","kodDetailing":"B.000.019.001","keyGrDetailing":"YAA.017","nameDetailing":"Ситуативний прояв при сторонньому тілі в дихальних шляхах","idUser":"Admin"}
+{"id":235,"keyFeature":"C.000.002","kodDetailing":"C.000.002.001","keyGrDetailing":"YDD.000","nameDetailing":"Деталізація виділення","idUser":"Admin"}
+{"id":236,"keyFeature":"C.000.004","kodDetailing":"C.000.004.001","keyGrDetailing":null,"nameDetailing":"1нед","idUser":"Admin"}
+{"id":237,"keyFeature":"C.000.004","kodDetailing":"C.000.004.002","keyGrDetailing":null,"nameDetailing":"1міс","idUser":"Admin"}
+{"id":238,"keyFeature":"C.000.004","kodDetailing":"C.000.004.003","keyGrDetailing":null,"nameDetailing":"6міс","idUser":"Admin"}
+{"id":239,"keyFeature":"C.000.004","kodDetailing":"C.000.004.004","keyGrDetailing":null,"nameDetailing":"більше 1 року","idUser":"Admin"}
+{"id":240,"keyFeature":"C.000.005","kodDetailing":"C.000.005.001","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":241,"keyFeature":"D.000.001","kodDetailing":"D.000.001.001","keyGrDetailing":"YEE.000","nameDetailing":"Деталізація кашель","idUser":"Admin"}
+{"id":242,"keyFeature":"D.000.001","kodDetailing":"D.000.001.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":243,"keyFeature":"D.000.002","kodDetailing":"D.000.002.001","keyGrDetailing":null,"nameDetailing":"важко вдихнути","idUser":"Admin"}
+{"id":244,"keyFeature":"D.000.002","kodDetailing":"D.000.002.002","keyGrDetailing":null,"nameDetailing":"важко видихнути","idUser":"Admin"}
+{"id":245,"keyFeature":"D.000.002","kodDetailing":"D.000.002.003","keyGrDetailing":null,"nameDetailing":"хочеться зайвий раз вдихнути","idUser":"Admin"}
+{"id":246,"keyFeature":"D.000.002","kodDetailing":"D.000.002.004","keyGrDetailing":null,"nameDetailing":"відчуття нестачі повітря","idUser":"Admin"}
+{"id":247,"keyFeature":"D.000.002","kodDetailing":"D.000.002.005","keyGrDetailing":null,"nameDetailing":"свист у грудях при диханні","idUser":"Admin"}
+{"id":2356,"keyFeature":"D.000.002","kodDetailing":"D.000.002.006","keyGrDetailing":"YAA.014","nameDetailing":"Алергічний кашель","idUser":"Admin"}
+{"id":2357,"keyFeature":"D.000.002","kodDetailing":"D.000.002.007","keyGrDetailing":"YAA.015","nameDetailing":"Ситуативний алргічний кашель","idUser":"Admin"}
+{"id":248,"keyFeature":"D.000.003","kodDetailing":"D.000.003.001","keyGrDetailing":null,"nameDetailing":"рідка","idUser":"Admin"}
+{"id":249,"keyFeature":"D.000.003","kodDetailing":"D.000.003.002","keyGrDetailing":null,"nameDetailing":"густа","idUser":"Admin"}
+{"id":250,"keyFeature":"D.000.003","kodDetailing":"D.000.003.003","keyGrDetailing":null,"nameDetailing":"в'язка","idUser":"Admin"}
+{"id":251,"keyFeature":"D.000.003","kodDetailing":"D.000.003.004","keyGrDetailing":null,"nameDetailing":"легко відходить","idUser":"Admin"}
+{"id":252,"keyFeature":"D.000.003","kodDetailing":"D.000.003.005","keyGrDetailing":null,"nameDetailing":"неможливо відкашлювати","idUser":"Admin"}
+{"id":253,"keyFeature":"D.000.003","kodDetailing":"D.000.003.006","keyGrDetailing":null,"nameDetailing":"світла","idUser":"Admin"}
+{"id":254,"keyFeature":"D.000.003","kodDetailing":"D.000.003.007","keyGrDetailing":null,"nameDetailing":"жовта","idUser":"Admin"}
+{"id":255,"keyFeature":"D.000.003","kodDetailing":"D.000.003.008","keyGrDetailing":null,"nameDetailing":"зелена","idUser":"Admin"}
+{"id":256,"keyFeature":"D.000.003","kodDetailing":"D.000.003.009","keyGrDetailing":null,"nameDetailing":"з неприємним запахом","idUser":"Admin"}
+{"id":257,"keyFeature":"D.000.003","kodDetailing":"D.000.003.010","keyGrDetailing":null,"nameDetailing":"без запаху","idUser":"Admin"}
+{"id":258,"keyFeature":"D.000.004","kodDetailing":"D.000.004.001","keyGrDetailing":null,"nameDetailing":"ниюча","idUser":"Admin"}
+{"id":259,"keyFeature":"D.000.004","kodDetailing":"D.000.004.002","keyGrDetailing":null,"nameDetailing":"гостра","idUser":"Admin"}
+{"id":260,"keyFeature":"D.000.004","kodDetailing":"D.000.004.003","keyGrDetailing":null,"nameDetailing":"давить","idUser":"Admin"}
+{"id":261,"keyFeature":"D.000.004","kodDetailing":"D.000.004.004","keyGrDetailing":null,"nameDetailing":"тупа","idUser":"Admin"}
+{"id":262,"keyFeature":"D.000.005","kodDetailing":"D.000.005.001","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":263,"keyFeature":"D.000.005","kodDetailing":"D.000.005.001","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":264,"keyFeature":"D.000.006","kodDetailing":"D.000.006.001","keyGrDetailing":"YAA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
+{"id":265,"keyFeature":"D.000.006","kodDetailing":"D.000.006.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":266,"keyFeature":"D.000.007","kodDetailing":"D.000.007.001","keyGrDetailing":"AA.000","nameDetailing":"Деталізація за часом","idUser":"Admin"}
+{"id":267,"keyFeature":"D.000.007","kodDetailing":"D.000.007.002","keyGrDetailing":"YBB.000","nameDetailing":"Деталізація ситуативна","idUser":"Admin"}
+{"id":268,"keyFeature":"D.000.008","kodDetailing":"D.000.008.001","keyGrDetailing":null,"nameDetailing":"1нед","idUser":"Admin"}
+{"id":269,"keyFeature":"D.000.008","kodDetailing":"D.000.008.002","keyGrDetailing":null,"nameDetailing":"1міс","idUser":"Admin"}
+{"id":270,"keyFeature":"D.000.008","kodDetailing":"D.000.008.003","keyGrDetailing":null,"nameDetailing":"6міс","idUser":"Admin"}
+{"id":271,"keyFeature":"D.000.008","kodDetailing":"D.000.008.004","keyGrDetailing":null,"nameDetailing":"більше 1 року","idUser":"Admin"}
+{"id":272,"keyFeature":"E.000.001","kodDetailing":"E.000.001.001","keyGrDetailing":null,"nameDetailing":"у згинах рук","idUser":"Admin"}
+{"id":273,"keyFeature":"E.000.001","kodDetailing":"E.000.001.002","keyGrDetailing":null,"nameDetailing":"у згинах ніг","idUser":"Admin"}
+{"id":274,"keyFeature":"E.000.001","kodDetailing":"E.000.001.003","keyGrDetailing":null,"nameDetailing":"на шиї","idUser":"Admin"}
+{"id":275,"keyFeature":"E.000.001","kodDetailing":"E.000.001.004","keyGrDetailing":null,"nameDetailing":"на животі","idUser":"Admin"}
+{"id":276,"keyFeature":"E.000.001","kodDetailing":"E.000.001.005","keyGrDetailing":null,"nameDetailing":"на спині","idUser":"Admin"}
+{"id":277,"keyFeature":"E.000.001","kodDetailing":"E.000.001.006","keyGrDetailing":null,"nameDetailing":"на обличі","idUser":"Admin"}
+{"id":278,"keyFeature":"E.000.001","kodDetailing":"E.000.001.007","keyGrDetailing":null,"nameDetailing":"навколо рота","idUser":"Admin"}
+{"id":279,"keyFeature":"E.000.001","kodDetailing":"E.000.001.008","keyGrDetailing":null,"nameDetailing":"навколо вік","idUser":"Admin"}
+{"id":280,"keyFeature":"E.000.001","kodDetailing":"E.000.001.009","keyGrDetailing":null,"nameDetailing":"на волосистій частині голови","idUser":"Admin"}
+{"id":281,"keyFeature":"E.000.001","kodDetailing":"E.000.001.010","keyGrDetailing":null,"nameDetailing":"у паховій області","idUser":"Admin"}
+{"id":282,"keyFeature":"E.000.001","kodDetailing":"E.000.001.011","keyGrDetailing":null,"nameDetailing":"між пальцями","idUser":"Admin"}
+{"id":283,"keyFeature":"E.000.001","kodDetailing":"E.000.001.012","keyGrDetailing":null,"nameDetailing":"в іншій області","idUser":"Admin"}
+{"id":284,"keyFeature":"E.000.001","kodDetailing":"E.000.001.013","keyGrDetailing":null,"nameDetailing":"без сверблячки","idUser":"Admin"}
+{"id":285,"keyFeature":"E.000.001","kodDetailing":"E.000.001.014","keyGrDetailing":null,"nameDetailing":"сверблячі","idUser":"Admin"}
+{"id":286,"keyFeature":"E.000.001","kodDetailing":"E.000.001.015","keyGrDetailing":null,"nameDetailing":"погіршення навесні","idUser":"Admin"}
+{"id":287,"keyFeature":"E.000.001","kodDetailing":"E.000.001.016","keyGrDetailing":null,"nameDetailing":"погіршення влітку","idUser":"Admin"}
+{"id":288,"keyFeature":"E.000.001","kodDetailing":"E.000.001.017","keyGrDetailing":null,"nameDetailing":"погіршення восени","idUser":"Admin"}
+{"id":289,"keyFeature":"E.000.001","kodDetailing":"E.000.001.018","keyGrDetailing":null,"nameDetailing":"погіршення взимку","idUser":"Admin"}
+{"id":290,"keyFeature":"E.000.001","kodDetailing":"E.000.001.019","keyGrDetailing":null,"nameDetailing":"покращення навесні","idUser":"Admin"}
+{"id":291,"keyFeature":"E.000.001","kodDetailing":"E.000.001.020","keyGrDetailing":null,"nameDetailing":"покращення влітку","idUser":"Admin"}
+{"id":292,"keyFeature":"E.000.001","kodDetailing":"E.000.001.021","keyGrDetailing":null,"nameDetailing":"покращення восени","idUser":"Admin"}
+{"id":293,"keyFeature":"E.000.001","kodDetailing":"E.000.001.022","keyGrDetailing":null,"nameDetailing":"покращення взимку","idUser":"Admin"}
+{"id":294,"keyFeature":"E.000.001","kodDetailing":"E.000.001.023","keyGrDetailing":null,"nameDetailing":"після контакту з водою","idUser":"Admin"}
+{"id":295,"keyFeature":"E.000.001","kodDetailing":"E.000.001.024","keyGrDetailing":null,"nameDetailing":"після вживання солодкого","idUser":"Admin"}
+{"id":296,"keyFeature":"E.000.001","kodDetailing":"E.000.001.025","keyGrDetailing":null,"nameDetailing":"інше","idUser":"Admin"}
+{"id":297,"keyFeature":"G.000.001","kodDetailing":"G.000.001.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":298,"keyFeature":"G.000.001","kodDetailing":"G.000.001.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":299,"keyFeature":"G.000.001","kodDetailing":"G.000.001.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":300,"keyFeature":"G.000.001","kodDetailing":"G.000.001.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":301,"keyFeature":"G.000.001","kodDetailing":"G.000.001.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":302,"keyFeature":"G.000.001","kodDetailing":"G.000.001.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":303,"keyFeature":"G.000.002","kodDetailing":"G.000.002.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":304,"keyFeature":"G.000.002","kodDetailing":"G.000.002.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":305,"keyFeature":"G.000.002","kodDetailing":"G.000.002.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":306,"keyFeature":"G.000.002","kodDetailing":"G.000.002.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":307,"keyFeature":"G.000.002","kodDetailing":"G.000.002.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":308,"keyFeature":"G.000.002","kodDetailing":"G.000.002.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":309,"keyFeature":"G.000.003","kodDetailing":"G.000.003.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":310,"keyFeature":"G.000.003","kodDetailing":"G.000.003.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":311,"keyFeature":"G.000.003","kodDetailing":"G.000.003.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":312,"keyFeature":"G.000.003","kodDetailing":"G.000.003.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":313,"keyFeature":"G.000.003","kodDetailing":"G.000.003.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":314,"keyFeature":"G.000.003","kodDetailing":"G.000.003.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":315,"keyFeature":"G.000.004","kodDetailing":"G.000.004.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":316,"keyFeature":"G.000.004","kodDetailing":"G.000.004.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":317,"keyFeature":"G.000.004","kodDetailing":"G.000.004.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":318,"keyFeature":"G.000.004","kodDetailing":"G.000.004.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":319,"keyFeature":"G.000.004","kodDetailing":"G.000.004.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":320,"keyFeature":"G.000.004","kodDetailing":"G.000.004.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":321,"keyFeature":"G.000.005","kodDetailing":"G.000.005.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":322,"keyFeature":"G.000.005","kodDetailing":"G.000.005.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":323,"keyFeature":"G.000.005","kodDetailing":"G.000.005.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":324,"keyFeature":"G.000.005","kodDetailing":"G.000.005.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":325,"keyFeature":"G.000.005","kodDetailing":"G.000.005.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":326,"keyFeature":"G.000.005","kodDetailing":"G.000.005.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":327,"keyFeature":"G.000.006","kodDetailing":"G.000.006.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":328,"keyFeature":"G.000.006","kodDetailing":"G.000.006.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":329,"keyFeature":"G.000.006","kodDetailing":"G.000.006.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":330,"keyFeature":"G.000.006","kodDetailing":"G.000.006.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":331,"keyFeature":"G.000.006","kodDetailing":"G.000.006.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":332,"keyFeature":"G.000.006","kodDetailing":"G.000.006.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":333,"keyFeature":"G.000.007","kodDetailing":"G.000.007.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":334,"keyFeature":"G.000.007","kodDetailing":"G.000.007.002","keyGrDetailing":"YHH.000","nameDetailing":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":335,"keyFeature":"G.000.007","kodDetailing":"G.000.007.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":336,"keyFeature":"G.000.007","kodDetailing":"G.000.007.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":337,"keyFeature":"G.000.007","kodDetailing":"G.000.007.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":338,"keyFeature":"G.000.007","kodDetailing":"G.000.007.006","keyGrDetailing":"YCC.000","nameDetailing":"Деталізація за температурою","idUser":"Admin"}
+{"id":339,"keyFeature":"G.000.008","kodDetailing":"G.000.008.001","keyGrDetailing":"YGG.000","nameDetailing":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":340,"keyFeature":"G.000.008","kodDetailing":"G.000.008.003","keyGrDetailing":"YII.000","nameDetailing":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":341,"keyFeature":"G.000.008","kodDetailing":"G.000.008.004","keyGrDetailing":"YJJ.000","nameDetailing":"Деталізація при блювотині","idUser":"Admin"}
+{"id":342,"keyFeature":"G.000.008","kodDetailing":"G.000.008.005","keyGrDetailing":"YKK.000","nameDetailing":"Деталізація при проносі або запорі","idUser":"Admin"}
+{"id":343,"keyFeature":"M.000.001","kodDetailing":"M.000.001.001","keyGrDetailing":"YAA.003","nameDetailing":"Зовнішній прояв при головокружінні","idUser":"Admin"}
+{"id":344,"keyFeature":"M.000.002","kodDetailing":"M.000.002.001","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви опущений кут рота","idUser":"Admin"}
+{"id":345,"keyFeature":"M.000.005","kodDetailing":"M.000.005.001","keyGrDetailing":"YAA.012","nameDetailing":"Головокружіння при ходьбі","idUser":"Admin"}
+{"id":346,"keyFeature":"M.000.008","kodDetailing":"M.000.008.001","keyGrDetailing":"","nameDetailing":"Легке зниження слуху або повна глухота","idUser":"Admin"}
+{"id":347,"keyFeature":"M.000.008","kodDetailing":"M.000.008.002","keyGrDetailing":"YAA.006","nameDetailing":"Шум у вусі","idUser":"Admin"}
+{"id":348,"keyFeature":"M.000.009","kodDetailing":"M.000.009.006","keyGrDetailing":"YAA.012","nameDetailing":"Головокружіння при ходьбі","idUser":"Admin"}
+{"id":349,"keyFeature":"M.000.009","kodDetailing":"M.000.009.007","keyGrDetailing":"YAA.013","nameDetailing":"Погіршення координіції руху при ходьбі (Невринома)","idUser":"Admin"}
+{"id":350,"keyFeature":"M.000.009","kodDetailing":"M.000.009.008","keyGrDetailing":"YAA.002","nameDetailing":"Зовнішні прояви слабкості м'язів обличчя (Невринома)","idUser":"Admin"}
+{"id":351,"keyFeature":"M.000.012","kodDetailing":"M.000.012.001","keyGrDetailing":"","nameDetailing":"порушення чутливості в руці в нозі на тулубі","idUser":""}
+{"id":5356,"keyFeature":"M.000.012","kodDetailing":"M.000.012.002","keyGrDetailing":"","nameDetailing":"може бути слабкість в руках та ногах ","idUser":"Admin"}
+{"id":5357,"keyFeature":"M.000.012","kodDetailing":"M.000.012.003","keyGrDetailing":"","nameDetailing":"може бути порушення ковтання, поперхування, відчуття кома в горлі","idUser":"Admin"}
+{"id":5358,"keyFeature":"M.000.012","kodDetailing":"M.000.012.004","keyGrDetailing":"","nameDetailing":"може бути утруднення дихання, перебої в роботі серця","idUser":"Admin"}
+{"id":5359,"keyFeature":"M.000.012","kodDetailing":"M.000.012.005","keyGrDetailing":"","nameDetailing":"може бути перекос обличчя, порушення слуху з однієї сторони","idUser":"Admin"}
+{"id":355,"keyFeature":"M.000.013","kodDetailing":"M.000.013.001","keyGrDetailing":"YAA.022","nameDetailing":"Прояв пароксизмальної вестибулопатії","idUser":"Admin"}
+{"id":5360,"keyFeature":"M.000.014","kodDetailing":"M.000.014.001","keyGrDetailing":"","nameDetailing":"порушення короткочасної памяті","idUser":"Admin"}
+{"id":5361,"keyFeature":"M.000.014","kodDetailing":"M.000.014.002","keyGrDetailing":"","nameDetailing":"труднощі з утриманням сечі або втрата контролю","idUser":"Admin"}

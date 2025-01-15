@@ -141,7 +141,7 @@ namespace BackSeam
         /// </summary> 
 
         public static MainWindow WindowUnload = MainWindow.LinkNameWindow("BackMain");
-        public static int itemtable = 0;
+        public static int itemtable = 0, endUnload = 0;
         public static string[] deldstroka = {"-1", "-1", "-1" , "-1", "-1", "-1",
         "-1", "-1", "-1" , "-1", "0/-1", "-1/0/0", "0/-1",
         "-1","-1","-1","-1/0","-1/0","-1/0","-1","-1","-1","-1","-1/0",
@@ -224,14 +224,10 @@ namespace BackSeam
                     {
                         //WindowUnload.GifUnloadBd.Visibility = Visibility.Visible;
 
-                        WindowUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
+                        itemtable = 0;
                         WindowUnload.Unload.Background = Brushes.LimeGreen;
-                        WindowUnload.BorderUnload.Background = Brushes.LimeGreen;
-                        WaitWindow NewOrder = new WaitWindow();
-                        NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                        NewOrder.Top = (MainWindow.ScreenHeight / 2);
-                        NewOrder.Show();
-
+                        WindowUnload.LineUnLoad.Background = Brushes.LimeGreen;
+                        RunGifWait();
                         foreach (var item in arrayUnload)
                         {
                             CallServer.PostServer(controler[itemtable], controler[itemtable], "GET");
@@ -256,9 +252,14 @@ namespace BackSeam
                             WindowUnload.LineUnLoad.Width += 20;
 
                         }
-                        NewOrder.Close();
+                        endUnload = 1;
                         MainWindow.MessageError = "Увага!" + Environment.NewLine + "Вивантаження бази даних завершено!.";
                         SelectedMessageOk(4);
+ 
+                        WindowUnload.UnloadBdTextBox.Text = "";
+                        WindowUnload.Unload.Background = Brushes.AliceBlue;
+                        WindowUnload.LineUnLoad.Background = Brushes.White;
+                        WindowUnload.BorderUnload.BorderBrush = Brushes.AliceBlue;
                     }
                     else
                     {
@@ -271,8 +272,41 @@ namespace BackSeam
         }
 
 
+        // запуск потока слежения за пасивностью клиента
+        public static void RunGifWait()
+        {
+            bool TimeOut = false;
+            MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo();
+            Thread thread = new Thread(RunWinGifWait);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.IsBackground = true; // Фоновый поток
+            thread.Start(Arguments01);
+            //WindowUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
+            //MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo() { };
+            //Arguments01.argument1 = "1";
+            //Thread thStartTimer01 = new Thread(RunWinGifWait);
+            //thStartTimer01.SetApartmentState(ApartmentState.STA);
+            //thStartTimer01.IsBackground = true; // Фоновый поток
+            //thStartTimer01.Start(Arguments01);
+
+        }
 
 
+        // открытие окна Close
+        public static void RunWinGifWait(object ThreadObj)
+        {
+            //System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate ()
+            //{
+            //    MainWindow ButtonUnload = MainWindow.LinkNameWindow("BackMain");
+            //    ButtonUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
+            //}));
+
+            WaitWindow NewOrder = new WaitWindow("",2,10);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Top = (MainWindow.ScreenHeight / 2);
+            NewOrder.ShowDialog();
+
+        }
 
         public class ExistsOutFile
         {

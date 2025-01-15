@@ -8,13 +8,13 @@
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:BackSeam"
         mc:Ignorable="d"
-        Title="WaitWindow" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  
+        Title="WaitWindow" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  Name ="Waitgif"
          ShowInTaskbar="False"   Height="120" Width="120" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity ="1.0"
         Background="{x:Null}" Topmost="True"  >
     <Grid>
         <Border x:Name="BorderWin" BorderBrush="White" Background="White" Opacity ="1.0" BorderThickness="0,0,0,0" CornerRadius="25,25,25,25" Height="120" Width="120">
             <Image Height="110" Width="110" Grid.Row="1" HorizontalAlignment="Center"  Name="Wait"  VerticalAlignment="Center" 
-                    gif:ImageBehavior.AnimatedSource="Images/loading9.gif" gif:ImageBehavior.RepeatBehavior="3x" Cursor="Hand"  ><!--pack://application:,,,/BackSeam;component/-->
+                    gif:ImageBehavior.AnimatedSource="Images/loading9.gif"  Cursor="Hand"  ><!--pack://application:,,,/BackSeam;component/-->
                 <!--<Image.RenderTransform>
                     <RotateTransform x:Name="rotate"
                          CenterX="40"
