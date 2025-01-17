@@ -224,7 +224,7 @@ namespace BackSeam
                     {
                         //WindowUnload.GifUnloadBd.Visibility = Visibility.Visible;
 
-                        itemtable = 0;
+                        endUnload = itemtable = 0;
                         WindowUnload.Unload.Background = Brushes.LimeGreen;
                         WindowUnload.LineUnLoad.Background = Brushes.LimeGreen;
                         RunGifWait();

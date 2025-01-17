@@ -1158,10 +1158,7 @@ namespace BackSeam
         {
             string json = "", CmdStroka ="";
             MapOpisViewModel.DeleteOnOff = true;
-            WaitWindow NewOrder = new WaitWindow();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2) ;
-            NewOrder.Top = (MainWindow.ScreenHeight / 2) ;
-            NewOrder.Show();
+            RunGifWait();
             while (DiagnozRecomendaciya.Contains(";") == true)
             {
                 json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1/0";
@@ -1188,7 +1185,7 @@ namespace BackSeam
                 AnalogInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
                 
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
-                NewOrder.Close();
+                endUnload = 1;
                 NewResult.ShowDialog();
  
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)

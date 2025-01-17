@@ -42,6 +42,7 @@ namespace BackSeam
         private void CloseAutoTick(object sender, EventArgs e)
         {
             --SetTimeClose;
+            if (MapOpisViewModel.endUnload == 1) { this.Close(); return; }
             if (SetTimeClose < 0)
             {
                 CloseAuto.Stop();

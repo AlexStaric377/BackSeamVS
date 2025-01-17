@@ -1,0 +1,76 @@
+// --- Process 
+using System.IO;
+using System.Diagnostics;
+
+using System.ServiceProcess;
+
+using System.ComponentModel;
+using System.Management;
+
+
+        /// Структура данных для многопотоковой среды (передача аргументов)
+        /// </summary>
+        public struct RenderInfo
+        {
+            public string argument1 { get; set; }
+            public string argument2 { get; set; }
+            public string argument3 { get; set; }
+            public string argument4 { get; set; }
+            public string argument5 { get; set; }
+        }
+
+Process mv_prcInstaller = new Process();
+
+runfb25 = " install -s -a -g -n " + SetNameServer;
+                mv_prcInstaller.StartInfo.FileName = PatchSR + @"bin\instsvc.exe";
+                mv_prcInstaller.StartInfo.Arguments = runfb25; // " install -s -a  -n ConectoWS -g";    
+                mv_prcInstaller.StartInfo.UseShellExecute = false;
+                mv_prcInstaller.StartInfo.CreateNoWindow = true;
+                mv_prcInstaller.StartInfo.RedirectStandardOutput = true;
+                mv_prcInstaller.Start();
+                mv_prcInstaller.WaitForExit();
+                mv_prcInstaller.Close();
+
+
+/// Многопоточность
+using System.Threading;
+using System.Windows.Threading;
+using ConectoWorkSpace.Systems;
+using System.Threading.Tasks;
+
+InstallB52
+AppStart.RenderInfo Arguments01 = new AppStart.RenderInfo() { };
+            Arguments01.argument1 = "1";
+            Thread thStartTimer01 = new Thread(Administrator.AdminPanels.CheckTTF16);
+            thStartTimer01.SetApartmentState(ApartmentState.STA);
+            thStartTimer01.IsBackground = true; // Фоновый поток
+            thStartTimer01.Start(Arguments01);
+            IntThreadStart++;
+
+public static void CheckTTF16(object ThreadObj)
+        {
+            // Выделяем  информацию о TTF16 Получить все модули внутри процесса
+            string strModulePath = "";
+           InstallB52.IntThreadStart--;
+}
+
+
+
+        // запуск потока слежения за пасивностью клиента
+        public static void RunTimeOut()
+        {
+                MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo();
+                Thread thread = new Thread(RunWinTimeOut);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.IsBackground = true; // Фоновый поток
+                thread.Start(Arguments01);
+            MainWindow.TimeOutRun = 1;
+        }
+
+        // открытие окна Close
+        public static void RunWinTimeOut(object ThreadObj)
+        {
+
+            while(MainWindow.TimeOut == 0) 
+            { }
+}
