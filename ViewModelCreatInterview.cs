@@ -289,6 +289,7 @@ namespace BackSeam
                 WindowCreat.BorderSave.Visibility = Visibility.Hidden;
 
             }
+ 
             int indexcontent = -1;
             bool booladdContent = false, addcontent = false;
              TmpContentIntervs = new ObservableCollection<ModelContentInterv>();

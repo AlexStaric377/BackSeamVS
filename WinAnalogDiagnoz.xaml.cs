@@ -25,6 +25,8 @@ namespace BackSeam
         public WinAnalogDiagnoz()
         {
             InitializeComponent();
+            WinAnalogDiagnoz WinAnalog = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
+            WinAnalog.ColectionDiagnozTablGrid.ItemsSource = ViewModelAnalogDiagnoz.AnalogDiagnozs;
         }
     }
 }

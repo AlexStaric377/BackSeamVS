@@ -55,8 +55,9 @@ namespace BackSeam
                 AnalogDiagnozs.Add(selectItogInterview);
 
             }
-            selectItogInterview = new ModelResultInterview();
-            KodProtokola = null;
+
+            //selectItogInterview = new ModelResultInterview();
+            //KodProtokola = null;
         }
 
         // загрузка описания диагноза

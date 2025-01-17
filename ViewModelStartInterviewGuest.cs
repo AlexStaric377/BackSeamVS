@@ -1183,9 +1183,9 @@ namespace BackSeam
                 var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
                 List<ModelInterview> res = result.ModelInterview.ToList();
                 AnalogInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
-                
+                 endUnload = 1;               
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
-                endUnload = 1;
+
                 NewResult.ShowDialog();
  
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)

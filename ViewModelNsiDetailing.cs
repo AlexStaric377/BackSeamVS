@@ -64,7 +64,7 @@ namespace BackSeam
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableNsiModelFeatures(CmdStroka);
             }
-
+ 
         }
         public static void ObservableNsiModelFeatures(string CmdStroka)
         {

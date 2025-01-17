@@ -106,7 +106,7 @@ namespace BackSeam
 
         private void AddComGrDeliting()
         {
-            NewEkzemplyarGrDetailing();
+           
             if (loadboolGrDeliting == false) MehodloadtablGrDeliting();
             MethodaddcomGrDeliting();
         }
@@ -121,6 +121,7 @@ namespace BackSeam
         }
         private void MehodloadtablGrDeliting()
         {
+            NewEkzemplyarGrDetailing();
             WindowMen.LoadGrdetalings.Visibility = Visibility.Hidden;
             CallServer.PostServer(controlerGrDetailing, controlerGrDetailing, "GET");
             string CmdStroka = CallServer.ServerReturn();
@@ -290,27 +291,31 @@ namespace BackSeam
             int _keyDetailingindex = 0, lenghkod =0;
             string stringkod = "";
             if (selectedViewGrDeliting == null) selectedViewGrDeliting = new ModelGrDetailing();
-            selectedViewGrDeliting.keyGrDetailing = WindowMen.GrDetailingst2.Text.ToString().Substring(0, WindowMen.GrDetailingst2.Text.ToString().IndexOf(":"));
-            string _keyGrDetailing = selectedViewGrDeliting.keyGrDetailing;
-            foreach (ModelGrDetailing modelDetailing in ViewGrDetailings)
-            {
-                if (_keyGrDetailing == modelDetailing.keyGrDetailing.Substring(0, modelDetailing.keyGrDetailing.IndexOf(" "))) //WindowMen.GrDetailingst2.Text.ToString()
+            if (WindowMen.GrDetailingst2.Text != "")
+            { 
+                selectedViewGrDeliting.keyGrDetailing = WindowMen.GrDetailingst2.Text.ToString().Substring(0, WindowMen.GrDetailingst2.Text.ToString().IndexOf(":"));
+                string _keyGrDetailing = selectedViewGrDeliting.keyGrDetailing;
+                foreach (ModelGrDetailing modelDetailing in ViewGrDetailings)
                 {
-                    lenghkod = modelDetailing.kodDetailing.Length - modelDetailing.kodDetailing.LastIndexOf(".")-1;
-                    stringkod = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, lenghkod);
-                    if (_keyDetailingindex < Convert.ToInt32(stringkod))
+                    if (_keyGrDetailing == modelDetailing.keyGrDetailing.Substring(0, modelDetailing.keyGrDetailing.IndexOf(" "))) //WindowMen.GrDetailingst2.Text.ToString()
                     {
-                        _keyDetailingindex = Convert.ToInt32(stringkod);
+                        lenghkod = modelDetailing.kodDetailing.Length - modelDetailing.kodDetailing.LastIndexOf(".")-1;
+                        stringkod = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, lenghkod);
+                        if (_keyDetailingindex < Convert.ToInt32(stringkod))
+                        {
+                            _keyDetailingindex = Convert.ToInt32(stringkod);
+                        }
                     }
                 }
+                _keyDetailingindex++;
+                string _repl = "000";
+                _repl = _repl.Length - _keyDetailingindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyDetailingindex.ToString().Length) : "";
+                selectedViewGrDeliting.kodDetailing = selectedViewGrDeliting.keyGrDetailing + "." + _repl + _keyDetailingindex.ToString();
+                selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
+                selectedViewGrDeliting.kodGroupQualification = WindowMen.GrDetailingst4.Text.ToString().Length>0 ? WindowMen.GrDetailingst4.Text.ToString().Substring(0, WindowMen.GrDetailingst4.Text.ToString().IndexOf(":")): "";
+                selectedViewGrDeliting.idUser = RegIdUser;            
             }
-            _keyDetailingindex++;
-            string _repl = "000";
-            _repl = _repl.Length - _keyDetailingindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyDetailingindex.ToString().Length) : "";
-            selectedViewGrDeliting.kodDetailing = selectedViewGrDeliting.keyGrDetailing + "." + _repl + _keyDetailingindex.ToString();
-            selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
-            selectedViewGrDeliting.kodGroupQualification = WindowMen.GrDetailingst4.Text.ToString().Length>0 ? WindowMen.GrDetailingst4.Text.ToString().Substring(0, WindowMen.GrDetailingst4.Text.ToString().IndexOf(":")): "";
-            selectedViewGrDeliting.idUser = RegIdUser;
+
         }
 
 
@@ -414,7 +419,7 @@ namespace BackSeam
             }
             loadboolGrDeliting = true;
             TrueNameGrDetailing();
-
+            if (IndexAddEdit == "addCommand") SelectNewGrDetailing();
         }
 
 

@@ -131,7 +131,7 @@ namespace BackSeam
         private void AddComandDetailing()
         {
             //NewEkzemplyarDetailing();
-            if (loadboolDetailing == false) { MapOpisViewModel.nameFeature3 = ""; MethodLoadDetailing(); }
+            if (loadboolDetailing == false) { MethodLoadDetailing(); }
             MethodaddcomDetailing();
         }
 
