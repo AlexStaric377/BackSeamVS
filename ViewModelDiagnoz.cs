@@ -316,6 +316,20 @@ namespace BackSeam
         {
             int indexdia = 1, setindex =0;
             if (selectedDiagnoz == null) selectedDiagnoz = new ModelDiagnoz();
+            if (GrupDiagnoz == "" && ViewDiagnozs.Count == 0)
+            {
+                selectedDiagnoz.kodDiagnoza = "DIA.000000001";
+            }
+            else 
+            {
+                if (GrupDiagnoz != "" && ViewDiagnozs.Count == 0)
+                {
+                    CallServer.PostServer(controlerViewDiagnoz, controlerViewDiagnoz, "GET");
+                    string CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                    else ObservableViewDiagnoz(CmdStroka);
+                }
+            }
             if (ViewDiagnozs != null && ViewDiagnozs.Count>0)
             {
 
@@ -333,7 +347,7 @@ namespace BackSeam
                 string _repl = "000000000";
                 selectedDiagnoz.kodDiagnoza = "DIA." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString();
             }
-            else { selectedDiagnoz.kodDiagnoza = "DIA.000000001"; }
+ 
             selectedDiagnoz.nameDiagnoza = WindowMen.Diagnozt2.Text.ToString();
             selectedDiagnoz.opisDiagnoza = WindowMen.DiagnozOpis.Text.ToString();
             selectedDiagnoz.uriDiagnoza = WindowMen.DiagnozTextUri.Text.ToString();

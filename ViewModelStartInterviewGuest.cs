@@ -987,7 +987,12 @@ namespace BackSeam
             string json = Protocolcontroller + "0/" + KodProtokola + "/0";
             CallServer.PostServer(Protocolcontroller, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) return;
+            if (CmdStroka.Contains("[]"))
+            {
+                MessageOfDagnoz();
+                MapOpisViewModel.DeleteOnOff = false;
+                return;
+            } 
             else
             {
                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -1168,24 +1173,16 @@ namespace BackSeam
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.Length - 1);
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.LastIndexOf(";")+1);
             }
-
-            if (CmdStroka.Contains("[]") == true)
-            {
-                MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                "за результатами проведеного опитування відповідний діагноз відсутній.";
-                MapOpisViewModel.SelectedFalseLogin(4);
-                return;
-            }
- 
+            endUnload = 1; 
+            if (CmdStroka.Contains("[]") == true) { MessageOfDagnoz(); return;  }
+            var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
+            List<ModelInterview> res = result.ModelInterview.ToList();
+            AnalogInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
+            if (AnalogInterviews.Count == 1)LoadDiagnozRecomen(AnalogInterviews[0].kodProtokola);
+           
             if (MapOpisViewModel.DeleteOnOff == true)
-            {
-
-                var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
-                List<ModelInterview> res = result.ModelInterview.ToList();
-                AnalogInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
-                 endUnload = 1;               
+            {               
                 WinAnalogDiagnoz NewResult = new WinAnalogDiagnoz();
-
                 NewResult.ShowDialog();
  
                 if (SaveAnalogDiagnoz == true || ViewAnalogDiagnoz == true)
@@ -1212,6 +1209,12 @@ namespace BackSeam
 
         }
 
+        private static void MessageOfDagnoz()
+        {
+            MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                    "за результатами проведеного опитування відповідний діагноз відсутній.";
+            MapOpisViewModel.SelectedFalseLogin(4);
+        }
         private void MessageSmalInfo()
         {
             MainWindow.MessageError = "Увага!" + Environment.NewLine +
