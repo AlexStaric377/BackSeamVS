@@ -54,6 +54,9 @@ namespace BackSeam
 
         public static void ObservableModelFeatures(string CmdStroka)
         {
+            ViewFeatures = new ObservableCollection<ViewFeatureComplaint>();
+            selectedViewFeature = new ViewFeatureComplaint();
+            WindowMen.FeatureTablGrid.ItemsSource = ViewFeatures;
             var result = JsonConvert.DeserializeObject<ListModelFeature>(CmdStroka);
             List<ModelFeature> res = result.ModelFeature.ToList();
             ModelFeatures = new ObservableCollection<ModelFeature>((IEnumerable<ModelFeature>)res);
@@ -63,7 +66,6 @@ namespace BackSeam
         public static void LoadCollectionViewFeatures()
         {
             string  keyComplaint="";
-            ViewFeatures = new ObservableCollection<ViewFeatureComplaint>();
             foreach (ModelFeature modelFeature in ModelFeatures)
             {
                 selectedViewFeature = new ViewFeatureComplaint();
@@ -138,11 +140,8 @@ namespace BackSeam
 
         private void AddComandFeature()
         {
-            NewEkzemplyar();
-            if (loadboolFeature == false)
-            {
-                MapOpisViewModel.nameFeature3 = "";  MethodLoadtableFeature();
-            }
+            
+            if (loadboolFeature == false) { MapOpisViewModel.nameFeature3 = "";  MethodLoadtableFeature(); }
             MethodaddcomFeature();
         }
 
@@ -185,8 +184,20 @@ namespace BackSeam
             WindowMen.FeatureTablGrid.IsEnabled = false;
             if(IndexAddEdit == "addCommand" && WinFeature.Featuret3.Text == "") WindowMen.Folder.Visibility = Visibility.Visible;
             WindowMen.FolderDet5.Visibility = Visibility.Visible;
-
-            //}
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadFeature.IsEnabled = false;
+                WindowMen.BorderGhangeFeature.IsEnabled = false;
+                WindowMen.BorderDeleteFeature.IsEnabled = false;
+                WindowMen.BorderPrintFeature.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadFeature.IsEnabled = false;
+                WindowMen.BorderAddFeature.IsEnabled = false;
+                WindowMen.BorderDeleteFeature.IsEnabled = false;
+                WindowMen.BorderPrintFeature.IsEnabled = false;
+            }
         }
 
         private void BoolFalseFeature()
@@ -199,6 +210,11 @@ namespace BackSeam
             WindowMen.Folder.Visibility = Visibility.Hidden;
             WindowMen.FolderDet5.Visibility = Visibility.Hidden;
             WindowMen.FeatureTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadFeature.IsEnabled = true;
+            WindowMen.BorderGhangeFeature.IsEnabled = true;
+            WindowMen.BorderDeleteFeature.IsEnabled = true;
+            WindowMen.BorderPrintFeature.IsEnabled = true;
+            WindowMen.BorderAddFeature.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeFeature;
@@ -283,7 +299,7 @@ namespace BackSeam
                   (saveFeature = new RelayCommand(obj =>
                   {
                       string json = "";
-                      if ( WindowMen.Featuret2.Text.Length !=0)
+                      if ( WindowMen.Featuret1.Text.Length !=0 && WindowMen.Featuret2.Text.Length != 0)
                       {
                           //  формирование кода Feature по значениею группы выранной жалобы
                           //SelectNewFeature();
@@ -339,7 +355,7 @@ namespace BackSeam
             if(selectedFeature == null) selectedFeature = new ModelFeature();
             if (MapOpisViewModel.nameFeature3 != "")
             { 
-                    selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
+                selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"));
                 string _keyComplaint = selectedFeature.keyComplaint;
                 foreach (ModelFeature modelFeature in ModelFeatures.OrderBy(x=>x.keyComplaint).OrderBy(x=>x.keyFeature))
                 {
@@ -473,22 +489,26 @@ namespace BackSeam
                 return selectedCompl ??
                   (selectedCompl = new RelayCommand(obj =>
                   {
-                    if (selectedViewFeature == null) NewEkzemplyar();
-                    if (CheckStatusUser() == false) return;
-                    MapOpisViewModel.ActCompletedInterview = "NameCompl";
-                    NsiComplaint NewOrder = new NsiComplaint();
-                    NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                    NewOrder.ShowDialog();
-                    MapOpisViewModel.ActCompletedInterview = "";
-                    if (MapOpisViewModel.nameFeature3 == "") return;
-                    string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) + "/0";
-                    CallServer.PostServer(featurecontroller, jason, "GETID");
-                    string CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-                    else ObservableModelFeatures(CmdStroka);
-                    loadboolFeature = true;
-                    TrueNameGrComplaint();
+                        if (selectedViewFeature == null) NewEkzemplyar();
+                        if (CheckStatusUser() == false) return;
+                        MapOpisViewModel.ActCompletedInterview = "NameCompl";
+                        NsiComplaint NewOrder = new NsiComplaint();
+                        NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                        NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                        NewOrder.ShowDialog();
+                        MapOpisViewModel.ActCompletedInterview = "";
+                        if (MapOpisViewModel.nameFeature3 == "") return;
+                        string jason = featurecontroller + "0/" + MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) + "/0";
+                        CallServer.PostServer(featurecontroller, jason, "GETID");
+                        string CmdStroka = CallServer.ServerReturn();
+                        if (CmdStroka.Contains("[]"))
+                        { 
+                            CallServer.BoolFalseTabl();
+                            NewEkzemplyar();
+                        } 
+                        ObservableModelFeatures(CmdStroka);
+                        loadboolFeature = true;
+                        TrueNameGrComplaint();
 
                   }));
             }

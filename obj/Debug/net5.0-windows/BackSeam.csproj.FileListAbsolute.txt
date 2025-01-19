@@ -50,11 +50,13 @@ D:\BackSeam\bin\Debug\net5.0-windows\System.Text.Encodings.Web.dll
 D:\BackSeam\bin\Debug\net5.0-windows\System.Text.Json.dll
 D:\BackSeam\bin\Debug\net5.0-windows\Microsoft.Expression.Interactions.dll
 D:\BackSeam\bin\Debug\net5.0-windows\System.Windows.Interactivity.dll
+D:\BackSeam\bin\Debug\net5.0-windows\WpfAnimatedGif.dll
 D:\BackSeam\bin\Debug\net5.0-windows\XLParser.dll
 D:\BackSeam\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageError.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarn.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarning.g.cs
+D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinAccountRecords.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinAnalogDiagnoz.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinColectionAnalizBlood.g.cs
@@ -97,6 +99,7 @@ D:\BackSeam\obj\Debug\net5.0-windows\MainWindow.baml
 D:\BackSeam\obj\Debug\net5.0-windows\MessageError.baml
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarn.baml
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarning.baml
+D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinAccountRecords.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinAnalogDiagnoz.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinColectionAnalizBlood.baml
@@ -141,7 +144,3 @@ D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\ref\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.pdb
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.genruntimeconfig.cache
-D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.csproj.AssemblyReference.cache
-D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.g.cs
-D:\BackSeam\obj\Debug\net5.0-windows\WaitWindow.baml
-D:\BackSeam\bin\Debug\net5.0-windows\WpfAnimatedGif.dll

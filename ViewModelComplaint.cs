@@ -134,6 +134,20 @@ namespace BackSeam
             WindowMen.Simptomt2.Background = Brushes.AntiqueWhite;
             WindowMen.FolderFuter.Visibility = Visibility.Visible;
             WindowMen.SimptomTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            { 
+                WindowMen.BorderLoadCompl.IsEnabled = false;
+                WindowMen.BorderGhangeCompl.IsEnabled = false;
+                WindowMen.BorderDeleteCompl.IsEnabled = false;
+                WindowMen.BorderPrintCompl.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadCompl.IsEnabled = false;
+                WindowMen.BorderAddCompl.IsEnabled = false;
+                WindowMen.BorderDeleteCompl.IsEnabled = false;
+                WindowMen.BorderPrintCompl.IsEnabled = false;
+            }
         }
         private void BoolFalseCompaint()
         {
@@ -143,6 +157,11 @@ namespace BackSeam
             WindowMen.Simptomt2.Background = Brushes.White;
             WindowMen.FolderFuter.Visibility = Visibility.Hidden;
             WindowMen.SimptomTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadCompl.IsEnabled = true;
+            WindowMen.BorderGhangeCompl.IsEnabled = true;
+            WindowMen.BorderDeleteCompl.IsEnabled = true;
+            WindowMen.BorderPrintCompl.IsEnabled = true;
+            WindowMen.BorderAddCompl.IsEnabled = true;
         }
 
         // команда удаления

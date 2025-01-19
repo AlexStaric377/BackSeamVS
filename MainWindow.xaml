@@ -3666,7 +3666,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadCompl"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ComplLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadCompl}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -3676,7 +3676,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddCompl" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="Add"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -3687,7 +3687,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeCompl" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="Ghange"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"   >
 
                                                             <Button Command="{Binding EditComplaint }" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
@@ -3698,7 +3698,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteCompl" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="Delete" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveComplaint}" CommandParameter="{Binding SelectedComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -3718,7 +3718,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintCompl" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="Print"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -3842,7 +3842,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadFeature" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="FeatureLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -3852,7 +3852,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="FeatureGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddFeature" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="FeatureAdd"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -3863,7 +3863,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="FeatureGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeFeature" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="FeatureGhange"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditFeature }" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -3873,7 +3873,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="FeatureGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteFeature" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="FeatureDelete" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveFeature}" CommandParameter="{Binding SelectedFeatureComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -3893,7 +3893,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="FeatureGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintFeature" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="FeaturePrint"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -4037,7 +4037,7 @@
                                                     <ColumnDefinition Width ="95*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadDetailing}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4048,7 +4048,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddDetailing}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4058,7 +4058,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditDetailing }" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -4068,7 +4068,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveDetailing}" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -4088,7 +4088,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintDetailing}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>

@@ -67,7 +67,7 @@ namespace BackSeam
         {
             string SelectednameFeature = "", keyFeature="";
             ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
-            
+            selectedViewDetailingFeature = new ViewDetailingFeature();             
             foreach (ModelDetailing  modelDetailing in ViewDetailings)
             {
                 ViewDetailingFeature selectedDetailingFeature = new ViewDetailingFeature();
@@ -130,7 +130,6 @@ namespace BackSeam
 
         private void AddComandDetailing()
         {
-            //NewEkzemplyarDetailing();
             if (loadboolDetailing == false) { MethodLoadDetailing(); }
             MethodaddcomDetailing();
         }
@@ -190,6 +189,20 @@ namespace BackSeam
             WindowDetailing.FolderDet.Visibility = Visibility.Visible;
             if (MapOpisViewModel.nameFeature3 == "" && IndexAddEdit == "addCommand") WindowDetailing.FolderComplaint.Visibility = Visibility.Visible;
             WindowDetailing.DetailingTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadDetailing.IsEnabled = false;
+                WindowMen.BorderGhangeDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteDetailing.IsEnabled = false;
+                WindowMen.BorderPrintDetailing.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadDetailing.IsEnabled = false;
+                WindowMen.BorderAddDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteDetailing.IsEnabled = false;
+                WindowMen.BorderPrintDetailing.IsEnabled = false;
+            }
         }
 
         private void BoolFalseDetailing()
@@ -206,6 +219,12 @@ namespace BackSeam
             WindowDetailing.FolderComplaint.IsEnabled = true;
             WindowDetailing.FolderFut.IsEnabled = true;
             WindowDetailing.DetailingTablGrid.IsEnabled = true;
+            WindowMen.FeatureTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadDetailing.IsEnabled = true;
+            WindowMen.BorderGhangeDetailing.IsEnabled = true;
+            WindowMen.BorderDeleteDetailing.IsEnabled = true;
+            WindowMen.BorderPrintDetailing.IsEnabled = true;
+            WindowMen.BorderAddDetailing.IsEnabled = true;
             SelectedViewDetailingFeature = new ViewDetailingFeature();
         }
 
@@ -289,7 +308,7 @@ namespace BackSeam
                       string json = "";
                       
                       if (WindowDetailing .Detailingt2.Text.Length != 0 || WindowDetailing.Detailingt4.Text.Length != 0)
-                      { 
+                      {
                           SelectNewDetailing();
                           if (IndexAddEdit == "addCommand")
                           {
@@ -338,14 +357,10 @@ namespace BackSeam
             selectedDetailing = new ModelDetailing();
             
             if (ViewDetailings == null) ViewDetailings = new ObservableCollection<ModelDetailing>();
-            if (IndexAddEdit != "addCommand")
-            {
-                selectedDetailing.id =selectedViewDetailingFeature.id;
- 
-            }
+            if (IndexAddEdit != "addCommand")selectedDetailing.id =selectedViewDetailingFeature.id;
             else
             {
-                if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
+                //if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
                 if (selectedViewDetailingFeature.kodDetailing == "")
                 { 
  
@@ -368,22 +383,19 @@ namespace BackSeam
                     _repl = _repl.Length - _keyDetailingindex.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyDetailingindex.ToString().Length) : "";
                     selectedViewDetailingFeature.kodDetailing = selectedDetailing.kodDetailing = selectedDetailing.keyFeature + "." + _repl + _keyDetailingindex.ToString();
                 }
-                    selectedViewDetailingFeature.nameDetailing = selectedDetailing.nameDetailing = WindowDetailing.Detailingt2.Text.ToString();
-                    selectedViewDetailingFeature.nameGrDetailing = WindowDetailing.Detailingt4.Text.ToString();
-                    selectedViewDetailingFeature.idUser = selectedDetailing.idUser = RegIdUser;
-                    if (selectedViewDetailingFeature.keyGrDetailing != "")
-                    {
-                        selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
-                        selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameGrDetailing;
-                    }
-                    else
-                    { 
-                          selectedViewDetailingFeature.keyGrDetailing = selectedDetailing.keyGrDetailing = WindowDetailing.Detailingt4.Text.ToString();            
-                    }
-  
-                    selectedViewDetailingFeature.nameFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1, WindowDetailing.Detailingt3.Text.Length-  (WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1)).TrimStart();                
-
-
+                selectedViewDetailingFeature.nameDetailing = selectedDetailing.nameDetailing = WindowDetailing.Detailingt2.Text.ToString();
+                selectedViewDetailingFeature.nameGrDetailing = WindowDetailing.Detailingt4.Text.ToString();
+                selectedViewDetailingFeature.idUser = selectedDetailing.idUser = RegIdUser;
+                if (selectedViewDetailingFeature.keyGrDetailing != "")
+                {
+                    selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
+                    selectedDetailing.nameDetailing = selectedViewDetailingFeature.nameGrDetailing;
+                }
+                else
+                { 
+                        selectedViewDetailingFeature.keyGrDetailing = selectedDetailing.keyGrDetailing = WindowDetailing.Detailingt4.Text.ToString();            
+                }
+                selectedViewDetailingFeature.nameFeature = WindowDetailing.Detailingt3.Text.ToString().Substring(WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1, WindowDetailing.Detailingt3.Text.Length-  (WindowDetailing.Detailingt3.Text.ToString().IndexOf(":")+1)).TrimStart();                
             }
             selectedDetailing.kodDetailing = selectedViewDetailingFeature.kodDetailing;
             selectedDetailing.keyGrDetailing = selectedViewDetailingFeature.keyGrDetailing;
@@ -432,9 +444,8 @@ namespace BackSeam
                           string jason = pathcontrolerDetailing + "0/" + GrFeatureDetailing + "/0";
                           CallServer.PostServer(pathcontrolerDetailing, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]") == false) ObservableViewDetailings(CmdStroka);
-                          else selectedViewDetailingFeature = new ViewDetailingFeature();
-
+                          ObservableViewDetailings(CmdStroka);   //if (CmdStroka.Contains("[]") == false)
+                          if (IndexAddEdit == "addCommand") SelectNewDetailing();
                       }
                       else WarningMessageSelectComplaint();
                     
@@ -587,6 +598,7 @@ namespace BackSeam
                 }
                 WindowDetailing.FolderDetailing.Visibility = Visibility.Hidden;
                 if (selectedViewDetailingFeature.keyGrDetailing !="") WindowDetailing.FolderDetailing.Visibility = Visibility.Visible;
+
             }
  
 

@@ -301,7 +301,7 @@ namespace BackSeam
             //    ButtonUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
             //}));
 
-            WaitWindow NewOrder = new WaitWindow("",2,10);
+            WaitWindow NewOrder = new WaitWindow("",2,60);
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2);
             NewOrder.ShowDialog();

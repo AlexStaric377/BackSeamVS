@@ -23,6 +23,9 @@ using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
+/// Многопоточность
+using System.Threading;
+using System.Windows.Threading;
 
 
 namespace BackSeam
@@ -1173,7 +1176,8 @@ namespace BackSeam
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.Length - 1);
                 DiagnozRecomendaciya = DiagnozRecomendaciya.Substring(0, DiagnozRecomendaciya.LastIndexOf(";")+1);
             }
-            endUnload = 1; 
+            endUnload = 1;
+            Thread.Sleep(800);
             if (CmdStroka.Contains("[]") == true) { MessageOfDagnoz(); return;  }
             var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
             List<ModelInterview> res = result.ModelInterview.ToList();
