@@ -394,6 +394,7 @@ namespace BackSeam
 
         public void SetNewMonthYear(string selected = "")
         {
+            MapOpisViewModel.RunGifWait();
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
             string ThisDay = "", ThisMonth = "", json = "";
             int itime = 1;
@@ -401,8 +402,8 @@ namespace BackSeam
             WindowMen.CabinetReseptionBoxMonth.Text =  MonthYear[Convert.ToInt32(selected)];
             
             MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
-            if (WindowMen.CabinetReseptionTimeOn.Text != "09.00" || WindowMen.CabinetReseptionTimeBoxLast.Text != "17.00")
-            {
+            //if (WindowMen.CabinetReseptionTimeOn.Text != "09.00" || WindowMen.CabinetReseptionTimeBoxLast.Text != "17.00")
+            //{
                 decimal TimeOn = Convert.ToDecimal(WindowMen.CabinetReseptionTimeOn.Text.Replace(".", ","));
                 decimal TimeLast = Convert.ToDecimal(WindowMen.CabinetReseptionTimeBoxLast.Text.Replace(".", ","));
                 if (TimeOn > TimeLast)
@@ -428,7 +429,7 @@ namespace BackSeam
                 for (int ind = itime; ind < 19; ind++)
                 {  TimeVizits[ind] ="";  } 
  
-            }
+            //}
             // выбранный месяц и год 
             string ThisYear = DateTime.Now.ToShortDateString().Substring(DateTime.Now.ToShortDateString().LastIndexOf(".") + 1, DateTime.Now.ToShortDateString().Length - (DateTime.Now.ToShortDateString().LastIndexOf(".") + 1));
             ThisMonth = selected.Length > 1 ? selected : "0" + selected;
@@ -484,8 +485,9 @@ namespace BackSeam
             MessageWarning Info = MainWindow.LinkMainWindow("MessageWarning");
             if (Info != null) Info.Close();
             MapOpisViewModel.loadthisMonth = true;
+            MapOpisViewModel.endUnload = 1;
             MapOpisViewModel.MetodLoadGridViewModelLikarAppointments();
-
+            
 
 
 
