@@ -12,13 +12,14 @@
          ShowInTaskbar="False"   Height="120" Width="120" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity ="1.0"
         Background="{x:Null}" Topmost="True"  >
     <Grid>
-        <Border x:Name="BorderWin" BorderBrush="White" Background="White" Opacity ="1.0" BorderThickness="0,0,0,0" CornerRadius="25,25,25,25" Height="120" Width="120">
-            <Image Height="110" Width="110" Grid.Row="1" HorizontalAlignment="Center"  Name="Wait"  VerticalAlignment="Center" 
-                    gif:ImageBehavior.AnimatedSource="Images/loading9.gif"  Cursor="Hand"  ><!--pack://application:,,,/BackSeam;component/-->
-                <!--<Image.RenderTransform>
+        <Border x:Name="BorderWin" BorderBrush="White" Background="White"  BorderThickness="0,0,0,0" CornerRadius="30,30,30,30" Height="120" Width="120">
+            <Image Height="100" Width="100" HorizontalAlignment="Center"  Name="Wait"  VerticalAlignment="Center" 
+                  Source  ="pack://application:,,,/BackSeam;component/Images/loading9.gif"    >
+                <!-- gif:ImageBehavior.AnimatedSource pack://application:,,,/BackSeam;component/-->
+                <Image.RenderTransform>
                     <RotateTransform x:Name="rotate"
-                         CenterX="40"
-                         CenterY="40"/>
+                         CenterX="50"
+                         CenterY="50"/>
                 </Image.RenderTransform>
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
@@ -26,11 +27,11 @@
                             <Storyboard RepeatBehavior="Forever">
                                 <DoubleAnimation Storyboard.TargetName="rotate"
                                      Storyboard.TargetProperty="Angle"
-                                     By="360" Duration="0:0:1"/>
+                                     By="360" Duration="0:0:2"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
-                </Image.Triggers>-->
+                </Image.Triggers>
             </Image>
         </Border>
     </Grid>

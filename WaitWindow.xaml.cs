@@ -23,10 +23,10 @@ namespace BackSeam
 
         public static int AutoCloseTick = 0, SetTimeClose = 0;
         System.Windows.Threading.DispatcherTimer CloseAuto = new System.Windows.Threading.DispatcherTimer();
-    public WaitWindow(string TextWindows = null, int AutoClose = 0, int TimeClose = 0)
+        public WaitWindow(string TextWindows = null, int AutoClose = 0, int TimeClose = 0)
         {
             InitializeComponent();
-
+            
             if (AutoClose == 1 || AutoClose == 2)
             {
                 // Автозакрытие окна
@@ -41,22 +41,9 @@ namespace BackSeam
 
         private void CloseAutoTick(object sender, EventArgs e)
         {
-            --SetTimeClose;
-            if (MapOpisViewModel.endUnload == 1) { this.Close(); return; }
-            if (SetTimeClose < 0)
-            {
-                CloseAuto.Stop();
-                if (AutoCloseTick == 2)
-                {
-                    this.Close();
-                }
-                if (AutoCloseTick == 1)
-                {
-                    this.Close();
-                }
-
-            }
-
+            if (MapOpisViewModel.endUnload == 1) { CloseAuto.Stop(); this.Close(); }
+            else --SetTimeClose;if (SetTimeClose < 0) { CloseAuto.Stop(); this.Close(); }
+ 
         }
     }
 }

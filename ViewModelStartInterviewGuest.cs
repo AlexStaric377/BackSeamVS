@@ -1165,7 +1165,8 @@ namespace BackSeam
         public  void SelectedFalseDiagnoz()
         {
             string json = "", CmdStroka ="";
-            MapOpisViewModel.DeleteOnOff = true;
+            endUnload = 0;
+            DeleteOnOff = true;
             RunGifWait();
             while (DiagnozRecomendaciya.Contains(";") == true)
             {

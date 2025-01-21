@@ -141,7 +141,7 @@ namespace BackSeam
         /// </summary> 
 
         public static MainWindow WindowUnload = MainWindow.LinkNameWindow("BackMain");
-        public static int itemtable = 0, endUnload = 0;
+        public static int itemtable = 0, endUnload = 0, runind = 0;
         public static string[] deldstroka = {"-1", "-1", "-1" , "-1", "-1", "-1",
         "-1", "-1", "-1" , "-1", "0/-1", "-1/0/0", "0/-1",
         "-1","-1","-1","-1/0","-1/0","-1/0","-1","-1","-1","-1","-1/0",
@@ -275,37 +275,24 @@ namespace BackSeam
         // запуск потока слежения за пасивностью клиента
         public static void RunGifWait()
         {
-            bool TimeOut = false;
-            MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo();
+             MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo();
+            Arguments01.argument1 = "1";
             Thread thread = new Thread(RunWinGifWait);
             thread.SetApartmentState(ApartmentState.STA);
             thread.IsBackground = true; // Фоновый поток
             thread.Start(Arguments01);
-            //WindowUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
-            //MainWindow.RenderInfo Arguments01 = new MainWindow.RenderInfo() { };
-            //Arguments01.argument1 = "1";
-            //Thread thStartTimer01 = new Thread(RunWinGifWait);
-            //thStartTimer01.SetApartmentState(ApartmentState.STA);
-            //thStartTimer01.IsBackground = true; // Фоновый поток
-            //thStartTimer01.Start(Arguments01);
-
         }
 
 
-        // открытие окна Close
+        // открытие окна ожидания
         public static void RunWinGifWait(object ThreadObj)
         {
-            //System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate ()
-            //{
-            //    MainWindow ButtonUnload = MainWindow.LinkNameWindow("BackMain");
-            //    ButtonUnload.BorderUnload.BorderBrush = Brushes.LimeGreen;
-            //}));
-
+ 
             WaitWindow NewOrder = new WaitWindow("",2,240);
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2);
             NewOrder.ShowDialog();
-
+            NewOrder.Close();            
         }
 
         public class ExistsOutFile

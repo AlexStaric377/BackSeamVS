@@ -24,19 +24,10 @@ namespace BackSeam
         public ModelVisitingDays[] ModelVisitingDays { get; set; }
     }
 
-    public partial class ModelVisitingDays : INotifyPropertyChanged
+    public partial class ModelVisitingDays : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
- 
+      
         private int Id;
         private string KodDoctor;
         private string DaysOfTheWeek;
