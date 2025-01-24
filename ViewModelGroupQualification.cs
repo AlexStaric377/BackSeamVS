@@ -123,6 +123,20 @@ namespace BackSeam
             WindowMen.GrQualificationt2.IsEnabled = true;
             WindowMen.GrQualificationt2.Background = Brushes.AntiqueWhite;
             WindowMen.GrQualificationTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadListGrQualification.IsEnabled = false;
+                WindowMen.BorderGhangeListGrQualification.IsEnabled = false;
+                WindowMen.BorderDeleteListGrQualification.IsEnabled = false;
+                WindowMen.BorderPrintListGrQualification.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadListGrQualification.IsEnabled = false;
+                WindowMen.BorderAddListGrQualification.IsEnabled = false;
+                WindowMen.BorderDeleteListGrQualification.IsEnabled = false;
+                WindowMen.BorderPrintListGrQualification.IsEnabled = false;
+            }
         }
 
         private void BoolFalseGrQualification()
@@ -132,6 +146,11 @@ namespace BackSeam
             activgrqualification = false;
             activeditQualification = false;
             WindowMen.GrQualificationTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadListGrQualification.IsEnabled = true;
+            WindowMen.BorderGhangeListGrQualification.IsEnabled = true;
+            WindowMen.BorderDeleteListGrQualification.IsEnabled = true;
+            WindowMen.BorderPrintListGrQualification.IsEnabled = true;
+            WindowMen.BorderAddListGrQualification.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeGrQualification;
@@ -179,7 +198,7 @@ namespace BackSeam
                   (editGrQualification = new RelayCommand(obj =>
                   {
                       IndexAddEdit = "editCommand";
-                      if (selectedGroupQualification != null)
+                      if (selectedGroupQualification != null && selectedGroupQualification.id !=0)
                       {
                           if (selectedGroupQualification.idUser != RegIdUser && RegUserStatus != "1")
                           {

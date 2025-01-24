@@ -112,6 +112,20 @@ namespace BackSeam
             WindowMen.Recommendationt2.IsEnabled = true;
             WindowMen.Recommendationt2.Background = Brushes.AntiqueWhite;
             WindowMen.RecommendationTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadRecommendation.IsEnabled = false;
+                WindowMen.BorderGhangeRecommendation.IsEnabled = false;
+                WindowMen.BorderDeleteRecommendation.IsEnabled = false;
+                WindowMen.BorderPrintRecommendation.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadRecommendation.IsEnabled = false;
+                WindowMen.BorderAddRecommendation.IsEnabled = false;
+                WindowMen.BorderDeleteRecommendation.IsEnabled = false;
+                WindowMen.BorderPrintRecommendation.IsEnabled = false;
+            }
         }
 
         private void BoolFalseRecom()
@@ -120,6 +134,11 @@ namespace BackSeam
             WindowMen.Recommendationt2.Background = Brushes.White;
             activModelRecommendation = false;
             WindowMen.RecommendationTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadRecommendation.IsEnabled = true;
+            WindowMen.BorderGhangeRecommendation.IsEnabled = true;
+            WindowMen.BorderDeleteRecommendation.IsEnabled = true;
+            WindowMen.BorderPrintRecommendation.IsEnabled = true;
+            WindowMen.BorderAddRecommendation.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeModelRecommendation;
@@ -161,7 +180,7 @@ namespace BackSeam
                 return editModelRecommendation ??
                   (editModelRecommendation = new RelayCommand(obj =>
                   {
-                      if (selectedRecommendation != null)
+                      if (selectedRecommendation != null && selectedRecommendation.id != 0)
                       {
                           IndexAddEdit = "editCommand";
                           if (activModelRecommendation == false)BoolTrueRecom();

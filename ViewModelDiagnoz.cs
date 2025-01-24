@@ -168,6 +168,20 @@ namespace BackSeam
             WindowMen.DiagnozTextUri.IsEnabled = true;
             WindowMen.DiagnozTextUri.Background = Brushes.AntiqueWhite;
             WindowMen.DiagnozTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadDiagnoz.IsEnabled = false;
+                WindowMen.BorderGhangeDiagnoz.IsEnabled = false;
+                WindowMen.BorderDeleteDiagnoz.IsEnabled = false;
+                WindowMen.BorderPrintDiagnoz.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadDiagnoz.IsEnabled = false;
+                WindowMen.BorderAddDiagnoz.IsEnabled = false;
+                WindowMen.BorderDeleteDiagnoz.IsEnabled = false;
+                WindowMen.BorderPrintDiagnoz.IsEnabled = false;
+            }
         }
 
         private void BoolFalseDiagnoz()
@@ -182,9 +196,11 @@ namespace BackSeam
             WindowMen.DiagnozTextUri.Background = Brushes.White;
             WindowMen.DiagnozTablGrid.IsEnabled = true;
             activViewDiagnoz = false;
-            WindowMen.Diagnozt3.Text = "";
-            WindowMen.Diagnozt1.Text = "";
-            WindowMen.Diagnozt4.Text = "";
+            WindowMen.BorderLoadDiagnoz.IsEnabled = true;
+            WindowMen.BorderGhangeDiagnoz.IsEnabled = true;
+            WindowMen.BorderDeleteDiagnoz.IsEnabled = true;
+            WindowMen.BorderPrintDiagnoz.IsEnabled = true;
+            WindowMen.BorderAddDiagnoz.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeViewDiagnoz;
@@ -230,7 +246,7 @@ namespace BackSeam
                 return editViewDiagnoz ??
                   (editViewDiagnoz = new RelayCommand(obj =>
                   {
-                      if (selectedDiagnoz != null)
+                      if (selectedDiagnoz != null && selectedDiagnoz.id != 0)
                       {
                           if (selectedDiagnoz.idUser != RegIdUser && selectedDiagnoz.idUser != "Admin")
                           {

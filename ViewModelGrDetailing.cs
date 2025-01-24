@@ -151,6 +151,20 @@ namespace BackSeam
             WindowMen.GrDetailingst3.IsEnabled = true;
             WindowMen.GrDetailingst3.Background = Brushes.AntiqueWhite;
             WindowMen.GrDetailingsTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadGrDetailing.IsEnabled = false;
+                WindowMen.BorderGhangeGrDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteGrDetailing.IsEnabled = false;
+                WindowMen.BorderPrintGrDetailing.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadGrDetailing.IsEnabled = false;
+                WindowMen.BorderAddGrDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteGrDetailing.IsEnabled = false;
+                WindowMen.BorderPrintGrDetailing.IsEnabled = false;
+            }
         }
 
         private void BoolFalseGrDetailing()
@@ -163,6 +177,11 @@ namespace BackSeam
             WindowMen.GrDetailingst3.IsEnabled = false;
             WindowMen.GrDetailingst3.Background = Brushes.White;
             WindowMen.GrDetailingsTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadGrDetailing.IsEnabled = true;
+            WindowMen.BorderGhangeGrDetailing.IsEnabled = true;
+            WindowMen.BorderDeleteGrDetailing.IsEnabled = true;
+            WindowMen.BorderPrintGrDetailing.IsEnabled = true;
+            WindowMen.BorderAddGrDetailing.IsEnabled = true;
         }
         // команда удаления
         private RelayCommand? removeGrDetailing;
@@ -208,7 +227,7 @@ namespace BackSeam
                 return editGrDetailing ??
                   (editGrDetailing = new RelayCommand(obj =>
                   {
-                      if (selectedViewGrDeliting != null)
+                      if (selectedViewGrDeliting != null && selectedViewGrDeliting.id !=0)
                       {
                           if (selectedViewGrDeliting.idUser != RegIdUser && RegUserStatus != "1")
                           {

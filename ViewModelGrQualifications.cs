@@ -146,6 +146,20 @@ namespace BackSeam
             activViewQualification = true;
             activeditViewQualification = true;
             WindowMen.QualificationTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadGrQualification.IsEnabled = false;
+                WindowMen.BorderGhangeGrQualification.IsEnabled = false;
+                WindowMen.BorderDeleteGrQualification.IsEnabled = false;
+                WindowMen.BorderPrintGrQualification.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadGrQualification.IsEnabled = false;
+                WindowMen.BorderAddGrQualification.IsEnabled = false;
+                WindowMen.BorderDeleteGrQualification.IsEnabled = false;
+                WindowMen.BorderPrintGrQualification.IsEnabled = false;
+            }
         }
 
         private void BoolFalseQualification()
@@ -159,6 +173,11 @@ namespace BackSeam
             WindowMen.QualificationTablGrid.IsEnabled = true;
             SelectedViewQualification = new ModelQualification();
             selectedViewQualification = new ModelQualification();
+            WindowMen.BorderLoadGrQualification.IsEnabled = true;
+            WindowMen.BorderGhangeGrQualification.IsEnabled = true;
+            WindowMen.BorderDeleteGrQualification.IsEnabled = true;
+            WindowMen.BorderPrintGrQualification.IsEnabled = true;
+            WindowMen.BorderAddGrQualification.IsEnabled = true;
         }
 
         // команда удаления
@@ -207,7 +226,7 @@ namespace BackSeam
                   (editViewQualification = new RelayCommand(obj =>
                   {
                       IndexAddEdit = "editCommand";
-                      if (selectedViewQualification != null)
+                      if (selectedViewQualification != null && selectedViewQualification.id !=0)
                       {
                           if (selectedViewQualification.idUser != RegIdUser && RegUserStatus != "1")
                           {

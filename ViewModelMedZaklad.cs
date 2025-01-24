@@ -104,7 +104,7 @@ namespace BackSeam
             SelectedMedical = new MedicalInstitution();
             selectedMedical = SelectedMedical;
             WindowMedical .MedicalTablGrid.SelectedItem = null;
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            IndexAddEdit = "addCommand";
             if (activVeiwMedical == false) ModelMedicaltrue();
             else ModelMedicalfalse();
         }
@@ -161,11 +161,13 @@ namespace BackSeam
                 return editVeiwModelMedical ??
                   (editVeiwModelMedical = new RelayCommand(obj =>
                   {
-                      if (selectedMedical != null)
+                      if (WindowMedical.MedicalTablGrid.SelectedIndex >= 0)
                       {
+                          
                           IndexAddEdit = "editCommand";
                           if (activeditVeiwModelMedical == false)
                           {
+                              selectedMedical = VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex];
                               ModelMedicaltrue();
                           }
                           else
@@ -227,7 +229,8 @@ namespace BackSeam
         {
             activVeiwMedical = false;
             activeditVeiwModelMedical = false;
-            WindowMedical .Medicalt2.IsEnabled = false;
+            IndexAddEdit = "";
+            WindowMedical.Medicalt2.IsEnabled = false;
             WindowMedical .Medicalt2.Background = Brushes.White;
             WindowMedical .Medicalt3.IsEnabled = false;
             WindowMedical .Medicalt3.Background = Brushes.White;
@@ -243,6 +246,11 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.White;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Hidden;
             WindowMedical.MedicalTablGrid.IsEnabled = true;
+            WindowMedical.BorderLoadMedical.IsEnabled = true;
+            WindowMedical.BorderGhangeMedical.IsEnabled = true;
+            WindowMedical.BorderDeleteMedical.IsEnabled = true;
+            WindowMedical.BorderPrintMedical.IsEnabled = true;
+            WindowMedical.BorderAddMedical.IsEnabled = true;
         }
 
         private void ModelMedicaltrue()
@@ -265,6 +273,21 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.AntiqueWhite;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
             WindowMedical.MedicalTablGrid.IsEnabled = false;
+
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMedical.BorderLoadMedical.IsEnabled = false;
+                WindowMedical.BorderGhangeMedical.IsEnabled = false;
+                WindowMedical.BorderDeleteMedical.IsEnabled = false;
+                WindowMedical.BorderPrintMedical.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMedical.BorderLoadMedical.IsEnabled = false;
+                WindowMedical.BorderAddMedical.IsEnabled = false;
+                WindowMedical.BorderDeleteMedical.IsEnabled = false;
+                WindowMedical.BorderPrintMedical.IsEnabled = false;
+            }
         }
         // команда печати
         RelayCommand? printVeiwModelMedical;
@@ -327,9 +350,10 @@ namespace BackSeam
             {
                 return visibleFolderUriWeb ??
                   (visibleFolderUriWeb = new RelayCommand(obj =>
-                  { WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
-                    WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
-                    EdrpouMedZaklad = WindowMedical.Medicalt2.Text;
+                  { 
+                      WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
+                      WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
+                      EdrpouMedZaklad = WindowMedical.Medicalt2.Text;
                   }));
             }
         }

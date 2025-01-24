@@ -196,6 +196,20 @@ namespace BackSeam
             VisitngDays.TimeofDay.IsEnabled = true;
             VisitngDays.ComboBoxOnoff.IsEnabled = true;
             VisitngDays.ReseptionPacientTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                VisitngDays.BorderLoadVisitngDays.IsEnabled = false;
+                VisitngDays.BorderGhangeVisitngDays.IsEnabled = false;
+                VisitngDays.BorderDeleteVisitngDays.IsEnabled = false;
+                VisitngDays.BorderPrintVisitngDays.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                VisitngDays.BorderLoadVisitngDays.IsEnabled = false;
+                VisitngDays.BorderAddVisitngDays.IsEnabled = false;
+                VisitngDays.BorderDeleteVisitngDays.IsEnabled = false;
+                VisitngDays.BorderPrintVisitngDays.IsEnabled = false;
+            }
 
         }
 
@@ -212,6 +226,11 @@ namespace BackSeam
             VisitngDays.TimeofDay.IsEnabled = false;
             VisitngDays.ComboBoxOnoff.IsEnabled = false;
             VisitngDays.ReseptionPacientTablGrid.IsEnabled = true;
+            VisitngDays.BorderLoadVisitngDays.IsEnabled = true;
+            VisitngDays.BorderGhangeVisitngDays.IsEnabled = true;
+            VisitngDays.BorderDeleteVisitngDays.IsEnabled = true;
+            VisitngDays.BorderPrintVisitngDays.IsEnabled = true;
+            VisitngDays.BorderAddVisitngDays.IsEnabled = true;
         }
 
         // команда  редактировать

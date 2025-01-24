@@ -240,6 +240,20 @@ namespace BackSeam
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Visible;
             WindowDoctor.FolderLikarGrDia.Visibility = Visibility.Visible;
             WindowDoctor.DoctorTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMedical.BorderLoadDoctor.IsEnabled = false;
+                WindowMedical.BorderGhangeDoctor.IsEnabled = false;
+                WindowMedical.BorderDeleteDoctor.IsEnabled = false;
+                WindowMedical.BorderPrintDoctor.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMedical.BorderLoadDoctor.IsEnabled = false;
+                WindowMedical.BorderAddDoctor.IsEnabled = false;
+                WindowMedical.BorderDeleteDoctor.IsEnabled = false;
+                WindowMedical.BorderPrintDoctor.IsEnabled = false;
+            }
         }
 
         private void BoolFalseDoctor()
@@ -265,6 +279,11 @@ namespace BackSeam
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Hidden;
             WindowMedical.FolderLikarGrDia.Visibility = Visibility.Hidden;
             WindowDoctor.DoctorTablGrid.IsEnabled = true;
+            WindowMedical.BorderLoadDoctor.IsEnabled = true;
+            WindowMedical.BorderGhangeDoctor.IsEnabled = true;
+            WindowMedical.BorderDeleteDoctor.IsEnabled = true;
+            WindowMedical.BorderPrintDoctor.IsEnabled = true;
+            WindowMedical.BorderAddDoctor.IsEnabled = true;
 
         }
 
@@ -350,7 +369,7 @@ namespace BackSeam
                 return editDoctor ??
                   (editDoctor = new RelayCommand(obj =>
                   {
-                      if (selectedGridDoctor != null)
+                      if (selectedGridDoctor != null && selectedGridDoctor.id !=0)
                       {
                           IndexAddEdit = "editCommand";
                           if (editboolDoctor == false)

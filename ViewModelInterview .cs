@@ -149,6 +149,20 @@ namespace BackSeam
             WindowInterv.FolderRecomenInterview.Visibility = Visibility.Visible;
             WindowInterv.InterviewLab3.Text = IndexAddEdit == "addCommand" ? "Створити" : "Корегувати";
             WindowInterv.InterviewTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadInterview.IsEnabled = false;
+                WindowMen.BorderGhangeInterview.IsEnabled = false;
+                WindowMen.BorderDeleteInterview.IsEnabled = false;
+                WindowMen.BorderPrintInterview.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadInterview.IsEnabled = false;
+                WindowMen.BorderAddInterview.IsEnabled = false;
+                WindowMen.BorderDeleteInterview.IsEnabled = false;
+                WindowMen.BorderPrintInterview.IsEnabled = false;
+            }
         }
 
         private void BoolFalseInterview()
@@ -168,6 +182,11 @@ namespace BackSeam
             WindowInterv.FolderUriInterview.Visibility = Visibility.Hidden;
             WindowInterv.InterviewLab3.Text = "Переглянути" + Environment.NewLine + "опитування";
             WindowInterv.InterviewTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadInterview.IsEnabled = true;
+            WindowMen.BorderGhangeInterview.IsEnabled = true;
+            WindowMen.BorderDeleteInterview.IsEnabled = true;
+            WindowMen.BorderPrintInterview.IsEnabled = true;
+            WindowMen.BorderAddInterview.IsEnabled = true;
 
             IndexAddEdit = "";
         }
@@ -228,7 +247,7 @@ namespace BackSeam
                   {
                       
                       IndexAddEdit = "editCommand";
-                      if (editboolInterview == false && selectedInterview != null)
+                      if (editboolInterview == false && selectedInterview != null && selectedInterview.id !=0)
                       {
                           if (selectedInterview.idUser != RegIdUser && RegUserStatus != "1")
                           {

@@ -217,6 +217,11 @@ namespace BackSeam
             WindowSob.Sobnamepunkt.IsEnabled = false;
             WindowSob.Sobnamepunkt.Background = Brushes.White;
             WindowSob.SobTablGrid.IsEnabled = true;
+            WindowSob.BorderLoadWindowSob.IsEnabled = true;
+            WindowSob.BorderGhangeWindowSob.IsEnabled = true;
+            WindowSob.BorderDeleteWindowSob.IsEnabled = true;
+            WindowSob.BorderPrintWindowSob.IsEnabled = true;
+            WindowSob.BorderAddWindowSob.IsEnabled = true;
 
         }
 
@@ -233,7 +238,21 @@ namespace BackSeam
             WindowSob.Sobnamepunkt.IsEnabled = true;
             WindowSob.Sobnamepunkt.Background = Brushes.AntiqueWhite;
             WindowSob.SobTablGrid.IsEnabled = false;
-
+ 
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowSob.BorderLoadWindowSob.IsEnabled = false;
+                WindowSob.BorderGhangeWindowSob.IsEnabled = false;
+                WindowSob.BorderDeleteWindowSob.IsEnabled = false;
+                WindowSob.BorderPrintWindowSob.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowSob.BorderLoadWindowSob.IsEnabled = false;
+                WindowSob.BorderAddWindowSob.IsEnabled = false;
+                WindowSob.BorderDeleteWindowSob.IsEnabled = false;
+                WindowSob.BorderPrintWindowSob.IsEnabled = false;
+            }
         }
         // команда печати
         RelayCommand? printVeiwModelSob;

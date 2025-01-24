@@ -4244,7 +4244,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadListGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDetailingLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadListGrDetailing}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4255,7 +4255,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDetailingGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddListGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDetailingAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddListGroupDeliting}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4265,7 +4265,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDetailingGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeListGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDetailingGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditListGroupDeliting }" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -4275,7 +4275,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDetailingGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteListGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDetailingDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveListGroupDeliting}" CommandParameter="{Binding SelectedListGroupDeliting}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -4295,7 +4295,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDetailingGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintListGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDetailingPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintListGroupDeliting}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -4414,7 +4414,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingsLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadGrDetailing}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4425,7 +4425,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingsGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingsAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddGrDeliting}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4435,7 +4435,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingsGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingsGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditGrDetailing }" CommandParameter="{Binding SelectedViewDetailingQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -4445,7 +4445,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="RemDetailingDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RemGrDetailingDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveViewGrDetailing}" CommandParameter="{Binding SelectedViewDetailingQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -4466,7 +4466,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DetailingsGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintGrDetailing" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DetailingsPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintDetailingGr}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -4611,7 +4611,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderLoadListGrQualification"   BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GroupQualificationLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4621,7 +4621,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrQualificationGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderAddListGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrQualificationAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4631,7 +4631,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrQualificationGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderGhangeListGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrQualificationGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditGrQualification }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
                                                             VerticalAlignment="Center" BorderBrush="White">
@@ -4642,7 +4642,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrQualificationGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderDeleteListGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrQualificationDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveGrQualification}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -4662,7 +4662,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrQualificationGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderPrintListGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrQualificationPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -4782,7 +4782,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderLoadGrQualification"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrQualificationLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadViewQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4792,7 +4792,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="QualificationGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderAddGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="QualificationAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddViewQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4802,7 +4802,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="QualificationGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderGhangeGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="QualificationGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditViewQualification }" CommandParameter="{Binding SelectedViewQualification}" Background="White" Height="34" Width="77" 
                                                             VerticalAlignment="Center" BorderBrush="White">
@@ -4813,7 +4813,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="QualificationGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderDeleteGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="QualificationDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveViewQualification}" CommandParameter="{Binding SelectedViewQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -4833,7 +4833,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="QualificationGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderPrintGrQualification" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="QualificationPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintViewQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -4951,7 +4951,7 @@
                                                     <ColumnDefinition Width ="95*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadDiagnoz"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DiagnozLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -4961,7 +4961,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DiagnozGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddDiagnoz" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DiagnozAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -4971,7 +4971,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DiagnozGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeDiagnoz" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DiagnozGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditViewDiagnoz }" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -4981,7 +4981,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DiagnozGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteDiagnoz" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DiagnozDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveViewDiagnoz}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5001,7 +5001,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DiagnozGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintDiagnoz" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DiagnozPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -5143,7 +5143,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderLoadInterview"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="InterviewLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -5153,7 +5153,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="InterviewdAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderAddInterview"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="InterviewAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -5163,7 +5163,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="InterviewgridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderGhangeInterview"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="InterviewGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditInterview }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
                                                             VerticalAlignment="Center" BorderBrush="White">
@@ -5174,7 +5174,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="InterviewGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderDeleteInterview"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="InterviewDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveInterview}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5195,7 +5195,7 @@
                                                 </Grid>
                                                 <Grid x:Name="InterviewGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
 
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name ="BorderPrintInterview"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="InterviewPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -5370,7 +5370,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadRecommendation" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RecomenLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -5381,7 +5381,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="RecommendationGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddRecommendation" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RecommendationAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -5392,7 +5392,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="RecommendationGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeRecommendation" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RecommendationGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditModelRecommendation }" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -5402,7 +5402,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="RecommendationGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteRecommendation" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RecommendationDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveModelRecommendation}" CommandParameter="{Binding SelectedModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5422,7 +5422,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="RecommendationGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintRecommendation" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="RecommendationPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintModelRecommendation}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -5529,7 +5529,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadDependency"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DepencyLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadDependency}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -5539,7 +5539,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DependencyGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddDependency" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DependencyAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddDependency}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -5549,7 +5549,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DependencyGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeDependency" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DependencyGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditDependency }" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -5559,7 +5559,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DependencyGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteDependency" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DependencyDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveDependency}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5579,7 +5579,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DependencyGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintDependency" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DependencyPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintDependency}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -5714,7 +5714,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadGrMKX"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDiagnozLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -5724,7 +5724,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDiagnozGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddGrMKX" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDiagnozAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddViewGrupDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -5734,7 +5734,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDiagnozGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeGrMKX" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDiagnozGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditViewGroupDiagnoz }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
                                                             VerticalAlignment="Center" BorderBrush="White">
@@ -5745,7 +5745,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDiagnozGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteGrMKX" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDiagnozDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveViewGroupDiagnoz}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5765,7 +5765,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GrDiagnozGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintGrMKX" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GrDiagnozPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -5893,7 +5893,7 @@
                                                     <ColumnDefinition Width ="95*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadMedical"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MedLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadVeiwModelMedical}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -5903,7 +5903,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="MedicalGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddMedical" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MedicaltAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddVeiwModelMedical}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -5913,7 +5913,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="MedicalGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeMedical" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MedicalGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditVeiwModelMedical}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -5923,7 +5923,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="MedicalGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteMedical" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MedicalDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveVeiwModelMedical}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -5943,7 +5943,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="MedicalGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintMedical" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MedicalPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintVeiwModelMedical}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -6175,7 +6175,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadDoctor" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DoctorLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadDoctor}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -6185,7 +6185,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DoctorGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddDoctor" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DoctortAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddDoctor}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -6195,7 +6195,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DoctorGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeDoctor" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DoctorGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditDoctor }" CommandParameter="{Binding SelectedGridDoctor}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -6205,7 +6205,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DoctorGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteDoctor" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DoctorDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveDoctor}" CommandParameter="{Binding SelectedGridDoctor}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -6225,7 +6225,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="DoctorGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintDoctor" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="DoctorPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintDoctor}"  Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/printer.png"  Height="28" Width="70" ></Image>
@@ -6495,7 +6495,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderLoadPacient" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="PacientLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding PacientListLoad}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -6505,7 +6505,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="PacientGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderAddPacient"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="PacientAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -6515,7 +6515,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="PacientGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderGhangePacient"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="PacientGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditPacient }" CommandParameter="{Binding SelectedPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -6525,7 +6525,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="PacientGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderDeletePacient"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="PacientDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemovePacient}" CommandParameter="{Binding SelectedPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -6545,7 +6545,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="PacientGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderPrintPacient"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="PacientPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -6799,7 +6799,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderLoadIcd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="IcdLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadVeiwModelIcd}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -6809,7 +6809,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="IcdGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderAddIcd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="IcdAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddVeiwModelIcd}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -6819,7 +6819,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="IcdGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderGhangeIcd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="IcdGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditVeiwModelIcd }" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -6829,7 +6829,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="IcdGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderDeleteIcd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="IcdDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveVeiwModelIcd}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -6849,7 +6849,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="IcdGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderPrintIcd" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="IcdPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintVeiwModelIcd}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -6961,7 +6961,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderLoadVisitngDays" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ReseptionPacientLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadVisitingDays}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -6971,7 +6971,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="ReseptionPacientGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderAddVisitngDays" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ReseptionPacientAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddVisitingDays}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -6981,7 +6981,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="ReseptionPacientGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderGhangeVisitngDays" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ReseptionPacientGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditVisitingDays }" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77" 
                                                             VerticalAlignment="Center" BorderBrush="White">
@@ -6992,7 +6992,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="ReseptionPacientGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderDeleteVisitngDays" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ReseptionPacientDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"   >
                                                             <Button Command="{Binding RemoveVisitingDays}" CommandParameter="{Binding SelectedViewGroupQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -7012,7 +7012,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="ReseptionPacientGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" Background="White"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border x:Name="BorderPrintVisitngDays" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ReseptionPacientPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintGrQualification}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -7170,7 +7170,7 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadWindowSob"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="SobLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadSob}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -7181,7 +7181,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="SobGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddWindowSob" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="SobAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddSob}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -7191,7 +7191,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="SobGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeWindowSob" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="SobGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditSob }" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -7201,7 +7201,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="SobGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteWindowSob" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="SobDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveSob}" CommandParameter="{Binding SelectedDetailingFeature}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -7221,7 +7221,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="SobGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintWindowSob" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="SobPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintSob}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -7369,7 +7369,7 @@
                                                     <ColumnDefinition Width ="95*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0" Grid.Row="0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderLoadLanguageUI"  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="MovaLoad"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadLanguageUI}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/database.png"  Height="28" Width="70"  ></Image>
@@ -7379,7 +7379,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="UIGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddLanguageUI" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="UIdAdd"   Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddLanguageUI}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -7389,7 +7389,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="UIGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeLanguageUI" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="UIGhange"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditLanguageUI }" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -7399,7 +7399,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="UIGridDelete" Grid.Column="3" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteLanguageUI" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="UIDelete" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding RemoveLanguageUI}" CommandParameter="{Binding SelectedViewDiagnoz}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -7419,7 +7419,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="UIGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintLanguageUI" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="UIPrint"  Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintLanguageUI}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>

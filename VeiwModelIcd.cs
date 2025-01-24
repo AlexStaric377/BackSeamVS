@@ -146,7 +146,7 @@ namespace BackSeam
                 return editVeiwModelIcd ??
                   (editVeiwModelIcd = new RelayCommand(obj =>
                   {
-                      if (selectedIcd != null)
+                      if (selectedIcd != null && selectedIcd.id != 0)
                       {
                           IndexAddEdit = "editCommand";
                           if (activeditVeiwModelIcd == false)
@@ -210,6 +210,11 @@ namespace BackSeam
             WindowMen.Icdt3.Background = Brushes.White;
             WindowMen.FolderGrNapryamok.Visibility = Visibility.Hidden;
             WindowMen.IcdTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadIcd.IsEnabled = true;
+            WindowMen.BorderGhangeIcd.IsEnabled = true;
+            WindowMen.BorderDeleteIcd.IsEnabled = true;
+            WindowMen.BorderPrintIcd.IsEnabled = true;
+            WindowMen.BorderAddIcd.IsEnabled = true;
         }
 
         private void ModelIcdtrue()
@@ -222,6 +227,21 @@ namespace BackSeam
             WindowMen.Icdt3.Background = Brushes.AntiqueWhite;
             WindowMen.FolderGrNapryamok.Visibility = Visibility.Visible;
             WindowMen.IcdTablGrid.IsEnabled = false;
+
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadIcd.IsEnabled = false;
+                WindowMen.BorderGhangeIcd.IsEnabled = false;
+                WindowMen.BorderDeleteIcd.IsEnabled = false;
+                WindowMen.BorderPrintIcd.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadIcd.IsEnabled = false;
+                WindowMen.BorderAddIcd.IsEnabled = false;
+                WindowMen.BorderDeleteIcd.IsEnabled = false;
+                WindowMen.BorderPrintIcd.IsEnabled = false;
+            }
 
         }
         // команда печати

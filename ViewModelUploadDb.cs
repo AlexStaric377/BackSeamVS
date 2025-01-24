@@ -416,13 +416,6 @@ namespace BackSeam
             {
                 json = path + stroka;
                 CallServer.PostServer(path, json, "DELETE");
-                //if (CallServer.ResponseFromServer.Contains("[]") == true)
-                //{
-                //    MainWindow.MessageError = "Увага!" + Environment.NewLine + "Виникла помилка при видалені записів в таблиці." + Environment.NewLine + path;
-                //    SelectedFalseLogin(4);
-                //}
- 
-                
             }
         }
 

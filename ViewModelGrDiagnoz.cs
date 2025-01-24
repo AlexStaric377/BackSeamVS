@@ -133,8 +133,22 @@ namespace BackSeam
             WindowMen.FolderGrMKX.Visibility = Visibility.Visible;
             WindowMen.GrDiagnozTablGrid.IsEnabled = false;
             activViewGrupDiagnoz = true;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadGrMKX.IsEnabled = false;
+                WindowMen.BorderGhangeGrMKX.IsEnabled = false;
+                WindowMen.BorderDeleteGrMKX.IsEnabled = false;
+                WindowMen.BorderPrintGrMKX.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadGrMKX.IsEnabled = false;
+                WindowMen.BorderAddGrMKX.IsEnabled = false;
+                WindowMen.BorderDeleteGrMKX.IsEnabled = false;
+                WindowMen.BorderPrintGrMKX.IsEnabled = false;
+            }
 
-            
+
         }
 
         private void BoolFalseGrupDiagnoz()
@@ -151,6 +165,11 @@ namespace BackSeam
             WindowMen.FolderGrMKX.Visibility = Visibility.Hidden;
             WindowMen.GrDiagnozTablGrid.IsEnabled = true;
             activViewGrupDiagnoz = false;
+            WindowMen.BorderLoadGrMKX.IsEnabled = true;
+            WindowMen.BorderGhangeGrMKX.IsEnabled = true;
+            WindowMen.BorderDeleteGrMKX.IsEnabled = true;
+            WindowMen.BorderPrintGrMKX.IsEnabled = true;
+            WindowMen.BorderAddGrMKX.IsEnabled = true;
         }
 
         // команда удаления
@@ -201,7 +220,7 @@ namespace BackSeam
                   (editViewGroupDiagnoz = new RelayCommand(obj =>
                   {
                       IndexAddEdit = "editCommand";
-                      if (selectedViewGrupDiagnoz != null)
+                      if (selectedViewGrupDiagnoz != null && selectedViewGrupDiagnoz.id !=0)
                       {
                           if (selectedViewGrupDiagnoz.idUser != RegIdUser && RegUserStatus != "1")
                           {

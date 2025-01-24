@@ -216,13 +216,13 @@ namespace BackSeam
             set
             {
                 //меняем значение в обычном порядке
-                _SelectedCombProfil = value;
+                _SelectedCombPriyomOnOff = value;
                 //Оповещаем как обычно изменение, сделанное до if (!_mainWindow.ShowYesNo("Изменить значение?"))
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedCombProfil)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedCombPriyomOnOff)));
                 //OnPropertyChanged(nameof(SelectedComb));
                 //а здесь уже преобразуем изменившиеся значение
                 //в необходимое uint
-                SetNewCombPriyomOnOff(_SelectedCombProfil);
+                SetNewCombPriyomOnOff(_SelectedCombPriyomOnOff);
             }
         }
 

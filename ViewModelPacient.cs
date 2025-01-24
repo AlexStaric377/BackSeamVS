@@ -124,7 +124,7 @@ namespace BackSeam
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        public void  OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -184,6 +184,20 @@ namespace BackSeam
             WindowMen.Pacientt13.IsEnabled = true;
             WindowMen.Pacientt13.Background = Brushes.AntiqueWhite;
             WindowMen.PacientTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadPacient.IsEnabled = false;
+                WindowMen.BorderGhangePacient.IsEnabled = false;
+                WindowMen.BorderDeletePacient.IsEnabled = false;
+                WindowMen.BorderPrintPacient.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadPacient.IsEnabled = false;
+                WindowMen.BorderAddPacient.IsEnabled = false;
+                WindowMen.BorderDeletePacient.IsEnabled = false;
+                WindowMen.BorderPrintPacient.IsEnabled = false;
+            }
         }
 
         private void BoolFalsePacient()
@@ -212,6 +226,11 @@ namespace BackSeam
             WindowMen.Pacientt13.IsEnabled = false;
             WindowMen.Pacientt13.Background = Brushes.White;
             WindowMen.PacientTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadPacient.IsEnabled = true;
+            WindowMen.BorderGhangePacient.IsEnabled = true;
+            WindowMen.BorderDeletePacient.IsEnabled = true;
+            WindowMen.BorderPrintPacient.IsEnabled = true;
+            WindowMen.BorderAddPacient.IsEnabled = true;
 
         }
 
@@ -310,7 +329,7 @@ namespace BackSeam
                 return editPacient ??
                   (editPacient = new RelayCommand(obj =>
                   {
-                      if (selectedPacient != null)
+                      if (selectedPacient != null && selectedPacient.id != 0)
                       {
                           IndexAddEdit = "editCommand";
                           if (editboolPacient == false)BoolTruePacient();

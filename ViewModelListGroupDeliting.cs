@@ -121,6 +121,20 @@ namespace BackSeam
             WindowMen.GrDetailingt2.IsEnabled = true ;
             WindowMen.GrDetailingt2.Background = Brushes.AntiqueWhite;
             WindowMen.GrDetailingTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadListGrDetailing.IsEnabled = false;
+                WindowMen.BorderGhangeListGrDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteListGrDetailing.IsEnabled = false;
+                WindowMen.BorderPrintListGrDetailing.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadListGrDetailing.IsEnabled = false;
+                WindowMen.BorderAddListGrDetailing.IsEnabled = false;
+                WindowMen.BorderDeleteListGrDetailing.IsEnabled = false;
+                WindowMen.BorderPrintListGrDetailing.IsEnabled = false;
+            }
         }
 
         private void BoolFalseGroupDetailing()
@@ -131,6 +145,11 @@ namespace BackSeam
             WindowMen.GrDetailingt2.Background = Brushes.White;
             WindowMen.FolderGrDetailing.Visibility = Visibility.Hidden;
             WindowMen.GrDetailingTablGrid.IsEnabled = true;
+            WindowMen.BorderLoadListGrDetailing.IsEnabled = true;
+            WindowMen.BorderGhangeListGrDetailing.IsEnabled = true;
+            WindowMen.BorderDeleteListGrDetailing.IsEnabled = true;
+            WindowMen.BorderPrintListGrDetailing.IsEnabled = true;
+            WindowMen.BorderAddListGrDetailing.IsEnabled = true;
         }
 
         // команда удаления
@@ -176,9 +195,9 @@ namespace BackSeam
                 return editListGroupDeliting ??
                   (editListGroupDeliting = new RelayCommand(obj =>
                   {
-                      if (selectedListGroupDeliting != null)
+                      if (selectedListGroupDeliting != null && selectedListGroupDeliting.id != 0)
                       {
-                          if (selectedListGroupDeliting.idUser != RegIdUser && selectedComplaint.idUser != "Admin")
+                          if (selectedListGroupDeliting.idUser != RegIdUser ) //&& selectedComplaint.idUser != "Admin"
                           {
                               InfoEditZapis();
                               return;

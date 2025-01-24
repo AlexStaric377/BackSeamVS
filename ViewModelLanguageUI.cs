@@ -112,7 +112,20 @@ namespace BackSeam
             WindowLanguageUI.UIt3.IsEnabled = true;
             WindowLanguageUI.UIt3.Background = Brushes.AntiqueWhite;
             WindowLanguageUI.LanguageUITablGrid.IsEnabled = false;
-
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowLanguageUI.BorderLoadLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderGhangeLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderDeleteLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderPrintLanguageUI.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowLanguageUI.BorderLoadLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderAddLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderDeleteLanguageUI.IsEnabled = false;
+                WindowLanguageUI.BorderPrintLanguageUI.IsEnabled = false;
+            }
 
         }
 
@@ -123,6 +136,11 @@ namespace BackSeam
             WindowLanguageUI.UIt3.IsEnabled = false;
             WindowLanguageUI.UIt3.Background = Brushes.White;
             WindowLanguageUI.LanguageUITablGrid.IsEnabled = true;
+            WindowLanguageUI.BorderLoadLanguageUI.IsEnabled = true;
+            WindowLanguageUI.BorderGhangeLanguageUI.IsEnabled = true;
+            WindowLanguageUI.BorderDeleteLanguageUI.IsEnabled = true;
+            WindowLanguageUI.BorderPrintLanguageUI.IsEnabled = true;
+            WindowLanguageUI.BorderAddLanguageUI.IsEnabled = true;
 
         }
         // команда удаления
@@ -166,8 +184,10 @@ namespace BackSeam
                   (editLanguageUI = new RelayCommand(obj =>
                   {
                       IndexAddEdit = "editCommand";
-                      if (editboolLanguageUI == false & selectedLanguageUI != null)
+                      //if (editboolLanguageUI == false && selectedLanguageUI != null && selectedLanguageUI.id !=0)
+                      if(WindowLanguageUI.LanguageUITablGrid.SelectedIndex>=0)
                       {
+                          selectedLanguageUI = ViewLanguageUIs[WindowLanguageUI.LanguageUITablGrid.SelectedIndex];
                           BoolTrueLanguageUI();
                       }
                       else

@@ -174,6 +174,21 @@ namespace BackSeam
             WindowMen.FolderRecom.Visibility = Visibility.Visible;
             WindowMen.FolderInterv.Visibility = Visibility.Visible;
             WindowMen.DependencyTablGrid.IsEnabled = false;
+            if (IndexAddEdit == "addCommand")
+            {
+                WindowMen.BorderLoadDependency.IsEnabled = false;
+                WindowMen.BorderGhangeDependency.IsEnabled = false;
+                WindowMen.BorderDeleteDependency.IsEnabled = false;
+                WindowMen.BorderPrintDependency.IsEnabled = false;
+            }
+            if (IndexAddEdit == "editCommand")
+            {
+                WindowMen.BorderLoadDependency.IsEnabled = false;
+                WindowMen.BorderAddDependency.IsEnabled = false;
+                WindowMen.BorderDeleteDependency.IsEnabled = false;
+                WindowMen.BorderPrintDependency.IsEnabled = false;
+            }
+
         }
 
         private void ModelDependencyfalse()
@@ -185,6 +200,11 @@ namespace BackSeam
             WindowMen.FolderInterv.Visibility = Visibility.Hidden;
             WindowMen.DependencyTablGrid.IsEnabled = true;
             SelectedModelDependency = new ModelDependencyDiagnoz();
+            WindowMen.BorderLoadDependency.IsEnabled = true;
+            WindowMen.BorderGhangeDependency.IsEnabled = true;
+            WindowMen.BorderDeleteDependency.IsEnabled = true;
+            WindowMen.BorderPrintDependency.IsEnabled = true;
+            WindowMen.BorderAddDependency.IsEnabled = true;
         }
 
         // команда удаления
