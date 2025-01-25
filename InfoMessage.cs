@@ -359,6 +359,7 @@ namespace BackSeam
                 WindowInfo.AnalizDiagnoz.Visibility = Visibility.Visible;
                 WindowInfo.SetupGrid.Visibility = Visibility.Visible;
             }
+            IsEnableButtonOff();
 
         }
         public static void ViewNsiFeature()

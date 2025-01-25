@@ -60,7 +60,9 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelDoctor>(CmdStroka);
             List<ModelDoctor> res = result.ModelDoctor.ToList();
             ViewDoctors = new ObservableCollection<ModelDoctor>((IEnumerable<ModelDoctor>)res);
-            IndexAddEdit = "";
+            _kodDoctor = ViewDoctors[0].kodDoctor;
+            if (selectedProfilLikar == null) selectedProfilLikar = new ModelDoctor();
+            selectedProfilLikar = ViewDoctors[0];
             MetodLoadGridProfilLikar();
         }
 
@@ -100,7 +102,6 @@ namespace BackSeam
             WindowProfilDoctor.LikarLoadInf.Visibility = Visibility.Hidden;
             WindowProfilDoctor.LikarLoadinterv.Visibility = Visibility.Hidden;
             EdrpouMedZaklad = "";
-            //RegSetAccountUser();
             SelectRegAccountUser();
 
             if (WindowProfilDoctor.AccountUsert5.Text != "")
@@ -146,6 +147,8 @@ namespace BackSeam
                 if (MapOpisViewModel.nameDoctor != "")
                 {
                     LoadInfoPacient("лікаря.");
+                    MetodLoadGridProfilLikar();
+                    SelectedGridProfilLikar = selectedGridProfilLikar;
                     if (modelColectionInterview == null) modelColectionInterview = new ModelColectionInterview();
 
                     modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - MapOpisViewModel.nameDoctor.IndexOf(":") - 1);

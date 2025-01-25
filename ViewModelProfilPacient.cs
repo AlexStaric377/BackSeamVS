@@ -54,8 +54,9 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelPacient>(CmdStroka);
             List<ModelPacient> res = result.ViewPacient.ToList();
             ViewPacientProfils = new ObservableCollection<ModelPacient>((IEnumerable<ModelPacient>)res);
-
-
+            _pacientProfil = ViewPacientProfils[0].kodPacient;
+            if (selectedPacientProfil == null) selectedPacientProfil = new ModelPacient(); 
+             selectedPacientProfil = ViewPacientProfils[0];
 
         }
 
@@ -287,7 +288,7 @@ namespace BackSeam
                 return editPacientProfil ??
                   (editPacientProfil = new RelayCommand(obj =>
                   {
-                      if (selectedPacientProfil != null)
+                      if (selectedPacientProfil != null && selectedPacientProfil.id != 0)
                       {
                           IndexAddEdit = "editCommand";
                           if (editboolPacientProfil == false) BoolTruePacientProfil();

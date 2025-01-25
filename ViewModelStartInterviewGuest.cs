@@ -85,7 +85,7 @@ namespace BackSeam
         }
 
 
-        // команда вывзова окна со списком жалоб для выбора строки  и записи в интервью
+        // команда вывзова окна  интервью
         RelayCommand? addCompletedInterview;
         public RelayCommand AddCompletedInterview
         {
@@ -94,6 +94,7 @@ namespace BackSeam
                 return addCompletedInterview ??
                   (addCompletedInterview = new RelayCommand(obj =>
                   {
+                      //IsnableButton();
                       selectedCompletedInterv = new ModelCompletedInterview();
                       modelColectionInterview = new ModelColectionInterview();
                       GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
@@ -115,6 +116,8 @@ namespace BackSeam
                   }));
             }
         }
+
+
 
         // команда вывзова окна со списком жалоб для выбора строки  и записи в интервью
         RelayCommand? editCompletedInterview;

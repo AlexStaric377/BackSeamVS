@@ -92,7 +92,7 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <Grid x:Name="GuestGridAdd" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderAddStartGuest" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GuestAdd"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddCompletedInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -103,7 +103,7 @@
 
                                                 </Grid>
                                                 <Grid x:Name="GuestGridGhange" Grid.Column="3" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderGhangeStartGuest" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GuestGhange"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditCompletedInterview}" Background="White" Height="34" Width="75"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/edit2.png"  Height="28" Width="70" ></Image>
@@ -113,7 +113,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GuestGridDelete" Grid.Column="4" Grid.Row="0"   >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderDeleteStartGuest" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GuestDelete" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding DeleteCompletedInterview}" CommandParameter="{Binding SelectedFeatureComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -133,7 +133,7 @@
                                                     </Border>
                                                 </Grid>
                                                 <Grid x:Name="GuestGridPrint" Grid.Column="6" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                    <Border Name="BorderPrintStartGuest" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="GuestPrint"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintCompletedInterview}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
@@ -359,7 +359,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <TextBlock Name="ReseptionZapisLikar" Text="Для запису на прийом необхідно виконати опитування, потім перейти на цю закладку, натиснути на кнопку 'Додати' , вибрати лікаря, ввести дані та натиснути на кнопк 'Зберегти'. " Width="625"  Height="70"
+                                                        <TextBlock Name="ReseptionZapisLikar" Text="Для запису на прийом необхідно виконати опитування, потім перейти на цю закладку, натиснути на кнопку 'Додати' , вибрати лікаря, ввести дані та натиснути на кнопку 'Зберегти'. " Width="625"  Height="70"
                                                    TextWrapping="Wrap" Grid.Row="9" HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="3" Margin="5,0,0,0"/>
                                                     </Grid>
 
@@ -1453,8 +1453,8 @@
                                                     <ColumnDefinition Width ="95*" />
 
                                                 </Grid.ColumnDefinitions>
-                                                <Grid Grid.Column="0" Grid.Row="0" Name="GridLikarProfLoad">
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid Grid.Column="0" Grid.Row="0" >
+                                                    <Border Name="GridLikarProfLoad" BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="LikarProfLoad"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadProfilLikar}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <!--White"-->
@@ -1464,8 +1464,8 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
-                                                <Grid x:Name="ProfilLikarGridAdd" Grid.Column="1" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid Name="ProfilLikarGridAdd" Grid.Column="1" Grid.Row="0"  >
+                                                    <Border  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilLikarAdd"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding LoadProfilLikar}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
@@ -1474,8 +1474,8 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
-                                                <Grid x:Name="ProfilLikarGridGhange" Grid.Column="2" Grid.Row="0"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid Name="ProfilLikarGridGhange" Grid.Column="2" Grid.Row="0"  >
+                                                    <Border  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilLikarGhange"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding EditProfilLikar }" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image   Source="pack://application:,,,/BackSeam;component/Images/Edit2.png"  Height="28" Width="70" ></Image>
@@ -1484,8 +1484,8 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
-                                                <Grid x:Name="ProfilLikarGridDelete" Grid.Column="3" Grid.Row="0" Visibility="Visible"  >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid Name="ProfilLikarGridDelete" Grid.Column="3" Grid.Row="0"   >
+                                                    <Border  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilLikarDelete" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding DeleteCompletedLikar}" CommandParameter="{Binding SelectedFeatureComplaint}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/corzina2.png"  Height="28" Width="70" ></Image>
@@ -1494,7 +1494,7 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
-                                                <Grid x:Name="ProfilLikarGridSave" Grid.Column="4" Grid.Row="0"  >
+                                                <Grid Name="ProfilLikarGridSave"  Grid.Column="4" Grid.Row="0"  >
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilLikarSave" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding SaveProfilLikar}"  Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
@@ -1504,8 +1504,8 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
-                                                <Grid x:Name="ProfilLikarGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
-                                                    <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
+                                                <Grid Name="ProfilLikarGridPrint" Grid.Column="5" Grid.Row="0" Margin="2,0,0,0" >
+                                                    <Border  BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="ProfilLikarPrint"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"  >
                                                             <Button Command="{Binding PrintProfilLikar}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/Printer.png"  Height="28" Width="70"  ></Image>
