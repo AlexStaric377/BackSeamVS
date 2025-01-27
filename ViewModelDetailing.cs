@@ -67,7 +67,6 @@ namespace BackSeam
         {
             string SelectednameFeature = "", keyFeature="";
             ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
-            selectedViewDetailingFeature = new ViewDetailingFeature();             
             foreach (ModelDetailing  modelDetailing in ViewDetailings)
             {
                 ViewDetailingFeature selectedDetailingFeature = new ViewDetailingFeature();
@@ -93,6 +92,7 @@ namespace BackSeam
                 ViewDetailingFeatures.Add(selectedDetailingFeature);
             }
             WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
+            selectedViewDetailingFeature = new ViewDetailingFeature();
         }
 
         #region Команды вставки, удаления и редектирования справочника "детализация характера"
@@ -653,7 +653,8 @@ namespace BackSeam
                       NewEkzemplyarDetailing();
                       SelectedNsiComplaint();
                       if (MapOpisViewModel.nameFeature3 == ""  || selectedViewDetailingFeature == null) return;
-                      
+
+                      if (selectedViewDetailingFeature == null) selectedViewDetailingFeature = new ViewDetailingFeature();
                       MapOpisViewModel.ActCompletedInterview = "Feature";
                       MapOpisViewModel.ActCreatInterview = "Feature";
                       ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/"+(selectedViewDetailingFeature.kodComplaint == "" ? "0" : selectedViewDetailingFeature.kodComplaint ) + "/0"; 
