@@ -854,7 +854,7 @@
                                                 <StackPanel x:Name="PacientInterMapOpis" Width="Auto"  Background="White" Height="250" DataContext="{Binding SelectedColectionIntevPacient}">
                                                     <Grid Width="Auto" Height="Auto">
                                                         <Grid.ColumnDefinitions >
-                                                            <ColumnDefinition Width="179.488" />
+                                                            <ColumnDefinition Width="185" />
                                                             <ColumnDefinition />
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
@@ -869,25 +869,46 @@
                                                             <RowDefinition Height="80*"/>
 
                                                         </Grid.RowDefinitions>
-                                                        <Label Content="     Проведені опитування, попередні діагнози рекомендації" Grid.Row="0" Grid.Column="1"  Height="26" FontWeight="Bold" />
-                                                        <TextBlock x:Name="PacientInterLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="30" Text="  Лікар"   Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
+                                                        <Label Content="  Проведене опитування, діагноз рекомендація до подальшої дії" Grid.Row="0" Grid.Column="1"  Height="26" FontWeight="Bold" />
+
+                                                        <TextBlock x:Name="PacientInterLab3" Grid.Column="0" Grid.Row="1" Text="  Пацієнт (Ім'я,Прізвище)" TextWrapping="Wrap"  FontSize="14" Height="26" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Text="{Binding namePacient,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert3" Grid.Column="1" Grid.Row="1" Background="White" Width="400" Height="26" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />                                                        
+                                                        
+                                                        <TextBlock x:Name="PacientInterLab2" Grid.Row="2" Text="  Лікар"   TextWrapping="Wrap"  Grid.Column="0" Height="26" Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox Text="{Binding nameDoctor,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert2" Grid.Row="2" FontSize="14" Height="26" Width="350"  Background="White" VerticalContentAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Grid.ColumnSpan="2" Margin="179,0,0,0" VerticalAlignment="Top"/>
-                                                        <TextBlock x:Name="PacientInterLab41" Grid.Column="0" Grid.Row="4" Text="  Дата та час прийому"  FontSize="14" Height="24" Width="160" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="{Binding dateDoctor,UpdateSourceTrigger=PropertyChanged}" Name="PacientInter41" Grid.Column="1" Grid.Row="4"  Background="White" Width="200" Height="24" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        
+                                                        <TextBlock x:Name="PacientInterLab41" Grid.Column="0" Grid.Row="3" Text="  Дата та час прийому"  FontSize="14" Height="26" Width="160" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding dateDoctor,UpdateSourceTrigger=PropertyChanged}" Name="PacientInter41" Grid.Column="1" Grid.Row="3"  Background="White" Width="200" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
 
 
-                                                        <TextBlock x:Name="PacientInterLab3" Grid.Column="0" Grid.Row="1" Text="  Пацієнт (Ім'я,Прізвище)" TextWrapping="Wrap"  FontSize="14" Height="30" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Text="{Binding namePacient,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert3" Grid.Column="1" Grid.Row="1" Background="White" Width="400" Height="26" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <TextBlock x:Name="PacientInterLab4" Grid.Column="0" Grid.Row="5" Text="  Дата та час  опитування"  FontSize="14" Height="30" Width="167" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="{Binding dateInterview,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt4" Grid.Column="1" Grid.Row="5"  Background="White" Width="200" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <TextBlock x:Name="PacientInterviewLab5" Grid.Column="0" Grid.Row="7" Text="  Рекомендації" TextWrapping="Wrap"  FontSize="14" Height="30" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                                                        <TextBox Text="{Binding nameRecomen,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt5" Grid.Column="1" Grid.Row="7" Background="White" Width="400" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <TextBlock x:Name="PacientInterviewLab6" Grid.Column="0" Grid.Row="6" Text="  Попередній діагноз"  FontSize="14" Height="32" Width="160" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="{Binding nameDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt6" Grid.Column="1" Grid.Row="6" Background="White" Width="400" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <TextBlock x:Name="PacientInterLab4" Grid.Column="0" Grid.Row="4" Text="  Дата та час  опитування"  FontSize="14" Height="26" Width="167" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding dateInterview,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt4" Grid.Column="1" Grid.Row="4"  Background="White" Width="200" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <TextBlock x:Name="PacientInterviewLab6" Grid.Column="0" Grid.Row="5" Text="  Попередній діагноз"  FontSize="14" Height="26" Width="160" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding nameDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt6" Grid.Column="1" Grid.Row="5" Background="White" Width="400" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        
+                                                        <TextBlock x:Name="PacientInterviewLab5" Grid.Column="0" Grid.Row="6" Text="  Рекомендації" TextWrapping="Wrap"  FontSize="14" Height="26" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                                                        <TextBox Text="{Binding nameRecomen,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt5" Grid.Column="1" Grid.Row="6" Background="White" Width="400" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
 
-                                                        <TextBlock x:Name="PacientInterviewLab7" Grid.Column="0" Grid.Row="8" Text="  Висновок лікаря"  FontSize="14" Height="30" Width="146" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="{Binding resultDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt7" Grid.Column="1" Grid.Row="8"  Background="White" Width="400" Height="30" FontSize="14"
+                                                        <TextBlock x:Name="PacientInterviewLab7" Grid.Column="0" Grid.Row="7" Text=" Опис діагнозу в інтернеті"  FontSize="14" Height="26" Width="170" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding resultDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt7" Grid.Column="1" Grid.Row="7"  Background="White" Width="400" Height="26" FontSize="14"
                                                     IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <Image x:Name="PacientFoldUrlHtpps" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="7" Width="25" Height="24" Margin="400,0,0,0" Visibility="Hidden"  >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=PacientGridCompletedInterview, Path=DataContext.PacientReadOpisIntevUrl}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <TextBlock x:Name="PacientInterviewLaas" Grid.Column="0" Grid.Row="8" Text=" Подібні клінічні симптоми"  FontSize="14" Height="26" Width="175" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding nameInterview,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewUriText" Grid.Column="1" Grid.Row="8"  Background="White" Width="400" Height="26" FontSize="14"
+                                                    IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <Image x:Name="PacientFoldMixUrlHtpps" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="8" Width="25" Height="24" Margin="400,0,0,0" Visibility="Hidden"  >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=PacientGridCompletedInterview, Path=DataContext.PacientReadOpisMixUrlHtpps}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
                                                         <!--<Label Name="PacientLoadinterv" Content="Для завантаження інформації необхідно завантажити профіль лікаря" Width="600" Grid.Row="8" Height="35"
                                                        HorizontalAlignment="Center" FontSize="18"  Grid.ColumnSpan="2" Margin="0,0,0,0"/>-->
 
@@ -1976,14 +1997,33 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <TextBlock x:Name="LikarInterviewLab7" Grid.Column="0" Grid.Row="6" Text="  Висновок лікаря"  FontSize="14" Height="24" Width="146" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="{Binding resultDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="LikarInterviewt7" Grid.Column="1" Grid.Row="6"  Background="White"  Width="400" Height="24" FontSize="14"
-                                                    IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <TextBlock x:Name="LikarInterviewInputLab7" Grid.Column="0" Grid.Row="7" Text="  Автор опитування"  FontSize="14" Height="24" Width="146" HorizontalAlignment="Left"  />
-                                                        <TextBox Text="" Name="LikarInterviewAvtort7" Grid.Column="1" Grid.Row="7"  Background="White"  Width="400" Height="24" FontSize="14"
-                                                    IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <Label Name="LikarLoadinterv" Content="Для завантаження інформації необхідно завантажити профіль лікаря" Width="600" Grid.Row="8" Height="35"
-                                                       HorizontalAlignment="Center" FontSize="18"  Grid.ColumnSpan="2" Margin="0,0,0,0"/>
+                           
+                                                        <TextBlock x:Name="LikarInterviewInputLab7" Grid.Column="0" Grid.Row="6" Text="  Автор опитування"  FontSize="14" Height="24" Width="146" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="" Name="LikarInterviewAvtort7" Grid.Column="1" Grid.Row="6"  Background="White"  Width="400" Height="24" FontSize="14"
+                                                            IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <TextBlock x:Name="LikarInterviewTextUrl" Grid.Column="0" Grid.Row="7" Text="  Опис діагнозу в інтернеті"  FontSize="14" Height="24" Width="175" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding resultDiagnoz,UpdateSourceTrigger=PropertyChanged}"  Name="LikarInterviewhtpps" Grid.Column="1" Grid.Row="7"  Background="White"  Width="400" Height="24" FontSize="14"
+                                                            IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        <Image x:Name="LikarFoldUrlHtpps" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="7" Width="25" Height="24" Margin="400,0,0,0" Visibility="Hidden"  >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=LikarGridCompletedInterview, Path=DataContext.ReadOpisIntevUrl}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <TextBlock x:Name="LikarInterviewLab71" Grid.Column="0" Grid.Row="8" Text="  Подібні клінічні симптоми"  FontSize="14" Height="24" Width="180" HorizontalAlignment="Left"  />
+                                                        <TextBox Text="{Binding nameInterview,UpdateSourceTrigger=PropertyChanged}" Name="LikarInterviewUriText" Grid.Column="1" Grid.Row="8"  Background="White"  Width="400" Height="24" FontSize="14"
+                                                            IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        
+                                                        <Image x:Name="LikarFoldMixUrlHtpps" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="8" Width="25" Height="24" Margin="400,0,0,0" Visibility="Hidden"  >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding ElementName=LikarGridCompletedInterview, Path=DataContext.ReadOpisMixUrlHtpps}" CommandParameter=""/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Image>
+                                                        <!--<Label Name="LikarLoadinterv" Content="Для завантаження інформації необхідно завантажити профіль лікаря" Width="600" Grid.Row="8" Height="35"
+                                                       HorizontalAlignment="Center" FontSize="18"  Grid.ColumnSpan="2" Margin="0,0,0,0"/>-->
 
                                                         <TextBlock x:Name="LikarCompInterviewLab" Grid.Row="3" Grid.Column="1" Text=" Зміст опитування"  FontSize="14" Height="22" Margin="220,0,95,0" VerticalAlignment="Center"  />
                                                         <Image x:Name="LikarFoldInterv" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="3" Width="25" Height="24" Margin="350,0,0,0" Visibility="Visible"  >

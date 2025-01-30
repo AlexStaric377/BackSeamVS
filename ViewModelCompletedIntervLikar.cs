@@ -17,6 +17,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using System.Windows.Media;
+using System.Diagnostics;
 
 namespace BackSeam
 {
@@ -96,7 +97,6 @@ namespace BackSeam
                 selectedIntevLikar.kodComplInterv = colectionInterview.kodComplInterv;
                 selectedIntevLikar.kodProtokola = colectionInterview.kodProtokola;
                 selectedIntevLikar.dateInterview = colectionInterview.dateInterview;
-                selectedIntevLikar.resultDiagnoz = colectionInterview.resultDiagnoz;
                 ColectionInterviewIntevLikars.Add(selectedIntevLikar);
             }
 
@@ -181,6 +181,7 @@ namespace BackSeam
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         selectedIntevLikar.nameDiagnoz = Insert1.nameDiagnoza;
                         if (boolname == true) WindowMen.LikarInterviewt6.Text = Insert1.nameDiagnoza;
+                        selectedIntevLikar.resultDiagnoz = Insert1.UriDiagnoza;
                     }
 
                     json = Recomencontroller + Insert.kodRecommend.ToString() + "/0"; ;
@@ -224,7 +225,7 @@ namespace BackSeam
         public static void MethodLoadtableColectionIntevLikar()
         {
             IndexAddEdit = "";
-            WindowMen.LikarLoadinterv.Visibility = Visibility.Hidden;
+
             WindowMen.LikarInterGridSave.Visibility = Visibility.Hidden;
             WindowMen.LikarColectionGridGhange.Visibility = Visibility.Hidden;
             WindowMen.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
@@ -243,8 +244,8 @@ namespace BackSeam
             WindowMen.LikarFoldInterv.Visibility = Visibility.Visible;
             WindowMen.LikarFolderRecomen.Visibility = Visibility.Visible;
             WindowMen.LikarFolderDiagn.Visibility = Visibility.Visible;
-            WindowMen.LikarInterviewt7.IsEnabled = true;
-            WindowMen.LikarInterviewt7.Background = Brushes.AntiqueWhite;
+            //WindowMen.LikarInterviewt7.IsEnabled = true;
+            //WindowMen.LikarInterviewt7.Background = Brushes.AntiqueWhite;
 
         }
 
@@ -253,8 +254,8 @@ namespace BackSeam
             editboolIntevLikar = false;
             WindowMen.LikarFolderRecomen.Visibility = Visibility.Hidden;
             WindowMen.LikarFolderDiagn.Visibility = Visibility.Hidden;
-            WindowMen.LikarInterviewt7.IsEnabled = false;
-            WindowMen.LikarInterviewt7.Background = Brushes.White;
+            //WindowMen.LikarInterviewt7.IsEnabled = false;
+            //WindowMen.LikarInterviewt7.Background = Brushes.White;
         }
         // команда удаления
         private RelayCommand? removeColectionIntevLikar;
@@ -424,7 +425,7 @@ namespace BackSeam
         {
 
             WinCreatIntreview NewOrder = new WinCreatIntreview();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+            NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100; ;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
 
@@ -465,8 +466,6 @@ namespace BackSeam
                   {
                       MapOpisViewModel.CallViewProfilLikar = "WinNsiPacient";
                       WinNsiPacient NewOrder = new WinNsiPacient();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 200;
                       NewOrder.ShowDialog();
                       MapOpisViewModel.CallViewProfilLikar = "";
                       if (selectedIntevLikar != null && WindowIntevLikar.LikarIntert3.Text.ToString().Trim() != "")
@@ -488,8 +487,8 @@ namespace BackSeam
                   (listRecomendaciyaIntevLikars = new RelayCommand(obj =>
                   {
                       WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 200;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                   }));
             }
@@ -504,8 +503,8 @@ namespace BackSeam
                   (listDiagnozIntevLikars = new RelayCommand(obj =>
                   {
                       WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 200;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                   }));
             }
@@ -520,17 +519,22 @@ namespace BackSeam
                   (onVisibleObjIntevLikars = new RelayCommand(obj =>
                   {
 
-                           if (ColectionInterviewIntevLikars != null)
-                          {
+                        if (ColectionInterviewIntevLikars != null)
+                        {
  
-                              if (editboolIntevLikar == true) BoolFalseIntevLikarCompl();
-                              if (ColectionInterviewIntevLikars.Count != 0 && WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
-                              {
-                                  WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
-                                  selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                                  SelectedColectionIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
-                              }
-                          }                    
+                            if (editboolIntevLikar == true) BoolFalseIntevLikarCompl();
+                            if (ColectionInterviewIntevLikars.Count != 0 && WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
+                            {
+                                WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
+                                selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
+                                SelectedColectionIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
+                                GetidkodProtokola = selectedColectionIntevLikar.kodComplInterv + "/0";
+                                MetodSearchContentInterv(GetidkodProtokola, CompletedcontrollerIntevPacient);
+                                WindowIntevLikar.LikarInterviewUriText.Text = modelColectionInterview.nameInterview;
+                                WindowIntevLikar.LikarFoldUrlHtpps.Visibility = Visibility.Visible;
+                                WindowIntevLikar.LikarFoldMixUrlHtpps.Visibility = Visibility.Visible;
+                            }
+                        }                    
  
                   }));
             }
@@ -603,6 +607,7 @@ namespace BackSeam
                                   }
                                   WindowIntevLikar.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
                                   WindowIntevLikar.ColectionDiagnozTablGrid.Visibility = Visibility.Hidden;
+
                               }
                           }
 
@@ -635,6 +640,37 @@ namespace BackSeam
                             break;
                     }
                 }));
+            }
+        }
+
+
+        // команда просмотра содержимого интервью
+        private RelayCommand? readOpisIntevUrl;
+        public RelayCommand ReadOpisIntevUrl
+        {
+            get
+            {
+                return readOpisIntevUrl ??
+                  (readOpisIntevUrl = new RelayCommand(obj =>
+                  {
+                      if (selectedIntevLikar.resultDiagnoz == "") return;
+                      MetodRunGoogle(selectedIntevLikar.resultDiagnoz);
+                  }));
+            }
+        }
+
+        // команда просмотра содержимого интервью
+        private RelayCommand? readOpisMixUrlHtpps;
+        public RelayCommand ReadOpisMixUrlHtpps
+        {
+            get
+            {
+                return readOpisMixUrlHtpps ??
+                  (readOpisMixUrlHtpps = new RelayCommand(obj =>
+                  {
+                      if (modelColectionInterview.nameInterview == "") return;
+                      MetodRunGoogle(modelColectionInterview.nameInterview);
+                  }));
             }
         }
         #endregion

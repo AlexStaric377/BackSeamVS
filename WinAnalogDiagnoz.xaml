@@ -137,13 +137,14 @@
                                             <ColumnDefinition Width ="239*" />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="10*" />
-                                            <RowDefinition Height="60*" />
-                                            <RowDefinition Height="80*"/>
-                                            <RowDefinition Height="80*"/>
-                                            <RowDefinition Height="70*"/>
-                                            <RowDefinition Height="70*"/>
-                                        </Grid.RowDefinitions>
+                                        <RowDefinition Height="10*" />
+                                        <RowDefinition Height="40*" />
+                                        <RowDefinition Height="40*"/>
+                                        <RowDefinition Height="80*"/>
+                                        <RowDefinition Height="70*"/>
+                                        <RowDefinition Height="40*"/>
+                                        <RowDefinition Height="40*"/>
+                                    </Grid.RowDefinitions>
 
                                         <TextBlock x:Name="NameInterview" Grid.Row="1" TextWrapping="Wrap" FontSize="14" Text="  Назва опитування" FontFamily="Microsoft Sans Serif"  Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="40" />
                                         <TextBox  Name="BoxNameInterview" Text="{Binding Path=nametInterview, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Grid.Column="1" FontFamily="Microsoft Sans Serif" IsReadOnly="true"
@@ -157,7 +158,7 @@
                                             </i:Interaction.Triggers>
                                         </Image>
                                     <TextBlock x:Name="NameDiagnoz" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="60" Text="  Імовірний попередній&#xa;  діагноз" FontFamily="Microsoft Sans Serif"  Width="173" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"  />
-                                        <TextBox Text="{Binding Path=nameDiagnoza,UpdateSourceTrigger=PropertyChanged}" Name="BoxNameDiagnoz" Grid.Row="2" Grid.Column="1" Height="65" FontSize="14" FontFamily="Microsoft Sans Serif"
+                                        <TextBox Text="{Binding Path=nameDiagnoza,UpdateSourceTrigger=PropertyChanged}" Name="BoxNameDiagnoz" Grid.Row="2" Grid.Column="1" Height="35" FontSize="14" FontFamily="Microsoft Sans Serif"
                                                              IsReadOnly="true"    TextWrapping="Wrap" Background="#FFCED7F7" VerticalContentAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
                                         <TextBlock x:Name="ShortOPis" Grid.Row="3" Text="  Короткий опис&#xa;  попереднього діагнозу " FontFamily="Microsoft Sans Serif"  FontSize="14" Height="32" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                         <TextBox Name="BoxInterviewOpis" Text="{Binding Path=opistInterview, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"  Grid.Column="1" Grid.Row="3" 
@@ -176,7 +177,17 @@
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Image>
-                                    </Grid>
+                                    <TextBlock x:Name="UriMixInterview" Grid.Row="6" Text=" Подібні клінічні симптоми" FontFamily="Microsoft Sans Serif" FontSize="14" Height="24" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <TextBox  Name="TextMixUriInterview" Text=""  Grid.Row="6" Grid.Column="1" FontFamily="Microsoft Sans Serif"
+                                              IsReadOnly="true" Background="#FFCED7F7" VerticalAlignment="Center" Height="32" TextWrapping="Wrap" Width="400" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                    <Image x:Name="RunMixUriInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="6" Width="25" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Visible" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ElementName=GridResultInterview, Path=DataContext.RunMixGooglUri}" CommandParameter=""/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Image>
+                                </Grid>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Row="2">

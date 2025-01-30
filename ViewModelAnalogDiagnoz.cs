@@ -32,6 +32,7 @@ namespace BackSeam
         WinAnalogDiagnoz WinAnalog = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
         public string KodProtokola = "";
         private static string pathcontrolerCompleted = "/api/CompletedInterviewController/";
+        public static string pathcontrolerContent = "/api/ContentInterviewController/";
         public static ModelInterview selectedResultInterview;
         public static ModelResultInterview selectItogInterview;
         public static ObservableCollection<ModelResultInterview> AnalogDiagnozs { get; set; }
@@ -49,7 +50,7 @@ namespace BackSeam
                 selectItogInterview.uriInterview = modelInterview.uriInterview;
                 MapOpisViewModel.LoadDiagnozRecomen(modelInterview.kodProtokola);
                 selectItogInterview.kodProtokola = modelInterview.kodProtokola;
-                selectItogInterview.nameDiagnoza =  MapOpisViewModel.NameDiagnoz;
+                selectItogInterview.nameDiagnoza = MapOpisViewModel.NameDiagnoz;
                 selectItogInterview.nameRecommendation = MapOpisViewModel.NameRecomendaciya;
                 KodProtokola = modelInterview.kodProtokola;
                 AnalogDiagnozs.Add(selectItogInterview);
@@ -87,6 +88,9 @@ namespace BackSeam
                           MapOpisViewModel.modelColectionInterview.detailsInterview = selectItogInterview.detailsInterview;
                           MapOpisViewModel.modelColectionInterview.kodProtokola = selectItogInterview.kodProtokola;
                           IcdGrDiagnoz();
+                          MapOpisViewModel.GetidkodProtokola = selectItogInterview.kodProtokola;
+                          MapOpisViewModel.MetodSearchContentInterv(MapOpisViewModel.GetidkodProtokola, pathcontrolerContent);
+                          WinAnalog.TextMixUriInterview.Text = MapOpisViewModel.modelColectionInterview.nameInterview;
                       }
                   }));
             }
@@ -111,6 +115,7 @@ namespace BackSeam
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         MapOpisViewModel.selectIcdGrDiagnoz = Insert1.icdGrDiagnoz.ToString();
+                        MapOpisViewModel.modelColectionInterview.resultDiagnoz = Insert1.UriDiagnoza;
                         json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/" + Insert1.icdGrDiagnoz.ToString() + "/0";
                         CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
                         if (CallServer.ResponseFromServer.Contains("[]") == false)
@@ -140,7 +145,7 @@ namespace BackSeam
             }
         }
 
-        
+
         // команда закрытия окна
         private RelayCommand? reseptionLikar;
         public RelayCommand ReseptionAnalogLikar
@@ -152,7 +157,7 @@ namespace BackSeam
                   {
 
                       if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
-                      { 
+                      {
                           MapOpisViewModel.ViewAnalogDiagnoz = true;
                           MapOpisViewModel.SaveAnalogDiagnoz = true;
                           MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
@@ -177,7 +182,7 @@ namespace BackSeam
                                   WindowIntevLikar.ReceptionLikarCompInterview.Visibility = Visibility.Visible;
                                   WindowIntevLikar.ReceptionLikarFoldInterv.Visibility = Visibility.Visible;
                                   WindowIntevLikar.ReceptionLikarFolderTime.Visibility = Visibility.Visible;
-                              
+
                                   WindowIntevLikar.ReceptionLikarLoadinterv.Content = "Ваші дії:  -вибрати лікаря натиснув" + Environment.NewLine + " на малюнок папки; -ввести дату, час прийому та зміст звернення;-натиснути кнопку 'Зберегти'. ";
                                   WindowIntevLikar.ReceptionLikarLoadinterv.Width = 630;
                                   WindowIntevLikar.ReceptionLikarLoadinterv.Height = 70;
@@ -217,7 +222,7 @@ namespace BackSeam
                           MapOpisViewModel.SaveInterviewProtokol();
                           WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
                           WindowResult.Close();
-                          MessageRegistrationLikar();                     
+                          MessageRegistrationLikar();
                       }
                       else InfoNoDiagnoz();
                   }));
@@ -241,28 +246,6 @@ namespace BackSeam
             MapOpisViewModel.SelectedWirning();
         }
 
-        // команда просмотра содержимого интервью
-        private RelayCommand? runGoogleUri;
-        public RelayCommand RunGooglUri
-        {
-            get
-            {
-                return runGoogleUri ??
-                  (runGoogleUri = new RelayCommand(obj =>
-                  {
-                      string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-                      string System_path = System.IO.Path.GetPathRoot(System.Environment.SystemDirectory);
-                      string Puthgoogle = workingDirectory + @"\Google\Chrome\Application\chrome.exe";
-                      Process Rungoogle = new Process();
-                      Rungoogle.StartInfo.FileName = Puthgoogle;//C:\Program Files (x86)\Google\Chrome\Application\
-                      Rungoogle.StartInfo.Arguments = selectItogInterview.uriInterview;
-                      //Rungoogle.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.System);
-                      Rungoogle.StartInfo.UseShellExecute = false;
-                      Rungoogle.EnableRaisingEvents = true;
-                      Rungoogle.Start();
-                  }));
-            }
-        }
 
         // команда просмотра содержимого интервью
         private RelayCommand? readColectionIntreview;
@@ -274,14 +257,14 @@ namespace BackSeam
                   (readColectionIntreview = new RelayCommand(obj =>
                   {
                       if (KodProtokola != null && KodProtokola != "")
-                      { 
+                      {
                           MapOpisViewModel.IndexAddEdit = "";
                           MapOpisViewModel.GetidkodProtokola = KodProtokola;
 
                           WinCreatIntreview NewOrder = new WinCreatIntreview();
-                          NewOrder.Left = (MainWindow.ScreenWidth / 2)-100;
+                          NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
                           NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                          NewOrder.ShowDialog();                     
+                          NewOrder.ShowDialog();
                       }
 
                   }));
@@ -315,11 +298,11 @@ namespace BackSeam
                   (listprofilMedical = new RelayCommand(obj =>
                   {
                       if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
-                      { 
+                      {
                           if (selectItogInterview.kodProtokola != "")
-                          { 
+                          {
                               WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
-                              MedZaklad.ShowDialog();                     
+                              MedZaklad.ShowDialog();
                           }
                           MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
                           if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
@@ -333,7 +316,7 @@ namespace BackSeam
 
                               }
                               MapOpisViewModel.ModelCall = "";
-                          }                     
+                          }
                       }
                       else InfoNoDiagnoz();
 
@@ -395,7 +378,7 @@ namespace BackSeam
             MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
             var result = JsonConvert.DeserializeObject<ListModelCompletedInterview>(CmdStroka);
             List<ModelCompletedInterview> res = result.ModelCompletedInterview.ToList();
-            MapOpisViewModel.GuestIntervs  = new ObservableCollection<ModelCompletedInterview>((IEnumerable<ModelCompletedInterview>)res);
+            MapOpisViewModel.GuestIntervs = new ObservableCollection<ModelCompletedInterview>((IEnumerable<ModelCompletedInterview>)res);
             switch (MapOpisViewModel.ActCompletedInterview)
             {
                 case "Likar":
@@ -434,7 +417,7 @@ namespace BackSeam
                         modelCompletedInterview.id = 0;
                         modelCompletedInterview.numberstr = MapOpisViewModel.NumberstrokaGuest++;
                         modelCompletedInterview.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
-                        
+
                         json = JsonConvert.SerializeObject(modelCompletedInterview);
                         CallServer.PostServer(pathcontrolerCompleted, json, "POST");
                     }
@@ -477,5 +460,34 @@ namespace BackSeam
             MapOpisViewModel.SelectedFalseLogin(4);
         }
 
+        private RelayCommand? runMixGooglUri;
+        public RelayCommand RunMixGooglUri
+        {
+            get
+            {
+                return runMixGooglUri ??
+                  (runMixGooglUri = new RelayCommand(obj =>
+                  {
+                      if (MapOpisViewModel.modelColectionInterview.nameInterview == "") return;
+                      MapOpisViewModel.MetodRunGoogle(MapOpisViewModel.modelColectionInterview.nameInterview);
+
+                  }));
+            }
+        }
+        // команда просмотра содержимого интервью
+        private RelayCommand? runGoogleUri;
+        public RelayCommand RunGooglUri
+        {
+            get
+            {
+                return runGoogleUri ??
+                  (runGoogleUri = new RelayCommand(obj =>
+                  {
+                      if (selectItogInterview.uriInterview == "") return;
+                      MapOpisViewModel.MetodRunGoogle(selectItogInterview.uriInterview);
+
+                  }));
+            }
+        }
     }
 }

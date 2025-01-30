@@ -172,7 +172,6 @@ namespace BackSeam
                       {
                           MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
                           WindowMain.LikarLoadInf.Visibility = Visibility.Visible;
-                          WindowMain.LikarLoadinterv.Visibility = Visibility.Visible;
                           WindowMain.StackPanelCabLikar.Visibility = Visibility.Visible;
                       }
 

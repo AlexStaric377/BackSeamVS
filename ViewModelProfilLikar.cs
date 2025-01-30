@@ -100,7 +100,7 @@ namespace BackSeam
             WindowMain.FolderLikarProfil.Visibility = Visibility.Visible;
             WindowProfilDoctor.BorderCabLikar.Visibility = Visibility.Hidden;
             WindowProfilDoctor.LikarLoadInf.Visibility = Visibility.Hidden;
-            WindowProfilDoctor.LikarLoadinterv.Visibility = Visibility.Hidden;
+
             EdrpouMedZaklad = "";
             SelectRegAccountUser();
 
@@ -117,7 +117,7 @@ namespace BackSeam
             else
             {
                 WindowProfilDoctor.LikarLoadInf.Visibility = Visibility.Visible;
-                WindowProfilDoctor.LikarLoadinterv.Visibility = Visibility.Visible;
+
             }
         }
 

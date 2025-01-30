@@ -17,6 +17,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using System.Windows.Media;
+using System.Diagnostics;
 
 namespace BackSeam
 {
@@ -81,7 +82,6 @@ namespace BackSeam
                 selectedIntevPacient.kodComplInterv = colectionInterview.kodComplInterv;
                 selectedIntevPacient.kodProtokola = colectionInterview.kodProtokola;
                 selectedIntevPacient.dateInterview = colectionInterview.dateInterview;
-                selectedIntevPacient.resultDiagnoz = colectionInterview.resultDiagnoz;
                 selectedIntevPacient.nameInterview = colectionInterview.nameInterview;
                 ColectionInterviewIntevPacients.Add(selectedIntevPacient);
             }
@@ -141,6 +141,7 @@ namespace BackSeam
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         selectedIntevPacient.nameDiagnoz = Insert1.nameDiagnoza;
                         if (boolname == true) WindowIntevPacient.PacientInterviewt6.Text = Insert1.nameDiagnoza;
+                        selectedIntevPacient.resultDiagnoz = Insert1.uriDiagnoza;
                     }
 
                     MainWindow.UrlServer = Recomencontroller;
@@ -286,8 +287,8 @@ namespace BackSeam
                       ModelCall = "ModelColectionInterview";
                       GetidkodProtokola = selectedIntevPacient.kodComplInterv +"/0"; 
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
-                      NewOrder.Left = 600;
-                      NewOrder.Top = 130;
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 100;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
                   }));
             }
@@ -303,25 +304,84 @@ namespace BackSeam
                   {
                       if (IndexAddEdit == "")
                       {
-                          if (ColectionInterviewIntevPacients != null)
-                          {
-                              MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
-                              WindowMen.PacientFoldInterv.Visibility = Visibility.Visible;
-                              if (WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex >= 0)
-                              { 
-                                 ColectionInterview selectedColection = ColectionIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
-                                 SelectedColectionIntevPacient = ColectionInterviewIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
-                              }
- 
-
-                          }
+                            if (WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex >= 0)
+                            { 
+                                ColectionInterview selectedColection = ColectionIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
+                                SelectedColectionIntevPacient = ColectionInterviewIntevPacients[WindowIntevPacient.ColectionIntevPacientTablGrid.SelectedIndex];
+                                GetidkodProtokola = selectedColection.kodComplInterv + "/0";
+                                MetodSearchContentInterv(GetidkodProtokola, CompletedcontrollerIntevPacient);
+                                WindowIntevPacient.PacientInterviewUriText.Text = modelColectionInterview.nameInterview;
+                                WindowIntevPacient.PacientFoldUrlHtpps.Visibility = Visibility.Visible;
+                                WindowIntevPacient.PacientFoldMixUrlHtpps.Visibility = Visibility.Visible;
+                                WindowMen.PacientFoldInterv.Visibility = Visibility.Visible;
+                            }
                       }
 
                   }));
             }
         }
 
- 
+        private RelayCommand? pacientReadOpisIntevUrl;
+        public RelayCommand PacientReadOpisIntevUrl
+        {
+            get
+            {
+                return pacientReadOpisIntevUrl ??
+                  (pacientReadOpisIntevUrl = new RelayCommand(obj =>
+                  {
+                      if (selectedIntevPacient.resultDiagnoz == "") return;
+                      MetodRunGoogle(selectedIntevPacient.resultDiagnoz);
+                  }));
+            }
+        }
+
+        private RelayCommand? pacientReadOpisMixUrlHtpps;
+        public RelayCommand PacientReadOpisMixUrlHtpps
+        {
+            get
+            {
+                return pacientReadOpisMixUrlHtpps ??
+                  (pacientReadOpisMixUrlHtpps = new RelayCommand(obj =>
+                  {
+                      if (modelColectionInterview.nameInterview == "") return;
+                      MetodRunGoogle(modelColectionInterview.nameInterview);
+                  }));
+            }
+        }
+
+        public static void MetodRunGoogle(string TextContentInterv = "")
+        {
+            string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+            string System_path = System.IO.Path.GetPathRoot(System.Environment.SystemDirectory);
+            string Puthgoogle = workingDirectory + @"\Google\Chrome\Application\chrome.exe";
+            Process Rungoogle = new Process();
+            Rungoogle.StartInfo.FileName = Puthgoogle;//C:\Program Files (x86)\Google\Chrome\Application\
+            Rungoogle.StartInfo.Arguments = TextContentInterv.Trim();
+            //Rungoogle.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.System);
+            Rungoogle.StartInfo.UseShellExecute = false;
+            Rungoogle.EnableRaisingEvents = true;
+            Rungoogle.Start();
+        }
+
+        public static void MetodSearchContentInterv(string GetidkodProtokola = "", string controler = "")
+        {
+            int Index = 0;
+            string ContentIntervText = "https://www.google.com/search?q=";
+            
+            CallServer.PostServer(controler, controler + GetidkodProtokola, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]") == true) return;
+            ViewModelCreatInterview.ObservableContentInterv(CmdStroka);
+            foreach (ModelContentInterv modelContentInterv in ViewModelCreatInterview.ContentIntervs)
+            {
+                string textDetalish = modelContentInterv.detailsInterview.TrimStart().TrimEnd();
+                if (Index > 0) ContentIntervText += textDetalish.Replace(" ", "+");
+                Index++;
+                if (Index > 2) break;
+            }
+            modelColectionInterview.nameInterview = ContentIntervText;
+
+        }
         #endregion
         #endregion
     }
