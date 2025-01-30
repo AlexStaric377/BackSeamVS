@@ -178,7 +178,7 @@
                                             </i:Interaction.Triggers>
                                         </Image>
                                     <TextBlock x:Name="UriMixInterview" Grid.Row="6" Text=" Подібні клінічні симптоми" FontFamily="Microsoft Sans Serif" FontSize="14" Height="24" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                    <TextBox  Name="TextMixUriInterview" Text=""  Grid.Row="6" Grid.Column="1" FontFamily="Microsoft Sans Serif"
+                                    <TextBox  Name="TextMixUriInterview" Text="{Binding Path=detailsInterview, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="6" Grid.Column="1" FontFamily="Microsoft Sans Serif"
                                               IsReadOnly="true" Background="#FFCED7F7" VerticalAlignment="Center" Height="32" TextWrapping="Wrap" Width="400" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                     <Image x:Name="RunMixUriInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="6" Width="25" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Visible" >
                                         <i:Interaction.Triggers>

@@ -53,8 +53,11 @@ namespace BackSeam
                 selectItogInterview.nameDiagnoza = MapOpisViewModel.NameDiagnoz;
                 selectItogInterview.nameRecommendation = MapOpisViewModel.NameRecomendaciya;
                 KodProtokola = modelInterview.kodProtokola;
+                MapOpisViewModel.GetidkodProtokola = selectItogInterview.kodProtokola;
+                MapOpisViewModel.MetodSearchContentInterv(MapOpisViewModel.GetidkodProtokola, pathcontrolerContent);
+                selectItogInterview.detailsInterview = MapOpisViewModel.modelColectionInterview.nameInterview;
                 AnalogDiagnozs.Add(selectItogInterview);
-
+                
             }
 
             //selectItogInterview = new ModelResultInterview();
@@ -336,23 +339,7 @@ namespace BackSeam
                       if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
                       {
                           WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-                          CallServer.PostServer(MapOpisViewModel.pathcontrolerContent, MapOpisViewModel.pathcontrolerContent + MapOpisViewModel.modelColectionInterview.kodProtokola, "GETID");
-                          string CmdStroka = CallServer.ServerReturn();
-                          if (CmdStroka.Contains("[]")) return;
-                          else ObservableContentInterv(CmdStroka);
-                          MapOpisViewModel.SaveAnalogDiagnoz = true;
-                          MapOpisViewModel.IndexAddEdit = "addCommand";
-                          SaveInterview();
-                          switch (MapOpisViewModel.ActCompletedInterview)
-                          {
-                              case "Likar":
-                                  MapOpisViewModel.MethodLoadtableColectionIntevLikar();
-                                  break;
-                              case "Pacient":
-                                  MapOpisViewModel.MethodLoadtableColectionIntevPacient();
-                                  break;
-                          }
-
+                          MetodSaveIntervievAnalog();
                           MainWindow.MessageError = "Увага! вибраний вами попередній діагноз " + Environment.NewLine +
                            " збережений у реєстрі проведених опитуваннь. Для  його перегляду " + Environment.NewLine +
                            "вам необхідно натиснути закладку 'Перегляд проведених опитуваннь'.";
@@ -363,6 +350,27 @@ namespace BackSeam
                   }));
             }
         }
+
+        public static void MetodSaveIntervievAnalog()
+        {
+            CallServer.PostServer(MapOpisViewModel.pathcontrolerContent, MapOpisViewModel.pathcontrolerContent + MapOpisViewModel.modelColectionInterview.kodProtokola, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]")) return;
+            else ObservableContentInterv(CmdStroka);
+            MapOpisViewModel.SaveAnalogDiagnoz = true;
+            MapOpisViewModel.IndexAddEdit = "addCommand";
+            SaveInterview();
+            switch (MapOpisViewModel.ActCompletedInterview)
+            {
+                case "Likar":
+                    MapOpisViewModel.MethodLoadtableColectionIntevLikar();
+                    break;
+                case "Pacient":
+                    MapOpisViewModel.MethodLoadtableColectionIntevPacient();
+                    break;
+            }
+        }
+
 
         private void InfoNoDiagnoz()
         {
