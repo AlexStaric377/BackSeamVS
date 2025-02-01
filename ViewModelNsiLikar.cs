@@ -194,7 +194,8 @@ namespace BackSeam
             {
                 MapOpisViewModel._kodDoctor = selectedLikar.kodDoctor.ToString();
                 MapOpisViewModel.nameDoctor = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString() + " " + selectedLikar.telefon.ToString();
-                WindowMain.Intert2.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString();
+                MapOpisViewModel.selectedProfilLikar = selectedLikar;
+				WindowMain.Intert2.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString();
                 WindowMain.LikarIntert2.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString() + " " + selectedLikar.telefon.ToString();
                 WindowMain.AccountUsert5.Text = selectedLikar.kodDoctor.ToString() + ": " + selectedLikar.name.ToString() + " " + selectedLikar.surname.ToString();
 

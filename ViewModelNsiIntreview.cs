@@ -106,5 +106,33 @@ namespace BackSeam
             }
         }
 
+        // команда контроля нажатия клавиши enter
+        RelayCommand? checkKeyEnter;
+        public RelayCommand CheckKeyEnter
+        {
+            get
+            {
+                return checkKeyEnter??
+                  (checkKeyEnter= new RelayCommand(obj =>
+                  {
+                      MetodKeyEnterFeature();
+                  }));
+            }
+        }
+
+        private void MetodKeyEnterFeature()
+        {
+
+            if (WindowMen.PoiskDeliting.Text.Trim() != "")
+            {
+                string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text;
+                CallServer.PostServer(pathcontroller, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else ObservableNsiModelFeatures(CmdStroka);
+                WindowMen.TablDeliting.ItemsSource = NsiModelInterviews;
+            }
+        }
+
     }
 }

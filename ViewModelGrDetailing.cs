@@ -53,6 +53,7 @@ namespace BackSeam
             ViewGrDetailings = new ObservableCollection<ModelGrDetailing>((IEnumerable<ModelGrDetailing>)res);
             foreach (ModelGrDetailing modelGrDetailing in ViewGrDetailings)
             {
+                modelGrDetailing.keyGrDetailing = modelGrDetailing.keyGrDetailing.Replace(":","");
                 if (_keyGrDetailing != modelGrDetailing.keyGrDetailing)
                 {
                     
@@ -116,6 +117,7 @@ namespace BackSeam
             IndexAddEdit =  "addCommand";
             if (activGrDeliting == false) BoolTrueGrDetailing(); 
             else BoolFalseGrDetailing();
+            NewEkzemplyarGrDetailing();
             TrueNameGrDetailing();
             SelectNewGrDetailing();
         }
@@ -316,7 +318,8 @@ namespace BackSeam
                 string _keyGrDetailing = selectedViewGrDeliting.keyGrDetailing;
                 foreach (ModelGrDetailing modelDetailing in ViewGrDetailings)
                 {
-                    if (_keyGrDetailing == modelDetailing.keyGrDetailing.Substring(0, modelDetailing.keyGrDetailing.IndexOf(" "))) //WindowMen.GrDetailingst2.Text.ToString()
+
+                    if (_keyGrDetailing == (modelDetailing.keyGrDetailing.Contains(" ") == true ? modelDetailing.keyGrDetailing.Substring(0, modelDetailing.keyGrDetailing.IndexOf(" ")) : modelDetailing.keyGrDetailing)) 
                     {
                         lenghkod = modelDetailing.kodDetailing.Length - modelDetailing.kodDetailing.LastIndexOf(".")-1;
                         stringkod = modelDetailing.kodDetailing.Substring(modelDetailing.kodDetailing.LastIndexOf(".") + 1, lenghkod);

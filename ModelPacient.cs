@@ -38,6 +38,7 @@ namespace BackSeam
                   (checkKeyTextTel = new RelayCommand(obj =>
                   {
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Pacientt8, 12);
+                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
                   }));
             }
         }
@@ -52,6 +53,8 @@ namespace BackSeam
                   (checkProfilTel = new RelayCommand(obj =>
                   {
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.PacientProfilt8, 12);
+                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
+
                   }));
             }
         }
@@ -65,6 +68,7 @@ namespace BackSeam
                   (checkKeyTextPind = new RelayCommand(obj =>
                   {
                           IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Pacientt13, 5);
+                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt13, 5);
                   }));
             }
         }
@@ -78,10 +82,20 @@ namespace BackSeam
                 return checkProfilPind ??
                   (checkProfilPind = new RelayCommand(obj =>
                   {
+                      string PacientProfilt13 = "";
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.PacientProfilt13, 5);
-                      if (MapOpisViewModel.WindowMen.PacientProfilt13.Text.Length >= 4)
+                      if (ViewModelWinProfilPacient.WindowResult != null)
                       {
-                          string jason = MapOpisViewModel.pathcontrolerSob + "0/0/0/" + MapOpisViewModel.WindowMen.PacientProfilt13.Text;
+                          IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt13, 5);
+                          PacientProfilt13 = ViewModelWinProfilPacient.WindowResult.PacientProfilt13.Text;
+
+
+                      } 
+
+                      if (MapOpisViewModel.WindowMen.PacientProfilt13.Text.Length >= 4 || PacientProfilt13.Length >= 4)
+                      {
+                          string Pind = MapOpisViewModel.WindowMen.PacientProfilt13.Text.Length != 0 ? MapOpisViewModel.WindowMen.PacientProfilt13.Text : ViewModelWinProfilPacient.WindowResult.PacientProfilt13.Text;
+                          string jason = MapOpisViewModel.pathcontrolerSob + "0/0/0/" + Pind;
                           CallServer.PostServer(MapOpisViewModel.pathcontrolerSob, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]")) MapOpisViewModel.InfoOfPind(); 

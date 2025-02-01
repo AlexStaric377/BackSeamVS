@@ -31,8 +31,11 @@
                 <Label Content="Назва опитування" Grid.Row="1" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Light" FontSize="12" FontFamily="Microsoft Sans Serif"  Margin="0,0,0,0"/>
 
                 <TextBox Name="PoiskDeliting" Grid.Row="1" Text="" FontSize="14" BorderThickness="0,0,0,0" Margin="85,0,0,0" Width="350" Height="20"
-                         FontFamily="Microsoft Sans Serif" />
-
+                         FontFamily="Microsoft Sans Serif" >
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding CheckKeyEnter}" />
+                </TextBox.InputBindings>
+                </TextBox>
                 <Image Height="20" Width="30" Grid.Row="1" HorizontalAlignment="Right"  Name="Poisk_Deliting"  VerticalAlignment="Center" Margin="0,0,0,0"
                     Source="pack://application:,,,/BackSeam;component/Images/lupa2.png" Cursor="Hand"  >
 

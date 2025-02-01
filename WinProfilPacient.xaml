@@ -139,8 +139,13 @@
                                     <ColumnDefinition Width ="110*" />
                                     <ColumnDefinition Width ="100*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock x:Name="PacientProfilLab8" Grid.Column="0"  Text="  Телефон&#xa;+xxx xx xx xxx xx" TextWrapping="Wrap" Height="30" FontSize="14" Width="110" HorizontalAlignment="Left" />
+                                <TextBlock x:Name="PacientProfilLab8" Grid.Column="0"  Text="  Телефон&#xa;xxx xx xx xxx xx" TextWrapping="Wrap" Height="30" FontSize="14" Width="110" HorizontalAlignment="Left" />
                                 <TextBox Text="{Binding tel, UpdateSourceTrigger=PropertyChanged}" Name="PacientProfilt8" IsReadOnly="True" Grid.Column="1"  Height="24" Width="120" VerticalAlignment="Center" Background="#FFCED7F7" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"  />
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="KeyUp">
+                                        <i:InvokeCommandAction Command="{Binding CheckKeyTextTel}" CommandParameter=""/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </Grid>
                             <Grid x:Name="PacientProfilGridLab13" Height="50" Grid.Column="2" Grid.Row="1" >
                                 <Grid.ColumnDefinitions >
@@ -148,7 +153,13 @@
                                     <ColumnDefinition Width ="90*" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock  x:Name="PacientProfilLab13"  Text=" Поштовий&#xa; індекс"  Grid.Column="0" Height="35"  Width="70"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                <TextBox Text="{Binding pind, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt13" IsReadOnly="True" FontSize="14" Grid.Column="1" Width="80"  Height="24"   Background="#FFCED7F7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0,0,0,0" />
+                                <TextBox Text="{Binding pind, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt13" IsReadOnly="True" FontSize="14" Grid.Column="1" Width="80"  Height="24"  
+                                         Background="#FFCED7F7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0,0,0,0" />
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="KeyUp">
+                                        <i:InvokeCommandAction Command="{Binding CheckProfilPind}" CommandParameter=""/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </Grid>
 
                             <Grid x:Name="PacientProfilGridLab9" Height="50" Grid.Column="0" Grid.Row="5"  >
