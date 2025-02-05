@@ -6122,8 +6122,24 @@
                                                                 <ColumnDefinition Width ="150*" />
                                                             </Grid.ColumnDefinitions>
                                                         </Grid>
-                                                        <Label Name="Loadlzaklad" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="40"
-                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="3" Margin="40,00,0,0" />
+                                                        <Grid x:Name="MedicalGridLab11" Height="30" Width="Auto" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" >
+                                                            <Grid.ColumnDefinitions >
+
+                                                                <ColumnDefinition Width="160*"/>
+                                                                <ColumnDefinition Width ="450*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock x:Name="MedicalLab11" Text="  Класифікація закладу" TextWrapping="Wrap" Grid.Column="0"  Height="30"  FontSize="14" Width="160" HorizontalAlignment="Left"   />
+                                                            <TextBox Text="{Binding idstatus,UpdateSourceTrigger=PropertyChanged}" x:Name="Medicalt11" Grid.Column="2" Height="30" Width="400" FontSize="14" HorizontalAlignment="Left" Background="White" BorderThickness="0,0,0,0" />
+                                                            <Image x:Name="FolderStatuszaklad" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="6" Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,25,0" RenderTransformOrigin="-21.787,3048.095"  >
+                                                                <i:Interaction.Triggers>
+                                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                        <i:InvokeCommandAction Command="{Binding ElementName=ProfilZaklad, Path=DataContext.ListStatusZaklad}" CommandParameter=""/>
+                                                                    </i:EventTrigger>
+                                                                </i:Interaction.Triggers>
+                                                            </Image>
+                                                        </Grid>
+                                                        <!--<Label Name="Loadlzaklad" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="40"
+                                                       HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="3" Margin="40,00,0,0" />-->
                                                     </Grid>
                                                 </StackPanel>
                                             </Border>

@@ -41,6 +41,7 @@ namespace BackSeam
         bool   loadbooltablMedical = false, activeditVeiwModelMedical = false;
         public static bool cikl = true;
         public static string controlerMedical =  "/api/MedicalInstitutionController/";
+        public static string controlerStatusZaklad = "/api/ControllerStatusMedZaklad/";
         public static MedicalInstitution selectedMedical;
 
         public static ObservableCollection<MedicalInstitution> VeiwModelMedicals { get; set; }
@@ -53,9 +54,25 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelMedical>(CmdStroka);
             List<MedicalInstitution> res = result.MedicalInstitution.ToList();
             VeiwModelMedicals = new ObservableCollection<MedicalInstitution>((IEnumerable<MedicalInstitution>)res);
+            MetodAddNameStatus();
             WindowMedical.MedicalTablGrid.ItemsSource = VeiwModelMedicals;
         }
 
+
+        public static void MetodAddNameStatus()
+        {
+            int indexrepl = 0;
+            foreach (MedicalInstitution medicalInstitution in VeiwModelMedicals)
+            {
+                string json = controlerStatusZaklad + medicalInstitution.idstatus;
+                CallServer.PostServer(controlerStatusZaklad, json, "GETID");
+                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                StatusMedZaklad Idinsert = JsonConvert.DeserializeObject<StatusMedZaklad>(CallServer.ResponseFromServer);
+                VeiwModelMedicals[indexrepl].idstatus = Idinsert.nameStatus;
+                indexrepl++;
+            }
+        
+        }
         #region Команды вставки, удаления и редектирования справочника "Мед заклади"
         /// <summary>
         /// Команды вставки, удаления и редектирования справочника 
@@ -98,12 +115,10 @@ namespace BackSeam
 
         private void MethodaddcomMedical()
         {
-            WindowMedical .Loadlzaklad.Visibility = Visibility.Hidden;
             WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
-            WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
+            WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
             SelectedMedical = new MedicalInstitution();
-            selectedMedical = SelectedMedical;
-            WindowMedical .MedicalTablGrid.SelectedItem = null;
+            selectedMedical = new MedicalInstitution();
             IndexAddEdit = "addCommand";
             if (activVeiwMedical == false) ModelMedicaltrue();
             else ModelMedicalfalse();
@@ -113,7 +128,6 @@ namespace BackSeam
         private void MethodloadtabMedical()
         {
             loadbooltablMedical = true;
-            WindowMedical .Loadlzaklad.Visibility = Visibility.Hidden;
             CallServer.PostServer(controlerMedical, controlerMedical, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
@@ -189,7 +203,7 @@ namespace BackSeam
                 return saveVeiwModelMedical ??
                   (saveVeiwModelMedical = new RelayCommand(obj =>
                   {
-                      ModelMedicalfalse();
+                      
                       if (WindowMedical.Medicalt2.Text.Trim().Length != 0 & WindowMedical.Medicalt3.Text.Trim().Length != 0)
                       {
                           if (selectedMedical == null)
@@ -204,6 +218,7 @@ namespace BackSeam
                           selectedMedical.postIndex = WindowMedical.Medicalt4.Text.ToString();
                           selectedMedical.telefon = WindowMedical.Medicalt8.Text.ToString();
                           selectedMedical.uriwebZaklad = WindowMedical.MedicalBoxUriWeb.Text.ToString();
+                          selectedMedical.idstatus = selectedMedical.idstatus.Substring(0, selectedMedical.idstatus.IndexOf(":"));
                           var json = JsonConvert.SerializeObject(selectedMedical);
                           string Method = IndexAddEdit == "addCommand" ? "POST" : "PUT";
                           CallServer.PostServer(controlerMedical, json, Method);
@@ -221,6 +236,7 @@ namespace BackSeam
                       }
                       IndexAddEdit = "";
                       SelectedMedical = new MedicalInstitution();
+                      ModelMedicalfalse();
                   }));
             }
         }
@@ -245,6 +261,7 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.IsEnabled = false;
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.White;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Hidden;
+            WindowMedical.FolderStatuszaklad.Visibility = Visibility.Hidden;
             WindowMedical.MedicalTablGrid.IsEnabled = true;
             WindowMedical.BorderLoadMedical.IsEnabled = true;
             WindowMedical.BorderGhangeMedical.IsEnabled = true;
@@ -272,6 +289,7 @@ namespace BackSeam
             WindowMedical.MedicalBoxUriWeb.IsEnabled = true;
             WindowMedical.MedicalBoxUriWeb.Background = Brushes.AntiqueWhite;
             WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
+            WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
             WindowMedical.MedicalTablGrid.IsEnabled = false;
 
             if (IndexAddEdit == "addCommand")
@@ -358,7 +376,7 @@ namespace BackSeam
             }
         }
 
-        // команда загрузки  строки исх МКХ11 по указанному коду для вівода наименования болезни
+        // команда загрузки  окна профилей медучреждений
         private RelayCommand? listProfilZaklad;
         public RelayCommand ListProfilZaklad
         {
@@ -374,6 +392,7 @@ namespace BackSeam
                            Order.Left = (MainWindow.ScreenWidth / 2)-150;
                            Order.Top = (MainWindow.ScreenHeight / 2) - 350;
                            Order.ShowDialog();
+ 
                       }
                           
 
@@ -447,6 +466,34 @@ namespace BackSeam
                   }));
             }
         }
+
+        
+        // команда загрузки  окна профилей медучреждений
+        private RelayCommand? listStatusZaklad;
+        public RelayCommand ListStatusZaklad
+        {
+            get
+            {
+                return listStatusZaklad ??
+                  (listStatusZaklad = new RelayCommand(obj =>
+                  {
+                      if (WindowMedical.Medicalt2.Text != "")
+                      {
+                          EdrpouMedZaklad = "0";
+                          selectedMedical.idstatus = "";
+                          WinMedicalGrDiagnoz Order = new WinMedicalGrDiagnoz();
+                          Order.Left = (MainWindow.ScreenWidth / 2) - 150;
+                          Order.Top = (MainWindow.ScreenHeight / 2) - 350;
+                          Order.ShowDialog();
+                          SelectedMedical.idstatus = selectedMedical.idstatus;
+                          WindowMedical.Medicalt11.Text = selectedMedical.idstatus;
+                      }
+
+
+                  }));
+            }
+        }
+
         #endregion
         #endregion
 

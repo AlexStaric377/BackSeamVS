@@ -25,6 +25,7 @@ namespace BackSeam
         public WinMedicalGrDiagnoz()
         {
             InitializeComponent();
+
             MapOpisViewModel.VisibleOffSelect();
         }
     }

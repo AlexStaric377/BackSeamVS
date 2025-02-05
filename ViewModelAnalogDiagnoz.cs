@@ -161,6 +161,7 @@ namespace BackSeam
 
                       if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
                       {
+                          
                           MapOpisViewModel.ViewAnalogDiagnoz = true;
                           MapOpisViewModel.SaveAnalogDiagnoz = true;
                           MainWindow WindowIntevLikar = MainWindow.LinkNameWindow("BackMain");
@@ -186,7 +187,7 @@ namespace BackSeam
                                   WindowIntevLikar.ReceptionLikarFoldInterv.Visibility = Visibility.Visible;
                                   WindowIntevLikar.ReceptionLikarFolderTime.Visibility = Visibility.Visible;
 
-                                  WindowIntevLikar.ReceptionLikarLoadinterv.Content = "Ваші дії:  -вибрати лікаря натиснув" + Environment.NewLine + " на малюнок папки; -ввести дату, час прийому та зміст звернення;-натиснути кнопку 'Зберегти'. ";
+                                  WindowIntevLikar.ReceptionLikarLoadinterv.Content = "Ваші дії: - натиснути на кнопку <Додати>; -вибрати лікаря натиснув" + Environment.NewLine + " на малюнок папки; -ввести дату, час прийому та зміст звернення;-натиснути кнопку 'Зберегти'. ";
                                   WindowIntevLikar.ReceptionLikarLoadinterv.Width = 630;
                                   WindowIntevLikar.ReceptionLikarLoadinterv.Height = 70;
                                   WindowIntevLikar.ReceptionLikarLoadinterv.HorizontalAlignment = HorizontalAlignment.Left;
@@ -223,6 +224,7 @@ namespace BackSeam
                           MapOpisViewModel.CopycolectionInterview();
                           MapOpisViewModel.colectionInterview.id = MapOpisViewModel.modelColectionInterview.id;
                           MapOpisViewModel.SaveInterviewProtokol();
+                          MethodSelectDoctor();
                           WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
                           WindowResult.Close();
                           MessageRegistrationLikar();
@@ -300,31 +302,37 @@ namespace BackSeam
                 return listprofilMedical ??
                   (listprofilMedical = new RelayCommand(obj =>
                   {
-                      if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
-                      {
-                          if (selectItogInterview.kodProtokola != "")
-                          {
-                              WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
-                              MedZaklad.ShowDialog();
-                          }
-                          MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
-                          if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
-                          {
-                              MapOpisViewModel.ModelCall = "ReceptionLIkar";
-                              WinNsiLikar NewOrder = new WinNsiLikar();
-                              NewOrder.ShowDialog();
-                              if (MapOpisViewModel.nameDoctor.Length > 0)
-                              {
-                                  MapOpisViewModel.modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":"), MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
-
-                              }
-                              MapOpisViewModel.ModelCall = "";
-                          }
-                      }
-                      else InfoNoDiagnoz();
+                      MethodSelectDoctor();
 
                   }));
             }
+        }
+
+        private void MethodSelectDoctor()
+        {
+            if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
+            {
+                if (selectItogInterview.kodProtokola != "")
+                {
+                    WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
+                    MedZaklad.ShowDialog();
+                }
+                MapOpisViewModel.EdrpouMedZaklad = ReceptionLIkarGuest.Likart8.Text.ToString();
+                if (MapOpisViewModel.EdrpouMedZaklad.Length > 0)
+                {
+                    MapOpisViewModel.ModelCall = "ReceptionLIkar";
+                    WinNsiLikar NewOrder = new WinNsiLikar();
+                    NewOrder.ShowDialog();
+                    if (MapOpisViewModel.nameDoctor.Length > 0)
+                    {
+                        MapOpisViewModel.modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":"), MapOpisViewModel.nameDoctor.Length - (MapOpisViewModel.nameDoctor.IndexOf(":") + 1));
+
+                    }
+                    MapOpisViewModel.ModelCall = "";
+                }
+            }
+            else InfoNoDiagnoz();
+
         }
 
         // команда закрытия окна

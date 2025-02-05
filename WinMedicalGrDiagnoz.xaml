@@ -34,6 +34,11 @@
                             <TextBlock Text="{Binding Path=icdGrDiagnoz}"  TextWrapping="Wrap" Width="540" Height="40" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ElementName=TablMedGrupDiagnoz, Path=DataContext.SelectStatusZaklad}" CommandParameter=""/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </ListBox>
                 <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
                     Source="pack://application:,,,/BackSeam;component/Images/xrestik.png"

@@ -29,9 +29,11 @@ namespace BackSeam
 
         WinMedicalGrDiagnoz WindowMedGrDiag = MainWindow.LinkMainWindow("WinMedicalGrDiagnoz");
         public static string controlerGrDiagnoz = "/api/MedGrupDiagnozController/";
-        private ModelMedGrupDiagnoz selectedMedGrupDiagnoz;
+        public static string controlerStatusZaklad = "/api/ControllerStatusMedZaklad/";
+        public static ModelMedGrupDiagnoz selectedMedGrupDiagnoz;
 
         public static ObservableCollection<ModelMedGrupDiagnoz> MedGrupDiagnozs { get; set; }
+        public static ObservableCollection<StatusMedZaklad> StatusMedZaklads { get; set; }
 
         public ModelMedGrupDiagnoz SelectedMedGrupDiagnoz
         { get { return selectedMedGrupDiagnoz; } set { selectedMedGrupDiagnoz = value; OnPropertyChanged("SelectedMedGrupDiagnoz"); } }
@@ -44,13 +46,42 @@ namespace BackSeam
 
 
         }
+
+        public static void ObservableViewStatusZaklads(string CmdStroka)
+        {
+            var result = JsonConvert.DeserializeObject<ListStatusMedZaklad>(CmdStroka);
+            List<StatusMedZaklad> res = result.StatusMedZaklad.ToList();
+            StatusMedZaklads = new ObservableCollection<StatusMedZaklad>((IEnumerable<StatusMedZaklad>)res);
+
+            MedGrupDiagnozs = new ObservableCollection<ModelMedGrupDiagnoz>();
+            foreach (StatusMedZaklad statusMedZaklad in StatusMedZaklads)
+            {
+                selectedMedGrupDiagnoz = new ModelMedGrupDiagnoz();
+                selectedMedGrupDiagnoz.icdGrDiagnoz = statusMedZaklad.idstatus+":"+ statusMedZaklad.nameStatus;
+                MedGrupDiagnozs.Add(selectedMedGrupDiagnoz);
+            }
+
+
+        }
         // конструктор класса
         public ViewModelMedicalGrDiagnoz()
         {
-            string json = controlerGrDiagnoz + MapOpisViewModel.EdrpouMedZaklad+"/0";
-            CallServer.PostServer(controlerGrDiagnoz, json, "GETID");
-            string CmdStroka = CallServer.ServerReturn();
-            ObservableViewGrDiagnoz(CmdStroka);
+            if (MapOpisViewModel.EdrpouMedZaklad == "0")
+            {
+                CallServer.PostServer(controlerStatusZaklad, controlerStatusZaklad, "GET");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                else { ObservableViewStatusZaklads(CmdStroka); }
+            }
+            else
+            { 
+                string json = controlerGrDiagnoz + MapOpisViewModel.EdrpouMedZaklad+"/0";
+                CallServer.PostServer(controlerGrDiagnoz, json, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                ObservableViewGrDiagnoz(CmdStroka);            
+            }
+            
+ 
  
 
         }
@@ -146,5 +177,25 @@ namespace BackSeam
                   }));
             }
         }
+
+        
+        RelayCommand? selectStatusZaklad;
+        public RelayCommand SelectStatusZaklad
+        {
+            get
+            {
+                return selectStatusZaklad ??
+                  (selectStatusZaklad = new RelayCommand(obj =>
+                  {
+                      if (WindowMedGrDiag.TablMedGrupDiagnoz.SelectedIndex >= 0 && MedGrupDiagnozs[WindowMedGrDiag.TablMedGrupDiagnoz.SelectedIndex].edrpou == "")
+                      {
+                          MapOpisViewModel.selectedMedical.idstatus = MedGrupDiagnozs[WindowMedGrDiag.TablMedGrupDiagnoz.SelectedIndex].icdGrDiagnoz;
+                          WindowMedGrDiag.Close();
+                      }
+
+                  }));
+            }
+        }
+
     }
 }

@@ -41,9 +41,11 @@ namespace BackSeam
         private string Telefon;
         private string Email;
         private string UriwebZaklad;
+        private string KodObl;
+        private string IdStatus;
 
         public MedicalInstitution(int Id = 0, string Edrpou = "", string Name = "", string PostIndex = "", 
-            string Adres ="", string Telefon="", string Email="", string UriwebZaklad="")
+            string Adres ="", string Telefon="", string Email="", string UriwebZaklad="", string KodObl = "", string IdStatus = "")
         {
             this.Id = Id;
             this.Edrpou = Edrpou;
@@ -53,6 +55,8 @@ namespace BackSeam
             this.Telefon = Telefon;
             this.Email = Email;
             this.UriwebZaklad = UriwebZaklad;
+            this.KodObl = KodObl;
+            this.IdStatus = IdStatus;
         }
 
 
@@ -111,7 +115,73 @@ namespace BackSeam
             get { return UriwebZaklad; }
             set { UriwebZaklad = value; OnPropertyChanged("uriwebZaklad"); }
         }
+        [JsonProperty("kodobl")]
+        public string kodobl
+        {
+            get { return KodObl; }
+            set { KodObl = value; OnPropertyChanged("kodobl"); }
+        }
+
+        [JsonProperty("idstatus")]
+        public string idstatus
+        {
+            get { return IdStatus; }
+            set { IdStatus = value; OnPropertyChanged("idstatus"); }
+        }
+    }
+
+    public partial class ListStatusMedZaklad
+    {
+
+        [JsonProperty("list")]
+        public StatusMedZaklad[] StatusMedZaklad { get; set; }
 
     }
-  
+    public class StatusMedZaklad : BaseViewModel
+    {
+
+        private int Id;
+        private string IdStatus;
+        private string NameStatus;
+        private string TypeStatus;
+
+        public StatusMedZaklad(int Id = 0, string IdStatus = "", string NameStatus = "", string TypeStatus = "")
+        {
+            this.Id = Id;
+            this.IdStatus = IdStatus;
+            this.NameStatus = NameStatus;
+            this.TypeStatus = TypeStatus;
+        }
+
+
+        [JsonProperty("id")]
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; OnPropertyChanged("id"); }
+        }
+
+        [JsonProperty("idstatus")]
+        public string idstatus
+        {
+            get { return IdStatus; }
+            set { IdStatus = value; OnPropertyChanged("idstatus"); }
+        }
+
+        [JsonProperty("nameStatus")]
+        public string nameStatus
+        {
+            get { return NameStatus; }
+            set { NameStatus = value; OnPropertyChanged("nameStatus"); }
+        }
+
+        [JsonProperty("typeStatus")]
+        public string typeStatus
+        {
+            get { return TypeStatus; }
+            set { TypeStatus = value; OnPropertyChanged("typeStatus"); }
+        }
+
+    }
+
 }

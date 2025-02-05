@@ -423,6 +423,7 @@ namespace BackSeam
         {
             WinMedicalGrDiagnoz winMedicalGrDiagnoz = MainWindow.LinkMainWindow("WinMedicalGrDiagnoz");
             winMedicalGrDiagnoz.ButtonSelect.Visibility = Visibility.Hidden;
+            winMedicalGrDiagnoz.TablMedGrupDiagnoz.SelectedIndex = -1;
             //winMedicalGrDiagnoz.ButtonExit.Visibility = Visibility.Hidden;
         }
 
