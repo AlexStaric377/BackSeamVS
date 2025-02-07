@@ -4183,7 +4183,7 @@
                                                         IsEnabled="False" Background="White" Width="170" Height="30" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
                                                         <TextBlock x:Name="DetailingLab2" Grid.Row="3" Text="  Окрема деталізація&#xa;   характеру" TextWrapping="Wrap"  Grid.Column="0" Height="32"    Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox Text="{Binding nameDetailing, UpdateSourceTrigger=PropertyChanged}" Name="Detailingt2" Grid.Row="3" Grid.Column="1"
-                                                         FontSize="14" Height="30" IsEnabled="False" Background="White" VerticalContentAlignment="Center" Width="380" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                                                         FontSize="14" Height="50" IsEnabled="False" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="420" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
 
                                                         <TextBlock x:Name="DetailingLab4" Grid.Column="0" Grid.Row="4" Text="  Гуртова деталізація"  FontSize="14" Height="30" Width="146" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Text="{Binding nameGrDetailing, UpdateSourceTrigger=PropertyChanged}" Name="Detailingt4" Grid.Column="1" Grid.Row="4" 
@@ -4203,7 +4203,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                                                        <Label Name="Loaddel" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="50"
+                                                        <Label Name="Loaddel" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6" Height="30"
                                                        HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0"/>
 
                                                     </Grid>
@@ -5270,11 +5270,11 @@
                                                         <TextBlock x:Name="InterviewLab1" Grid.Row="3" Text="  Короткий опис діагнозу "  FontSize="14" Height="24" Width="165" HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                         <TextBox Name="InterviewOpis" Text="{Binding opistInterview, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsEnabled="False" Grid.Column="1" Grid.Row="3"  Background="White"
                                                     Width="450" Height="65" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"  />
-                                                        <TextBlock x:Name="InterviewLab2" Grid.Row="1" TextWrapping="Wrap" FontSize="14" Text="  Назва опитування"   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="30" />
-                                                        <TextBox  Name="Interviewt2" Text="{Binding nametInterview, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="1" Grid.Column="1"
-                                                          Background="White" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="300" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
-                                                        <TextBlock x:Name="InterviewLab3" Grid.Row="1" Grid.Column="1" Text="Переглянути&#xa; опитування"  FontSize="14" Height="30" Width="90" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,60,0" Visibility="Visible"  />
-                                                        <Image x:Name="FolderInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Hidden" >
+                                                        <TextBlock x:Name="InterviewLab2" Grid.Row="2" TextWrapping="Wrap" FontSize="14" Text="  Назва опитування"   Width="152" HorizontalAlignment="Left" TextAlignment="Left" Height="30" />
+                                                        <TextBox  Name="Interviewt2" Text="{Binding nametInterview, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="2" Grid.Column="1"
+                                                          Background="White" VerticalAlignment="Top" Height="30" TextWrapping="Wrap" Width="300" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
+                                                        <TextBlock x:Name="InterviewLab3" Grid.Row="2" Grid.Column="1" Text="Переглянути&#xa; опитування"  FontSize="14" Height="40" Width="90" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,60,0" Visibility="Visible"  />
+                                                        <Image x:Name="FolderInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Hidden" >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridInterviewMapOpis, Path=DataContext.CreatIntreview}" CommandParameter=""/>
@@ -5283,11 +5283,11 @@
                                                         </Image>
                                                         <TextBox Name="Interviewt3" Text="{Binding kodProtokola, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" 
                                                    Grid.Column="1" Grid.Row="5" Visibility="Hidden" Background="White" Width="100" FontSize="14" HorizontalAlignment="Center" BorderThickness="0,0,0,0" Height="30"  />
-                                                        <TextBlock x:Name="InterviewDependencyLab2" Grid.Row="2" TextWrapping="Wrap"  Grid.Column="0" Height="25" Text="  Назва діагнозу"   Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"  />
-                                                        <TextBox Text="{Binding nameDiagnoza, UpdateSourceTrigger=PropertyChanged}" Name="InterviewDependencyt2" Grid.Row="2" Grid.Column="1" Height="50" FontSize="14"
+                                                        <TextBlock x:Name="InterviewDependencyLab2" Grid.Row="1" TextWrapping="Wrap"  Grid.Column="0" Height="25" Text="  Назва діагнозу"   Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"  />
+                                                        <TextBox Text="{Binding nameDiagnoza, UpdateSourceTrigger=PropertyChanged}" Name="InterviewDependencyt2" Grid.Row="1" Grid.Column="1" Height="40" FontSize="14"
                                                          TextWrapping="Wrap" Background="White" VerticalContentAlignment="Top" Width="400" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
 
-                                                        <Image x:Name="FolderDiagnozInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="2" Width="25"  HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Hidden" >
+                                                        <Image x:Name="FolderDiagnozInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Hidden" >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridInterviewMapOpis, Path=DataContext.GhangeDiagnozInterview}" CommandParameter=""/>
@@ -5298,7 +5298,7 @@
                                                         <TextBlock x:Name="InterviewDependencyLab3" Grid.Column="0" Grid.Row="4" Text="  Зміст рекомендації" TextWrapping="Wrap"  FontSize="14" Height="25" Width="165" HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                         <TextBox Text="{Binding nameRecommendation, UpdateSourceTrigger=PropertyChanged}" Name="InterviewDependencyt3" Grid.Column="1" Grid.Row="4" Background="White"
                                                          TextWrapping="Wrap" Width="400" Height="50" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        <Image x:Name="FolderRecomenInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Right" Margin="0,0,20,0"  Visibility="Hidden" >
+                                                        <Image x:Name="FolderRecomenInterview" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="4" Width="25"  HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Top" Visibility="Hidden" >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding ElementName=GridInterviewMapOpis, Path=DataContext.GhangeRecomenInterview}" CommandParameter=""/>

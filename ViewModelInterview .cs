@@ -100,16 +100,22 @@ namespace BackSeam
 
         private void AddComandInterview()
         {
-            selectedInterview = new ModelInterview();
-            SelectedInterview = selectedInterview;
+            if (loadboolInterview == true) MetodNewEkzemplar();          
             if (loadboolInterview == false) MethodLoadtableInterview();
             MethodaddcomInterview();
         }
 
-        private void MethodLoadtableInterview()
+        private void MetodNewEkzemplar()
         {
             selectedInterview = new ModelInterview();
+            SelectedInterview = new ModelInterview();
             modelDependency = new ModelDependency();
+            SelectedResultInterview = new ModelResultInterview();
+        }
+        private void MethodLoadtableInterview()
+        {
+            MetodNewEkzemplar();
+            ModelInterviews = new ObservableCollection<ModelInterview>();
             WindowInterv.InterviewGroup.Visibility = Visibility.Hidden;
             CallServer.PostServer(Interviewcontroller, Interviewcontroller, "GET");
             string CmdStroka = CallServer.ServerReturn();
@@ -122,14 +128,9 @@ namespace BackSeam
 
         private void MethodaddcomInterview()
         {
-            SelectedResultInterview = new ModelResultInterview();
-            modelDependency = new ModelDependency();
             IndexAddEdit = "addCommand";
             if (addtboolInterview == false) BoolTrueInterview();
             else BoolFalseInterview();
-            WindowInterv.InterviewTablGrid.SelectedItem = null;
-            
-
         }
 
 
@@ -302,7 +303,7 @@ namespace BackSeam
                               modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
                               WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
                           }                      
-                          if (selectedInterview == null) SelectNewInterview();
+ 
                           selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Length>0 ? WindowInterv.InterviewOpis.Text : selectedInterview.opistInterview;
                           selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.Length>0 ? WindowInterv.InterviewTextUri.Text : selectedInterview.uriInterview;
                           selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.Length>0 ? WindowInterv.Interviewt2.Text : selectedInterview.nametInterview;
@@ -377,8 +378,7 @@ namespace BackSeam
 
             // KodProtokola = "PRT.000000001"           
             int _keyInterview = 1, setindex =0;
-            if (selectedInterview == null) selectedInterview = new ModelInterview();
-            if (ModelInterviews != null)
+            if (ModelInterviews.Count >0 )
             {
                 if (ModelInterviews[0].kodProtokola.Length != 0)
                 { 
@@ -395,6 +395,15 @@ namespace BackSeam
                 _keyInterview++;
                 string _repl = "000000000";
                 _repl = _repl.Length - _keyInterview.ToString().Length > 0 ? _repl.Substring(0, _repl.Length - _keyInterview.ToString().Length) : "";
+                
+                bool breaktrue = false;
+                while (breaktrue == false)
+                { 
+                    CallServer.PostServer(pathcontrolerContent, pathcontrolerContent + "PRT." + _repl + _keyInterview.ToString(), "GETID");
+                    CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]") == true)  break; 
+                    _keyInterview++;
+                }
                 selectedInterview.kodProtokola = "PRT." + _repl + _keyInterview.ToString();
             }
             else selectedInterview.kodProtokola = "PRT.000000001";
@@ -430,7 +439,6 @@ namespace BackSeam
                   {
                       MapOpisViewModel.ModelCall = IndexAddEdit == ""? "ModelInterview" : "";
                       if (IndexAddEdit == "addCommand") SelectNewInterview();
-                      if (selectedInterview == null) return;
                       GetidkodProtokola = selectedInterview.kodProtokola;
                       ComandCreatIntreview(); }));
             }

@@ -30,7 +30,7 @@ namespace BackSeam
         public ModelIcd[] ModelIcd { get; set; }
 
     }
-    public class ModelIcd : INotifyPropertyChanged
+    public class ModelIcd : BaseViewModel
     {
 
         // Международная классификация болезней 11 пересмотра МКБ11 
@@ -64,18 +64,6 @@ namespace BackSeam
         public string name
         { get { return Name; } set { Name = value; OnPropertyChanged("name"); } }
 
-
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
 
     }
 

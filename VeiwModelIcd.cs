@@ -279,6 +279,7 @@ namespace BackSeam
 
         private void ComandFindNameDiagnozMKX()
         {
+            MapOpisViewModel.GrupDiagnoz = "";
             WinNsiIcd NewOrder = new WinNsiIcd();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
@@ -336,7 +337,7 @@ namespace BackSeam
             if (CheckStatusUser() == false) return;
             if (WindowMen.PoiskIcd.Text.Trim() != "")
             {
-                string jason = controlerIcd + "0/" + WindowInterv.PoiskIcd.Text;
+                string jason = controlerIcd  + WindowInterv.PoiskIcd.Text+ "/0";
                 CallServer.PostServer(controlerIcd, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();

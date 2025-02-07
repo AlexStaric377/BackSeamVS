@@ -140,7 +140,9 @@ namespace BackSeam
             if (addboolDetailing == false)
             {
                 BoolTrueDetailing();
-                if(selectedViewDetailingFeature !=null) TrueNameComplaint();
+                selectedViewDetailingFeature = new ViewDetailingFeature();
+                SelectedViewDetailingFeature = new ViewDetailingFeature();
+                if (selectedViewDetailingFeature !=null) TrueNameComplaint();
                 if (MapOpisViewModel.nameFeature3 != "") SelectNewDetailing();            
             } 
             else BoolFalseDetailing();
@@ -316,6 +318,7 @@ namespace BackSeam
                               json = JsonConvert.SerializeObject(selectedDetailing);
                               CallServer.PostServer(pathcontrolerDetailing, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
                               ModelDetailing Idinsert = JsonConvert.DeserializeObject<ModelDetailing>(CallServer.ResponseFromServer);
                               if (Idinsert != null)
                               {
@@ -341,6 +344,7 @@ namespace BackSeam
                                   ObservableViewDetailings(CmdStroka);                             
                               }
                           }
+                          
                           UnloadCmdStroka("Detailing/", json);
                       }
                       BoolFalseDetailing();
