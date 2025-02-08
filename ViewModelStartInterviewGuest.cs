@@ -957,18 +957,19 @@ namespace BackSeam
             // "Здійснюється формування попередньої діагностичної гіпотези " + Environment.NewLine + "та відповідних рекомендацій щодо подальших дій";
             //MapOpisViewModel.SelectedFalseLogin();
             ViewAnalogDiagnoz = false;
-            var json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/0/0";
-            CallServer.PostServer(pathcontrolerInterview, json, "GETID");
-            string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]"))
-            {
-                SelectedFalseDiagnoz();
-            }
-            else
-            {
-                SelectInterviewDiagnoz();
-                TrueNaimDiagnoz();
-            }
+            SelectedFalseDiagnoz();
+            //var json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/0/0";
+            //CallServer.PostServer(pathcontrolerInterview, json, "GETID");
+            //string CmdStroka = CallServer.ServerReturn();
+            //if (CmdStroka.Contains("[]"))
+            //{
+            //    SelectedFalseDiagnoz();
+            //}
+            //else
+            //{
+            //    SelectInterviewDiagnoz();
+            //    TrueNaimDiagnoz();
+            //}
 
 
         }

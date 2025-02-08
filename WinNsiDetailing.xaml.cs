@@ -27,7 +27,7 @@ namespace BackSeam
             InitializeComponent();
             MapOpisViewModel.ViewNsiDetaling();
             NsiDetailing WindowMen = MainWindow.LinkMainWindow("NsiDetailing");
-            //if (MapOpisViewModel.ActCreatInterview == "CreatInterview") WindowMen.BorderAddAll.Visibility = Visibility.Hidden;
+            if (MapOpisViewModel.ActCreatInterview == "CreatInterview") WindowMen.BorderAddAll.Visibility = Visibility.Hidden;
             if (ViewModelNsiDetailing.NsiModelDetailings.Count == 0) WindowMen.Close();
         }
     }

@@ -127,11 +127,11 @@ namespace BackSeam
 
         private void MethodloadtabMedical()
         {
-            loadbooltablMedical = true;
-            CallServer.PostServer(controlerMedical, controlerMedical, "GET");
-            string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
-            else ObservableVeiwMedical(CmdStroka);
+           loadbooltablMedical = true;
+           CallServer.PostServer(controlerMedical, controlerMedical, "GET");
+           string CmdStroka = CallServer.ServerReturn();
+           if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+           else ObservableVeiwMedical(CmdStroka);
         }
 
         // команда удаления
@@ -368,10 +368,23 @@ namespace BackSeam
             {
                 return visibleFolderUriWeb ??
                   (visibleFolderUriWeb = new RelayCommand(obj =>
-                  { 
-                      WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
-                      WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
-                      EdrpouMedZaklad = WindowMedical.Medicalt2.Text;
+                  {
+                      if (VeiwModelMedicals != null && WindowMedical.MedicalTablGrid.SelectedIndex >= 0)
+                      { 
+                          WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
+                          WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
+                          WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
+                          if (VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus.Length<=2)
+                          { 
+                              string json = controlerStatusZaklad + VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus;
+                              CallServer.PostServer(controlerStatusZaklad, json, "GETID");
+                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              StatusMedZaklad Idinsert = JsonConvert.DeserializeObject<StatusMedZaklad>(CallServer.ResponseFromServer);
+                              VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus = Idinsert.nameStatus;                     
+                          }
+                          EdrpouMedZaklad = WindowMedical.Medicalt2.Text;                      
+                      }
+
                   }));
             }
         }

@@ -80,7 +80,7 @@ namespace BackSeam
                 selectedGridDoctor.napryamok = modelDoctor.napryamok;
                 if (modelDoctor.edrpou != "")
                 {
-                    string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0"; //
+                    string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0/0"; //
                     CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -490,7 +490,7 @@ namespace BackSeam
             if (_kodDoctor == "")
             {
 
-                if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs.Count != 0)
+                if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs !=null && ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs.Count > 0)
                 {
                     foreach (ModelLikarGrupDiagnoz modelLikarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
                     {
@@ -546,8 +546,8 @@ namespace BackSeam
             }
 
             WinNsiMedZaklad NewOrder = new WinNsiMedZaklad();
-            NewOrder.Left = 600;
-            NewOrder.Top = 200;
+            //NewOrder.Left = 600;
+            //NewOrder.Top = 200;
             NewOrder.ShowDialog();
 
             if (ViewModelNsiMedZaklad.selectedMedZaklad != null)
@@ -556,6 +556,7 @@ namespace BackSeam
                 WindowDoctor.Doctort9.Text = ViewModelNsiMedZaklad.selectedMedZaklad.name;
                 WindowDoctor.Doctort5.Text = ViewModelNsiMedZaklad.selectedMedZaklad.postIndex;
                 WindowDoctor.Doctort4.Text = ViewModelNsiMedZaklad.selectedMedZaklad.adres;
+                if (ViewModelNsiMedZaklad.selectedMedZaklad.idstatus == "2") WindowDoctor.DoctorBlockUri.Text = "Адреса прийому";
             }
 
         }

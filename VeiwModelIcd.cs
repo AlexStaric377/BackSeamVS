@@ -340,7 +340,14 @@ namespace BackSeam
                 string jason = controlerIcd  + WindowInterv.PoiskIcd.Text+ "/0";
                 CallServer.PostServer(controlerIcd, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
+                if (CmdStroka.Contains("[]"))
+                {
+                    jason = controlerIcd  + "0/"+ WindowInterv.PoiskIcd.Text;
+                    CallServer.PostServer(controlerIcd, jason, "GETID");
+                    CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]"))CallServer.BoolFalseTabl();
+                    else ObservableVeiwModelIcd(CmdStroka);
+                }    
                 else ObservableVeiwModelIcd(CmdStroka);
             }
         }

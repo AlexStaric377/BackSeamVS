@@ -30,7 +30,7 @@ namespace BackSeam
     {
         private MainWindow ReceptionLIkarGuest = MainWindow.LinkNameWindow("BackMain");
         WinAnalogDiagnoz WinAnalog = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-        public string KodProtokola = "";
+        public static string KodProtokola = "", Likar="";
         private static string pathcontrolerCompleted = "/api/CompletedInterviewController/";
         public static string pathcontrolerContent = "/api/ContentInterviewController/";
         public static ModelInterview selectedResultInterview;
@@ -224,10 +224,10 @@ namespace BackSeam
                           MapOpisViewModel.CopycolectionInterview();
                           MapOpisViewModel.colectionInterview.id = MapOpisViewModel.modelColectionInterview.id;
                           MapOpisViewModel.SaveInterviewProtokol();
-                          MethodSelectDoctor();
+                          MethodSelectDoctor("ReseptionAnalogLikar");
                           WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
-                          WindowResult.Close();
-                          MessageRegistrationLikar();
+                          if(WindowResult !=null) WindowResult.Close();
+                          //MessageRegistrationLikar();
                       }
                       else InfoNoDiagnoz();
                   }));
@@ -302,18 +302,19 @@ namespace BackSeam
                 return listprofilMedical ??
                   (listprofilMedical = new RelayCommand(obj =>
                   {
-                      MethodSelectDoctor();
+                      MethodSelectDoctor("ListProfilMedical");
 
                   }));
             }
         }
 
-        private void MethodSelectDoctor()
+        private void MethodSelectDoctor(string typeLikar = "")
         {
             if (MapOpisViewModel.modelColectionInterview.kodProtokola != "")
             {
                 if (selectItogInterview.kodProtokola != "")
                 {
+                    Likar = typeLikar;
                     WinNsiMedZaklad MedZaklad = new WinNsiMedZaklad();
                     MedZaklad.ShowDialog();
                 }
