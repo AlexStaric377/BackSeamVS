@@ -221,13 +221,10 @@ namespace BackSeam
                           MapOpisViewModel.selectRegistrationAppointment.kodDoctor = MapOpisViewModel.modelColectionInterview.kodDoctor;
                           MapOpisViewModel.ViewRegistrAppoints.Add(MapOpisViewModel.selectRegistrationAppointment);
 
-                          MapOpisViewModel.CopycolectionInterview();
-                          MapOpisViewModel.colectionInterview.id = MapOpisViewModel.modelColectionInterview.id;
-                          MapOpisViewModel.SaveInterviewProtokol();
                           MethodSelectDoctor("ReseptionAnalogLikar");
                           WinAnalogDiagnoz WindowResult = MainWindow.LinkMainWindow("WinAnalogDiagnoz");
                           if(WindowResult !=null) WindowResult.Close();
-                          //MessageRegistrationLikar();
+ 
                       }
                       else InfoNoDiagnoz();
                   }));

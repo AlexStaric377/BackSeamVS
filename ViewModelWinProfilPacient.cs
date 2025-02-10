@@ -104,6 +104,7 @@ namespace BackSeam
                 return closeProfil ??
                   (closeProfil = new RelayCommand(obj =>
                   {
+                      WinProfilPacient WindowResult = MainWindow.LinkMainWindow("WinProfilPacient");
                       WindowResult.Close();
                   }));
             }

@@ -266,23 +266,21 @@ namespace BackSeam
                 return removeColectionIntevLikar ??
                   (removeColectionIntevLikar = new RelayCommand(obj =>
                   {
-                      if (selectedIntevLikar != null)
+                      if (selectedColectionIntevLikar.id != 0)
                       {
                           MessageDeleteData();
-                          string json = CompletedcontrollerIntevLikar + selectedIntevLikar.kodComplInterv + "/0";
+                          string json = CompletedcontrollerIntevLikar + selectedColectionIntevLikar.kodComplInterv + "/0";
                           CallServer.PostServer(CompletedcontrollerIntevLikar, json, "DELETE");
-
-                          json = ColectioncontrollerIntevLikar + selectedIntevLikar.id.ToString() + "/0/0";
+                          json = ColectioncontrollerIntevLikar + selectedColectionIntevLikar.id.ToString() + "/0/0";
                           CallServer.PostServer(ColectioncontrollerIntevLikar, json, "DELETE");
+
                           ColectionInterviewIntevLikars.Remove(selectedIntevLikar);
                           ColectionIntevLikars.Remove(selectedColectionIntevLikar);
                           selectedIntevLikar = new ModelColectionInterview();
                           selectedColectionIntevLikar = new ColectionInterview();
+                          WindowMen.ColectionIntevLikarTablGrid.ItemsSource = ColectionInterviewIntevLikars;
                       }
                       BoolFalseIntevLikarCompl();
-                      WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedItem = null;
-
-
                   }));
             }
         }
@@ -526,6 +524,8 @@ namespace BackSeam
                             if (ColectionInterviewIntevLikars.Count != 0 && WindowMen.ColectionIntevLikarTablGrid.SelectedIndex >= 0)
                             {
                                 WindowIntevLikar.LikarFoldInterv.Visibility = Visibility.Visible;
+
+                                selectedIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
                                 selectedColectionIntevLikar = ColectionIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
                                 SelectedColectionIntevLikar = ColectionInterviewIntevLikars[WindowIntevLikar.ColectionIntevLikarTablGrid.SelectedIndex];
                                 GetidkodProtokola = selectedColectionIntevLikar.kodComplInterv + "/0";
@@ -533,6 +533,8 @@ namespace BackSeam
                                 WindowIntevLikar.LikarInterviewUriText.Text = modelColectionInterview.nameInterview;
                                 WindowIntevLikar.LikarFoldUrlHtpps.Visibility = Visibility.Visible;
                                 WindowIntevLikar.LikarFoldMixUrlHtpps.Visibility = Visibility.Visible;
+ 
+
                             }
                         }                    
  

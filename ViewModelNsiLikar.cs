@@ -248,7 +248,7 @@ namespace BackSeam
                                 MapOpisViewModel.modelColectionInterview.dateDoctor = WindowMain.ReceptionLikarGuest4.Text.ToString();
                             }
                         }
-                        //else { MapOpisViewModel.NotVisitingDays(); return; }
+                        
                         string strokadiagnoz = MapOpisViewModel.NameDiagnoz.Length > 50 ? MapOpisViewModel.NameDiagnoz.Substring(0, 50) + Environment.NewLine + MapOpisViewModel.NameDiagnoz.Substring(50, MapOpisViewModel.NameDiagnoz.Length -50) : MapOpisViewModel.NameDiagnoz;
                         MainWindow.MessageError = "Увага! Ви сформували запит на прийом до лікаря." + Environment.NewLine +
                             "Лікарь :"+ MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":")+1, MapOpisViewModel.nameDoctor.Length-( MapOpisViewModel.nameDoctor.IndexOf(":") + 1)) + Environment.NewLine +

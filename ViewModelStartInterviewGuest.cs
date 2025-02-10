@@ -306,10 +306,13 @@ namespace BackSeam
                             json = JsonConvert.SerializeObject(modelCompletedInterview);
                             CallServer.PostServer(pathcontroler, json, "POST");
                         }
-                        CopycolectionInterview();
-                        SaveInterviewProtokol();
-                        TmpGuestIntervs = GuestIntervs;
-                   
+                        if (GuestIntervs.Count() > 0)
+                        { 
+                            CopycolectionInterview();
+                            SaveInterviewProtokol();
+                            TmpGuestIntervs = GuestIntervs;                        
+                        }
+
                     }
                     OnOffStartGuest = true;
                     WindowMain.TablGuestInterviews.ItemsSource = null;

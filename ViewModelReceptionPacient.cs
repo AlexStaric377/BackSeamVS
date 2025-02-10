@@ -530,9 +530,8 @@ namespace BackSeam
                 return readIntevPatients ??
                   (readIntevPatients = new RelayCommand(obj =>
                   {
-                      IndexAddEdit = selectedModelReceptionPatient.kodComplInterv != "" ? "editCommand" : "";
-                      ModelCall = "ModelColectionInterview";
-                      GetidkodProtokola = selectedModelReceptionPatient.kodComplInterv != "" ? selectedModelReceptionPatient.kodComplInterv + "/0" : selectedModelReceptionPatient.kodProtokola;
+                      ModelCall = "ModelInterview";
+                      GetidkodProtokola =  selectedModelReceptionPatient.kodProtokola;
                       WinCreatIntreview NewOrder = new WinCreatIntreview();
                       NewOrder.Left = (MainWindow.ScreenWidth / 2);
                       NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;

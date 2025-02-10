@@ -598,7 +598,7 @@
                                                                 <ColumnDefinition Width="150*"/>
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock x:Name="PacientProfilLab11" Text="  Email" TextWrapping="Wrap" Grid.Column="0" Height="24"  Width="60"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
-                                                            <TextBox Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt11" IsEnabled="False" Grid.Column="1" Grid.ColumnSpan="2"  Height="30" FontSize="14"
+                                                            <TextBox Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" x:Name="PacientProfilt11" IsEnabled="False" Grid.Column="1" Grid.ColumnSpan="2"  Height="30" Width="320" FontSize="14"
                                                                  VerticalAlignment="Top"  Background="White" BorderThickness="0,0,0,0"  />
                                                         </Grid>
                                                         <Grid x:Name="PacientProfilGridLab12" Height="50" Grid.Column="2" Grid.Row="4"  Visibility="Hidden" >
@@ -1605,7 +1605,7 @@
                                                                 <ColumnDefinition Width ="290*" />
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock x:Name="LikarLab4" Grid.Column="0"  Text="  Адреса мед.&#xa;  закладу" TextWrapping="Wrap"  FontSize="14" Width="100" HorizontalAlignment="Left" Height="35" />
-                                                            <TextBox Text="{Binding adrZaklad, UpdateSourceTrigger=PropertyChanged}" Name="Likart4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" Height="40" Width="450"  Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                            <TextBox Text="{Binding adrZaklad, UpdateSourceTrigger=PropertyChanged}" Name="Likart4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="14" Height="40" Width="500"  Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                                         </Grid>
                                                         <Grid x:Name="LikarGridLab5" Height="34" Grid.Column="1" Grid.Row="1" >
                                                             <Grid.ColumnDefinitions >
@@ -1640,8 +1640,8 @@
                                                                 <ColumnDefinition Width ="70*" />
                                                                 <ColumnDefinition Width ="150*" />
                                                             </Grid.ColumnDefinitions>
-                                                            <TextBlock x:Name="LikarLab7" Text="  Email" TextWrapping="Wrap" Grid.Column="0" Height="24"  FontSize="14" Width="120" HorizontalAlignment="Left"/>
-                                                            <TextBox Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" x:Name="Likart7" Grid.Column="1"  Height="30" Width="200" FontSize="14" HorizontalAlignment="Left" Background="White" BorderThickness="0,0,0,0" />
+                                                            <TextBlock x:Name="LikarLab7" Text="  Email"  Grid.Column="0" Height="24"  FontSize="14" Width="120" HorizontalAlignment="Left"/>
+                                                            <TextBox Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" x:Name="Likart7" Grid.Column="1"  Height="24" Width="240" FontSize="14" HorizontalAlignment="Left" Background="White" BorderThickness="0,0,0,0" />
                                                         </Grid>
                                                         <Grid x:Name="LikarGridUri7" Height="34" Grid.Column="1" Grid.Row="4" >
                                                             <Grid.ColumnDefinitions >
@@ -1649,7 +1649,7 @@
                                                                 <ColumnDefinition Width ="150*" />
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock x:Name="LikarUri7" Text="  Сторінка в&#xa;   інтернеті" TextWrapping="Wrap" Grid.Column="0" Height="34"  FontSize="14" Width="110" HorizontalAlignment="Left"/>
-                                                            <TextBox Text="{Binding uriwebDoctor, UpdateSourceTrigger=PropertyChanged}" x:Name="LikarUrit7" Grid.Column="1"  Height="24" Width="190" FontSize="14" HorizontalAlignment="Left" Background="White" BorderThickness="0,0,0,0" />
+                                                            <TextBox Text="{Binding uriwebDoctor, UpdateSourceTrigger=PropertyChanged}" x:Name="LikarUrit7" TextWrapping="Wrap" Grid.Column="1"  Height="35" Width="240" FontSize="14" HorizontalAlignment="Left" Background="White" BorderThickness="0,0,0,0" />
                                                             <Image x:Name="FolderDocUri5" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Left"   Visibility="Hidden" Margin="200,0,0,0"  >
                                                                 <i:Interaction.Triggers>
                                                                     <i:EventTrigger EventName="MouseLeftButtonDown">

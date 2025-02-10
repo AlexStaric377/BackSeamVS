@@ -211,7 +211,7 @@ namespace BackSeam
                         if (modelDoctor.edrpou != null)
                         {
                             MainWindow.UrlServer = pathcontrolerMedZaklad;
-                            string json = pathcontrolerMedZakladProfilLikar + modelDoctor.edrpou.ToString()+"/0/0";
+                            string json = pathcontrolerMedZakladProfilLikar + modelDoctor.edrpou.ToString()+"/0/0/0";
                             CallServer.PostServer(pathcontrolerMedZakladProfilLikar, json, "GETID");
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                             MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -220,6 +220,11 @@ namespace BackSeam
                                 selectedGridProfilLikar.nameZaklad = Idinsert.name;
                                 selectedGridProfilLikar.adrZaklad = Idinsert.adres;
                                 selectedGridProfilLikar.pind = Idinsert.postIndex;
+                                if (Idinsert.idstatus == "2")
+                                { 
+                                    WindowProfilDoctor.LikarUri7.Text = "Адреса прийому:";
+                                    WindowProfilDoctor.LikarLab7.Text = "Місце прийому:";
+                                } 
                             }
                         }
 
