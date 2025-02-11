@@ -102,7 +102,7 @@ namespace BackSeam
                 if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs != null)
                 { 
                    foreach (ModelLikarGrupDiagnoz likarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
-                    {
+                   {
                         ModelDiagnoz likarGrupDiagnozs = new ModelDiagnoz();
                         if (likarGrupDiagnoz.icdGrDiagnoz != "")
                         {
@@ -128,9 +128,7 @@ namespace BackSeam
                                 }
                             }
                         }
-
-
-                    }            
+                   }            
                 }            
             }
 
@@ -247,8 +245,7 @@ namespace BackSeam
 
         private void ComandFindNameWorkMkx()
         {
-            if (selectedWorkDiagnoz != null)
-            {
+ 
                 if (ViewWorkDiagnozs != null)
                 {
                     if (WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex >= 0 && ViewWorkDiagnozs.Count>0)
@@ -256,7 +253,7 @@ namespace BackSeam
                         selectedWorkDiagnoz = ViewWorkDiagnozs[WindowWorkGrDiagnoz.WorkDiagnozTablGrid.SelectedIndex];
                         if (loadWorkGrupDiagnoz == false)
                         {
-                            SelectActivGrupDiagnoz = selectedWorkDiagnoz.icdGrDiagnoz;
+                        SelectActivGrupDiagnoz = selectedWorkDiagnoz.icdGrDiagnoz.Substring(0, selectedWorkDiagnoz.icdGrDiagnoz.IndexOf("."));
                             SelectedViewWorkDiagnoz = new ModelDiagnoz();
                             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
                             NewOrder.Left = (MainWindow.ScreenWidth / 2);
@@ -287,9 +284,6 @@ namespace BackSeam
 
                     }
                 }
-
-
-            }
         }
 
 

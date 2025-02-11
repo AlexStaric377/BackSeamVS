@@ -45,33 +45,38 @@ namespace BackSeam
             }
             else
             {
-                if (MapOpisViewModel.AllWorkDiagnozs.Count > 0)
+                if (MapOpisViewModel.ActCompletedInterview == "IcdGrDiagnoz") SelectIcdGrDiagnoz();
+                else 
                 {
-                    VeiwDiagnozs = new ObservableCollection<ModelDiagnoz>();
-                    foreach (ModelDiagnoz modelDiagnoz in MapOpisViewModel.AllWorkDiagnozs)
+                    if (MapOpisViewModel.AllWorkDiagnozs.Count == 0) SelectIcdGrDiagnoz();
+                    else
                     {
-                        if (MapOpisViewModel.SelectActivGrupDiagnoz == "WorkDiagnozs")
+                        VeiwDiagnozs = new ObservableCollection<ModelDiagnoz>();
+                        foreach (ModelDiagnoz modelDiagnoz in MapOpisViewModel.AllWorkDiagnozs)
                         {
-                            VeiwDiagnozs.Add(modelDiagnoz);
+                            if (MapOpisViewModel.SelectActivGrupDiagnoz == "WorkDiagnozs")
+                            {
+                                VeiwDiagnozs.Add(modelDiagnoz);
+                            }
+                            else
+                            {
+                                if (modelDiagnoz.keyIcd.Contains(MapOpisViewModel.SelectActivGrupDiagnoz) == true) VeiwDiagnozs.Add(modelDiagnoz);
+                            }
                         }
-                        else
-                        {
-                            if (modelDiagnoz.icdGrDiagnoz == MapOpisViewModel.SelectActivGrupDiagnoz) VeiwDiagnozs.Add(modelDiagnoz);
-                        }
+
                     }
+                }
 
-                }
-                else
-                { 
-                    string json = controlerNsiDiagnoz +"0/"+ MapOpisViewModel.SelectActivGrupDiagnoz + "/0";
-                    CallServer.PostServer(controlerNsiDiagnoz, json, "GETID");
-                    string CmdStroka = CallServer.ServerReturn();
-                    ObservableViewNsiDiagnoz(CmdStroka);
-                }
             }
-                  
- 
 
+        }
+
+        private void SelectIcdGrDiagnoz()
+        {
+            string json = controlerNsiDiagnoz + "0/" + MapOpisViewModel.SelectActivGrupDiagnoz + "/0";
+            CallServer.PostServer(controlerNsiDiagnoz, json, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            ObservableViewNsiDiagnoz(CmdStroka);
         }
 
         public static void ObservableViewNsiDiagnoz(string CmdStroka)

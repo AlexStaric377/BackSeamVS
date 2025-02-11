@@ -38,7 +38,7 @@ namespace BackSeam
                   (checkKeyTextTel = new RelayCommand(obj =>
                   {
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Pacientt8, 12);
-                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
+                      if(ViewModelWinProfilPacient.WindowResult != null) IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
                   }));
             }
         }
@@ -53,7 +53,7 @@ namespace BackSeam
                   (checkProfilTel = new RelayCommand(obj =>
                   {
                       IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.PacientProfilt8, 12);
-                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
+                      if (ViewModelWinProfilPacient.WindowResult != null) IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt8, 12);
 
                   }));
             }
@@ -67,8 +67,8 @@ namespace BackSeam
                 return checkKeyTextPind ??
                   (checkKeyTextPind = new RelayCommand(obj =>
                   {
-                          IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Pacientt13, 5);
-                      IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt13, 5);
+                      IdCardKeyUp.CheckKeyUpIdCard(MapOpisViewModel.WindowMen.Pacientt13, 5);
+                      if (ViewModelWinProfilPacient.WindowResult != null) IdCardKeyUp.CheckKeyUpIdCard(ViewModelWinProfilPacient.WindowResult.PacientProfilt13, 5);
                   }));
             }
         }

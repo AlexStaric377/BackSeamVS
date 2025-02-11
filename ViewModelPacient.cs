@@ -379,6 +379,7 @@ namespace BackSeam
                           }
                           else
                           {
+                              GhangeProfilPacient();
                               json = JsonConvert.SerializeObject(selectedPacient);
                               CallServer.PostServer(pathcontrolerPacient, json, "PUT");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -413,16 +414,23 @@ namespace BackSeam
                 selectedPacient.kodPacient = "PCN." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString();
             }
             else { selectedPacient.kodPacient = "PCN.000000001"; }
+            GhangeProfilPacient();
+
+        }
+
+        private void GhangeProfilPacient()
+        {
+
             selectedPacient.age = Convert.ToInt32(WindowMen.Pacientt4.Text);
             selectedPacient.email = WindowMen.Pacientt11.Text;
             selectedPacient.gender = WindowMen.Pacientt7.Text;
-            selectedPacient.growth = WindowMen.Pacientt6.Text.ToString() != "" ? Convert.ToInt32(WindowMen.Pacientt6.Text) :0;
+            selectedPacient.growth = WindowMen.Pacientt6.Text.ToString() != "" ? Convert.ToInt32(WindowMen.Pacientt6.Text) : 0;
             selectedPacient.pind = WindowMen.Pacientt13.Text.ToString();
             selectedPacient.name = WindowMen.Pacientt2.Text;
             selectedPacient.surname = WindowMen.Pacientt3.Text;
             selectedPacient.profession = WindowMen.Pacientt9.Text;
-            selectedPacient.tel = "+"+ WindowMen.Pacientt8.Text;
-            selectedPacient.weight = WindowMen.Pacientt5.Text.ToString() != "" ? Convert.ToDecimal(WindowMen.Pacientt5.Text) : 0 ;
+            selectedPacient.tel = "+" + WindowMen.Pacientt8.Text;
+            selectedPacient.weight = WindowMen.Pacientt5.Text.ToString() != "" ? Convert.ToDecimal(WindowMen.Pacientt5.Text) : 0;
         }
 
         // команда печати

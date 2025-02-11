@@ -64,7 +64,6 @@ namespace BackSeam
                                       WindowHidden.ProfilPacientSave.Visibility = Visibility.Hidden;
                                       // Завантажити показники проведених інтервью
                                       if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
-                                      //CheckLoadKabinetPacient();
                                       if (_pacientProfil == "") MethodLoadPacientProfil();
                                       if (_pacientProfil == "") { WindowHidden.ControlPacient.SelectedIndex = 0; return;}
 
@@ -74,12 +73,7 @@ namespace BackSeam
                               break;
                           // Закладка лікар
                           case 2:
-                              //WindowHidden.GridLikarProfLoad.Visibility = Visibility.Visible;
-                              //WindowHidden.ProfilLikarGridAdd.Visibility = Visibility.Visible;
-                              //WindowHidden.ProfilLikarGhange.Visibility = Visibility.Visible;
-                              //WindowHidden.ProfilLikarSave.Visibility = Visibility.Visible;
-                              //WindowHidden.ProfilLikarPrint.Visibility = Visibility.Visible;
-                              //WindowHidden.ProfilLikarDelete.Visibility = Visibility.Visible;
+ 
                               switch (WindowHidden.ControlLikar.SelectedIndex)
                               {
                                   case 1:
@@ -101,7 +95,6 @@ namespace BackSeam
                                       WindowHidden.ProfilLikarGridAdd.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilLikarGhange.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilLikarSave.Visibility = Visibility.Hidden;
-                                      //CheckLoadKabinetLikar();
                                       if (_kodDoctor == "") MetodLoadProfilLikar();
                                       if (_kodDoctor == "") { WindowHidden.ControlLikar.SelectedIndex = 0; return; }
                                       break;

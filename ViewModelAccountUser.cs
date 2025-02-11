@@ -406,15 +406,18 @@ namespace BackSeam
         {
             MapOpisViewModel.CallViewProfilLikar = "WinNsiStatusUser";
             WinNsiStatusUser NewOrder = new WinNsiStatusUser();
-            //NewOrder.Left = 600;
-            //NewOrder.Top = 200;
+     
             NewOrder.ShowDialog();
             MapOpisViewModel.CallViewProfilLikar = "";
             if (WindowAccountUser.AccountUsert3.Text.Trim().Length > 0)
-            { 
-                SetIdStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
-                selectedAccountUser.idStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
-                WindowDetailing.AccountUsert3.Text = WindowDetailing.AccountUsert3.Text.ToString().Substring(WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1, WindowDetailing.AccountUsert3.Text.Length- (WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1)).TrimStart();
+            {
+                if (WindowDetailing.AccountUsert3.Text.Contains(":") == true)
+                { 
+                    SetIdStatus =  WindowAccountUser.AccountUsert3.Text.Substring(0, WindowDetailing.AccountUsert3.Text.IndexOf(":"));
+                    selectedAccountUser.idStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
+                    WindowDetailing.AccountUsert3.Text = WindowDetailing.AccountUsert3.Text.ToString().Substring(WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1, WindowDetailing.AccountUsert3.Text.Length- (WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":")+1)).TrimStart();
+                } 
+
             }
 
         }
@@ -476,7 +479,7 @@ namespace BackSeam
                           {
                               string json = "";
                               string Iduser = selectedModelAccountUser.idUser.ToString().Contains(":") ? selectedModelAccountUser.idUser.ToString().Substring(0, selectedModelAccountUser.idUser.ToString().IndexOf(":")) : selectedModelAccountUser.idUser.ToString();
-
+                              SetIdStatus = selectedModelAccountUser.idStatus;
                               switch (selectedModelAccountUser.idStatus)
                               {
                                   case "2":

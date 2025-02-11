@@ -44,12 +44,13 @@ namespace BackSeam
 
         public static void ObservableViewDiagnoz(string CmdStroka)
         {
+
             var result = JsonConvert.DeserializeObject<ListModelDiagnoz>(CmdStroka);
             List<ModelDiagnoz> res = result.ModelDiagnoz.ToList();
             ViewDiagnozs = new ObservableCollection<ModelDiagnoz>((IEnumerable<ModelDiagnoz>)res);
             if(addboolGrDiagnoz == false && loadGrupDiagnoz == false) GrupIcdGrDiagnoz();
-            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; //.OrderBy(x => x.kodDiagnoza)
-            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;//.OrderBy(x => x.kodDiagnoza)
+            WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; 
+            WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;
         }
 
         public static  void GrupIcdGrDiagnoz()
@@ -146,7 +147,7 @@ namespace BackSeam
             GrupDiagnoz = "";
             addboolGrDiagnoz = false;
             loadGrupDiagnoz = false;
-            
+
             WindowMen.LoadDia.Visibility = Visibility.Hidden;
             WindowMen.LibFoldInterv.Visibility = Visibility.Hidden;
             WindowMen.LibCompInterviewLab.Visibility = Visibility.Hidden;
@@ -464,20 +465,19 @@ namespace BackSeam
 
         private void ComandFindNameMkx()
         {
-            if (selectedDiagnoz != null)
-            {
+
                 if (ViewDiagnozs != null)
                 {
                     if (WindowMen.DiagnozTablGrid.SelectedIndex >= 0)
                     {
                         selectedDiagnoz = ViewDiagnozs[WindowMen.DiagnozTablGrid.SelectedIndex];
-                        if (loadGrupDiagnoz == false && addboolGrDiagnoz == false)
+                        if (loadGrupDiagnoz == false )
                         {
-                            MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";
-                            SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
+                        MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";
+                        SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
                             SelectedViewDiagnoz = new ModelDiagnoz();
                             WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                            NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                            NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
                             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                             NewOrder.ShowDialog();
                             MapOpisViewModel.ActCompletedInterview = "";
@@ -514,9 +514,7 @@ namespace BackSeam
                    
                     }
                 }
-                
 
-            }
         }
 
         // команда выбора новой жалобы для записи новой строки 

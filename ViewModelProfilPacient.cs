@@ -128,13 +128,6 @@ namespace BackSeam
             WinNsiPacient NewOrder = new WinNsiPacient();
             NewOrder.ShowDialog();
             CallViewProfilLikar = "";
-            string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]"))
-            {
-                WarningMessageOfProfilPacient();
-                return;
-            }
-            ObservableViewPacientProfil(CmdStroka);
             if (selectedPacientProfil != null)
             {
                 LoadInfoPacient("пацієнта.");
@@ -146,7 +139,7 @@ namespace BackSeam
                 WindowPacientProfil.PacientIntert3.Text = _pacientName;
                 WindowPacientProfil.KabPacientNameInterv.Text = "Опитування пацієнта: ";
                 WindowPacientProfil.ReceptionPacientzap3.Text = _pacientName;
-                
+                WindowPacientProfil.PacientProfilt8.Text = selectedPacientProfil.tel.Substring(1, selectedPacientProfil.tel.Length-1);
                 WindowPacientProfil.StatusHealth3.Text = _pacientName;
                 SelectedProfilPacient = selectedProfilPacient;
                 if (modelColectionInterview == null) modelColectionInterview = new ModelColectionInterview();
@@ -337,6 +330,7 @@ namespace BackSeam
                           }
                           else
                           {
+                              GhnageProfilPacient();
                               string json = JsonConvert.SerializeObject(selectedPacientProfil);
                               CallServer.PostServer(pathcontrolerPacient, json, "PUT");
                           }
@@ -361,6 +355,21 @@ namespace BackSeam
                 string _repl = "000000000";
                 selectedPacientProfil.kodPacient = "PCN." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString();
             }
+            GhnageProfilPacient();
+            MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                      "Ви бажаєте створити кабінет пацієнта для зберігання" + Environment.NewLine + " результатів ваших опитувань та записів до лікаря?";
+            SelectedOkNo();
+            if (MapOpisViewModel.DeleteOnOff == true)
+            {
+                MapOpisViewModel.selectedProfilPacient = selectedPacientProfil;
+                MapOpisViewModel.CallViewProfilLikar = "PacientProfil";
+                NewAccountRecords();
+
+            }
+        }
+
+        private void  GhnageProfilPacient()
+        {
             MapOpisViewModel.PacientPostIndex = WindowMen.PacientProfilt13.Text.ToString();
             selectedPacientProfil.age = Convert.ToInt32(WindowMen.PacientProfilt4.Text);
             selectedPacientProfil.email = WindowMen.PacientProfilt11.Text;
@@ -372,16 +381,6 @@ namespace BackSeam
             selectedPacientProfil.profession = WindowMen.PacientProfilt9.Text;
             selectedPacientProfil.tel = "+" + WindowMen.PacientProfilt8.Text;
             selectedPacientProfil.weight = WindowMen.PacientProfilt5.Text.ToString() != "" ? Convert.ToDecimal(WindowMen.PacientProfilt5.Text) : 0;
-            MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                      "Ви бажаєте створити кабінет пацієнта для зберігання" + Environment.NewLine + " результатів ваших опитувань та записів до лікаря?";
-            SelectedOkNo();
-            if (MapOpisViewModel.DeleteOnOff == true)
-            {
-                MapOpisViewModel.selectedProfilPacient = selectedPacientProfil;
-                MapOpisViewModel.CallViewProfilLikar = "PacientProfil";
-                NewAccountRecords();
-
-            }
         }
 
         // команда печати
