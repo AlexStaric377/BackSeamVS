@@ -34,7 +34,7 @@ namespace BackSeam
         /// </summary>
         static bool activViewDiagnoz = false,  addboolGrDiagnoz = false, loadGrupDiagnoz = false;
         public static string controlerViewDiagnoz =  "/api/DiagnozController/", SelectActivGrupDiagnoz = "", GrupDiagnoz="", KeiIcdGrup = "", selectednameGrDiagnoz="";
-        public static ModelDiagnoz selectedDiagnoz;
+        public static ModelDiagnoz selectedDiagnoz, viewmodelDiagnoz;
 
         public static ObservableCollection<ModelDiagnoz> ViewDiagnozs { get; set; }
         public static ObservableCollection<ModelDiagnoz> TmpDiagnozs = new ObservableCollection<ModelDiagnoz>();
@@ -212,9 +212,9 @@ namespace BackSeam
                 return removeViewDiagnoz ??
                   (removeViewDiagnoz = new RelayCommand(obj =>
                   {
-                      if (selectedDiagnoz != null)
+                      if (viewmodelDiagnoz.id != 0)
                       {
-                          if (selectedDiagnoz.idUser != RegIdUser && RegUserStatus != "1")
+                          if (viewmodelDiagnoz.idUser != RegIdUser && RegUserStatus != "1")
                           {
                               InfoRemoveZapis();
                               return;
@@ -223,11 +223,13 @@ namespace BackSeam
                           // Видалення данных о гостях, пациентах, докторах, учетных записях
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
-                              string json = controlerViewDiagnoz + selectedDiagnoz.id.ToString();
+                              string json = controlerViewDiagnoz + viewmodelDiagnoz.id.ToString();
                               CallServer.PostServer(controlerViewDiagnoz, json, "DELETE");
-                              ViewDiagnozs.Remove(selectedDiagnoz);
-                              selectedDiagnoz = new ModelDiagnoz();
-                              
+                              ViewDiagnozs.Remove(viewmodelDiagnoz);
+                              viewmodelDiagnoz = new ModelDiagnoz();
+                              WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
+                              WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;
+
                           }
                       }
                       IndexAddEdit = "";
@@ -471,6 +473,8 @@ namespace BackSeam
                     if (WindowMen.DiagnozTablGrid.SelectedIndex >= 0)
                     {
                         selectedDiagnoz = ViewDiagnozs[WindowMen.DiagnozTablGrid.SelectedIndex];
+                        viewmodelDiagnoz = new ModelDiagnoz();
+                    viewmodelDiagnoz = selectedDiagnoz;
                         if (loadGrupDiagnoz == false )
                         {
                         MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";

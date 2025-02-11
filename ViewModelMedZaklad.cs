@@ -68,7 +68,7 @@ namespace BackSeam
                 CallServer.PostServer(controlerStatusZaklad, json, "GETID");
                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                 StatusMedZaklad Idinsert = JsonConvert.DeserializeObject<StatusMedZaklad>(CallServer.ResponseFromServer);
-                VeiwModelMedicals[indexrepl].idstatus = Idinsert.nameStatus;
+                VeiwModelMedicals[indexrepl].idstatus += ":"+Idinsert.nameStatus;
                 indexrepl++;
             }
         
@@ -374,13 +374,16 @@ namespace BackSeam
                           WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
                           WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
                           WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
+                          
                           if (VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus.Length<=2)
                           { 
                               string json = controlerStatusZaklad + VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus;
                               CallServer.PostServer(controlerStatusZaklad, json, "GETID");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                               StatusMedZaklad Idinsert = JsonConvert.DeserializeObject<StatusMedZaklad>(CallServer.ResponseFromServer);
-                              VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus = Idinsert.nameStatus;                     
+ 
+                              VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus += Idinsert.nameStatus;
+
                           }
                           EdrpouMedZaklad = WindowMedical.Medicalt2.Text;                      
                       }

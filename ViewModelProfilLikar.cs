@@ -296,20 +296,20 @@ namespace BackSeam
                 return editProfilLikar ??
                   (editProfilLikar = new RelayCommand(obj =>
                   {
-                      
-                      //if (selectedProfilLikar != null)
-                      //{
-                      //    IndexAddEdit = "editCommand";
-                      //    if (editboolProfilLikar == false)
-                      //    {
-                      //        BoolTrueProfilLikar();
-                      //    }
-                      //    else
-                      //    {
-                      //        BoolFalseProfilLikar();
-                      //        IndexAddEdit = "";
-                      //    }
-                      //}
+
+                      if (selectedProfilLikar != null)
+                      {
+                          IndexAddEdit = "editCommand";
+                          if (editboolProfilLikar == false)
+                          {
+                              BoolTrueProfilLikar();
+                          }
+                          else
+                          {
+                              BoolFalseProfilLikar();
+                              IndexAddEdit = "";
+                          }
+                      }
                   }));
             }
         }
@@ -323,27 +323,28 @@ namespace BackSeam
                 return saveProfilLikar ??
                   (saveProfilLikar = new RelayCommand(obj =>
                   {
-                      //BoolFalseProfilLikar();
-                      //if (WindowProfilDoctor.Likart10.Text.Length != 0 && WindowProfilDoctor.Likart2.Text.Length != 0)
-                      //{
-                      //    SelectProfilLikar();
-                      //    if (IndexAddEdit == "addCommand")
-                      //    {
-                      //        string json = JsonConvert.SerializeObject(selectedProfilLikar);
-                      //        CallServer.PostServer(pathcontrolerProfilLikar, json, "POST");
-                      //        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                      //        ModelDoctor Idinsert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
-                      //        if (ViewDoctors == null) ViewDoctors.Add(Idinsert);
-                      //        else { ViewDoctors.Insert(ViewDoctors.Count, Idinsert); }
-                      //        selectedProfilLikar = Idinsert;
-                      //    }
-                      //    else
-                      //    {
-                      //        string json = JsonConvert.SerializeObject(selectedProfilLikar);
-                      //        CallServer.PostServer(pathcontrolerProfilLikar, json, "PUT");
-                      //    }
-                      //}
-                      //IndexAddEdit = "";
+
+                      if (WindowProfilDoctor.Likart10.Text.Length != 0 && WindowProfilDoctor.Likart2.Text.Length != 0)
+                      {
+                          SelectProfilLikar();
+                          if (IndexAddEdit == "addCommand")
+                          {
+                              string json = JsonConvert.SerializeObject(selectedProfilLikar);
+                              CallServer.PostServer(pathcontrolerProfilLikar, json, "POST");
+                              CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                              ModelDoctor Idinsert = JsonConvert.DeserializeObject<ModelDoctor>(CallServer.ResponseFromServer);
+                              if (ViewDoctors == null) ViewDoctors.Add(Idinsert);
+                              else { ViewDoctors.Insert(ViewDoctors.Count, Idinsert); }
+                              selectedProfilLikar = Idinsert;
+                          }
+                          else
+                          {
+                              string json = JsonConvert.SerializeObject(selectedProfilLikar);
+                              CallServer.PostServer(pathcontrolerProfilLikar, json, "PUT");
+                          }
+                      }
+                      BoolFalseProfilLikar();
+                      IndexAddEdit = "";
 
                   }));
 
