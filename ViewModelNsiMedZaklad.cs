@@ -52,9 +52,16 @@ namespace BackSeam
             {
                 if (MapOpisViewModel.selectIcdGrDiagnoz != "" && MapOpisViewModel.selectIcdGrDiagnoz != null)
                 {
-
+                   
                     NsiModelMedZaklads = new ObservableCollection<MedicalInstitution>();
-                    string json = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz +"0/"+ MapOpisViewModel.selectIcdGrDiagnoz;
+                    string json = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/" + MapOpisViewModel.selectIcdGrDiagnoz+"/0";
+                    if (ViewModelAnalogDiagnoz.Likar == "ListProfilMedical")
+                    {
+                        string grupdiagnoz = MapOpisViewModel.selectIcdGrDiagnoz.Substring(MapOpisViewModel.selectIcdGrDiagnoz.IndexOf(".")+1, MapOpisViewModel.selectIcdGrDiagnoz.Length-(MapOpisViewModel.selectIcdGrDiagnoz.IndexOf(".") + 1));
+                        string keygrupicd = MapOpisViewModel.selectIcdGrDiagnoz.Substring(0, MapOpisViewModel.selectIcdGrDiagnoz.IndexOf(".")+1);
+                        keygrupicd += grupdiagnoz.Substring(0, grupdiagnoz.IndexOf("."));
+                        json = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/0/" + keygrupicd;
+                    } 
                     CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -62,7 +69,7 @@ namespace BackSeam
                         var GrDiagnoz = JsonConvert.DeserializeObject<ListModelMedGrupDiagnoz>(CmdStroka);
                         List<ModelMedGrupDiagnoz> grupDiagnoz = GrDiagnoz.ModelMedGrupDiagnoz.ToList();
                         GrupMedZaklads = new ObservableCollection<ModelMedGrupDiagnoz>((IEnumerable<ModelMedGrupDiagnoz>)grupDiagnoz);
-
+                        string tmpedrpou = "";
                         foreach (ModelMedGrupDiagnoz medGrupDiagnoz in GrupMedZaklads)
                         {
                             if (MapOpisViewModel.VeiwModelMedicals != null)
@@ -79,14 +86,19 @@ namespace BackSeam
                             }
                             else
                             {
-                                json = pathcontrollerMedZaklad + medGrupDiagnoz.edrpou + "/0/0/0";
-                                CallServer.PostServer(pathcontrollerMedZaklad, json, "GETID");
-                                if (CallServer.ResponseFromServer.Contains("[]") == false)
-                                {
-                                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                    MedicalInstitution medzaklad = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
-                                    NsiModelMedZaklads.Add(medzaklad);
+                                if (tmpedrpou != medGrupDiagnoz.edrpou)
+                                { 
+                                    json = pathcontrollerMedZaklad + medGrupDiagnoz.edrpou + "/0/0/0";
+                                    CallServer.PostServer(pathcontrollerMedZaklad, json, "GETID");
+                                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                                    {
+                                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                        MedicalInstitution medzaklad = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
+                                        NsiModelMedZaklads.Add(medzaklad);
+                                        tmpedrpou = medGrupDiagnoz.edrpou;
+                                    }                                
                                 }
+ 
 
                             }
                         }

@@ -117,16 +117,8 @@ namespace BackSeam
                     {
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                        MapOpisViewModel.selectIcdGrDiagnoz = Insert1.icdGrDiagnoz.Substring(0, Insert1.icdGrDiagnoz.IndexOf(".")); 
+                        MapOpisViewModel.selectIcdGrDiagnoz = Insert1.keyIcd;
                         MapOpisViewModel.modelColectionInterview.resultDiagnoz = Insert1.UriDiagnoza;
-                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/" + Insert1.icdGrDiagnoz; // + "/0";
-                        CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
-                        if (CallServer.ResponseFromServer.Contains("[]") == false)
-                        {
-                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            ModelGrupDiagnoz insertGrDiagnoz = JsonConvert.DeserializeObject<ModelGrupDiagnoz>(CallServer.ResponseFromServer);
-                            MapOpisViewModel.selectIcdGrDiagnoz = insertGrDiagnoz.icdGrDiagnoz.Substring(0, insertGrDiagnoz.icdGrDiagnoz.IndexOf(".")); 
-                        }
                     }
                 }
             }

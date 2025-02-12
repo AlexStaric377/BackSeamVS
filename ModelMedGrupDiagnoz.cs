@@ -46,14 +46,14 @@ namespace BackSeam
         public int Id;
         public string Edrpou;
         public string IcdGrDiagnoz;
-        public string IcdDiagnoz;
+        public string IcdKey;
 
-        public ModelMedGrupDiagnoz(int Id = 0, string Edrpou = "", string IcdGrDiagnoz = "", string IcdDiagnoz = "")
+        public ModelMedGrupDiagnoz(int Id = 0, string Edrpou = "", string IcdGrDiagnoz = "", string IcdKey = "")
         {
             this.Id = Id;
             this.Edrpou = Edrpou;
             this.IcdGrDiagnoz = IcdGrDiagnoz;
-            this.IcdDiagnoz = IcdDiagnoz;
+            this.IcdKey = IcdKey;
         }
 
         [JsonProperty("id")]
@@ -76,11 +76,11 @@ namespace BackSeam
             set { IcdGrDiagnoz = value; OnPropertyChanged("icdGrDiagnoz"); }
         }
 
-        [JsonProperty("icdDiagnoz")]
-        public string icdDiagnoz
+        [JsonProperty("icdKey")]
+        public string icdKey
         {
-            get { return IcdDiagnoz; }
-            set { IcdDiagnoz = value; OnPropertyChanged("icdDiagnoz"); }
+            get { return IcdKey; }
+            set { IcdKey = value; OnPropertyChanged("icdKey"); }
         }
     }
 }

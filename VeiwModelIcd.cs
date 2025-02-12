@@ -48,6 +48,38 @@ namespace BackSeam
             VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
             WindowMen.IcdTablGrid.ItemsSource = VeiwModelIcds;
             loadbooltablIcd = true;
+            MetodSelectMkx();
+        }
+
+        private static void MetodSelectMkx()
+        {
+            CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, "GET");
+            if (CallServer.ResponseFromServer.Contains("[]") == true) return;
+            CmdStroka = CallServer.ServerReturn();
+            var GrDiagnoz = JsonConvert.DeserializeObject<ListModelMedGrupDiagnoz>(CmdStroka);
+            List<ModelMedGrupDiagnoz> grupDiagnoz = GrDiagnoz.ModelMedGrupDiagnoz.ToList();
+            ViewModelNsiMedZaklad.GrupMedZaklads = new ObservableCollection<ModelMedGrupDiagnoz>((IEnumerable<ModelMedGrupDiagnoz>)grupDiagnoz);
+ 
+
+            foreach (ModelMedGrupDiagnoz modelGrupDiagnoz in ViewModelNsiMedZaklad.GrupMedZaklads)
+            {
+                if (modelGrupDiagnoz.icdKey == null)
+                {
+                    string jason = controlerIcd + "0/" + modelGrupDiagnoz.icdGrDiagnoz;
+                    CallServer.PostServer(controlerIcd, jason, "GETID");
+                    CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]") == false)
+                    {
+                        var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+                        List<ModelIcd> res = result.ModelIcd.ToList();
+                        VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+                        modelGrupDiagnoz.icdKey = VeiwModelIcds[0].keyIcd;
+                        json = JsonConvert.SerializeObject(modelGrupDiagnoz);
+                        CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "PUT");
+                    }
+                }
+
+            }
         }
 
         #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
@@ -124,10 +156,10 @@ namespace BackSeam
                           if (MapOpisViewModel.DeleteOnOff == true)
                           {
                               string json = controlerIcd + selectedIcd.id.ToString();
-                          CallServer.PostServer(controlerIcd, json, "DELETE");
-                          VeiwModelIcds.Remove(selectedIcd);
-                          selectedIcd = new ModelIcd();
-                              }
+                            CallServer.PostServer(controlerIcd, json, "DELETE");
+                            VeiwModelIcds.Remove(selectedIcd);
+                            selectedIcd = new ModelIcd();
+                          }
                       }
                       IndexAddEdit = "";
                   },
