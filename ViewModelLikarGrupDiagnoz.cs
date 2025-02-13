@@ -124,7 +124,7 @@ namespace BackSeam
                       NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
                       NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
                       NewOrder.ShowDialog();
-                      if (Windowmain.Diagnozt1.Text != null)MetodAddLikarGrDiagnoz(Windowmain.Diagnozt1.Text);
+                      if (Windowmain.Diagnozt1.Text != null && Windowmain.Diagnozt1.Text !="") MetodAddLikarGrDiagnoz(Windowmain.Diagnozt1.Text);
  
                   }));
             }
@@ -144,6 +144,9 @@ namespace BackSeam
                 ModelLikarGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelLikarGrupDiagnoz>(CallServer.ResponseFromServer);
                 if (LikarGrupDiagnozs == null) LikarGrupDiagnozs = new ObservableCollection<ModelLikarGrupDiagnoz>();
                 if (Idinsert != null) addLikarGrupDiagnoz = Idinsert;
+
+                MapOpisViewModel.EdrpouMedZaklad = MapOpisViewModel.selectedGridDoctor.edrpou;
+                ViewModelMedicalGrDiagnoz.MetodAddGrupDiagnozMedZaklad(addLikarGrupDiagnoz.icdGrDiagnoz);
             }
  
             LikarGrupDiagnozs.Add(addLikarGrupDiagnoz);

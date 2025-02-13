@@ -75,7 +75,7 @@ namespace BackSeam
             }
             else
             { 
-                string json = controlerGrDiagnoz + MapOpisViewModel.EdrpouMedZaklad+"/0";
+                string json = controlerGrDiagnoz + MapOpisViewModel.EdrpouMedZaklad+"/0/0";
                 CallServer.PostServer(controlerGrDiagnoz, json, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableViewGrDiagnoz(CmdStroka);            
@@ -159,23 +159,37 @@ namespace BackSeam
                         NewOrder.ShowDialog();
                       MapOpisViewModel.ActCompletedInterview = "";
                         if (Windowmain.Diagnozt1.Text != null)
-                        { 
-                                
-                            selectedMedGrupDiagnoz = new  ModelMedGrupDiagnoz();
-                            selectedMedGrupDiagnoz.edrpou = MapOpisViewModel.EdrpouMedZaklad;
-                            selectedMedGrupDiagnoz.icdGrDiagnoz = Windowmain.Diagnozt1.Text;
-                            string json = JsonConvert.SerializeObject(selectedMedGrupDiagnoz);
-                            CallServer.PostServer(controlerGrDiagnoz, json, "POST");
-                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            ModelMedGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelMedGrupDiagnoz>(CallServer.ResponseFromServer);
-                            if (Idinsert != null)
-                            {
-                                MedGrupDiagnozs.Add(Idinsert);
-                            }
+                        {
+                          MetodAddGrupDiagnozMedZaklad(Windowmain.Diagnozt1.Text);
+  
                         }
                           
                   }));
             }
+        }
+
+        public static void MetodAddGrupDiagnozMedZaklad(string diagnoz ="")
+        {
+            
+            selectedMedGrupDiagnoz = new ModelMedGrupDiagnoz();
+            selectedMedGrupDiagnoz.edrpou = MapOpisViewModel.EdrpouMedZaklad;
+            selectedMedGrupDiagnoz.icdGrDiagnoz = diagnoz;
+
+            string jason = MapOpisViewModel.controlerIcd + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz;
+            CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]") == false)
+            {
+                var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+                List<ModelIcd> res = result.ModelIcd.ToList();
+                MapOpisViewModel.VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+                selectedMedGrupDiagnoz.icdKey = MapOpisViewModel.VeiwModelIcds[0].keyIcd;
+            }
+            string json = JsonConvert.SerializeObject(selectedMedGrupDiagnoz);
+            CallServer.PostServer(controlerGrDiagnoz, json, "POST");
+            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+            ModelMedGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelMedGrupDiagnoz>(CallServer.ResponseFromServer);
+            if (Idinsert != null && MedGrupDiagnozs != null)MedGrupDiagnozs.Add(Idinsert);
         }
 
         

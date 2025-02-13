@@ -38,7 +38,7 @@ namespace BackSeam
         public static string pathcontrolerDoctor = "/api/ApiControllerDoctor/";
         private static string pathcontrolerMedZaklad = "/api/MedicalInstitutionController/";
         private ModelDoctor selectedDoctor;
-        private static ModelGridDoctor selectedGridDoctor;
+        public static ModelGridDoctor selectedGridDoctor;
         public static string CallViewDoctor = "";
         public static ObservableCollection<ModelDoctor> ViewDoctors { get; set; }
         public static ObservableCollection<ModelGridDoctor> ViewGridDoctors { get; set; }
