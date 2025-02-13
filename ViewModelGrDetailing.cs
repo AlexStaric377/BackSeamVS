@@ -425,19 +425,17 @@ namespace BackSeam
             MapOpisViewModel.ActCompletedInterview = "";
             if (WindowMen.Detailingt4.Text.Length != 0)
             {
+                _nameGrDetailing = WindowMen.GrDetailingst2.Text;
                 string jason = controlerGrDetailing + "0/" + WindowMen.Detailingt4.Text + "/0";
                 CallServer.PostServer(controlerGrDetailing, jason, "GETID");
 
                 string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]") == false)
-                { 
-                    ObservableViewGrDeliting(CmdStroka);
-                    _nameGrDetailing = WindowMen.GrDetailingst2.Text;
-                }
+                if (CmdStroka.Contains("[]") == false)ObservableViewGrDeliting(CmdStroka);
                 else
                 {
                     ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
                     WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
+                    WindowMen.GrDetailingst2.Text = _nameGrDetailing;
                 }
             }
             loadboolGrDeliting = true;

@@ -151,9 +151,11 @@ namespace BackSeam
         {
             IndexAddEdit = "addCommand";
             if (addtboolFeature == false)
-            { 
+            {
+                NewEkzemplyar();
                 BoolTrueFeature();
                 TrueNameGrComplaint();
+
                 SelectNewFeature();
             }
             else BoolFalseFeature();
@@ -162,9 +164,11 @@ namespace BackSeam
 
         private void NewEkzemplyar()
         {
+            WindowMen.FeatureTablGrid.SelectedIndex = -1;
             SelectedViewFeature = new ViewFeatureComplaint();
             selectedFeature = new ModelFeature();
             selectedViewFeature = new ViewFeatureComplaint();
+
         }
 
         private void TrueNameGrComplaint()
@@ -305,8 +309,10 @@ namespace BackSeam
                           //SelectNewFeature();
                           selectedFeature.name = WindowMen.Featuret2.Text.ToString();
                           selectedFeature.idUser = RegIdUser;
+                          
                           if (IndexAddEdit == "addCommand")
                           {
+                              selectedFeature.id = 0;
                               // ОБращение к серверу добавляем запись
                               json = JsonConvert.SerializeObject(selectedFeature);
                               CallServer.PostServer(featurecontroller, json, "POST");
