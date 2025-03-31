@@ -148,5 +148,28 @@ namespace BackSeam
             }
         }
 
+        
+
+        // команда выбора строки харакутера жалобы
+        RelayCommand? addAllModelGrDetailing;
+        public RelayCommand AddAllModelGrDetailing
+        {
+            get
+            {
+                return addAllModelGrDetailing ??
+                  (addAllModelGrDetailing = new RelayCommand(obj =>
+                  {
+                      MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
+                      foreach (ModelListGrDetailing GrDetailing in ViewListGrDetailings)
+                      {
+                          WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = GrDetailing.keyGrDetailing + ":        " + GrDetailing.nameGrup;
+                          ViewModelCreatInterview.SelectContentCompl();
+                      }
+                      WindowMen.Close();
+
+                  }));
+            }
+        }
+
     }
 }

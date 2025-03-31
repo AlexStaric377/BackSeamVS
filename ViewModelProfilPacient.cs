@@ -128,7 +128,7 @@ namespace BackSeam
             WinNsiPacient NewOrder = new WinNsiPacient();
             NewOrder.ShowDialog();
             CallViewProfilLikar = "";
-            if (selectedPacientProfil != null)
+            if (selectedPacientProfil.kodPacient != "")
             {
                 LoadInfoPacient("пацієнта.");
 

@@ -88,6 +88,22 @@ namespace BackSeam
             }
         }
 
+        // команда закрытия окна
+        RelayCommand? backfeature;
+        public RelayCommand Backfeature
+        {
+            get
+            {
+                return backfeature ??
+                  (backfeature = new RelayCommand(obj =>
+                  {
+                      WindowMen.Close();
+                      MapOpisViewModel.OpenNsiFeature();
+
+                  }));
+            }
+        }
+
         // команда выбора строки харакутера жалобы
         RelayCommand? selectModelDetailing;
         public RelayCommand SelectModelDetailing

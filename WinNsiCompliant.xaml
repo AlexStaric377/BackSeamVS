@@ -105,7 +105,7 @@
                                 <i:InvokeCommandAction Command="{Binding CloseComplaint}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Label Grid.Column="2" Height="25" FontSize="10"  FontStyle="Normal" FontFamily="Courier"  Width="65" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >
+                        <Label Grid.Column="2" Height="25" FontSize="10"  FontStyle="Normal" FontFamily="Courier"  Width="65" Content="Далі" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"   >
                         </Label>
                     </Border>
                 </Grid>

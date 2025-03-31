@@ -3685,8 +3685,14 @@
                     <TabItem Header="Інструменти" Name="Setup" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="120" HorizontalAlignment="Center" >
                         <!--Loaded="LoadedSimptom"-->
                         <Grid Background="White" x:Name="SetupGrid" Width="Auto">
-                            <TabControl x:Name="Tab"  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left" >
+                            <TabControl x:Name="Instrument"  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left" >
                                 <TabItem Header="Як або де проявляється&#xa;      нездужання" Name="Simptom" FontSize="13" FontFamily="Microsoft Sans Serif"  Width="170" HorizontalAlignment="Center"   >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    
                                     <!--Loaded="LoadedSimptom" MouseLeftButtonDown="LoadedSimptom"-->
                                     <Grid Width="780" Background="White" >
                                         <Grid.RowDefinitions>
@@ -4058,6 +4064,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Деталізація&#xa; характеру" Name="Detailing" FontSize="13" FontFamily="Microsoft Sans Serif" Height="33" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>

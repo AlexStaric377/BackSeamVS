@@ -1,0 +1,43 @@
+{"id":12,"keyGrDetailing":"YAA.000","nameGrup":"Деталізація за часом","idUser":"Admin"}
+{"id":13,"keyGrDetailing":"YAA.001","nameGrup":"Зовнішні прояви при головному болі","idUser":"Admin"}
+{"id":14,"keyGrDetailing":"YAA.002","nameGrup":"Зовнішні прояви слабкості м'язів обличчя (Невринома)","idUser":"Admin"}
+{"id":15,"keyGrDetailing":"YAA.003","nameGrup":"Зовнішній прояв при головокружінні","idUser":"Admin"}
+{"id":16,"keyGrDetailing":"YAA.004","nameGrup":"Прояв розширяючого головного болю","idUser":"Admin"}
+{"id":17,"keyGrDetailing":"YAA.005","nameGrup":"Час прояву нудоти або блювотини","idUser":"Admin"}
+{"id":18,"keyGrDetailing":"YAA.006","nameGrup":"Шум у вусі","idUser":"Admin"}
+{"id":19,"keyGrDetailing":"YAA.007","nameGrup":"Симптоми гемілицевого спазму","idUser":"Admin"}
+{"id":20,"keyGrDetailing":"YAA.008","nameGrup":"Головний біль при порушенні координації руху (Невринома)","idUser":"Admin"}
+{"id":21,"keyGrDetailing":"YAA.009","nameGrup":"Подразнення при кашлі (пневмонія)","idUser":"Admin"}
+{"id":22,"keyGrDetailing":"YAA.010","nameGrup":"Гурт ситуативних контактів при кашлі ","idUser":"Admin"}
+{"id":23,"keyGrDetailing":"YAA.011","nameGrup":"Ситуативна для кашлю при ГЕРХ","idUser":"Admin"}
+{"id":24,"keyGrDetailing":"YAA.012","nameGrup":"Головокружіння при ходьбі","idUser":"Admin"}
+{"id":25,"keyGrDetailing":"YAA.013","nameGrup":"Погіршення координіції руху при ходьбі (Невринома)","idUser":"Admin"}
+{"id":26,"keyGrDetailing":"YAA.014","nameGrup":"Алергічний кашель","idUser":"+380501586559"}
+{"id":27,"keyGrDetailing":"YAA.015","nameGrup":"Ситуативний алргічний кашель","idUser":"+380501586559"}
+{"id":28,"keyGrDetailing":"YAA.016","nameGrup":"Ситуативний психогенний кашель","idUser":"Admin"}
+{"id":29,"keyGrDetailing":"YAA.017","nameGrup":"Ситуативний прояв при сторонньому тілі в дихальних шляхах","idUser":"Admin"}
+{"id":30,"keyGrDetailing":"YAA.018","nameGrup":"Прояв здавлюючого головного болю","idUser":"Admin"}
+{"id":31,"keyGrDetailing":"YAA.019","nameGrup":"Серцева недостатність","idUser":"Admin"}
+{"id":32,"keyGrDetailing":"YAA.020","nameGrup":"ГЕРХ","idUser":"Admin"}
+{"id":33,"keyGrDetailing":"YAA.021","nameGrup":"Прояв невралгії трійчастого нерву","idUser":"Admin"}
+{"id":34,"keyGrDetailing":"YAA.022","nameGrup":"Прояв пароксизмальної вестибулопатії","idUser":"Admin"}
+{"id":35,"keyGrDetailing":"YAA.023","nameGrup":"Симптоми ХОЗЛ","idUser":"Admin"}
+{"id":36,"keyGrDetailing":"YAA.024","nameGrup":"Симптоми туберкульозу","idUser":"Admin"}
+{"id":37,"keyGrDetailing":"YAA.025","nameGrup":"Контакти при туберкульозі","idUser":"Admin"}
+{"id":38,"keyGrDetailing":"YAA.026","nameGrup":"Зовнішні прояви при гострому ларингіті","idUser":"Admin"}
+{"id":39,"keyGrDetailing":"YAA.027","nameGrup":"Атопічний дерматит","idUser":"Admin"}
+{"id":40,"keyGrDetailing":"YAA.028","nameGrup":"Іритантний дерматит","idUser":"Admin"}
+{"id":41,"keyGrDetailing":"YAA.029","nameGrup":"Алергічний контактний дерматит","idUser":"Admin"}
+{"id":52,"keyGrDetailing":"YAA.030","nameGrup":"Внутрішньо мозкові пухлини мозочку","idUser":"Admin"}
+{"id":53,"keyGrDetailing":"YAA.031","nameGrup":"Позамозкові пухлини, менінгіоми","idUser":"Admin"}
+{"id":54,"keyGrDetailing":"YAA.032","nameGrup":"Позамозкове новоутворення епідермоїдна  або дермоїдна киста","idUser":"Admin"}
+{"id":42,"keyGrDetailing":"YBB.000","nameGrup":"Деталізація ситуативна","idUser":"Admin"}
+{"id":43,"keyGrDetailing":"YCC.000","nameGrup":"Деталізація за температурою","idUser":"Admin"}
+{"id":44,"keyGrDetailing":"YDD.000","nameGrup":"Деталізація виділення","idUser":"Admin"}
+{"id":45,"keyGrDetailing":"YEE.000","nameGrup":"Ситуативний при ГЕРХ","idUser":"Admin"}
+{"id":46,"keyGrDetailing":"YFF.000","nameGrup":"Деталізація біль у горлі","idUser":"Admin"}
+{"id":47,"keyGrDetailing":"YGG.000","nameGrup":"Деталізація часу дії болі","idUser":"Admin"}
+{"id":48,"keyGrDetailing":"YHH.000","nameGrup":"Деталізація характеру зовнішніх проявів","idUser":"Admin"}
+{"id":49,"keyGrDetailing":"YII.000","nameGrup":"Деталізація при сечовипусканні","idUser":"Admin"}
+{"id":50,"keyGrDetailing":"YJJ.000","nameGrup":"Деталізація при блювотині","idUser":"Admin"}
+{"id":51,"keyGrDetailing":"YKK.000","nameGrup":"Деталізація при проносі або запорі","idUser":"Admin"}

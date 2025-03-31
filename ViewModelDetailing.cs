@@ -176,12 +176,15 @@ namespace BackSeam
             else ObservableViewDetailings(CmdStroka);
         }
 
-        private void NewEkzemplyarDetailing()
+        public void NewEkzemplyarDetailing()
         {
             selectedViewDetailingFeature = new ViewDetailingFeature();
             SelectedViewDetailingFeature = new ViewDetailingFeature();
+            ViewDetailingFeatures = new ObservableCollection<ViewDetailingFeature>();
+            WindowDetailing.DetailingTablGrid.ItemsSource = ViewDetailingFeatures;
+
         }
-        private void BoolTrueDetailing()
+        public void BoolTrueDetailing()
         {
             addboolDetailing = true;
             editboolDetailing = true;
@@ -207,7 +210,7 @@ namespace BackSeam
             }
         }
 
-        private void BoolFalseDetailing()
+        public void BoolFalseDetailing()
         {
             addboolDetailing = false;
             editboolDetailing = false;

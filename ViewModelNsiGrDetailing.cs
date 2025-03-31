@@ -96,6 +96,23 @@ namespace BackSeam
         }
 
         
+
+        // команда закрытия окна
+        RelayCommand? backfeature;
+        public RelayCommand Backfeature
+        {
+            get
+            {
+                return backfeature ??
+                  (backfeature = new RelayCommand(obj =>
+                  {
+                      CloseWin();
+                      MapOpisViewModel.OpenNsiFeature();
+
+                  }));
+            }
+        }
+
         // команда закрытия окна
         RelayCommand? addAllCreatInterview;
         public RelayCommand AddAllCreatInterview
@@ -129,7 +146,7 @@ namespace BackSeam
                       WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
                       if (selectedGrDetailing != null)
                       {
-                          if (MapOpisViewModel.ActCreatInterview != "CreatInterview") return;
+                          if (MapOpisViewModel.ActCreatInterview != "SelectInterview") return;
                           { 
  
                                   MapOpisViewModel.selectQualification = selectedGrDetailing.nameGrDetailing;
@@ -176,7 +193,7 @@ namespace BackSeam
                   (viewkodGroupQualification = new RelayCommand(obj =>
                   {
 
-                      if (selectedGrDetailing != null && MapOpisViewModel.ActCreatInterview != "CreatInterview" && MapOpisViewModel.ActCompletedInterview != "ViewGrDetailing")
+                      if (selectedGrDetailing != null && MapOpisViewModel.ActCreatInterview != "SelectInterview" && MapOpisViewModel.ActCompletedInterview != "ViewGrDetailing")
                       {
                           if (selectedGrDetailing.kodGroupQualification != null && selectedGrDetailing.kodGroupQualification !="" )
                           { 

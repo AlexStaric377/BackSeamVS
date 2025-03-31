@@ -136,6 +136,7 @@ namespace BackSeam
             if (_nameGrDetailing != "")
             {
                 WindowMen.GrDetailingst2.Text = _nameGrDetailing;
+                if (selectedViewGrDeliting == null) selectedViewGrDeliting = new ModelGrDetailing();
                 selectedViewGrDeliting.keyGrDetailing = _nameGrDetailing;
             }
         }
@@ -143,6 +144,7 @@ namespace BackSeam
         private void NewEkzemplyarGrDetailing()
         {
             SelectedViewGrDeliting = selectedViewGrDeliting = new ModelGrDetailing();
+           
         }
         private void BoolTrueGrDetailing()
         {
@@ -276,6 +278,7 @@ namespace BackSeam
                               int Countins = ViewGrDetailings != null ? ViewGrDetailings.Count : 0;
                               Idinsert.keyGrDetailing += " "+nameGrDetailing;
                               ViewGrDetailings.Insert(Countins, Idinsert);
+                              WindowMen.GrDetailingsTablGrid.ItemsSource = ViewGrDetailings;
                               SelectedViewGrDeliting = Idinsert;
                               GrDetailingSelectedIndex = ViewGrDetailings.Count - 1;
                           }
@@ -299,7 +302,7 @@ namespace BackSeam
                       }
                       
                       BoolFalseGrDetailing();
-                      WindowMen.GrDetailingsTablGrid.SelectedItem = null;
+                      
                   }));
             }
         }
@@ -416,6 +419,7 @@ namespace BackSeam
         {
 
             NewEkzemplyarGrDetailing();
+            ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
             IndexAddEdit = "";
             MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();

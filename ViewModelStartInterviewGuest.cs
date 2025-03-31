@@ -487,9 +487,9 @@ namespace BackSeam
 
         public static void OpenNsiComplaint()
         {
-            MapOpisViewModel.ActCreatInterview = "CreatInterview";
+            MapOpisViewModel.ActCreatInterview = "SelectInterview";
             NsiComplaint NewOrder = new NsiComplaint();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2)-90;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; 
             NewOrder.ShowDialog();
             IndikatorSelected = "NsiComplaint";
@@ -499,12 +499,12 @@ namespace BackSeam
 
         public static void OpenNsiFeature()
         {
-            MapOpisViewModel.ActCreatInterview = "CreatInterview";
+            MapOpisViewModel.ActCreatInterview = "SelectInterview";
             selectedComplaintname = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
             ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing + "/0"; ;
             ViewModelNsiFeature.Method = "GETID";
             WinNsiFeature NewOrder = new WinNsiFeature();
-            NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
+            NewOrder.Left = (MainWindow.ScreenWidth / 2)-70;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewOrder.ShowDialog();
         }
@@ -514,7 +514,7 @@ namespace BackSeam
 
             if (loadTreeInterview == false) LoadTreeInterview(); // загрузка деревьв подобных интервью для настройки груповых детализаций
  
-                MapOpisViewModel.ActCreatInterview = "CreatInterview";
+                MapOpisViewModel.ActCreatInterview = "SelectInterview";
                 selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
                 string pathcontroller = "/api/DetailingController/";
                 string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
@@ -528,7 +528,7 @@ namespace BackSeam
                     if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
                     { 
                         NsiDetailing NewNsi = new NsiDetailing();
-                        NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
+                        NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
                         NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
                         NewNsi.ShowDialog();            
                
@@ -573,7 +573,7 @@ namespace BackSeam
                         ViewModelNsiDetailing.selectedDetailing = modelDetailing;
                         MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
                         WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
-                        NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
+                        NewOrder.Left = (MainWindow.ScreenWidth / 2) -70;
                         NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
                         NewOrder.ShowDialog();                   
                     }
@@ -587,7 +587,7 @@ namespace BackSeam
         {
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             WinNsiGrDetailing NewNsi = new WinNsiGrDetailing();
-            NewNsi.Left = (MainWindow.ScreenWidth / 2)-100;
+            NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
             NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewNsi.ShowDialog();
         }
@@ -623,13 +623,17 @@ namespace BackSeam
                 if (IdItemGuestInterv == indexcontent && selectedGuestInterv != null && addcontent==false) booladdContent = true;
                 TmpGuestIntervs.Add(ModelCompletedInterview);
                 if (booladdContent == true)
-                { 
-                    AddselectedColection();
-                    addcontent = true;
-                    booladdContent = false;
+                {
+                    if (AddTrueColection() == true)
+                    {
+                        AddselectedColection();
+                        addcontent = true;
+                        booladdContent = false;                      
+                    }
+                 
                 } 
             }
-            if (GuestIntervs.Count == TmpGuestIntervs.Count) AddselectedColection();
+            if (GuestIntervs.Count == TmpGuestIntervs.Count) if (AddTrueColection() == true) AddselectedColection();
             GuestIntervs = TmpGuestIntervs;
             Selectedswitch();
 
@@ -643,6 +647,15 @@ namespace BackSeam
             TmpGuestIntervs.Add(selectedaddContent);
             IdItemGuestInterv++;
 
+        }
+
+        private static bool AddTrueColection()
+        {
+            foreach (ModelCompletedInterview mInterview in TmpGuestIntervs)
+            {
+                if (mInterview.kodDetailing == nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) return false;
+            }
+            return true;
         }
 
         public static void SelectNewKodComplInteriew()

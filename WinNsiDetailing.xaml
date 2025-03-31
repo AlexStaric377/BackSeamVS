@@ -62,6 +62,8 @@
                          </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+                <!--<Label Name="BackLeft"  Content="Назад  " Grid.Row="0"  FontFamily="Microsoft Sans Serif" FontSize="14" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,0,0,0" />-->
+
                 <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" Margin="0,0,10,0"
                     Source="pack://application:,,,/BackSeam;component/Images/xrestik.png"
                      Cursor="Hand"  >
@@ -77,8 +79,17 @@
                         <ColumnDefinition Width ="100*" />
                         <ColumnDefinition Width ="100*" />
                     </Grid.ColumnDefinitions>
+                    <Image Height="20" Width="25" Grid.Row="0" HorizontalAlignment="Left" Margin="20,0,0,0" Name="Back_Grid"  VerticalAlignment="Center" 
+                    Source="pack://application:,,,/BackSeam;component/Images/backleft.png"
+                     Cursor="Hand"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Backfeature}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
                     <Border x:Name="DetalingSelect"  Grid.Row="2" Grid.Column="0" Height="25" Width="70" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
-                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
+                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" Margin="20,0,0,0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding SelectModelDetailing}" CommandParameter=""/>
@@ -105,7 +116,7 @@
                                 <i:InvokeCommandAction Command="{Binding CloseModelDetailing}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Label Grid.Column="2" Height="25" FontSize="10"  FontWeight="Light" FontFamily="Microsoft Sans Serif"  Width="65" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >
+                        <Label Grid.Column="2" Height="25" FontSize="10"  FontWeight="Light" FontFamily="Microsoft Sans Serif"  Width="65" Content="Далі" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"   >
                         </Label>
                     </Border>
                 </Grid>

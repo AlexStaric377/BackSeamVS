@@ -73,13 +73,25 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
+                <!--<Label Name="BackLeft"  Content="Назад  " Grid.Row="0"  FontFamily="Microsoft Sans Serif" FontSize="14" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,0,0,0" />-->
+ 
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="100*" />
                         <ColumnDefinition Width ="100*" />
+                        <ColumnDefinition Width ="100*" />
                     </Grid.ColumnDefinitions>
+                    <Image Height="20" Width="25" Grid.Row="0" HorizontalAlignment="Left" Margin="20,0,0,0" Name="Back_Grid"  VerticalAlignment="Center" 
+                    Source="pack://application:,,,/BackSeam;component/Images/backleft.png"
+                     Cursor="Hand"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding BackComplaint}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
                     <Border Grid.Row="2" Grid.Column="0" Height="25" Width="70" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
-                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
+                            Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand"  Margin="20,0,0,0" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding SelectModelFeature}" CommandParameter=""/>
@@ -88,14 +100,25 @@
                         <Label Grid.Column="2" Height="25" FontSize="12"  FontWeight="Light" FontFamily="Microsoft Sans Serif"  Width="75" Content="Вибрати" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"     >
                         </Label>
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="1" Height="25" Width="90" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                    <!--<Border x:Name="BorderAddAll" Grid.Row="2" Grid.Column="1" Height="25" Width="90" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
+                        Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding AddAllModelFeature}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <Label Grid.Column="3" Height="20" FontSize="10"  Width="80" Content="Вибрати все" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  HorizontalAlignment="Center" FontFamily="Arial"  >
+                        </Label>
+                    </Border>-->
+                    <Border Grid.Row="2" Grid.Column="2" Height="25" Width="90" BorderBrush="#FF3E3E3B" VerticalAlignment="Bottom"
                             Background="#FFE2E2DD"  BorderThickness="1,1,1,1" CornerRadius="15,15,15,15" Cursor="Hand" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding CloseModelFeature}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Label Grid.Column="2" Height="25" FontSize="12"  FontWeight="Light" FontFamily="Microsoft Sans Serif"  Width="75" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >
+                        <Label Grid.Column="2" Height="25" FontSize="12"  FontWeight="Light" FontFamily="Microsoft Sans Serif"  Width="75" Content="Далі" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"   >
                         </Label>
                     </Border>
                 </Grid>

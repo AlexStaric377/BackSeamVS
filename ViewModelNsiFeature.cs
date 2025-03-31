@@ -67,6 +67,32 @@ namespace BackSeam
             }
         }
 
+        // команда закрытия окна
+        RelayCommand? backComplaint;
+        public RelayCommand BackComplaint
+        {
+            get
+            {
+                return backComplaint ??
+                  (backComplaint = new RelayCommand(obj =>
+                  {
+                      MapOpisViewModel.nameFeature3 = "";
+                      WindowMain.Detailingt3.Text = "";
+                      WindowMain.Featuret3.Text = "";
+                      WindowFeature.Close();
+
+                      MapOpisViewModel.ActCreatInterview = "SelectInterview";
+                      NsiComplaint NewOrder = new NsiComplaint();
+                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
+                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      NewOrder.ShowDialog();
+                      MapOpisViewModel.IndikatorSelected = "NsiComplaint";
+                      MapOpisViewModel.Selectedswitch();
+                  }));
+            }
+        }
+        
+
         // команда выбора строки харакутера жалобы
         RelayCommand? selectModelFeature;
         public RelayCommand SelectModelFeature
@@ -193,6 +219,28 @@ namespace BackSeam
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableNsiModelFeatures(CmdStroka);
                 WindowFeature.TablFeature.ItemsSource = NsiModelFeatures;
+            }
+        }
+
+       
+
+        // команда выбора строки харакутера жалобы
+        RelayCommand? addAllModelFeature;
+        public RelayCommand AddAllModelFeature
+        {
+            get
+            {
+                return addAllModelFeature ??
+                  (addAllModelFeature = new RelayCommand(obj =>
+                  {
+                      foreach (ModelFeature modelFeature in NsiModelFeatures)
+                      {
+                          WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = modelFeature.keyFeature + ":        " + modelFeature.name;
+                          ViewModelCreatInterview.SelectContentCompl();
+                      }
+                      WindowFeature.Close();
+                     
+                  }));
             }
         }
     }

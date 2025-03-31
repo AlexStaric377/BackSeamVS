@@ -92,7 +92,7 @@
                                 <i:InvokeCommandAction Command="{Binding CloseNsiModelQualification}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Label Grid.Column="2" Height="25" FontSize="10"  FontFamily="Microsoft Sans Serif" FontWeight="Light"  Width="65" Content="Завершити" VerticalAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Center"   >
+                        <Label Grid.Column="2" Height="25" FontSize="10"  FontFamily="Microsoft Sans Serif" FontWeight="Light"  Width="65" Content="Далі" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"   >
                         </Label>
                     </Border>
                 </Grid>

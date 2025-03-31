@@ -107,6 +107,33 @@ namespace BackSeam
                                       break;
                               }
                               break;
+                          // Закладка Інструменти
+                          case 4:
+                                  if (RegUserStatus == "1")
+                                  { 
+                                      switch (WindowHidden.Instrument.SelectedIndex)
+                                      {
+                                          case 2:
+                                                // NewEkzemplyarDetailing();
+                                                //BoolFalseDetailing();
+                                              break;
+                                          case 3:
+                                              if (ViewStatustUsers == null) MethodLoadNsiStatusUser();
+                                              break;
+                                          case 4:
+                                              if (ViewPrices == null) MethodLoadPrice();
+                                              break;
+                                          case 5:
+                                              if (ViewPayments == null) MethodLoadPayment();
+                                              break;
+                                          case 6:
+                                              if (ViewPayments == null) MethodLoadPayment();
+                                              break;
+                                     
+                                      }
+                                                           
+                                  }
+                                break;    
                           // Закладка Администрування
                           case 5:
                               switch (WindowHidden.AdminControl.SelectedIndex)

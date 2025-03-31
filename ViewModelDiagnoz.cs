@@ -122,15 +122,15 @@ namespace BackSeam
 
         private void AddComViewViewDiagnoz()
         {
-            if (addboolGrDiagnoz == false && loadGrupDiagnoz == false) 
-            {
+//            if (addboolGrDiagnoz == false && loadGrupDiagnoz == false) 
+//            {
                 addboolGrDiagnoz = true;
                 CallServer.PostServer(controlerViewDiagnoz, controlerViewDiagnoz, "GET");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                 else ObservableViewDiagnoz(CmdStroka);
                
-            }
+//            }
             MethodaddcomDiagnoz();
         }
 
@@ -357,7 +357,7 @@ namespace BackSeam
                     ListDiagnozs.Add(modelDiagnozs);
                 }
                 indexdia = Convert.ToInt32(ListDiagnozs[0].kodDiagnoza.Substring(ListDiagnozs[0].kodDiagnoza.LastIndexOf(".") + 1, ListDiagnozs[0].kodDiagnoza.Length - (ListDiagnozs[0].kodDiagnoza.LastIndexOf(".")+1)));
-                for (int i = 0; i < ViewDiagnozs.Count; i++)
+                for (int i = 0; i < ListDiagnozs.Count; i++)
                 {
                   setindex = Convert.ToInt32(ListDiagnozs[i].kodDiagnoza.Substring(ListDiagnozs[i].kodDiagnoza.LastIndexOf(".") + 1, ListDiagnozs[i].kodDiagnoza.Length - (ListDiagnozs[i].kodDiagnoza.LastIndexOf(".")+1)));
                   if (indexdia < setindex) indexdia = setindex; 
