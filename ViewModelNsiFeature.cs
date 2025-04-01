@@ -76,18 +76,8 @@ namespace BackSeam
                 return backComplaint ??
                   (backComplaint = new RelayCommand(obj =>
                   {
-                      MapOpisViewModel.nameFeature3 = "";
-                      WindowMain.Detailingt3.Text = "";
-                      WindowMain.Featuret3.Text = "";
-                      WindowFeature.Close();
-
-                      MapOpisViewModel.ActCreatInterview = "SelectInterview";
-                      NsiComplaint NewOrder = new NsiComplaint();
-                      NewOrder.Left = (MainWindow.ScreenWidth / 2) - 50;
-                      NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                      NewOrder.ShowDialog();
-                      MapOpisViewModel.IndikatorSelected = "NsiComplaint";
-                      MapOpisViewModel.Selectedswitch();
+                        WindowFeature.Close();
+                        MapOpisViewModel.BackComplaint();
                   }));
             }
         }

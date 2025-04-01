@@ -97,8 +97,9 @@ namespace BackSeam
                 return backfeature ??
                   (backfeature = new RelayCommand(obj =>
                   {
+                      
                       WindowMen.Close();
-                      MapOpisViewModel.OpenNsiFeature();
+                      MapOpisViewModel.BackComplaint();
 
                   }));
             }

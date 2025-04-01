@@ -34,7 +34,7 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
     public partial class MapOpisViewModel : BaseViewModel
     {
-        private int IdItemSelected = 0;
+        private static int IdItemSelected = 0, countFeature =0, shag=0 , key=0;
         public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "";
         public static bool endwhileselected = false, OnOffStartGuest = false, DeleteOnOff = false, ViewAnalogDiagnoz = false,
             PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false, loadTreeInterview = false;
@@ -413,10 +413,10 @@ namespace BackSeam
                 return;
             }
             
-            int countFeature = GuestIntervs.Count;
+            countFeature = GuestIntervs.Count;
             while (endwhileFeature == false)
             {
-                int shag = 1, key = 0;
+                shag = 1; key = 0;
 
                 foreach (ModelCompletedInterview modelContentInterv in GuestIntervs)
                 {
@@ -431,45 +431,51 @@ namespace BackSeam
                             break;
                     }
                     AutoSelectedFeature(selectedGuestInterv, shag, countFeature, key);
+                    if(shag == 0) break;
                     shag++;
                 }
-                if (IndikatorSelected == "NsiDetailing") endwhileFeature = true;
-                switch (IndikatorSelected)
-                {
-                    case "NsiComplaint":
-                        IndikatorSelected = "NsiFeature";
-                        break;
-                    case "NsiFeature":
-                        IndikatorSelected = "NsiDetailing";
-                        break;
-                }
-                if (countFeature == GuestIntervs.Count && endwhileFeature == false)
-                {
-
-                    CreatDetailsInterview();
-                    if (DiagnozRecomendaciya.Length <= 6)
+                if (shag != 0)
+                { 
+                    if (IndikatorSelected == "NsiDetailing") endwhileFeature = true;
+                    switch (IndikatorSelected)
                     {
-                        StopDialog = true;
-                        MessageSmalInfo();
-                        if (MapOpisViewModel.DeleteOnOff == false)
+                        case "NsiComplaint":
+                            IndikatorSelected = "NsiFeature";
+                            break;
+                        case "NsiFeature":
+                            IndikatorSelected = "NsiDetailing";
+                            break;
+                    }
+                    if (countFeature == GuestIntervs.Count && endwhileFeature == false)
+                    {
+
+                        CreatDetailsInterview();
+                        if (DiagnozRecomendaciya.Length <= 6)
+                        {
+                            StopDialog = true;
+                            MessageSmalInfo();
+                            if (MapOpisViewModel.DeleteOnOff == false)
+                            {
+                                GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+                                Selectedswitch();
+                                return;
+                            }
+                            StopDialog = false;
+                        }
+                        else MessageEndDialog();
+                        endwhileFeature = true;
+                        if (MapOpisViewModel.StopDialog == true)
                         {
                             GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
                             Selectedswitch();
                             return;
-                        }
-                        StopDialog = false;
-                    }
-                    else MessageEndDialog();
-                    endwhileFeature = true;
-                    if (MapOpisViewModel.StopDialog == true)
-                    {
-                        GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
-                        Selectedswitch();
-                        return;
-                    } 
-                    if (GuestIntervs.Count != 0) MetodSaveInterview();
-                    StopDialog = true;
+                        } 
+                        if (GuestIntervs.Count != 0) MetodSaveInterview();
+                        StopDialog = true;
+                    }                
+                
                 }
+
                 countFeature = GuestIntervs.Count;
             }
 
@@ -590,6 +596,18 @@ namespace BackSeam
             NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
             NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
             NewNsi.ShowDialog();
+        }
+
+        public static void BackComplaint()
+        {
+            countFeature = 0; shag = 0; key = 0;
+            MapOpisViewModel.nameFeature3 = "";
+            WindowMain.Detailingt3.Text = "";
+            WindowMain.Featuret3.Text = "";
+            MapOpisViewModel.GuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+            MapOpisViewModel.TmpGuestIntervs = new ObservableCollection<ModelCompletedInterview>();
+            MapOpisViewModel.Selectedswitch();
+            MapOpisViewModel.OpenNsiComplaint();
         }
 
         public static void Selectedswitch()
