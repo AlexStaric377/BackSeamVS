@@ -122,12 +122,13 @@ namespace BackSeam
                 return addAllCreatInterview ??
                   (addAllCreatInterview = new RelayCommand(obj =>
                   {
-
+                      MapOpisViewModel.addInterviewGrDetail = false;
                       foreach (ModelGrDetailing modelGrDetailing in NsiModelGrDetailings)
                       {
                           WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = modelGrDetailing.kodDetailing.ToString() + ":        " + modelGrDetailing.nameGrDetailing.ToString();
                           ViewModelCreatInterview.SelectContentCompl();
                       }
+                     
                       CloseWin();
 
                   }));
@@ -146,14 +147,14 @@ namespace BackSeam
                       WinCreatIntreview WindowUri = MainWindow.LinkMainWindow("WinCreatIntreview");
                       if (selectedGrDetailing != null)
                       {
-                          if (MapOpisViewModel.ActCreatInterview != "SelectInterview") return;
+                          if (MapOpisViewModel.ActCreatInterview != "SelectInterview" && MapOpisViewModel.ActCreatInterview != "CreatInterview") return;
                           { 
  
                                   MapOpisViewModel.selectQualification = selectedGrDetailing.nameGrDetailing;
                                   MapOpisViewModel.nameFeature3 = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
                                   WindowMain.Detailingt3.Text = selectedGrDetailing.kodDetailing + ": " + selectedGrDetailing.nameGrDetailing.ToString();
-                                  WindowMain.Featuret3.Text = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();                          
-
+                                  WindowMain.Featuret3.Text = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
+                                MapOpisViewModel.addInterviewGrDetail = false;
 
                               switch (MapOpisViewModel.ActCompletedInterview)
                               {
@@ -193,7 +194,7 @@ namespace BackSeam
                   (viewkodGroupQualification = new RelayCommand(obj =>
                   {
 
-                      if (selectedGrDetailing != null && MapOpisViewModel.ActCreatInterview != "SelectInterview" && MapOpisViewModel.ActCompletedInterview != "ViewGrDetailing")
+                      if (selectedGrDetailing != null && MapOpisViewModel.ActCreatInterview != "SelectInterview" && MapOpisViewModel.ActCompletedInterview != "ViewGrDetailing" && MapOpisViewModel.ActCreatInterview != "CreatInterview")
                       {
                           if (selectedGrDetailing.kodGroupQualification != null && selectedGrDetailing.kodGroupQualification !="" )
                           { 

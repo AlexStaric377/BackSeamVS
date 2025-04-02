@@ -34,7 +34,7 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary>
         public static MainWindow WindowInterv = MainWindow.LinkNameWindow("BackMain");
-        private bool editboolInterview = false, addtboolInterview = false, loadboolInterview = false;
+        public static bool editboolInterview = false, addtboolInterview = false, loadboolInterview = false, addInterviewGrDetail=true;
         private string edittextInterview = "";
         public static int selectedInterviewIndex = 0;
         public static string GetidkodProtokola = "";

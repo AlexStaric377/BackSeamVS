@@ -57,7 +57,7 @@ namespace BackSeam
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
             else ObservableContentInterv(CmdStroka);
-
+            InterviewAddGrDetail();
         }
 
         public static void ObservableContentInterv(string CmdStroka)
@@ -67,6 +67,27 @@ namespace BackSeam
             List<ModelContentInterv> res = result.ModelContentInterv.ToList();
             ContentIntervs = new ObservableCollection<ModelContentInterv>((IEnumerable<ModelContentInterv>)res);
  
+        }
+
+
+        private static void InterviewAddGrDetail()
+        {
+            string kodProtokola = ContentIntervs[0].kodProtokola, strokagrdetail = "";
+            CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + kodProtokola + "/0/0/0/0", "GETID");
+            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+            ModelInterview Idinsert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
+            if (Idinsert.grDetail == null)
+            { 
+                foreach (ModelContentInterv modelContentInterv in ContentIntervs.OrderBy(x => x.numberstr))
+                {
+                    if (modelContentInterv.kodDetailing.Length <= 9) strokagrdetail += modelContentInterv.kodDetailing +";";
+                } 
+                Idinsert.grDetail = strokagrdetail;
+                var json = JsonConvert.SerializeObject(Idinsert);
+                CallServer.PostServer(MapOpisViewModel.Interviewcontroller, json, "PUT");                
+            }
+
+
         }
         // команда закрытия окна
         RelayCommand? closeCreatInterview;
@@ -242,6 +263,7 @@ namespace BackSeam
                                   break;
                               case 9:
 
+                                  
                                   ViewModelNsiDetailing.NsiModelDetailings = null;
                                   MapOpisViewModel.ActCreatInterview = "CreatInterview";
                                   MapOpisViewModel.selectFeature = selectedContentInterv.detailsInterview;
@@ -250,8 +272,10 @@ namespace BackSeam
                                   { 
                                       NewNsi.Left = (MainWindow.ScreenWidth / 2)-80;
                                       NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
-                                      NewNsi.ShowDialog();                                  
+                                      NewNsi.ShowDialog();
+                                      
                                   }
+
 
                                   
                                   break;
@@ -305,18 +329,37 @@ namespace BackSeam
                 TmpContentIntervs.Add(modelContentInterv);
                 if (booladdContent == true)
                 {
-                    AddselectedContent();
-                    addcontent = true;
-                    booladdContent = false;
-                    IndexContentInterv = indexcontent;
+                    if (AddTrueColection() == true)
+                    {
+                        AddGrDetail();
+                        AddselectedContent();
+                        addcontent = true;
+                        booladdContent = false;
+                        IndexContentInterv = indexcontent;
+                    }
+
                 }
             }
-            if (ContentIntervs.Count == TmpContentIntervs.Count) AddselectedContent();
+            if (ContentIntervs.Count == TmpContentIntervs.Count) if (AddTrueColection() == true) { AddselectedContent(); AddGrDetail(); }
             ContentIntervs = TmpContentIntervs;
             WindowCreat.TablInterviews.ItemsSource = ContentIntervs;
         }
 
-  
+        private static bool AddTrueColection()
+        {
+            foreach (ModelContentInterv mInterview in TmpContentIntervs)
+            {
+                if (mInterview.kodDetailing == MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"))) return false;
+            }
+            return true;
+        }
+
+
+        private static void AddGrDetail()
+        {
+            if(MapOpisViewModel.addInterviewGrDetail == true) MapOpisViewModel.selectedInterview.grDetail += MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"))+";";
+        }
+        
 
         private static void AddselectedContent()
         {

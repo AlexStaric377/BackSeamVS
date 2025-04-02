@@ -518,7 +518,7 @@ namespace BackSeam
         public static void OpenNsiDetailing()
         {
 
-            if (loadTreeInterview == false) LoadTreeInterview(); // загрузка деревьв подобных интервью для настройки груповых детализаций
+            /*if (loadTreeInterview == false) LoadTreeInterview(); */// загрузка деревьв подобных интервью для настройки груповых детализаций
  
                 MapOpisViewModel.ActCreatInterview = "SelectInterview";
                 selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
@@ -540,25 +540,14 @@ namespace BackSeam
                
                     }
                     ViewModelNsiDetailing.NsiModelDetailings = null;
-                }            
- 
+                }
 
 
-       
+
+
         }
 
-        public static void LoadTreeInterview()
-        {
-            string detailsInterview = "";
-            loadTreeInterview = true;
-            foreach (ModelCompletedInterview modelCompletedInterview in GuestIntervs.OrderBy(x => x.kodDetailing))
-            {
-                 detailsInterview +=  modelCompletedInterview.kodDetailing + ";";
-            }
-            string jason = Interviewcontroller +"0/"+ detailsInterview +"/-1/0";
-            CallServer.PostServer(Interviewcontroller, jason, "GETID");
-            StrokaInterview = CallServer.ServerReturn();
-        }
+
         public static void LoadNsiGrDetailing()
         {
             listgrdetaling = new ObservableCollection<ModelDetailing>();
@@ -659,14 +648,30 @@ namespace BackSeam
 
         private static void AddselectedColection()
         {
+            
             ModelCompletedInterview selectedaddContent = new ModelCompletedInterview();
             selectedaddContent.kodDetailing = nameFeature3.Substring(0, nameFeature3.IndexOf(":"));
             selectedaddContent.detailsInterview = nameFeature3.Substring(nameFeature3.IndexOf(":") + 1, nameFeature3.Length - (nameFeature3.IndexOf(":") + 1));
+            if (loadTreeInterview == false) LoadTreeInterview(selectedaddContent); // загрузка деревьв подобных интервью для настройки груповых детализаций
             TmpGuestIntervs.Add(selectedaddContent);
             IdItemGuestInterv++;
 
         }
-
+        // процедура контроля последовательности груп симптомов определяющих диагноз. Исключает выбор несуществующих цепочек симптомов
+        public static void LoadTreeInterview(ModelCompletedInterview selectedaddContent)
+        {
+            string detailsInterview = "";
+            loadTreeInterview = true;
+            foreach (ModelCompletedInterview modelCompletedInterview in GuestIntervs) //.OrderBy(x => x.kodDetailing))
+            {
+                detailsInterview += modelCompletedInterview.kodDetailing + ";";
+            }
+            detailsInterview += selectedaddContent.kodDetailing + ";";
+            string jason = Interviewcontroller + "0/" + detailsInterview + "/-1/0";
+            CallServer.PostServer(Interviewcontroller, jason, "GETID");
+            StrokaInterview = CallServer.ServerReturn();
+        }
+        // процедура контроля  и блокировки ввода повторного выбора симптома
         private static bool AddTrueColection()
         {
             foreach (ModelCompletedInterview mInterview in TmpGuestIntervs)

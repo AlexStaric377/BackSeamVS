@@ -43,9 +43,10 @@ namespace BackSeam
         private string OpistInterview;
         private string UriInterview;
         private string IdUser;
+        private string GrDetail;
 
         public ModelInterview(int Id = 0, int Numberstr = 0, string KodProtokola = "", string DetailsInterview = "",
-            string NametInterview = "", string OpistInterview = "", string UriInterview = "", string IdUser = "")
+            string NametInterview = "", string OpistInterview = "", string UriInterview = "", string IdUser = "", string GrDetail="")
         {
             this.Id = Id;
             this.NametInterview = NametInterview;
@@ -54,6 +55,7 @@ namespace BackSeam
             this.OpistInterview = OpistInterview;
             this.UriInterview = UriInterview;
             this.IdUser = IdUser;
+            this.GrDetail = GrDetail;
 
         }
         [JsonProperty("id")]
@@ -100,6 +102,12 @@ namespace BackSeam
         {
             get { return IdUser; }
             set { IdUser = value; OnPropertyChanged("idUser"); }
+        }
+        [JsonProperty("grDetail")]
+        public string grDetail
+        {
+            get { return GrDetail; }
+            set { GrDetail = value; OnPropertyChanged("grDetail"); }
         }
     }
 

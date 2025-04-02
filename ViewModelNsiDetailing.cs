@@ -150,7 +150,7 @@ namespace BackSeam
                                       WindowMain.Featuret2.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
                                       WindowMain.Featuret3.Text = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();                                 
                                   }
-
+                                  MapOpisViewModel.addInterviewGrDetail = false;
 
                                   switch (MapOpisViewModel.ActCompletedInterview)
                                   {
@@ -166,7 +166,7 @@ namespace BackSeam
                               }
 
                           }
-                          }
+                      }
                       WindowMen.TablDeliting.SelectedItem = null;
                   }));
             }
@@ -262,11 +262,13 @@ namespace BackSeam
                 return addAllModelDetailing ??
                   (addAllModelDetailing = new RelayCommand(obj =>
                   {
+                      MapOpisViewModel.addInterviewGrDetail = false;
                       foreach (ModelDetailing modelDetailing in NsiModelDetailings)
                       {
                           WindowMain.Featuret3.Text = MapOpisViewModel.nameFeature3 = modelDetailing.kodDetailing.ToString() + ":        " + modelDetailing.nameDetailing.ToString();
                           ViewModelCreatInterview.SelectContentCompl();
                       }
+                     
                       WindowMen.Close();
                   }));
             }
