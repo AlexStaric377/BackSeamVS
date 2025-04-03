@@ -122,6 +122,7 @@ namespace BackSeam
                 return addAllCreatInterview ??
                   (addAllCreatInterview = new RelayCommand(obj =>
                   {
+                      if(MapOpisViewModel.selectedInterview.grDetail.Contains(ViewModelNsiDetailing.selectedDetailing.keyGrDetailing) == false) MapOpisViewModel.selectedInterview.grDetail += ViewModelNsiDetailing.selectedDetailing.keyGrDetailing + ";";
                       MapOpisViewModel.addInterviewGrDetail = false;
                       foreach (ModelGrDetailing modelGrDetailing in NsiModelGrDetailings)
                       {
@@ -150,10 +151,12 @@ namespace BackSeam
                           if (MapOpisViewModel.ActCreatInterview != "SelectInterview" && MapOpisViewModel.ActCreatInterview != "CreatInterview") return;
                           { 
  
-                                  MapOpisViewModel.selectQualification = selectedGrDetailing.nameGrDetailing;
-                                  MapOpisViewModel.nameFeature3 = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
-                                  WindowMain.Detailingt3.Text = selectedGrDetailing.kodDetailing + ": " + selectedGrDetailing.nameGrDetailing.ToString();
-                                  WindowMain.Featuret3.Text = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
+                                MapOpisViewModel.selectQualification = selectedGrDetailing.nameGrDetailing;
+                                MapOpisViewModel.nameFeature3 = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
+                                WindowMain.Detailingt3.Text = selectedGrDetailing.kodDetailing + ": " + selectedGrDetailing.nameGrDetailing.ToString();
+                                WindowMain.Featuret3.Text = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
+ 
+                                if (MapOpisViewModel.selectedInterview.grDetail.Contains(ViewModelNsiDetailing.selectedDetailing.keyGrDetailing) == false) MapOpisViewModel.selectedInterview.grDetail += ViewModelNsiDetailing.selectedDetailing.keyGrDetailing+";";
                                 MapOpisViewModel.addInterviewGrDetail = false;
 
                               switch (MapOpisViewModel.ActCompletedInterview)

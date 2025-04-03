@@ -35,7 +35,7 @@ namespace BackSeam
     public partial class MapOpisViewModel : BaseViewModel
     {
         private static int IdItemSelected = 0, countFeature =0, shag=0 , key=0;
-        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "";
+        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "",ListGrDetail="";
         public static bool endwhileselected = false, OnOffStartGuest = false, DeleteOnOff = false, ViewAnalogDiagnoz = false,
             PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false, loadTreeInterview = false;
         public static string ActCompletedInterview = "null", ActCreatInterview="", IndikatorSelected = "",InfoSborka="", 
@@ -633,17 +633,30 @@ namespace BackSeam
                 {
                     if (AddTrueColection() == true)
                     {
-                        AddselectedColection();
-                        addcontent = true;
-                        booladdContent = false;                      
+                        if (AddGrDetail() == true)
+                        { 
+                            AddselectedColection();
+                            addcontent = true;
+                            booladdContent = false;                          
+                        }
+                    
                     }
                  
                 } 
             }
-            if (GuestIntervs.Count == TmpGuestIntervs.Count) if (AddTrueColection() == true) AddselectedColection();
+            if (GuestIntervs.Count == TmpGuestIntervs.Count) if (AddTrueColection() == true) { if (AddGrDetail() == true) AddselectedColection();  }
             GuestIntervs = TmpGuestIntervs;
             Selectedswitch();
 
+        }
+        // процедура контроля  и блокировки ввода повторного выбора симптома
+        private static bool AddTrueColection()
+        {
+            foreach (ModelCompletedInterview mInterview in TmpGuestIntervs)
+            {
+                if (mInterview.kodDetailing == nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) return false;
+            }
+            return true;
         }
 
         private static void AddselectedColection()
@@ -656,6 +669,28 @@ namespace BackSeam
             TmpGuestIntervs.Add(selectedaddContent);
             IdItemGuestInterv++;
 
+        }
+
+        private static bool AddGrDetail()
+        {
+
+            if (addInterviewGrDetail == true && ListGrDetail.Contains(nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) == false)
+            {
+                string checkgrdetail = ListGrDetail + nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";
+                CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + "0/0/0/0/" + checkgrdetail, "GETID");
+                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                ModelInterview Idinsert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
+                if (Idinsert != null) ListGrDetail += nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";
+                else
+                {
+                    MainWindow.MessageError = "Ви вибрали характер прояву який не сумісний з раніш обраними. " + Environment.NewLine +
+                    "Будь ласка оберіть інший зарактер прояву.";
+                    SelectedFalseLogin(4);
+                    return false;
+                }
+
+            }
+            return true;
         }
         // процедура контроля последовательности груп симптомов определяющих диагноз. Исключает выбор несуществующих цепочек симптомов
         public static void LoadTreeInterview(ModelCompletedInterview selectedaddContent)
@@ -670,15 +705,6 @@ namespace BackSeam
             string jason = Interviewcontroller + "0/" + detailsInterview + "/-1/0";
             CallServer.PostServer(Interviewcontroller, jason, "GETID");
             StrokaInterview = CallServer.ServerReturn();
-        }
-        // процедура контроля  и блокировки ввода повторного выбора симптома
-        private static bool AddTrueColection()
-        {
-            foreach (ModelCompletedInterview mInterview in TmpGuestIntervs)
-            {
-                if (mInterview.kodDetailing == nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) return false;
-            }
-            return true;
         }
 
         public static void SelectNewKodComplInteriew()

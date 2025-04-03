@@ -324,14 +324,11 @@ namespace BackSeam
                           json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
                           if (json.Length > 1024)
                           {
-                              selectedInterview.uriInterview = "";
-                              json = JsonConvert.SerializeObject(selectedInterview);
-                              if (json.Length > 1024)
-                              {
-                                selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.ToString().Substring(0, WindowInterv.InterviewOpis.Text.Length-(json.Length - 1025));
-                                json = JsonConvert.SerializeObject(selectedInterview);
-                              }
+                                  int lentext =   selectedInterview.opistInterview.Length-(json.Length-1024);
+                                  selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Substring(0, lentext);
+                                  json = JsonConvert.SerializeObject(selectedInterview);
                           }
+                        
                           CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
                           
 

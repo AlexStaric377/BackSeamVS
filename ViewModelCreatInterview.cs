@@ -57,7 +57,7 @@ namespace BackSeam
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
             else ObservableContentInterv(CmdStroka);
-            InterviewAddGrDetail();
+            if(ContentIntervs.Count>0) InterviewAddGrDetail();
         }
 
         public static void ObservableContentInterv(string CmdStroka)
@@ -72,19 +72,34 @@ namespace BackSeam
 
         private static void InterviewAddGrDetail()
         {
-            string kodProtokola = ContentIntervs[0].kodProtokola, strokagrdetail = "";
+            
+            string kodProtokola = ContentIntervs[0].kodProtokola, strokagrdetail = "", keygrdetail = "";
             CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + kodProtokola + "/0/0/0/0", "GETID");
             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
             ModelInterview Idinsert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
             if (Idinsert.grDetail == null)
-            { 
+            {
                 foreach (ModelContentInterv modelContentInterv in ContentIntervs.OrderBy(x => x.numberstr))
                 {
-                    if (modelContentInterv.kodDetailing.Length <= 9) strokagrdetail += modelContentInterv.kodDetailing +";";
-                } 
+                    if (modelContentInterv.kodDetailing.Length <= 9)
+                    { 
+                        strokagrdetail += modelContentInterv.kodDetailing + ";";
+                    } 
+                    else
+                    {
+                        if ((keygrdetail == "" || keygrdetail != modelContentInterv.kodDetailing.Substring(0, 7)) 
+                            && modelContentInterv.kodDetailing.Length == 11 && strokagrdetail.Contains(modelContentInterv.kodDetailing.Substring(0, 7)) == false)
+                        { 
+                            
+                            keygrdetail = modelContentInterv.kodDetailing.Substring(0, 7);
+                            strokagrdetail += modelContentInterv.kodDetailing.Substring(0, 7) + ";";
+                        } 
+ 
+                    }
+                }
                 Idinsert.grDetail = strokagrdetail;
                 var json = JsonConvert.SerializeObject(Idinsert);
-                CallServer.PostServer(MapOpisViewModel.Interviewcontroller, json, "PUT");                
+                CallServer.PostServer(MapOpisViewModel.Interviewcontroller, json, "PUT");
             }
 
 
@@ -357,7 +372,11 @@ namespace BackSeam
 
         private static void AddGrDetail()
         {
-            if(MapOpisViewModel.addInterviewGrDetail == true) MapOpisViewModel.selectedInterview.grDetail += MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"))+";";
+            
+            if (MapOpisViewModel.addInterviewGrDetail == true && MapOpisViewModel.selectedInterview.grDetail.Contains(MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"))) ==false)
+            { 
+                MapOpisViewModel.selectedInterview.grDetail += MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":"))+";";
+            } 
         }
         
 
