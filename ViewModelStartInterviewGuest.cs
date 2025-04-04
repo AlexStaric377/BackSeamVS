@@ -673,21 +673,27 @@ namespace BackSeam
 
         private static bool AddGrDetail()
         {
-
+            
             if (addInterviewGrDetail == true && ListGrDetail.Contains(nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) == false)
             {
                 string checkgrdetail = ListGrDetail + nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";
-                CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + "0/0/0/0/" + checkgrdetail, "GETID");
-                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                ModelInterview Idinsert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
-                if (Idinsert != null) ListGrDetail += nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";
-                else
-                {
-                    MainWindow.MessageError = "Ви вибрали характер прояву який не сумісний з раніш обраними. " + Environment.NewLine +
-                    "Будь ласка оберіть інший зарактер прояву.";
-                    SelectedFalseLogin(4);
-                    return false;
-                }
+ 
+                    CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + "0/0/0/0/" + checkgrdetail, "GETID");
+                    string CmdStroka = CallServer.ServerReturn();
+                    var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
+                    List<ModelInterview> res = result.ModelInterview.ToList();
+                    ModelInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
+               
+                    if (ModelInterviews.Count > 0 ) { ListGrDetail += nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";  }
+                    else
+                    {
+                        MainWindow.MessageError = "Ви вибрали характер нездужання який не має взаємозв'язку з раніш обраними. " + Environment.NewLine +
+                        "Будь ласка оберіть інший характер прояву, або натисніть кнопку - Далі";
+                        SelectedWirning();
+                        return false;
+                    }               
+    
+ 
 
             }
             return true;
