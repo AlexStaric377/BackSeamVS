@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:BackSeam" d:DataContext="{d:DesignInstance Type=local:ViewModelAnalogDiagnoz}"
         mc:Ignorable="d"
         Title="WinAnalogDiagnoz" Height="550" Width="1050" WindowState="Normal" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"  
-         ShowInTaskbar="True"     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" Topmost="True">
+         ShowInTaskbar="True"     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" ><!--Topmost="True"-->
     <Window.DataContext>
         <local:ViewModelAnalogDiagnoz/>
     </Window.DataContext>

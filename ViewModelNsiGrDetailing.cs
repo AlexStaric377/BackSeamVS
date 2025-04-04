@@ -155,8 +155,16 @@ namespace BackSeam
                                 MapOpisViewModel.nameFeature3 = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
                                 WindowMain.Detailingt3.Text = selectedGrDetailing.kodDetailing + ": " + selectedGrDetailing.nameGrDetailing.ToString();
                                 WindowMain.Featuret3.Text = selectedGrDetailing.kodDetailing.ToString() + ":        " + selectedGrDetailing.nameGrDetailing.ToString();
- 
-                                if (MapOpisViewModel.selectedInterview.grDetail.Contains(ViewModelNsiDetailing.selectedDetailing.keyGrDetailing) == false) MapOpisViewModel.selectedInterview.grDetail += ViewModelNsiDetailing.selectedDetailing.keyGrDetailing+";";
+
+                              if (MapOpisViewModel.ActCreatInterview == "SelectInterview")
+                              { 
+                                 if(MapOpisViewModel.ListGrDetail.Contains(ViewModelNsiDetailing.selectedDetailing.keyGrDetailing) == false) MapOpisViewModel.ListGrDetail += ViewModelNsiDetailing.selectedDetailing.keyGrDetailing + ";";
+                              }
+                              if (MapOpisViewModel.ActCreatInterview == "CreatInterview")
+                              { 
+                                if (MapOpisViewModel.selectedInterview.grDetail.Contains(ViewModelNsiDetailing.selectedDetailing.keyGrDetailing) == false) MapOpisViewModel.selectedInterview.grDetail += ViewModelNsiDetailing.selectedDetailing.keyGrDetailing+";";                              
+                              }
+
                                 MapOpisViewModel.addInterviewGrDetail = false;
 
                               switch (MapOpisViewModel.ActCompletedInterview)

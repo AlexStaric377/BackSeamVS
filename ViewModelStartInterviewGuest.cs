@@ -1245,7 +1245,7 @@ namespace BackSeam
             RunGifWait();
             while (DiagnozRecomendaciya.Contains(";") == true)
             {
-                json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1/0";
+                json = pathcontrolerInterview + "0/" + DiagnozRecomendaciya + "/-1/0/0";
                 CallServer.PostServer(pathcontrolerInterview, json, "GETID");
                 CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false) { break; }
