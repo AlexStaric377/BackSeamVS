@@ -48,7 +48,7 @@
                 <ListBox Grid.Row="3" Name="TablMedzaklad" ItemsSource="{Binding NsiModelMedZaklads}" VerticalAlignment="Bottom"
                     SelectedItem ="{Binding SelectedMedZaklad}" Height="280" Background="#FFE2E2DD"
                     Width="790" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseUp">
                             <i:InvokeCommandAction Command="{Binding ElementName=TablMedzaklad, Path=DataContext.SelectMedzaklad}" CommandParameter=""/>

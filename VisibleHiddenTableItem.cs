@@ -51,12 +51,13 @@ namespace BackSeam
                                       WindowHidden.ProfilPacientGridGhange.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilPacientSave.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilPacientDelete.Visibility = Visibility.Hidden;
+                                      WindowHidden.StartInterview.Content = "Почати";
                                       // Провести опитування пацієнта
                                       if (RegUserStatus != "2") if (CheckStatusUser() == false) return;
-                                      if (_pacientProfil == "") MethodLoadPacientProfil();
-                                      if (_pacientProfil == "") { WindowHidden.ControlPacient.SelectedIndex = 0; return;}
-                                      MetodStartPacient();
-                                      WindowHidden.ControlPacient.SelectedIndex = 0;
+                                      //if (_pacientProfil == "") MethodLoadPacientProfil();
+                                      //if (_pacientProfil == "") { WindowHidden.ControlPacient.SelectedIndex = 0; return;}
+                                      //MetodStartPacient();
+                                      //WindowHidden.ControlPacient.SelectedIndex = 0;
                                       break;
                                   case 2:
                                       WindowHidden.ProfilPacientgrAdd.Visibility = Visibility.Hidden;
@@ -75,23 +76,24 @@ namespace BackSeam
                           case 2:
  
                               switch (WindowHidden.ControlLikar.SelectedIndex)
-                              {
+                              {         // Профіль лікаря
                                   case 1:
-                                      // Профіль лікаря
-
+                                      
+                                      // Провести опитування 
                                       WindowHidden.ProfilLikarGridAdd.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilLikarGhange.Visibility = Visibility.Visible;
                                       WindowHidden.ProfilLikarSave.Visibility = Visibility.Visible;
                                       WindowHidden.ProfilLikarDelete.Visibility = Visibility.Visible;
                                       WindowHidden.ProfilLikarPrint.Visibility = Visibility.Visible;
- 
-                                      if (_kodDoctor == "") MetodLoadProfilLikar(); 
-                                      if (_kodDoctor == "") { WindowHidden.ControlLikar.SelectedIndex = 0; return; }
-                                      MetodInterviewStartLikar();
-                                     WindowHidden.ControlLikar.SelectedIndex = 0; 
+                                      WindowHidden.StartLikar.Content = "Почати"; 
+
+                                      //if (_kodDoctor == "") MetodLoadProfilLikar();
+                                      //if (_kodDoctor == "") { WindowHidden.ControlLikar.SelectedIndex = 0; return; }
+                                      //MetodInterviewStartLikar();
+                                      //WindowHidden.ControlLikar.SelectedIndex = 0;
                                       break;
                                   case 2:
-                                      // Провести опитування 
+                                     
                                       WindowHidden.ProfilLikarGridAdd.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilLikarGhange.Visibility = Visibility.Hidden;
                                       WindowHidden.ProfilLikarSave.Visibility = Visibility.Hidden;

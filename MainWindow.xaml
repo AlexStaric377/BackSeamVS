@@ -186,9 +186,7 @@
  У разі помилки вибору симптому ви можете почати все спочатку на-&#xa;тиснув на малюнок поверненої стрілочки в лівому нижньому куту вікна.&#xa;
  За результатами опитування виводиться один або декілька попе-&#xa;
  редніх діагнозів та пропонується запис на прийом до сімейного або &#xa;
- профільного лікаря.&#xa;
- 
-               Для початку опитування натисніть на кнопку 'Почати',&#xa; "
+ профільного лікаря.&#xa;               Для початку опитування натисніть на кнопку 'Почати',&#xa; "
                                                 FontSize="17" Background="#FFC8E0F7"  Height="322" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center"  Visibility="Visible"/>
 
                                                 </Border>
@@ -679,7 +677,7 @@
                                                             <Button Command="{Binding AddStartPacient}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
                                                             </Button>
-                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                            <Label Name="StartInterview" Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
@@ -749,22 +747,27 @@
                                                     </ListView.ItemTemplate>
                                                 </ListView>
                                             </Border>
-                                            <StackPanel x:Name ="StackPanelPacient" VerticalAlignment="Center" Height="300" Width="600" HorizontalAlignment="Right" Margin="0,0,15,0">
+                                            <StackPanel x:Name ="StackPanelPacient" VerticalAlignment="Center" Height="340" Width="610" HorizontalAlignment="Right" Margin="0,0,20,0"  >
                                                 <StackPanel.Effect>
                                                     <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
                                                 </StackPanel.Effect>
-                                                <Border x:Name="BorderPacient" Height="300" Width="600"  BorderBrush="#FFC8E0F7" Background="#FFC8E0F7"  VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
+                                                <Border x:Name="BorderPacient" Height="340" Width="600"  BorderBrush="#FFC8E0F7" Background="#FFC8E0F7"  VerticalAlignment="Center" HorizontalAlignment="Right"
+                                                    BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
                                                     <Label x:Name="PacientKabinetInterv" Content="
                                           Шановний користувач!&#xa;
-                  З Вами спілкується комп'ютерна програма-SEAM.&#xa;&#xa;
+                  З Вами спілкується комп'ютерна програма-SEAM.&#xa;
  Вона допоможе  визначити, шляхом опитування, попередній діагноз &#xa;
-                                            вашого нездужання.&#xa;
- Опитування містить:&#xa;      - визначення того що це за нездужання (головна біль, закладеність &#xa;
-       носу або горла, біль у серці або животі, нежить, кашель тощо);&#xa;
-     - виявлення характеру та деталей прояву  вашого нездужання.&#xa;&#xa;
-               Для початку опитування натисніть на кнопку 'Додати',&#xa; "
-                                                FontSize="17" Background="#FFC8E0F7"  Height="282" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center"  Visibility="Visible"/>
+                                            вашого нездужання.&#xa;  Всі описи проявів нездужання сформовані профільними лікарями. &#xa;
+ Опитування пропонує вибрати:&#xa;      - яке у вас  нездужання (закладеність носу, кашель, головний біль,&#xa;
+       біль у серці, попереку або животі,  тощо);&#xa;
+     - характер та деталі вибраного вами прояву  нездужання.&#xa;
+ Якщо перелік скарг вас не влаштовує тисніть кнопку -Далі.&#xa;
+ У разі помилки вибору симптому ви можете почати все спочатку на-&#xa;тиснув на малюнок поверненої стрілочки в лівому нижньому куту вікна.&#xa;
+ За результатами опитування виводиться один або декілька попе-&#xa;
+ редніх діагнозів та пропонується запис на прийом до сімейного або &#xa;
+ профільного лікаря.&#xa;               Для початку опитування натисніть на кнопку 'Почати',&#xa; "
+                                                FontSize="17" Background="#FFC8E0F7"  Height="322" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center"  Visibility="Visible"/>
+
                                                 </Border>
                                             </StackPanel>
                                         </Grid>
@@ -1741,7 +1744,7 @@
                                                             <Button Command="{Binding AddStartLikar}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
                                                                 <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
                                                             </Button>
-                                                            <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
+                                                            <Label Name="StartLikar" Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center"></Label>
                                                         </StackPanel>
                                                     </Border>
                                                 </Grid>
@@ -1841,22 +1844,27 @@
                                                     </ListView.ItemTemplate>
                                                 </ListView>
                                             </Border>
-                                            <StackPanel x:Name ="StackPanelLikar" VerticalAlignment="Center" Height="300" Width="600" HorizontalAlignment="Right" Margin="0,0,15,0" >
+                                            <StackPanel x:Name ="StackPanelLikar" VerticalAlignment="Center" Height="340" Width="610" HorizontalAlignment="Right" Margin="0,0,20,0"  >
                                                 <StackPanel.Effect>
                                                     <DropShadowEffect Color="#FF1D1504" BlurRadius="35" ShadowDepth="20" Opacity="0.5" ></DropShadowEffect>
                                                 </StackPanel.Effect>
-                                                <Border x:Name="BorderLikar" Height="300" Width="600"  BorderBrush="#FFC8E0F7" Background="#FFC8E0F7"  VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
+                                                <Border x:Name="BorderLikar" Height="340" Width="600"  BorderBrush="#FFC8E0F7" Background="#FFC8E0F7"  VerticalAlignment="Center" HorizontalAlignment="Right"
+                                                    BorderThickness="1,1,1,1"  CornerRadius="15,15,15,15" Cursor="Hand" >
                                                     <Label x:Name="InputNameProfilLikar" Content="
-                                         Шановний користувач!&#xa;
-                  З Вами спілкується комп'ютерна програма-SEAM.&#xa;&#xa;
+                                          Шановний користувач!&#xa;
+                  З Вами спілкується комп'ютерна програма-SEAM.&#xa;
  Вона допоможе  визначити, шляхом опитування, попередній діагноз &#xa;
-                                            вашого нездужання.&#xa;
- Опитування містить:&#xa;      - визначення того що це за нездужання (головна біль, закладеність &#xa;
-       носу або горла, біль у серці або животі, нежить, кашель тощо);&#xa;
-     - виявлення характеру та деталей прояву  вашого нездужання.&#xa;&#xa;
-               Для початку опитування натисніть на кнопку 'Додати',&#xa; "
-                                                FontSize="17" Background="#FFC8E0F7"  Height="282" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center"  Visibility="Visible"/>
+                                            вашого нездужання.&#xa;  Всі описи проявів нездужання сформовані профільними лікарями. &#xa;
+ Опитування пропонує вибрати:&#xa;      - яке у вас  нездужання (закладеність носу, кашель, головний біль,&#xa;
+       біль у серці, попереку або животі,  тощо);&#xa;
+     - характер та деталі вибраного вами прояву  нездужання.&#xa;
+ Якщо перелік скарг вас не влаштовує тисніть кнопку -Далі.&#xa;
+ У разі помилки вибору симптому ви можете почати все спочатку на-&#xa;тиснув на малюнок поверненої стрілочки в лівому нижньому куту вікна.&#xa;
+ За результатами опитування виводиться один або декілька попе-&#xa;
+ редніх діагнозів та пропонується запис на прийом до сімейного або &#xa;
+ профільного лікаря.&#xa;               Для початку опитування натисніть на кнопку 'Почати',&#xa; "
+                                                FontSize="17" Background="#FFC8E0F7"  Height="322" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center"  Visibility="Visible"/>
+
                                                 </Border>
                                             </StackPanel>
 
