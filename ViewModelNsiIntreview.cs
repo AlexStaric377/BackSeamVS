@@ -94,7 +94,7 @@ namespace BackSeam
                   {
                       if (WindowMen.PoiskDeliting.Text.Trim() != "")
                       {
-                          string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text;
+                          string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text+"/0";
                           CallServer.PostServer(pathcontroller, jason, "GETID");
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
@@ -125,7 +125,7 @@ namespace BackSeam
 
             if (WindowMen.PoiskDeliting.Text.Trim() != "")
             {
-                string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text;
+                string jason = pathcontroller + "0/0/0/" + WindowMen.PoiskDeliting.Text+"/0";
                 CallServer.PostServer(pathcontroller, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();

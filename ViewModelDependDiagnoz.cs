@@ -99,7 +99,7 @@ namespace BackSeam
 
                 if (modelDependency.kodProtokola != "")
                 { 
-                    var json = Interviewcontroller + modelDependency.kodProtokola.ToString() + "/0/0/0";
+                    var json = Interviewcontroller + modelDependency.kodProtokola.ToString() + "/0/0/0/0";
                     CallServer.PostServer(Interviewcontroller, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     ModelInterview Insert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);

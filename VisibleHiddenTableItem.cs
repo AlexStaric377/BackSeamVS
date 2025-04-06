@@ -22,6 +22,7 @@ namespace BackSeam
                 return geustGridLoadHidden ??
                   (geustGridLoadHidden = new RelayCommand(obj =>
                   {
+                      
                       IndexAddEdit = "";
                       switch (WindowHidden.ControlMain.SelectedIndex)
                       {
@@ -111,31 +112,61 @@ namespace BackSeam
                               break;
                           // Закладка Інструменти
                           case 4:
-                                  if (RegUserStatus == "1")
-                                  { 
-                                      switch (WindowHidden.Instrument.SelectedIndex)
-                                      {
-                                          case 2:
-                                                // NewEkzemplyarDetailing();
-                                                //BoolFalseDetailing();
-                                              break;
-                                          case 3:
-                                              if (ViewStatustUsers == null) MethodLoadNsiStatusUser();
-                                              break;
-                                          case 4:
-                                              if (ViewPrices == null) MethodLoadPrice();
-                                              break;
-                                          case 5:
-                                              if (ViewPayments == null) MethodLoadPayment();
-                                              break;
-                                          case 6:
-                                              if (ViewPayments == null) MethodLoadPayment();
-                                              break;
+                             if (RegUserStatus == "1")
+                             {
+                                  if (selectindex == 0) selectindex = WindowHidden.Instrument.SelectedIndex;
+                                  switch (WindowHidden.Instrument.SelectedIndex)
+                                  {
+                                      case 7:
+                                            if (selectindex != WindowHidden.Instrument.SelectedIndex)
+                                            { 
+                                                ViewDiagnozs = new System.Collections.ObjectModel.ObservableCollection<ModelDiagnoz>();
+                                                SelectedViewDiagnoz = new ModelDiagnoz();
+                                                WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs;
+                                                selectindex = WindowHidden.Instrument.SelectedIndex;
+                                            }
+                                            break;
+                                        case 8:
+                                          if (selectindex != WindowHidden.Instrument.SelectedIndex)
+                                          {
+                                              ModelInterviews = new System.Collections.ObjectModel.ObservableCollection<ModelInterview>();
+                                              SelectedResultInterview = new ModelResultInterview();
+                                              WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;
+                                              selectindex = WindowHidden.Instrument.SelectedIndex;
+                                          }
+                                          break;
+                                        case 9:
+                                          if (selectindex != WindowHidden.Instrument.SelectedIndex)
+                                          {
+                                              ModelRecommendations = new System.Collections.ObjectModel.ObservableCollection<ModelRecommendation>();
+                                              SelectedModelRecommendation = new ModelRecommendation();
+                                              WindowMen.RecommendationTablGrid.ItemsSource = ModelRecommendations;
+                                              selectindex = WindowHidden.Instrument.SelectedIndex;
+                                          }
+                                          break;
+                                        case 10:
+                                          if (selectindex != WindowHidden.Instrument.SelectedIndex)
+                                          {
+                                              ViewModelDependencys = new System.Collections.ObjectModel.ObservableCollection<ModelDependencyDiagnoz>();
+                                              SelectedModelDependency = new ModelDependencyDiagnoz();
+                                              WindowMen.DependencyTablGrid.ItemsSource = ViewModelDependencys;
+                                              selectindex = WindowHidden.Instrument.SelectedIndex;
+                                          }
+                                          break;
+                                        case 11:
+                                          if (selectindex != WindowHidden.Instrument.SelectedIndex)
+                                          {
+                                              ViewGrupDiagnozs = new System.Collections.ObjectModel.ObservableCollection<ModelGrupDiagnoz>();
+                                              SelectedViewGrupDiagnoz = new  ModelGrupDiagnoz();
+                                              WindowMen.GrDiagnozTablGrid.ItemsSource = ViewGrupDiagnozs;
+                                              selectindex = WindowHidden.Instrument.SelectedIndex;
+                                          }
+                                          break;
                                      
-                                      }
+                                    }
                                                            
-                                  }
-                                break;    
+                             }
+                             break;    
                           // Закладка Администрування
                           case 5:
                               switch (WindowHidden.AdminControl.SelectedIndex)

@@ -3697,6 +3697,11 @@
                         <!--<Grid Background="White"/>-->
                     </TabItem>
                     <TabItem Header="Інструменти" Name="Setup" FontFamily="Microsoft Sans Serif" FontSize="14"  Height="50" Width="120" HorizontalAlignment="Center" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <!--Loaded="LoadedSimptom"-->
                         <Grid Background="White" x:Name="SetupGrid" Width="Auto">
                             <TabControl x:Name="Instrument"  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left" >
@@ -4996,6 +5001,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Довідник діагнозів" Name="Diagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -5189,6 +5199,11 @@
                                 </TabItem>
 
                                 <TabItem Header="Довідник опитувань" Name="InterviewDialog" FontSize="13" FontFamily="Microsoft Sans Serif"  Height="30" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
@@ -5415,6 +5430,11 @@
                                 </TabItem>
 
                                 <TabItem Header="     Довідник&#xa;рекомендацій" Name="Recommendation" FontSize="13" FontFamily="Microsoft Sans Serif" Height="Auto" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -5574,6 +5594,11 @@
 
 
                                 <TabItem Header="Взаємозв'язки ДР" Name="DependencyDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
@@ -5759,6 +5784,11 @@
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Довідник напрямків" Name="DirectoryGrDiagnoz" FontSize="13" FontFamily="Microsoft Sans Serif" Height="30" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                     <!--<Grid Background="White"/>-->
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>

@@ -42,7 +42,7 @@ namespace BackSeam
                              selectedComplaintname = "", selectFeature = "", selectGrDetailing = "", selectQualification = "", selectIcdGrDiagnoz ="";
         public static string InputContent = "", PacientContent = "", LikarContent = "", RegIdUser = "", RegUserStatus = "";
         public static MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-        public static int NumberstrokaGuest = 0, IdItemGuestInterv = 0;
+        public static int NumberstrokaGuest = 0, IdItemGuestInterv = 0, selectindex = 0;
         private bool endwhile = false;
         public static string pathcontrolerContent = "/api/ContentInterviewController/";
         public static string pathcontroler = "/api/CompletedInterviewController/";
