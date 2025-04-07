@@ -420,7 +420,7 @@ namespace BackSeam
 
             NewEkzemplyarGrDetailing();
             ViewGrDetailings = new ObservableCollection<ModelGrDetailing>();
-            IndexAddEdit = "";
+            //IndexAddEdit = "";
             MapOpisViewModel.ActCompletedInterview = "NameDeteling";
             WinNsiListGroupDelit NewOrder = new WinNsiListGroupDelit();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
