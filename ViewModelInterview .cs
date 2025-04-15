@@ -322,7 +322,7 @@ namespace BackSeam
                           }
  
                           json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
-                          if (json.Length > 1024)
+                          if (json.Length >= 1024)
                           {
                                   int lentext =   selectedInterview.opistInterview.Length-(json.Length-1024);
                                   selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Substring(0, lentext);

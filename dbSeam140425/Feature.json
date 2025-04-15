@@ -1,0 +1,77 @@
+{"id":49,"keyComplaint":"A.000","KeyFeature":"A.000.001","name":"закладеність носа","idUser":"Admin"}
+{"id":50,"keyComplaint":"A.000","KeyFeature":"A.000.002","name":"чихання ","idUser":"Admin"}
+{"id":51,"keyComplaint":"A.000","KeyFeature":"A.000.003","name":"свербіння в носі","idUser":"Admin"}
+{"id":52,"keyComplaint":"A.000","KeyFeature":"A.000.004","name":"виділення з носа","idUser":"Admin"}
+{"id":53,"keyComplaint":"A.000","KeyFeature":"A.000.005","name":"порушення нюху","idUser":"Admin"}
+{"id":54,"keyComplaint":"A.000","KeyFeature":"A.000.006","name":"температура","idUser":"Admin"}
+{"id":55,"keyComplaint":"A.000","KeyFeature":"A.000.007","name":"біль у носі та/або приносових пазухах","idUser":"Admin"}
+{"id":56,"keyComplaint":"A.000","KeyFeature":"A.000.008","name":"тривалість проблеми","idUser":"Admin"}
+{"id":57,"keyComplaint":"A.000","KeyFeature":"A.000.009","name":"сезонність","idUser":"Admin"}
+{"id":58,"keyComplaint":"A.000","KeyFeature":"A.000.010","name":"подібні проблеми у найближчих кровних родичів","idUser":"Admin"}
+{"id":59,"keyComplaint":"A.000","KeyFeature":"A.000.011","name":"поліпшення стану","idUser":"Admin"}
+{"id":60,"keyComplaint":"A.000","KeyFeature":"A.000.012","name":"погіршення стану","idUser":"Admin"}
+{"id":61,"keyComplaint":"A.000","KeyFeature":"A.000.013","name":"інші скарги","idUser":"Admin"}
+{"id":62,"keyComplaint":"A.000","KeyFeature":"A.000.014","name":"потужне чихання","idUser":"Admin"}
+{"id":63,"keyComplaint":"A.001","KeyFeature":"A.001.001","name":"З втратою свідомості","idUser":"Admin"}
+{"id":64,"keyComplaint":"A.001","KeyFeature":"A.001.002","name":"Без втрати свідомості","idUser":"Admin"}
+{"id":66,"keyComplaint":"A.002","KeyFeature":"A.002.002","name":"Тривалість більше 2 тижнів без видимої причини або періодичні болі що посилюються","idUser":"Admin"}
+{"id":69,"keyComplaint":"A.002","KeyFeature":"A.002.006","name":"З часом виникає нудота або блювотина","idUser":"Admin"}
+{"id":70,"keyComplaint":"A.002","KeyFeature":"A.002.007","name":"Найчастіше проявляється як здавлюючий в потилиці, скронях","idUser":"Admin"}
+{"id":71,"keyComplaint":"A.002","KeyFeature":"A.002.008","name":"Проявляється часто розшируючого характеру, прогресивно зростаючи, тривалий","idUser":"Admin"}
+{"id":1126,"keyComplaint":"A.002","KeyFeature":"A.002.009","name":"Постійний, розпираючий, частіше зранку","idUser":"Admin"}
+{"id":1127,"keyComplaint":"A.002","KeyFeature":"A.002.010","name":"Постійний, тиснучий та розпираючий по всій голові з проявом похитування при ходьбі","idUser":"Admin"}
+{"id":1129,"keyComplaint":"A.002","KeyFeature":"A.002.011","name":"Постійний та розпираючий по всій голові з проявом прострільного, колючого або струмоподібного характеру","idUser":"Admin"}
+{"id":72,"keyComplaint":"A.006","KeyFeature":"A.006.001","name":"Насильницькі спазми повік, м'язів  з одної сторони обличча ","idUser":"Admin"}
+{"id":73,"keyComplaint":"A.007","KeyFeature":"A.007.001","name":"приступоподібний, колючий, стриляючий інколи пекучий в одній половині обличчя або її частині, лоб, вилицця, половина губи, нижня щелепа","idUser":"Admin"}
+{"id":3125,"keyComplaint":"A.008","KeyFeature":"A.008.001","name":"біль або затерпання постійні,","idUser":"Admin"}
+{"id":3126,"keyComplaint":"A.009","KeyFeature":"A.009.001","name":"Утруднення тильного розгинання стопи та пальців або постійне затерпання стопи","idUser":"Admin"}
+{"id":4124,"keyComplaint":"A.010","KeyFeature":"A.010.001","name":"біль або затерпання постійні","idUser":"Admin"}
+{"id":5126,"keyComplaint":"A.011","KeyFeature":"A.011.001","name":"Болить виключно поперек","idUser":"Admin"}
+{"id":74,"keyComplaint":"B.000","KeyFeature":"B.000.001","name":"біль у горлі","idUser":"Admin"}
+{"id":75,"keyComplaint":"B.000","KeyFeature":"B.000.002","name":"кашель невизначений","idUser":"Admin"}
+{"id":87,"keyComplaint":"B.000","KeyFeature":"B.000.014","name":"кашель без мокротиння без температури","idUser":"Admin"}
+{"id":88,"keyComplaint":"B.000","KeyFeature":"B.000.015","name":"кашель з мокротинням","idUser":"Admin"}
+{"id":89,"keyComplaint":"B.000","KeyFeature":"B.000.016","name":"тривалий кашель з моркотинням та задишкою","idUser":"Admin"}
+{"id":90,"keyComplaint":"B.000","KeyFeature":"B.000.017","name":"тривалий кашель з моркотинням та невисокою температурою","idUser":"Admin"}
+{"id":91,"keyComplaint":"B.000","KeyFeature":"B.000.018","name":"кашель без мокротиння (сухий, нападоподібний)","idUser":"Admin"}
+{"id":92,"keyComplaint":"B.000","KeyFeature":"B.000.019","name":"кашель без мокротиння (раптовий)","idUser":"Admin"}
+{"id":5125,"keyComplaint":"B.000","KeyFeature":"B.000.020","name":"сухий кашель, що перейшов у вологий (з мокротинням)","idUser":"Admin"}
+{"id":6124,"keyComplaint":"B.000","KeyFeature":"B.000.021","name":"кашель без мокротиння з печією","idUser":"Admin"}
+{"id":7124,"keyComplaint":"B.000","KeyFeature":"B.000.022","name":"кашель з відчуттям першіння","idUser":"Admin"}
+{"id":7126,"keyComplaint":"B.000","KeyFeature":"B.000.023","name":"кашель з проявом чихання та закладанням носа","idUser":"Admin"}
+{"id":93,"keyComplaint":"C.000","KeyFeature":"C.000.001","name":"свербіж очей","idUser":"Admin"}
+{"id":94,"keyComplaint":"C.000","KeyFeature":"C.000.002","name":"виділення з очей ","idUser":"Admin"}
+{"id":95,"keyComplaint":"C.000","KeyFeature":"C.000.003","name":"почервоніння слизової очей","idUser":"Admin"}
+{"id":96,"keyComplaint":"C.000","KeyFeature":"C.000.004","name":"порушення зору","idUser":"Admin"}
+{"id":97,"keyComplaint":"C.000","KeyFeature":"C.000.005","name":"погіршення проблеми з очима","idUser":"Admin"}
+{"id":98,"keyComplaint":"D.000","KeyFeature":"D.000.001","name":"кашель бронховий","idUser":"Admin"}
+{"id":99,"keyComplaint":"D.000","KeyFeature":"D.000.002","name":"труднощі з диханням","idUser":"Admin"}
+{"id":100,"keyComplaint":"D.000","KeyFeature":"D.000.003","name":"мокрота","idUser":"Admin"}
+{"id":101,"keyComplaint":"D.000","KeyFeature":"D.000.004","name":"біль за грудиною","idUser":"Admin"}
+{"id":102,"keyComplaint":"D.000","KeyFeature":"D.000.005","name":"температура","idUser":"Admin"}
+{"id":103,"keyComplaint":"D.000","KeyFeature":"D.000.006","name":"погіршення проблеми із бронхами","idUser":"Admin"}
+{"id":104,"keyComplaint":"D.000","KeyFeature":"D.000.007","name":"поліпшення проблеми із бронхами","idUser":"Admin"}
+{"id":105,"keyComplaint":"D.000","KeyFeature":"D.000.008","name":"тривалість проблеми із бронхами","idUser":"Admin"}
+{"id":106,"keyComplaint":"E.000","KeyFeature":"E.000.001","name":"місцеве висипання на шкірі зі свербежем","idUser":"Admin"}
+{"id":108,"keyComplaint":"E.000","KeyFeature":"E.000.003","name":"розповсюджені по всьому тілу висипання зі свербежем","idUser":"Admin"}
+{"id":109,"keyComplaint":"E.000","KeyFeature":"E.000.004","name":"місцеве висипання без свербежу","idUser":"Admin"}
+{"id":124,"keyComplaint":"E.000","KeyFeature":"E.000.005","name":"висипання після їжі","idUser":"Admin"}
+{"id":4125,"keyComplaint":"E.000","KeyFeature":"E.000.006","name":"подразнення, які сверблять","idUser":"Admin"}
+{"id":4126,"keyComplaint":"E.000.006.001","KeyFeature":"E.000.006.001.001","name":"свербіж шкіри з утворенням дрібних тріщин","idUser":"Admin"}
+{"id":4127,"keyComplaint":"E.000","KeyFeature":"E.000.007","name":"свербіж шкіри з утворенням дрібних тріщин","idUser":"Admin"}
+{"id":5124,"keyComplaint":"E.000","KeyFeature":"E.000.008","name":"свербіж з почервонінням, печінням або поколюванням та можливим неприємним запахом","idUser":"Admin"}
+{"id":110,"keyComplaint":"G.000","KeyFeature":"G.000.001","name":"біль між нижнім краєм грудної клітки та пахом","idUser":"Admin"}
+{"id":111,"keyComplaint":"G.000","KeyFeature":"G.000.002","name":"біль тільки над талією","idUser":"Admin"}
+{"id":112,"keyComplaint":"G.000","KeyFeature":"G.000.003","name":"епізодично виникаюча пекуча біль у центрі грудей, особливо при нахилу вперед","idUser":"Admin"}
+{"id":113,"keyComplaint":"G.000","KeyFeature":"G.000.004","name":"біль розповсюджується від підборіддя вправий бік","idUser":"Admin"}
+{"id":114,"keyComplaint":"G.000","KeyFeature":"G.000.005","name":"біль в основному нижче пупка","idUser":"Admin"}
+{"id":115,"keyComplaint":"G.000","KeyFeature":"G.000.006","name":"біль у попереку переміщується в пах","idUser":"Admin"}
+{"id":116,"keyComplaint":"G.000","KeyFeature":"G.000.007","name":"біль тільки нижче талії","idUser":"Admin"}
+{"id":117,"keyComplaint":"G.000","KeyFeature":"G.000.008","name":"біль у попереку з однієї із сторін над самою талією","idUser":"Admin"}
+{"id":118,"keyComplaint":"K.000","KeyFeature":"K.000.001","name":"шум у вусі, зниження слуху проявляється поступово по зростаючій","idUser":"Admin"}
+{"id":119,"keyComplaint":"M.000","KeyFeature":"M.000.008","name":"Погіршення слуху з одного боку","idUser":"Admin"}
+{"id":120,"keyComplaint":"M.000","KeyFeature":"M.000.009","name":"Головокружіння, погіршення координіції руху при ходьбі (Невринома)","idUser":"Admin"}
+{"id":121,"keyComplaint":"M.000","KeyFeature":"M.000.012","name":"Погіршення зору і можливе двоїння в очах","idUser":"Admin"}
+{"id":122,"keyComplaint":"M.000","KeyFeature":"M.000.013","name":"Приступи головокружіння можливо із шумом у вусі(вестибулопатія)","idUser":"Admin"}
+{"id":123,"keyComplaint":"M.000","KeyFeature":"M.000.014","name":"Порушення ходи, шаркаюча хода  найчастіше стосується людей похилого віку","idUser":"Admin"}
+{"id":7125,"keyComplaint":"YAA.015.009","KeyFeature":"YAA.015.009.001","name":"кашель з проявом чихання та закладанням носа","idUser":"Admin"}

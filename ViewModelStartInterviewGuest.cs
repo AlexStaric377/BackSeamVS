@@ -562,8 +562,14 @@ namespace BackSeam
             {
                 foreach (ModelDetailing modelDetailing in listgrdetaling)
                 {
+                    bool GrDetailing = false;
                     ViewModelNsiDetailing.NsiModelDetailings.Remove(modelDetailing);
-                    if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true || StrokaInterview.Contains("[]") == true) //+";"
+                    foreach (ModelCompletedInterview modelCompletedInterview in GuestIntervs)
+                    {
+                        if (modelCompletedInterview.kodDetailing.Contains(modelDetailing.keyGrDetailing) == true) GrDetailing = true;
+                        
+                    }
+                    if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true && GrDetailing == false) //+";"|| StrokaInterview.Contains("[]") == true
                     { 
                         ViewModelNsiDetailing.selectedDetailing = modelDetailing;
                         MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
@@ -665,9 +671,9 @@ namespace BackSeam
             ModelCompletedInterview selectedaddContent = new ModelCompletedInterview();
             selectedaddContent.kodDetailing = nameFeature3.Substring(0, nameFeature3.IndexOf(":"));
             selectedaddContent.detailsInterview = nameFeature3.Substring(nameFeature3.IndexOf(":") + 1, nameFeature3.Length - (nameFeature3.IndexOf(":") + 1));
-            if (loadTreeInterview == false) LoadTreeInterview(selectedaddContent); // загрузка деревьв подобных интервью для настройки груповых детализаций
-            TmpGuestIntervs.Add(selectedaddContent);
-            IdItemGuestInterv++;
+            if(selectedaddContent.kodDetailing.Length<=9) LoadTreeInterview(selectedaddContent); // загрузка деревьв подобных интервью для настройки груповых детализаций if (loadTreeInterview == false)
+            if (loadTreeInterview == true) { TmpGuestIntervs.Add(selectedaddContent); IdItemGuestInterv++; }
+            
 
         }
 
@@ -708,9 +714,18 @@ namespace BackSeam
                 detailsInterview += modelCompletedInterview.kodDetailing + ";";
             }
             detailsInterview += selectedaddContent.kodDetailing + ";";
-            string jason = Interviewcontroller + "0/" + detailsInterview + "/-1/0";
+            string jason = Interviewcontroller + "0/0/0/0/"+ detailsInterview ;
             CallServer.PostServer(Interviewcontroller, jason, "GETID");
             StrokaInterview = CallServer.ServerReturn();
+            if (StrokaInterview.Contains("[]") == true)
+            {
+                {
+                    MainWindow.MessageError = "Ви вибрали характер нездужання який не має взаємозв'язку з раніш обраними. " + Environment.NewLine +
+                    "Будь ласка оберіть інший характер прояву, або натисніть кнопку - Далі";
+                    SelectedWirning();
+                    loadTreeInterview = false;
+                }
+            }
         }
 
         public static void SelectNewKodComplInteriew()
