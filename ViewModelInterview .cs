@@ -322,14 +322,12 @@ namespace BackSeam
                           }
  
                           json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
-                          if (json.Length >= 1024)
+                          if (json.Length < 1024)
                           {
-                                  int lentext =   selectedInterview.opistInterview.Length-(json.Length-1024);
-                                  selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Substring(0, lentext);
-                                  json = JsonConvert.SerializeObject(selectedInterview);
+                                CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
                           }
                         
-                          CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
+                          
                           
 
                           // дозапись в справочник взаимосвязи диагнозов рекомендаций и протоколов интервью
