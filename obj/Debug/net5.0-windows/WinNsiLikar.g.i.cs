@@ -131,7 +131,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.59;component/winnsilikar.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.61;component/winnsilikar.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WinNsiLikar.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

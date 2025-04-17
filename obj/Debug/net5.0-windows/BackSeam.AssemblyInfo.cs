@@ -16,11 +16,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Розробник: 2022-2023 ПП \'ОРІОН-С\'. Стариченко Олександр Павлович Свідоцтво про ре" +
     "єсрацію авторського права № 126883")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Диференційна діагностика стану нездужання людини-SEAM Адміністратор")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.59")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.61")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackSeam")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackSeam")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.59")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.61")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
