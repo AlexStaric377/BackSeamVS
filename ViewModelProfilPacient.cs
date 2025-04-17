@@ -34,12 +34,13 @@ namespace BackSeam
         /// Стркутура: Команды, объявления ObservableCollection, загрузка списка всех паціентів из БД
         /// через механизм REST.API
         /// </summary> 
-        
+        public static MainWindow WindowPacientProfil = MainWindow.LinkNameWindow("BackMain");
         private bool editboolPacientProfil = false, addboolPacientProfil = false;
         private string edittextPacientProfil = "";
         private string pathcontrolerPacientProfil =  "/api/PacientController/";
         public static ModelPacient selectedPacientProfil;
         public static string _pacientProfil = "", _pacientName="",_pacientGender = "",RegStatusUser= "Пацїєнт";
+        public static AccountUser regaccountUser;
         public static List<string> UnitCombProfil { get; set; } = new List<string> { "чол.", "жін." };
         public static ObservableCollection<ModelPacient> ViewPacientProfils { get; set; }
         public ModelPacient SelectedPacientProfil
@@ -96,14 +97,11 @@ namespace BackSeam
  
         private void MethodaddcomPacientProfil()
         {
-          
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-
+            NewEkzemplar();
+            IndexAddEdit = "addCommand" ;
             if (addboolPacientProfil == false)
             {
                 WindowMain.BorderCabPacient.Visibility = Visibility.Hidden;
-                 SelectedPacientProfil = new ModelPacient();
-                selectedPacientProfil = new ModelPacient();
                 BoolTruePacientProfil();
             }
             else BoolFalsePacientProfil();
@@ -112,8 +110,20 @@ namespace BackSeam
 
         }
 
+        private void NewEkzemplar()
+        {
+
+            selectedPacientProfil = new ModelPacient();
+            SelectedPacientProfil = new ModelPacient();
+            regaccountUser = new AccountUser();
+            WindowMain.BorderCabPacient.Visibility = Visibility.Hidden;
+            CallViewProfilLikar = "PacientProfil";
+            IndexAddEdit = "";
+        }
+
         private void MethodLoadPacientProfil()
         {
+            NewEkzemplar();
             WindowMain.BorderCabPacient.Visibility = Visibility.Hidden;
             loadboolPacientProfil = true;
             SelectRegPacientProfil();
@@ -122,7 +132,7 @@ namespace BackSeam
 
         private void SelectRegPacientProfil()
         {
-            MainWindow WindowPacientProfil = MainWindow.LinkNameWindow("BackMain");
+
             CallViewProfilLikar = "PacientProfil";
             selectedPacientProfil = new ModelPacient();
             WinNsiPacient NewOrder = new WinNsiPacient();
@@ -131,7 +141,10 @@ namespace BackSeam
             if (selectedPacientProfil.kodPacient != "")
             {
                 LoadInfoPacient("пацієнта.");
-
+                //if (regaccountUser.login != null)
+                //{
+                //    ViewModelAccountRecords.MetodSaveAccountRecords();
+                //}
                 _pacientProfil = selectedPacientProfil.kodPacient;
                 _pacientGender = selectedPacientProfil.gender;
                 _pacientName = selectedPacientProfil.name + " " + selectedPacientProfil.surname + " " + selectedPacientProfil.profession + " " + selectedPacientProfil.tel;
@@ -221,6 +234,13 @@ namespace BackSeam
             WindowMen.PacientProfilt11.Background = Brushes.AntiqueWhite;
             WindowMen.PacientProfilt13.IsEnabled = true;
             WindowMen.PacientProfilt13.Background = Brushes.AntiqueWhite;
+            if (ViewModelRegisterAccountUser.ReestrOnOff == true)
+            {
+                WindowProfilDoctor.LoadProfil.Content = "Для збреження профілю необхідно натиснути на кнопку 'Зберегти'";
+            }
+            if (regaccountUser.login != "") WindowMen.PacientProfilt8.Text = regaccountUser.login;
+
+            WindowMain.BorderCabPacient.Visibility = Visibility.Hidden;
         }
 
         private void BoolFalsePacientProfil()
@@ -248,7 +268,8 @@ namespace BackSeam
             WindowMen.PacientProfilt11.Background = Brushes.White;
             WindowMen.PacientProfilt13.IsEnabled = false;
             WindowMen.PacientProfilt13.Background = Brushes.White;
-
+            ViewModelRegisterAccountUser.ReestrOnOff = false;
+            IndexAddEdit = "";
         }
 
         // команда удаления
@@ -356,6 +377,7 @@ namespace BackSeam
                 selectedPacientProfil.kodPacient = "PCN." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString();
             }
             GhnageProfilPacient();
+
             MainWindow.MessageError = "Увага!" + Environment.NewLine +
                       "Ви бажаєте створити кабінет пацієнта для зберігання" + Environment.NewLine + " результатів ваших опитувань та записів до лікаря?";
             SelectedOkNo();

@@ -518,8 +518,6 @@ namespace BackSeam
         public static void OpenNsiDetailing()
         {
 
-            /*if (loadTreeInterview == false) LoadTreeInterview(); */// загрузка деревьв подобных интервью для настройки груповых детализаций
- 
                 MapOpisViewModel.ActCreatInterview = "SelectInterview";
                 selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
                 string pathcontroller = "/api/DetailingController/";
@@ -528,7 +526,6 @@ namespace BackSeam
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]") == false)
                 {
-
                     ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
                     LoadNsiGrDetailing();
                     if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
@@ -541,10 +538,6 @@ namespace BackSeam
                     }
                     ViewModelNsiDetailing.NsiModelDetailings = null;
                 }
-
-
-
-
         }
 
 

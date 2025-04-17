@@ -461,5 +461,26 @@ namespace BackSeam
             NewOrder.ShowDialog();
 
         }
+
+
+        public static void SetHidenPasword()
+        {
+            WinAccountRecords WindowAccount = MainWindow.LinkNameWindow("AccountRecords");
+            WindowAccount.Password1.Visibility = Visibility.Hidden;
+            WindowAccount.Passw1.Visibility = Visibility.Hidden;
+            WindowAccount.Passw1.Visibility = Visibility.Hidden;
+            WindowAccount.Eye1.Visibility = Visibility.Hidden;
+            WindowAccount.EyeDis1.Visibility = Visibility.Hidden;
+            WindowAccount.Pas.Visibility = Visibility.Hidden;
+            WindowAccount.Passw.Visibility = Visibility.Hidden;
+            WindowAccount.Eye.Visibility = Visibility.Hidden;
+            WindowAccount.EyeDis.Visibility = Visibility.Hidden;
+            WindowAccount.Open.Visibility = Visibility.Hidden;
+            WindowAccount.Line2.Visibility = Visibility.Hidden;
+            WindowAccount.Line1.Visibility = Visibility.Hidden;
+            WindowAccount.PasswText.Visibility = Visibility.Hidden;
+            WindowAccount.Passw1Text.Visibility = Visibility.Hidden;
+
+        }
     }
 }

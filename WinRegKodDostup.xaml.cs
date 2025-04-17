@@ -15,17 +15,13 @@ using System.Windows.Shapes;
 namespace BackSeam
 {
     /// <summary>
-    /// "Диференційна діагностика стану нездужання людини-SEAM" 
-    /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
-    /// <summary>
-    /// Логика взаимодействия для WinAccountRecords.xaml
+    /// Логика взаимодействия для WinRegKodDostup.xaml
     /// </summary>
-    public partial class WinAccountRecords : Window
+    public partial class WinRegKodDostup : Window
     {
-        public WinAccountRecords()
+        public WinRegKodDostup()
         {
             InitializeComponent();
-            MapOpisViewModel.SetHidenPasword();
         }
     }
 }

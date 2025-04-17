@@ -34,7 +34,7 @@ namespace BackSeam
         /// </summary>      
         public static MainWindow WindowProfilDoctor = MainWindow.LinkNameWindow("BackMain");
         public static bool boolSetAccountUser = false, saveboolAccountLikar = false, boolVisibleMessage = false;
-        public bool editboolProfilLikar = false, addboolProfilLikar = false, loadboolProfilLikar = false;
+        public static bool editboolProfilLikar = false, addboolProfilLikar = false, loadboolProfilLikar = false;
         private string pathcontrollerMedZaklad = "/api/MedicalInstitutionController/";
         private string pathcontrolerProfilLikar =  "/api/ApiControllerDoctor/";
         private static string pathcontrolerMedZakladProfilLikar =  "/api/MedicalInstitutionController/";

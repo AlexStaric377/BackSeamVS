@@ -35,7 +35,7 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary>      
         public  static MainWindow WindowAccountUser = MainWindow.LinkNameWindow("BackMain");
-        private bool editboolAccountUser = false, addboolAccountUser = false, loadboolAccountUser = false;
+        public static bool editboolAccountUser = false, addboolAccountUser = false, loadboolAccountUser = false;
         private string edittextAccountUser = "", SetIdStatus = "";
         public static string pathcontrolerAccountUser =  "/api/AccountUserController/";
         public static string pathcontrolerStatusUser =  "/api/NsiStatusUserController/";

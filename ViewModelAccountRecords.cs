@@ -37,8 +37,8 @@ namespace BackSeam
         }
 
         private WinAccountRecords WindowAccount = MainWindow.LinkNameWindow("AccountRecords");
-        public static bool On1OffEye = false, Reestr1OnOff = false, On2OffEye = false, Reestr2OnOff = false;
-        public static string Password1Text = "", Password2Text = "", _telefon ="", _fio="";
+        public static bool On1OffEye = false, Reestr1OnOff = false, On2OffEye = false, Reestr2OnOff = false, checkregkod = true;
+        public static string Password1Text = "", Password2Text = "", _telefon ="", _fio="", CheckRegKod = "";
         private static string pathcontrolerAccountUser = "/api/AccountUserController/";
         private string pathcontroller = "/api/PacientController/";
         private string pathcontrolerProfilLikar = "/api/ApiControllerDoctor/";
@@ -97,6 +97,104 @@ namespace BackSeam
             }
         }
 
+        // команда закрытия окна
+        RelayCommand? checkKeyTextTel;
+        public RelayCommand CheckKeyTextTel
+        {
+            get
+            {
+                return checkKeyTextTel ??
+                  (checkKeyTextTel = new RelayCommand(obj =>
+                  {
+                      IdCardKeyUp.CheckKeyUpIdCard(WindowAccount.TelAccount, 12);
+
+                  }));
+            }
+        }
+
+
+        // команда прверка номера телефона
+        RelayCommand? sendCmcTel;
+        public RelayCommand SendCmcTel
+        {
+            get
+            {
+                return sendCmcTel ??
+                  (sendCmcTel = new RelayCommand(obj =>
+                  {
+                      SendSmsTel();
+                      WinRegKodDostup NewOrder = new WinRegKodDostup();
+                      NewOrder.ShowDialog();
+                      NewOrder.Close();
+
+                      if (checkregkod == true)
+                      {
+                          WindowAccount.Password1.Visibility = Visibility.Visible;
+                          WindowAccount.Passw1.Visibility = Visibility.Visible;
+                          WindowAccount.Passw1.Visibility = Visibility.Visible;
+                          WindowAccount.Eye1.Visibility = Visibility.Visible;
+                          WindowAccount.EyeDis1.Visibility = Visibility.Visible;
+                          WindowAccount.Pas.Visibility = Visibility.Visible;
+                          WindowAccount.Passw.Visibility = Visibility.Visible;
+                          WindowAccount.Eye.Visibility = Visibility.Visible;
+                          WindowAccount.EyeDis.Visibility = Visibility.Visible;
+                          WindowAccount.Open.Visibility = Visibility.Visible;
+                          WindowAccount.Line2.Visibility = Visibility.Visible;
+                          WindowAccount.Line1.Visibility = Visibility.Visible;
+                          WindowAccount.PasswText.Visibility = Visibility.Visible;
+                          WindowAccount.Passw1Text.Visibility = Visibility.Visible;
+                      }
+
+                  }));
+            }
+        }
+
+        // процедура посилки сообщения с кодом подтверждения регистрации  номера телефона
+        public void SendSmsTel()
+        {
+
+            CheckRegKod = "12345";
+        }
+
+
+        //
+        RelayCommand? closeRegKod;
+        public RelayCommand CloseRegKod
+        {
+            get
+            {
+                return closeRegKod ??
+                  (closeRegKod = new RelayCommand(obj =>
+                  {
+                      WinRegKodDostup Windowregkod = MainWindow.LinkMainWindow("WinRegKodDostup");
+                      Windowregkod.Close();
+                  }));
+            }
+        }
+
+        //
+
+        RelayCommand? saveRegKod;
+        public RelayCommand SaveRegKod
+        {
+            get
+            {
+                return saveRegKod ??
+                  (saveRegKod = new RelayCommand(obj =>
+                  {
+                      WinRegKodDostup Windowregkod = MainWindow.LinkMainWindow("WinRegKodDostup");
+                      if (Windowregkod.TelRegKod.Text != CheckRegKod)
+                      {
+                          checkregkod = false;
+                          MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                          "Невірно введений реєстраційний код отриманий з смс повідомлення." + Environment.NewLine +
+                          "Повторіть введення коду або завершіть реєстрацію.";
+                          MapOpisViewModel.SelectedFalseLogin();
+                      }
+                      Windowregkod.Close();
+                  }));
+            }
+        }
 
         // команда ввода пароля
         RelayCommand? password1OnOff;
@@ -228,49 +326,86 @@ namespace BackSeam
                           GhangePasswordUser();
                           return;
                       }
+                      if (MapOpisViewModel.regaccountUser == null) MapOpisViewModel.regaccountUser = new AccountUser();
                       selectedModelAccountUser = new ModelAccountUser();
-                      //NewAccountUser();
-                      selectedModelAccountUser.id = 0;
-                      selectedModelAccountUser.idUser = MapOpisViewModel.CallViewProfilLikar == "ProfilLikar" ? MapOpisViewModel.selectedProfilLikar.kodDoctor : MapOpisViewModel.selectedProfilPacient.kodPacient;
-                      selectedModelAccountUser.login = selectProfilLikar.telefon; //_telefon+
-                      selectedModelAccountUser.password = WindowAccount.Passw1Text.Text.ToString();
-                      selectedModelAccountUser.idStatus = MapOpisViewModel.CallViewProfilLikar == "ProfilLikar"?"3":"2";
 
-                      string json = MapOpisViewModel.pathcontrolerStatusUser + selectedModelAccountUser.idStatus.ToString();
-                      CallServer.PostServer(MapOpisViewModel.pathcontrolerStatusUser, json, "GETID");
-                      CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                      NsiStatusUser Idinsert = JsonConvert.DeserializeObject<NsiStatusUser>(CallServer.ResponseFromServer);
-                      if (Idinsert != null)
+                      if (MapOpisViewModel.selectedProfilLikar == null && MapOpisViewModel.selectedProfilPacient == null)
                       {
-                          selectedModelAccountUser.kodDostupa = Idinsert.kodDostupa;
-                          selectedModelAccountUser.nameStatus = Idinsert.nameStatus;
-
+                          MapOpisViewModel.regaccountUser.login = "+" + WindowAccount.TelAccount.Text;
+                          MapOpisViewModel.regaccountUser.password = WindowAccount.Passw1Text.Text;
+                          MapOpisViewModel.regaccountUser.idStatus = MapOpisViewModel.CallViewProfilLikar == "ProfilLikar" ? "3" : "2";
                       }
-                      json = JsonConvert.SerializeObject(selectedModelAccountUser);
-                      CallServer.PostServer(pathcontrolerAccountUser, json, "POST");
-                      CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                      AccountUser Insert = JsonConvert.DeserializeObject<AccountUser>(CallServer.ResponseFromServer);
-                      if (Insert != null)
-                      {
-                          MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                          "Ваш профіль збережено, обліковий запис успішно створено." + Environment.NewLine +
-                          "Відтепер ви маєте свій кабінет і вхід до нього за вашим логіном та паролем. ";
-                          MapOpisViewModel.SelectedFalseLogin();
-                          ViewModelRegisterAccountUser.ReestrOnOff = true;
-                          MapOpisViewModel.saveboolAccountLikar = true;
-                      }
+                      if (ViewModelRegisterAccountUser.IdAccountUser == null) MetodSaveAccountRecords();
                       else
                       {
-                          MainWindow.MessageError = "Увага!" + Environment.NewLine +
-                          "Профіль не створено. За консультацією зверніться до системного адміністратора";
-                          MapOpisViewModel.SelectedFalseLogin();
-                          ViewModelRegisterAccountUser.ReestrOnOff = false;
+                          if (ViewModelRegisterAccountUser.IdAccountUser.idStatus == "Admin") return;
+                          else MetodSaveAccountRecords();
                       }
-                      
+
+
+                      MapOpisViewModel.loadboolPacientProfil = true;
                       WindowAccount.Close();
+                      WinRegisterAccountUser Windowrecord = MainWindow.LinkMainWindow("WinRegisterAccountUser");
+                      if (Windowrecord != null) Windowrecord.Close();
+
+
                   }));
             }
         }
+
+        public static void MetodSaveAccountRecords()
+        {
+            selectedModelAccountUser = new ModelAccountUser();
+            string AccountUserlog = MapOpisViewModel.selectedProfilPacient == null ? "" : "+" + MapOpisViewModel.selectedProfilPacient.tel;
+            selectedModelAccountUser.id = 0;
+            if (MapOpisViewModel.selectedProfilLikar != null || MapOpisViewModel.selectedProfilPacient != null)
+            {
+                selectedModelAccountUser.idUser = MapOpisViewModel.CallViewProfilLikar == "ProfilLikar" ? MapOpisViewModel.selectedProfilLikar.kodDoctor : MapOpisViewModel.selectedProfilPacient.kodPacient;
+            }
+
+
+
+            if (MapOpisViewModel.regaccountUser.login != null)
+            {
+                selectedModelAccountUser.login = MapOpisViewModel.regaccountUser.login;
+                selectedModelAccountUser.password = MapOpisViewModel.regaccountUser.password;
+                selectedModelAccountUser.idStatus = MapOpisViewModel.regaccountUser.idStatus;
+            }
+            else
+            {
+                selectedModelAccountUser.login = ViewModelRegisterAccountUser.IdAccountUser.login; //MapOpisViewModel.CallViewProfilLikar == "ProfilLikar" ? MapOpisViewModel.selectedProfilLikar.telefon : MapOpisViewModel.selectedProfilPacient.tel; //_telefon+
+                selectedModelAccountUser.password = ViewModelRegisterAccountUser.IdAccountUser.password;
+                selectedModelAccountUser.idStatus = ViewModelRegisterAccountUser.IdAccountUser.idStatus; //MapOpisViewModel.CallViewProfilLikar == "ProfilLikar" ? "3" : "2";            
+            }
+
+
+            string json = MapOpisViewModel.pathcontrolerStatusUser + selectedModelAccountUser.idStatus.ToString();
+            CallServer.PostServer(MapOpisViewModel.pathcontrolerStatusUser, json, "GETID");
+            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+            NsiStatusUser Idinsert = JsonConvert.DeserializeObject<NsiStatusUser>(CallServer.ResponseFromServer);
+            if (Idinsert != null)
+            {
+                selectedModelAccountUser.kodDostupa = Idinsert.kodDostupa;
+                selectedModelAccountUser.nameStatus = Idinsert.nameStatus;
+                selectedModelAccountUser.accountCreatDate = DateTime.Now.ToShortDateString();
+                selectedModelAccountUser.subscription = "";
+
+            }
+            json = JsonConvert.SerializeObject(selectedModelAccountUser);
+            CallServer.PostServer(pathcontrolerAccountUser, json, "POST");
+            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+            AccountUser Insert = JsonConvert.DeserializeObject<AccountUser>(CallServer.ResponseFromServer);
+            if (Insert == null)
+            {
+                MainWindow.MessageError = "Увага!" + Environment.NewLine +
+                "Обліковий запис не створено. За консультацією зверніться до системного адміністратора";
+                MapOpisViewModel.SelectedFalseLogin();
+
+
+            }
+ 
+        }
+
 
         private void GhangePasswordUser()
         {

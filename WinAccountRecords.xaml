@@ -32,14 +32,14 @@
                     <RowDefinition Height="40*" />
                     <RowDefinition Height="50*" />
                 </Grid.RowDefinitions>
-                <Label Name="Zagolovok"  Content="Обліковий запис " Grid.Row="0" Height="30" FontSize="16" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Center"  />
+                <Label Name="Zagolovok"  Content="Створення облікового запису " Grid.Row="0" Height="30" FontSize="14" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Right" Margin="0,0,37,44" Grid.RowSpan="2"  />
                 <TextBlock Name="Fio"  Text="{Binding name, UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding SelectProfilLikar}" Grid.Row="1" Height="28" Width="100" FontSize="16" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="40,0,0,0" />
                 <TextBlock Name="Famely"  Text="{Binding surname, UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding SelectProfilLikar}" Grid.Row="1" Height="28" Width="110" FontSize="16" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Right" Margin="0,0,20,0" />
 
-                <Label Name="Nomtel"  Content="Логін : Номер телефону " Grid.Row="2" Height="30" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />
+                <!--<Label Name="Nomtel1"  Content="Логін : Номер телефону " Grid.Row="2" Height="30" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />-->
+                <Label Name="Nomtel"  Content="Логін :Номер телефону:   +380  XX XX XXX XX " Grid.Row="2" Height="30" Width="210" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />
 
-
-                <Image Height="30" Width="30" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Bottom" 
+                <Image Height="20" Width="20" Grid.Row="0" HorizontalAlignment="Right"  Name="Close_Grid"  VerticalAlignment="Center"  Margin="0,0,10,0"
                     Source="pack://application:,,,/BackSeam;component/Images/delete2.png" Cursor="Hand"  >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -49,29 +49,45 @@
                 </Image>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="70*"/>
+                        <ColumnDefinition Width ="80*"/>
                         <ColumnDefinition Width ="170*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ComboBox x:Name="KodCountry" Grid.Column="0" Width="60" Height="25" Background="#FFCED7F7" HorizontalAlignment="Left" Margin="10,0,0,0"
+                    <!--<ComboBox x:Name="KodCountry" Grid.Column="0" Width="60" Height="25" Background="#FFCED7F7" HorizontalAlignment="Left" Margin="10,0,0,0"
                                ItemsSource="{Binding Countrys}" SelectedIndex="{Binding SelectedCountry}"  >
-                        <!--Text="{Binding gender,UpdateSourceTrigger=PropertyChanged }"-->
+                        -->
+                    <!--Text="{Binding gender,UpdateSourceTrigger=PropertyChanged }"-->
+                    <!--
 
-                    </ComboBox>
-                    <TextBox Text="{Binding telefon,UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding SelectProfilLikar}" x:Name="TelAccount"  Grid.Column="1" Width="120" Background="#FFCED7F7"
-                              FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/><!--DataContext="{Type=local:ViewModelAccountRecords}"-->
+                    </ComboBox>-->
+                    <Label Name="Plus"  Content="+" Grid.Row="2" Height="24" Width="20" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Right" Margin="10,0,0,0" />
+
+                    <TextBox Text="{Binding telefon,UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding SelectProfilLikar}" x:Name="TelAccount"  Grid.Column="1" Width="120" Background="#FFDCE3FB"
+                              FontSize="14" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <!--DataContext="{Type=local:ViewModelAccountRecords}" #FFCED7F7"-->
                     <!--GotFocus="{Binding ClearTextBox}"-->
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="KeyUp">
-                            <i:InvokeCommandAction Command="{Binding CheckKeyText}" CommandParameter=""/>
+                            <i:InvokeCommandAction Command="{Binding CheckKeyTextTel}" CommandParameter=""/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Grid>
                 <Grid Grid.Row="4">
-                    <Line X1="0" X2="270" Y1="0" Y2="00" Grid.Row="4" Width="Auto" StrokeThickness="1" Stroke="Black"  VerticalAlignment="Top" ></Line>
-
+                    <!--<Line X1="0" X2="270" Y1="0" Y2="00" Grid.Row="4" Width="Auto" StrokeThickness="1" Stroke="Black"  VerticalAlignment="Top" ></Line>-->
+                    <Border x:Name="CheckTel" Height="20" Width="60" BorderBrush="#FFE2E2DD" VerticalAlignment="Center" Visibility="Visible"
+                            Background="#FF5081EA"  BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Cursor="Hand" Padding="1,1,1,1" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SendCmcTel}" CommandParameter=""/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Label  Height="25" FontSize="12" Background="#FF9CB1F9"  FontStyle="Normal" FontFamily="Microsoft Sans Serif" 
+                                Width="60" Content="Вірно" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center"   >
+                        </Label>
+                    </Border>
                 </Grid>
-                <Grid Grid.Row="5">
+                <Grid Grid.Row="6">
+                    <Line Name="Line1" X1="0" X2="270" Y1="0" Y2="00" Grid.Row="6" Width="Auto" StrokeThickness="1" Stroke="Black"  VerticalAlignment="Top" ></Line>
                     <Label Name="Password1"  Content="Пароль "  Height="30" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />
                     <TextBox Text="*" x:Name="Passw1Text" Grid.Column="0" Width="120" Height="22" Background="#FFDCE3FB" FontSize="14" Margin="0,0,70,0" BorderThickness="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
                         <i:Interaction.Triggers>
@@ -89,7 +105,7 @@
                         </i:Interaction.Triggers>
                     </PasswordBox>
                     <Image Height="30" Width="30"  HorizontalAlignment="Right"  Name="EyeDis1"  VerticalAlignment="Center"  
-                    Source="pack://application:,,,/BackSeam;component/Images/eye_disabled.png" Cursor="Hand" Margin="0,0,20,0" >
+                    Source="pack://application:,,,/BackSeam;component/Images/eye_disabled.png" Cursor="Hand" Margin="0,0,10,0" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Eye1OnOff}" CommandParameter=""/>
@@ -99,7 +115,7 @@
                     </Image>
 
                     <Image Height="30" Width="30" HorizontalAlignment="Right"  Name="Eye1"  VerticalAlignment="Center"  
-                    Source="pack://application:,,,/BackSeam;component/Images/eye1.png" Cursor="Hand"  Margin="0,0,20,0" Visibility="Hidden" >
+                    Source="pack://application:,,,/BackSeam;component/Images/eye1.png" Cursor="Hand"  Margin="0,0,10,0" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Eye1OnOff}" CommandParameter=""/>
@@ -131,7 +147,7 @@
                     </PasswordBox>
 
                     <Image Height="30" Width="30" Grid.Column="1" HorizontalAlignment="Center"  Name="EyeDis"  VerticalAlignment="Center"  
-                    Source="pack://application:,,,/BackSeam;component/Images/eye_disabled.png" Cursor="Hand" Margin="0,0,10,0"  >
+                    Source="pack://application:,,,/BackSeam;component/Images/eye_disabled.png" Cursor="Hand" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Eye2OnOff}" CommandParameter=""/>
@@ -140,8 +156,8 @@
 
                     </Image>
 
-                    <Image Height="30" Width="30" Grid.Column="1" HorizontalAlignment="Left"  Name="Eye"  VerticalAlignment="Top"  
-                    Source="pack://application:,,,/BackSeam;component/Images/eye1.png" Cursor="Hand" Margin="10,0,0,0" Visibility="Hidden" >
+                    <Image Height="30" Width="30" Grid.Column="1" HorizontalAlignment="Center"  Name="Eye"  VerticalAlignment="Center"  
+                    Source="pack://application:,,,/BackSeam;component/Images/eye1.png" Cursor="Hand" Visibility="Hidden" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Eye2OnOff}" CommandParameter=""/>
@@ -151,7 +167,7 @@
 
 
                 </Grid>
-                <Line X1="0" X2="270" Y1="0" Y2="00" Grid.Row="7" Width="Auto" StrokeThickness="1" Stroke="Black"  VerticalAlignment="Bottom" ></Line>
+                <Line Name="Line2" X1="0" X2="270" Y1="0" Y2="00" Grid.Row="7" Width="Auto" StrokeThickness="1" Stroke="Black"  VerticalAlignment="Bottom" ></Line>
                 <!--<Label Name="PasReset"  Content="Забули пароль? " Grid.Row="8" Height="30" FontSize="10" FontFamily="Microsoft Sans Serif"  HorizontalAlignment="Left" Margin="10,0,0,0" />-->
                 <!--<Border Grid.Row="8" Height="30" Width="90" HorizontalAlignment="Right" Margin="0,0,10,0">
                     <i:Interaction.Triggers>
@@ -163,7 +179,7 @@
                 </Border>-->
 
                 <Grid Grid.Row="9">
-                    <Border x:Name="Open" Height="30" Width="100" BorderBrush="#FFE2E2DD" VerticalAlignment="Center" Visibility="Visible"
+                    <Border x:Name="Open" Height="25" Width="100" BorderBrush="#FFE2E2DD" VerticalAlignment="Center" Visibility="Visible"
                             Background="#FF5081EA"  BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Cursor="Hand" Padding="1,1,1,1" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">

@@ -51,8 +51,7 @@ namespace BackSeam
             string CmdStroka = "", nawpathcontroler= pathcontroler;
             MapOpisViewModel.ActCompletedInterview = null;
             selectedContentInterv = new ModelContentInterv();
-            if (MapOpisViewModel.ModelCall == "ModelColectionInterview") nawpathcontroler = Completedcontroller;
-
+            if(MapOpisViewModel.ModelCall !=null) if (MapOpisViewModel.ModelCall == "ModelColectionInterview") nawpathcontroler = Completedcontroller;
             CallServer.PostServer(nawpathcontroler, nawpathcontroler + MapOpisViewModel.GetidkodProtokola, "GETID");
             CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))ContentIntervs = new ObservableCollection<ModelContentInterv>();
