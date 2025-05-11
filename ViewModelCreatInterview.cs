@@ -80,8 +80,8 @@ namespace BackSeam
             //{
 
 
-                foreach (ModelContentInterv modelContentInterv in ContentIntervs.OrderBy(x => x.kodDetailing)) //numberstr
-            {
+                foreach (ModelContentInterv modelContentInterv in ContentIntervs) //numberstr.OrderBy(x => x.kodDetailing))
+                {
                     if (modelContentInterv.kodDetailing.Length <= 9)
                     { 
                         strokagrdetail += modelContentInterv.kodDetailing + ";";
