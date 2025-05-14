@@ -76,8 +76,8 @@ namespace BackSeam
             CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + kodProtokola + "/0/0/0/0", "GETID");
             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
             ModelInterview Idinsert = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
-            //if (Idinsert.grDetail == null)
-            //{
+            if (Idinsert.grDetail == null)
+            {
 
 
                 foreach (ModelContentInterv modelContentInterv in ContentIntervs) //numberstr.OrderBy(x => x.kodDetailing))
@@ -102,7 +102,7 @@ namespace BackSeam
                 var json = JsonConvert.SerializeObject(Idinsert);
                 CallServer.PostServer(MapOpisViewModel.Interviewcontroller, json, "PUT");
                 MapOpisViewModel.selectedInterview.grDetail = strokagrdetail;
-            //}
+            }
 
 
         }

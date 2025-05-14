@@ -58,6 +58,7 @@ namespace BackSeam
                     jason = pathcontroller + "0/" + MapOpisViewModel.selectedListGroupDeliting.keyGrDetailing + "/0";
                     break;
                 default:
+                    if (ViewModelNsiDetailing.selectedDetailing == null) return;
                     jason = pathcontroller + "0/" + ViewModelNsiDetailing.selectedDetailing.keyGrDetailing + "/0";
                     break;
             }
