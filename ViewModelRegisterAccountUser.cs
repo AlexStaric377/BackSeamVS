@@ -320,6 +320,7 @@ namespace BackSeam
                 WindowAccount.Close();
                 return;
             }
+            MapOpisViewModel.RegIdUser = IdAccountUser.login;
             switch (IdAccountUser.idStatus)
             {
                 case "1":

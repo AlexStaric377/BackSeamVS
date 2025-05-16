@@ -52,6 +52,7 @@ D:\BackSeam\bin\Debug\net5.0-windows\Microsoft.Expression.Interactions.dll
 D:\BackSeam\bin\Debug\net5.0-windows\System.Windows.Interactivity.dll
 D:\BackSeam\bin\Debug\net5.0-windows\WpfAnimatedGif.dll
 D:\BackSeam\bin\Debug\net5.0-windows\XLParser.dll
+D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.csproj.AssemblyReference.cache
 D:\BackSeam\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageError.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\MessageWarn.g.cs
@@ -88,6 +89,7 @@ D:\BackSeam\obj\Debug\net5.0-windows\WinNsiQualification.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiStatusUser.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinProfilPacient.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinRegisterAccountUser.g.cs
+D:\BackSeam\obj\Debug\net5.0-windows\WinRegKodDostup.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinResultInterview.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinStrokaProgressBar.g.cs
 D:\BackSeam\obj\Debug\net5.0-windows\WinVisitingDays.g.cs
@@ -131,6 +133,7 @@ D:\BackSeam\obj\Debug\net5.0-windows\WinNsiQualification.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinNsiStatusUser.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinProfilPacient.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinRegisterAccountUser.baml
+D:\BackSeam\obj\Debug\net5.0-windows\WinRegKodDostup.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinResultInterview.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinStrokaProgressBar.baml
 D:\BackSeam\obj\Debug\net5.0-windows\WinVisitingDays.baml
@@ -144,6 +147,3 @@ D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\ref\BackSeam.dll
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.pdb
 D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.genruntimeconfig.cache
-D:\BackSeam\obj\Debug\net5.0-windows\BackSeam.csproj.AssemblyReference.cache
-D:\BackSeam\obj\Debug\net5.0-windows\WinRegKodDostup.g.cs
-D:\BackSeam\obj\Debug\net5.0-windows\WinRegKodDostup.baml

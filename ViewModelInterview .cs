@@ -304,7 +304,7 @@ namespace BackSeam
                               WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
                           }                      
  
-                          selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Length>0 ? WindowInterv.InterviewOpis.Text : selectedInterview.opistInterview;
+                          selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Length>0 ? WindowInterv.InterviewOpis.Text.Replace("/", " ") : selectedInterview.opistInterview.Replace("/", " ");
                           selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.Length>0 ? WindowInterv.InterviewTextUri.Text : selectedInterview.uriInterview;
                           selectedInterview.nametInterview = WindowInterv.Interviewt2.Text.Length>0 ? WindowInterv.Interviewt2.Text : selectedInterview.nametInterview;
                           selectedInterview.idUser = RegIdUser;

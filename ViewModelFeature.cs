@@ -140,7 +140,7 @@ namespace BackSeam
 
         private void AddComandFeature()
         {
-            
+            IndexAddEdit = "addCommand";
             if (loadboolFeature == false) { MapOpisViewModel.nameFeature3 = "";  MethodLoadtableFeature(); }
             MethodaddcomFeature();
         }
@@ -381,6 +381,7 @@ namespace BackSeam
                 selectedFeature.keyFeature = selectedFeature.keyComplaint + "." + _repl + _keyFeatureindex.ToString();
                 selectedViewFeature.keyFeature = selectedFeature.keyFeature;
                 WindowMen.Featuret1.Text = selectedFeature.keyFeature;
+
             }
         }
 
@@ -426,6 +427,7 @@ namespace BackSeam
             MapOpisViewModel.ActCompletedInterview = "";
             selectedViewFeature.keyComplaint = selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Length > 0 ? MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) : selectedFeature.keyComplaint;
             SelectNewFeature();
+            IndexAddEdit = "addCommand";
         }
 
         // команда выбора новой жалобы для записи новой строки 

@@ -386,6 +386,7 @@ namespace BackSeam
         {
             ModelContentInterv selectedaddContent = new ModelContentInterv();
             selectedaddContent.kodProtokola = MapOpisViewModel.selectedInterview.kodProtokola;
+            selectedaddContent.idUser = MapOpisViewModel.RegIdUser;
             selectedaddContent.kodDetailing = WindowMain.Featuret3.Text.ToString().Substring(0, WindowMain.Featuret3.Text.ToString().IndexOf(":"));
             selectedaddContent.detailsInterview = WindowMain.Featuret3.Text.ToString().Substring(WindowMain.Featuret3.Text.ToString().IndexOf(":") + 1, WindowMain.Featuret3.Text.ToString().Length - (WindowMain.Featuret3.Text.ToString().IndexOf(":") + 1));
             TmpContentIntervs.Add(selectedaddContent);
