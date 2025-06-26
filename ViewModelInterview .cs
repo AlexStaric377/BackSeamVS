@@ -131,6 +131,7 @@ namespace BackSeam
             IndexAddEdit = "addCommand";
             if (addtboolInterview == false) BoolTrueInterview();
             else BoolFalseInterview();
+            IndexAddEdit = "addCommand";
         }
 
 
