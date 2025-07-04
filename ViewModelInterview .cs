@@ -35,7 +35,7 @@ namespace BackSeam
         /// </summary>
         public static MainWindow WindowInterv = MainWindow.LinkNameWindow("BackMain");
         public static bool editboolInterview = false, addtboolInterview = false, loadboolInterview = false, addInterviewGrDetail=true;
-        private string edittextInterview = "";
+        private string edittextInterview = "", AddEdit ="";
         public static int selectedInterviewIndex = 0;
         public static string GetidkodProtokola = "";
         public static string Interviewcontroller =  "/api/InterviewController/";
@@ -121,17 +121,17 @@ namespace BackSeam
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservableModelInterview(CmdStroka);
-            IndexAddEdit = "";
+            AddEdit = "";
             loadboolInterview = true;
 
         }
 
         private void MethodaddcomInterview()
         {
-            IndexAddEdit = "addCommand";
+            AddEdit = "addCommand";
             if (addtboolInterview == false) BoolTrueInterview();
             else BoolFalseInterview();
-            IndexAddEdit = "addCommand";
+
         }
 
 
@@ -149,16 +149,16 @@ namespace BackSeam
 
             WindowInterv.FolderDiagnozInterview.Visibility = Visibility.Visible;
             WindowInterv.FolderRecomenInterview.Visibility = Visibility.Visible;
-            WindowInterv.InterviewLab3.Text = IndexAddEdit == "addCommand" ? "Створити" : "Корегувати";
+            WindowInterv.InterviewLab3.Text = AddEdit == "addCommand" ? "Створити" : "Корегувати";
             WindowInterv.InterviewTablGrid.IsEnabled = false;
-            if (IndexAddEdit == "addCommand")
+            if (AddEdit == "addCommand")
             {
                 WindowMen.BorderLoadInterview.IsEnabled = false;
                 WindowMen.BorderGhangeInterview.IsEnabled = false;
                 WindowMen.BorderDeleteInterview.IsEnabled = false;
                 WindowMen.BorderPrintInterview.IsEnabled = false;
             }
-            if (IndexAddEdit == "editCommand")
+            if (AddEdit == "editCommand")
             {
                 WindowMen.BorderLoadInterview.IsEnabled = false;
                 WindowMen.BorderAddInterview.IsEnabled = false;
@@ -189,8 +189,7 @@ namespace BackSeam
             WindowMen.BorderDeleteInterview.IsEnabled = true;
             WindowMen.BorderPrintInterview.IsEnabled = true;
             WindowMen.BorderAddInterview.IsEnabled = true;
-
-            IndexAddEdit = "";
+            AddEdit = "";
         }
         // команда удаления
         private RelayCommand? removeInterview;
@@ -248,7 +247,7 @@ namespace BackSeam
                   (editInterview = new RelayCommand(obj =>
                   {
                       
-                      IndexAddEdit = "editCommand";
+                      AddEdit = "editCommand";
                       if (editboolInterview == false && selectedInterview != null && selectedInterview.id !=0)
                       {
                           if (selectedInterview.idUser != RegIdUser && RegUserStatus != "1")
@@ -262,7 +261,6 @@ namespace BackSeam
                       else
                       {
                           BoolFalseInterview();
-                          IndexAddEdit = "";
                           WindowInterv.InterviewLab3.Text = "Переглянути" + Environment.NewLine + "опитування";
                           WindowInterv.InterviewTablGrid.SelectedItem = null;
                       }
@@ -284,26 +282,26 @@ namespace BackSeam
 
                       if (WindowInterv.Interviewt2.Text.Length != 0 && selectedInterview !=null)
                       {
-                        if (WindowInterv.InterviewDependencyt3.Text.ToString().Length == 0)
-                        {
+                            if (WindowInterv.InterviewDependencyt3.Text.ToString().Length == 0)
+                            {
 
-                            WinNsiListRecommen NewOrder = new WinNsiListRecommen();
-                              NewOrder.Left = (MainWindow.ScreenWidth / 2);
-                              NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                              NewOrder.ShowDialog();
-                              if (WindowInterv.InterviewDependencyt3.Text.Length ==0)
-                              {
+                                WinNsiListRecommen NewOrder = new WinNsiListRecommen();
+                                NewOrder.Left = (MainWindow.ScreenWidth / 2);
+                                NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                                NewOrder.ShowDialog();
+                                if (WindowInterv.InterviewDependencyt3.Text.Length ==0)
+                                {
                                   MainWindow.MessageError = "Увага!  " + Environment.NewLine +
                                   " Ви не встановили відповідні рекомендації щодо подальших дій." + Environment.NewLine +
                                   "Збереження опитування можливе після встановлення рекомендацій.";
                                   MessageWarn NewEnd = new MessageWarn(MainWindow.MessageError, 2, 8);
                                   NewEnd.ShowDialog();
                                   return;
-                              }
-                              modelDependency.kodProtokola = selectedInterview.kodProtokola;
-                              modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
-                              WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
-                          }                      
+                                }
+                                modelDependency.kodProtokola = selectedInterview.kodProtokola;
+                                modelDependency.kodRecommend = WindowInterv.InterviewDependencyt3.Text.Substring(0, WindowMain.InterviewDependencyt3.Text.IndexOf(":"));
+                                WindowInterv.InterviewDependencyt3.Text = WindowInterv.InterviewDependencyt3.Text.Substring(WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1, WindowMain.InterviewDependencyt3.Text.Length- (WindowMain.InterviewDependencyt3.Text.IndexOf(":")+1));
+                            }                      
  
                           selectedInterview.opistInterview = WindowInterv.InterviewOpis.Text.Length>0 ? WindowInterv.InterviewOpis.Text.Replace("/", " ") : selectedInterview.opistInterview.Replace("/", " ");
                           selectedInterview.uriInterview = WindowInterv.InterviewTextUri.Text.Length>0 ? WindowInterv.InterviewTextUri.Text : selectedInterview.uriInterview;
@@ -316,25 +314,19 @@ namespace BackSeam
                           CallServer.PostServer(Interviewcontroller, json, method);
                           CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                           ModelInterview Insertstroka = JsonConvert.DeserializeObject<ModelInterview>(CallServer.ResponseFromServer);
-                          if (method == "POST")
-                          { 
-                              ModelInterviews.Add(Insertstroka);
-                              WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;                         
-                          }
- 
+  
                           json = CallServer.ResponseFromServer.Replace("/","*").Replace("?", "_");
                           if (json.Length < 1024)
                           {
                                 CallServer.PostServer(Controlleroutfile, Controlleroutfile + "Interview/" + json + "/0", "GETID");
                           }
-                        
-                          
-                          
 
                           // дозапись в справочник взаимосвязи диагнозов рекомендаций и протоколов интервью
 
-                          if (IndexAddEdit == "addCommand")
+                          if (method == "POST")
                           {
+                              ModelInterviews.Add(Insertstroka);
+                              WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;
                               modelDependency.kodProtokola = selectedInterview.kodProtokola;
                               modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.ToString().Length == 0 ? "" : WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowMain.InterviewDependencyt2.Text.IndexOf(":"));
                           }
@@ -350,7 +342,6 @@ namespace BackSeam
                           }
 
                       }
-                      IndexAddEdit = "";
                       BoolFalseInterview();
                       WindowInterv.InterviewTablGrid.SelectedItem = null;
                       SelectedResultInterview = new  ModelResultInterview();
@@ -433,8 +424,8 @@ namespace BackSeam
                 return addCreatIntreview ??
                   (addCreatIntreview = new RelayCommand(obj =>
                   {
-                      MapOpisViewModel.ModelCall = IndexAddEdit == ""? "ModelInterview" : "";
-                      if (IndexAddEdit == "addCommand") SelectNewInterview();
+                      MapOpisViewModel.ModelCall = AddEdit == ""? "ModelInterview" : "";
+                      if (AddEdit == "addCommand") SelectNewInterview();
                       GetidkodProtokola = selectedInterview.kodProtokola;
                       ComandCreatIntreview(); }));
             }
@@ -478,14 +469,9 @@ namespace BackSeam
                 return onVisibleFolderInterv ??
                   (onVisibleFolderInterv = new RelayCommand(obj =>
                   {
-                      if (IndexAddEdit != "")
-                      {
-                          BoolFalseInterview();
-                          IndexAddEdit = "";
-                          WindowInterv.InterviewLab3.Text = "Переглянути" + Environment.NewLine + "опитування";
-                          WindowInterv.InterviewTablGrid.SelectedItem = null;
-
-                      }
+                       BoolFalseInterview();
+                       WindowInterv.InterviewLab3.Text = "Переглянути" + Environment.NewLine + "опитування";
+   
                       if (WindowInterv.InterviewTablGrid.SelectedIndex > -1)
                       {
                             int indexintev = WindowInterv.InterviewTablGrid.SelectedIndex;
@@ -563,32 +549,33 @@ namespace BackSeam
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350; //350;
             NewOrder.ShowDialog();
             MapOpisViewModel.ModelCall = "";
-            if (selectedInterview != null && MapOpisViewModel.selectedDependency.kodDiagnoz !="")
+            if (selectedInterview != null) 
             { 
-               string json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
-                CallServer.PostServer(pathcontrolerDependency, json, "GETID");
-                string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]") == false)
-                {
-                    WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
-                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                    modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                    modelDependency.kodDiagnoz = MapOpisViewModel.selectedDependency.kodDiagnoz;
-                    //modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowInterv.InterviewDependencyt2.Text.IndexOf(":")).Trim();
-                    json = JsonConvert.SerializeObject(modelDependency);
-                    CallServer.PostServer(pathcontrolerDependency, json, "PUT");
-                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                    json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
-                    CmdStroka = CallServer.ServerReturn();
+               if(selectedInterview.kodProtokola !=""  && selectedDependency.kodDiagnoz !="")
+               {
+                    json = pathcontrolerDependency + "0/" + selectedInterview.kodProtokola + "/0";
+                    CallServer.PostServer(pathcontrolerDependency, json, "GETID");
+                    string CmdStroka = CallServer.ServerReturn();
                     if (CmdStroka.Contains("[]") == false)
                     {
-                        UnloadCmdStroka("DependencyDiagnoz/", json);
-                        MessageOk();
-                    }
-                }            
+                        WindowInterv.Interviewt2.Text = selectedInterview.nametInterview;
+                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                        modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                        modelDependency.kodDiagnoz = MapOpisViewModel.selectedDependency.kodDiagnoz;
+                        //modelDependency.kodDiagnoz = WindowInterv.InterviewDependencyt2.Text.Substring(0, WindowInterv.InterviewDependencyt2.Text.IndexOf(":")).Trim();
+                        json = JsonConvert.SerializeObject(modelDependency);
+                        CallServer.PostServer(pathcontrolerDependency, json, "PUT");
+                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                        json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_");
+                        CmdStroka = CallServer.ServerReturn();
+                        if (CmdStroka.Contains("[]") == false)
+                        {
+                            UnloadCmdStroka("DependencyDiagnoz/", json);
+                            MessageOk();
+                        }
+                    }            
+               }
             }
- 
-
         }
 
         // команда открытия окна справочника групп уточнения детализации и  добавления группы уточнения
@@ -725,7 +712,7 @@ namespace BackSeam
                           string CmdStroka = CallServer.ServerReturn();
                           if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
                           else ObservableModelInterview(CmdStroka);
-                          IndexAddEdit = "";
+                          AddEdit = "";
                           loadboolInterview = true;
 
                       }
