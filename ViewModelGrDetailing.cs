@@ -34,13 +34,13 @@ namespace BackSeam
         /// через механизм REST.API
         /// </summary>
         private bool activedit = false, loadboolGrDeliting = false;
+        private string CommandAddEdit = "";
         bool activGrDeliting = false;
         int GrDetailingSelectedIndex = 0;
         public static string controlerGrDetailing =  "/api/GrDetalingController/", _nameGrDetailing = "";
         private ModelGrDetailing selectedViewGrDeliting;
 
         public static ObservableCollection<ModelGrDetailing> ViewGrDetailings { get; set; }
-        private string edittext = "";
         public ModelGrDetailing SelectedViewGrDeliting
         { get { return selectedViewGrDeliting; } set { selectedViewGrDeliting = value; OnPropertyChanged("SelectedViewGrDeliting"); } }
 
@@ -114,7 +114,7 @@ namespace BackSeam
 
         private void MethodaddcomGrDeliting()
         {
-            IndexAddEdit =  "addCommand";
+            CommandAddEdit =  "addCommand";
             if (activGrDeliting == false) BoolTrueGrDetailing(); 
             else BoolFalseGrDetailing();
             NewEkzemplyarGrDetailing();
@@ -150,19 +150,19 @@ namespace BackSeam
         {
             activedit = true;
             activGrDeliting = true;
-            if(IndexAddEdit == "addCommand") WindowMen.FolderGR.Visibility = Visibility.Visible;
+            if(CommandAddEdit == "addCommand") WindowMen.FolderGR.Visibility = Visibility.Visible;
             WindowMen.FolderQu.Visibility = Visibility.Visible;
             WindowMen.GrDetailingst3.IsEnabled = true;
             WindowMen.GrDetailingst3.Background = Brushes.AntiqueWhite;
             WindowMen.GrDetailingsTablGrid.IsEnabled = false;
-            if (IndexAddEdit == "addCommand")
+            if (CommandAddEdit == "addCommand")
             {
                 WindowMen.BorderLoadGrDetailing.IsEnabled = false;
                 WindowMen.BorderGhangeGrDetailing.IsEnabled = false;
                 WindowMen.BorderDeleteGrDetailing.IsEnabled = false;
                 WindowMen.BorderPrintGrDetailing.IsEnabled = false;
             }
-            if (IndexAddEdit == "editCommand")
+            if (CommandAddEdit == "editCommand")
             {
                 WindowMen.BorderLoadGrDetailing.IsEnabled = false;
                 WindowMen.BorderAddGrDetailing.IsEnabled = false;
@@ -175,7 +175,7 @@ namespace BackSeam
         {
             activGrDeliting = false;
             activedit = false;
-            IndexAddEdit = "";
+            CommandAddEdit = "";
             WindowMen.FolderGR.Visibility = Visibility.Hidden;
             WindowMen.FolderQu.Visibility = Visibility.Hidden;
             WindowMen.GrDetailingst3.IsEnabled = false;
@@ -238,7 +238,7 @@ namespace BackSeam
                               InfoEditZapis();
                               return;
                           }
-                          IndexAddEdit = "editCommand";    
+                          CommandAddEdit = "editCommand";    
                           if (activedit == false)
                           {
                                 BoolTrueGrDetailing();
@@ -266,7 +266,7 @@ namespace BackSeam
                       
                       if (WindowMen.GrDetailingst3.Text.Trim().Length != 0)
                       {
-                          if (IndexAddEdit == "addCommand")
+                          if (CommandAddEdit == "addCommand")
                           {
 
                               //selectedViewGrDeliting.nameGrDetailing = WindowMen.GrDetailingst3.Text.ToString();
@@ -284,7 +284,7 @@ namespace BackSeam
                           }
                           else
                           {
-                              if (selectedViewGrDeliting.keyGrDetailing != "" && selectedViewGrDeliting.keyGrDetailing != null && selectedViewGrDeliting.keyGrDetailing.Contains(" ") == true) ;
+                              if (selectedViewGrDeliting.keyGrDetailing != "" && selectedViewGrDeliting.keyGrDetailing != null && selectedViewGrDeliting.keyGrDetailing.IndexOf(" ") != 0);
                               {
                                   selectedViewGrDeliting.keyGrDetailing = selectedViewGrDeliting.keyGrDetailing.Substring(0, selectedViewGrDeliting.keyGrDetailing.IndexOf(" "));
                               }
@@ -444,7 +444,7 @@ namespace BackSeam
             }
             loadboolGrDeliting = true;
             TrueNameGrDetailing();
-            if (IndexAddEdit == "addCommand") SelectNewGrDetailing();
+            if (CommandAddEdit == "addCommand") SelectNewGrDetailing();
         }
 
 
