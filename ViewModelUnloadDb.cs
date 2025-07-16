@@ -288,7 +288,7 @@ namespace BackSeam
         public static void RunWinGifWait(object ThreadObj)
         {
  
-            WaitWindow NewOrder = new WaitWindow("",2,240);
+            WaitWindow NewOrder = new WaitWindow("",2,260);
             NewOrder.Left = (MainWindow.ScreenWidth / 2);
             NewOrder.Top = (MainWindow.ScreenHeight / 2);
             NewOrder.ShowDialog();
