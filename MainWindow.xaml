@@ -881,11 +881,11 @@
                                                         <Label Content="  Проведене опитування, діагноз рекомендація до подальшої дії" Grid.Row="0" Grid.Column="1"  Height="26" FontWeight="Bold" />
 
                                                         <TextBlock x:Name="PacientInterLab3" Grid.Column="0" Grid.Row="1" Text="  Пацієнт (Ім'я,Прізвище)" TextWrapping="Wrap"  FontSize="14" Height="26" Width="165" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                                        <TextBox Text="{Binding namePacient,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert3" Grid.Column="1" Grid.Row="1" Background="White" Width="400" Height="26" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />                                                        
-                                                        
+                                                        <TextBox Text="{Binding namePacient,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert3" Grid.Column="1" Grid.Row="1" Background="White" Width="400" Height="26" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+
                                                         <TextBlock x:Name="PacientInterLab2" Grid.Row="2" Text="  Лікар"   TextWrapping="Wrap"  Grid.Column="0" Height="26" Width="173" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"  />
                                                         <TextBox Text="{Binding nameDoctor,UpdateSourceTrigger=PropertyChanged}" Name="PacientIntert2" Grid.Row="2" FontSize="14" Height="26" Width="350"  Background="White" VerticalContentAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Grid.ColumnSpan="2" Margin="179,0,0,0" VerticalAlignment="Top"/>
-                                                        
+
                                                         <TextBlock x:Name="PacientInterLab41" Grid.Column="0" Grid.Row="3" Text="  Дата та час прийому"  FontSize="14" Height="26" Width="160" HorizontalAlignment="Left"  />
                                                         <TextBox Text="{Binding dateDoctor,UpdateSourceTrigger=PropertyChanged}" Name="PacientInter41" Grid.Column="1" Grid.Row="3"  Background="White" Width="200" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
 
@@ -894,7 +894,7 @@
                                                         <TextBox Text="{Binding dateInterview,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt4" Grid.Column="1" Grid.Row="4"  Background="White" Width="200" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
                                                         <TextBlock x:Name="PacientInterviewLab6" Grid.Column="0" Grid.Row="5" Text="  Попередній діагноз"  FontSize="14" Height="26" Width="160" HorizontalAlignment="Left"  />
                                                         <TextBox Text="{Binding nameDiagnoz,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt6" Grid.Column="1" Grid.Row="5" Background="White" Width="400" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        
+
                                                         <TextBlock x:Name="PacientInterviewLab5" Grid.Column="0" Grid.Row="6" Text="  Рекомендації" TextWrapping="Wrap"  FontSize="14" Height="26" Width="165" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                                                         <TextBox Text="{Binding nameRecomen,UpdateSourceTrigger=PropertyChanged}" Name="PacientInterviewt5" Grid.Column="1" Grid.Row="6" Background="White" Width="400" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
 
@@ -2011,7 +2011,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Image>
-                           
+
                                                         <TextBlock x:Name="LikarInterviewInputLab7" Grid.Column="0" Grid.Row="6" Text="  Автор опитування"  FontSize="14" Height="24" Width="146" HorizontalAlignment="Left"  />
                                                         <TextBox Text="" Name="LikarInterviewAvtort7" Grid.Column="1" Grid.Row="6"  Background="White"  Width="400" Height="24" FontSize="14"
                                                             IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
@@ -2028,7 +2028,7 @@
                                                         <TextBlock x:Name="LikarInterviewLab71" Grid.Column="0" Grid.Row="8" Text="  Подібні клінічні симптоми"  FontSize="14" Height="24" Width="180" HorizontalAlignment="Left"  />
                                                         <TextBox Text="{Binding nameInterview,UpdateSourceTrigger=PropertyChanged}" Name="LikarInterviewUriText" Grid.Column="1" Grid.Row="8"  Background="White"  Width="400" Height="24" FontSize="14"
                                                             IsEnabled="False" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
-                                                        
+
                                                         <Image x:Name="LikarFoldMixUrlHtpps" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="8" Width="25" Height="24" Margin="400,0,0,0" Visibility="Hidden"  >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -2533,7 +2533,7 @@
                                                         <TextBox  Name="CabinetReseptionTextBoxOnoff" Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="5" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <ComboBox   Name="CabinetComboBoxOnoff"  ItemsSource="{Binding AppointmentsVizitsOnOff }" SelectedIndex="{Binding SelectedAppointmentsVizitsOnOff}" 
-                                                          Grid.Column="1" Grid.Row="5"   Height="24" Width="130" IsEnabled="false" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center"  />
+                                                          Grid.Column="1"   Height="24" Width="130" IsEnabled="false" Margin="0,-184,142,0" HorizontalAlignment="Right" VerticalAlignment="Top"  />
 
                                                         <TextBlock x:Name="CabinetReseptionBlockMonth" Grid.Row="6" Text=" Створити розклад на місяць" TextWrapping="Wrap"  FontSize="14" Height="34" Width="148" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Name="CabinetReseptionBoxMonth" Text="" IsEnabled="False" 
@@ -3718,7 +3718,7 @@
                                             <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    
+
                                     <!--Loaded="LoadedSimptom" MouseLeftButtonDown="LoadedSimptom"-->
                                     <Grid Width="780" Background="White" >
                                         <Grid.RowDefinitions>
@@ -6282,7 +6282,7 @@
                                             <RowDefinition Height="60*" />
                                         </Grid.RowDefinitions>
                                         <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
-                                              <Grid x:Name="DoctorPanel"    HorizontalAlignment="Right">
+                                            <Grid x:Name="DoctorPanel"    HorizontalAlignment="Right">
                                                 <Grid.ColumnDefinitions >
                                                     <ColumnDefinition Width ="125*" />
                                                     <ColumnDefinition Width="95*"/>
@@ -6507,7 +6507,7 @@
                                                             <TextBlock x:Name="DoctorLab9" Text="  Назва Мед.&#xa;  закладу" TextWrapping="Wrap" Grid.Column="0" Height="35"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                             <TextBox Text="{Binding nameZaklad,UpdateSourceTrigger=PropertyChanged}" x:Name="Doctort9" Grid.Column="1"  Height="30" FontSize="14" Width="480" Background="White" BorderThickness="0,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                         </Grid>
-                  
+
                                                     </Grid>
                                                 </StackPanel>
                                             </Border>
@@ -8581,7 +8581,9 @@
                                                     <!--<i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="MouseLeftButtonDown">
                                                             <i:InvokeCommandAction Command="{Binding CloseWarning}" CommandParameter=""/>
-                                                            --><!--#FFC8E0F7  #FF41B809--><!--
+                                                            -->
+                                                    <!--#FFC8E0F7  #FF41B809-->
+                                                    <!--
                                                         </i:EventTrigger>
                                                     </i:Interaction.Triggers>-->
                                                     <Label x:Name="LineUnLoad" Grid.Column="2" Height="20" FontSize="14"  Width="10" Content=" " Background="#FF41B809"

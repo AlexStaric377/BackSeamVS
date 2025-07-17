@@ -148,8 +148,8 @@ namespace BackSeam
         private void MethodaddcomLikarAppointments()
         {
             IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
-            
- 
+
+
             if (addboolLikarAppointments == false) BoolTrueLikarAppointments();
             else BoolFalseLikarAppointments();
             LikarAppointments.CabinetReseptionPacientTablGrid.SelectedItem = null;
@@ -164,6 +164,8 @@ namespace BackSeam
             LikarAppointments.CabinetDayoftheWeek.SelectedIndex = 0;
             LikarAppointments.CabinetTimeofDay.SelectedIndex = 0;
             LikarAppointments.CabinetComboBoxOnoff.SelectedIndex = 0;
+            LikarAppointments.CabinetDayoftheMonth.SelectedIndex = 0;
+            loadthisMonth = false;
         }
 
 
@@ -180,6 +182,10 @@ namespace BackSeam
             LikarAppointments.CabinetComboBoxOnoff.IsEnabled = true;
             LikarAppointments.CabinetDayoftheMonth.IsEnabled = true;
             LikarAppointments.CabinetReseptionTimeOn.IsEnabled = true;
+            LikarAppointments.CabinetReseptionDayBoxLast.IsEnabled = true;
+            LikarAppointments.CabinetReseptionDayBoxLast.Background = Brushes.AntiqueWhite;
+            LikarAppointments.CabinetReseptionDayOn.IsEnabled = true;
+            LikarAppointments.CabinetReseptionDayOn.Background = Brushes.AntiqueWhite;
             LikarAppointments.CabinetReseptionTimeOn.Background = Brushes.AntiqueWhite;
             LikarAppointments.CabinetReseptionTimeBoxLast.IsEnabled = true;
             LikarAppointments.CabinetReseptionTimeBoxLast.Background = Brushes.AntiqueWhite;
@@ -188,7 +194,7 @@ namespace BackSeam
 
         private void BoolFalseLikarAppointments()
         {
-
+            loadthisMonth = false;
             addboolLikarAppointments = false;
             editboolLikarAppointments = false;
             LikarAppointments.CabinetReseptionTime.IsEnabled = false;
@@ -200,8 +206,17 @@ namespace BackSeam
             LikarAppointments.CabinetDayoftheMonth.IsEnabled = false;
             LikarAppointments.CabinetReseptionTimeOn.IsEnabled = false;
             LikarAppointments.CabinetReseptionTimeBoxLast.IsEnabled = false;
+            LikarAppointments.CabinetReseptionDayBoxLast.IsEnabled = false;
+            LikarAppointments.CabinetReseptionDayBoxLast.Background = Brushes.White;
+            LikarAppointments.CabinetReseptionDayOn.IsEnabled = false;
+            LikarAppointments.CabinetReseptionDayOn.Background = Brushes.White;
             LikarAppointments.CabinetReseptionTimeOn.Background = Brushes.White;
             LikarAppointments.CabinetReseptionTimeBoxLast.Background = Brushes.White;
+            LikarAppointments.CabinetDayoftheWeek.SelectedIndex = 0;
+            LikarAppointments.CabinetTimeofDay.SelectedIndex = 0;
+            LikarAppointments.CabinetComboBoxOnoff.SelectedIndex = 0;
+            LikarAppointments.CabinetDayoftheMonth.SelectedIndex = 0;
+            LikarAppointments.CabinetReseptionBoxMonth.Text = "";
         }
 
         // команда  редактировать
@@ -274,8 +289,31 @@ namespace BackSeam
                   {
                       if (loadthisMonth == true)
                       {
-                          MapOpisViewModel.RunGifWait();
                           MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
+                          int nawday = System.DateTime.Now.Day;
+                          int beginind = Convert.ToInt32(WindowMen.CabinetReseptionDayOn.Text);
+                          if (beginind < nawday)
+                          {
+                              MainWindow.MessageError = " Перший день прийому меньше поточного дня календарного місяця обраного вами. ";
+                              MapOpisViewModel.SelectedWirning(0);
+                              return;
+                          }
+                          int Daymonth = System.DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear));
+                          int lastDay = Convert.ToInt32(WindowMen.CabinetReseptionDayBoxLast.Text);
+                          if (lastDay > Daymonth)
+                          {
+                              MainWindow.MessageError = " Крайній день прийому більше останнього дня календарного місяця обраного вами. ";
+                              MapOpisViewModel.SelectedWirning(0);
+                              return;
+                          }
+                          if (lastDay < beginind)
+                          {
+                              MainWindow.MessageError = " Перший день прийому більше останнього дня прийому. ";
+                              MapOpisViewModel.SelectedWirning(0);
+                              return;
+                          }
+                          MapOpisViewModel.RunGifWait();
+                          
                           string ThisDay = "", ThisMonth = "", json = "";
                           int itime = 1;
                           ObservableCollection<ModelVisitingDays> ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
@@ -337,8 +375,9 @@ namespace BackSeam
                           }
                           if (Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear) == 0) return;
                           // количество дней в месяце
-                          int indexDay = System.DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear));
-                          for (int i = 1; i < indexDay; i++)
+
+                          
+                          for (int i = beginind; i <= lastDay; i++)
                           {
                               ThisDay = i > 9 ? Convert.ToString(i) : "0" + Convert.ToString(i);
                               string dateVisit = ThisDay + "." + ThisMonth + "." + ThisYear;
@@ -371,6 +410,12 @@ namespace BackSeam
                       }
                       else
                       {
+                          if (WindowMen.CabinetReseptionPacient.Text == "" || WindowMen.CabinetReseptionPacientVisit.Text == "" || WindowMen.CabinetReseptionTime.Text == "" || WindowMen.CabinetReseptionTextBoxOnoff.Text == "")
+                          {
+                              MainWindow.MessageError = " Не вказані всі показники що визначають дату та час прийому. ";
+                              MapOpisViewModel.SelectedWirning(0);
+                              return;
+                          }
                           string json = "";
                           LikarAppointments.CabinetReseptionPacientVisit.Text = LikarAppointments.CabinetReseptionPacientVisit.Text.Substring(0, 10);
                           selectModelLikarAppointments = new ModelVisitingDays();
