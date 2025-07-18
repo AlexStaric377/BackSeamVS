@@ -7157,6 +7157,8 @@
                                                             <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="90*"/>
+                                                            <RowDefinition Height="90*"/>
+                                                            <RowDefinition Height="90*"/>
                                                             <RowDefinition Height="120*"/>
                                                         </Grid.RowDefinitions>
                                                         <Label Name="MedZaklad" Content=" Медичний заклад" Grid.Column="0" Grid.Row="0" Height="24" FontSize="14"  Width="140" HorizontalAlignment="Left" />
@@ -7218,7 +7220,32 @@
                                                           Grid.Column="1" Grid.Row="5"   Height="24" Width="130" IsEnabled="false" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center"  />
                                                         <!--Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}"-->
                                                         <!--SelectionChanged="AppPanelNumberChanged" DropDownClosed="ComboBox_DropDownClosed"-->
-                                                        <Label Name="ReseptionPacientLab" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="6"
+
+                                                        <TextBlock x:Name="ReseptionBlockMonth" Grid.Row="6" Text=" Створити розклад на місяць" TextWrapping="Wrap"  FontSize="14" Height="34" Width="148" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBox Name="ReseptionBoxMonth" Text="" IsEnabled="False" 
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="90" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBlock x:Name="ReseptionIntervalTime" Grid.Row="6" Grid.Column="1"  Text=" Час: з " FontSize="14" Height="28" Width="100" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="ReseptionTimeOn" Text="09.00" IsEnabled="False" Margin="150,0,0,0"
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBlock x:Name="ReseptionTimeLast" Grid.Row="6" Grid.Column="1"  Text=" по " FontSize="14" Height="28" Width="30" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="ReseptionTimeBoxLast" Text="17.00" IsEnabled="False" Margin="230,0,0,0"
+                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+
+                                                        <ComboBox Name="DayoftheMonth"  ItemsSource="{Binding MonthYear}" SelectedIndex="{Binding SelectedMonthYear}" Grid.Column="1" Grid.Row="6" 
+                                                             IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
+
+                                                        <TextBlock x:Name="ReseptionIntervalDay" Grid.Row="7" Grid.Column="1"  Text="День: з " FontSize="14" Height="28" Width="100" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="ReseptionDayOn" Text="01" IsEnabled="False" Margin="150,0,0,0"
+                                                            Grid.Column="1" Grid.Row="7"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                        <TextBlock x:Name="ReseptionDayLast" Grid.Row="7" Grid.Column="1"  Text=" по " FontSize="14" Height="28" Width="30" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Center" />
+                                                        <TextBox Name="ReseptionDayBoxLast" Text="31" IsEnabled="False" Margin="230,0,0,0"
+                                                            Grid.Column="1" Grid.Row="7"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+
+
+
+
+
+                                                        <Label Name="ReseptionPacientLab" Content="Для завантаження довідника натисніть клавішу 'Завантажити'" Width="570" Grid.Row="8"
                                                        HorizontalAlignment="Left" FontSize="18"  Grid.ColumnSpan="2" Margin="40,0,0,0" />
                                                     </Grid>
                                                 </StackPanel>

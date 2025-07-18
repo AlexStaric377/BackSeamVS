@@ -93,7 +93,7 @@ namespace BackSeam {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.61;component/waitwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BackSeam;V1.0.1.62;component/waitwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WaitWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

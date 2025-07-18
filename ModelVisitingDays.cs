@@ -388,6 +388,7 @@ namespace BackSeam
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
             WindowMen.CabinetReseptionBoxMonth.Text = selected == "0" ? WindowMen.CabinetReseptionBoxMonth.Text : MonthYear[Convert.ToInt32(selected)];
+            WindowMen.ReseptionBoxMonth.Text = selected == "0" ? WindowMen.ReseptionBoxMonth.Text : MonthYear[Convert.ToInt32(selected)];
             selectedIndexMonthYear = selected;
             MapOpisViewModel.loadthisMonth = true;
 
