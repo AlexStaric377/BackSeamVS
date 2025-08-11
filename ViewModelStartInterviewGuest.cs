@@ -35,7 +35,7 @@ namespace BackSeam
     public partial class MapOpisViewModel : BaseViewModel
     {
         private static int IdItemSelected = 0, countFeature =0, shag=0 , key=0;
-        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "",ListGrDetail="";
+        public static string DiagnozRecomendaciya = "", NameDiagnoz = "", kodDiagnoz = "", NameRecomendaciya = "", OpistInterview = "", UriInterview = "", StrokaInterview = "",ListGrDetail="";
         public static bool endwhileselected = false, OnOffStartGuest = false, DeleteOnOff = false, ViewAnalogDiagnoz = false,
             PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false, loadTreeInterview = false;
         public static string ActCompletedInterview = "null", ActCreatInterview="", IndikatorSelected = "",InfoSborka="", 
@@ -724,7 +724,7 @@ namespace BackSeam
         public static void SelectNewKodComplInteriew()
         {
             string indexcmp = "CMP.000000000001";
-            CallServer.PostServer(pathcontroler, pathcontroler + "0/1", "GETID");
+             CallServer.PostServer(pathcontroler, pathcontroler + "0/1", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]") == false)
             {
@@ -1092,7 +1092,8 @@ namespace BackSeam
                     {
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                        MapOpisViewModel.NameDiagnoz = Insert1.nameDiagnoza;
+                        kodDiagnoz = Insert.kodDiagnoz;
+                        NameDiagnoz = Insert1.nameDiagnoza;
                         selectIcdGrDiagnoz = Insert1.icdGrDiagnoz;
 
                         json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString() ;

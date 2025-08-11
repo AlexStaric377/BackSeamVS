@@ -58,7 +58,7 @@ namespace BackSeam
    
         public static void LoadReceptionPacients()
         {
-            CallServer.PostServer(pathcontrollerAppointment, pathcontrollerAppointment + _pacientProfil, "GETID");
+            CallServer.PostServer(pathcontrollerAppointment, pathcontrollerAppointment + _pacientProfil+"/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservablelColectionRegistrationAppointment(CmdStroka);
@@ -343,7 +343,8 @@ namespace BackSeam
                 selectRegistrationAppointment.topictVizita = modelColectionInterview.resultDiagnoz;
                 selectRegistrationAppointment.dateInterview = modelColectionInterview.dateInterview;
                 selectRegistrationAppointment.dateDoctor = modelColectionInterview.dateDoctor; // selectReceptionPatient.dateDoctor;
-                
+                selectRegistrationAppointment.KodDiagnoz = kodDiagnoz;
+
                 var json = JsonConvert.SerializeObject(selectRegistrationAppointment);
                 string Method = "POST";
                 if (IndexAddEdit == "editCommand" && ViewRegistrAppoints != null && WindowIntevLikar.ReceptionLikarTablGrid.SelectedIndex >= 0)
@@ -380,6 +381,7 @@ namespace BackSeam
                 admissionPatient.topictVizita = modelColectionInterview.resultDiagnoz;
                 admissionPatient.dateInterview = modelColectionInterview.dateInterview;
                 admissionPatient.dateVizita = modelColectionInterview.dateDoctor;
+                admissionPatient.kodDiagnoz = kodDiagnoz;
 
                 json = JsonConvert.SerializeObject(admissionPatient);
                 CallServer.PostServer(pathcontrolerAdmissionPatients, json, Method);

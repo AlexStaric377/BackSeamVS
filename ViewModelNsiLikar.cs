@@ -229,10 +229,12 @@ namespace BackSeam
                         MapOpisViewModel.admissionPatient.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
                         MapOpisViewModel.admissionPatient.topictVizita = "Гість:  " + WindowMain.ReceptionLikarGuest7.Text.ToString();
                         MapOpisViewModel.admissionPatient.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
+                        MapOpisViewModel.admissionPatient.kodDiagnoz = MapOpisViewModel.kodDiagnoz;
 
                         MapOpisViewModel.modelColectionInterview.kodDoctor = MapOpisViewModel._kodDoctor;
                         MapOpisViewModel.modelColectionInterview.namePacient = MapOpisViewModel.selectedPacientProfil.name + " " + MapOpisViewModel.selectedPacientProfil.surname;
                         MapOpisViewModel.modelColectionInterview.kodPacient = MapOpisViewModel.selectedPacientProfil.kodPacient;
+                        
                         CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, MapOpisViewModel.pathcontrolerVisitingDays + MapOpisViewModel._kodDoctor +"/0", "GETID");
                         CmdStroka = CallServer.ServerReturn();
                         if (CmdStroka.Contains("[]") == false)
@@ -274,6 +276,7 @@ namespace BackSeam
                             MapOpisViewModel.selectRegistrationAppointment.topictVizita = MapOpisViewModel.modelColectionInterview.resultDiagnoz;
                             MapOpisViewModel.selectRegistrationAppointment.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
                             MapOpisViewModel.selectRegistrationAppointment.dateDoctor = MapOpisViewModel.modelColectionInterview.dateDoctor; // selectReceptionPatient.dateDoctor;
+                            MapOpisViewModel.selectRegistrationAppointment.kodDiagnoz = MapOpisViewModel.kodDiagnoz;
 
                             json = JsonConvert.SerializeObject(MapOpisViewModel.selectRegistrationAppointment);
                             CallServer.PostServer(MapOpisViewModel.pathcontrollerAppointment, json, "POST");

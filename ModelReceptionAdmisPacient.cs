@@ -51,10 +51,13 @@ namespace BackSeam
         private string KodProtokola;
         private string TopictVizita;
         private string KodComplInterv;
- 
+        private string KodDiagnoz;
+        
+
+
 
         public AdmissionPatient(int Id=0, string KodDoctor="",string KodPacient = "", string DateInterview = "", string DateVizita = "",
-           string KodProtokola = "", string TopictVizita = "", string KodComplInterv = "")
+           string KodProtokola = "", string TopictVizita = "", string KodComplInterv = "", string KodDiagnoz = "")
         {
 
             this.Id = Id;
@@ -65,6 +68,7 @@ namespace BackSeam
             this.KodProtokola = KodProtokola;
             this.TopictVizita = TopictVizita;
             this.KodComplInterv = KodComplInterv;
+            this.KodDiagnoz = KodDiagnoz;
 
         }
 
@@ -124,8 +128,12 @@ namespace BackSeam
             set { TopictVizita = value; OnPropertyChanged("topictVizita"); }
 
 
-        } 
-
+        }
+        public string kodDiagnoz
+        {
+            get { return KodDiagnoz; }
+            set { KodDiagnoz = value; OnPropertyChanged("kodDiagnoz"); }
+        }
     }
 
  
