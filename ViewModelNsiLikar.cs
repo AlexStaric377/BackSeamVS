@@ -243,12 +243,14 @@ namespace BackSeam
                             NewOrder.Left = (MainWindow.ScreenWidth / 2);//- 100;
                             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400;
                             NewOrder.ShowDialog();
+
+                            WindowMain.ReceptionLikarGuest4.Text = "не встановлено";
                             if (MapOpisViewModel.selectVisitingDays != null)
                             {
                                 WindowMain.ReceptionLikarGuest4.Text = MapOpisViewModel.selectVisitingDays.dateVizita + " :" + MapOpisViewModel.selectVisitingDays.timeVizita;
-                                MapOpisViewModel.admissionPatient.dateVizita = WindowMain.ReceptionLikarGuest4.Text.ToString();
-                                MapOpisViewModel.modelColectionInterview.dateDoctor = WindowMain.ReceptionLikarGuest4.Text.ToString();
                             }
+                            MapOpisViewModel.admissionPatient.dateVizita = WindowMain.ReceptionLikarGuest4.Text.ToString();
+                            MapOpisViewModel.modelColectionInterview.dateDoctor = WindowMain.ReceptionLikarGuest4.Text.ToString();
                         }
                         
                         string strokadiagnoz = MapOpisViewModel.NameDiagnoz.Length > 50 ? MapOpisViewModel.NameDiagnoz.Substring(0, 50) + Environment.NewLine + MapOpisViewModel.NameDiagnoz.Substring(50, MapOpisViewModel.NameDiagnoz.Length -50) : MapOpisViewModel.NameDiagnoz;

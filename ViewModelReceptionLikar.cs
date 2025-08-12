@@ -142,6 +142,7 @@ namespace BackSeam
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
                         modelColectionInterview.nameDiagnoz = Insert1.nameDiagnoza;
+                        kodDiagnoz = Insert.kodDiagnoz;
                     }
 
                     json = RecomencontrollerIntevLikar + Insert.kodRecommend.ToString() + "/0";
