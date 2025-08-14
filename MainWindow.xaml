@@ -2421,7 +2421,7 @@
                                                     <Border BorderBrush="#FF979595" BorderThickness="1,1,1,1" >
                                                         <StackPanel Name="CabinetVisitingDaysAdd"   Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"    >
                                                             <Button Command="{Binding AddLikarAppointments}" Background="White" Height="34" Width="77"  VerticalAlignment="Center" BorderBrush="White">
-                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70"  ></Image>
+                                                                <Image  Source="pack://application:,,,/BackSeam;component/Images/add2.png"  Height="28" Width="70" RenderTransformOrigin="6.742,36.977"  ></Image>
                                                             </Button>
                                                             <Label Content="Додати" FontSize="14" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
                                                         </StackPanel>
@@ -2533,11 +2533,11 @@
                                                         <TextBox  Name="CabinetReseptionTextBoxOnoff" Text="{Binding Path=onOff, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Grid.Row="5" Grid.Column="1"
                                                           Background="White" VerticalAlignment="Center" Height="24" Width="150" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0"   />
                                                         <ComboBox   Name="CabinetComboBoxOnoff"  ItemsSource="{Binding AppointmentsVizitsOnOff }" SelectedIndex="{Binding SelectedAppointmentsVizitsOnOff}" 
-                                                          Grid.Column="1"   Height="24" Width="130" IsEnabled="false" Margin="0,-184,142,0" HorizontalAlignment="Right" VerticalAlignment="Top"  />
+                                                          Grid.Column="1" Grid.Row="5"  Height="24" Width="130" IsEnabled="false" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Top"  />
 
                                                         <TextBlock x:Name="CabinetReseptionBlockMonth" Grid.Row="6" Text=" Створити розклад на місяць" TextWrapping="Wrap"  FontSize="14" Height="34" Width="148" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                                         <TextBox Name="CabinetReseptionBoxMonth" Text="" IsEnabled="False" 
-                                                            Grid.Column="1" Grid.Row="6"  Background="White" Width="90" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
+                                                            Grid.Column="1" Grid.Row="8"  Background="White" Width="90" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" Height="24" RenderTransformOrigin="0.61,4.588" Margin="165,171,0,0"  />
                                                         <TextBlock x:Name="CabinetReseptionIntervalTime" Grid.Row="6" Grid.Column="1"  Text=" Час: з " FontSize="14" Height="28" Width="100" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" />
                                                         <TextBox Name="CabinetReseptionTimeOn" Text="09.00" IsEnabled="False" Margin="150,0,0,0"
                                                             Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
@@ -2546,7 +2546,7 @@
                                                             Grid.Column="1" Grid.Row="6"  Background="White" Width="50" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" Height="24"  />
 
                                                         <ComboBox Name="CabinetDayoftheMonth"  ItemsSource="{Binding MonthYear}" SelectedIndex="{Binding SelectedMonthYear}" Grid.Column="1" Grid.Row="6" 
-                                                             IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24"  />
+                                                             IsEnabled="false" Width="130"  Margin="0,0,20,5"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" SelectionChanged="CabinetDayoftheMonth_SelectionChanged"  />
 
                                                         <TextBlock x:Name="CabinetReseptionIntervalDay" Grid.Row="7" Grid.Column="1"  Text="День: з " FontSize="14" Height="28" Width="100" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Center" />
                                                         <TextBox Name="CabinetReseptionDayOn" Text="01" IsEnabled="False" Margin="150,0,0,0"

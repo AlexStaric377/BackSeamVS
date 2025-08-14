@@ -354,9 +354,14 @@ namespace BackSeam
         public void AddAppointments()
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
+            ObservableCollection<ModelVisitingDays> ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
+            WindowMen.CabinetReseptionBoxMonth.Text = ViewModelVisitingDays.MonthYear[Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear)];
+            MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
             int nawday = System.DateTime.Now.Day;
+            int nawmonth = System.DateTime.Now.Month;
+            int beginmonth = Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear);
             int beginind = Convert.ToInt32(WindowMen.CabinetReseptionDayOn.Text);
-            if (beginind < nawday)
+            if (beginmonth == nawmonth && beginind < nawday)
             {
                 MainWindow.MessageError = " Перший день прийому меньше поточного дня календарного місяця обраного вами. ";
                 MapOpisViewModel.SelectedWirning(0);
@@ -380,12 +385,7 @@ namespace BackSeam
 
             string ThisDay = "", ThisMonth = "", json = "";
             int itime = 1;
-            ObservableCollection<ModelVisitingDays> ViewLikarAppointments = new ObservableCollection<ModelVisitingDays>();
-            WindowMen.CabinetReseptionBoxMonth.Text = ViewModelVisitingDays.MonthYear[Convert.ToInt32(ViewModelVisitingDays.selectedIndexMonthYear)];
-
-            MapOpisViewModel.selectModelVisitingDays.kodDoctor = MapOpisViewModel.nameDoctor.Substring(0, MapOpisViewModel.nameDoctor.IndexOf(":"));
-            //if (WindowMen.CabinetReseptionTimeOn.Text != "09.00" || WindowMen.CabinetReseptionTimeBoxLast.Text != "17.00")
-            //{
+            
             decimal TimeOn = Convert.ToDecimal(WindowMen.CabinetReseptionTimeOn.Text.Replace(".", ","));
             decimal TimeLast = Convert.ToDecimal(WindowMen.CabinetReseptionTimeBoxLast.Text.Replace(".", ","));
             if (TimeOn > TimeLast)
@@ -460,7 +460,6 @@ namespace BackSeam
                         CallServer.PostServer(MapOpisViewModel.pathcontrolerVisitingDays, json, "POST");
                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                         ModelVisitingDays Idinsert = JsonConvert.DeserializeObject<ModelVisitingDays>(CallServer.ResponseFromServer);
-                        int Countins = ViewLikarAppointments != null ? ViewLikarAppointments.Count : 0;
                         MapOpisViewModel.ViewLikarAppointments.Add(Idinsert);
                     }
                 }

@@ -418,6 +418,7 @@ namespace BackSeam
             }
             selectedReceptionPacient.topictVizita = WindowReceptionPacient.ReceptionPacient7.Text.ToString();
             selectedReceptionPacient.dateVizita = WindowReceptionPacient.ReceptionPacient4.Text.ToString();
+            selectedReceptionPacient.kodDiagnoz = kodDiagnoz;
         }
         
         

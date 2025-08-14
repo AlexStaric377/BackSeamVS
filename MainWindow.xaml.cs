@@ -28,6 +28,11 @@ namespace BackSeam
         public static string CmdStrokaServer = "", UrlServer ="", UrlAdresServer = "", UrlAdresServerClient = "http://31.43.159.113:15122", IncreDecre = "", MessageError = "";
         public static string TextName = "", SourceServer="", SelectLanguageUI=""; //UrlAdresServer = "http://31.43.159.113:15122"
 
+        private void CabinetDayoftheMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         private void ReceptionPacientTablGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

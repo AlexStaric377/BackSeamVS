@@ -31,6 +31,7 @@ namespace BackSeam
       
         WinNsiLikar WindowMen = MainWindow.LinkMainWindow("WinNsiLikar");
         private  static string pathcontroller =  "/api/ApiControllerDoctor/";
+        private string pathcontrollerVisitingDays = "/api/VisitingDaysController/";
         public static ModelDoctor selectedLikar;
         public static  ObservableCollection<ModelDoctor> NsiLikars { get; set; }
  
@@ -282,6 +283,12 @@ namespace BackSeam
 
                             json = JsonConvert.SerializeObject(MapOpisViewModel.selectRegistrationAppointment);
                             CallServer.PostServer(MapOpisViewModel.pathcontrollerAppointment, json, "POST");
+                            CmdStroka = CallServer.ServerReturn();
+                            if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
+
+                            MapOpisViewModel.selectVisitingDays.onOff = "Ні";
+                            json = JsonConvert.SerializeObject(MapOpisViewModel.selectVisitingDays);
+                            CallServer.PostServer(pathcontrollerVisitingDays, json, "PUT");
                             CmdStroka = CallServer.ServerReturn();
                             if (CmdStroka.Contains("[]")) { CallServer.FalseServerGet(); return; }
                         }
