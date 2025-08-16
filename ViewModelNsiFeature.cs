@@ -31,7 +31,9 @@ namespace BackSeam
         public static string pathFeatureController = "/api/FeatureController/";
         public static string jasonstoka="", Method = "";
         public static ModelFeature selectedFeature;
+        private ModelFeature remFeature;
         public static ObservableCollection<ModelFeature> NsiModelFeatures { get; set; }
+        public static ObservableCollection<ModelFeature> tmpModelFeatures { get; set; }
         public ModelFeature SelectedModelFeature
         { get { return selectedFeature; } set { selectedFeature = value; OnPropertyChanged("SelectedModelFeature"); } }
         // конструктор класса
@@ -110,9 +112,64 @@ namespace BackSeam
                                   break;
                           }
                           if(MapOpisViewModel.CallViewDetailing == "ModelDetailing") WindowFeature.Close();
+                          CheckmixFeatures(selectedFeature.keyFeature);
+                          if (tmpModelFeatures.Count == 1) { WindowFeature.Close(); return; }
+                          remFeature = new ModelFeature();
+                          remFeature = selectedFeature;
+                          tmpModelFeatures.Remove(remFeature);
+                          NsiModelFeatures = tmpModelFeatures;
+                          WindowFeature.TablFeature.ItemsSource = NsiModelFeatures;
                       }
                   }));
             }
+        }
+
+        private void CheckmixFeatures(string keyFeature = "")
+        {
+            string listkeyFeature = keyFeature;
+            bool keyComplainttrue = false;
+            tmpModelFeatures = new ObservableCollection<ModelFeature>();
+            foreach (ModelFeature modelFeature in NsiModelFeatures)
+            {
+                tmpModelFeatures.Add(modelFeature);
+            }
+
+
+            //listkeyFeature = keyFeature + ";" + modelFeature.keyFeature + ";";
+            listkeyFeature = selectedFeature.keyComplaint + ";" + selectedFeature.keyFeature + ";";
+            CallServer.PostServer(MapOpisViewModel.Interviewcontroller, MapOpisViewModel.Interviewcontroller + "0/0/0/0/" + listkeyFeature, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            var result = JsonConvert.DeserializeObject<ListModelInterview>(CmdStroka);
+            List<ModelInterview> res = result.ModelInterview.ToList();
+            MapOpisViewModel.ModelInterviews = new ObservableCollection<ModelInterview>((IEnumerable<ModelInterview>)res);
+            if (MapOpisViewModel.ModelInterviews.Count > 0)
+            {
+                foreach (ModelFeature modelFeature in NsiModelFeatures)
+                {
+                    foreach (ModelInterview modelInterview in MapOpisViewModel.ModelInterviews)
+                    {
+                        if (modelInterview.grDetail.Contains(modelFeature.keyFeature) == true)
+                        {
+                            keyComplainttrue = true;
+                            break;
+
+                        }
+
+
+                    }
+                    if (keyComplainttrue == false)
+                    {
+                        remFeature = new ModelFeature();
+                        remFeature = modelFeature;
+                        tmpModelFeatures.Remove(remFeature);
+                    }
+                    keyComplainttrue = false;
+                }
+
+            }
+
+
+
         }
 
 

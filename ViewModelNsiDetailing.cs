@@ -30,7 +30,8 @@ namespace BackSeam
         private static string pathcontroller =  "/api/DetailingController/";
         public static ModelDetailing selectedDetailing;
         public static ObservableCollection<ModelDetailing> NsiModelDetailings { get; set; }
-        
+        public static ObservableCollection<ModelDetailing> tmpModelDetailings { get; set; }
+
         public ModelDetailing SelectedModelDetailing
         { get { return selectedDetailing; } set { selectedDetailing = value; OnPropertyChanged("SelectedModelDetailing"); } }
         // конструктор класса
@@ -148,7 +149,11 @@ namespace BackSeam
                                        MapOpisViewModel.nameFeature3 = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
                                       WindowMain.Detailingt3.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
                                       WindowMain.Featuret2.Text = selectedDetailing.kodDetailing + ": " + selectedDetailing.nameDetailing.ToString();
-                                      WindowMain.Featuret3.Text = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();                                 
+                                      WindowMain.Featuret3.Text = selectedDetailing.kodDetailing.ToString() + ":        " + selectedDetailing.nameDetailing.ToString();
+                                      tmpModelDetailings = NsiModelDetailings;
+                                      tmpModelDetailings.Remove(selectedDetailing);
+                                      NsiModelDetailings = tmpModelDetailings;
+                                      WindowMen.TablDeliting.ItemsSource = NsiModelDetailings;
                                   }
                                   MapOpisViewModel.addInterviewGrDetail = false;
 

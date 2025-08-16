@@ -36,8 +36,9 @@ namespace BackSeam
         //}
         private MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         private static string pathcontroller =  "/api/GrDetalingController/";
-        public static ModelGrDetailing selectedGrDetailing;
+        public static ModelGrDetailing selectedGrDetailing, GrDetailing;
         public static ObservableCollection<ModelGrDetailing> NsiModelGrDetailings { get; set; }
+        public static ObservableCollection<ModelGrDetailing> tmpModelGrDetailings { get; set; }
         public ModelGrDetailing SelectedModelGrDetailing
         { get { return selectedGrDetailing; } set { selectedGrDetailing = value; OnPropertyChanged("SelectedModelGrDetailing"); } }
         // конструктор класса
@@ -183,7 +184,13 @@ namespace BackSeam
                           
 
                           if (selectedGrDetailing.kodGroupQualification == null) return;
-                          if(selectedGrDetailing.kodGroupQualification.Length>0) OpenQualification(); 
+                          if(selectedGrDetailing.kodGroupQualification.Length>0) OpenQualification();
+                          tmpModelGrDetailings = new ObservableCollection<ModelGrDetailing>();
+                          GrDetailing = new ModelGrDetailing();
+                          tmpModelGrDetailings = NsiModelGrDetailings;
+                          GrDetailing = selectedGrDetailing;
+                          tmpModelGrDetailings.Remove(GrDetailing);
+                          NsiModelGrDetailings = tmpModelGrDetailings;
 
                       }
                   }));

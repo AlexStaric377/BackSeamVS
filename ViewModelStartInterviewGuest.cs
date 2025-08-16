@@ -40,7 +40,7 @@ namespace BackSeam
             PrintComplInterview = false, StopDialog = false, SaveAnalogDiagnoz = false, loadboolPacientProfil=false, loadTreeInterview = false;
         public static string ActCompletedInterview = "null", ActCreatInterview="", IndikatorSelected = "",InfoSborka="", 
                              selectedComplaintname = "", selectFeature = "", selectGrDetailing = "", selectQualification = "", selectIcdGrDiagnoz ="";
-        public static string InputContent = "", PacientContent = "", LikarContent = "", RegIdUser = "", RegUserStatus = "";
+        public static string InputContent = "", PacientContent = "", LikarContent = "", RegIdUser = "", RegUserStatus = "", selectopenwin = "";
         public static MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
         public static int NumberstrokaGuest = 0, IdItemGuestInterv = 0, selectindex = 0;
         private bool endwhile = false;
@@ -493,6 +493,7 @@ namespace BackSeam
 
         public static void OpenNsiComplaint()
         {
+            selectopenwin = "OpenNsiComplaint";
             MapOpisViewModel.ActCreatInterview = "SelectInterview";
             NsiComplaint NewOrder = new NsiComplaint();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-50;
@@ -505,6 +506,7 @@ namespace BackSeam
 
         public static void OpenNsiFeature()
         {
+            selectopenwin = "OpenNsiFeature";
             MapOpisViewModel.ActCreatInterview = "SelectInterview";
             selectedComplaintname = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
             ViewModelNsiFeature.jasonstoka = ViewModelNsiFeature.pathFeatureController + "0/" + selectedGuestInterv.kodDetailing + "/0"; ;
@@ -517,27 +519,27 @@ namespace BackSeam
 
         public static void OpenNsiDetailing()
         {
-
-                MapOpisViewModel.ActCreatInterview = "SelectInterview";
-                selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
-                string pathcontroller = "/api/DetailingController/";
-                string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
-                CallServer.PostServer(pathcontroller, jason, "GETID");
-                string CmdStroka = CallServer.ServerReturn();
-                if (CmdStroka.Contains("[]") == false)
-                {
-                    ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
-                    LoadNsiGrDetailing();
-                    if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
-                    { 
-                        NsiDetailing NewNsi = new NsiDetailing();
-                        NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
-                        NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
-                        NewNsi.ShowDialog();            
+            selectopenwin = "OpenNsiDetailing";
+            MapOpisViewModel.ActCreatInterview = "SelectInterview";
+            selectFeature = GuestIntervs[IdItemGuestInterv - 1].detailsInterview;
+            string pathcontroller = "/api/DetailingController/";
+            string jason = pathcontroller + "0/" + MapOpisViewModel.selectedGuestInterv.kodDetailing + "/0";
+            CallServer.PostServer(pathcontroller, jason, "GETID");
+            string CmdStroka = CallServer.ServerReturn();
+            if (CmdStroka.Contains("[]") == false)
+            {
+                ViewModelNsiDetailing.ObservableNsiModelFeatures(CmdStroka);
+                LoadNsiGrDetailing();
+                if (ViewModelNsiDetailing.NsiModelDetailings.Count() > 0)
+                { 
+                    NsiDetailing NewNsi = new NsiDetailing();
+                    NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
+                    NewNsi.Top = (MainWindow.ScreenHeight / 2) - 350;
+                    NewNsi.ShowDialog();            
                
-                    }
-                    ViewModelNsiDetailing.NsiModelDetailings = null;
                 }
+                ViewModelNsiDetailing.NsiModelDetailings = null;
+            }
         }
 
 
@@ -563,7 +565,8 @@ namespace BackSeam
                         
                     }
                     if (StrokaInterview.Contains(modelDetailing.keyGrDetailing) == true && GrDetailing == false) //+";"|| StrokaInterview.Contains("[]") == true
-                    { 
+                    {
+                        selectopenwin = "LoadNsiGrDetailing";
                         ViewModelNsiDetailing.selectedDetailing = modelDetailing;
                         MapOpisViewModel.selectGrDetailing = selectFeature+" "+ modelDetailing.nameDetailing.ToString().ToUpper();
                         WinNsiGrDetailing NewOrder = new WinNsiGrDetailing();
@@ -579,6 +582,7 @@ namespace BackSeam
 
         public static void OpenNsiGrDetailing()
         {
+            selectopenwin = "OpenNsiGrDetailing";
             MapOpisViewModel.ActCreatInterview = "CreatInterview";
             WinNsiGrDetailing NewNsi = new WinNsiGrDetailing();
             NewNsi.Left = (MainWindow.ScreenWidth / 2)-70;
@@ -672,7 +676,10 @@ namespace BackSeam
 
         private static bool AddGrDetail()
         {
-            
+            if (selectopenwin == "OpenNsiComplaint" || selectopenwin == "OpenNsiFeature")
+            {
+                return true;
+            }
             if (addInterviewGrDetail == true && ListGrDetail.Contains(nameFeature3.Substring(0, nameFeature3.IndexOf(":"))) == false)
             {
                 string checkgrdetail = ListGrDetail + nameFeature3.Substring(0, nameFeature3.IndexOf(":")) + ";";
@@ -707,6 +714,7 @@ namespace BackSeam
                 detailsInterview += modelCompletedInterview.kodDetailing + ";";
             }
             detailsInterview += selectedaddContent.kodDetailing + ";";
+            if (selectopenwin == "OpenNsiFeature" && detailsInterview.Length > 16) return;
             string jason = Interviewcontroller + "0/0/0/0/"+ detailsInterview ;
             CallServer.PostServer(Interviewcontroller, jason, "GETID");
             StrokaInterview = CallServer.ServerReturn();
