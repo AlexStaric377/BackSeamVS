@@ -56,7 +56,7 @@ namespace BackSeam
         public static  void GrupIcdGrDiagnoz()
         {
             string strokaIcdGrDiagnoz = "";
-            
+            TmpDiagnozs = new ObservableCollection<ModelDiagnoz>();
             foreach (ModelDiagnoz modelDiagnoz in ViewDiagnozs)
             {
                 if (modelDiagnoz.kodDiagnoza == "" || modelDiagnoz.kodDiagnoza == null)

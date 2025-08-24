@@ -64,6 +64,8 @@ namespace BackSeam
             int indexrepl = 0;
             foreach (MedicalInstitution medicalInstitution in VeiwModelMedicals)
             {
+                if (medicalInstitution.kodZaklad == null) NewkodZaklad();
+ 
                 string json = controlerStatusZaklad + medicalInstitution.idstatus;
                 CallServer.PostServer(controlerStatusZaklad, json, "GETID");
                 CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -72,6 +74,27 @@ namespace BackSeam
                 indexrepl++;
             }
         
+        }
+
+
+        private static void NewkodZaklad()
+        {
+            int indexdia = 1, setindex = 1;
+            string _repl = "000000000";
+            string kodzaklad = "ZKL." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString(); // "ZKL.000000001";
+           
+            
+                foreach (MedicalInstitution medical in VeiwModelMedicals)
+                {
+                    if (medical.kodZaklad == null)
+                    {
+                        medical.kodZaklad = "ZKL." + _repl.Substring(0, _repl.Length - setindex.ToString().Length) + setindex.ToString();
+                        json = JsonConvert.SerializeObject(medical);
+                        CallServer.PostServer(controlerStatusZaklad, json, "PUT");
+                    }
+                    else setindex = Convert.ToInt32(medical.kodZaklad.Substring(medical.kodZaklad.LastIndexOf(".") + 1, medical.kodZaklad.Length - (medical.kodZaklad.LastIndexOf(".") + 1)));
+                    setindex++;
+                }
         }
         #region Команды вставки, удаления и редектирования справочника "Мед заклади"
         /// <summary>
@@ -382,7 +405,7 @@ namespace BackSeam
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                               StatusMedZaklad Idinsert = JsonConvert.DeserializeObject<StatusMedZaklad>(CallServer.ResponseFromServer);
  
-                              VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus += Idinsert.nameStatus;
+                              VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus += ":"+ Idinsert.nameStatus;
 
                           }
                           EdrpouMedZaklad = WindowMedical.Medicalt2.Text;                      
