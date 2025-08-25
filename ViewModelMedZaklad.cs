@@ -90,7 +90,7 @@ namespace BackSeam
                     {
                         medical.kodZaklad = "ZKL." + _repl.Substring(0, _repl.Length - setindex.ToString().Length) + setindex.ToString();
                         json = JsonConvert.SerializeObject(medical);
-                        CallServer.PostServer(controlerStatusZaklad, json, "PUT");
+                        CallServer.PostServer(controlerMedical, json, "PUT");
                     }
                     else setindex = Convert.ToInt32(medical.kodZaklad.Substring(medical.kodZaklad.LastIndexOf(".") + 1, medical.kodZaklad.Length - (medical.kodZaklad.LastIndexOf(".") + 1)));
                     setindex++;
@@ -397,7 +397,8 @@ namespace BackSeam
                           WindowMedical.FolderWebUriZaklad.Visibility = Visibility.Visible;
                           WindowMedical.FolderWorkzaklad.Visibility = Visibility.Visible;
                           WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
-                          
+                          selectedMedical = VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex];
+
                           if (VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus.Length<=2)
                           { 
                               string json = controlerStatusZaklad + VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex].idstatus;

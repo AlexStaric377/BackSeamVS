@@ -43,8 +43,22 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelMedGrupDiagnoz>(CmdStroka);
             List<ModelMedGrupDiagnoz> res = result.ModelMedGrupDiagnoz.ToList();
             MedGrupDiagnozs = new ObservableCollection<ModelMedGrupDiagnoz>((IEnumerable<ModelMedGrupDiagnoz>)res);
+            Selectnewkodzaklad();
 
+        }
 
+        private static void Selectnewkodzaklad()
+        {
+            foreach (ModelMedGrupDiagnoz modelMedGrupDiagnoz in MedGrupDiagnozs)
+            {
+                if (modelMedGrupDiagnoz.kodZaklad == null)
+                {
+                    modelMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedMedical.kodZaklad;
+                    string json = JsonConvert.SerializeObject(modelMedGrupDiagnoz);
+                    CallServer.PostServer(controlerGrDiagnoz, json, "PUT");
+
+                }
+            }
         }
 
         public static void ObservableViewStatusZaklads(string CmdStroka)
@@ -75,7 +89,7 @@ namespace BackSeam
             }
             else
             { 
-                string json = controlerGrDiagnoz + MapOpisViewModel.EdrpouMedZaklad+"/0/0";
+                string json = controlerGrDiagnoz + "0/0/0/" + MapOpisViewModel.selectedMedical.kodZaklad ;
                 CallServer.PostServer(controlerGrDiagnoz, json, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 ObservableViewGrDiagnoz(CmdStroka);            
@@ -174,6 +188,7 @@ namespace BackSeam
             selectedMedGrupDiagnoz = new ModelMedGrupDiagnoz();
             selectedMedGrupDiagnoz.edrpou = MapOpisViewModel.EdrpouMedZaklad;
             selectedMedGrupDiagnoz.icdGrDiagnoz = diagnoz;
+            selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedMedical.kodZaklad;
 
             string jason = MapOpisViewModel.controlerIcd + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz;
             CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
