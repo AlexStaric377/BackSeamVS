@@ -546,13 +546,11 @@ namespace BackSeam
             }
 
             WinNsiMedZaklad NewOrder = new WinNsiMedZaklad();
-            //NewOrder.Left = 600;
-            //NewOrder.Top = 200;
             NewOrder.ShowDialog();
 
             if (ViewModelNsiMedZaklad.selectedMedZaklad != null)
             {
-                selectedDoctor.edrpou = ViewModelNsiMedZaklad.selectedMedZaklad.edrpou;
+                selectedDoctor.edrpou = ViewModelNsiMedZaklad.selectedMedZaklad.kodZaklad;
                 WindowDoctor.Doctort9.Text = ViewModelNsiMedZaklad.selectedMedZaklad.name;
                 WindowDoctor.Doctort5.Text = ViewModelNsiMedZaklad.selectedMedZaklad.postIndex;
                 WindowDoctor.Doctort4.Text = ViewModelNsiMedZaklad.selectedMedZaklad.adres;

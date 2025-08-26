@@ -6559,11 +6559,6 @@
                                                             <TextBlock x:Name="DoctorHeader3"  Text="Спеціальність"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="DoctorColumn4" FontSize="14" Width="100" Binding="{Binding Path=edrpou}">
-                                                        <DataGridTextColumn.Header>
-                                                            <TextBlock x:Name="DoctorHeader4"  Text="ЕДРПОУ"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                                                        </DataGridTextColumn.Header>
-                                                    </DataGridTextColumn>
                                                     <DataGridTextColumn x:Name="DoctorColumn5" FontSize="14"  Width="360" Binding="{Binding Path=nameZaklad}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="DoctorHeader5"  Text="Назва Мед. закладу"  TextWrapping="Wrap" HorizontalAlignment="Center"/>

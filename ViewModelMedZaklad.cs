@@ -43,6 +43,7 @@ namespace BackSeam
         public static string controlerMedical =  "/api/MedicalInstitutionController/";
         public static string controlerStatusZaklad = "/api/ControllerStatusMedZaklad/";
         public static MedicalInstitution selectedMedical;
+        public string selectAddEdit = "";
 
         public static ObservableCollection<MedicalInstitution> VeiwModelMedicals { get; set; }
 
@@ -95,6 +96,8 @@ namespace BackSeam
                     else setindex = Convert.ToInt32(medical.kodZaklad.Substring(medical.kodZaklad.LastIndexOf(".") + 1, medical.kodZaklad.Length - (medical.kodZaklad.LastIndexOf(".") + 1)));
                     setindex++;
                 }
+                selectedMedical.kodZaklad = "ZKL." + _repl.Substring(0, _repl.Length - setindex.ToString().Length) + setindex.ToString();
+ 
         }
         #region Команды вставки, удаления и редектирования справочника "Мед заклади"
         /// <summary>
@@ -142,7 +145,7 @@ namespace BackSeam
             WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
             SelectedMedical = new MedicalInstitution();
             selectedMedical = new MedicalInstitution();
-            IndexAddEdit = "addCommand";
+            selectAddEdit = "addCommand";
             if (activVeiwMedical == false) ModelMedicaltrue();
             else ModelMedicalfalse();
         }
@@ -180,8 +183,8 @@ namespace BackSeam
                               ModelMedicalfalse();
                           }
                       }
-                      
-                      IndexAddEdit = "";
+
+                      selectAddEdit = "";
                   },
                  (obj) => VeiwModelMedicals != null));
             }
@@ -200,8 +203,8 @@ namespace BackSeam
                   {
                       if (WindowMedical.MedicalTablGrid.SelectedIndex >= 0)
                       {
-                          
-                          IndexAddEdit = "editCommand";
+
+                          selectAddEdit = "editCommand";
                           if (activeditVeiwModelMedical == false)
                           {
                               selectedMedical = VeiwModelMedicals[WindowMedical.MedicalTablGrid.SelectedIndex];
@@ -233,7 +236,9 @@ namespace BackSeam
                           {
                               selectedMedical = new  MedicalInstitution();
                               selectedMedical.id = 0;
+
                           }
+                          
                           selectedMedical.edrpou = WindowMedical.Medicalt2.Text.ToString();
                           selectedMedical.name = WindowMedical.Medicalt3.Text.ToString();
                           selectedMedical.adres = WindowMedical.Medicalt5.Text.ToString();
@@ -241,15 +246,16 @@ namespace BackSeam
                           selectedMedical.postIndex = WindowMedical.Medicalt4.Text.ToString();
                           selectedMedical.telefon = WindowMedical.Medicalt8.Text.ToString();
                           selectedMedical.uriwebZaklad = WindowMedical.MedicalBoxUriWeb.Text.ToString();
-                          selectedMedical.idstatus = selectedMedical.idstatus.Substring(0, selectedMedical.idstatus.IndexOf(":"));
+                          selectedMedical.idstatus = WindowMedical.Medicalt11.Text.Substring(0, WindowMedical.Medicalt11.Text.IndexOf(":"));
+                          NewkodZaklad();
                           var json = JsonConvert.SerializeObject(selectedMedical);
-                          string Method = IndexAddEdit == "addCommand" ? "POST" : "PUT";
+                          string Method = selectAddEdit == "addCommand" ? "POST" : "PUT";
                           CallServer.PostServer(controlerMedical, json, Method);
                           CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                           json = CallServer.ResponseFromServer.Replace("/", "*").Replace("?", "_"); 
                           MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
                           if (VeiwModelMedicals == null)VeiwModelMedicals = new ObservableCollection<MedicalInstitution>();
-                          if (IndexAddEdit == "addCommand")
+                          if (selectAddEdit == "addCommand")
                           { 
                             VeiwModelMedicals.Add(Idinsert);
                             WindowMedical.MedicalTablGrid.ItemsSource = VeiwModelMedicals;
@@ -315,14 +321,14 @@ namespace BackSeam
             WindowMedical.FolderStatuszaklad.Visibility = Visibility.Visible;
             WindowMedical.MedicalTablGrid.IsEnabled = false;
 
-            if (IndexAddEdit == "addCommand")
+            if (selectAddEdit == "addCommand")
             {
                 WindowMedical.BorderLoadMedical.IsEnabled = false;
                 WindowMedical.BorderGhangeMedical.IsEnabled = false;
                 WindowMedical.BorderDeleteMedical.IsEnabled = false;
                 WindowMedical.BorderPrintMedical.IsEnabled = false;
             }
-            if (IndexAddEdit == "editCommand")
+            if (selectAddEdit == "editCommand")
             {
                 WindowMedical.BorderLoadMedical.IsEnabled = false;
                 WindowMedical.BorderAddMedical.IsEnabled = false;
