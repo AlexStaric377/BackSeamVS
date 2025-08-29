@@ -188,8 +188,9 @@ namespace BackSeam
             selectedMedGrupDiagnoz = new ModelMedGrupDiagnoz();
             selectedMedGrupDiagnoz.edrpou = MapOpisViewModel.EdrpouMedZaklad;
             selectedMedGrupDiagnoz.icdGrDiagnoz = diagnoz;
-            selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedMedical.kodZaklad;
-
+            if(MapOpisViewModel.selectedMedical != null)  selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedMedical.kodZaklad;
+            else selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedDoctor.edrpou;
+            
             string jason = MapOpisViewModel.controlerIcd + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz;
             CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
             string CmdStroka = CallServer.ServerReturn();

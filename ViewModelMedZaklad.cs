@@ -83,9 +83,9 @@ namespace BackSeam
             int indexdia = 1, setindex = 1;
             string _repl = "000000000";
             string kodzaklad = "ZKL." + _repl.Substring(0, _repl.Length - indexdia.ToString().Length) + indexdia.ToString(); // "ZKL.000000001";
-           
-            
-                foreach (MedicalInstitution medical in VeiwModelMedicals)
+
+
+            foreach (MedicalInstitution medical in VeiwModelMedicals.OrderBy(x => x.kodZaklad))
                 {
                     if (medical.kodZaklad == null)
                     {
@@ -146,6 +146,7 @@ namespace BackSeam
             SelectedMedical = new MedicalInstitution();
             selectedMedical = new MedicalInstitution();
             selectAddEdit = "addCommand";
+            NewkodZaklad();
             if (activVeiwMedical == false) ModelMedicaltrue();
             else ModelMedicalfalse();
         }
@@ -232,12 +233,12 @@ namespace BackSeam
                       
                       if (WindowMedical.Medicalt2.Text.Trim().Length != 0 & WindowMedical.Medicalt3.Text.Trim().Length != 0)
                       {
-                          if (selectedMedical == null)
-                          {
-                              selectedMedical = new  MedicalInstitution();
-                              selectedMedical.id = 0;
+                          //if (selectedMedical == null)
+                          //{
+                          //    selectedMedical = new  MedicalInstitution();
+                          //    selectedMedical.id = 0;
 
-                          }
+                          //}
                           
                           selectedMedical.edrpou = WindowMedical.Medicalt2.Text.ToString();
                           selectedMedical.name = WindowMedical.Medicalt3.Text.ToString();
@@ -247,7 +248,7 @@ namespace BackSeam
                           selectedMedical.telefon = WindowMedical.Medicalt8.Text.ToString();
                           selectedMedical.uriwebZaklad = WindowMedical.MedicalBoxUriWeb.Text.ToString();
                           selectedMedical.idstatus = WindowMedical.Medicalt11.Text.Substring(0, WindowMedical.Medicalt11.Text.IndexOf(":"));
-                          NewkodZaklad();
+                         
                           var json = JsonConvert.SerializeObject(selectedMedical);
                           string Method = selectAddEdit == "addCommand" ? "POST" : "PUT";
                           CallServer.PostServer(controlerMedical, json, Method);

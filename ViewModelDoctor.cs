@@ -35,9 +35,9 @@ namespace BackSeam
         /// </summary>      
         public static MainWindow WindowDoctor = MainWindow.LinkNameWindow("BackMain");
         private bool editboolDoctor = false, addboolDoctor = false, loadboolDoctor = false;
-        public static string pathcontrolerDoctor = "/api/ApiControllerDoctor/";
+        public static string pathcontrolerDoctor = "/api/ApiControllerDoctor/", comAddEdit = "";
         private static string pathcontrolerMedZaklad = "/api/MedicalInstitutionController/";
-        private ModelDoctor selectedDoctor;
+        public static ModelDoctor selectedDoctor;
         public static ModelGridDoctor selectedGridDoctor;
         public static string CallViewDoctor = "";
         public static ObservableCollection<ModelDoctor> ViewDoctors { get; set; }
@@ -58,7 +58,7 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelDoctor>(CmdStroka);
             List<ModelDoctor> res = result.ModelDoctor.ToList();
             ViewDoctors = new ObservableCollection<ModelDoctor>((IEnumerable<ModelDoctor>)res);
-            IndexAddEdit = "";
+            comAddEdit = "";
             MetodLoadGridDoctor();
         }
 
@@ -195,7 +195,7 @@ namespace BackSeam
             MainWindow WindowDoc = MainWindow.LinkNameWindow("BackMain");
             selectedDoctor = new ModelDoctor();
             WindowDoc.DoctorTablGrid.SelectedItem = null;
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            comAddEdit = comAddEdit == "addCommand" ? "" : "addCommand";
             if (addboolDoctor == false)
             {
                 SelectedGridDoctor = new ModelGridDoctor();
@@ -240,14 +240,14 @@ namespace BackSeam
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Visible;
             WindowDoctor.FolderLikarGrDia.Visibility = Visibility.Visible;
             WindowDoctor.DoctorTablGrid.IsEnabled = false;
-            if (IndexAddEdit == "addCommand")
+            if (comAddEdit == "addCommand")
             {
                 WindowMedical.BorderLoadDoctor.IsEnabled = false;
                 WindowMedical.BorderGhangeDoctor.IsEnabled = false;
                 WindowMedical.BorderDeleteDoctor.IsEnabled = false;
                 WindowMedical.BorderPrintDoctor.IsEnabled = false;
             }
-            if (IndexAddEdit == "editCommand")
+            if (comAddEdit == "editCommand")
             {
                 WindowMedical.BorderLoadDoctor.IsEnabled = false;
                 WindowMedical.BorderAddDoctor.IsEnabled = false;
@@ -284,7 +284,7 @@ namespace BackSeam
             WindowMedical.BorderDeleteDoctor.IsEnabled = true;
             WindowMedical.BorderPrintDoctor.IsEnabled = true;
             WindowMedical.BorderAddDoctor.IsEnabled = true;
-
+            comAddEdit = "";
         }
 
         // команда удаления
@@ -315,7 +315,7 @@ namespace BackSeam
                           }
 
                       }
-                      IndexAddEdit = "";
+
                   },
                  (obj) => ViewDoctors != null));
             }
@@ -369,9 +369,9 @@ namespace BackSeam
                 return editDoctor ??
                   (editDoctor = new RelayCommand(obj =>
                   {
-                      if (selectedGridDoctor != null && selectedGridDoctor.id !=0)
+                      if (ViewGridDoctors != null )
                       {
-                          IndexAddEdit = "editCommand";
+                          comAddEdit = "editCommand";
                           if (editboolDoctor == false)
                           {
                               selectedDoctor = ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex];
@@ -381,7 +381,6 @@ namespace BackSeam
                           {
                               BoolFalseDoctor();
                               WindowDoctor.DoctorTablGrid.SelectedItem = null;
-                              IndexAddEdit = "";
                           }
                       }
                   }));
@@ -409,7 +408,7 @@ namespace BackSeam
                           selectedDoctor.email = WindowDoctor.Doctort7.Text.ToString();
                           selectedDoctor.napryamok = WindowDoctor.DoctorNaprTextBox.Text.ToString();
                           selectedDoctor.uriwebDoctor = WindowDoctor.DoctortBoxUri.Text.ToString();
-                          if (IndexAddEdit == "addCommand")
+                          if (comAddEdit == "addCommand")
                           {
                               SelectNewDoctor();
                               json = JsonConvert.SerializeObject(selectedDoctor);
@@ -433,7 +432,6 @@ namespace BackSeam
                       }
                       SelectedGridDoctor = new ModelGridDoctor();
                       WindowDoctor.DoctorTablGrid.SelectedItem = null;
-                      IndexAddEdit = "";
                       BoolFalseDoctor();
 
                   }));
@@ -445,27 +443,24 @@ namespace BackSeam
         {
             if (selectedDoctor == null) selectedDoctor = new ModelDoctor();
             if (ViewGridDoctors == null) ViewGridDoctors = new ObservableCollection<ModelGridDoctor>();
-            if (IndexAddEdit == "addCommand")
-            {
-                if (ViewDoctors != null)
-                {
-                    int _keyDoctorindex = 0, setindex = 0;
-                    _keyDoctorindex = Convert.ToInt32(ViewDoctors[0].kodDoctor.Substring(ViewDoctors[0].kodDoctor.LastIndexOf(".") + 1, ViewDoctors[0].kodDoctor.Length - (ViewDoctors[0].kodDoctor.LastIndexOf(".") + 1)));
-                    for (int i = 0; i < ViewDoctors.Count; i++)
-                    {
-                        setindex = Convert.ToInt32(ViewDoctors[i].kodDoctor.Substring(ViewDoctors[i].kodDoctor.LastIndexOf(".") + 1, ViewDoctors[i].kodDoctor.Length - (ViewDoctors[i].kodDoctor.LastIndexOf(".") + 1)));
-                        if (_keyDoctorindex < setindex) _keyDoctorindex = setindex;
-                    }
-                    _keyDoctorindex++;
-                    string _repl = "000000000";
-                    selectedDoctor.kodDoctor = "DTR." + _repl.Substring(0, _repl.Length - _keyDoctorindex.ToString().Length) + _keyDoctorindex.ToString();
-                }
-                else
-                {
-                    ViewDoctors = new ObservableCollection<ModelDoctor>();
-                    selectedDoctor.kodDoctor = "DTR.000000001";
-                }
 
+            if (ViewDoctors != null)
+            {
+                int _keyDoctorindex = 0, setindex = 0;
+                _keyDoctorindex = Convert.ToInt32(ViewDoctors[0].kodDoctor.Substring(ViewDoctors[0].kodDoctor.LastIndexOf(".") + 1, ViewDoctors[0].kodDoctor.Length - (ViewDoctors[0].kodDoctor.LastIndexOf(".") + 1)));
+                for (int i = 0; i < ViewDoctors.Count; i++)
+                {
+                    setindex = Convert.ToInt32(ViewDoctors[i].kodDoctor.Substring(ViewDoctors[i].kodDoctor.LastIndexOf(".") + 1, ViewDoctors[i].kodDoctor.Length - (ViewDoctors[i].kodDoctor.LastIndexOf(".") + 1)));
+                    if (_keyDoctorindex < setindex) _keyDoctorindex = setindex;
+                }
+                _keyDoctorindex++;
+                string _repl = "000000000";
+                selectedDoctor.kodDoctor = "DTR." + _repl.Substring(0, _repl.Length - _keyDoctorindex.ToString().Length) + _keyDoctorindex.ToString();
+            }
+            else
+            {
+                ViewDoctors = new ObservableCollection<ModelDoctor>();
+                selectedDoctor.kodDoctor = "DTR.000000001";
             }
 
             selectedGridDoctor = new ModelGridDoctor();
@@ -482,25 +477,21 @@ namespace BackSeam
             selectedGridDoctor.adrZaklad = WindowDoctor.Doctort4.Text.ToString();
             selectedGridDoctor.uriwebDoctor = selectedDoctor.uriwebDoctor;
             selectedGridDoctor.napryamok = selectedDoctor.napryamok;
-            if (IndexAddEdit == "addCommand") ViewGridDoctors.Add(selectedGridDoctor);
+            if (comAddEdit  == "addCommand") ViewGridDoctors.Add(selectedGridDoctor);
             else ViewGridDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex] = selectedGridDoctor;
             WindowDoctor.DoctorTablGrid.ItemsSource = ViewGridDoctors;
 
-
-            if (_kodDoctor == "")
+            if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs !=null && ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs.Count > 0)
             {
-
-                if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs !=null && ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs.Count > 0)
+                foreach (ModelLikarGrupDiagnoz modelLikarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
                 {
-                    foreach (ModelLikarGrupDiagnoz modelLikarGrupDiagnoz in ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs)
-                    {
-                        modelLikarGrupDiagnoz.kodDoctor = selectedDoctor.kodDoctor;
-                        string json = JsonConvert.SerializeObject(modelLikarGrupDiagnoz);
-                        CallServer.PostServer(controlerLikarGrDiagnoz, json, "POST");
-                    }
-
+                    modelLikarGrupDiagnoz.kodDoctor = selectedDoctor.kodDoctor;
+                    string json = JsonConvert.SerializeObject(modelLikarGrupDiagnoz);
+                    CallServer.PostServer(controlerLikarGrDiagnoz, json, "POST");
                 }
+
             }
+        
         }
 
         // команда печати
@@ -558,7 +549,7 @@ namespace BackSeam
             }
 
         }
-
+        
         // команда загрузки сайта
         private RelayCommand? gridProfilWebUriLikar;
         public RelayCommand GridProfilWebUriLikar
@@ -610,8 +601,7 @@ namespace BackSeam
                           WindowMedical.FolderWebUriLikar.Visibility = Visibility.Visible;
                           WindowMedical.FolderLikarGrDia.Visibility = Visibility.Visible;
                           _kodDoctor = selectedDoctor.kodDoctor;
-
-
+                    
                       }
 
                   }));
