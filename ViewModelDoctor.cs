@@ -36,7 +36,7 @@ namespace BackSeam
         public static MainWindow WindowDoctor = MainWindow.LinkNameWindow("BackMain");
         private bool editboolDoctor = false, addboolDoctor = false, loadboolDoctor = false;
         public static string pathcontrolerDoctor = "/api/ApiControllerDoctor/", comAddEdit = "";
-        private static string pathcontrolerMedZaklad = "/api/MedicalInstitutionController/";
+        public static string pathcontrolerMedZaklad = "/api/MedicalInstitutionController/";
         public static ModelDoctor selectedDoctor;
         public static ModelGridDoctor selectedGridDoctor;
         public static string CallViewDoctor = "";
@@ -200,6 +200,7 @@ namespace BackSeam
             {
                 SelectedGridDoctor = new ModelGridDoctor();
                 BoolTrueDoctor();
+                SelectNewDoctor();
             }
             else BoolFalseDoctor();
 
@@ -410,7 +411,7 @@ namespace BackSeam
                           selectedDoctor.uriwebDoctor = WindowDoctor.DoctortBoxUri.Text.ToString();
                           if (comAddEdit == "addCommand")
                           {
-                              SelectNewDoctor();
+                              AddNewOpisDoctor();
                               json = JsonConvert.SerializeObject(selectedDoctor);
                               CallServer.PostServer(pathcontrolerDoctor, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
@@ -462,6 +463,11 @@ namespace BackSeam
                 ViewDoctors = new ObservableCollection<ModelDoctor>();
                 selectedDoctor.kodDoctor = "DTR.000000001";
             }
+
+        }
+
+        private void AddNewOpisDoctor()
+        { 
 
             selectedGridDoctor = new ModelGridDoctor();
             selectedGridDoctor.kodDoctor = selectedDoctor.kodDoctor;

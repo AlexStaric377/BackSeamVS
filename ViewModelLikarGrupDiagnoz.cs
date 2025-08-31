@@ -52,10 +52,53 @@ namespace BackSeam
             CallServer.PostServer(controlerLikarGrDiagnoz, json, "GETID");
             string CmdStroka = CallServer.ServerReturn();
             ObservableViewLikarGrDiagnoz(CmdStroka);
- 
+            FuncSinxrMedicGrupDiagnoz();
+                
 
         }
 
+
+        private void FuncSinxrMedicGrupDiagnoz()
+        {
+            foreach (ModelLikarGrupDiagnoz modelLikarGrupDiagnoz in LikarGrupDiagnozs)
+            {
+                ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz = new ModelMedGrupDiagnoz();
+                string jason = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/" + modelLikarGrupDiagnoz.icdGrDiagnoz + "/0/0";
+                CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, jason, "GETID");
+                string CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == true)
+                {
+                    string json = MapOpisViewModel.pathcontrolerMedZaklad + MapOpisViewModel.selectedDoctor.edrpou.ToString() + "/0/0/0"; //
+                    CallServer.PostServer(MapOpisViewModel.pathcontrolerMedZaklad, json, "GETID");
+                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                    MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
+                    if (Idinsert != null)
+                    {
+                        jason = MapOpisViewModel.controlerIcd + "0/" + modelLikarGrupDiagnoz.icdGrDiagnoz ;
+                        CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
+                        CmdStroka = CallServer.ServerReturn();
+                        if (CmdStroka.Contains("[]") == false)
+                        {
+
+                            var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+                            List<ModelIcd> res = result.ModelIcd.ToList();
+                            MapOpisViewModel.VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+                            ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz.icdKey = MapOpisViewModel.VeiwModelIcds[0].keyIcd;
+                        }
+                        else ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz.icdKey = modelLikarGrupDiagnoz.icdGrDiagnoz.Substring(0, modelLikarGrupDiagnoz.icdGrDiagnoz.IndexOf(".")+1);
+                        ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz.edrpou = Idinsert.edrpou;
+                        ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz.icdGrDiagnoz = modelLikarGrupDiagnoz.icdGrDiagnoz;
+                        ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz.kodZaklad = Idinsert.kodZaklad;
+                        json = JsonConvert.SerializeObject(ViewModelMedicalGrDiagnoz.selectedMedGrupDiagnoz);
+                        CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "POST");                  
+                    }
+ 
+                
+                }
+            }
+        
+        
+        }
         // команда закрытия окна
         RelayCommand? closeLikarGrDiagnoz;
         public RelayCommand CloseLikarGrDiagnoz

@@ -190,22 +190,30 @@ namespace BackSeam
             selectedMedGrupDiagnoz.icdGrDiagnoz = diagnoz;
             if(MapOpisViewModel.selectedMedical != null)  selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedMedical.kodZaklad;
             else selectedMedGrupDiagnoz.kodZaklad = MapOpisViewModel.selectedDoctor.edrpou;
-            
-            string jason = MapOpisViewModel.controlerIcd + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz;
-            CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
+
+            string jason = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz + "/0/0";
+            CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, jason, "GETID");
             string CmdStroka = CallServer.ServerReturn();
-            if (CmdStroka.Contains("[]") == false)
-            {
-                var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
-                List<ModelIcd> res = result.ModelIcd.ToList();
-                MapOpisViewModel.VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
-                selectedMedGrupDiagnoz.icdKey = MapOpisViewModel.VeiwModelIcds[0].keyIcd;
+            if (CmdStroka.Contains("[]") == true)
+            { 
+                jason = MapOpisViewModel.controlerIcd + "0/" + selectedMedGrupDiagnoz.icdGrDiagnoz;
+                CallServer.PostServer(MapOpisViewModel.controlerIcd, jason, "GETID");
+                CmdStroka = CallServer.ServerReturn();
+                if (CmdStroka.Contains("[]") == false)
+                {
+                    var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+                    List<ModelIcd> res = result.ModelIcd.ToList();
+                    MapOpisViewModel.VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+                    selectedMedGrupDiagnoz.icdKey = MapOpisViewModel.VeiwModelIcds[0].keyIcd;
+                }
+                string json = JsonConvert.SerializeObject(selectedMedGrupDiagnoz);
+                CallServer.PostServer(controlerGrDiagnoz, json, "POST");
+                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                ModelMedGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelMedGrupDiagnoz>(CallServer.ResponseFromServer);
+                if (Idinsert != null && MedGrupDiagnozs != null)MedGrupDiagnozs.Add(Idinsert);
             }
-            string json = JsonConvert.SerializeObject(selectedMedGrupDiagnoz);
-            CallServer.PostServer(controlerGrDiagnoz, json, "POST");
-            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-            ModelMedGrupDiagnoz Idinsert = JsonConvert.DeserializeObject<ModelMedGrupDiagnoz>(CallServer.ResponseFromServer);
-            if (Idinsert != null && MedGrupDiagnozs != null)MedGrupDiagnozs.Add(Idinsert);
+
+ 
         }
 
         

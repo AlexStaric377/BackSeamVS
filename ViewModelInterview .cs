@@ -508,8 +508,8 @@ namespace BackSeam
                                     { 
                                         CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                                         ModelDiagnoz NameDiagnoz = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                                      if (NameDiagnoz.keyIcd.Length > 16) keyIcd = NameDiagnoz.keyIcd.Substring(NameDiagnoz.keyIcd.LastIndexOf(".") - 7, NameDiagnoz.keyIcd.Length - (NameDiagnoz.keyIcd.LastIndexOf(".") - 7));
-                                      else keyIcd = NameDiagnoz.keyIcd.Substring(8, 10);
+                                      if (NameDiagnoz.keyIcd.Length > 18) keyIcd = NameDiagnoz.keyIcd.Substring(NameDiagnoz.keyIcd.LastIndexOf(".") - 7, NameDiagnoz.keyIcd.Length - (NameDiagnoz.keyIcd.LastIndexOf(".") - 7));
+                                      else keyIcd = NameDiagnoz.keyIcd;
                                       WindowInterv.InterviewDependencyt2.Text = keyIcd + NameDiagnoz.nameDiagnoza.ToString();
 
                                     }
