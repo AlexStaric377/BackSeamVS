@@ -62,7 +62,7 @@ namespace BackSeam
                         keygrupicd += grupdiagnoz.Substring(0, grupdiagnoz.IndexOf(".")+1);
                         grupdiagnoz = grupdiagnoz.Substring(grupdiagnoz.IndexOf(".") + 1, grupdiagnoz.Length - (grupdiagnoz.IndexOf(".") + 1));
                         keygrupicd += grupdiagnoz.Substring(0, grupdiagnoz.IndexOf("."));
-                        json = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/0/" + keygrupicd;
+                        json = ViewModelMedicalGrDiagnoz.controlerGrDiagnoz + "0/0/" + keygrupicd+"/0";
                     } 
                     CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
@@ -80,7 +80,7 @@ namespace BackSeam
                                 
                                 foreach (MedicalInstitution medicalInstitution in MapOpisViewModel.VeiwModelMedicals)
                                 {
-                                    if (medGrupDiagnoz.edrpou == medicalInstitution.edrpou)
+                                    if (medGrupDiagnoz.kodZaklad == medicalInstitution.kodZaklad)
                                     {
                                         NsiModelMedZaklads.Add(medicalInstitution);
                                         break;
@@ -89,26 +89,22 @@ namespace BackSeam
                             }
                             else
                             {
-                                if (tmpedrpou != medGrupDiagnoz.edrpou)
+                                if (tmpedrpou != medGrupDiagnoz.kodZaklad)
                                 {
                                   
-                                    json = pathcontrollerMedZaklad + medGrupDiagnoz.edrpou + "/0/0/0";
+                                    json = pathcontrollerMedZaklad + medGrupDiagnoz.kodZaklad + "/0/0/0";
                                     CallServer.PostServer(pathcontrollerMedZaklad, json, "GETID");
                                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                                     {
-                                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                        List<MedicalInstitution> medzaklad = JsonConvert.DeserializeObject<List<MedicalInstitution>>(CallServer.ResponseFromServer);
-                                        if(medzaklad.Count>1)
-                                        {
-
-
-                                        }
-                                        
+                                        CmdStroka = CallServer.ServerReturn();
+                                        var Medical = JsonConvert.DeserializeObject<ListModelMedical>(CmdStroka);
+                                        List<MedicalInstitution> medzaklad = Medical.MedicalInstitution.ToList();
+ 
                                         foreach (MedicalInstitution medicalInstitution in medzaklad)
                                         {
                                             NsiModelMedZaklads.Add(medicalInstitution);
                                         }
-                                        tmpedrpou = NsiModelMedZaklads[0].edrpou;
+                                        tmpedrpou = NsiModelMedZaklads[0].kodZaklad;
                                     }                                                                  
                                    
  
@@ -243,7 +239,7 @@ namespace BackSeam
             {
                 closeWin = true;
                 WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
-                WindowMain.Likart8.Text = selectedMedZaklad.edrpou.ToString();
+                WindowMain.Likart8.Text = selectedMedZaklad.kodZaklad.ToString();
                 WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
                 WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
                 

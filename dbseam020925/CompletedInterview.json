@@ -1,0 +1,1004 @@
+{"id":1,"kodComplInterv":"CMP.000000000001","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":2,"kodComplInterv":"CMP.000000000001","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів без видимої причини"}
+{"id":3,"kodComplInterv":"CMP.000000000001","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":6806,"kodComplInterv":"CMP.000000000001","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":6807,"kodComplInterv":"CMP.000000000001","numberstr":1,"kodDetailing":"B.000.023","detailsInterview":"    кашель з проявом чихання та закладанням носа"}
+{"id":6808,"kodComplInterv":"CMP.000000000001","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель"}
+{"id":6809,"kodComplInterv":"CMP.000000000001","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі"}
+{"id":6810,"kodComplInterv":"CMP.000000000001","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання."}
+{"id":6811,"kodComplInterv":"CMP.000000000001","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі."}
+{"id":6812,"kodComplInterv":"CMP.000000000001","numberstr":6,"kodDetailing":"YAA.014.005","detailsInterview":"        Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)"}
+{"id":6813,"kodComplInterv":"CMP.000000000001","numberstr":7,"kodDetailing":"YAA.014.006","detailsInterview":"        Кашель супроводжується відчуттям \"ускладненого дихання\", стисканням у грудях, затруденим видихом, свистами  "}
+{"id":6814,"kodComplInterv":"CMP.000000000001","numberstr":8,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)"}
+{"id":6815,"kodComplInterv":"CMP.000000000001","numberstr":9,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) "}
+{"id":6816,"kodComplInterv":"CMP.000000000001","numberstr":10,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами."}
+{"id":6817,"kodComplInterv":"CMP.000000000001","numberstr":11,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)"}
+{"id":6818,"kodComplInterv":"CMP.000000000001","numberstr":12,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди"}
+{"id":6819,"kodComplInterv":"CMP.000000000001","numberstr":13,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)"}
+{"id":6820,"kodComplInterv":"CMP.000000000001","numberstr":14,"kodDetailing":"YAA.015.007","detailsInterview":"        Напади ускладненого дихання, кашлю переважно виникають у нічний або ранній ранковий час "}
+{"id":6821,"kodComplInterv":"CMP.000000000001","numberstr":15,"kodDetailing":"YAA.015.008","detailsInterview":"        Напади ускалдненого дихання, кашлю провокуються під час фізичного навантаження, швидкої ходи"}
+{"id":6822,"kodComplInterv":"CMP.000000000001","numberstr":16,"kodDetailing":"YAA.015.009","detailsInterview":"        Напади ускалдненого дихання, кашлю посилюються на вулиці (при вдиханні холодного повітря, морозній погоді)"}
+{"id":6823,"kodComplInterv":"CMP.000000000001","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":6824,"kodComplInterv":"CMP.000000000001","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів без видимої причини або періодичні болі що посилюються"}
+{"id":6825,"kodComplInterv":"CMP.000000000001","numberstr":2,"kodDetailing":"YAA.001.007","detailsInterview":"        Не вгамовується знеболюючими або діє короткочасно"}
+{"id":6826,"kodComplInterv":"CMP.000000000001","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Може супроводжуватися нудотою чи блюванням"}
+{"id":6827,"kodComplInterv":"CMP.000000000001","numberstr":4,"kodDetailing":"YAA.001.002","detailsInterview":"        Може бути запаморочення, головокружіння, порушення координації руху"}
+{"id":6828,"kodComplInterv":"CMP.000000000001","numberstr":5,"kodDetailing":"YAA.001.003","detailsInterview":"        Може з'являтися порушення чутливості, слабкісті в руці в нозі чи в обох кінцівках"}
+{"id":6829,"kodComplInterv":"CMP.000000000001","numberstr":6,"kodDetailing":"YAA.001.004","detailsInterview":"        Можуть виникати судомні приступи"}
+{"id":6830,"kodComplInterv":"CMP.000000000001","numberstr":7,"kodDetailing":"YAA.001.005","detailsInterview":"        Може бути порушення зору, слуху,сприйняття смаку та запахів"}
+{"id":6831,"kodComplInterv":"CMP.000000000001","numberstr":8,"kodDetailing":"YAA.001.006","detailsInterview":"        Може бути порушення функцій органів випорожнення(неутримання сечі, затримки дефікації, закреп)"}
+{"id":4,"kodComplInterv":"CMP.000000000005","numberstr":0,"kodDetailing":"G.000","detailsInterview":" біль в животі"}
+{"id":5,"kodComplInterv":"CMP.000000000005","numberstr":1,"kodDetailing":"G.000.001","detailsInterview":"    біль між нижнім краєм грудної клітки та пахом"}
+{"id":6,"kodComplInterv":"CMP.000000000005","numberstr":2,"kodDetailing":"YGG.000.001","detailsInterview":"        подібні напади відбувалися на протязі декількох днів за останню неділю"}
+{"id":7,"kodComplInterv":"CMP.000000000005","numberstr":3,"kodDetailing":"YKK.000.001","detailsInterview":"        епізодичні проноси"}
+{"id":8,"kodComplInterv":"CMP.000000000005","numberstr":4,"kodDetailing":"YKK.000.004","detailsInterview":"        періодичні запори"}
+{"id":9,"kodComplInterv":"CMP.000000000005","numberstr":5,"kodDetailing":"G.000.002","detailsInterview":"    біль тільки над талією"}
+{"id":10,"kodComplInterv":"CMP.000000000005","numberstr":6,"kodDetailing":"G.000.005","detailsInterview":"    біль в основному нижче пупка"}
+{"id":11,"kodComplInterv":"CMP.000000000006","numberstr":0,"kodDetailing":"G.000","detailsInterview":" біль в животі"}
+{"id":12,"kodComplInterv":"CMP.000000000006","numberstr":1,"kodDetailing":"G.000.001","detailsInterview":"    біль між нижнім краєм грудної клітки та пахом"}
+{"id":13,"kodComplInterv":"CMP.000000000006","numberstr":2,"kodDetailing":"YGG.000.001","detailsInterview":"        подібні напади відбувалися на протязі декількох днів за останню неділю"}
+{"id":14,"kodComplInterv":"CMP.000000000006","numberstr":3,"kodDetailing":"YKK.000.001","detailsInterview":"        епізодичні проноси"}
+{"id":15,"kodComplInterv":"CMP.000000000006","numberstr":4,"kodDetailing":"YKK.000.004","detailsInterview":"        періодичні запори"}
+{"id":16,"kodComplInterv":"CMP.000000000006","numberstr":5,"kodDetailing":"G.000.002","detailsInterview":"    біль тільки над талією"}
+{"id":17,"kodComplInterv":"CMP.000000000006","numberstr":6,"kodDetailing":"G.000.005","detailsInterview":"    біль в основному нижче пупка"}
+{"id":18,"kodComplInterv":"CMP.000000000007","numberstr":1,"kodDetailing":"G.000","detailsInterview":"біль в животі"}
+{"id":19,"kodComplInterv":"CMP.000000000007","numberstr":2,"kodDetailing":"G.000.001","detailsInterview":"  біль між нижнім краєм грудної клітки та пахом"}
+{"id":20,"kodComplInterv":"CMP.000000000007","numberstr":3,"kodDetailing":"G.000.002","detailsInterview":"  біль тільки над талією"}
+{"id":21,"kodComplInterv":"CMP.000000000007","numberstr":4,"kodDetailing":"G.000.005","detailsInterview":"  біль в основному нижче пупка"}
+{"id":22,"kodComplInterv":"CMP.000000000007","numberstr":5,"kodDetailing":"YGG.000.001","detailsInterview":"   подібні напади відбувалися на протязі декількох днів за останню неділю"}
+{"id":23,"kodComplInterv":"CMP.000000000007","numberstr":6,"kodDetailing":"YKK.000.001","detailsInterview":"   епізодичні проноси"}
+{"id":24,"kodComplInterv":"CMP.000000000007","numberstr":7,"kodDetailing":"YKK.000.004","detailsInterview":"   періодичні запори"}
+{"id":25,"kodComplInterv":"CMP.000000000013","numberstr":1,"kodDetailing":"G.000","detailsInterview":"біль в животі"}
+{"id":26,"kodComplInterv":"CMP.000000000013","numberstr":2,"kodDetailing":"G.000.001","detailsInterview":"  біль між нижнім краєм грудної клітки та пахом"}
+{"id":27,"kodComplInterv":"CMP.000000000013","numberstr":3,"kodDetailing":"G.000.002","detailsInterview":"  біль тільки над талією"}
+{"id":28,"kodComplInterv":"CMP.000000000013","numberstr":4,"kodDetailing":"G.000.005","detailsInterview":"  біль в основному нижче пупка"}
+{"id":29,"kodComplInterv":"CMP.000000000013","numberstr":5,"kodDetailing":"YGG.000.001","detailsInterview":"   подібні напади відбувалися на протязі декількох днів за останню неділю"}
+{"id":30,"kodComplInterv":"CMP.000000000013","numberstr":6,"kodDetailing":"YKK.000.001","detailsInterview":"   епізодичні проноси"}
+{"id":31,"kodComplInterv":"CMP.000000000013","numberstr":7,"kodDetailing":"YKK.000.004","detailsInterview":"   періодичні запори"}
+{"id":32,"kodComplInterv":"CMP.000000000015","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":33,"kodComplInterv":"CMP.000000000015","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":34,"kodComplInterv":"CMP.000000000015","numberstr":2,"kodDetailing":"YAA.000.001","detailsInterview":"        протягом усього року"}
+{"id":35,"kodComplInterv":"CMP.000000000015","numberstr":3,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":36,"kodComplInterv":"CMP.000000000015","numberstr":4,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":37,"kodComplInterv":"CMP.000000000015","numberstr":5,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":38,"kodComplInterv":"CMP.000000000015","numberstr":6,"kodDetailing":"A.000.002.002","detailsInterview":"        нападоподібне"}
+{"id":39,"kodComplInterv":"CMP.000000000015","numberstr":7,"kodDetailing":"B.000","detailsInterview":" горло"}
+{"id":40,"kodComplInterv":"CMP.000000000015","numberstr":8,"kodDetailing":"B.000.001","detailsInterview":"    біль у горлі"}
+{"id":41,"kodComplInterv":"CMP.000000000015","numberstr":9,"kodDetailing":"YFF.000.001","detailsInterview":"        перхотить"}
+{"id":42,"kodComplInterv":"CMP.000000000015","numberstr":10,"kodDetailing":"B.000.002","detailsInterview":"    кашель"}
+{"id":43,"kodComplInterv":"CMP.000000000015","numberstr":11,"kodDetailing":"YEE.000.001","detailsInterview":"        сухий"}
+{"id":44,"kodComplInterv":"CMP.000000000015","numberstr":12,"kodDetailing":"YEE.000.004","detailsInterview":"        нападоподібний"}
+{"id":45,"kodComplInterv":"CMP.000000000015","numberstr":13,"kodDetailing":"YEE.000.006","detailsInterview":"        більше ввечері, коли лягаю в ліжко"}
+{"id":46,"kodComplInterv":"CMP.000000000015","numberstr":14,"kodDetailing":"YEE.000.011","detailsInterview":"        без відходження мокротиння"}
+{"id":47,"kodComplInterv":"CMP.000000000016","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":48,"kodComplInterv":"CMP.000000000016","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":49,"kodComplInterv":"CMP.000000000016","numberstr":2,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":50,"kodComplInterv":"CMP.000000000016","numberstr":3,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":51,"kodComplInterv":"CMP.000000000016","numberstr":4,"kodDetailing":"YAAA.000.003","detailsInterview":"            в мокрий сніг"}
+{"id":52,"kodComplInterv":"CMP.000000000016","numberstr":5,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":53,"kodComplInterv":"CMP.000000000016","numberstr":6,"kodDetailing":"A.000.002.002","detailsInterview":"        нападоподібне"}
+{"id":54,"kodComplInterv":"CMP.000000000016","numberstr":7,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":55,"kodComplInterv":"CMP.000000000018","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":56,"kodComplInterv":"CMP.000000000018","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":57,"kodComplInterv":"CMP.000000000018","numberstr":2,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":58,"kodComplInterv":"CMP.000000000018","numberstr":3,"kodDetailing":"YAA.000.008","detailsInterview":"        вночі"}
+{"id":59,"kodComplInterv":"CMP.000000000018","numberstr":4,"kodDetailing":"YAA.000.011","detailsInterview":"        увечері"}
+{"id":60,"kodComplInterv":"CMP.000000000018","numberstr":5,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":61,"kodComplInterv":"CMP.000000000018","numberstr":6,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":62,"kodComplInterv":"CMP.000000000018","numberstr":7,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":63,"kodComplInterv":"CMP.000000000018","numberstr":8,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":64,"kodComplInterv":"CMP.000000000018","numberstr":9,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":65,"kodComplInterv":"CMP.000000000018","numberstr":10,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":66,"kodComplInterv":"CMP.000000000018","numberstr":11,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":67,"kodComplInterv":"CMP.000000000018","numberstr":12,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":68,"kodComplInterv":"CMP.000000000018","numberstr":13,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":69,"kodComplInterv":"CMP.000000000018","numberstr":14,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":70,"kodComplInterv":"CMP.000000000018","numberstr":15,"kodDetailing":"YAA.000.007","detailsInterview":"        більше вранці після сну"}
+{"id":71,"kodComplInterv":"CMP.000000000018","numberstr":16,"kodDetailing":"YAA.000.012","detailsInterview":"        незалежно від часу доби"}
+{"id":72,"kodComplInterv":"CMP.000000000018","numberstr":17,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":73,"kodComplInterv":"CMP.000000000018","numberstr":18,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":74,"kodComplInterv":"CMP.000000000018","numberstr":19,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":75,"kodComplInterv":"CMP.000000000018","numberstr":20,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":76,"kodComplInterv":"CMP.000000000018","numberstr":21,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":77,"kodComplInterv":"CMP.000000000018","numberstr":22,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":78,"kodComplInterv":"CMP.000000000018","numberstr":23,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":79,"kodComplInterv":"CMP.000000000018","numberstr":24,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":80,"kodComplInterv":"CMP.000000000018","numberstr":25,"kodDetailing":"A.000.004","detailsInterview":"    виділення з носа"}
+{"id":81,"kodComplInterv":"CMP.000000000018","numberstr":26,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":82,"kodComplInterv":"CMP.000000000018","numberstr":27,"kodDetailing":"YDD.000.005","detailsInterview":"        густі"}
+{"id":83,"kodComplInterv":"CMP.000000000018","numberstr":28,"kodDetailing":"YDD.000.006","detailsInterview":"        зелені"}
+{"id":84,"kodComplInterv":"CMP.000000000018","numberstr":29,"kodDetailing":"YDD.000.007","detailsInterview":"        жовті"}
+{"id":85,"kodComplInterv":"CMP.000000000018","numberstr":30,"kodDetailing":"YDD.000.008","detailsInterview":"        рясні"}
+{"id":86,"kodComplInterv":"CMP.000000000018","numberstr":31,"kodDetailing":"A.000.004.004","detailsInterview":"        відчуття стікання слизи на задній стінці глотки"}
+{"id":87,"kodComplInterv":"CMP.000000000018","numberstr":32,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":88,"kodComplInterv":"CMP.000000000018","numberstr":33,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":89,"kodComplInterv":"CMP.000000000018","numberstr":34,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":90,"kodComplInterv":"CMP.000000000018","numberstr":35,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":91,"kodComplInterv":"CMP.000000000018","numberstr":36,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":92,"kodComplInterv":"CMP.000000000018","numberstr":37,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":93,"kodComplInterv":"CMP.000000000018","numberstr":38,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":94,"kodComplInterv":"CMP.000000000018","numberstr":39,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":95,"kodComplInterv":"CMP.000000000018","numberstr":40,"kodDetailing":"A.000.005","detailsInterview":"    порушення нюху"}
+{"id":96,"kodComplInterv":"CMP.000000000018","numberstr":41,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":97,"kodComplInterv":"CMP.000000000018","numberstr":42,"kodDetailing":"A.000.005.002","detailsInterview":"        часткове"}
+{"id":98,"kodComplInterv":"CMP.000000000018","numberstr":43,"kodDetailing":"A.000.005.004","detailsInterview":"        періодично покращується"}
+{"id":99,"kodComplInterv":"CMP.000000000018","numberstr":44,"kodDetailing":"A.000.006","detailsInterview":"    температура"}
+{"id":100,"kodComplInterv":"CMP.000000000018","numberstr":45,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна"}
+{"id":101,"kodComplInterv":"CMP.000000000018","numberstr":46,"kodDetailing":"YCC.000.002","detailsInterview":"        підвищується лише за застуді"}
+{"id":102,"kodComplInterv":"CMP.000000000018","numberstr":47,"kodDetailing":"YCC.000.004","detailsInterview":"        при застуді зазвичай підвищується до 37"}
+{"id":103,"kodComplInterv":"CMP.000000000018","numberstr":48,"kodDetailing":"YCC.000.005","detailsInterview":"        при застуді зазвичай підвищується до 38"}
+{"id":104,"kodComplInterv":"CMP.000000000018","numberstr":49,"kodDetailing":"YCC.000.006","detailsInterview":"        при застуді зазвичай підвищується до 39"}
+{"id":105,"kodComplInterv":"CMP.000000000018","numberstr":50,"kodDetailing":"A.000.007","detailsInterview":"    біль у носі та/або приносових пазухах"}
+{"id":106,"kodComplInterv":"CMP.000000000018","numberstr":51,"kodDetailing":"A.000.011","detailsInterview":"    поліпшення стану"}
+{"id":107,"kodComplInterv":"CMP.000000000018","numberstr":52,"kodDetailing":"A.000.011.002","detailsInterview":"        при прийомі парацетамолу"}
+{"id":108,"kodComplInterv":"CMP.000000000018","numberstr":53,"kodDetailing":"A.000.011.003","detailsInterview":"        при застосуванні судинозвужувальних крапель у ніс"}
+{"id":109,"kodComplInterv":"CMP.000000000018","numberstr":54,"kodDetailing":"A.000.013","detailsInterview":"    інші скарги"}
+{"id":110,"kodComplInterv":"CMP.000000000018","numberstr":55,"kodDetailing":"A.000.013.001","detailsInterview":"        біль у вухах"}
+{"id":111,"kodComplInterv":"CMP.000000000018","numberstr":56,"kodDetailing":"A.000.013.003","detailsInterview":"        закладеність у вухах"}
+{"id":112,"kodComplInterv":"CMP.000000000018","numberstr":57,"kodDetailing":"A.000.013.005","detailsInterview":"        відчуття наявності рани в носі"}
+{"id":113,"kodComplInterv":"CMP.000000000018","numberstr":58,"kodDetailing":"A.000.013.006","detailsInterview":"        головний біль у області чола"}
+{"id":114,"kodComplInterv":"CMP.000000000019","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":115,"kodComplInterv":"CMP.000000000019","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":116,"kodComplInterv":"CMP.000000000019","numberstr":2,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":117,"kodComplInterv":"CMP.000000000019","numberstr":3,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":118,"kodComplInterv":"CMP.000000000019","numberstr":4,"kodDetailing":"YBB.000.002","detailsInterview":"        вдома"}
+{"id":119,"kodComplInterv":"CMP.000000000019","numberstr":5,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":120,"kodComplInterv":"CMP.000000000019","numberstr":6,"kodDetailing":"YAAA.000.003","detailsInterview":"            в мокрий сніг"}
+{"id":121,"kodComplInterv":"CMP.000000000020","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":122,"kodComplInterv":"CMP.000000000020","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":123,"kodComplInterv":"CMP.000000000020","numberstr":2,"kodDetailing":"YAA.000.003","detailsInterview":"        бiльше влітку"}
+{"id":124,"kodComplInterv":"CMP.000000000020","numberstr":3,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":125,"kodComplInterv":"CMP.000000000020","numberstr":4,"kodDetailing":"YBB.000.002","detailsInterview":"        вдома"}
+{"id":126,"kodComplInterv":"CMP.000000000020","numberstr":5,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":127,"kodComplInterv":"CMP.000000000020","numberstr":6,"kodDetailing":"YAAA.000.003","detailsInterview":"            в мокрий сніг"}
+{"id":128,"kodComplInterv":"CMP.000000000021","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":129,"kodComplInterv":"CMP.000000000021","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":130,"kodComplInterv":"CMP.000000000022","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":131,"kodComplInterv":"CMP.000000000023","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":132,"kodComplInterv":"CMP.000000000023","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":133,"kodComplInterv":"CMP.000000000023","numberstr":2,"kodDetailing":"YAA.000.001","detailsInterview":"        протягом усього року"}
+{"id":134,"kodComplInterv":"CMP.000000000023","numberstr":3,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":135,"kodComplInterv":"CMP.000000000024","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":136,"kodComplInterv":"CMP.000000000024","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":137,"kodComplInterv":"CMP.000000000024","numberstr":2,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":138,"kodComplInterv":"CMP.000000000024","numberstr":3,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":139,"kodComplInterv":"CMP.000000000025","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":140,"kodComplInterv":"CMP.000000000026","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":141,"kodComplInterv":"CMP.000000000026","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":142,"kodComplInterv":"CMP.000000000026","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":143,"kodComplInterv":"CMP.000000000026","numberstr":3,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":144,"kodComplInterv":"CMP.000000000027","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":145,"kodComplInterv":"CMP.000000000027","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":146,"kodComplInterv":"CMP.000000000027","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":147,"kodComplInterv":"CMP.000000000028","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":148,"kodComplInterv":"CMP.000000000028","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":149,"kodComplInterv":"CMP.000000000028","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":150,"kodComplInterv":"CMP.000000000029","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":151,"kodComplInterv":"CMP.000000000029","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":152,"kodComplInterv":"CMP.000000000029","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":153,"kodComplInterv":"CMP.000000000030","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":154,"kodComplInterv":"CMP.000000000030","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":155,"kodComplInterv":"CMP.000000000030","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":156,"kodComplInterv":"CMP.000000000030","numberstr":3,"kodDetailing":"YAAA.000.003","detailsInterview":"            в мокрий сніг"}
+{"id":157,"kodComplInterv":"CMP.000000000030","numberstr":4,"kodDetailing":"YAAA.000.005","detailsInterview":"            в дощ з поривчастим вітром"}
+{"id":158,"kodComplInterv":"CMP.000000000031","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":159,"kodComplInterv":"CMP.000000000031","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":160,"kodComplInterv":"CMP.000000000031","numberstr":2,"kodDetailing":"YBB.000.005","detailsInterview":"        на вулиці"}
+{"id":161,"kodComplInterv":"CMP.000000000031","numberstr":3,"kodDetailing":"YAAA.000.004","detailsInterview":"            при сильному вітру"}
+{"id":162,"kodComplInterv":"CMP.000000000032","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":163,"kodComplInterv":"CMP.000000000033","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":164,"kodComplInterv":"CMP.000000000033","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":165,"kodComplInterv":"CMP.000000000034","numberstr":1,"kodDetailing":"A.000","detailsInterview":"ніс"}
+{"id":166,"kodComplInterv":"CMP.000000000035","numberstr":0,"kodDetailing":"A.001","detailsInterview":" Судомні напади"}
+{"id":167,"kodComplInterv":"CMP.000000000035","numberstr":1,"kodDetailing":"A.001.002","detailsInterview":"    Без втрати свідомості"}
+{"id":168,"kodComplInterv":"CMP.000000000035","numberstr":2,"kodDetailing":"A.001.002","detailsInterview":"    Без втрати свідомості"}
+{"id":169,"kodComplInterv":"CMP.000000000036","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":170,"kodComplInterv":"CMP.000000000036","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":171,"kodComplInterv":"CMP.000000000036","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":172,"kodComplInterv":"CMP.000000000036","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":173,"kodComplInterv":"CMP.000000000036","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":174,"kodComplInterv":"CMP.000000000036","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":175,"kodComplInterv":"CMP.000000000036","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":176,"kodComplInterv":"CMP.000000000036","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":177,"kodComplInterv":"CMP.000000000036","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":178,"kodComplInterv":"CMP.000000000036","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":179,"kodComplInterv":"CMP.000000000037","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":180,"kodComplInterv":"CMP.000000000037","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":181,"kodComplInterv":"CMP.000000000037","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":182,"kodComplInterv":"CMP.000000000037","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":183,"kodComplInterv":"CMP.000000000037","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":184,"kodComplInterv":"CMP.000000000037","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":185,"kodComplInterv":"CMP.000000000037","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":186,"kodComplInterv":"CMP.000000000037","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":187,"kodComplInterv":"CMP.000000000037","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":188,"kodComplInterv":"CMP.000000000037","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":189,"kodComplInterv":"CMP.000000000037","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":190,"kodComplInterv":"CMP.000000000037","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":191,"kodComplInterv":"CMP.000000000037","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":192,"kodComplInterv":"CMP.000000000037","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":193,"kodComplInterv":"CMP.000000000038","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":194,"kodComplInterv":"CMP.000000000038","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":195,"kodComplInterv":"CMP.000000000038","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":196,"kodComplInterv":"CMP.000000000038","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":197,"kodComplInterv":"CMP.000000000038","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":198,"kodComplInterv":"CMP.000000000038","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":199,"kodComplInterv":"CMP.000000000038","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":200,"kodComplInterv":"CMP.000000000038","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":201,"kodComplInterv":"CMP.000000000038","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":202,"kodComplInterv":"CMP.000000000038","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":203,"kodComplInterv":"CMP.000000000038","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":204,"kodComplInterv":"CMP.000000000038","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":205,"kodComplInterv":"CMP.000000000038","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":206,"kodComplInterv":"CMP.000000000038","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":207,"kodComplInterv":"CMP.000000000039","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":208,"kodComplInterv":"CMP.000000000039","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":209,"kodComplInterv":"CMP.000000000039","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":210,"kodComplInterv":"CMP.000000000039","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":211,"kodComplInterv":"CMP.000000000039","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":212,"kodComplInterv":"CMP.000000000039","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":213,"kodComplInterv":"CMP.000000000039","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":214,"kodComplInterv":"CMP.000000000039","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":215,"kodComplInterv":"CMP.000000000039","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":216,"kodComplInterv":"CMP.000000000039","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":217,"kodComplInterv":"CMP.000000000039","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":218,"kodComplInterv":"CMP.000000000039","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":219,"kodComplInterv":"CMP.000000000039","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":220,"kodComplInterv":"CMP.000000000039","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":221,"kodComplInterv":"CMP.000000000040","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":222,"kodComplInterv":"CMP.000000000040","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":223,"kodComplInterv":"CMP.000000000040","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":224,"kodComplInterv":"CMP.000000000040","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":225,"kodComplInterv":"CMP.000000000040","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":226,"kodComplInterv":"CMP.000000000040","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":227,"kodComplInterv":"CMP.000000000040","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":228,"kodComplInterv":"CMP.000000000040","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":229,"kodComplInterv":"CMP.000000000040","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":230,"kodComplInterv":"CMP.000000000040","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":231,"kodComplInterv":"CMP.000000000040","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":232,"kodComplInterv":"CMP.000000000040","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":233,"kodComplInterv":"CMP.000000000040","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":234,"kodComplInterv":"CMP.000000000040","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":235,"kodComplInterv":"CMP.000000000041","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":236,"kodComplInterv":"CMP.000000000041","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":237,"kodComplInterv":"CMP.000000000041","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":238,"kodComplInterv":"CMP.000000000041","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":239,"kodComplInterv":"CMP.000000000041","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":240,"kodComplInterv":"CMP.000000000041","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":241,"kodComplInterv":"CMP.000000000041","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":242,"kodComplInterv":"CMP.000000000041","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":243,"kodComplInterv":"CMP.000000000041","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":244,"kodComplInterv":"CMP.000000000041","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":245,"kodComplInterv":"CMP.000000000041","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":246,"kodComplInterv":"CMP.000000000041","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":247,"kodComplInterv":"CMP.000000000041","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":248,"kodComplInterv":"CMP.000000000041","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":249,"kodComplInterv":"CMP.000000000042","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":250,"kodComplInterv":"CMP.000000000042","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":251,"kodComplInterv":"CMP.000000000042","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":252,"kodComplInterv":"CMP.000000000042","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":253,"kodComplInterv":"CMP.000000000042","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":254,"kodComplInterv":"CMP.000000000042","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":255,"kodComplInterv":"CMP.000000000042","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":256,"kodComplInterv":"CMP.000000000042","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":257,"kodComplInterv":"CMP.000000000042","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":258,"kodComplInterv":"CMP.000000000042","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":259,"kodComplInterv":"CMP.000000000042","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":260,"kodComplInterv":"CMP.000000000042","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":261,"kodComplInterv":"CMP.000000000042","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":262,"kodComplInterv":"CMP.000000000042","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":263,"kodComplInterv":"CMP.000000000043","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":264,"kodComplInterv":"CMP.000000000043","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":265,"kodComplInterv":"CMP.000000000043","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":266,"kodComplInterv":"CMP.000000000043","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":267,"kodComplInterv":"CMP.000000000043","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":268,"kodComplInterv":"CMP.000000000043","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":269,"kodComplInterv":"CMP.000000000043","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":270,"kodComplInterv":"CMP.000000000043","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":271,"kodComplInterv":"CMP.000000000043","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":272,"kodComplInterv":"CMP.000000000043","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":273,"kodComplInterv":"CMP.000000000043","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":274,"kodComplInterv":"CMP.000000000043","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":275,"kodComplInterv":"CMP.000000000043","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":276,"kodComplInterv":"CMP.000000000043","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":277,"kodComplInterv":"CMP.000000000044","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":278,"kodComplInterv":"CMP.000000000044","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":279,"kodComplInterv":"CMP.000000000044","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":280,"kodComplInterv":"CMP.000000000044","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":281,"kodComplInterv":"CMP.000000000044","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":282,"kodComplInterv":"CMP.000000000044","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":283,"kodComplInterv":"CMP.000000000044","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":284,"kodComplInterv":"CMP.000000000044","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":285,"kodComplInterv":"CMP.000000000044","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":286,"kodComplInterv":"CMP.000000000044","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":287,"kodComplInterv":"CMP.000000000044","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":288,"kodComplInterv":"CMP.000000000044","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":289,"kodComplInterv":"CMP.000000000044","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":290,"kodComplInterv":"CMP.000000000044","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":291,"kodComplInterv":"CMP.000000000045","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":292,"kodComplInterv":"CMP.000000000045","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":293,"kodComplInterv":"CMP.000000000045","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":294,"kodComplInterv":"CMP.000000000045","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":295,"kodComplInterv":"CMP.000000000045","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":296,"kodComplInterv":"CMP.000000000045","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":297,"kodComplInterv":"CMP.000000000045","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":298,"kodComplInterv":"CMP.000000000045","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":299,"kodComplInterv":"CMP.000000000045","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":300,"kodComplInterv":"CMP.000000000045","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":301,"kodComplInterv":"CMP.000000000045","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":302,"kodComplInterv":"CMP.000000000045","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":303,"kodComplInterv":"CMP.000000000045","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":304,"kodComplInterv":"CMP.000000000045","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":305,"kodComplInterv":"CMP.000000000046","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":306,"kodComplInterv":"CMP.000000000046","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":307,"kodComplInterv":"CMP.000000000046","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":308,"kodComplInterv":"CMP.000000000046","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":309,"kodComplInterv":"CMP.000000000046","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":310,"kodComplInterv":"CMP.000000000046","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":311,"kodComplInterv":"CMP.000000000046","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":312,"kodComplInterv":"CMP.000000000046","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":313,"kodComplInterv":"CMP.000000000046","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":314,"kodComplInterv":"CMP.000000000046","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":315,"kodComplInterv":"CMP.000000000046","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":316,"kodComplInterv":"CMP.000000000046","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":317,"kodComplInterv":"CMP.000000000046","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":318,"kodComplInterv":"CMP.000000000046","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":319,"kodComplInterv":"CMP.000000000047","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":320,"kodComplInterv":"CMP.000000000047","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":321,"kodComplInterv":"CMP.000000000047","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":322,"kodComplInterv":"CMP.000000000047","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":323,"kodComplInterv":"CMP.000000000047","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":324,"kodComplInterv":"CMP.000000000047","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":325,"kodComplInterv":"CMP.000000000047","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":326,"kodComplInterv":"CMP.000000000047","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":327,"kodComplInterv":"CMP.000000000047","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":328,"kodComplInterv":"CMP.000000000047","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":329,"kodComplInterv":"CMP.000000000047","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":330,"kodComplInterv":"CMP.000000000047","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":331,"kodComplInterv":"CMP.000000000047","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":332,"kodComplInterv":"CMP.000000000047","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":333,"kodComplInterv":"CMP.000000000048","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":334,"kodComplInterv":"CMP.000000000048","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":335,"kodComplInterv":"CMP.000000000048","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":336,"kodComplInterv":"CMP.000000000048","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":337,"kodComplInterv":"CMP.000000000048","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":338,"kodComplInterv":"CMP.000000000048","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":339,"kodComplInterv":"CMP.000000000048","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":340,"kodComplInterv":"CMP.000000000049","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":341,"kodComplInterv":"CMP.000000000049","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів"}
+{"id":342,"kodComplInterv":"CMP.000000000049","numberstr":2,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":343,"kodComplInterv":"CMP.000000000049","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":344,"kodComplInterv":"CMP.000000000049","numberstr":4,"kodDetailing":"A.002.003","detailsInterview":"    Без видимої причини"}
+{"id":345,"kodComplInterv":"CMP.000000000049","numberstr":5,"kodDetailing":"YAA.001.001","detailsInterview":"        Супроводжується нудотою чи блюванням"}
+{"id":346,"kodComplInterv":"CMP.000000000049","numberstr":6,"kodDetailing":"YAA.001.001","detailsInterview":"        Не томується знеболюючими"}
+{"id":347,"kodComplInterv":"CMP.000000000050","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":348,"kodComplInterv":"CMP.000000000050","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":349,"kodComplInterv":"CMP.000000000050","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":350,"kodComplInterv":"CMP.000000000050","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":351,"kodComplInterv":"CMP.000000000050","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":352,"kodComplInterv":"CMP.000000000050","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":353,"kodComplInterv":"CMP.000000000050","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":354,"kodComplInterv":"CMP.000000000050","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":355,"kodComplInterv":"CMP.000000000051","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":356,"kodComplInterv":"CMP.000000000051","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":357,"kodComplInterv":"CMP.000000000051","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":358,"kodComplInterv":"CMP.000000000051","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":359,"kodComplInterv":"CMP.000000000051","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":360,"kodComplInterv":"CMP.000000000051","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":361,"kodComplInterv":"CMP.000000000051","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":362,"kodComplInterv":"CMP.000000000051","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":363,"kodComplInterv":"CMP.000000000052","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":364,"kodComplInterv":"CMP.000000000052","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":365,"kodComplInterv":"CMP.000000000052","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":366,"kodComplInterv":"CMP.000000000052","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":367,"kodComplInterv":"CMP.000000000052","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":368,"kodComplInterv":"CMP.000000000052","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":369,"kodComplInterv":"CMP.000000000052","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":370,"kodComplInterv":"CMP.000000000052","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":371,"kodComplInterv":"CMP.000000000053","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":372,"kodComplInterv":"CMP.000000000053","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":373,"kodComplInterv":"CMP.000000000053","numberstr":2,"kodDetailing":"YAA.000.002","detailsInterview":"        навесні"}
+{"id":374,"kodComplInterv":"CMP.000000000053","numberstr":3,"kodDetailing":"YAA.000.003","detailsInterview":"        влітку"}
+{"id":375,"kodComplInterv":"CMP.000000000053","numberstr":4,"kodDetailing":"YAA.000.004","detailsInterview":"        восени"}
+{"id":376,"kodComplInterv":"CMP.000000000053","numberstr":5,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":377,"kodComplInterv":"CMP.000000000053","numberstr":6,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":378,"kodComplInterv":"CMP.000000000053","numberstr":7,"kodDetailing":"YAA.000.014","detailsInterview":"        протягом 1 року"}
+{"id":379,"kodComplInterv":"CMP.000000000053","numberstr":8,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":380,"kodComplInterv":"CMP.000000000053","numberstr":9,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":381,"kodComplInterv":"CMP.000000000053","numberstr":10,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":382,"kodComplInterv":"CMP.000000000053","numberstr":11,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":383,"kodComplInterv":"CMP.000000000053","numberstr":12,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":384,"kodComplInterv":"CMP.000000000053","numberstr":13,"kodDetailing":"A.000.002.002","detailsInterview":"        нападоподібне"}
+{"id":385,"kodComplInterv":"CMP.000000000053","numberstr":14,"kodDetailing":"YAA.000.002","detailsInterview":"        навесні"}
+{"id":386,"kodComplInterv":"CMP.000000000053","numberstr":15,"kodDetailing":"YAA.000.003","detailsInterview":"        влітку"}
+{"id":387,"kodComplInterv":"CMP.000000000053","numberstr":16,"kodDetailing":"YAA.000.004","detailsInterview":"        восени"}
+{"id":388,"kodComplInterv":"CMP.000000000053","numberstr":17,"kodDetailing":"YAA.000.014","detailsInterview":"        протягом 1 року"}
+{"id":389,"kodComplInterv":"CMP.000000000053","numberstr":18,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":390,"kodComplInterv":"CMP.000000000053","numberstr":19,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":391,"kodComplInterv":"CMP.000000000053","numberstr":20,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":392,"kodComplInterv":"CMP.000000000053","numberstr":21,"kodDetailing":"A.000.003","detailsInterview":"    свербіння в носі"}
+{"id":393,"kodComplInterv":"CMP.000000000053","numberstr":22,"kodDetailing":"A.000.003.001","detailsInterview":"        епізодичний"}
+{"id":394,"kodComplInterv":"CMP.000000000053","numberstr":23,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":395,"kodComplInterv":"CMP.000000000053","numberstr":24,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":396,"kodComplInterv":"CMP.000000000053","numberstr":25,"kodDetailing":"A.000.004","detailsInterview":"    виділення з носа"}
+{"id":397,"kodComplInterv":"CMP.000000000053","numberstr":26,"kodDetailing":"YDD.000.001","detailsInterview":"        епізодичні"}
+{"id":398,"kodComplInterv":"CMP.000000000053","numberstr":27,"kodDetailing":"YDD.000.003","detailsInterview":"        прозорі"}
+{"id":399,"kodComplInterv":"CMP.000000000053","numberstr":28,"kodDetailing":"YDD.000.004","detailsInterview":"        світлі"}
+{"id":400,"kodComplInterv":"CMP.000000000053","numberstr":29,"kodDetailing":"YDD.000.008","detailsInterview":"        рясні"}
+{"id":401,"kodComplInterv":"CMP.000000000053","numberstr":30,"kodDetailing":"A.000.004.004","detailsInterview":"        відчуття стікання слизи на задній стінці глотки"}
+{"id":402,"kodComplInterv":"CMP.000000000053","numberstr":31,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":403,"kodComplInterv":"CMP.000000000053","numberstr":32,"kodDetailing":"YAA.000.014","detailsInterview":"        протягом 1 року"}
+{"id":404,"kodComplInterv":"CMP.000000000053","numberstr":33,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":405,"kodComplInterv":"CMP.000000000053","numberstr":34,"kodDetailing":"A.000.006","detailsInterview":"    температура"}
+{"id":406,"kodComplInterv":"CMP.000000000053","numberstr":35,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна"}
+{"id":407,"kodComplInterv":"CMP.000000000053","numberstr":36,"kodDetailing":"YCC.000.002","detailsInterview":"        підвищується лише за застуді"}
+{"id":408,"kodComplInterv":"CMP.000000000053","numberstr":37,"kodDetailing":"YCC.000.004","detailsInterview":"        при застуді зазвичай підвищується до 37"}
+{"id":409,"kodComplInterv":"CMP.000000000053","numberstr":38,"kodDetailing":"YCC.000.005","detailsInterview":"        при застуді зазвичай підвищується до 38"}
+{"id":410,"kodComplInterv":"CMP.000000000053","numberstr":39,"kodDetailing":"A.000.007","detailsInterview":"    біль у носі та/або приносових пазухах"}
+{"id":411,"kodComplInterv":"CMP.000000000053","numberstr":40,"kodDetailing":"A.000.009","detailsInterview":"    сезонність"}
+{"id":413,"kodComplInterv":"CMP.000000000053","numberstr":42,"kodDetailing":"A.000.011","detailsInterview":"    поліпшення стану"}
+{"id":414,"kodComplInterv":"CMP.000000000053","numberstr":43,"kodDetailing":"A.000.011.005","detailsInterview":"        в приміщенні"}
+{"id":415,"kodComplInterv":"CMP.000000000053","numberstr":44,"kodDetailing":"A.000.011.003","detailsInterview":"        при застосуванні судинозвужувальних крапель у ніс"}
+{"id":416,"kodComplInterv":"CMP.000000000053","numberstr":45,"kodDetailing":"A.000.012","detailsInterview":"    погіршення стану"}
+{"id":417,"kodComplInterv":"CMP.000000000053","numberstr":46,"kodDetailing":"YBB.000.002","detailsInterview":"        вдома"}
+{"id":418,"kodComplInterv":"CMP.000000000053","numberstr":47,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":419,"kodComplInterv":"CMP.000000000053","numberstr":48,"kodDetailing":"YBB.000.006","detailsInterview":"        за містом"}
+{"id":420,"kodComplInterv":"CMP.000000000053","numberstr":49,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":421,"kodComplInterv":"CMP.000000000053","numberstr":50,"kodDetailing":"A.000.013","detailsInterview":"    інші скарги"}
+{"id":422,"kodComplInterv":"CMP.000000000053","numberstr":51,"kodDetailing":"A.000.013.009","detailsInterview":"        свербіння в вухах"}
+{"id":423,"kodComplInterv":"CMP.000000000053","numberstr":52,"kodDetailing":"A.000.013.003","detailsInterview":"        закладеність у вухах"}
+{"id":424,"kodComplInterv":"CMP.000000000054","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":425,"kodComplInterv":"CMP.000000000054","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":426,"kodComplInterv":"CMP.000000000054","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":427,"kodComplInterv":"CMP.000000000054","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":428,"kodComplInterv":"CMP.000000000054","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":429,"kodComplInterv":"CMP.000000000054","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":430,"kodComplInterv":"CMP.000000000054","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":431,"kodComplInterv":"CMP.000000000054","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":432,"kodComplInterv":"CMP.000000000054","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":433,"kodComplInterv":"CMP.000000000054","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":434,"kodComplInterv":"CMP.000000000055","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":435,"kodComplInterv":"CMP.000000000055","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":436,"kodComplInterv":"CMP.000000000055","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":437,"kodComplInterv":"CMP.000000000055","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":438,"kodComplInterv":"CMP.000000000055","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":439,"kodComplInterv":"CMP.000000000055","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":440,"kodComplInterv":"CMP.000000000055","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":441,"kodComplInterv":"CMP.000000000055","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":442,"kodComplInterv":"CMP.000000000055","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":443,"kodComplInterv":"CMP.000000000055","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":444,"kodComplInterv":"CMP.000000000056","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":445,"kodComplInterv":"CMP.000000000056","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":446,"kodComplInterv":"CMP.000000000056","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":447,"kodComplInterv":"CMP.000000000056","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":448,"kodComplInterv":"CMP.000000000056","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":449,"kodComplInterv":"CMP.000000000056","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":450,"kodComplInterv":"CMP.000000000056","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":451,"kodComplInterv":"CMP.000000000056","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":452,"kodComplInterv":"CMP.000000000056","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":453,"kodComplInterv":"CMP.000000000056","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":454,"kodComplInterv":"CMP.000000000057","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":455,"kodComplInterv":"CMP.000000000057","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":456,"kodComplInterv":"CMP.000000000057","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":457,"kodComplInterv":"CMP.000000000057","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":458,"kodComplInterv":"CMP.000000000057","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":459,"kodComplInterv":"CMP.000000000057","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":460,"kodComplInterv":"CMP.000000000057","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":461,"kodComplInterv":"CMP.000000000057","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":462,"kodComplInterv":"CMP.000000000057","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":463,"kodComplInterv":"CMP.000000000057","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":464,"kodComplInterv":"CMP.000000000058","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":465,"kodComplInterv":"CMP.000000000058","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":466,"kodComplInterv":"CMP.000000000058","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":467,"kodComplInterv":"CMP.000000000058","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":468,"kodComplInterv":"CMP.000000000058","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":469,"kodComplInterv":"CMP.000000000058","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":470,"kodComplInterv":"CMP.000000000058","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":471,"kodComplInterv":"CMP.000000000058","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":472,"kodComplInterv":"CMP.000000000058","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":473,"kodComplInterv":"CMP.000000000058","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":474,"kodComplInterv":"CMP.000000000059","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимвільні скорочення м'язів одної половини облича"}
+{"id":475,"kodComplInterv":"CMP.000000000059","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницьки спазми повік з одної сторони"}
+{"id":476,"kodComplInterv":"CMP.000000000059","numberstr":2,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":477,"kodComplInterv":"CMP.000000000059","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":478,"kodComplInterv":"CMP.000000000059","numberstr":4,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":479,"kodComplInterv":"CMP.000000000059","numberstr":0,"kodDetailing":"A.007","detailsInterview":" Спастичні мимовільні скорочення м'язів одної половини облича"}
+{"id":480,"kodComplInterv":"CMP.000000000059","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":481,"kodComplInterv":"CMP.000000000059","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":482,"kodComplInterv":"CMP.000000000059","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        порушує зір, провокує випадіння їжі з рота"}
+{"id":483,"kodComplInterv":"CMP.000000000059","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":484,"kodComplInterv":"CMP.000000000060","numberstr":0,"kodDetailing":"A.008","detailsInterview":" Слабкість м'язів обличчя"}
+{"id":485,"kodComplInterv":"CMP.000000000060","numberstr":1,"kodDetailing":"A.008.001","detailsInterview":"    Опущений кут рота"}
+{"id":486,"kodComplInterv":"CMP.000000000060","numberstr":2,"kodDetailing":"YAA.002.001","detailsInterview":"        Оніміння обличчя з одного боку"}
+{"id":487,"kodComplInterv":"CMP.000000000060","numberstr":3,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":488,"kodComplInterv":"CMP.000000000060","numberstr":0,"kodDetailing":"A.008","detailsInterview":" Слабкість м'язів обличчя"}
+{"id":489,"kodComplInterv":"CMP.000000000060","numberstr":1,"kodDetailing":"A.008.001","detailsInterview":"    Опущений кут рота"}
+{"id":490,"kodComplInterv":"CMP.000000000060","numberstr":2,"kodDetailing":"YAA.002.001","detailsInterview":"        Оніміння обличчя з одного боку"}
+{"id":491,"kodComplInterv":"CMP.000000000060","numberstr":3,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":492,"kodComplInterv":"CMP.000000000061","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":493,"kodComplInterv":"CMP.000000000061","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Порушення координіції руху при ходьбі"}
+{"id":494,"kodComplInterv":"CMP.000000000061","numberstr":2,"kodDetailing":"YAA.013.002","detailsInterview":"        зявляється занеміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":495,"kodComplInterv":"CMP.000000000062","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":496,"kodComplInterv":"CMP.000000000062","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":497,"kodComplInterv":"CMP.000000000062","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":498,"kodComplInterv":"CMP.000000000062","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":499,"kodComplInterv":"CMP.000000000062","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":500,"kodComplInterv":"CMP.000000000062","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":501,"kodComplInterv":"CMP.000000000062","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":502,"kodComplInterv":"CMP.000000000062","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":503,"kodComplInterv":"CMP.000000000062","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":504,"kodComplInterv":"CMP.000000000062","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":505,"kodComplInterv":"CMP.000000000062","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":506,"kodComplInterv":"CMP.000000000062","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":507,"kodComplInterv":"CMP.000000000063","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":508,"kodComplInterv":"CMP.000000000063","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":509,"kodComplInterv":"CMP.000000000063","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":510,"kodComplInterv":"CMP.000000000063","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":511,"kodComplInterv":"CMP.000000000063","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":512,"kodComplInterv":"CMP.000000000063","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":513,"kodComplInterv":"CMP.000000000063","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":514,"kodComplInterv":"CMP.000000000063","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":515,"kodComplInterv":"CMP.000000000063","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":516,"kodComplInterv":"CMP.000000000063","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":517,"kodComplInterv":"CMP.000000000063","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":518,"kodComplInterv":"CMP.000000000063","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":519,"kodComplInterv":"CMP.000000000064","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":520,"kodComplInterv":"CMP.000000000064","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":521,"kodComplInterv":"CMP.000000000064","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":522,"kodComplInterv":"CMP.000000000065","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":523,"kodComplInterv":"CMP.000000000065","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":524,"kodComplInterv":"CMP.000000000065","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":525,"kodComplInterv":"CMP.000000000066","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":526,"kodComplInterv":"CMP.000000000066","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":527,"kodComplInterv":"CMP.000000000067","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":528,"kodComplInterv":"CMP.000000000067","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":529,"kodComplInterv":"CMP.000000000067","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":530,"kodComplInterv":"CMP.000000000067","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":531,"kodComplInterv":"CMP.000000000067","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":532,"kodComplInterv":"CMP.000000000067","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":533,"kodComplInterv":"CMP.000000000067","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":534,"kodComplInterv":"CMP.000000000067","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":535,"kodComplInterv":"CMP.000000000067","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":536,"kodComplInterv":"CMP.000000000067","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":537,"kodComplInterv":"CMP.000000000067","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":538,"kodComplInterv":"CMP.000000000067","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":539,"kodComplInterv":"CMP.000000000068","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":540,"kodComplInterv":"CMP.000000000068","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":541,"kodComplInterv":"CMP.000000000068","numberstr":2,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":542,"kodComplInterv":"CMP.000000000068","numberstr":3,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":543,"kodComplInterv":"CMP.000000000068","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":544,"kodComplInterv":"CMP.000000000068","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":545,"kodComplInterv":"CMP.000000000068","numberstr":0,"kodDetailing":"A.006","detailsInterview":" Обличчя"}
+{"id":546,"kodComplInterv":"CMP.000000000068","numberstr":1,"kodDetailing":"A.007.001","detailsInterview":"    Насильницькі спазми повік, м'язів  з одної сторони обличча "}
+{"id":547,"kodComplInterv":"CMP.000000000068","numberstr":2,"kodDetailing":"A.007.001.002","detailsInterview":"        Порушує зір, провокує випадіння їжі з рота"}
+{"id":548,"kodComplInterv":"CMP.000000000068","numberstr":3,"kodDetailing":"A.007.001.001","detailsInterview":"        Спастичні скорочення повік з одної сторони які поширюються на всю половину обличча"}
+{"id":549,"kodComplInterv":"CMP.000000000068","numberstr":4,"kodDetailing":"A.007.001.003","detailsInterview":"        Виникають спонтанно на найменьшу фізичну або емоційнук активність"}
+{"id":550,"kodComplInterv":"CMP.000000000068","numberstr":5,"kodDetailing":"A.007.001.004","detailsInterview":"        Спастичні мимовільні скорочення м'язів одної половини обличчя які з часом поширюються"}
+{"id":551,"kodComplInterv":"CMP.000000000069","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":552,"kodComplInterv":"CMP.000000000069","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":553,"kodComplInterv":"CMP.000000000069","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":554,"kodComplInterv":"CMP.000000000069","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":555,"kodComplInterv":"CMP.000000000069","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":556,"kodComplInterv":"CMP.000000000069","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":557,"kodComplInterv":"CMP.000000000069","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":558,"kodComplInterv":"CMP.000000000069","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":559,"kodComplInterv":"CMP.000000000069","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":560,"kodComplInterv":"CMP.000000000069","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":561,"kodComplInterv":"CMP.000000000069","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":562,"kodComplInterv":"CMP.000000000069","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":563,"kodComplInterv":"CMP.000000000069","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":564,"kodComplInterv":"CMP.000000000069","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":565,"kodComplInterv":"CMP.000000000069","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":566,"kodComplInterv":"CMP.000000000069","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":567,"kodComplInterv":"CMP.000000000069","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":568,"kodComplInterv":"CMP.000000000069","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":569,"kodComplInterv":"CMP.000000000069","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":570,"kodComplInterv":"CMP.000000000069","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":571,"kodComplInterv":"CMP.000000000069","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":572,"kodComplInterv":"CMP.000000000069","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":573,"kodComplInterv":"CMP.000000000069","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":574,"kodComplInterv":"CMP.000000000069","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":575,"kodComplInterv":"CMP.000000000069","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":576,"kodComplInterv":"CMP.000000000069","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":577,"kodComplInterv":"CMP.000000000069","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":578,"kodComplInterv":"CMP.000000000069","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":579,"kodComplInterv":"CMP.000000000069","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":580,"kodComplInterv":"CMP.000000000069","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":581,"kodComplInterv":"CMP.000000000070","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":582,"kodComplInterv":"CMP.000000000070","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":583,"kodComplInterv":"CMP.000000000070","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":584,"kodComplInterv":"CMP.000000000070","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":585,"kodComplInterv":"CMP.000000000070","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":586,"kodComplInterv":"CMP.000000000070","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":587,"kodComplInterv":"CMP.000000000070","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":588,"kodComplInterv":"CMP.000000000070","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":589,"kodComplInterv":"CMP.000000000070","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":590,"kodComplInterv":"CMP.000000000070","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":591,"kodComplInterv":"CMP.000000000070","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":592,"kodComplInterv":"CMP.000000000070","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":593,"kodComplInterv":"CMP.000000000070","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":594,"kodComplInterv":"CMP.000000000070","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":595,"kodComplInterv":"CMP.000000000070","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":596,"kodComplInterv":"CMP.000000000070","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":597,"kodComplInterv":"CMP.000000000070","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":598,"kodComplInterv":"CMP.000000000070","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":599,"kodComplInterv":"CMP.000000000070","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":600,"kodComplInterv":"CMP.000000000070","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":601,"kodComplInterv":"CMP.000000000070","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":602,"kodComplInterv":"CMP.000000000070","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":603,"kodComplInterv":"CMP.000000000070","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":604,"kodComplInterv":"CMP.000000000070","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":605,"kodComplInterv":"CMP.000000000070","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":606,"kodComplInterv":"CMP.000000000070","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":607,"kodComplInterv":"CMP.000000000070","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":608,"kodComplInterv":"CMP.000000000070","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":609,"kodComplInterv":"CMP.000000000070","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":610,"kodComplInterv":"CMP.000000000070","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":611,"kodComplInterv":"CMP.000000000071","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":612,"kodComplInterv":"CMP.000000000071","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":613,"kodComplInterv":"CMP.000000000071","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":614,"kodComplInterv":"CMP.000000000071","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":615,"kodComplInterv":"CMP.000000000071","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":616,"kodComplInterv":"CMP.000000000071","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":617,"kodComplInterv":"CMP.000000000071","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":618,"kodComplInterv":"CMP.000000000071","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":619,"kodComplInterv":"CMP.000000000071","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":620,"kodComplInterv":"CMP.000000000071","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":621,"kodComplInterv":"CMP.000000000071","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":622,"kodComplInterv":"CMP.000000000071","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":623,"kodComplInterv":"CMP.000000000071","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":624,"kodComplInterv":"CMP.000000000071","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":625,"kodComplInterv":"CMP.000000000071","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":626,"kodComplInterv":"CMP.000000000072","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":627,"kodComplInterv":"CMP.000000000072","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":628,"kodComplInterv":"CMP.000000000072","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":629,"kodComplInterv":"CMP.000000000072","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":630,"kodComplInterv":"CMP.000000000072","numberstr":4,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":631,"kodComplInterv":"CMP.000000000072","numberstr":5,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":632,"kodComplInterv":"CMP.000000000072","numberstr":6,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":633,"kodComplInterv":"CMP.000000000073","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":634,"kodComplInterv":"CMP.000000000073","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":635,"kodComplInterv":"CMP.000000000073","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":636,"kodComplInterv":"CMP.000000000073","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":637,"kodComplInterv":"CMP.000000000073","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":638,"kodComplInterv":"CMP.000000000073","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":639,"kodComplInterv":"CMP.000000000073","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":640,"kodComplInterv":"CMP.000000000073","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":641,"kodComplInterv":"CMP.000000000073","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":642,"kodComplInterv":"CMP.000000000073","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":643,"kodComplInterv":"CMP.000000000073","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":644,"kodComplInterv":"CMP.000000000073","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":645,"kodComplInterv":"CMP.000000000073","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":646,"kodComplInterv":"CMP.000000000073","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":647,"kodComplInterv":"CMP.000000000073","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":648,"kodComplInterv":"CMP.000000000073","numberstr":0,"kodDetailing":"M.000","detailsInterview":" Голова"}
+{"id":649,"kodComplInterv":"CMP.000000000073","numberstr":1,"kodDetailing":"M.000.009","detailsInterview":"    Погіршення координіції руху при ходьбі (Невринома)"}
+{"id":650,"kodComplInterv":"CMP.000000000073","numberstr":2,"kodDetailing":"YAA.013.001","detailsInterview":"        з часом проявляється  головний  біль"}
+{"id":651,"kodComplInterv":"CMP.000000000073","numberstr":3,"kodDetailing":"YAA.013.002","detailsInterview":"        з'являється заніміння  або біль в половині обличчя на стороні зниженого слуху"}
+{"id":652,"kodComplInterv":"CMP.000000000073","numberstr":4,"kodDetailing":"YAA.013.003","detailsInterview":"        може наростати слабкість м'язів одної половини обличчя"}
+{"id":653,"kodComplInterv":"CMP.000000000073","numberstr":5,"kodDetailing":"YAA.013.004","detailsInterview":"        поширюється при швидких рухах або при зміні положення"}
+{"id":654,"kodComplInterv":"CMP.000000000073","numberstr":6,"kodDetailing":"YAA.013.005","detailsInterview":"        з'являється головокружіння при ходьбі або серйозне запаморочення."}
+{"id":655,"kodComplInterv":"CMP.000000000073","numberstr":7,"kodDetailing":"YAA.008.001","detailsInterview":"        легкий головний біль"}
+{"id":656,"kodComplInterv":"CMP.000000000073","numberstr":8,"kodDetailing":"YAA.008.001","detailsInterview":"        інтенсивний головний біль"}
+{"id":657,"kodComplInterv":"CMP.000000000073","numberstr":9,"kodDetailing":"YAA.008.001","detailsInterview":"        постійний головний біль"}
+{"id":658,"kodComplInterv":"CMP.000000000073","numberstr":10,"kodDetailing":"YAA.008.001","detailsInterview":"        періодичний головний біль"}
+{"id":659,"kodComplInterv":"CMP.000000000073","numberstr":11,"kodDetailing":"YAA.002.001","detailsInterview":"        оніміння обличчя з одного боку"}
+{"id":660,"kodComplInterv":"CMP.000000000073","numberstr":12,"kodDetailing":"YAA.002.001","detailsInterview":"        порушення ковтання"}
+{"id":661,"kodComplInterv":"CMP.000000000073","numberstr":13,"kodDetailing":"YAA.002.002","detailsInterview":"        прояв слабкості м'язів обличчя"}
+{"id":662,"kodComplInterv":"CMP.000000000073","numberstr":14,"kodDetailing":"YAA.002.003","detailsInterview":"        опущений кут рота з боку прояву слабкості м'язів обличчя"}
+{"id":663,"kodComplInterv":"CMP.000000000074","numberstr":0,"kodDetailing":"A.000","detailsInterview":"ніс"}
+{"id":664,"kodComplInterv":"CMP.000000000074","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"  закладеність носа"}
+{"id":665,"kodComplInterv":"CMP.000000000074","numberstr":2,"kodDetailing":"YAA.000.001","detailsInterview":"   цілий рік"}
+{"id":666,"kodComplInterv":"CMP.000000000074","numberstr":3,"kodDetailing":"YAA.000.006","detailsInterview":"   цілодобово"}
+{"id":667,"kodComplInterv":"CMP.000000000074","numberstr":4,"kodDetailing":"YAA.000.013","detailsInterview":"   протягом останнього 1 місяця"}
+{"id":668,"kodComplInterv":"CMP.000000000074","numberstr":5,"kodDetailing":"YAA.000.014","detailsInterview":"   протягом 1 року"}
+{"id":669,"kodComplInterv":"CMP.000000000074","numberstr":6,"kodDetailing":"YAA.000.015","detailsInterview":"   протягом 5 років"}
+{"id":670,"kodComplInterv":"CMP.000000000074","numberstr":7,"kodDetailing":"A.000.002","detailsInterview":"  чихання"}
+{"id":671,"kodComplInterv":"CMP.000000000074","numberstr":8,"kodDetailing":"A.000.002.002","detailsInterview":"   нападоподібне"}
+{"id":672,"kodComplInterv":"CMP.000000000074","numberstr":9,"kodDetailing":"YAA.000.001","detailsInterview":"   цілий рік"}
+{"id":673,"kodComplInterv":"CMP.000000000074","numberstr":10,"kodDetailing":"YEE.000.005","detailsInterview":"   більше вранці після сну"}
+{"id":674,"kodComplInterv":"CMP.000000000074","numberstr":11,"kodDetailing":"YBB.000.004","detailsInterview":"   після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":675,"kodComplInterv":"CMP.000000000074","numberstr":12,"kodDetailing":"YBB.000.007","detailsInterview":"   після перебування у сільському будинку"}
+{"id":676,"kodComplInterv":"CMP.000000000074","numberstr":13,"kodDetailing":"YAA.000.014","detailsInterview":"   протягом 1 року"}
+{"id":677,"kodComplInterv":"CMP.000000000074","numberstr":14,"kodDetailing":"YAA.000.015","detailsInterview":"   протягом 5 років"}
+{"id":678,"kodComplInterv":"CMP.000000000074","numberstr":15,"kodDetailing":"A.000.003","detailsInterview":"  свербіння в носі"}
+{"id":679,"kodComplInterv":"CMP.000000000074","numberstr":16,"kodDetailing":"A.000.003.002","detailsInterview":"   постійний"}
+{"id":680,"kodComplInterv":"CMP.000000000074","numberstr":17,"kodDetailing":"YBB.000.004","detailsInterview":"   після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":681,"kodComplInterv":"CMP.000000000074","numberstr":18,"kodDetailing":"YBB.000.007","detailsInterview":"   після перебування у сільському будинку"}
+{"id":682,"kodComplInterv":"CMP.000000000074","numberstr":19,"kodDetailing":"YAA.000.014","detailsInterview":"   протягом 1 року"}
+{"id":683,"kodComplInterv":"CMP.000000000074","numberstr":20,"kodDetailing":"YAA.000.015","detailsInterview":"   протягом 5 років"}
+{"id":684,"kodComplInterv":"CMP.000000000074","numberstr":21,"kodDetailing":"A.000.004","detailsInterview":"  виділення з носа"}
+{"id":685,"kodComplInterv":"CMP.000000000074","numberstr":22,"kodDetailing":"YDD.000.002","detailsInterview":"   цілодобово"}
+{"id":686,"kodComplInterv":"CMP.000000000074","numberstr":23,"kodDetailing":"YDD.000.003","detailsInterview":"   прозорі"}
+{"id":687,"kodComplInterv":"CMP.000000000074","numberstr":24,"kodDetailing":"YDD.000.008","detailsInterview":"   рясні"}
+{"id":688,"kodComplInterv":"CMP.000000000074","numberstr":25,"kodDetailing":"A.000.004.004","detailsInterview":"   відчуття стікання слизи на задній стінці глотки"}
+{"id":689,"kodComplInterv":"CMP.000000000074","numberstr":26,"kodDetailing":"YBB.000.004","detailsInterview":"   після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":690,"kodComplInterv":"CMP.000000000074","numberstr":27,"kodDetailing":"YBB.000.007","detailsInterview":"   після перебування у сільському будинку"}
+{"id":691,"kodComplInterv":"CMP.000000000074","numberstr":28,"kodDetailing":"YAA.000.014","detailsInterview":"   протягом 1 року"}
+{"id":692,"kodComplInterv":"CMP.000000000074","numberstr":29,"kodDetailing":"YAA.000.015","detailsInterview":"   протягом 5 років"}
+{"id":693,"kodComplInterv":"CMP.000000000074","numberstr":30,"kodDetailing":"A.000.006","detailsInterview":"  температура"}
+{"id":694,"kodComplInterv":"CMP.000000000074","numberstr":31,"kodDetailing":"YCC.000.001","detailsInterview":"   зазвичай нормальна"}
+{"id":695,"kodComplInterv":"CMP.000000000074","numberstr":32,"kodDetailing":"YCC.000.002","detailsInterview":"   підвищується лише за застуді"}
+{"id":696,"kodComplInterv":"CMP.000000000074","numberstr":33,"kodDetailing":"YCC.000.004","detailsInterview":"   при застуді зазвичай підвищується до 37"}
+{"id":697,"kodComplInterv":"CMP.000000000074","numberstr":34,"kodDetailing":"B.000.010.001","detailsInterview":"  подібні проблеми у найближчих кровних родичів"}
+{"id":698,"kodComplInterv":"CMP.000000000074","numberstr":35,"kodDetailing":"A.000.011","detailsInterview":"  поліпшення стану"}
+{"id":699,"kodComplInterv":"CMP.000000000074","numberstr":36,"kodDetailing":"A.000.012.001","detailsInterview":"   при прийомі противоалергічних пігулок"}
+{"id":700,"kodComplInterv":"CMP.000000000074","numberstr":37,"kodDetailing":"A.000.012.003","detailsInterview":"   при прийомі судинозвужуючих капель у ніс"}
+{"id":701,"kodComplInterv":"CMP.000000000074","numberstr":38,"kodDetailing":"YBB.000.005","detailsInterview":"   на вулиці"}
+{"id":702,"kodComplInterv":"CMP.000000000074","numberstr":39,"kodDetailing":"A.000.012","detailsInterview":"  погіршення стану"}
+{"id":703,"kodComplInterv":"CMP.000000000074","numberstr":40,"kodDetailing":"YAA.000.008","detailsInterview":"   вночі"}
+{"id":704,"kodComplInterv":"CMP.000000000074","numberstr":41,"kodDetailing":"YAA.000.009","detailsInterview":"   вранці"}
+{"id":705,"kodComplInterv":"CMP.000000000074","numberstr":42,"kodDetailing":"YBB.000.002","detailsInterview":"   вдома"}
+{"id":706,"kodComplInterv":"CMP.000000000074","numberstr":43,"kodDetailing":"YBB.000.003","detailsInterview":"   під час прибирання вдома"}
+{"id":707,"kodComplInterv":"CMP.000000000074","numberstr":44,"kodDetailing":"YBB.000.004","detailsInterview":"   після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":708,"kodComplInterv":"CMP.000000000074","numberstr":45,"kodDetailing":"A.000.013","detailsInterview":"  інші скарги"}
+{"id":709,"kodComplInterv":"CMP.000000000074","numberstr":46,"kodDetailing":"A.000.013.003","detailsInterview":"   закладеність у вухах"}
+{"id":710,"kodComplInterv":"CMP.000000000077","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":711,"kodComplInterv":"CMP.000000000077","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":712,"kodComplInterv":"CMP.000000000077","numberstr":2,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":713,"kodComplInterv":"CMP.000000000077","numberstr":3,"kodDetailing":"YAA.000.008","detailsInterview":"        вночі"}
+{"id":714,"kodComplInterv":"CMP.000000000077","numberstr":4,"kodDetailing":"YAA.000.011","detailsInterview":"        увечері"}
+{"id":715,"kodComplInterv":"CMP.000000000077","numberstr":5,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":716,"kodComplInterv":"CMP.000000000077","numberstr":6,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":717,"kodComplInterv":"CMP.000000000077","numberstr":7,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":718,"kodComplInterv":"CMP.000000000077","numberstr":8,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":719,"kodComplInterv":"CMP.000000000077","numberstr":9,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":720,"kodComplInterv":"CMP.000000000077","numberstr":10,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":721,"kodComplInterv":"CMP.000000000077","numberstr":11,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":722,"kodComplInterv":"CMP.000000000077","numberstr":12,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":723,"kodComplInterv":"CMP.000000000077","numberstr":13,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":724,"kodComplInterv":"CMP.000000000077","numberstr":14,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":725,"kodComplInterv":"CMP.000000000077","numberstr":15,"kodDetailing":"YAA.000.007","detailsInterview":"        більше вранці після сну"}
+{"id":726,"kodComplInterv":"CMP.000000000077","numberstr":16,"kodDetailing":"YAA.000.012","detailsInterview":"        незалежно від часу доби"}
+{"id":727,"kodComplInterv":"CMP.000000000077","numberstr":17,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":728,"kodComplInterv":"CMP.000000000077","numberstr":18,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":729,"kodComplInterv":"CMP.000000000077","numberstr":19,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":730,"kodComplInterv":"CMP.000000000077","numberstr":20,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":731,"kodComplInterv":"CMP.000000000077","numberstr":21,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":732,"kodComplInterv":"CMP.000000000077","numberstr":22,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":733,"kodComplInterv":"CMP.000000000077","numberstr":23,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":734,"kodComplInterv":"CMP.000000000077","numberstr":24,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":735,"kodComplInterv":"CMP.000000000077","numberstr":25,"kodDetailing":"A.000.004","detailsInterview":"    виділення з носа"}
+{"id":736,"kodComplInterv":"CMP.000000000077","numberstr":26,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":737,"kodComplInterv":"CMP.000000000077","numberstr":27,"kodDetailing":"YDD.000.005","detailsInterview":"        густі"}
+{"id":738,"kodComplInterv":"CMP.000000000077","numberstr":28,"kodDetailing":"YDD.000.006","detailsInterview":"        зелені"}
+{"id":739,"kodComplInterv":"CMP.000000000077","numberstr":29,"kodDetailing":"YDD.000.007","detailsInterview":"        жовті"}
+{"id":740,"kodComplInterv":"CMP.000000000077","numberstr":30,"kodDetailing":"YDD.000.008","detailsInterview":"        рясні"}
+{"id":741,"kodComplInterv":"CMP.000000000077","numberstr":31,"kodDetailing":"A.000.004.004","detailsInterview":"        відчуття стікання слизи на задній стінці глотки"}
+{"id":742,"kodComplInterv":"CMP.000000000077","numberstr":32,"kodDetailing":"YBB.000.001","detailsInterview":"        після ГРВІ"}
+{"id":743,"kodComplInterv":"CMP.000000000077","numberstr":33,"kodDetailing":"YBB.000.004","detailsInterview":"        після контакту з тваринами (кітом, собакою, конем, хом'яком)"}
+{"id":744,"kodComplInterv":"CMP.000000000077","numberstr":34,"kodDetailing":"YBB.000.007","detailsInterview":"        після перебування у сільському будинку"}
+{"id":745,"kodComplInterv":"CMP.000000000077","numberstr":35,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":746,"kodComplInterv":"CMP.000000000077","numberstr":36,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":747,"kodComplInterv":"CMP.000000000077","numberstr":37,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":748,"kodComplInterv":"CMP.000000000077","numberstr":38,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":749,"kodComplInterv":"CMP.000000000077","numberstr":39,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":750,"kodComplInterv":"CMP.000000000077","numberstr":40,"kodDetailing":"A.000.005","detailsInterview":"    порушення нюху"}
+{"id":751,"kodComplInterv":"CMP.000000000077","numberstr":41,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":752,"kodComplInterv":"CMP.000000000077","numberstr":42,"kodDetailing":"A.000.005.002","detailsInterview":"        часткове"}
+{"id":753,"kodComplInterv":"CMP.000000000077","numberstr":43,"kodDetailing":"A.000.005.004","detailsInterview":"        періодично покращується"}
+{"id":754,"kodComplInterv":"CMP.000000000077","numberstr":44,"kodDetailing":"A.000.006","detailsInterview":"    температура"}
+{"id":755,"kodComplInterv":"CMP.000000000077","numberstr":45,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна"}
+{"id":756,"kodComplInterv":"CMP.000000000077","numberstr":46,"kodDetailing":"YCC.000.002","detailsInterview":"        підвищується лише за застуді"}
+{"id":757,"kodComplInterv":"CMP.000000000077","numberstr":47,"kodDetailing":"YCC.000.004","detailsInterview":"        при застуді зазвичай підвищується до 37"}
+{"id":758,"kodComplInterv":"CMP.000000000077","numberstr":48,"kodDetailing":"YCC.000.005","detailsInterview":"        при застуді зазвичай підвищується до 38"}
+{"id":759,"kodComplInterv":"CMP.000000000077","numberstr":49,"kodDetailing":"YCC.000.006","detailsInterview":"        при застуді зазвичай підвищується до 39"}
+{"id":760,"kodComplInterv":"CMP.000000000077","numberstr":50,"kodDetailing":"A.000.007","detailsInterview":"    біль у носі та/або приносових пазухах"}
+{"id":761,"kodComplInterv":"CMP.000000000077","numberstr":51,"kodDetailing":"A.000.011","detailsInterview":"    поліпшення стану"}
+{"id":762,"kodComplInterv":"CMP.000000000077","numberstr":52,"kodDetailing":"A.000.011.002","detailsInterview":"        при прийомі парацетамолу"}
+{"id":763,"kodComplInterv":"CMP.000000000077","numberstr":53,"kodDetailing":"A.000.011.003","detailsInterview":"        при застосуванні судинозвужувальних крапель у ніс"}
+{"id":764,"kodComplInterv":"CMP.000000000077","numberstr":54,"kodDetailing":"A.000.013","detailsInterview":"    інші скарги"}
+{"id":765,"kodComplInterv":"CMP.000000000077","numberstr":55,"kodDetailing":"A.000.013.001","detailsInterview":"        біль у вухах"}
+{"id":766,"kodComplInterv":"CMP.000000000077","numberstr":56,"kodDetailing":"A.000.013.003","detailsInterview":"        закладеність у вухах"}
+{"id":767,"kodComplInterv":"CMP.000000000077","numberstr":57,"kodDetailing":"A.000.013.005","detailsInterview":"        відчуття наявності рани в носі"}
+{"id":768,"kodComplInterv":"CMP.000000000077","numberstr":58,"kodDetailing":"A.000.013.006","detailsInterview":"        головний біль у області чола"}
+{"id":769,"kodComplInterv":"CMP.000000000078","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":770,"kodComplInterv":"CMP.000000000078","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":771,"kodComplInterv":"CMP.000000000078","numberstr":2,"kodDetailing":"YAA.000.012","detailsInterview":"        незалежно від часу доби"}
+{"id":772,"kodComplInterv":"CMP.000000000078","numberstr":3,"kodDetailing":"YBB.000.013","detailsInterview":"        немає залежності від місця перебування"}
+{"id":773,"kodComplInterv":"CMP.000000000079","numberstr":0,"kodDetailing":"B.000","detailsInterview":" горло"}
+{"id":774,"kodComplInterv":"CMP.000000000079","numberstr":1,"kodDetailing":"B.000.017","detailsInterview":"    тривалий кашель з моркотинням та невисокою температурою"}
+{"id":775,"kodComplInterv":"CMP.000000000079","numberstr":2,"kodDetailing":"YAA.024.001","detailsInterview":"        Кашель  більше 2-х тижнів, супроводжується болем у грудній клітині"}
+{"id":776,"kodComplInterv":"CMP.000000000079","numberstr":3,"kodDetailing":"YAA.024.002","detailsInterview":"        Ви помічаєте підвищену пітливість, особливо вночі"}
+{"id":777,"kodComplInterv":"CMP.000000000079","numberstr":4,"kodDetailing":"YAA.024.003","detailsInterview":"        У мокроті наявні прожилки або сліди крові при кашлі"}
+{"id":778,"kodComplInterv":"CMP.000000000079","numberstr":5,"kodDetailing":"YAA.024.004","detailsInterview":"        Ви помічаєте підвищену втомлюваність, слабкість, зниження апетиту, втрату ваги"}
+{"id":779,"kodComplInterv":"CMP.000000000079","numberstr":6,"kodDetailing":"YAA.024.005","detailsInterview":"        Присутня задишка при незначному фізичному навантаженні"}
+{"id":780,"kodComplInterv":"CMP.000000000079","numberstr":7,"kodDetailing":"YAA.024.006","detailsInterview":"        У Вас є постійне незначне підвищення температури тіла до 37 – 37,2°С"}
+{"id":781,"kodComplInterv":"CMP.000000000079","numberstr":8,"kodDetailing":"YAA.025.001","detailsInterview":"        Ви хворіли на туберкульоз в минулому або мали контакт із особою із захворюванням на туберкульоз протягом останніх 2 років?"}
+{"id":782,"kodComplInterv":"CMP.000000000079","numberstr":9,"kodDetailing":"YAA.025.002","detailsInterview":"        У Вас є хронічне захворювання, що призводить до зниження імунітету (ВІЛ-інфекція, цукровий діабет, онкологічні захворювання тощо)?"}
+{"id":783,"kodComplInterv":"CMP.000000000079","numberstr":10,"kodDetailing":"YAA.025.003","detailsInterview":"        Ви отримуєте лікування преднізолоном, або іншими препаратами, які впливають на імунітет (зазвичай, застосовуються при лікуванні злоякісних новоутворень, бронхіальної астми, ревматоїдного артриту тощо)?"}
+{"id":784,"kodComplInterv":"CMP.000000000079","numberstr":11,"kodDetailing":"YAA.025.004","detailsInterview":"        Вам проводилася трансплантація органів (кісткового мозку)?"}
+{"id":785,"kodComplInterv":"CMP.000000000079","numberstr":12,"kodDetailing":"YAA.025.005","detailsInterview":"        Ви перебували в місцях позбавлення волі впродовж останніх 2-х років"}
+{"id":786,"kodComplInterv":"CMP.000000000079","numberstr":13,"kodDetailing":"YAA.025.006","detailsInterview":"        Хоча б одне з нижчепереліченого характерне для Вашого життя: низький рівень матеріального забезпечення сім’ї, міграція, вживання алкоголю та наркотичних речовин, відсутність постійного місця проживання"}
+{"id":787,"kodComplInterv":"CMP.000000000080","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":788,"kodComplInterv":"CMP.000000000080","numberstr":1,"kodDetailing":"A.002.008","detailsInterview":"    Проявляється часто розшируючого характеру, прогресивно зростаючи, тривалий"}
+{"id":789,"kodComplInterv":"CMP.000000000080","numberstr":2,"kodDetailing":"A.002.008.001","detailsInterview":"        Головні болі іноді призводять до блювоти яка їх полегшує"}
+{"id":790,"kodComplInterv":"CMP.000000000080","numberstr":3,"kodDetailing":"A.002.008.002","detailsInterview":"        Призводить до погіршення зору аж до сліпоти при ненаданні своєчасної допомоги"}
+{"id":791,"kodComplInterv":"CMP.000000000080","numberstr":4,"kodDetailing":"A.002.008.003","detailsInterview":"        Може призвести до запаморочення, порушення свідомості"}
+{"id":792,"kodComplInterv":"CMP.000000000080","numberstr":5,"kodDetailing":"A.002.008.004","detailsInterview":"        Уразі тривалості головної болі 10-14 днів або зростаючої зробити КТ або МРТ"}
+{"id":793,"kodComplInterv":"CMP.000000000081","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":794,"kodComplInterv":"CMP.000000000081","numberstr":1,"kodDetailing":"A.002.008","detailsInterview":"    Проявляється часто розшируючого характеру, прогресивно зростаючи, тривалий"}
+{"id":795,"kodComplInterv":"CMP.000000000081","numberstr":2,"kodDetailing":"A.002.008.001","detailsInterview":"        Головні болі іноді призводять до блювоти яка їх полегшує"}
+{"id":796,"kodComplInterv":"CMP.000000000081","numberstr":3,"kodDetailing":"A.002.008.002","detailsInterview":"        Призводить до погіршення зору аж до сліпоти при ненаданні своєчасної допомоги"}
+{"id":797,"kodComplInterv":"CMP.000000000081","numberstr":4,"kodDetailing":"A.002.008.003","detailsInterview":"        Може призвести до запаморочення, порушення свідомості"}
+{"id":798,"kodComplInterv":"CMP.000000000081","numberstr":5,"kodDetailing":"A.002.008.004","detailsInterview":"        Уразі тривалості головної болі 10-14 днів або зростаючої зробити КТ або МРТ"}
+{"id":799,"kodComplInterv":"CMP.000000000082","numberstr":0,"kodDetailing":"E.000","detailsInterview":" шкіра"}
+{"id":800,"kodComplInterv":"CMP.000000000082","numberstr":1,"kodDetailing":"E.000.004","detailsInterview":"    місцеве висипання без свербежу"}
+{"id":801,"kodComplInterv":"CMP.000000000082","numberstr":2,"kodDetailing":"YAA.028.001","detailsInterview":"        Локалізовані (обмежені, з чітким контуром почервоніння або висипи на шкірі), окрім візуальних змін є відчуття печіння, болю в місці ураження"}
+{"id":802,"kodComplInterv":"CMP.000000000082","numberstr":3,"kodDetailing":"YAA.028.002","detailsInterview":"        Зміни шкіри з’явились після контакту з подразнюючими речовинами (побутова хімія, кислоти, луги, розчинники, сік рослин тощо)"}
+{"id":803,"kodComplInterv":"CMP.000000000082","numberstr":4,"kodDetailing":"YAA.028.003","detailsInterview":"        Зміни шкіри з’явились після впливу на шкіру температур (термічний опік, перебування на холоді, вплив току)"}
+{"id":804,"kodComplInterv":"CMP.000000000082","numberstr":5,"kodDetailing":"YAA.028.004","detailsInterview":"        Зміни шкіри з’явились після впливу на шкіру механічних факторів (стискання, забиття, тощо)"}
+{"id":805,"kodComplInterv":"CMP.000000000082","numberstr":6,"kodDetailing":"YAA.028.005","detailsInterview":"        Ви приймаєте препарати з вищеперерахованих груп (антибіотики, гормональні контрацептиви,  ретиноїди, психотропні засоби)"}
+{"id":806,"kodComplInterv":"CMP.000000000083","numberstr":0,"kodDetailing":"E.000","detailsInterview":" шкіра"}
+{"id":807,"kodComplInterv":"CMP.000000000083","numberstr":1,"kodDetailing":"E.000.003","detailsInterview":"    розповсюджені по всьому тілу висипання зі свербежем"}
+{"id":808,"kodComplInterv":"CMP.000000000083","numberstr":2,"kodDetailing":"E.000.003.004","detailsInterview":"        Висипання з'являються при різкому перепаді температур (гарячий душ, перебування на сонці, на морозі), при стисканні шкіри, фізичному навантаженні (заняттях спортом, швидкій ході)"}
+{"id":809,"kodComplInterv":"CMP.000000000083","numberstr":3,"kodDetailing":"E.000.003.009","detailsInterview":"        Ви відчуваєте печіння або поколювання в місці висипів"}
+{"id":1806,"kodComplInterv":"CMP.000000000084","numberstr":0,"kodDetailing":"E.000","detailsInterview":" шкіра"}
+{"id":1807,"kodComplInterv":"CMP.000000000084","numberstr":1,"kodDetailing":"E.000.003","detailsInterview":"    розповсюджені по всьому тілу висипання зі свербежем"}
+{"id":1808,"kodComplInterv":"CMP.000000000084","numberstr":2,"kodDetailing":"E.000.003.001","detailsInterview":"        У Вас виникають на шкірі висипи, що схожі на рожеві або червоні пухирці з чіткими краями, які сверблять та підіймаються над іншою поверхнею шкіри"}
+{"id":1809,"kodComplInterv":"CMP.000000000084","numberstr":3,"kodDetailing":"E.000.003.002","detailsInterview":"        Пухирці (висипи) що з'являються зникають протягом 24 годин безслідно, але натомість з'являються нові в інших місцях "}
+{"id":1810,"kodComplInterv":"CMP.000000000084","numberstr":4,"kodDetailing":"E.000.003.003","detailsInterview":"        Пухирці (висипи) змінюються в розмірі та формі протягом декількох годин"}
+{"id":1811,"kodComplInterv":"CMP.000000000084","numberstr":5,"kodDetailing":"E.000.003.004","detailsInterview":"        Висипання з'являються при різкому перепаді температур (гарячий душ, перебування на сонці, на морозі), при стисканні шкіри, фізичному навантаженні (заняттях спортом, швидкій ході)"}
+{"id":1812,"kodComplInterv":"CMP.000000000084","numberstr":6,"kodDetailing":"E.000.003.005","detailsInterview":"        Висипання зменшуються або зникають при прийомі протиалергічних препаратів"}
+{"id":1813,"kodComplInterv":"CMP.000000000084","numberstr":7,"kodDetailing":"E.000.003.006","detailsInterview":"        Пухирці (висипи) мають різні розміри від дуже маленьких (кілька міліметрів) до дуже великих (кілька сантиметрів) або декілька невеликих звиваються разом в один"}
+{"id":1814,"kodComplInterv":"CMP.000000000084","numberstr":8,"kodDetailing":"E.000.003.007","detailsInterview":"        Виспи світліють при натисканні на них (шкіра стає білою в місті натиску)"}
+{"id":1815,"kodComplInterv":"CMP.000000000084","numberstr":9,"kodDetailing":"E.000.003.008","detailsInterview":"        Свербіж шкіри посилюється ввечері або вночі"}
+{"id":1816,"kodComplInterv":"CMP.000000000084","numberstr":10,"kodDetailing":"E.000.003.009","detailsInterview":"        Ви відчуваєте печіння або поколювання в місці висипів"}
+{"id":1817,"kodComplInterv":"CMP.000000000084","numberstr":11,"kodDetailing":"E.000.003.010","detailsInterview":"        У Вас на фоні висипу виникають набряки повік, губ, геніталій та/або інших частин тіла"}
+{"id":1818,"kodComplInterv":"CMP.000000000084","numberstr":12,"kodDetailing":"E.000.003.011","detailsInterview":"        У Вас є загальне відчуття втоми або головний біль разом із шкірними симптомами"}
+{"id":1819,"kodComplInterv":"CMP.000000000084","numberstr":13,"kodDetailing":"E.000.003.012","detailsInterview":"        Ви відчуваєте ви утруднене дихання або запаморочення разом із шкірними симптомами"}
+{"id":1820,"kodComplInterv":"CMP.000000000084","numberstr":14,"kodDetailing":"E.000.003.013","detailsInterview":"        У Вас або Ваших рідних є алергії (на харчові продукти, тварин, побутовий пил, плісняву, пилок рослин, укуси комах, хімічні засоби тощо)"}
+{"id":2806,"kodComplInterv":"CMP.000000000085","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":2807,"kodComplInterv":"CMP.000000000085","numberstr":1,"kodDetailing":"A.002.008","detailsInterview":"    Проявляється часто розшируючого характеру, прогресивно зростаючи, тривалий"}
+{"id":2808,"kodComplInterv":"CMP.000000000085","numberstr":2,"kodDetailing":"A.002.008.001","detailsInterview":"        Головні болі іноді призводять до блювоти яка їх полегшує"}
+{"id":2809,"kodComplInterv":"CMP.000000000085","numberstr":3,"kodDetailing":"A.002.008.002","detailsInterview":"        Призводить до погіршення зору аж до сліпоти при ненаданні своєчасної допомоги"}
+{"id":2810,"kodComplInterv":"CMP.000000000085","numberstr":4,"kodDetailing":"A.002.008.003","detailsInterview":"        Може призвести до запаморочення, порушення свідомості"}
+{"id":2811,"kodComplInterv":"CMP.000000000085","numberstr":5,"kodDetailing":"A.002.008.004","detailsInterview":"        Уразі тривалості головної болі 10-14 днів або зростаючої зробити КТ або МРТ"}
+{"id":3806,"kodComplInterv":"CMP.000000000086","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":3807,"kodComplInterv":"CMP.000000000086","numberstr":1,"kodDetailing":"A.002.009","detailsInterview":"    Постійний, розпираючий, частіше з ранку"}
+{"id":3808,"kodComplInterv":"CMP.000000000086","numberstr":2,"kodDetailing":"YAA.030.001","detailsInterview":"        біль може проявлятися вночі"}
+{"id":3809,"kodComplInterv":"CMP.000000000086","numberstr":3,"kodDetailing":"YAA.030.002","detailsInterview":"        може боліти вся голова чи потилиця"}
+{"id":3810,"kodComplInterv":"CMP.000000000086","numberstr":4,"kodDetailing":"YAA.030.003","detailsInterview":"        проявляється хиткість при ходьбі, ходите наче п'яний"}
+{"id":3811,"kodComplInterv":"CMP.000000000086","numberstr":5,"kodDetailing":"YAA.030.004","detailsInterview":"        може змінюватися мовлення, як у п'яної людини"}
+{"id":3812,"kodComplInterv":"CMP.000000000086","numberstr":6,"kodDetailing":"YAA.030.005","detailsInterview":"        може бути погіршення гостроти зору"}
+{"id":3813,"kodComplInterv":"CMP.000000000086","numberstr":7,"kodDetailing":"YAA.030.006","detailsInterview":"        проявляється спутанність свідомості, сонливість"}
+{"id":3814,"kodComplInterv":"CMP.000000000086","numberstr":8,"kodDetailing":"YAA.030.007","detailsInterview":"        час від часу порушується координація в одній руці, нозі, чутливість рухів, сили."}
+{"id":3815,"kodComplInterv":"CMP.000000000086","numberstr":9,"kodDetailing":"YAA.030.008","detailsInterview":"        за словами родичів час від часу порушується мова, з'являється спутанність мовлення, неусвідомлені звернення, неадекватність поведінки."}
+{"id":4806,"kodComplInterv":"CMP.000000000087","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":4807,"kodComplInterv":"CMP.000000000087","numberstr":1,"kodDetailing":"B.000.022","detailsInterview":"    кашель з відчуттям першіння"}
+{"id":4808,"kodComplInterv":"CMP.000000000087","numberstr":2,"kodDetailing":"YAA.039.001","detailsInterview":"        біль у горлі"}
+{"id":4809,"kodComplInterv":"CMP.000000000087","numberstr":3,"kodDetailing":"YAA.039.002","detailsInterview":"        закладеність носа"}
+{"id":4810,"kodComplInterv":"CMP.000000000087","numberstr":4,"kodDetailing":"YAA.039.003","detailsInterview":"        відчуття стікання слизу в горлі"}
+{"id":4811,"kodComplInterv":"CMP.000000000087","numberstr":5,"kodDetailing":"YAA.039.004","detailsInterview":"        провокується відчуттям першіння в горлі"}
+{"id":4812,"kodComplInterv":"CMP.000000000087","numberstr":6,"kodDetailing":"YAA.039.005","detailsInterview":"        без відходження мокротиння"}
+{"id":4813,"kodComplInterv":"CMP.000000000087","numberstr":7,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  "}
+{"id":4814,"kodComplInterv":"CMP.000000000087","numberstr":8,"kodDetailing":"YAA.010.002","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди"}
+{"id":4815,"kodComplInterv":"CMP.000000000087","numberstr":9,"kodDetailing":"YAA.010.003","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )"}
+{"id":4816,"kodComplInterv":"CMP.000000000087","numberstr":10,"kodDetailing":"YCC.000.003","detailsInterview":"        зазвичай підвищується до вечора до 37 - 37.5"}
+{"id":4817,"kodComplInterv":"CMP.000000000087","numberstr":11,"kodDetailing":"YCC.000.001","detailsInterview":"        підвищення температури в межах 37.2 - 38.0"}
+{"id":4818,"kodComplInterv":"CMP.000000000087","numberstr":12,"kodDetailing":"YCC.000.018","detailsInterview":"        зазвичай нормальна"}
+{"id":5806,"kodComplInterv":"CMP.000000000088","numberstr":0,"kodDetailing":"B.000","detailsInterview":"біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":5807,"kodComplInterv":"CMP.000000000088","numberstr":1,"kodDetailing":"B.000.023","detailsInterview":"кашель з проявом чихання та закладанням носа"}
+{"id":5808,"kodComplInterv":"CMP.000000000088","numberstr":2,"kodDetailing":"YAA.014.002","detailsInterview":"Кашель провокує відчуття «лоскоту» в горлі"}
+{"id":5809,"kodComplInterv":"CMP.000000000088","numberstr":3,"kodDetailing":"YAA.014.004","detailsInterview":"Кашель провокує відчуття «стікання слизу» в горлі."}
+{"id":5810,"kodComplInterv":"CMP.000000000088","numberstr":4,"kodDetailing":"YAA.014.005","detailsInterview":"Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)"}
+{"id":5811,"kodComplInterv":"CMP.000000000088","numberstr":5,"kodDetailing":"YAA.015.002","detailsInterview":"Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) "}
+{"id":5812,"kodComplInterv":"CMP.000000000088","numberstr":6,"kodDetailing":"YAA.015.003","detailsInterview":"Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами."}
+{"id":6832,"kodComplInterv":"CMP.000000000089","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":6833,"kodComplInterv":"CMP.000000000089","numberstr":1,"kodDetailing":"B.000.023","detailsInterview":"    кашель з проявом чихання та закладанням носа"}
+{"id":6834,"kodComplInterv":"CMP.000000000089","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель"}
+{"id":6835,"kodComplInterv":"CMP.000000000089","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі"}
+{"id":6836,"kodComplInterv":"CMP.000000000089","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання."}
+{"id":6837,"kodComplInterv":"CMP.000000000089","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі."}
+{"id":6838,"kodComplInterv":"CMP.000000000089","numberstr":6,"kodDetailing":"YAA.014.005","detailsInterview":"        Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)"}
+{"id":6839,"kodComplInterv":"CMP.000000000089","numberstr":7,"kodDetailing":"YAA.014.006","detailsInterview":"        Кашель супроводжується відчуттям \"ускладненого дихання\", стисканням у грудях, затруденим видихом, свистами  "}
+{"id":6840,"kodComplInterv":"CMP.000000000089","numberstr":8,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)"}
+{"id":6841,"kodComplInterv":"CMP.000000000089","numberstr":9,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) "}
+{"id":6842,"kodComplInterv":"CMP.000000000089","numberstr":10,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами."}
+{"id":6843,"kodComplInterv":"CMP.000000000089","numberstr":11,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)"}
+{"id":6844,"kodComplInterv":"CMP.000000000089","numberstr":12,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди"}
+{"id":6845,"kodComplInterv":"CMP.000000000089","numberstr":13,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)"}
+{"id":6846,"kodComplInterv":"CMP.000000000089","numberstr":14,"kodDetailing":"YAA.015.007","detailsInterview":"        Напади ускладненого дихання, кашлю переважно виникають у нічний або ранній ранковий час "}
+{"id":6847,"kodComplInterv":"CMP.000000000089","numberstr":15,"kodDetailing":"YAA.015.008","detailsInterview":"        Напади ускалдненого дихання, кашлю провокуються під час фізичного навантаження, швидкої ходи"}
+{"id":6848,"kodComplInterv":"CMP.000000000089","numberstr":16,"kodDetailing":"YAA.015.009","detailsInterview":"        Напади ускалдненого дихання, кашлю посилюються на вулиці (при вдиханні холодного повітря, морозній погоді)"}
+{"id":6849,"kodComplInterv":"CMP.000000000090","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":6850,"kodComplInterv":"CMP.000000000090","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів без видимої причини або періодичні болі що посилюються"}
+{"id":6851,"kodComplInterv":"CMP.000000000090","numberstr":2,"kodDetailing":"YAA.001.007","detailsInterview":"        Не вгамовується знеболюючими або діє короткочасно"}
+{"id":6852,"kodComplInterv":"CMP.000000000090","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Може супроводжуватися нудотою чи блюванням"}
+{"id":6853,"kodComplInterv":"CMP.000000000090","numberstr":4,"kodDetailing":"YAA.001.002","detailsInterview":"        Може бути запаморочення, головокружіння, порушення координації руху"}
+{"id":6854,"kodComplInterv":"CMP.000000000090","numberstr":5,"kodDetailing":"YAA.001.003","detailsInterview":"        Може з'являтися порушення чутливості, слабкісті в руці в нозі чи в обох кінцівках"}
+{"id":6855,"kodComplInterv":"CMP.000000000090","numberstr":6,"kodDetailing":"YAA.001.004","detailsInterview":"        Можуть виникати судомні приступи"}
+{"id":6856,"kodComplInterv":"CMP.000000000090","numberstr":7,"kodDetailing":"YAA.001.005","detailsInterview":"        Може бути порушення зору, слуху,сприйняття смаку та запахів"}
+{"id":6857,"kodComplInterv":"CMP.000000000090","numberstr":8,"kodDetailing":"YAA.001.006","detailsInterview":"        Може бути порушення функцій органів випорожнення(неутримання сечі, затримки дефікації, закреп)"}
+{"id":6858,"kodComplInterv":"CMP.000000000091","numberstr":0,"kodDetailing":"A.002","detailsInterview":" Головний біль"}
+{"id":6859,"kodComplInterv":"CMP.000000000091","numberstr":1,"kodDetailing":"A.002.002","detailsInterview":"    Тривалість більше 2 тижнів без видимої причини або періодичні болі що посилюються"}
+{"id":6860,"kodComplInterv":"CMP.000000000091","numberstr":2,"kodDetailing":"YAA.001.007","detailsInterview":"        Не вгамовується знеболюючими або діє короткочасно"}
+{"id":6861,"kodComplInterv":"CMP.000000000091","numberstr":3,"kodDetailing":"YAA.001.001","detailsInterview":"        Може супроводжуватися нудотою чи блюванням"}
+{"id":6862,"kodComplInterv":"CMP.000000000091","numberstr":4,"kodDetailing":"YAA.001.002","detailsInterview":"        Може бути запаморочення, головокружіння, порушення координації руху"}
+{"id":6863,"kodComplInterv":"CMP.000000000091","numberstr":5,"kodDetailing":"YAA.001.003","detailsInterview":"        Може з'являтися порушення чутливості, слабкісті в руці в нозі чи в обох кінцівках"}
+{"id":6864,"kodComplInterv":"CMP.000000000091","numberstr":6,"kodDetailing":"YAA.001.004","detailsInterview":"        Можуть виникати судомні приступи"}
+{"id":6865,"kodComplInterv":"CMP.000000000091","numberstr":7,"kodDetailing":"YAA.001.005","detailsInterview":"        Може бути порушення зору, слуху,сприйняття смаку та запахів"}
+{"id":6866,"kodComplInterv":"CMP.000000000091","numberstr":8,"kodDetailing":"YAA.001.006","detailsInterview":"        Може бути порушення функцій органів випорожнення(неутримання сечі, затримки дефікації, закреп)"}
+{"id":6867,"kodComplInterv":"CMP.000000000092","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":6868,"kodComplInterv":"CMP.000000000092","numberstr":1,"kodDetailing":"B.000.023","detailsInterview":"    кашель з проявом чихання та закладанням носа"}
+{"id":6869,"kodComplInterv":"CMP.000000000092","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель"}
+{"id":6870,"kodComplInterv":"CMP.000000000092","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі"}
+{"id":6871,"kodComplInterv":"CMP.000000000092","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання."}
+{"id":6872,"kodComplInterv":"CMP.000000000092","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі."}
+{"id":6873,"kodComplInterv":"CMP.000000000092","numberstr":6,"kodDetailing":"YAA.014.005","detailsInterview":"        Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)"}
+{"id":6874,"kodComplInterv":"CMP.000000000092","numberstr":7,"kodDetailing":"YAA.014.006","detailsInterview":"        Кашель супроводжується відчуттям \"ускладненого дихання\", стисканням у грудях, затруденим видихом, свистами  "}
+{"id":6875,"kodComplInterv":"CMP.000000000092","numberstr":8,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)"}
+{"id":6876,"kodComplInterv":"CMP.000000000092","numberstr":9,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) "}
+{"id":6877,"kodComplInterv":"CMP.000000000092","numberstr":10,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами."}
+{"id":6878,"kodComplInterv":"CMP.000000000092","numberstr":11,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)"}
+{"id":6879,"kodComplInterv":"CMP.000000000092","numberstr":12,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди"}
+{"id":6880,"kodComplInterv":"CMP.000000000092","numberstr":13,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)"}
+{"id":6881,"kodComplInterv":"CMP.000000000092","numberstr":14,"kodDetailing":"YAA.015.007","detailsInterview":"        Напади ускладненого дихання, кашлю переважно виникають у нічний або ранній ранковий час "}
+{"id":6882,"kodComplInterv":"CMP.000000000092","numberstr":15,"kodDetailing":"YAA.015.008","detailsInterview":"        Напади ускалдненого дихання, кашлю провокуються під час фізичного навантаження, швидкої ходи"}
+{"id":6883,"kodComplInterv":"CMP.000000000092","numberstr":16,"kodDetailing":"YAA.015.009","detailsInterview":"        Напади ускалдненого дихання, кашлю посилюються на вулиці (при вдиханні холодного повітря, морозній погоді)"}
+{"id":6884,"kodComplInterv":"CMP.000000000093","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":6885,"kodComplInterv":"CMP.000000000093","numberstr":1,"kodDetailing":"B.000.023","detailsInterview":"    кашель з проявом чихання та закладанням носа"}
+{"id":6886,"kodComplInterv":"CMP.000000000093","numberstr":2,"kodDetailing":"YAA.014.001","detailsInterview":"        Нападоподібний сухий кашель"}
+{"id":6887,"kodComplInterv":"CMP.000000000093","numberstr":3,"kodDetailing":"YAA.014.002","detailsInterview":"        Кашель провокує відчуття «лоскоту» в горлі"}
+{"id":6888,"kodComplInterv":"CMP.000000000093","numberstr":4,"kodDetailing":"YAA.014.003","detailsInterview":"        Наявність разом із кашлем таких симптомів як свербіж очей, сльозотеча, закладеність носу, чихання."}
+{"id":6889,"kodComplInterv":"CMP.000000000093","numberstr":5,"kodDetailing":"YAA.014.004","detailsInterview":"        Кашель провокує відчуття «стікання слизу» в горлі."}
+{"id":6890,"kodComplInterv":"CMP.000000000093","numberstr":6,"kodDetailing":"YAA.014.005","detailsInterview":"        Кашель та інші прояви (чихання, закладеність носа) посилюються після контакту з алергенами (пилок рослин, контакт із тваринами, побутовим пилом тощо)"}
+{"id":6891,"kodComplInterv":"CMP.000000000093","numberstr":7,"kodDetailing":"YAA.014.006","detailsInterview":"        Кашель супроводжується відчуттям \"ускладненого дихання\", стисканням у грудях, затруденим видихом, свистами  "}
+{"id":6892,"kodComplInterv":"CMP.000000000093","numberstr":8,"kodDetailing":"YAA.015.001","detailsInterview":"        Кашель з’являється одночасно або після виникнення інших симптомів алергії (риніту, чихання, свербежу очей)"}
+{"id":6893,"kodComplInterv":"CMP.000000000093","numberstr":9,"kodDetailing":"YAA.015.002","detailsInterview":"        Кашель виникає після контакту з певними речовинами (тютюновий дим, різкі запахи, парфуми, побутова хімія тощо) "}
+{"id":6894,"kodComplInterv":"CMP.000000000093","numberstr":10,"kodDetailing":"YAA.015.003","detailsInterview":"        Кашель виникає після контакту з тваринами, пилом, пліснявою, харчовими продуктами."}
+{"id":6895,"kodComplInterv":"CMP.000000000093","numberstr":11,"kodDetailing":"YAA.015.004","detailsInterview":"        Кашель має сезонність (виникає лише влітку або навесні)"}
+{"id":6896,"kodComplInterv":"CMP.000000000093","numberstr":12,"kodDetailing":"YAA.015.005","detailsInterview":"        На фоні кашлю відсутні інші прояви застуди"}
+{"id":6897,"kodComplInterv":"CMP.000000000093","numberstr":13,"kodDetailing":"YAA.015.006","detailsInterview":"        У членів родини є алергічні захворювання (спадковість)"}
+{"id":6898,"kodComplInterv":"CMP.000000000093","numberstr":14,"kodDetailing":"YAA.015.007","detailsInterview":"        Напади ускладненого дихання, кашлю переважно виникають у нічний або ранній ранковий час "}
+{"id":6899,"kodComplInterv":"CMP.000000000093","numberstr":15,"kodDetailing":"YAA.015.008","detailsInterview":"        Напади ускалдненого дихання, кашлю провокуються під час фізичного навантаження, швидкої ходи"}
+{"id":6900,"kodComplInterv":"CMP.000000000093","numberstr":16,"kodDetailing":"YAA.015.009","detailsInterview":"        Напади ускалдненого дихання, кашлю посилюються на вулиці (при вдиханні холодного повітря, морозній погоді)"}
+{"id":6901,"kodComplInterv":"CMP.000000000094","numberstr":0,"kodDetailing":"A.000","detailsInterview":" ніс"}
+{"id":6902,"kodComplInterv":"CMP.000000000094","numberstr":1,"kodDetailing":"A.000.001","detailsInterview":"    закладеність носа"}
+{"id":6903,"kodComplInterv":"CMP.000000000094","numberstr":2,"kodDetailing":"YAA.000.002","detailsInterview":"        навесні"}
+{"id":6904,"kodComplInterv":"CMP.000000000094","numberstr":3,"kodDetailing":"YAA.000.003","detailsInterview":"        влітку"}
+{"id":6905,"kodComplInterv":"CMP.000000000094","numberstr":4,"kodDetailing":"YAA.000.004","detailsInterview":"        восени"}
+{"id":6906,"kodComplInterv":"CMP.000000000094","numberstr":5,"kodDetailing":"YAA.000.006","detailsInterview":"        цілодобово"}
+{"id":6907,"kodComplInterv":"CMP.000000000094","numberstr":6,"kodDetailing":"YAA.000.013","detailsInterview":"        протягом останнього 1 місяця"}
+{"id":6908,"kodComplInterv":"CMP.000000000094","numberstr":7,"kodDetailing":"YAA.000.014","detailsInterview":"        протягом 1 року"}
+{"id":6909,"kodComplInterv":"CMP.000000000094","numberstr":8,"kodDetailing":"YAA.000.015","detailsInterview":"        протягом 5 років"}
+{"id":6910,"kodComplInterv":"CMP.000000000094","numberstr":9,"kodDetailing":"YBB.000.009","detailsInterview":"        в полі"}
+{"id":6911,"kodComplInterv":"CMP.000000000094","numberstr":10,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":6912,"kodComplInterv":"CMP.000000000094","numberstr":11,"kodDetailing":"A.000.002","detailsInterview":"    чихання"}
+{"id":6913,"kodComplInterv":"CMP.000000000094","numberstr":12,"kodDetailing":"A.000.002.001","detailsInterview":"        епізодичне"}
+{"id":6914,"kodComplInterv":"CMP.000000000094","numberstr":13,"kodDetailing":"A.000.002.002","detailsInterview":"        нападоподібне"}
+{"id":6915,"kodComplInterv":"CMP.000000000094","numberstr":14,"kodDetailing":"A.000.003","detailsInterview":"    свербіння в носі"}
+{"id":6916,"kodComplInterv":"CMP.000000000094","numberstr":15,"kodDetailing":"A.000.003.001","detailsInterview":"        епізодичний"}
+{"id":6917,"kodComplInterv":"CMP.000000000094","numberstr":16,"kodDetailing":"A.000.004","detailsInterview":"    виділення з носа"}
+{"id":6918,"kodComplInterv":"CMP.000000000094","numberstr":17,"kodDetailing":"YDD.000.001","detailsInterview":"        епізодичні"}
+{"id":6919,"kodComplInterv":"CMP.000000000094","numberstr":18,"kodDetailing":"YDD.000.003","detailsInterview":"        прозорі"}
+{"id":6920,"kodComplInterv":"CMP.000000000094","numberstr":19,"kodDetailing":"YDD.000.004","detailsInterview":"        світлі"}
+{"id":6921,"kodComplInterv":"CMP.000000000094","numberstr":20,"kodDetailing":"YDD.000.008","detailsInterview":"        рясні"}
+{"id":6922,"kodComplInterv":"CMP.000000000094","numberstr":21,"kodDetailing":"A.000.004.004","detailsInterview":"        відчуття стікання слизи на задній стінці глотки"}
+{"id":6923,"kodComplInterv":"CMP.000000000094","numberstr":22,"kodDetailing":"A.000.006","detailsInterview":"    температура"}
+{"id":6924,"kodComplInterv":"CMP.000000000094","numberstr":23,"kodDetailing":"YCC.000.001","detailsInterview":"        зазвичай нормальна"}
+{"id":6925,"kodComplInterv":"CMP.000000000094","numberstr":24,"kodDetailing":"YCC.000.002","detailsInterview":"        підвищується лише за застуді"}
+{"id":6926,"kodComplInterv":"CMP.000000000094","numberstr":25,"kodDetailing":"YCC.000.004","detailsInterview":"        при застуді зазвичай підвищується до 37"}
+{"id":6927,"kodComplInterv":"CMP.000000000094","numberstr":26,"kodDetailing":"YCC.000.005","detailsInterview":"        при застуді зазвичай підвищується до 38"}
+{"id":6928,"kodComplInterv":"CMP.000000000094","numberstr":27,"kodDetailing":"A.000.007","detailsInterview":"    біль у носі та/або приносових пазухах"}
+{"id":6929,"kodComplInterv":"CMP.000000000094","numberstr":28,"kodDetailing":"A.000.009","detailsInterview":"    сезонність"}
+{"id":6930,"kodComplInterv":"CMP.000000000094","numberstr":29,"kodDetailing":"A.000.011","detailsInterview":"    поліпшення стану"}
+{"id":6931,"kodComplInterv":"CMP.000000000094","numberstr":30,"kodDetailing":"A.000.011.005","detailsInterview":"        в приміщенні"}
+{"id":6932,"kodComplInterv":"CMP.000000000094","numberstr":31,"kodDetailing":"A.000.011.003","detailsInterview":"        при застосуванні судинозвужувальних крапель у ніс"}
+{"id":6933,"kodComplInterv":"CMP.000000000094","numberstr":32,"kodDetailing":"A.000.012","detailsInterview":"    погіршення стану"}
+{"id":6934,"kodComplInterv":"CMP.000000000094","numberstr":33,"kodDetailing":"YBB.000.002","detailsInterview":"        вдома"}
+{"id":6935,"kodComplInterv":"CMP.000000000094","numberstr":34,"kodDetailing":"YBB.000.008","detailsInterview":"        на работі"}
+{"id":6936,"kodComplInterv":"CMP.000000000094","numberstr":35,"kodDetailing":"YBB.000.006","detailsInterview":"        за містом"}
+{"id":6937,"kodComplInterv":"CMP.000000000094","numberstr":36,"kodDetailing":"YBB.000.010","detailsInterview":"        в лісі"}
+{"id":6938,"kodComplInterv":"CMP.000000000094","numberstr":37,"kodDetailing":"A.000.013","detailsInterview":"    інші скарги"}
+{"id":6939,"kodComplInterv":"CMP.000000000094","numberstr":38,"kodDetailing":"A.000.013.009","detailsInterview":"        свербіння в вухах"}
+{"id":6940,"kodComplInterv":"CMP.000000000094","numberstr":39,"kodDetailing":"A.000.013.003","detailsInterview":"        закладеність у вухах"}
+{"id":6941,"kodComplInterv":"CMP.000000000095","numberstr":0,"kodDetailing":"B.000","detailsInterview":" біль, свербіж,першіння у горлі, різноманітний кашель"}
+{"id":6942,"kodComplInterv":"CMP.000000000095","numberstr":1,"kodDetailing":"B.000.021","detailsInterview":"    кашель без мокротиння з печією"}
+{"id":6943,"kodComplInterv":"CMP.000000000095","numberstr":2,"kodDetailing":"YEE.000.001","detailsInterview":"        Кашель виникає після їжі"}
+{"id":6944,"kodComplInterv":"CMP.000000000095","numberstr":3,"kodDetailing":"YEE.000.002","detailsInterview":"        Кашель виникає під час фізичної активності, при нахилах"}
+{"id":6945,"kodComplInterv":"CMP.000000000095","numberstr":4,"kodDetailing":"YEE.000.003","detailsInterview":"        У Вас були в минулому або зараз є скарги з боку органів травлення (важкість у шлунку, печія, відрижка повітрям)"}
+{"id":6946,"kodComplInterv":"CMP.000000000095","numberstr":5,"kodDetailing":"YEE.000.004","detailsInterview":"        Ви маєте встановлений діагноз в минулому (Хронічний гастрит або гастродуоденіт, Виразков ахвороба шлунку або 12-палої кишки, Диспепсія)"}
+{"id":6947,"kodComplInterv":"CMP.000000000095","numberstr":6,"kodDetailing":"YEE.000.005","detailsInterview":"        Кашель виникає частіше у вечірній час (в положенні лежачи)"}
+{"id":6948,"kodComplInterv":"CMP.000000000095","numberstr":7,"kodDetailing":"YAA.010.001","detailsInterview":"        не було переохолоджень та контактів з людьми із застудою  "}
+{"id":6949,"kodComplInterv":"CMP.000000000095","numberstr":8,"kodDetailing":"YAA.010.002","detailsInterview":"        попередньо був контакт в родині або в колективі з людиною що мала ознаки застуди"}
+{"id":6950,"kodComplInterv":"CMP.000000000095","numberstr":9,"kodDetailing":"YAA.010.003","detailsInterview":"        попередньо був епізод переохолодження (перебували на вулиці в холодну погоду, на протязі, вживали холодні напої )"}
