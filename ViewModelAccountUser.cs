@@ -36,7 +36,7 @@ namespace BackSeam
         /// </summary>      
         public  static MainWindow WindowAccountUser = MainWindow.LinkNameWindow("BackMain");
         public static bool editboolAccountUser = false, addboolAccountUser = false, loadboolAccountUser = false;
-        private string edittextAccountUser = "", SetIdStatus = "";
+        private string edittextAccountUser = "", SetIdStatus = "", add = "";
         public static string pathcontrolerAccountUser =  "/api/AccountUserController/";
         public static string pathcontrolerStatusUser =  "/api/NsiStatusUserController/";
         public static string pathcontrolernsiPacient =  "/api/PacientController/";
@@ -158,8 +158,10 @@ namespace BackSeam
 
         private void MethodaddcomAccountUser()
         {
-            IndexAddEdit = IndexAddEdit == "addCommand" ? "" : "addCommand";
+            add = add == "addCommand" ? "" : "addCommand";
             selectedAccountUser = new AccountUser();
+            selectedAccountUser.accountCreatDate = DateTime.Now.ToString();
+            WindowAccountUser.AccountUserDateCreatBox.Text = selectedAccountUser.accountCreatDate;
             if (addboolAccountUser == false) BoolTrueAccountUser();
             else BoolFalseAccountUser();
             WindowAccountUser.AccountUserTablGrid.SelectedItem = null;
@@ -168,15 +170,15 @@ namespace BackSeam
 
         private void MethodLoadAccountUser()
         {
-            IndexAddEdit = "";
+            add = "";
             loadboolAccountUser = true;
             RegStatusUser = "Адміністратор";
 
             WindowAccountUser.LoadAccountUser.Visibility = Visibility.Hidden;
             if (boolSetAccountUser == false)
             { if (RegSetAccountUser() == false) return;}
-            
-            
+
+            ViewAccountUsers = new ObservableCollection<AccountUser>();
             CallServer.PostServer(pathcontrolerAccountUser, pathcontrolerAccountUser, "GET");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]"))CallServer.BoolFalseTabl();
@@ -200,7 +202,7 @@ namespace BackSeam
             WindowAccountUser.AccountUsert2.Background = Brushes.AntiqueWhite;
             WindowAccountUser.AccountUsert4.IsEnabled = true;
             WindowAccountUser.AccountUsert4.Background = Brushes.AntiqueWhite;
-            if (IndexAddEdit == "addCommand" || IndexAddEdit == "editCommand" )
+            if (add == "addCommand" || add == "editCommand" )
             { 
                 WindowAccountUser.FoldAccountUser0.Visibility = Visibility.Visible;
                 WindowAccountUser.FoldAccountUser1.Visibility = Visibility.Visible;
@@ -259,7 +261,7 @@ namespace BackSeam
 
                       }
                       BoolFalseAccountUser();
-                      IndexAddEdit = "";
+                      add = "";
                   },
                  (obj) => ViewAccountUsers != null));
             }
@@ -277,7 +279,7 @@ namespace BackSeam
                   {
                       if (selectedModelAccountUser != null)
                       {
-                          IndexAddEdit = "editCommand";
+                          add = "editCommand";
                           if (editboolAccountUser == false)
                           {
                               BoolTrueAccountUser();
@@ -287,7 +289,7 @@ namespace BackSeam
                           {
                               BoolFalseAccountUser();
                               WindowAccountUser.AccountUserTablGrid.SelectedItem = null;
-                              IndexAddEdit = "";
+                              add = "";
                           }
                       }
                   }));
@@ -306,10 +308,10 @@ namespace BackSeam
                       
                       if (WindowAccountUser.AccountUsert2.Text.Length != 0)
                       {
-                          //selectedAccountUser.idStatus = WindowAccountUser.AccountUsert3.Text.ToString().Substring(0, WindowDetailing.AccountUsert3.Text.ToString().IndexOf(":"));
+
                           selectedAccountUser.login = WindowAccountUser.AccountUsert2.Text.ToString();
                           selectedAccountUser.password = WindowAccountUser.AccountUsert4.Text.ToString();
-                          if (IndexAddEdit == "addCommand")
+                          if (add == "addCommand")
                           {
                               //  формирование кода Detailing по значениею группы выранного храктера жалобы
                               SelectNewAccountUser();
@@ -317,25 +319,18 @@ namespace BackSeam
                               CallServer.PostServer(pathcontrolerAccountUser, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                               AccountUser Idinsert = JsonConvert.DeserializeObject<AccountUser>(CallServer.ResponseFromServer);
-                              if (ViewAccountUsers == null)
-                              {
-                                  ViewAccountUsers = new ObservableCollection<AccountUser>();
-                                  ViewAccountUsers.Add(Idinsert);
-                              } 
-                              else
-                              { ViewAccountUsers.Insert(ViewAccountUsers.Count, Idinsert);  }
-                              SelectedAccountUser = Idinsert;
-                              MethodLoadModelAccountUser();
+                              ViewAccountUsers.Add(Idinsert);
                           }
                           else
                           {
                               string json = JsonConvert.SerializeObject(selectedAccountUser);
                               CallServer.PostServer(pathcontrolerAccountUser, json, "PUT");
                           }
+                          MethodLoadModelAccountUser();
                       }
-                      else WindowAccountUser.AccountUsert2.Text = edittextAccountUser;
+                      
                       WindowAccountUser.AccountUserTablGrid.SelectedItem = null;
-                      IndexAddEdit = "";
+                      add = "";
                       BoolFalseAccountUser();
 
                   }));
@@ -345,10 +340,10 @@ namespace BackSeam
 
         public void SelectNewAccountUser()
         {
-           if (selectedAccountUser == null) selectedAccountUser = new AccountUser();
-           if (ViewAccountUsers != null)
+
+           if (WindowAccountUser.AccountUsert5.Text.Trim().Length == 0) 
            {
-                if (WindowAccountUser.AccountUsert5.Text.Trim().Length == 0)
+                if (ViewAccountUsers != null)
                 {
 
                     int _keyAccountUserindex = 0, setindex = 0;
@@ -363,9 +358,10 @@ namespace BackSeam
                     selectedAccountUser.idUser = "CNT." + _repl.Substring(0, _repl.Length - _keyAccountUserindex.ToString().Length) + _keyAccountUserindex.ToString();
  
                 }
-                else { selectedAccountUser.idUser = WindowAccountUser.AccountUsert5.Text.ToString().Substring(0, WindowAccountUser.AccountUsert5.Text.ToString().IndexOf(":")); }               
-           }
-           else { selectedAccountUser.idUser = "CNT.0000000001"; }
+                else { selectedAccountUser.idUser = "CNT.0000000001"; }
+            }
+            else { selectedAccountUser.idUser = WindowAccountUser.AccountUsert5.Text.ToString().Substring(0, WindowAccountUser.AccountUsert5.Text.ToString().IndexOf(":")); }
+           
 
         }
 
@@ -406,7 +402,6 @@ namespace BackSeam
         {
             MapOpisViewModel.CallViewProfilLikar = "WinNsiStatusUser";
             WinNsiStatusUser NewOrder = new WinNsiStatusUser();
-     
             NewOrder.ShowDialog();
             MapOpisViewModel.CallViewProfilLikar = "";
             if (WindowAccountUser.AccountUsert3.Text.Trim().Length > 0)
@@ -439,10 +434,14 @@ namespace BackSeam
                               MapOpisViewModel.CallViewProfilLikar = "WinNsiPacient";
                               AddComandAddWinNsiPacient();
                               break;
-                          case "3":
+                          case "3":  
                               MapOpisViewModel.CallViewProfilLikar = "WinNsiLikar";
                               AddComandAddWinNsiLikar();
-                            break;
+                              break;
+                          case "4":
+                              MapOpisViewModel.CallViewProfilLikar = "WinNsiLikar";
+                              AddComandAddWinNsiLikar();
+                              break;
                       }
                       MapOpisViewModel.CallViewProfilLikar = "";
                   }));

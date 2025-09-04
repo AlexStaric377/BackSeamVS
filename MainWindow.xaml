@@ -7843,7 +7843,7 @@
 
                                                         <TextBlock x:Name="AccountUserLab3" Grid.Column="0" Grid.Row="1" Text="  Статус користувача"  FontSize="14" Height="30" Width="168" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" />
                                                         <TextBox Text="{Binding nameStatus, UpdateSourceTrigger=PropertyChanged}" Name="AccountUsert3" Grid.Column="1" Grid.Row="1"
-                                                        IsEnabled="False" Background="White" Width="150" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" />
+                                                        IsEnabled="False" Background="White" Width="150" Height="26" FontSize="14" HorizontalAlignment="Left" BorderThickness="0,0,0,0" RenderTransformOrigin="3.86,12.197" />
                                                         <Image x:Name="FoldAccountUser0" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1" Grid.Row="1" Width="25"  HorizontalAlignment="Left" Margin="180,0,0,0"  Visibility="Hidden"   >
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
