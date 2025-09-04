@@ -238,10 +238,10 @@ namespace BackSeam
             if (selectedMedZaklad != null && selectedMedZaklad.id != 0)
             {
                 closeWin = true;
-                WindowMain.Likart9.Text = selectedMedZaklad.name.ToString();
-                WindowMain.Likart8.Text = selectedMedZaklad.kodZaklad.ToString();
-                WindowMain.Likart4.Text = selectedMedZaklad.adres.ToString();
-                WindowMain.Likart5.Text = selectedMedZaklad.postIndex.ToString();
+                WindowMain.Likart9.Text = selectedMedZaklad.name;
+                WindowMain.Likart8.Text = selectedMedZaklad.kodZaklad;
+                WindowMain.Likart4.Text = selectedMedZaklad.adres;
+                WindowMain.Likart5.Text = selectedMedZaklad.postIndex;
                 
             }
             if(closeWin == true) WindowMedZaklad.Close();       
