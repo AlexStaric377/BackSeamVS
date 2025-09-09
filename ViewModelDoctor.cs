@@ -455,13 +455,13 @@ namespace BackSeam
                     if (_keyDoctorindex < setindex) _keyDoctorindex = setindex;
                 }
                 _keyDoctorindex++;
-                string _repl = "000000000";
+                string _repl = "0000000000";
                 selectedDoctor.kodDoctor = "DTR." + _repl.Substring(0, _repl.Length - _keyDoctorindex.ToString().Length) + _keyDoctorindex.ToString();
             }
             else
             {
                 ViewDoctors = new ObservableCollection<ModelDoctor>();
-                selectedDoctor.kodDoctor = "DTR.000000001";
+                selectedDoctor.kodDoctor = "DTR.0000000001";
             }
 
         }

@@ -346,7 +346,9 @@ namespace BackSeam
                 WindowInfo.LoadBd.Visibility = Visibility.Hidden;
                 WindowInfo.AnalizDiagnoz.Visibility = Visibility.Hidden;
                 WindowInfo.SetupGrid.Visibility = Visibility.Hidden;
-                
+                WindowInfo.Adminsetup.Visibility = Visibility.Hidden;
+
+
 
 
             }
@@ -358,6 +360,7 @@ namespace BackSeam
                 WindowInfo.LoadBd.Visibility = Visibility.Visible;
                 WindowInfo.AnalizDiagnoz.Visibility = Visibility.Visible;
                 WindowInfo.SetupGrid.Visibility = Visibility.Visible;
+                WindowInfo.Adminsetup.Visibility = Visibility.Visible;
             }
             IsEnableButtonOff();
 

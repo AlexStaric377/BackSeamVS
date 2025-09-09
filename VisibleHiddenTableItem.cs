@@ -108,6 +108,9 @@ namespace BackSeam
                                       WindowHidden.LibDiagnozGridSave.Visibility = Visibility.Hidden;
                                       
                                       break;
+                                  case 7:
+                                      ExitCabinetLikar();
+                                      break;
                               }
                               break;
                           // Закладка Інструменти
@@ -169,20 +172,23 @@ namespace BackSeam
                              break;    
                           // Закладка Администрування
                           case 5:
-                              switch (WindowHidden.AdminControl.SelectedIndex)
+                              if (RegUserStatus == "1")
                               {
-                                  case 1:
-                                      if (ViewAccountUsers == null) MethodLoadAccountUser();
-                                      break;
-                                  case 2:
-                                      if (ViewStatustUsers == null) MethodLoadNsiStatusUser();
-                                      break;
-                                  case 3:
-                                      if(ViewPrices == null) MethodLoadPrice();
-                                      break;
-                                  case 4:
-                                      if (ViewPayments == null) MethodLoadPayment(); 
-                                      break;
+                                  switch (WindowHidden.AdminControl.SelectedIndex)
+                                  {
+                                      case 1:
+                                          if (ViewAccountUsers == null) MethodLoadAccountUser();
+                                          break;
+                                      case 2:
+                                          if (ViewStatustUsers == null) MethodLoadNsiStatusUser();
+                                          break;
+                                      case 3:
+                                          if (ViewPrices == null) MethodLoadPrice();
+                                          break;
+                                      case 4:
+                                          if (ViewPayments == null) MethodLoadPayment();
+                                          break;
+                                  }
                               }
                               break;
                           // Закладка про програму

@@ -151,7 +151,7 @@ namespace BackSeam
         private void AddComandAccountUser()
         {
             selectedAccountUser = new AccountUser();
-            SelectedAccountUser = selectedAccountUser;
+            SelectedAccountUser = new  AccountUser();
             if (loadboolAccountUser == false) MethodLoadAccountUser();
             MethodaddcomAccountUser();
         }
@@ -160,11 +160,14 @@ namespace BackSeam
         {
             add = add == "addCommand" ? "" : "addCommand";
             selectedAccountUser = new AccountUser();
+            SelectedAccountUser = new AccountUser();
+            selectedModelAccountUser = new ModelAccountUser();
+            SelectedModelAccountUser = new ModelAccountUser();
             selectedAccountUser.accountCreatDate = DateTime.Now.ToString();
             WindowAccountUser.AccountUserDateCreatBox.Text = selectedAccountUser.accountCreatDate;
             if (addboolAccountUser == false) BoolTrueAccountUser();
             else BoolFalseAccountUser();
-            WindowAccountUser.AccountUserTablGrid.SelectedItem = null;
+           
 
         }
 
@@ -206,7 +209,8 @@ namespace BackSeam
             { 
                 WindowAccountUser.FoldAccountUser0.Visibility = Visibility.Visible;
                 WindowAccountUser.FoldAccountUser1.Visibility = Visibility.Visible;
-            } 
+            }
+            WindowAccountUser.AccountUserTablGrid.IsEnabled = false;
         }
 
         private void BoolFalseAccountUser()
@@ -219,7 +223,7 @@ namespace BackSeam
             WindowAccountUser.AccountUsert4.Background = Brushes.White;
             WindowAccountUser.FoldAccountUser0.Visibility = Visibility.Hidden;
             WindowAccountUser.FoldAccountUser1.Visibility = Visibility.Hidden;
-
+            WindowAccountUser.AccountUserTablGrid.IsEnabled = true;
         }
 
         // команда удаления
@@ -311,6 +315,7 @@ namespace BackSeam
 
                           selectedAccountUser.login = WindowAccountUser.AccountUsert2.Text.ToString();
                           selectedAccountUser.password = WindowAccountUser.AccountUsert4.Text.ToString();
+
                           if (add == "addCommand")
                           {
                               //  формирование кода Detailing по значениею группы выранного храктера жалобы
@@ -330,6 +335,8 @@ namespace BackSeam
                       }
                       
                       WindowAccountUser.AccountUserTablGrid.SelectedItem = null;
+                      SelectedModelAccountUser = new ModelAccountUser();
+                      SelectedAccountUser = new AccountUser();
                       add = "";
                       BoolFalseAccountUser();
 
@@ -489,6 +496,7 @@ namespace BackSeam
                                       if (Idinsert != null) WindowAccountUser.AccountUsert5.Text = Idinsert.kodPacient + ": " + Idinsert.name + " " + Idinsert.surname;
                                       break;
                                   case "3":
+                                  case "4":
                                       json = pathcontrolernsiLikar + Iduser + "/0/0";
                                       CallServer.PostServer(pathcontrolernsiLikar, json, "GETID");
                                       CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");

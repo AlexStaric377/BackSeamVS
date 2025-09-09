@@ -3010,6 +3010,16 @@
                                     </Grid>
 
                                 </TabItem>
+                                <TabItem Header="Вийти з кабінету" Name="Exitkabinet"  FontFamily="Microsoft Sans Serif" Height="35" Width="150" HorizontalAlignment="Center">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <Grid Width="780" Background="White" HorizontalAlignment="Left">
+                                    </Grid>
+
+                                </TabItem>
                             </TabControl>
                         </Grid>
                     </TabItem>
@@ -7635,7 +7645,7 @@
                                 <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Grid Background="White">
+                        <Grid Background="White" Name="Adminsetup">
                             <TabControl Name="AdminControl" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
                                 <TabItem Header="Мова інтерфейсу" Name="DefaultLanguageUI" FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="150" HorizontalAlignment="Center">
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
@@ -8744,7 +8754,7 @@
                                                 <RowDefinition Height="100*"/>
                                             </Grid.RowDefinitions>
                                             <TextBlock Grid.Row="0" x:Name="InfoSeamVer"   Text="  Веріся зборки:"  FontSize="14" Height="30" Width="410"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                            <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
+                                            <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023, Україна, м. Київ, ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
                                         </Grid>
                                     </StackPanel>
                                 </Border>

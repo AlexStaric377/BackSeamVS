@@ -59,9 +59,9 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel x:Name="StackPanel"  Orientation="Horizontal" Margin="5" Height="20">
-                                 <TextBlock Text="{Binding name}"  VerticalAlignment="Center"  Width="90" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                 <TextBlock Text="{Binding name}"  VerticalAlignment="Center"  Width="120" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                                 <TextBlock Text="{Binding surname}"  VerticalAlignment="Center"  Width="110" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
-                                <TextBlock Text="{Binding specialnoct}"  VerticalAlignment="Center" TextWrapping="Wrap" Width="120" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
+                                <TextBlock Text="{Binding specialnoct}"  VerticalAlignment="Center" TextWrapping="Wrap" Width="90" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                                 <TextBlock Text="{Binding napryamok}"  VerticalAlignment="Center"  Width="130" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                                 <TextBlock Text="{Binding telefon}"  VerticalAlignment="Center"  Width="130" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />
                                 <TextBlock Text="{Binding uriwebDoctor}"  VerticalAlignment="Center"  Width="160" Height="20" FontSize="16" FontWeight="Black" HorizontalAlignment="Left" />

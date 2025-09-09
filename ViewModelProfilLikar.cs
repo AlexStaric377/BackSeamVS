@@ -425,7 +425,33 @@ namespace BackSeam
             }
         }
 
-        
+        public void ExitCabinetLikar()
+        {
+            _kodDoctor = "";
+            _pacientProfil = "";
+            addboolPacientProfil = loadboolProfilLikar = loadboolPacientProfil = loadboolAccountUser = boolSetAccountUser = false;
+            SelectedGridProfilLikar = selectedGridProfilLikar = new ModelGridDoctor();
+            SelectedProfilLikar = selectedProfilLikar = new ModelDoctor();
+            SelectedGridProfilLikar = new ModelGridDoctor();
+            SelectedPacientProfil = selectedPacientProfil = new ModelPacient();
+            SelectedPacientMapAnaliz = new PacientMapAnaliz();
+            ViewPacientProfils = new ObservableCollection<ModelPacient>();
+            ViewPacientMapAnalizs = new ObservableCollection<PacientMapAnaliz>();
+            ViewProfilLikars = new ObservableCollection<ModelDoctor>();
+            WindowAccountUser.StatusHealthTablGrid.ItemsSource = null;
+            WindowAccountUser.StatusHealth3.Text = "";
+            SelectedColectionIntevLikar = new ModelColectionInterview();
+            WindowAccountUser.ColectionIntevLikarTablGrid.ItemsSource = null;
+            SelectedReceptionPacient = new ModelReceptionPatient();
+            WindowAccountUser.ReceptionPacientTablGrid.ItemsSource = null;
+            SelectedColectionIntevPacient = new ModelColectionInterview();
+            WindowAccountUser.ColectionIntevPacientTablGrid.ItemsSource = null;
+            SelectedColectionReceptionPatient = new ModelColectionInterview();
+            WindowAccountUser.ReceptionLikarTablGrid.ItemsSource = null;
+            WindowMain.StackPanelCabPacient.Visibility = Visibility.Visible;
+            BoolFalseProfilLikar();
+            BoolFalsePacientProfil();
+        }
 
         #endregion
     }
