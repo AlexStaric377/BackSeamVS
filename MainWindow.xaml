@@ -57,7 +57,7 @@
                     </TabControl.Resources>
 
 
-                    <TabItem Header="Приймальня" Name="Online"   FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="120" BorderThickness="0,0,0,0"  HorizontalAlignment="Center"  >
+                    <TabItem Header="Реєстратура" Name="Online"   FontFamily="Microsoft Sans Serif" FontSize="14" Height="50" Width="120" BorderThickness="0,0,0,0"  HorizontalAlignment="Center"  >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseUp">
                                 <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
@@ -66,7 +66,7 @@
                         <Grid Background="White" >
                             <TabControl  HorizontalAlignment="Left" Height="610" VerticalAlignment="Top"  Width="960"  BorderThickness="0,0,0,0" TabStripPlacement="Left">
 
-                                <TabItem Header="Загальне опитування" Name="InterviewGuestReestr" Height="50" Width="160" HorizontalAlignment="Center" >
+                                <TabItem Header="Провести опитування" Name="InterviewGuestReestr" Height="50" Width="160" HorizontalAlignment="Center" >
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseUp">
                                             <i:InvokeCommandAction Command="{Binding ElementName=Maintools, Path=DataContext.GeustGridLoadHidden}" CommandParameter=""/>
@@ -1547,7 +1547,7 @@
                                             </Grid>
                                         </Grid>
                                         <Grid Grid.Row="0" Height="Auto">
-                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Height="330" Padding="0,0,0,0" HorizontalAlignment="Right">
+                                            <Border BorderBrush="#FFB6B3B3" x:Name="GridProfilLikar" Background="#FF858585"  BorderThickness="1" Width="630" Height="330" Padding="0,0,0,0" HorizontalAlignment="Right">
                                                 <StackPanel x:Name="LikarPanelMapOpis" Width="Auto" Background="White" Height="330" DataContext="{Binding SelectedGridProfilLikar}">
                                                     <Grid Width="Auto" Height="Auto" x:Name="LikarPanelGrid">
                                                         <Grid.ColumnDefinitions >
@@ -1685,11 +1685,17 @@
                                                             <TextBlock x:Name="LikarLab9" Text="  Назва Мед.&#xa;  закладу" TextWrapping="Wrap" Grid.Column="0" Height="35"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                             <TextBox Text="{Binding nameZaklad, UpdateSourceTrigger=PropertyChanged}" x:Name="Likart9" Grid.Column="1" Grid.ColumnSpan="2"  Height="40" FontSize="14" Width="480" Background="White" BorderThickness="0,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                         </Grid>
-                                                        <Grid x:Name="LikarGridInf" Height="30" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" >
-                                                            <Label Name="LikarLoadInf" Content="Для проведення опитування необхідно завантажити профіль лікаря" Width="520"  Height="30"
-                                                       HorizontalAlignment="Center" FontSize="16"  Grid.ColumnSpan="2" Margin="0,0,0,0" />
-
-
+                                                        <Grid x:Name="LikarGridInf" Height="40" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" >
+                                                            <TextBlock x:Name="LikarresumeBlock" Text="  Професійний&#xa;      досвід" TextWrapping="Wrap" Grid.Column="0" Height="40"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                                            <TextBox Text="{Binding resume, UpdateSourceTrigger=PropertyChanged}" x:Name="LikarresumeBox" Grid.Column="1" Grid.ColumnSpan="2"  Height="35" FontSize="14" Width="450" 
+                                                             IsEnabled="False" Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="110,0,0,0" />
+                                                            <Image x:Name="Folderworklikar" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,20,0"  >
+                                                                <i:Interaction.Triggers>
+                                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                        <i:InvokeCommandAction Command="{Binding ElementName=GridProfilLikar, Path=DataContext.InfoWorkLikar}" CommandParameter=""/>
+                                                                    </i:EventTrigger>
+                                                                </i:Interaction.Triggers>
+                                                            </Image>
                                                         </Grid>
                                                     </Grid>
                                                 </StackPanel>
@@ -6287,8 +6293,8 @@
                                     <Grid Width="780" Background="White" HorizontalAlignment="Left">
                                         <Grid.RowDefinitions>
 
-                                            <RowDefinition Height="250*"/>
-                                            <RowDefinition Height="280*"/>
+                                            <RowDefinition Height="290*"/>
+                                            <RowDefinition Height="240*"/>
                                             <RowDefinition Height="60*" />
                                         </Grid.RowDefinitions>
                                         <Grid Grid.Row="2" Width="630" HorizontalAlignment="Right">
@@ -6367,7 +6373,7 @@
                                         <TextBlock Name="Loadlikar" Text="Для завантаження довідника натисніть клавішу 'Завантажити'" Grid.Row="2" TextWrapping="Wrap" Width="280"  Height="60"
                                                        HorizontalAlignment="Left" FontSize="18"   />
                                         <Grid Grid.Row="0" Name="GridProfilDoctor" HorizontalAlignment="Right">
-                                            <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
+                                            <Border Name="GridProfilLikarInfo"  BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Padding="0,0,0,0">
                                                 <StackPanel x:Name="DoctorPanelMapOpis" Width="Auto" Background="White" Height="Auto" DataContext="{Binding SelectedGridDoctor}">
                                                     <Grid Width="Auto" Height="Auto">
                                                         <Grid.ColumnDefinitions >
@@ -6380,6 +6386,7 @@
                                                             <RowDefinition Height="54*"/>
                                                             <RowDefinition Height="54*"/>
                                                             <RowDefinition Height="54*" />
+                                                            <RowDefinition Height="54*"/>
                                                             <RowDefinition Height="54*"/>
                                                             <RowDefinition Height="54*"/>
                                                         </Grid.RowDefinitions>
@@ -6517,7 +6524,18 @@
                                                             <TextBlock x:Name="DoctorLab9" Text="  Назва Мед.&#xa;  закладу" TextWrapping="Wrap" Grid.Column="0" Height="35"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                             <TextBox Text="{Binding nameZaklad,UpdateSourceTrigger=PropertyChanged}" x:Name="Doctort9" Grid.Column="1"  Height="30" FontSize="14" Width="480" Background="White" BorderThickness="0,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" />
                                                         </Grid>
-
+                                                        <Grid x:Name="DoctorGridInfo" Height="50" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" >
+                                                            <TextBlock x:Name="Likarresumebl" Text="  Професійний&#xa;      досвід" TextWrapping="Wrap" Grid.Column="0" Height="40"  Width="100"  FontSize="14"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                                            <TextBox Text="{Binding resume, UpdateSourceTrigger=PropertyChanged}" x:Name="Likarresumebx" Grid.Column="1" Grid.ColumnSpan="2"  Height="35" FontSize="14" Width="450" 
+                                                             IsEnabled="False" Background="White" BorderThickness="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="110,0,0,0" />
+                                                            <Image x:Name="FolderInfolikar" Source="pack://application:,,,/BackSeam;component/Images/folder_.png" Grid.Column="1"  Width="25"  HorizontalAlignment="Right"   Visibility="Hidden" Margin="0,0,20,0"  >
+                                                                <i:Interaction.Triggers>
+                                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                        <i:InvokeCommandAction Command="{Binding ElementName=GridProfilLikarInfo, Path=DataContext.InfoDirectLikar}" CommandParameter=""/>
+                                                                    </i:EventTrigger>
+                                                                </i:Interaction.Triggers>
+                                                            </Image>
+                                                        </Grid>
                                                     </Grid>
                                                 </StackPanel>
                                             </Border>
@@ -8738,23 +8756,44 @@
                         <Grid Width="800" x:Name="InfoSeamGrids" Background="White" HorizontalAlignment="Center" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="63*" />
-                                <RowDefinition Height="185*"/>
-                                <RowDefinition Height="50*" />
-                                <RowDefinition Height="50*" />
-                                <RowDefinition Height="100*" />
-                                <RowDefinition Height="200*"/>
+                                <RowDefinition Height="700*"/>
+                                
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Width="630"/>
-                            <Grid Grid.Row="1" Width="630">
-                                <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="630" Height="170" Padding="0,0,0,0">
-                                    <StackPanel x:Name="InfoSeamBd" Width="Auto" Background="White" Height="170" DataContext="{Binding SelectedModelAccountUser}">
-                                        <Grid Width="Auto" Height="170">
+                            <Grid Grid.Row="1" Width="770">
+                                <Border BorderBrush="#FFB6B3B3" Background="#FF858585"  BorderThickness="1" Width="770" Height="500" Padding="0,0,0,0">
+                                    <StackPanel x:Name="InfoSeamBd" Width="Auto" Background="White" Height="500" DataContext="{Binding SelectedModelAccountUser}">
+                                        <Grid Width="Auto" Height="500">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="63*" />
-                                                <RowDefinition Height="100*"/>
+                                                <RowDefinition Height="430*"/>
                                             </Grid.RowDefinitions>
                                             <TextBlock Grid.Row="0" x:Name="InfoSeamVer"   Text="  Веріся зборки:"  FontSize="14" Height="30" Width="410"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                            <TextBlock Grid.Row="1"  x:Name="InfoDeveloper" Text="  Розробник: 2022-2023, Україна, м. Київ, ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;  Email: staric377@gmail.com&#xa;  Тел.: +380674012840&#xa;  Свідоцтво про реєсрацію авторського права № 126883"  FontSize="14" Height="90" Width="600" HorizontalAlignment="Left" />
+                                            <TextBlock Grid.Row="1"  x:Name="InfoDeveloper"  FontSize="14" Height="430" Width="770" HorizontalAlignment="Left" Text="                                    Диференційна діагностика стану нездужання людини-SEAM&#xa;
+ SЕАМ призначена для визначення поточного стану здоров'я людини, яка страждає від того або іншого нездужання.&#xa;
+ SЕАМ є одним з автоматизованих способів профілактики та раннього діагностування захворювання людини&#xa;   без контакту з лікарем.&#xa;
+ SЕАМ проводить діагностику шляхом послідовного опитування пацієнта. Процес опитування пацієнта здійснюється &#xa; 
+ на підставі його власних больових відчуттів та взаємопов'язаних з цим послідовностей симптомів.&#xa;
+    Процес опитування побудовано таким чином що відповідає потребам збору анамнезу подібного тому,&#xa;
+ що здійснює лікар при обстежені пацієнтів. Він містить напрацьовані у медичній практиці клініко - анамнестичні&#xa;
+ дані щодо більшості нозологічних форм та експертні діагностичні схеми визначення діагнозів нездужання. &#xa;
+    Опитування починається з визначення яке у вас нездужання (закладеність носу, кашель, головний біль,&#xa;
+ біль у серці, попереку, животі і таке інше), а далі проявляються характер та деталі нездужання.&#xa;
+    За результатами опитування виводиться один або декілька попередніх діагнозів та пропонується запис&#xa;
+ на обстеження до сімейного або профільного лікаря. У разі реєстрації звернення система аналізує за поштовим&#xa;
+ індексом із профілю пацієнта та встановленим попереднім діагнозом максимально наближене місце розташування&#xa;
+ медичного закладу до пацієнта та наявність в ньому відповідних лікарів фахівців, в якому пацієнту можуть надати&#xa; 
+ медичну допомогу.&#xa;
+    Пацієнт та лікар мають у своєму розпорядженні електронний кабінет де зберігається вся статистика&#xa;
+ проведених опитувань, їх профілі, напрямки за якими лікарі здійснюють медичну допомогу, довідки про &#xa;
+ нездужання з якими вони працюють та іншу аналітичну інформацію.&#xa;
+   Склад лікарів, які працюють в системі SЕАМ, регламентується Наглядовою Радою профільних лікарів Системи &#xa;
+ що забезпечують правдивість визначення попередніх діагнозів нездужання. Голова Наглядової Ради Доктор&#xa;
+ медичних наук, лікар-нейрохірург,завідувач відділу клініки субтентеріальної нейроонкології Інституту&#xa;
+  Нейрохірургії ім. Ромоданова Федірко Володимир Олегович.&#xa;&#xa;
+ 
+     Розробник: 2022-2023, Україна, м. Київ, ПП 'ОРІОН-С'. Стариченко Олександр Павлович&#xa;        Email: staric377@gmail.com  Тел.: +380674012840&#xa;
+       Свідоцтво про реєсрацію авторського права № 126883"  />
                                         </Grid>
                                     </StackPanel>
                                 </Border>

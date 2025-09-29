@@ -78,6 +78,7 @@ namespace BackSeam
                 selectedGridDoctor.edrpou = modelDoctor.edrpou;
                 selectedGridDoctor.uriwebDoctor = modelDoctor.uriwebDoctor;
                 selectedGridDoctor.napryamok = modelDoctor.napryamok;
+                selectedGridDoctor.resume = modelDoctor.resume;
                 if (modelDoctor.edrpou != "")
                 {
                     string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0/0"; //
@@ -240,6 +241,7 @@ namespace BackSeam
             WindowDoctor.FolderDoc5.Visibility = Visibility.Visible;
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Visible;
             WindowDoctor.FolderLikarGrDia.Visibility = Visibility.Visible;
+            
             WindowDoctor.DoctorTablGrid.IsEnabled = false;
             if (comAddEdit == "addCommand")
             {
@@ -279,6 +281,7 @@ namespace BackSeam
             WindowDoctor.FolderDoc5.Visibility = Visibility.Hidden;
             WindowDoctor.FolderWebUriLikar.Visibility = Visibility.Hidden;
             WindowMedical.FolderLikarGrDia.Visibility = Visibility.Hidden;
+            WindowProfilDoctor.FolderInfolikar.Visibility = Visibility.Hidden;
             WindowDoctor.DoctorTablGrid.IsEnabled = true;
             WindowMedical.BorderLoadDoctor.IsEnabled = true;
             WindowMedical.BorderGhangeDoctor.IsEnabled = true;
@@ -604,8 +607,10 @@ namespace BackSeam
                       if (WindowDoctor.DoctorTablGrid.SelectedIndex >= 0)
                       {
                           selectedDoctor = ViewDoctors[WindowDoctor.DoctorTablGrid.SelectedIndex];
+
                           WindowMedical.FolderWebUriLikar.Visibility = Visibility.Visible;
                           WindowMedical.FolderLikarGrDia.Visibility = Visibility.Visible;
+                          WindowProfilDoctor.FolderInfolikar.Visibility = Visibility.Visible;
                           _kodDoctor = selectedDoctor.kodDoctor;
                     
                       }
@@ -680,6 +685,33 @@ namespace BackSeam
             }
 
         }
+
+        private RelayCommand? infoDirectLikar;
+        public RelayCommand InfoDirectLikar
+        {
+            get
+            {
+                return infoDirectLikar ??
+                  (infoDirectLikar = new RelayCommand(obj =>
+                  {
+                      selectedGridProfilLikar = new ModelGridDoctor();
+                      selectedGridProfilLikar.resume = selectedDoctor.resume;
+                      CallViewDoctor = "InfoDirectLikar";
+                      Winlikarresume Order = new Winlikarresume();
+                      Order.Left = (MainWindow.ScreenWidth / 2) - 150;
+                      Order.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      Order.ShowDialog();
+                      selectedDoctor.resume = selectedGridProfilLikar.resume;
+                      selectedGridDoctor.resume = selectedGridProfilLikar.resume;
+                      //WindowDoctor.Likarresumebx.Text = selectedGridProfilLikar.resume;
+                      CallViewDoctor = "";
+
+                  }));
+            }
+        }
+
+
+
         #endregion
         #endregion
     }

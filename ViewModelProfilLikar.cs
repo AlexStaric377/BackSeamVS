@@ -39,7 +39,7 @@ namespace BackSeam
         private string pathcontrolerProfilLikar =  "/api/ApiControllerDoctor/";
         private static string pathcontrolerMedZakladProfilLikar =  "/api/MedicalInstitutionController/";
         public static ModelDoctor selectedProfilLikar;
-        private static ModelGridDoctor selectedGridProfilLikar;
+        public static ModelGridDoctor selectedGridProfilLikar;
         public static string CallViewProfilLikar = "ProfilLikar";
         public static string _kodDoctor = "";
         public static ObservableCollection<ModelDoctor> ViewProfilLikars { get; set; }
@@ -99,7 +99,7 @@ namespace BackSeam
         {
             WindowMain.FolderLikarProfil.Visibility = Visibility.Visible;
             WindowProfilDoctor.BorderCabLikar.Visibility = Visibility.Hidden;
-            WindowProfilDoctor.LikarLoadInf.Visibility = Visibility.Hidden;
+            
 
             EdrpouMedZaklad = "";
             SelectRegAccountUser();
@@ -114,11 +114,7 @@ namespace BackSeam
                 WindowProfilDoctor.LikarIntert2.Text = selectedGridProfilLikar.name + " " + selectedGridProfilLikar.surname + " " + selectedGridProfilLikar.specialnoct + " " + selectedGridProfilLikar.telefon;
                 WindowProfilDoctor.ReceptionPacient2.Text = selectedGridProfilLikar.name + " " + selectedGridProfilLikar.surname + " " + selectedGridProfilLikar.specialnoct + " " + selectedGridProfilLikar.telefon;
             }
-            else
-            {
-                WindowProfilDoctor.LikarLoadInf.Visibility = Visibility.Visible;
-
-            }
+            
         }
 
         private void SelectRegAccountUser()
@@ -149,6 +145,7 @@ namespace BackSeam
                     LoadInfoPacient("лікаря.");
                     MetodLoadGridProfilLikar();
                     SelectedGridProfilLikar = selectedGridProfilLikar;
+                    WindowProfilDoctor.Folderworklikar.Visibility = Visibility.Visible;
                     if (modelColectionInterview == null) modelColectionInterview = new ModelColectionInterview();
 
                     modelColectionInterview.nameDoctor = MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":") + 1, MapOpisViewModel.nameDoctor.Length - MapOpisViewModel.nameDoctor.IndexOf(":") - 1);
@@ -208,6 +205,7 @@ namespace BackSeam
                         selectedGridProfilLikar.edrpou = modelDoctor.edrpou;
                         selectedGridProfilLikar.napryamok = modelDoctor.napryamok;
                         selectedGridProfilLikar.uriwebDoctor = modelDoctor.uriwebDoctor;
+                        selectedGridProfilLikar.resume = modelDoctor.resume;
                         if (modelDoctor.edrpou != null)
                         {
                             MainWindow.UrlServer = pathcontrolerMedZaklad;
@@ -451,6 +449,39 @@ namespace BackSeam
             WindowMain.StackPanelCabPacient.Visibility = Visibility.Visible;
             BoolFalseProfilLikar();
             BoolFalsePacientProfil();
+        }
+
+        private RelayCommand? infoWorkLikar;
+        public RelayCommand InfoWorkLikar
+        {
+            get
+            {
+                return infoWorkLikar ??
+                  (infoWorkLikar = new RelayCommand(obj =>
+                  {
+                      CallViewDoctor = "";
+                      Winlikarresume Order = new Winlikarresume();
+                      Order.Left = (MainWindow.ScreenWidth / 2) - 150;
+                      Order.Top = (MainWindow.ScreenHeight / 2) - 350;
+                      Order.ShowDialog();
+
+                  }));
+            }
+        }
+
+        // команда закрытия окна
+        RelayCommand? closeLikarWork;
+        public RelayCommand CloseLikarWork
+        {
+            get
+            {
+                return closeLikarWork ??
+                  (closeLikarWork = new RelayCommand(obj =>
+                  {
+                      Winlikarresume Windowlikarresume = MainWindow.LinkMainWindow("Winlikarresume");
+                      Windowlikarresume.Close();
+                  }));
+            }
         }
 
         #endregion

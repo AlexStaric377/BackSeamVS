@@ -171,7 +171,7 @@ namespace BackSeam
                       if (MapOpisViewModel.CallViewProfilLikar == "ProfilLikar")
                       {
                           MainWindow WindowMain = MainWindow.LinkNameWindow("BackMain");
-                          WindowMain.LikarLoadInf.Visibility = Visibility.Visible;
+                          
                           WindowMain.StackPanelCabLikar.Visibility = Visibility.Visible;
                       }
 
