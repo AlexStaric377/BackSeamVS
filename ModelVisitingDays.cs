@@ -34,10 +34,11 @@ namespace BackSeam
         private string DateVizita;
         private string TimeVizita;
         private string OnOff;
+        private DateTime DateWork;
 
 
         public ModelVisitingDays(int Id = 0, string KodDoctor = "", string DaysOfTheWeek = "", string DateVizita = "",
-            string TimeVizita = "", string OnOff = "")
+            string TimeVizita = "", string OnOff = "", DateTime DateWork = new DateTime())
         {
 
             this.Id = Id;
@@ -46,6 +47,7 @@ namespace BackSeam
             this.DateVizita = DateVizita;
             this.TimeVizita = TimeVizita;
             this.OnOff = OnOff;
+            this.DateWork = DateWork;
 
         }
 
@@ -86,6 +88,13 @@ namespace BackSeam
         {
             get { return OnOff; }
             set { OnOff = value; OnPropertyChanged("onOff"); }
+        }
+
+        [JsonProperty("dateWork")]
+        public DateTime dateWork
+        {
+            get { return DateWork; }
+            set { DateWork = value; OnPropertyChanged("dateWork"); }
         }
 
     }
@@ -207,6 +216,20 @@ namespace BackSeam
         {
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
             WindowMen.CabinetReseptionPacient.Text = (selected == "0") ? WindowMen.CabinetReseptionPacient.Text : DayWeeks[Convert.ToInt32(selected)];
+            if (WindowMen.CabinetDayoftheWeekMonth.IsEnabled == true)
+            {
+                WindowMen.CabinetReseptionBoxWeek.Text = (selected == "0") ? WindowMen.CabinetReseptionBoxWeek.Text : DayWeeks[Convert.ToInt32(selected)];
+                WindowMen.CabinetReseptionDayOn.IsEnabled = false;
+                WindowMen.CabinetReseptionDayBoxLast.IsEnabled = false;
+            }
+
+            else
+            { 
+                WindowMen.ReseptionPacient.Text = (selected == "0") ? WindowMen.ReseptionPacient.Text : DayWeeks[Convert.ToInt32(selected)];
+                WindowMen.ReseptionBoxWeek.Text = (selected == "0") ? WindowMen.ReseptionBoxWeek.Text : DayWeeks[Convert.ToInt32(selected)];
+                WindowMen.ReseptionDayOn.IsEnabled = false;
+                WindowMen.ReseptionDayBoxLast.IsEnabled = false;
+            } 
             selectedIndexDayWeek = selected;
         }
 
@@ -389,8 +412,37 @@ namespace BackSeam
             MainWindow WindowMen = MainWindow.LinkNameWindow("BackMain");
             WindowMen.CabinetReseptionBoxMonth.Text = selected == "0" ? WindowMen.CabinetReseptionBoxMonth.Text : MonthYear[Convert.ToInt32(selected)];
             WindowMen.ReseptionBoxMonth.Text = selected == "0" ? WindowMen.ReseptionBoxMonth.Text : MonthYear[Convert.ToInt32(selected)];
+            
             selectedIndexMonthYear = selected;
-            MapOpisViewModel.loadthisMonth = true;
+            if (selected != "0")
+            {
+                MapOpisViewModel.loadthisMonth = true;
+                if (WindowMen.CabinetDayoftheMonth.IsEnabled == true)
+                {
+                    WindowMen.CabinetDayoftheWeekMonth.IsEnabled = true;
+                    WindowMen.CabinetReseptionTimelen.IsEnabled = true;
+                    WindowMen.CabinetDayoftheWeek.IsEnabled = false;
+                    WindowMen.CabinetDatePicker.IsEnabled = false;
+                    WindowMen.CabinetTimeofDay.IsEnabled = false;
+                    WindowMen.CabinetComboBoxOnoff.IsEnabled = false;
+                    WindowMen.CabinetReseptionTime.IsEnabled = false;
+                }
+                else
+                {
+                    WindowMen.DayoftheWeekMonth.IsEnabled = true;
+                    WindowMen.ReseptionTimelen.IsEnabled = true;
+                    WindowMen.DayoftheWeek.IsEnabled = false;
+                    WindowMen.DatePicker.IsEnabled = false;
+                    WindowMen.TimeofDay.IsEnabled = false;
+                    WindowMen.ComboBoxOnoff.IsEnabled = false;
+                    WindowMen.ReseptionTime.IsEnabled = false;
+                }
+                
+            }
+            selectedIndexMonthYear = selectedIndexMonthYear == "0" ? "1" : selectedIndexMonthYear;
+
+
+
 
         }
     }

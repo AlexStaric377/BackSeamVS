@@ -228,7 +228,7 @@ namespace BackSeam
                         MapOpisViewModel.admissionPatient.kodPacient = MapOpisViewModel._pacientProfil;
                         MapOpisViewModel.admissionPatient.kodProtokola = MapOpisViewModel.modelColectionInterview.kodProtokola;
                         MapOpisViewModel.admissionPatient.kodComplInterv = MapOpisViewModel.modelColectionInterview.kodComplInterv;
-                        MapOpisViewModel.admissionPatient.topictVizita = "Гість:  " + WindowMain.ReceptionLikarGuest7.Text.ToString();
+                        MapOpisViewModel.admissionPatient.topictVizita = "Гість:  " ;
                         MapOpisViewModel.admissionPatient.dateInterview = MapOpisViewModel.modelColectionInterview.dateInterview;
                         MapOpisViewModel.admissionPatient.kodDiagnoz = MapOpisViewModel.kodDiagnoz;
 
@@ -245,22 +245,10 @@ namespace BackSeam
                             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 400;
                             NewOrder.ShowDialog();
 
-                            WindowMain.ReceptionLikarGuest4.Text = "не встановлено";
-                            if (MapOpisViewModel.selectVisitingDays != null)
-                            {
-                                WindowMain.ReceptionLikarGuest4.Text = MapOpisViewModel.selectVisitingDays.dateVizita + " :" + MapOpisViewModel.selectVisitingDays.timeVizita;
-                            }
-                            MapOpisViewModel.admissionPatient.dateVizita = WindowMain.ReceptionLikarGuest4.Text.ToString();
-                            MapOpisViewModel.modelColectionInterview.dateDoctor = WindowMain.ReceptionLikarGuest4.Text.ToString();
+                            
                         }
                         
-                        string strokadiagnoz = MapOpisViewModel.NameDiagnoz.Length > 50 ? MapOpisViewModel.NameDiagnoz.Substring(0, 50) + Environment.NewLine + MapOpisViewModel.NameDiagnoz.Substring(50, MapOpisViewModel.NameDiagnoz.Length -50) : MapOpisViewModel.NameDiagnoz;
-                        MainWindow.MessageError = "Увага! Ви сформували запит на прийом до лікаря." + Environment.NewLine +
-                            "Лікарь :"+ MapOpisViewModel.nameDoctor.Substring(MapOpisViewModel.nameDoctor.IndexOf(":")+1, MapOpisViewModel.nameDoctor.Length-( MapOpisViewModel.nameDoctor.IndexOf(":") + 1)) + Environment.NewLine +
-                            "Дата прийому :"+ WindowMain.ReceptionLikarGuest4.Text  + Environment.NewLine +
-                            "Попередній діагноз :" + strokadiagnoz + Environment.NewLine +
-                            "Ви підтверджуєте свій вибір? ";
-                        MapOpisViewModel.SelectedDelete(-1);
+                        
 
                         if (MapOpisViewModel.DeleteOnOff == true)
                         {

@@ -7,8 +7,8 @@
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>BackSeam.ico</ApplicationIcon>
     <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.62</AssemblyVersion>
-    <FileVersion>1.0.1.62</FileVersion>
+    <AssemblyVersion>1.0.1.63</AssemblyVersion>
+    <FileVersion>1.0.1.63</FileVersion>
     <Copyright>Розробник: 2022-2023 ПП 'ОРІОН-С'. Стариченко Олександр Павлович Свідоцтво про реєсрацію авторського права № 126883</Copyright>
     <Description>Диференційна діагностика стану нездужання людини-SEAM Адміністратор</Description>
   </PropertyGroup>

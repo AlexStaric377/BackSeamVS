@@ -1,5 +1,5 @@
 ﻿BackSeam
-1.0.1.62
+1.0.1.63
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\BackSeam\App.xaml
 41-497379587
 
-161-153318848
+162-1152353936
 243-89650183
 MainWindow.xaml;MessageError.xaml;MessageWarn.xaml;MessageWarning.xaml;WaitWindow.xaml;WinAccountRecords.xaml;WinAnalogDiagnoz.xaml;WinColectionAnalizBlood.xaml;WinColectionAnalizUrine.xaml;WinColectionStanHealth.xaml;WinCreatIntreview.xaml;WinDeleteData.xaml;WinLikarGrupDiagnoz.xaml;Winlikarresume.xaml;WinListInteviewPacient.xaml;WinMedicalGrDiagnoz.xaml;WinMessageDialog.xaml;WinMessageErr.xaml;WinNsiCompliant.xaml;WinNsiDetailing.xaml;WinNsiFeature.xaml;WinNsiGrDetailing.xaml;WinNsiGrQualification.xaml;WinNsiIcd.xaml;WinNsiIntreview.xaml;WinNsiLikar.xaml;WinNsiListDiagnoz.xaml;WinNsiListGrDiagnoz.xaml;WinNsiListGroupDelit.xaml;WinNsiListRecommen.xaml;WinNsiMedZaklad.xaml;WinNsiPacient.xaml;WinNsiPrice.xaml;WinNsiQualification.xaml;WinNsiStatusUser.xaml;WinProfilPacient.xaml;WinRegisterAccountUser.xaml;WinRegKodDostup.xaml;WinResultInterview.xaml;WinStrokaProgressBar.xaml;WinVisitingDays.xaml;
 

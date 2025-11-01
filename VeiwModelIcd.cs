@@ -61,25 +61,40 @@ namespace BackSeam
             ViewModelNsiMedZaklad.GrupMedZaklads = new ObservableCollection<ModelMedGrupDiagnoz>((IEnumerable<ModelMedGrupDiagnoz>)grupDiagnoz);
  
 
-            foreach (ModelMedGrupDiagnoz modelGrupDiagnoz in ViewModelNsiMedZaklad.GrupMedZaklads)
-            {
-                if (modelGrupDiagnoz.icdKey == null)
-                {
-                    string jason = controlerIcd + "0/" + modelGrupDiagnoz.icdGrDiagnoz;
-                    CallServer.PostServer(controlerIcd, jason, "GETID");
-                    CmdStroka = CallServer.ServerReturn();
-                    if (CmdStroka.Contains("[]") == false)
-                    {
-                        var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
-                        List<ModelIcd> res = result.ModelIcd.ToList();
-                        VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
-                        modelGrupDiagnoz.icdKey = VeiwModelIcds[0].keyIcd;
-                        json = JsonConvert.SerializeObject(modelGrupDiagnoz);
-                        CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "PUT");
-                    }
-                }
+            //foreach (ModelMedGrupDiagnoz modelGrupDiagnoz in ViewModelNsiMedZaklad.GrupMedZaklads)
+            //{
+            //    if (modelGrupDiagnoz.icdKey == null)
+            //    {
+            //        string jason = controlerIcd + "0/" + modelGrupDiagnoz.icdGrDiagnoz;
+            //        CallServer.PostServer(controlerIcd, jason, "GETID");
+            //        CmdStroka = CallServer.ServerReturn();
+            //        if (CmdStroka.Contains("[]") == false)
+            //        {
+            //            var result = JsonConvert.DeserializeObject<ListModelIcd>(CmdStroka);
+            //            List<ModelIcd> res = result.ModelIcd.ToList();
+            //            VeiwModelIcds = new ObservableCollection<ModelIcd>((IEnumerable<ModelIcd>)res);
+            //            modelGrupDiagnoz.icdKey = VeiwModelIcds[0].keyIcd;
+            //            json = JsonConvert.SerializeObject(modelGrupDiagnoz);
+            //            CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "PUT");
+            //        }
+            //    }
 
-            }
+            //}
+
+            //CallServer.PostServer(controlerGrupDiagnoz, "-1", "DELETE");
+            //foreach (ModelIcd modelIcd in VeiwModelIcds)
+            //{
+            //    ModelGrupDiagnoz modelGr = new ModelGrupDiagnoz();
+            //    modelGr.id = 0;
+            //    modelGr.icdGrDiagnoz = modelIcd.keyIcd;
+            //    modelGr.nameGrDiagnoz = modelIcd.name;
+            //    modelGr.opisDiagnoza = "";
+            //    modelGr.uriDiagnoza = "";
+            //    modelGr.idUser = RegIdUser;
+            //    json = JsonConvert.SerializeObject(modelGr);
+            //    CallServer.PostServer(controlerGrupDiagnoz, json, "POST");
+            //}
+
         }
 
         #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
