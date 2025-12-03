@@ -425,7 +425,9 @@ namespace BackSeam
                   (addCreatIntreview = new RelayCommand(obj =>
                   {
                       MapOpisViewModel.ModelCall = AddEdit == ""? "ModelInterview" : "";
-                      if (AddEdit == "addCommand") SelectNewInterview();
+                      if (AddEdit == "addCommand")
+                      if (selectedInterview.detailsInterview.Length == 0  ) SelectNewInterview();
+                         
                       GetidkodProtokola = selectedInterview.kodProtokola;
                       ComandCreatIntreview(); }));
             }

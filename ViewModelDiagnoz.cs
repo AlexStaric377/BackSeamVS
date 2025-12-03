@@ -251,7 +251,7 @@ namespace BackSeam
                   {
                       if (selectedDiagnoz != null && selectedDiagnoz.id != 0)
                       {
-                          if (selectedDiagnoz.idUser != RegIdUser && selectedDiagnoz.idUser != "Admin")
+                          if (RegIdUser != "Admin" && selectedDiagnoz.idUser != RegIdUser  )
                           {
                               InfoEditZapis();
                               return;
@@ -475,19 +475,19 @@ namespace BackSeam
                         selectedDiagnoz = ViewDiagnozs[WindowMen.DiagnozTablGrid.SelectedIndex];
                         viewmodelDiagnoz = new ModelDiagnoz();
                     viewmodelDiagnoz = selectedDiagnoz;
-                        if (loadGrupDiagnoz == false )
-                        {
-                        MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";
-                        SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
-                            SelectedViewDiagnoz = new ModelDiagnoz();
-                            WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
-                            NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
-                            NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
-                            NewOrder.ShowDialog();
-                            MapOpisViewModel.ActCompletedInterview = "";
-                        }
-                        else
-                        { 
+                        //if (loadGrupDiagnoz == false )
+                        //{
+                        //MapOpisViewModel.ActCompletedInterview = "IcdGrDiagnoz";
+                        //SelectActivGrupDiagnoz = selectedDiagnoz.keyIcd;
+                        //    SelectedViewDiagnoz = new ModelDiagnoz();
+                        //    WinNsiListDiagnoz NewOrder = new WinNsiListDiagnoz();
+                        //    NewOrder.Left = (MainWindow.ScreenWidth / 2) -100;
+                        //    NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
+                        //    NewOrder.ShowDialog();
+                        //    MapOpisViewModel.ActCompletedInterview = "";
+                        //}
+                        //else
+                        //{ 
                             WindowMen.Diagnozt3.Text = WindowMen.LibDiagnozt3.Text = "";
                             
                             selectedInterview = new ModelInterview();
@@ -512,7 +512,7 @@ namespace BackSeam
                             }
                             WindowMen.LibFoldInterv.Visibility = Visibility.Visible;
                             WindowMen.LibCompInterviewLab.Visibility = Visibility.Visible;
-                        }
+                        //}
                         
   
                    

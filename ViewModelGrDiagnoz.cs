@@ -38,7 +38,7 @@ namespace BackSeam
         private ModelGrupDiagnoz selectedViewGrupDiagnoz;
 
         public static ObservableCollection<ModelGrupDiagnoz> ViewGrupDiagnozs { get; set; }
-       
+
         public ModelGrupDiagnoz SelectedViewGrupDiagnoz
         { get { return selectedViewGrupDiagnoz; } set { selectedViewGrupDiagnoz = value; OnPropertyChanged("SelectedViewGrupDiagnoz"); } }
 
@@ -47,10 +47,26 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelGrupDiagnoz>(CmdStroka);
             List<ModelGrupDiagnoz> res = result.ModelGrupDiagnoz.ToList();
             ViewGrupDiagnozs = new ObservableCollection<ModelGrupDiagnoz>((IEnumerable<ModelGrupDiagnoz>)res);
-            WindowMen.GrDiagnozTablGrid.ItemsSource = ViewGrupDiagnozs.OrderBy(x=> x.icdGrDiagnoz);
+            WindowMen.GrDiagnozTablGrid.ItemsSource = ViewGrupDiagnozs.OrderBy(x => x.icdGrDiagnoz);
+            UpdateName();
             loadboolGrupDiagnoz = true;
         }
 
+
+        private static void UpdateName()
+        {
+            string tmp = "";
+            foreach (ModelGrupDiagnoz modelGrupDiagnoz in ViewGrupDiagnozs)
+            {
+                if (modelGrupDiagnoz.NameGrDiagnoz.Contains(".")== false)
+                {
+                    tmp = modelGrupDiagnoz.icdGrDiagnoz.Substring(modelGrupDiagnoz.icdGrDiagnoz.LastIndexOf(".") - 6, 7);
+                    modelGrupDiagnoz.NameGrDiagnoz = tmp + modelGrupDiagnoz.NameGrDiagnoz;
+                    json = JsonConvert.SerializeObject(modelGrupDiagnoz);
+                    CallServer.PostServer(controlerGrupDiagnoz, json, "PUT");
+                }
+            }
+        }
         #region Команды вставки, удаления и редектирования справочника "ГРупи кваліфікації"
         /// <summary>
         /// Команды вставки, удаления и редектирования справочника "Жалобы"

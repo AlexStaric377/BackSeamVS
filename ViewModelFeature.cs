@@ -34,7 +34,7 @@ namespace BackSeam
         /// 
         private MainWindow WinFeature = MainWindow.LinkNameWindow("BackMain");
         private bool editboolFeature = false, addtboolFeature = false, loadboolFeature = false;
-        private string nameCompl = "";
+        private string nameCompl = "", Featureaddedit = "";
         public static string featurecontroller =  "/api/FeatureController/", nameComplaint = "";
         public static ModelFeature selectedFeature;
         public static ViewFeatureComplaint selectedViewFeature;
@@ -140,7 +140,7 @@ namespace BackSeam
 
         private void AddComandFeature()
         {
-            IndexAddEdit = "addCommand";
+            Featureaddedit = "addCommand";
             if (loadboolFeature == false) { MapOpisViewModel.nameFeature3 = "";  MethodLoadtableFeature(); }
             MethodaddcomFeature();
         }
@@ -149,7 +149,7 @@ namespace BackSeam
 
         private void MethodaddcomFeature()
         {
-            IndexAddEdit = "addCommand";
+            Featureaddedit = "addCommand";
             if (addtboolFeature == false)
             {
                 NewEkzemplyar();
@@ -186,16 +186,16 @@ namespace BackSeam
             WindowMen.Featuret2.IsEnabled = true;
             WindowMen.Featuret2.Background = Brushes.AntiqueWhite;
             WindowMen.FeatureTablGrid.IsEnabled = false;
-            if(IndexAddEdit == "addCommand" && WinFeature.Featuret3.Text == "") WindowMen.Folder.Visibility = Visibility.Visible;
+            if(Featureaddedit == "addCommand" && WinFeature.Featuret3.Text == "") WindowMen.Folder.Visibility = Visibility.Visible;
             WindowMen.FolderDet5.Visibility = Visibility.Visible;
-            if (IndexAddEdit == "addCommand")
+            if (Featureaddedit == "addCommand")
             {
                 WindowMen.BorderLoadFeature.IsEnabled = false;
                 WindowMen.BorderGhangeFeature.IsEnabled = false;
                 WindowMen.BorderDeleteFeature.IsEnabled = false;
                 WindowMen.BorderPrintFeature.IsEnabled = false;
             }
-            if (IndexAddEdit == "editCommand")
+            if (Featureaddedit == "editCommand")
             {
                 WindowMen.BorderLoadFeature.IsEnabled = false;
                 WindowMen.BorderAddFeature.IsEnabled = false;
@@ -243,7 +243,7 @@ namespace BackSeam
                           {
                               string json = featurecontroller + selectedViewFeature.id.ToString();
                               CallServer.PostServer(featurecontroller, json, "DELETE");
-                              IndexAddEdit = "remove";
+                              Featureaddedit = "remove";
                               SelectNewFeature();
                               ModelFeatures.Remove(selectedFeature);
                               ViewFeatures.Remove(selectedViewFeature);
@@ -267,8 +267,8 @@ namespace BackSeam
                 return editFeature ??
                   (editFeature = new RelayCommand(obj =>
                   {
-                      
-                      IndexAddEdit = "editCommand";
+
+                      Featureaddedit = "editCommand";
                       if (editboolFeature == false )
                       {
                           if (WindowMen.FeatureTablGrid.SelectedIndex>=0)
@@ -310,7 +310,7 @@ namespace BackSeam
                           selectedFeature.name = WindowMen.Featuret2.Text.ToString();
                           selectedFeature.idUser = RegIdUser;
                           
-                          if (IndexAddEdit == "addCommand")
+                          if (Featureaddedit == "addCommand")
                           {
                               selectedFeature.id = 0;
                               // ОБращение к серверу добавляем запись
@@ -335,7 +335,7 @@ namespace BackSeam
                               WindowMen.FeatureTablGrid.ItemsSource = ViewFeatures;
                               ModelFeatures.Add(Idinsert);
                           }
-                          if (IndexAddEdit == "editCommand")
+                          if (Featureaddedit == "editCommand")
                           {
                               // ОБращение к серверу измнить корректируемую запись в БД
                               json = JsonConvert.SerializeObject(selectedFeature);
@@ -427,7 +427,7 @@ namespace BackSeam
             MapOpisViewModel.ActCompletedInterview = "";
             selectedViewFeature.keyComplaint = selectedFeature.keyComplaint = MapOpisViewModel.nameFeature3.Length > 0 ? MapOpisViewModel.nameFeature3.Substring(0, MapOpisViewModel.nameFeature3.IndexOf(":")) : selectedFeature.keyComplaint;
             SelectNewFeature();
-            IndexAddEdit = "addCommand";
+            Featureaddedit = "addCommand";
         }
 
         // команда выбора новой жалобы для записи новой строки 
@@ -464,7 +464,7 @@ namespace BackSeam
                   {
                       if (WindowMen.FeatureTablGrid.SelectedIndex != -1)
                       {
-                          if (IndexAddEdit != "editCommand" && selectedViewFeature.keyFeature != null && selectedViewFeature.keyFeature != "")
+                          if (Featureaddedit != "editCommand" && selectedViewFeature.keyFeature != null && selectedViewFeature.keyFeature != "")
                           {
                               MapOpisViewModel.ActCompletedInterview = "ViewDetailing";
                               string pathDetailingcontroller = "/api/DetailingController/";

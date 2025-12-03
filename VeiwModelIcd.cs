@@ -59,12 +59,12 @@ namespace BackSeam
             var GrDiagnoz = JsonConvert.DeserializeObject<ListModelMedGrupDiagnoz>(CmdStroka);
             List<ModelMedGrupDiagnoz> grupDiagnoz = GrDiagnoz.ModelMedGrupDiagnoz.ToList();
             ViewModelNsiMedZaklad.GrupMedZaklads = new ObservableCollection<ModelMedGrupDiagnoz>((IEnumerable<ModelMedGrupDiagnoz>)grupDiagnoz);
- 
+
 
             //foreach (ModelMedGrupDiagnoz modelGrupDiagnoz in ViewModelNsiMedZaklad.GrupMedZaklads)
             //{
-            //    if (modelGrupDiagnoz.icdKey == null)
-            //    {
+            //    //if (modelGrupDiagnoz.icdKey == null)
+            //    //{
             //        string jason = controlerIcd + "0/" + modelGrupDiagnoz.icdGrDiagnoz;
             //        CallServer.PostServer(controlerIcd, jason, "GETID");
             //        CmdStroka = CallServer.ServerReturn();
@@ -77,7 +77,7 @@ namespace BackSeam
             //            json = JsonConvert.SerializeObject(modelGrupDiagnoz);
             //            CallServer.PostServer(ViewModelMedicalGrDiagnoz.controlerGrDiagnoz, json, "PUT");
             //        }
-            //    }
+            //    //}
 
             //}
 
@@ -94,6 +94,18 @@ namespace BackSeam
             //    json = JsonConvert.SerializeObject(modelGr);
             //    CallServer.PostServer(controlerGrupDiagnoz, json, "POST");
             //}
+        //    string tmp = "";
+        //    foreach (ModelIcd modelIcd in VeiwModelIcds)
+        //    {
+        //        if (modelIcd.name.Contains(".") == false)
+        //        {
+        //            tmp = modelIcd.keyIcd.Substring(modelIcd.keyIcd.LastIndexOf(".") - 6, 7);
+        //            modelIcd.name = tmp + modelIcd.name;
+        //            json = JsonConvert.SerializeObject(modelIcd);
+        //            CallServer.PostServer(controlerIcd, json, "PUT");
+        //        }
+        //    }
+
 
         }
 
