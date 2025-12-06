@@ -132,6 +132,7 @@ namespace BackSeam
                                         case 8:
                                           if (selectindex != WindowHidden.Instrument.SelectedIndex)
                                           {
+                                              loadboolInterview = false;
                                               ModelInterviews = new System.Collections.ObjectModel.ObservableCollection<ModelInterview>();
                                               SelectedResultInterview = new ModelResultInterview();
                                               WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews;
