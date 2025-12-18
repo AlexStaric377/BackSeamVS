@@ -94,17 +94,17 @@ namespace BackSeam
             //    json = JsonConvert.SerializeObject(modelGr);
             //    CallServer.PostServer(controlerGrupDiagnoz, json, "POST");
             //}
-        //    string tmp = "";
-        //    foreach (ModelIcd modelIcd in VeiwModelIcds)
-        //    {
-        //        if (modelIcd.name.Contains(".") == false)
-        //        {
-        //            tmp = modelIcd.keyIcd.Substring(modelIcd.keyIcd.LastIndexOf(".") - 6, 7);
-        //            modelIcd.name = tmp + modelIcd.name;
-        //            json = JsonConvert.SerializeObject(modelIcd);
-        //            CallServer.PostServer(controlerIcd, json, "PUT");
-        //        }
-        //    }
+            //    string tmp = "";
+            //    foreach (ModelIcd modelIcd in VeiwModelIcds)
+            //    {
+            //        if (modelIcd.name.Contains(".") == false)
+            //        {
+            //            tmp = modelIcd.keyIcd.Substring(modelIcd.keyIcd.LastIndexOf(".") - 6, 7);
+            //            modelIcd.name = tmp + modelIcd.name;
+            //            json = JsonConvert.SerializeObject(modelIcd);
+            //            CallServer.PostServer(controlerIcd, json, "PUT");
+            //        }
+            //    }
 
 
         }

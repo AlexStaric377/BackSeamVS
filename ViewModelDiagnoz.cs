@@ -562,7 +562,7 @@ namespace BackSeam
         {
             if (CheckStatusUser() == false) return;
             //SelectActivGrupDiagnoz = "GrupDiagnoz";  //   
-            ActCompletedInterview = "IcdGrDiagnoz";
+            ActCompletedInterview = "NameGrDiagnoz"; //"IcdGrDiagnoz";
             WinNsiListGrDiagnoz NewOrder = new WinNsiListGrDiagnoz();
             NewOrder.Left = (MainWindow.ScreenWidth / 2)-150;
             NewOrder.Top = (MainWindow.ScreenHeight / 2) - 350;
