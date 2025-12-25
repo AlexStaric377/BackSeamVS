@@ -42,8 +42,10 @@ namespace BackSeam
         public static string Controlleroutfile = "/api/UnLoadController/";
 
         public static ModelInterview selectedInterview;
-        public static ObservableCollection<ModelInterview> ModelInterviews { get; set; }
 
+        public static ObservableCollection<ModelInterview> ModelInterviews { get; set; }
+        public static ObservableCollection<ModelDependency> ModelDependencys { get; set; }
+        
         public ModelInterview SelectedInterview
         {
             get { return selectedInterview; }
@@ -500,31 +502,41 @@ namespace BackSeam
                             if (CmdStroka.Contains("[]") == false)
                             {
                                 string keyIcd = "";
-                                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                modelDependency = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                                if (modelDependency.kodDiagnoz != "")
-                                {
-                                    json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0/0";
-                                    CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
-                                    if (CallServer.ResponseFromServer.Contains("[]") == false)
-                                    { 
-                                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                        ModelDiagnoz NameDiagnoz = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                                      if (NameDiagnoz.keyIcd.Length > 18) keyIcd = NameDiagnoz.keyIcd.Substring(NameDiagnoz.keyIcd.LastIndexOf(".") - 7, NameDiagnoz.keyIcd.Length - (NameDiagnoz.keyIcd.LastIndexOf(".") - 7));
-                                      else keyIcd = NameDiagnoz.keyIcd;
-                                      WindowInterv.InterviewDependencyt2.Text = keyIcd + NameDiagnoz.nameDiagnoza.ToString();
 
+                                
+                                var result = JsonConvert.DeserializeObject<ListModelDependency>(CmdStroka);
+                                List<ModelDependency> res = result.ModelDependency.ToList();
+                                ModelDependencys = new ObservableCollection<ModelDependency>((IEnumerable<ModelDependency>)res);
+
+                                                   
+
+                                foreach (ModelDependency modelDependency in ModelDependencys)
+                                { 
+                                    if (modelDependency.kodDiagnoz != "")
+                                    {
+                                        json = controlerViewDiagnoz + modelDependency.kodDiagnoz + "/0/0";
+                                        CallServer.PostServer(controlerViewDiagnoz, json, "GETID");
+                                        if (CallServer.ResponseFromServer.Contains("[]") == false)
+                                        { 
+                                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                            ModelDiagnoz NameDiagnoz = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
+                                          if (NameDiagnoz.keyIcd.Length > 18) keyIcd = NameDiagnoz.keyIcd.Substring(NameDiagnoz.keyIcd.LastIndexOf(".") - 7, NameDiagnoz.keyIcd.Length - (NameDiagnoz.keyIcd.LastIndexOf(".") - 7));
+                                          else keyIcd = NameDiagnoz.keyIcd;
+                                          WindowInterv.InterviewDependencyt2.Text = keyIcd + NameDiagnoz.nameDiagnoza.ToString();
+
+                                        }
+                                    }
+                                    json = controlerModelRecommendation + modelDependency.kodRecommend + "/0";
+                                    CallServer.PostServer(controlerModelRecommendation, json, "GETID");
+                                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                                    {
+                                      CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                                      ModelRecommendation NameRecomen = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);
+                                      WindowInterv.InterviewDependencyt3.Text = NameRecomen.contentRecommendation.ToString();
                                     }
                                 }
-                                json = controlerModelRecommendation + modelDependency.kodRecommend + "/0";
-                                CallServer.PostServer(controlerModelRecommendation, json, "GETID");
-                                if (CallServer.ResponseFromServer.Contains("[]") == false)
-                                {
-                                    CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                                    ModelRecommendation NameRecomen = JsonConvert.DeserializeObject<ModelRecommendation>(CallServer.ResponseFromServer);
-                                    WindowInterv.InterviewDependencyt3.Text = NameRecomen.contentRecommendation.ToString();
-                                }
                             }
+                              
                       }
                       
                   }));
