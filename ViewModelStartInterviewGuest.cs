@@ -1089,32 +1089,35 @@ namespace BackSeam
             } 
             else
             {
-                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                string keyIcd = "";
+                var result = JsonConvert.DeserializeObject<ListModelDependency>(CmdStroka);
+                List<ModelDependency> res = result.ModelDependency.ToList();
+                ModelDependencys = new ObservableCollection<ModelDependency>((IEnumerable<ModelDependency>)res);
 
-                if (Insert != null)
+
+
+                foreach (ModelDependency modelDependency in ModelDependencys)
                 {
-                    json = Diagnozcontroller + Insert.kodDiagnoz.ToString() + "/0/0";
-                    CallServer.PostServer(MapOpisViewModel.Diagnozcontroller, json, "GETID");
-                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                    if (modelDependency.kodDiagnoz != "")
                     {
-                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                        ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                        kodDiagnoz = Insert.kodDiagnoz;
-                        NameDiagnoz = Insert1.nameDiagnoza;
-                        selectIcdGrDiagnoz = Insert1.icdGrDiagnoz;
-
-                        json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/"+ Insert1.icdGrDiagnoz.ToString() ;
-                        CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
+                        json = Diagnozcontroller + modelDependency.kodDiagnoz + "/0/0";
+                        CallServer.PostServer(Diagnozcontroller, json, "GETID");
                         if (CallServer.ResponseFromServer.Contains("[]") == false)
                         {
-                            //CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                            //ModelGrupDiagnoz insertGrDiagnoz = JsonConvert.DeserializeObject<ModelGrupDiagnoz>(CallServer.ResponseFromServer);
+ 
+                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                            ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
+                            kodDiagnoz = modelDependency.kodDiagnoz;
+                            NameDiagnoz = Insert1.nameDiagnoza;
                             selectIcdGrDiagnoz = Insert1.icdGrDiagnoz;
+
+                            json = ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz + "0/" + Insert1.icdGrDiagnoz.ToString();
+                            CallServer.PostServer(ViewModelLikarGrupDiagnoz.controlerLikarGrDiagnoz, json, "GETID");
+                            if (CallServer.ResponseFromServer.Contains("[]") == false) selectIcdGrDiagnoz = Insert1.icdGrDiagnoz;
+ 
                         }
                     }
-
-                    json = MapOpisViewModel.Recomencontroller + Insert.kodRecommend.ToString() + "/0";
+                    json = MapOpisViewModel.Recomencontroller + modelDependency.kodRecommend.ToString() + "/0";
                     CallServer.PostServer(MapOpisViewModel.Recomencontroller, json, "GETID");
                     if (CallServer.ResponseFromServer.Contains("[]") == false)
                     {
@@ -1124,6 +1127,7 @@ namespace BackSeam
 
                     }
                 }
+
             }
 
         }

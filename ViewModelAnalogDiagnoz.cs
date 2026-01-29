@@ -107,20 +107,34 @@ namespace BackSeam
             if (CmdStroka.Contains("[]")) return;
             else
             {
-                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                ModelDependency Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
-                if (Insert != null)
+                string keyIcd = "";
+                var result = JsonConvert.DeserializeObject<ListModelDependency>(CmdStroka);
+                List<ModelDependency> res = result.ModelDependency.ToList();
+                MapOpisViewModel.ModelDependencys = new ObservableCollection<ModelDependency>((IEnumerable<ModelDependency>)res);
+
+
+
+                foreach (ModelDependency modelDependency in MapOpisViewModel.ModelDependencys)
                 {
-                    json = MapOpisViewModel.Diagnozcontroller + Insert.kodDiagnoz.ToString() + "/0/0";
-                    CallServer.PostServer(MapOpisViewModel.Diagnozcontroller, json, "GETID");
-                    if (CallServer.ResponseFromServer.Contains("[]") == false)
+                    if (modelDependency.kodDiagnoz != "")
                     {
-                        CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                        ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
-                        MapOpisViewModel.selectIcdGrDiagnoz = Insert1.keyIcd;
-                        MapOpisViewModel.modelColectionInterview.resultDiagnoz = Insert1.UriDiagnoza;
+                        json = MapOpisViewModel.Diagnozcontroller + modelDependency.kodDiagnoz + "/0/0";
+                        CallServer.PostServer(MapOpisViewModel.Diagnozcontroller, json, "GETID");
+                        if (CallServer.ResponseFromServer.Contains("[]") == false)
+                        {
+
+                            CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                            ModelDiagnoz Insert1 = JsonConvert.DeserializeObject<ModelDiagnoz>(CallServer.ResponseFromServer);
+                            MapOpisViewModel.selectIcdGrDiagnoz = Insert1.keyIcd;
+                            MapOpisViewModel.modelColectionInterview.resultDiagnoz = Insert1.UriDiagnoza;
+
+                        }
                     }
+   
                 }
+
+
+
             }
         }
 
