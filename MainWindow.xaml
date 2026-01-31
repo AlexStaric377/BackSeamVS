@@ -5437,19 +5437,20 @@
                                             <DataGrid x:Name="DiagnozTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewDiagnozs}" SelectedItem="{Binding SelectedViewDiagnoz}"
                                           IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Center" Height="240"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
-                                          HorizontalGridLinesBrush="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                          HorizontalGridLinesBrush="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionChanged="DiagnozTablGrid_SelectionChanged">
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseUp">
                                                         <i:InvokeCommandAction Command="{Binding ElementName=GridMkx11, Path=DataContext.FindNameMkx}" CommandParameter=""/>
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn x:Name="DiagnozColumn1" FontSize="14"  Width="530" Binding="{Binding Path=nameDiagnoza}">
+                                                    
+                                                    <DataGridTextColumn x:Name="DiagnozColumn1" FontSize="14"  Width="430" Binding="{Binding Path=nameDiagnoza}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="DiagnozHeader1"  Text="Назва діагнозу"  TextWrapping="Wrap" HorizontalAlignment="Center" />
                                                         </DataGridTextColumn.Header>
                                                     </DataGridTextColumn>
-                                                    <DataGridTextColumn x:Name="DiagnozColumn20" FontSize="14"  Width="230" Binding="{Binding Path=icdGrDiagnoz}">
+                                                    <DataGridTextColumn x:Name="DiagnozColumn20" FontSize="14"  Width="530" Binding="{Binding Path=icdGrDiagnoz}">
                                                         <DataGridTextColumn.Header>
                                                             <TextBlock x:Name="DiagnozHeader20"  Text="Напрямок"  TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                                         </DataGridTextColumn.Header>

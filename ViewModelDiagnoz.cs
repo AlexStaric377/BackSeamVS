@@ -48,7 +48,7 @@ namespace BackSeam
             var result = JsonConvert.DeserializeObject<ListModelDiagnoz>(CmdStroka);
             List<ModelDiagnoz> res = result.ModelDiagnoz.ToList();
             ViewDiagnozs = new ObservableCollection<ModelDiagnoz>((IEnumerable<ModelDiagnoz>)res);
-            if(addboolGrDiagnoz == false && loadGrupDiagnoz == false) GrupIcdGrDiagnoz();
+            //if(addboolGrDiagnoz == false && loadGrupDiagnoz == false) GrupIcdGrDiagnoz();
             WindowMen.DiagnozTablGrid.ItemsSource = ViewDiagnozs; 
             WindowMen.LibDiagnozTablGrid.ItemsSource = ViewDiagnozs;
         }
@@ -65,20 +65,20 @@ namespace BackSeam
                     CallServer.PostServer(controlerViewDiagnoz, json, "DELETE");
                     break;
                 }
-                if (strokaIcdGrDiagnoz != modelDiagnoz.IcdGrDiagnoz )
-                {
-                    modelDiagnoz.nameDiagnoza = modelDiagnoz.icdGrDiagnoz;
-                    modelDiagnoz.opisDiagnoza = "";
-                    modelDiagnoz.uriDiagnoza = "";
+                //if (strokaIcdGrDiagnoz != modelDiagnoz.IcdGrDiagnoz )
+                //{
+                    //modelDiagnoz.nameDiagnoza = modelDiagnoz.nameDiagnoza;
+                    //modelDiagnoz.opisDiagnoza = modelDiagnoz.opisDiagnoza;
+                    //modelDiagnoz.uriDiagnoza = modelDiagnoz.uriDiagnoza;
                     TmpDiagnozs.Add(modelDiagnoz);
-                    strokaIcdGrDiagnoz = modelDiagnoz.icdGrDiagnoz;
+                //    strokaIcdGrDiagnoz = modelDiagnoz.icdGrDiagnoz;
 
-                }
-                if (modelDiagnoz.IcdGrDiagnoz == "")
-                { 
-                    TmpDiagnozs.Add(modelDiagnoz);
-                    addboolGrDiagnoz = true;
-                } 
+                //}
+                //if (modelDiagnoz.IcdGrDiagnoz == "")
+                //{ 
+                //    TmpDiagnozs.Add(modelDiagnoz);
+                //    addboolGrDiagnoz = true;
+                //} 
             }
             ViewDiagnozs = TmpDiagnozs;
         }

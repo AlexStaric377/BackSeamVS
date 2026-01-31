@@ -59,7 +59,7 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                                 <TextBlock Text="{Binding Path=nameDiagnoza}"  TextWrapping="Wrap" Width="540" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=icdGrDiagnoz}"  TextWrapping="Wrap" Width="540" Height="35" FontSize="14" FontWeight="Black" HorizontalAlignment="Left" />
                          </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

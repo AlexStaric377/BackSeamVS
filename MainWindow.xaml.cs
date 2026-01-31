@@ -33,6 +33,11 @@ namespace BackSeam
 
         }
 
+        private void DiagnozTablGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         private void ReceptionPacientTablGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
