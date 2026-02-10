@@ -228,7 +228,7 @@ namespace BackSeam
                               selectedInterview = new ModelInterview();
 
                               BoolFalseInterview();
-                              WindowInterv.InterviewTablGrid.SelectedItem = null;
+                              WindowInterv.InterviewTablGrid.ItemsSource = ModelInterviews.OrderBy(x => x.kodProtokola);
                               SelectedResultInterview = new ModelResultInterview();
                           }
 

@@ -162,7 +162,7 @@ namespace BackSeam
 
             if (WindowNsiListUri.PoiskDiagnoz.Text.Trim() != "")
             {
-                string jason = controlerNsiDiagnoz + "0/0/" + WindowNsiListUri.PoiskDiagnoz.Text;
+                string jason = controlerNsiDiagnoz + "0/" + WindowNsiListUri.PoiskDiagnoz.Text +"/0";
                 CallServer.PostServer(controlerNsiDiagnoz, jason, "GETID");
                 string CmdStroka = CallServer.ServerReturn();
                 if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
