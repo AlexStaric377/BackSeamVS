@@ -116,7 +116,10 @@ namespace BackSeam
             {
                 return addViewViewDiagnoz ??
                   (addViewViewDiagnoz = new RelayCommand(obj =>
-                  { if (CheckStatusUser() == false) return; AddComViewViewDiagnoz(); }));
+                  { if (CheckStatusUser() == false) return;
+                      if (loadGrupDiagnoz == false) MethodloadtablDiagnoz();
+                    AddComViewViewDiagnoz();
+                  }));
             }
         }
 
@@ -146,7 +149,7 @@ namespace BackSeam
         {
             GrupDiagnoz = "";
             addboolGrDiagnoz = false;
-            loadGrupDiagnoz = false;
+            loadGrupDiagnoz = true;
 
             WindowMen.LoadDia.Visibility = Visibility.Hidden;
             WindowMen.LibFoldInterv.Visibility = Visibility.Hidden;
