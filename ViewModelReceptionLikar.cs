@@ -58,7 +58,7 @@ namespace BackSeam
    
         public static void LoadReceptionPacients()
         {
-            CallServer.PostServer(pathcontrollerAppointment, pathcontrollerAppointment + _pacientProfil+"/0", "GETID");
+            CallServer.PostServer(pathcontrollerAppointment, pathcontrollerAppointment + _pacientProfil+"/0/0/0", "GETID");
             string CmdStroka = CallServer.ServerReturn();
             if (CmdStroka.Contains("[]")) CallServer.BoolFalseTabl();
             else ObservablelColectionRegistrationAppointment(CmdStroka);

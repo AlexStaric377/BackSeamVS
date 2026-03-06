@@ -128,8 +128,9 @@ namespace BackSeam
             CallServer.PostServer(Protocolcontroller, json, "GETID");
             if (CallServer.ResponseFromServer.Contains("[]") == false)
             {
-                CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
-                Insert = JsonConvert.DeserializeObject<ModelDependency>(CallServer.ResponseFromServer);
+                string stroka = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                //CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
+                Insert = JsonConvert.DeserializeObject<ModelDependency>(stroka);
                 if (Insert != null)
                 {
                     MainWindow.UrlServer = Diagnozcontroller;
