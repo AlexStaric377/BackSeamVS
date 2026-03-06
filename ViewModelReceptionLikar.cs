@@ -265,7 +265,7 @@ namespace BackSeam
                 {
                     if (ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex >= 0)
                     {
-                        string json = pathcontrollerAppointment + ViewRegistrAppoints[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex].id.ToString()+"/0/0";
+                        string json = pathcontrollerAppointment + ViewRegistrAppoints[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex].id.ToString()+"/0/0/0/0";
                         CallServer.PostServer(pathcontrollerAppointment, json, "DELETE");
                         modelColectionInterview = ViewReceptionPatients[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex];
                         selectRegistrationAppointment = ViewRegistrAppoints[ReceptionLIkar.ReceptionLikarTablGrid.SelectedIndex];
@@ -277,7 +277,7 @@ namespace BackSeam
                         {
                             CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                             admissionPatient = JsonConvert.DeserializeObject<AdmissionPatient>(CallServer.ResponseFromServer);
-                            json = pathcontrolerAdmissionPatients + admissionPatient.id+"/0/0";
+                            json = pathcontrolerAdmissionPatients + admissionPatient.id+"/0/0/0/0";
                             CallServer.PostServer(pathcontrolerAdmissionPatients, json, "DELETE");
                             
                         }

@@ -333,7 +333,7 @@ namespace BackSeam
             CallServer.PostServer(pathcontrolerDoctor, json, "DELETE");
 
             // удаление Жизни пациента и взаимодействие с врачами LifePacient
-            json = controlerLifePacient + "0/0/" + kodLikar;
+            json = controlerLifePacient + "0/0/" + kodLikar + "/0/0";
             CallServer.PostServer(controlerLifePacient, json, "DELETE");
 
             // удаление пациентов записавшихся на прием  у доктора LifeDoctor
@@ -341,11 +341,11 @@ namespace BackSeam
             CallServer.PostServer(controlerLifeDoctor, json, "DELETE");
 
             // удаление пациентов записавшихся на прием RegistrationAppointment
-            json = pathcontrollerAppointment + "0/0/" + kodLikar;
+            json = pathcontrollerAppointment + "0/0/" + kodLikar+"/0/0";
             CallServer.PostServer(pathcontrollerAppointment, json, "DELETE");
 
             // удаление список приемов пациентов записавшихся на прием у доктора AdmissionPatients
-            json = pathcontrolerReceptionPacient + "0/0/" + kodLikar;
+            json = pathcontrolerReceptionPacient + "0/0/" + kodLikar + "/0/0";
             CallServer.PostServer(pathcontrolerReceptionPacient, json, "DELETE");
 
             // удаление проведеных интервью ColectionInterview
