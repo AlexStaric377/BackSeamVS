@@ -27,14 +27,14 @@ namespace BackSeam
     public partial class ModelVisitingDays : BaseViewModel
     {
 
-      
-        private int Id;
-        private string KodDoctor;
-        private string DaysOfTheWeek;
-        private string DateVizita;
-        private string TimeVizita;
-        private string OnOff;
-        private DateTime DateWork;
+
+        public int Id;
+        public string KodDoctor;
+        public string DaysOfTheWeek;
+        public string DateVizita;
+        public string TimeVizita;
+        public string OnOff;
+        public DateTime DateWork;
 
 
         public ModelVisitingDays(int Id = 0, string KodDoctor = "", string DaysOfTheWeek = "", string DateVizita = "",

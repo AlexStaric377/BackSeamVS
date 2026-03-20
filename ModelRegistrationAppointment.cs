@@ -31,28 +31,17 @@ namespace BackSeam
 
 
     // список приемов пациентов записавшихся на прием средством СЕАМ 
-    public class ModelRegistrationAppointment : INotifyPropertyChanged
+    public class ModelRegistrationAppointment : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
-
-        private int Id;
-        private string KodDoctor;
-        private string KodPacient;
-        private string DateInterview;
-        private string DateDoctor;
-        private string KodProtokola;
-        private string TopictVizita;
-        private string KodComplInterv;
+        public int Id;
+        public string KodDoctor;
+        public string KodPacient;
+        public string DateInterview;
+        public string DateDoctor;
+        public string KodProtokola;
+        public string TopictVizita;
+        public string KodComplInterv;
         public string KodDiagnoz;
 
 

@@ -26,21 +26,12 @@ namespace BackSeam
         public ModelLanguageUI[] ModelLanguageUI { get; set; }
 
     }
-    public class ModelLanguageUI : INotifyPropertyChanged
+    public class ModelLanguageUI : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
 
-        }
-
-        private int Id;
-        private string KeyLang;
-        private string Name;
+        public int Id;
+        public string KeyLang;
+        public string Name;
 
         public ModelLanguageUI(int Id = 0, string KeyLang = "", string Name = "")
         {

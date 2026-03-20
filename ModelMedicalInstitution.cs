@@ -148,10 +148,10 @@ namespace BackSeam
     public class StatusMedZaklad : BaseViewModel
     {
 
-        private int Id;
-        private string IdStatus;
-        private string NameStatus;
-        private string TypeStatus;
+        public int Id;
+        public string IdStatus;
+        public string NameStatus;
+        public string TypeStatus;
 
         public StatusMedZaklad(int Id = 0, string IdStatus = "", string NameStatus = "", string TypeStatus = "")
         {

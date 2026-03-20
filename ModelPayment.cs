@@ -22,20 +22,25 @@ namespace BackSeam
     /// "Диференційна діагностика стану нездужання людини-SEAM" 
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
 
+    public partial class ListModelPayment
+    {
 
+        [JsonProperty("list")]
+        public ModelPayment[] ModelPayment { get; set; }
+
+    }
     public class ModelPayment : BaseViewModel
     {
-        public int Id { get; set; }
-        public string KeyClient { get; set; } // код пациента или доктора
-        public string NameClient { get; set; }
-        public string DatePayment { get; set; }
+        public int Id;
+        public string KeyClient;  // код пациента или доктора
+        public string NameClient;
+        public string DatePayment;
         [Column(TypeName = "decimal(14,2)")]
-        public decimal Suma { get; set; }
-        public string KeyPrice { get; set; }
-        public string NamePrice { get; set; }
-        public decimal PriceQuantity { get; set; }
-        
-        public string Telefon { get; set; }
+        public decimal Suma;
+        public string KeyPrice;
+        public string NamePrice;
+        public decimal PriceQuantity;
+        public string Telefon; 
 
 
         public ModelPayment(int Id = 0, string KeyClient = "", string NameClient="", string DatePayment = "", decimal Suma = 0m, string KeyPrice = "", string NamePrice = "", decimal PriceQuantity =0m, string Telefon = "")

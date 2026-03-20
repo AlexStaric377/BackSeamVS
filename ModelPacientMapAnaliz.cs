@@ -25,26 +25,16 @@ namespace BackSeam
         public PacientMapAnaliz[] PacientMapAnaliz { get; set; }
     }
 
-    public partial class PacientMapAnaliz
+    public class PacientMapAnaliz : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
-        private int Id;
-        private string KodPacient;
-        private string DateAnaliza;
-        private string Pulse;
-        private string Pressure;
-        private string Temperature;
-        private string ResultAnaliza;
+        public int Id;
+        public string KodPacient;
+        public string DateAnaliza;
+        public string Pulse;
+        public string Pressure;
+        public string Temperature;
+        public string ResultAnaliza;
 
         public PacientMapAnaliz(int Id = 0, string KodPacient = "", string DateAnaliza = "", string Pulse = "",
             string Pressure = "", string Temperature = "", string ResultAnaliza = "")

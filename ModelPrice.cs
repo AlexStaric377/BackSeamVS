@@ -22,14 +22,23 @@ namespace BackSeam
     /// Розробник Стариченко Олександр Павлович тел.+380674012840, mail staric377@gmail.com
 
 
+    public partial class ListModelPrice
+    {
+
+        [JsonProperty("list")]
+        public ModelPrice[] ModelPrice { get; set; }
+
+    }
+
+
     public class ModelPrice : BaseViewModel
     {
-        private int Id { get; set; }
-        private string KeyPrice { get; set; }
-        private int QuantityDays { get; set; }
+        public int Id { get; set; }
+        public string KeyPrice { get; set; }
+        public int QuantityDays { get; set; }
         [Column(TypeName = "decimal(14,2)")]
-        private decimal PriceQuantity { get; set; }
-        private string NamePrice { get; set; }
+        public decimal PriceQuantity { get; set; }
+        public string NamePrice { get; set; }
 
 
         public ModelPrice(int Id = 0, string KeyPrice = "", int QuantityDays = 0,  decimal PriceQuantity = 0m, string NamePrice="")

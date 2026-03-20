@@ -145,12 +145,12 @@ namespace BackSeam
         public static string[] deldstroka = {"-1", "-1", "-1" , "-1", "-1", "-1",
         "-1", "-1", "-1" , "-1", "0/-1", "-1/0/0", "0/-1",
         "-1","-1","-1","-1/0","-1/0","-1/0","-1","-1","-1","-1","-1/0",
-        "-1","-1","-1","-1","-1","-1","-1","-1" ,"-1","-1","-1","-1"};
+        "-1","-1","-1","-1","-1","-1","-1","-1" ,"-1","-1","-1/0","-1/0/0","-1/0","-1","-1","-1"};
         public static string[] listtablbd = { "Complaint", "Feature", "Detailing" , "ListGrDetailing", "GrDetailing", "ListGroupQualification",
         "Qualification", "Diagnoz", "Recommendation" , "Interview", "ContentInterv", "ColectionInterview", "CompletedInterview",
         "DependencyDiagnoz","Icd","MedicalInstitution","Doctor","Pacient","AccountUser","NsiStatusUser","Sob","GrupDiagnoz","MedicalGrDiagnoz","DoctorGrDiagnoz",
-            "PacientMapAnaliz","PacientAnalizKrovi","PacientAnalizUrine","CabinetPacient","LifePacient",
-        "RegistrationAppointment","CabinetDoctor","LifeDoctor","AdmissionPatients","VisitingDays","LanguageUI"};
+            "PacientMapAnaliz","PacientAnalizKrovi","PacientAnalizUrine","LifePacient", "RegistrationAppointment",
+       "LifeDoctor","AdmissionPatients","VisitingDays","LanguageUI","Payment","Price","FamilyLikar","StatusMedZaklad","CabinetPacient","CabinetDoctor"};
 
         public static string[] controler = {"/api/ApiControllerComplaint/", "/api/FeatureController/", "/api/DetailingController/" , "/api/ControllerListGroupDetail/",
         "/api/GrDetalingController/", "/api/GroupQualificationController/","/api/QualificationController/", "/api/DiagnozController/",
@@ -158,10 +158,10 @@ namespace BackSeam
         "/api/DependencyDiagnozController/","/api/IcdController/","/api/MedicalInstitutionController/","/api/ApiControllerDoctor/","/api/PacientController/",
         "/api/AccountUserController/","/api/NsiStatusUserController/","/api/SobController/","/api/GrupDiagnozController/" , "/api/MedGrupDiagnozController/", "/api/LikarGrupDiagnozController/",
         "/api/PacientMapAnalizController/","/api/PacientAnalizKroviController/","/api/PacientAnalizUrineController/",
-        "/api/CabinetPacientController/","/api/LifePacientController/",
-        "/api/RegistrationAppointmentController/","/api/CabinetdoctorController/","/api/LifeDoctorController/","/api/ControllerAdmissionPatients/",
-        "/api/VisitingDaysController/","/api/LanguageUIController/" };
-        public static string OutFile = "", CmdStroka = "", json = "";
+        "/api/LifePacientController/","/api/RegistrationAppointmentController/","/api/LifeDoctorController/","/api/ControllerAdmissionPatients/",
+        "/api/VisitingDaysController/","/api/LanguageUIController/","/api/ControllerPayment/","/api/ControllerPrice/","/api/ControlerFamilyLikar/",
+        "/api/ControllerStatusMedZaklad/","/api/CabinetPacientController/","/api/CabinetdoctorController/" };
+        public static string OutFile = "", CmdStroka = "", json = "", _FilePath = "";
 
         public static ModelUnloadTab selectViewUnloadTab;
         public ModelUnloadTab SelectedViewUnloadTab
@@ -178,7 +178,10 @@ namespace BackSeam
                           new UnloadColectionInterview(), new UnloadCompletedInterview(), new UnloadDependencyDiagnoz(), new UnloadIcd(),
                           new UnloadMedicalInstitution(), new UnloadDoctor(), new UnloadPacient(), new UnloadAccountUser(), new UnloadNsiStatusUser(),
                           new UnloadSob(),new UnloadGrupDiagnoz(),new UnloadMedGrupDiagnoz(), new UnloadLikarGrupDiagnoz(), new UnloadPacientMapAnaliz(),
-                          new UnloadPacientAnalizKrovi(),new UnloadPacientAnalizUrine()
+                          new UnloadPacientAnalizKrovi(),new UnloadPacientAnalizUrine(),new UnloadLifePacient(), new UnloadRegistrationAppointment{ },
+                          new UnloadLifeDoctor(),new UnloadAdmissionPatients(),new UnloadVisitingDays(),new UnloadLanguageUI(),
+                          new UnloadModelPayment(), new UnloadModelPrice(), new UnloadFamilyLikar(),new UnloadStatusMedZaklad()
+                          
         };
  
         
@@ -205,6 +208,7 @@ namespace BackSeam
                       {
                           FilePath = dlg.SelectedPath + @"\";
                           WindowUnload.UnloadBdTextBox.Text = FilePath.ToString();
+                          _FilePath = FilePath.ToString();
                       }
 
                   }));
@@ -223,7 +227,13 @@ namespace BackSeam
                     if (boolSetAccountUser == true)
                     {
                         //WindowUnload.GifUnloadBd.Visibility = Visibility.Visible;
+                        if (_FilePath.Trim().Length == 0)
+                        {
+                            MainWindow.MessageError = "Увага!" + Environment.NewLine + "Не вказано шлях вивантаження БД.";
+                            SelectedMessageOk(4);
+                            return;
 
+                        }
                         endUnload = itemtable = 0;
                         WindowUnload.Unload.Background = Brushes.LimeGreen;
                         WindowUnload.LineUnLoad.Background = Brushes.LimeGreen;
@@ -782,6 +792,180 @@ namespace BackSeam
             {
                 var result = JsonConvert.DeserializeObject<ListPacientAnalizUrine>(CmdStroka);
                 List<PacientAnalizUrine> res = result.PacientAnalizUrine.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+        //RegistrationAppointment 28
+        public class UnloadRegistrationAppointment : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListModelRegistrationAppointment>(CmdStroka);
+                List<ModelRegistrationAppointment> res = result.ModelRegistrationAppointment.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+        //AdmissionPatient 29
+        public class UnloadAdmissionPatients : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListAdmissionPatient>(CmdStroka);
+                List<AdmissionPatient> res = result.AdmissionPatient.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+        //ModelVisitingDays 30
+        public class UnloadVisitingDays : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListModelVisitingDays>(CmdStroka);
+                List<ModelVisitingDays> res = result.ModelVisitingDays.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+
+        //ModelLifePacient 31
+        public class UnloadLifePacient : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListLifePacient>(CmdStroka);
+                List<ModelLifePacient> res = result.ModelLifePacient.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+        //ModelLifeDoctor 32
+        public class UnloadLifeDoctor : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                //var result = JsonConvert.DeserializeObject<ListLifeDoctor>(CmdStroka);
+                //List<ModelLifeDoctor> res = result.ModelLifePacient.ToList();
+                //foreach (var model in res)
+                //{
+                //    json = JsonConvert.SerializeObject(model);
+                //    ForeachUnload.Foreachres(json);
+                //}
+            }
+
+        }
+
+        //ModelPayment 33
+        public class UnloadModelPayment : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListModelPayment>(CmdStroka);
+                List<ModelPayment> res = result.ModelPayment.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+
+        //ModelPrice 34
+        public class UnloadModelPrice : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListModelPrice>(CmdStroka);
+                List<ModelPrice> res = result.ModelPrice.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+
+        //FamilyLikar 35
+        public class UnloadFamilyLikar : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListFamilyLikar>(CmdStroka);
+                List<FamilyLikar> res = result.FamilyLikar.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+
+        //StatusMedZaklad 36
+        public class UnloadStatusMedZaklad : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListStatusMedZaklad>(CmdStroka);
+                List<StatusMedZaklad> res = result.StatusMedZaklad.ToList();
+                foreach (var model in res)
+                {
+                    json = JsonConvert.SerializeObject(model);
+                    ForeachUnload.Foreachres(json);
+                }
+            }
+
+        }
+
+        //LanguageUI 37
+        public class UnloadLanguageUI : BaseUnload
+        {
+            //public override int Dange { get { return 8; } }
+            public override void UnloadTable()
+            {
+                var result = JsonConvert.DeserializeObject<ListModelLanguageUI>(CmdStroka);
+                List<ModelLanguageUI> res = result.ModelLanguageUI.ToList();
                 foreach (var model in res)
                 {
                     json = JsonConvert.SerializeObject(model);

@@ -1,0 +1,51 @@
+new UnloadComplaint(),
+ new UnloadFeature(),
+ new UnloadDetailing(),
+ new UnloadListGrDetailing(),
+ new UnloadGrDetailing(),
+ new UnloadListGroupQualification(),
+ new UnloadQualification(),
+ new UnloadDiagnoz(),
+ new UnloadRecommendation(),
+ new UnloadInterview(),
+ new UnloadContentInterv(),
+ new UnloadColectionInterview(),
+ new UnloadCompletedInterview(),
+ new UnloadDependencyDiagnoz(),
+ new UnloadIcd(),
+ new UnloadMedicalInstitution(),
+ new UnloadDoctor(),
+ new UnloadPacient(),
+ new UnloadAccountUser(),
+ new UnloadNsiStatusUser(),
+ new UnloadSob(),
+new UnloadGrupDiagnoz(),
+new UnloadMedGrupDiagnoz(),
+ new UnloadLikarGrupDiagnoz(),
+ new UnloadPacientMapAnaliz(),
+new UnloadPacientAnalizKrovi(),
+new UnloadPacientAnalizUrine()
+new UnloadRegistrationAppointment{ },
+new UnloadAdmissionPatients(),
+new UnloadVisitingDays(),
+new UnloadLifePacient(),
+new UnloadLifeDoctor(),
+new UnloadModelPayment(),
+new UnloadModelPrice(),
+new UnloadFamilyLikar(),
+new UnloadStatusMedZaklad(),
+new UnloadLanguageUI()
+
+
+
+RegistrationAppointment
+AdmissionPatients
+VisitingDays
+Payment
+Price
+FamilyLikar
+
+
+
+
+StatusMedZaklad

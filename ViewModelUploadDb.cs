@@ -141,7 +141,8 @@ namespace BackSeam
                       {
                          FilePath = dlg.SelectedPath + @"\";
                          WindowUpload.UploadBdTextBox.Text = FilePath.ToString();
-                         WindowUnload.UpTabl.Content= listtablbd[0];
+                         _FilePath = FilePath.ToString();
+                          WindowUnload.UpTabl.Content= listtablbd[0];
                       }
                   }));
             }
@@ -199,6 +200,15 @@ namespace BackSeam
                       if (CheckStatusUser() == false) return;
                       if (boolSetAccountUser == true)
                       {
+                          if (_FilePath.Trim().Length == 0)
+                          {
+                              MainWindow.MessageError = "Увага!" + Environment.NewLine + "Не вказано шлях звідки вантажити БД.";
+                              SelectedMessageOk(4);
+                              return;
+
+                          }
+
+
                           WindowUpload.LoadButton.Width += 30;
                           WindowUpload.LoadLabel.Width += 30;
                           WindowUpload.LoadButton.Background = Brushes.Green;
@@ -348,7 +358,20 @@ namespace BackSeam
                                 new UploadQualification(), new UploadDiagnoz(), new UploadRecommendation(), new UploadInterview(), new UploadContentInterv(),
                                 new UploadColectionInterview(), new UploadCompletedInterview(), new UploadDependencyDiagnoz(), new UploadIcd(),
                                 new UploadMedicalInstitution(), new UploadDoctor(), new UploadPacient(), new UploadAccountUser(), new UploadNsiStatusUser(),
-                                new UploadSob(), new UploadGrupDiagnoz(),new UploadMedGrupDiagnoz(), new UploadLikarGrupDiagnoz()};
+                                new UploadSob(), new UploadGrupDiagnoz(),new UploadMedGrupDiagnoz(), new UploadLikarGrupDiagnoz(), new UploadPacientMapAnaliz(),
+                                new UploadPacientAnalizKrovi(), new UploadPacientAnalizUrine(), new UploadLifePacient(), new UploadRegistrationAppointment(),
+                                new UploadLifeDoctor(),  new UploadAdmissionPatients(),new UploadVisitingDays(), new UploadLanguageUI(),
+                                new UploadModelPayment(), new UploadModelPrice(), new UploadFamilyLikar(), new UploadStatusMedZaklad(),
+                                new UploadCabinetPacient(), new UploadCabinetDoctor()};
+                                
+
+
+       //                      
+       //     "PacientMapAnaliz","PacientAnalizKrovi","PacientAnalizUrine","LifePacient", "RegistrationAppointment",
+       //"LifeDoctor","AdmissionPatients","VisitingDays","LanguageUI","Payment","Price","FamilyLikar","StatusMedZaklad","CabinetPacient","CabinetDoctor"};
+
+
+
                               foreach (var item in arrayUpload)
                               {
                                   OutFile = FilePath + listtablbd[itemtable] + ".json";
@@ -682,6 +705,176 @@ namespace BackSeam
             }
 
         }
+
+ // --------------------
+ // 
+        class UploadPacientMapAnaliz : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                PacientMapAnaliz result = JsonConvert.DeserializeObject<PacientMapAnaliz>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+
+        class UploadPacientAnalizKrovi : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                PacientAnalizKrovi result = JsonConvert.DeserializeObject<PacientAnalizKrovi>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadPacientAnalizUrine : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                PacientAnalizUrine result = JsonConvert.DeserializeObject<PacientAnalizUrine>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadRegistrationAppointment : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelRegistrationAppointment result = JsonConvert.DeserializeObject<ModelRegistrationAppointment>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadAdmissionPatients : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                AdmissionPatient result = JsonConvert.DeserializeObject<AdmissionPatient>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadVisitingDays : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelVisitingDays result = JsonConvert.DeserializeObject<ModelVisitingDays>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadLifePacient : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelLifePacient result = JsonConvert.DeserializeObject<ModelLifePacient>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadLifeDoctor : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                //ModelLifePacient result = JsonConvert.DeserializeObject<ModelLifePacient>(upLoadstroka);
+                //result.Id = 0;
+                //strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadModelPayment : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelPayment result = JsonConvert.DeserializeObject<ModelPayment>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadModelPrice : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelPrice result = JsonConvert.DeserializeObject<ModelPrice>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+
+        class UploadFamilyLikar : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                FamilyLikar result = JsonConvert.DeserializeObject<FamilyLikar>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadStatusMedZaklad : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                StatusMedZaklad result = JsonConvert.DeserializeObject<StatusMedZaklad>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadLanguageUI : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                ModelLanguageUI result = JsonConvert.DeserializeObject<ModelLanguageUI>(upLoadstroka);
+                result.Id = 0;
+                strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadCabinetPacient : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                //CabinetPacient result = JsonConvert.DeserializeObject<CabinetPacient>(upLoadstroka);
+                //result.Id = 0;
+                //strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
+        class UploadCabinetDoctor : BaseUpload
+        {
+            public override void UploadTable()
+            {
+                //CabinetDoctor result = JsonConvert.DeserializeObject<CabinetDoctor>(upLoadstroka);
+                //result.Id = 0;
+                //strokajson = JsonConvert.SerializeObject(result);
+            }
+
+        }
+
         #endregion
 
     }

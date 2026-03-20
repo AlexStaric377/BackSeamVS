@@ -30,8 +30,10 @@ namespace BackSeam
         public static string NameInterviewPacient = "", KodInterviewPacient = "", KodProtokola = "", DateInterview = "", DetalishIterv="";
         public static string pathcontrollerAppointment = "/api/RegistrationAppointmentController/";
         private string controllerColectionInterview = "/api/ColectionInterviewController/";
+        private static string controllerFamilyLikar = "/api/ControlerFamilyLikar/";
         public static ModelRegistrationAppointment selectRegistrationAppointment;
         public static ModelVisitingDays selectVisitingDays;
+        
         public ModelColectionInterview SelectedColectionReceptionPatient
         {
             get { return modelColectionInterview; }
@@ -92,7 +94,24 @@ namespace BackSeam
                 modelColectionInterview.kodProtokola = modelReceptionPatient.kodProtokola;
                 modelColectionInterview.resultDiagnoz = modelReceptionPatient.topictVizita;
                 ViewReceptionPatients.Add(modelColectionInterview);
-                
+
+                //FamilyLikar familyLikar = new FamilyLikar();
+                //familyLikar.Id = 0;
+                //familyLikar.KodDoctor = modelReceptionPatient.kodDoctor;
+                //familyLikar.KodPacient = modelReceptionPatient.kodPacient;
+                //familyLikar.Datestart = DateTime.Now;
+                //string dateString = "0001-01-01 00:00:00";
+                //familyLikar.Dateend = Convert.ToDateTime(dateString);
+                //familyLikar.Numberdiagnoz = 0;
+                //familyLikar.Numberrequests = 0;
+
+                //CallServer.PostServer(controllerFamilyLikar, controllerFamilyLikar, "GET");
+                //var json = JsonConvert.SerializeObject(familyLikar);
+                //string Method = "POST";
+                //CallServer.PostServer(controllerFamilyLikar, json, Method);
+                //string Stroka = CallServer.ServerReturn();
+                //if (Stroka.Contains("[]")) Method = "error";
+
             }
 
         }

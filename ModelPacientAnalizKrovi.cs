@@ -23,39 +23,30 @@ namespace BackSeam
         [JsonProperty("list")]
         public PacientAnalizKrovi[] PacientAnalizKrovi { get; set; }
     }
-    public partial class PacientAnalizKrovi
+    public class PacientAnalizKrovi : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
 
-        }
-
-        private int Id;
-        private string KodPacient;
-        private string DateAnaliza;
-        private string Gender;
-        private string Rbc;   // Эритроциты
-        private string Hgb; // Гемоглобин
-        private string Wbc; // Лейкоциты
-        private string Cp;   // Цветовой показатель
-        private string Hct; // Гематокрит
-        private string Ret; // Ретикулоциты
-        private string Plt;   // Тромбоциты
-        private string Esr; // СОЭ
-        private string Bas; // Базофилы
-        private string Eo;  // Эозинофилы
-        private string Mot; // Миелоциты
-        private string Mtmot; // Метамиелоциты
-        private string Neutp;   // Нейтрофилы палочкоядерные
-        private string Neuts; // Нейтрофилы сегментоядерные
-        private string Lym; // Лимфоциты
-        private string Mon;  // Моноциты
+        public int Id;
+        public string KodPacient;
+        public string DateAnaliza;
+        public string Gender;
+        public string Rbc;   // Эритроциты
+        public string Hgb; // Гемоглобин
+        public string Wbc; // Лейкоциты
+        public string Cp;   // Цветовой показатель
+        public string Hct; // Гематокрит
+        public string Ret; // Ретикулоциты
+        public string Plt;   // Тромбоциты
+        public string Esr; // СОЭ
+        public string Bas; // Базофилы
+        public string Eo;  // Эозинофилы
+        public string Mot; // Миелоциты
+        public string Mtmot; // Метамиелоциты
+        public string Neutp;   // Нейтрофилы палочкоядерные
+        public string Neuts; // Нейтрофилы сегментоядерные
+        public string Lym; // Лимфоциты
+        public string Mon;  // Моноциты
 
 
         public PacientAnalizKrovi(int Id=0, string KodPacient="", string DateAnaliza="", string Gender="",

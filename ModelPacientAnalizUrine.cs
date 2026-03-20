@@ -24,33 +24,23 @@ namespace BackSeam
         [JsonProperty("list")]
         public PacientAnalizUrine[] PacientAnalizUrine { get; set; }
     }
-    public partial class PacientAnalizUrine
+    public class PacientAnalizUrine : BaseViewModel
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-
-        private int Id;
-        private string KodPacient;
-        private string DateAnaliza;
-        private string Color;   // цвет
-        private string Ph; // кислотность
-        private string Sg; // плотность
-        private string Pro;   //  белок
-        private string Glu; // глюкоза
-        private string Bil; // билирубин
-        private string Uro;   // уробилиноген
-        private string Ket; // кетоновые тела
-        private string Bld; // эритроциты
-        private string Leu;  // лейкоциты
-        private string Nit; // соли
+        public int Id;
+        public string KodPacient;
+        public string DateAnaliza;
+        public string Color;   // цвет
+        public string Ph; // кислотность
+        public string Sg; // плотность
+        public string Pro;   //  белок
+        public string Glu; // глюкоза
+        public string Bil; // билирубин
+        public string Uro;   // уробилиноген
+        public string Ket; // кетоновые тела
+        public string Bld; // эритроциты
+        public string Leu;  // лейкоциты
+        public string Nit; // соли
 
 
         public PacientAnalizUrine(int Id = 0, string KodPacient = "", string DateAnaliza = "", string Color = "",

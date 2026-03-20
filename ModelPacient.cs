@@ -315,5 +315,90 @@ namespace BackSeam
         }   
     }
 
+    public partial class ListLifePacient
+    {
+
+        [JsonProperty("list")]
+        public ModelLifePacient[] ModelLifePacient { get; set; }
+
+    }
+
+ 
+    public class ModelLifePacient : BaseViewModel
+    {
+
+        public int Id;
+        public string KodPacient;
+        public string KodDoctor;
+        public string DateInterview;
+        public string KodComplInterv;
+        public string KodProtokola;
+        public string TopictVizita;
+
+ 
+        public ModelLifePacient(int Id = 0, string KodDoctor = "", string KodPacient = "", string DateInterview = "",string TopictVizita = "", 
+            string KodProtokola = "",  string KodComplInterv = "")
+        {
+
+            this.Id = Id;
+            this.KodDoctor = KodDoctor;
+            this.KodPacient = KodPacient;
+            this.DateInterview = DateInterview;
+            this.KodProtokola = KodProtokola;
+            this.KodComplInterv = KodComplInterv;
+            this.TopictVizita = TopictVizita;
+        }
+
+        [JsonProperty("id")]
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; OnPropertyChanged("id"); }
+        }
+        [JsonProperty("kodDoctor")]
+        public string kodDoctor
+        {
+            get { return KodDoctor; }
+            set { KodDoctor = value; OnPropertyChanged("kodDoctor"); }
+        }
+
+        [JsonProperty("kodPacient")]
+        public string kodPacient
+        {
+            get { return KodPacient; }
+            set { KodPacient = value; OnPropertyChanged("kodPacient"); }
+        }
+
+
+        [JsonProperty("dateInterview")]
+        public string dateInterview
+        {
+            get { return DateInterview; }
+            set { DateInterview = value; OnPropertyChanged("dateInterview"); }
+        }
+
+        [JsonProperty("kodProtokola")]
+        public string kodProtokola
+        {
+            get { return KodProtokola; }
+            set { KodProtokola = value; OnPropertyChanged("kodProtokola"); }
+        }
+
+  
+        [JsonProperty("kodComplInterv")]
+        public string kodComplInterv
+        {
+            get { return KodComplInterv; }
+            set { KodComplInterv = value; OnPropertyChanged("kodComplInterv"); }
+        }
+
+        [JsonProperty("topictVizita")]
+        public string topictVizita
+        {
+            get { return TopictVizita; }
+            set { TopictVizita = value; OnPropertyChanged("topictVizita"); }
+        }
+
+    }
 
 }
