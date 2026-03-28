@@ -42,6 +42,7 @@ namespace BackSeam
         public static string CallViewDoctor = "";
         public static ObservableCollection<ModelDoctor> ViewDoctors { get; set; }
         public static ObservableCollection<ModelGridDoctor> ViewGridDoctors { get; set; }
+        public static ObservableCollection<LikarGrupDiagnoz> ViewGruplikarDiagnozs { get; set; }
         public ModelDoctor SelectedDoctor
         {
             get { return selectedDoctor; }
@@ -64,6 +65,7 @@ namespace BackSeam
 
         public static void MetodLoadGridDoctor()
         {
+            ViewGruplikarDiagnozs = new ObservableCollection<LikarGrupDiagnoz>();
             ViewGridDoctors = new ObservableCollection<ModelGridDoctor>();
             foreach (ModelDoctor modelDoctor in ViewDoctors)
             {
@@ -79,9 +81,28 @@ namespace BackSeam
                 selectedGridDoctor.uriwebDoctor = modelDoctor.uriwebDoctor;
                 selectedGridDoctor.napryamok = modelDoctor.napryamok;
                 selectedGridDoctor.resume = modelDoctor.resume;
+
+                if (modelDoctor.napryamok.Trim().Length == 0)
+                { 
+                     string json = controlerLikarGrDiagnoz + modelDoctor.kodDoctor + "/0";
+                    CallServer.PostServer(controlerLikarGrDiagnoz, json, "GETID");
+                    string CmdStroka = CallServer.ServerReturn();
+                    if (CmdStroka.Contains("[]") == false)
+                    {
+                        var result = JsonConvert.DeserializeObject<ListLikarGrupDiagnoz>(CmdStroka);
+                        List<LikarGrupDiagnoz> res = result.LikarGrupDiagnoz.ToList();
+                        ViewGruplikarDiagnozs = new ObservableCollection<LikarGrupDiagnoz>((IEnumerable<LikarGrupDiagnoz>)res);
+                        modelDoctor.napryamok = ViewGruplikarDiagnozs[0].icdGrDiagnoz.Substring(0, ViewGruplikarDiagnozs[0].icdGrDiagnoz.IndexOf('.'));
+
+                        json = JsonConvert.SerializeObject(modelDoctor);
+                        CallServer.PostServer(pathcontrolerDoctor, json, "PUT");
+                    }               
+                }
+
+
                 if (modelDoctor.edrpou != "")
                 {
-                    string json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0/0"; //
+                    json = pathcontrolerMedZaklad + modelDoctor.edrpou.ToString() + "/0/0/0"; //
                     CallServer.PostServer(pathcontrolerMedZaklad, json, "GETID");
                     CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
                     MedicalInstitution Idinsert = JsonConvert.DeserializeObject<MedicalInstitution>(CallServer.ResponseFromServer);
@@ -412,9 +433,13 @@ namespace BackSeam
                           selectedDoctor.email = WindowDoctor.Doctort7.Text.ToString();
                           selectedDoctor.napryamok = WindowDoctor.DoctorNaprTextBox.Text.ToString();
                           selectedDoctor.uriwebDoctor = WindowDoctor.DoctortBoxUri.Text.ToString();
+
+
                           if (comAddEdit == "addCommand")
                           {
                               AddNewOpisDoctor();
+                              if (ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs != null && ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs.Count > 0)
+                                  selectedDoctor.napryamok = ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs[0].icdGrDiagnoz.Substring(0, ViewModelLikarGrupDiagnoz.LikarGrupDiagnozs[0].icdGrDiagnoz.IndexOf('.'));
                               json = JsonConvert.SerializeObject(selectedDoctor);
                               CallServer.PostServer(pathcontrolerDoctor, json, "POST");
                               CallServer.ResponseFromServer = CallServer.ResponseFromServer.Replace("[", "").Replace("]", "");
