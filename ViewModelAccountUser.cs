@@ -368,7 +368,7 @@ namespace BackSeam
                 else { selectedAccountUser.idUser = "CNT.0000000001"; }
             }
             else { selectedAccountUser.idUser = WindowAccountUser.AccountUsert5.Text.ToString().Substring(0, WindowAccountUser.AccountUsert5.Text.ToString().IndexOf(":")); }
-           
+            selectedAccountUser.subscription = "";
 
         }
 
