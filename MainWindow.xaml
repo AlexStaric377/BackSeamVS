@@ -6818,7 +6818,7 @@
                                                 </i:Interaction.Triggers>
                                             </Image>
                                             <DataGrid x:Name="DoctorTablGrid" Grid.Row="1"   Cursor="Hand" ItemsSource="{Binding ViewGridDoctors}" SelectedItem="{Binding SelectedGridDoctor}"
-                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Left" Height="240"
+                                          IsReadOnly="true" AutoGenerateColumns="false" ColumnHeaderStyle="{StaticResource DGridCentAl}" HorizontalAlignment="Left" Height="215"
                                           VerticalAlignment="Top"  Width="Auto" GridLinesVisibility="None"
                                           HorizontalGridLinesBrush="Black"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
                                                 <i:Interaction.Triggers>
