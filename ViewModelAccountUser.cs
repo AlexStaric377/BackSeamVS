@@ -435,6 +435,7 @@ namespace BackSeam
                 return addIdUser ??
                   (addIdUser = new RelayCommand(obj =>
                   {
+                      EdrpouMedZaklad = "";
                       switch (SetIdStatus)
                       {
                           case "2":
